@@ -1,5 +1,5 @@
 import ResultPageClient from '@/src/components/ResultPageClient';
-import { getMockResearchNote } from '@/src/mockData';
+import { getSampleQaPairs, getSampleResearchNote } from '@/src/sampleNotes';
 
 interface NotePageProps {
   params: Promise<{
@@ -9,7 +9,8 @@ interface NotePageProps {
 
 export default async function NotePage({ params }: NotePageProps) {
   const { id } = await params;
-  const note = getMockResearchNote(id);
+  const note = getSampleResearchNote(id);
+  const qaPairs = getSampleQaPairs(note.id);
 
-  return <ResultPageClient note={note} noteId={id} />;
+  return <ResultPageClient note={note} noteId={note.id} qaPairs={qaPairs} />;
 }

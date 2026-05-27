@@ -13,7 +13,7 @@ import KeyMoments from './KeyMoments';
 import ResearchNoteContent from './ResearchNoteContent';
 import ResultPageHeader from './ResultPageHeader';
 import Sidebar from './Sidebar';
-import { ResearchNote } from '../types';
+import { QAPair, ResearchNote } from '../types';
 import { generateMarkdownNote } from '../utils/markdownHelper';
 
 interface Notification {
@@ -25,6 +25,7 @@ interface Notification {
 interface ResultPageClientProps {
   note: ResearchNote;
   noteId: string;
+  qaPairs: QAPair[];
 }
 
 async function copyText(text: string) {
@@ -50,7 +51,7 @@ async function copyText(text: string) {
   }
 }
 
-export default function ResultPageClient({ note, noteId }: ResultPageClientProps) {
+export default function ResultPageClient({ note, noteId, qaPairs }: ResultPageClientProps) {
   const [activeTab, setActiveTab] = useState('briefs');
   const [activeTimestamp, setActiveTimestamp] = useState(
     note.keyMoments[0]?.timestamp ?? note.chapters[0]?.timestamp ?? '00:00',
@@ -146,13 +147,13 @@ export default function ResultPageClient({ note, noteId }: ResultPageClientProps
           <div className="flex items-center gap-2 min-w-0">
             <Info className="w-4 h-4 text-blue-200 shrink-0" />
             <span className="truncate">
-              VideoBrief MVP Pro 结果页演示：transcript-first，不接真实 OpenAI / Supabase / Stripe
+              VideoBrief MVP Pro 样例页：基于公开视频信息整理，transcript-first，不接后端 API
             </span>
           </div>
           <div className="hidden sm:flex items-center gap-2">
-            <span>Mock user:</span>
+            <span>Sample reader:</span>
             <span className="font-mono bg-blue-700 px-2 py-0.5 rounded text-blue-100">
-              beta@videobrief.local
+              early-user@videobrief.local
             </span>
           </div>
         </div>
@@ -173,7 +174,7 @@ export default function ResultPageClient({ note, noteId }: ResultPageClientProps
                 <Sparkles className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                 <div className="text-xs text-slate-600 leading-relaxed">
                   <strong className="text-slate-900">Transcript-first 边界：</strong>
-                  当前页面只展示用户提供底稿和 mock 分析结果。AI Ask 会返回 mock response，并保留时间戳信息源边界，后续可替换成真实 RAG / Responses API。
+                  当前页面使用真实公开英文视频作为样例，笔记已按 transcript-first 方式整理。AI Ask 现在读取本样例的本地 grounded Q&A，后续可替换成真实 RAG / Responses API。
                 </div>
               </div>
 
@@ -189,6 +190,7 @@ export default function ResultPageClient({ note, noteId }: ResultPageClientProps
             <div className="col-span-12 md:col-span-5 lg:col-span-4 flex flex-col gap-6">
               <AskPanel
                 draftQuestion={draftQuestion}
+                qaPairs={qaPairs}
                 onDraftQuestionChange={setDraftQuestion}
                 onShowNotification={(message) => showNotification(message)}
                 onSelectTimestamp={handleSelectTimestamp}

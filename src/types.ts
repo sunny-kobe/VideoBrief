@@ -34,6 +34,7 @@ export interface ActionItem {
 }
 
 export interface ResearchNote {
+  id: string;
   videoUrl: string;
   channelName: string;
   duration: string;
@@ -55,6 +56,18 @@ export interface ResearchNote {
   keyMoments: KeyMoment[];
   disclaimer: string;
   remainingCredits: number;
+}
+
+export interface GroundedSource {
+  timestamp: string;
+  label: string;
+}
+
+export interface QAPair {
+  question: string;
+  answer: string;
+  sources: GroundedSource[];
+  keywords: string[];
 }
 
 export interface ChatMessage {

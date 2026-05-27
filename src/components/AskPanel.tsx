@@ -3,25 +3,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useRef, useEffect } from 'react';
-import { Send, Sparkles, User, Database, RefreshCw, Cpu, HelpCircle, ArrowUpCircle, CheckCircle } from 'lucide-react';
-import { ChatMessage } from '../types';
-import { mockQaPairs } from '../mockData';
+import React, { useEffect, useRef, useState } from 'react';
+import { Cpu, Database, RefreshCw, Send, Sparkles, User } from 'lucide-react';
+import { ChatMessage, GroundedSource, QAPair } from '../types';
 
 interface AskPanelProps {
   draftQuestion?: string;
+  qaPairs: QAPair[];
   onDraftQuestionChange?: (question: string) => void;
   onShowNotification?: (msg: string) => void;
   onSelectTimestamp?: (timestamp: string) => void;
 }
 
-interface GroundedSource {
-  timestamp: string;
-  label: string;
-}
-
 export default function AskPanel({
   draftQuestion,
+  qaPairs,
   onDraftQuestionChange,
   onShowNotification,
   onSelectTimestamp,
@@ -30,7 +26,7 @@ export default function AskPanel({
     {
       id: 'welcome',
       sender: 'assistant',
-      text: '你好！我是你的 VideoBrief AI 助手。我已经通篇掌握了该视频的英语原声音轨与转译底稿。你可以向我追问任何关于此视频的投资干货、自动化细节、或是 AI 应用的局限，我将结合视频原文为你一一作答。',
+      text: '你好！我是你的 VideoBrief AI 助手。当前样例只围绕这条公开视频的内容回答；如果问题超出视频信息，我会说明原视频没有直接支持。',
       timestamp: new Date()
     }
   ]);
@@ -68,61 +64,19 @@ export default function AskPanel({
 
     // Simulate thinking/retrieval speed
     setTimeout(() => {
-      // Look for custom matched answers
-      let finalResponse = '关于这个问题，虽然原视频没有给出直接的统计指标，但我们可以推断出其中逻辑：AI 的核心目的是将非结构化、隐蔽的数据量化，从而增强投资机构的前置判断力。你可以点击下方的提示词获取明确录入的信息。';
-      let sources: GroundedSource[] = [
-        { timestamp: '00:00', label: '引言：变革最前沿杠杆' }
-      ];
-      
       const queryLower = textToSend.toLowerCase();
-      
-      if (queryLower.includes('工具') || queryLower.includes('软件') || queryLower.includes('开发') || queryLower.includes('系统') || queryLower.includes('爬虫') || queryLower.includes('sourcing')) {
-        finalResponse = mockQaPairs[0].answer;
-        sources = [
-          { timestamp: '18:40', label: 'Deal Sourcing 项目寻源新纪元' },
-          { timestamp: '29:05', label: '自研 VC-AI 平台技术架构' }
-        ];
-      } else if (queryLower.includes('局限') || queryLower.includes('缺点') || queryLower.includes('早期') || queryLower.includes('种子') || queryLower.includes('幻觉') || queryLower.includes('识别')) {
-        finalResponse = mockQaPairs[1].answer;
-        sources = [
-          { timestamp: '00:00', label: '引言：关系直觉与数据盲区' },
-          { timestamp: '18:40', label: '早期种子轮非标特质评估' }
-        ];
-      } else if (queryLower.includes('机密') || queryLower.includes('安全') || queryLower.includes('泄露') || queryLower.includes('合规') || queryLower.includes('脱敏')) {
-        finalResponse = mockQaPairs[2].answer;
-        sources = [
-          { timestamp: '08:15', label: '尽职调查安全与脱敏实例' }
-        ];
-      } else if (queryLower.includes('投后') || queryLower.includes('赋能') || queryLower.includes('建议') || queryLower.includes('管理') || queryLower.includes('agent')) {
-        finalResponse = mockQaPairs[3].answer;
-        sources = [
-          { timestamp: '29:05', label: '投后赋能与 AI Agent 业务重组' }
-        ];
-      } else {
-        // Try to match partial question names
-        const matchedIndex = mockQaPairs.findIndex(p => queryLower.includes(p.question.substring(0, 6)));
-        if (matchedIndex !== -1) {
-          finalResponse = mockQaPairs[matchedIndex].answer;
-          if (matchedIndex === 0) {
-            sources = [
-              { timestamp: '18:40', label: 'Sourcing 爬虫流程监控' },
-              { timestamp: '29:05', label: '自研技术堆栈' }
-            ];
-          } else if (matchedIndex === 1) {
-            sources = [
-              { timestamp: '18:40', label: '早期极低数据基础局限' }
-            ];
-          } else if (matchedIndex === 2) {
-            sources = [
-              { timestamp: '08:15', label: 'DD 文件解析风控脱敏' }
-            ];
-          } else if (matchedIndex === 3) {
-            sources = [
-              { timestamp: '29:05', label: 'Portfolio Support 效能重构' }
-            ];
-          }
-        }
-      }
+      const matchedPair =
+        qaPairs.find((pair) => pair.question === textToSend) ??
+        qaPairs.find((pair) =>
+          pair.keywords.some((keyword) => queryLower.includes(keyword.toLowerCase())),
+        ) ??
+        qaPairs.find((pair) => queryLower.includes(pair.question.slice(0, 6).toLowerCase()));
+
+      const finalResponse =
+        matchedPair?.answer ??
+        '这条公开视频没有直接支持这个问题的完整答案。建议把问题收窄到视频中的观点、案例、限制或行动启发；也可以点击下方推荐问题，我会按可追溯时间戳回答。';
+      const sources: GroundedSource[] =
+        matchedPair?.sources ?? [{ timestamp: '00:00', label: '视频开场与主题范围' }];
 
       const aiMsgId = `ai-${Date.now()}`;
       const aiMsg: ChatMessage = {
@@ -139,7 +93,7 @@ export default function AskPanel({
 
       setMessages(prev => [...prev, aiMsg]);
       setIsTyping(false);
-      onShowNotification?.('AI 助手已检索音轨比对并完成合规回答');
+      onShowNotification?.('AI Ask 已基于当前样例的可追溯信息源完成回答');
     }, 1200);
   };
 
@@ -243,20 +197,17 @@ export default function AskPanel({
 
       {/* Suggested quick buttons */}
       <div className="p-3 bg-slate-50/80 border-t border-slate-100 flex flex-col gap-1.5 max-h-[140px] overflow-y-auto shrink-0 select-none">
-        <span className="text-[10px] font-bold text-slate-400 block px-0.5 uppercase tracking-wider">💡 精选疑点追问 / Suggested Grounded Questions</span>
+        <span className="text-[10px] font-bold text-slate-400 block px-0.5 uppercase tracking-wider">精选疑点追问 / Suggested Grounded Questions</span>
         <div className="flex flex-col gap-1">
-          <button
-            onClick={() => handleQuickAsk('有哪些具体的 AI 寻源工具视频里有提到吗？')}
-            className="text-left w-full px-2 py-1.5 bg-white hover:bg-slate-100 text-[10px] text-slate-650 rounded border border-slate-200/80 transition-colors cursor-pointer truncate"
-          >
-            🔍 视频中探讨的具体 AI 寻源具有哪些工程实现？
-          </button>
-          <button
-            onClick={() => handleQuickAsk('大语言模型在识别极早期项目时的局限性是什么？')}
-            className="text-left w-full px-2 py-1.5 bg-white hover:bg-slate-100 text-[10px] text-slate-650 rounded border border-slate-200/80 transition-colors cursor-pointer truncate"
-          >
-            ⚠️ 大模型在判断「极早期非结构化项目」的局限及偏见？
-          </button>
+          {qaPairs.slice(0, 2).map((pair) => (
+            <button
+              key={pair.question}
+              onClick={() => handleQuickAsk(pair.question)}
+              className="text-left w-full px-2 py-1.5 bg-white hover:bg-slate-100 text-[10px] text-slate-650 rounded border border-slate-200/80 transition-colors cursor-pointer truncate"
+            >
+              {pair.question}
+            </button>
+          ))}
         </div>
       </div>
 

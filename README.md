@@ -2,12 +2,15 @@
 
 VideoBrief turns English YouTube business, finance, technology, and AI videos into transcript-first Chinese research notes.
 
-This checkout currently contains the mock result-page prototype integrated into a Next.js App Router app. It does not connect to OpenAI, Supabase, or Stripe yet.
+This checkout currently contains a local, transcript-first result-page prototype integrated into a Next.js App Router app. The sample notes are based on real public English videos, but the app still does not connect to OpenAI, Supabase, or Stripe.
 
 ## Current Route
 
-- Result page: `/notes/vc-impact-ai-2026`
-- Home route `/` redirects to that mock note.
+- Default result page: `/notes/andrew-ng-ai-for-any-business`
+- Additional samples:
+  - `/notes/greg-brockman-chatgpt-potential`
+  - `/notes/ian-bremmer-global-superpower`
+- Home route `/` redirects to the default sample note.
 
 ## Run Locally
 
@@ -21,7 +24,7 @@ npm run dev
 Then open:
 
 ```text
-http://localhost:3000/notes/vc-impact-ai-2026
+http://localhost:3000/notes/andrew-ng-ai-for-any-business
 ```
 
 ## Verification

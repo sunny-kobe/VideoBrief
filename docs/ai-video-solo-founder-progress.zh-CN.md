@@ -4,10 +4,10 @@
 
 ## 当前状态
 
-- 当前阶段：AI Studio 结果页已整合进 Next.js App Router，进入高质量样例 + MVP Pro 页面流补齐阶段。
+- 当前阶段：结果页已接入 3 条真实公开视频样例，进入 MVP Pro 页面流补齐阶段。
 - 当前目标：先做一个窄而完整的 Web/PWA MVP，把英文 YouTube 商业、金融、科技、AI 视频转成中文/繁中研究笔记。
-- 当前重点：打磨结果页体验、准备 3 篇高质量样例，并补齐 landing / dashboard / new analysis / progress 等页面流。
-- 最近更新时间：2026-05-26
+- 当前重点：用真实样例验证结果页价值，并补齐 landing / dashboard / new analysis / progress 等页面流。
+- 最近更新时间：2026-05-27
 
 ## 已确认决策
 
@@ -20,7 +20,7 @@
 - 人工只用于前期样例润色、质检和用户反馈，不作为产品主形态。
 - 默认技术路线为 Next.js + Vercel + Supabase + OpenAI/LLM API + Stripe + Markdown 导出。
 - 原型工具推荐路线：Stitch 或 Figma Make 先做高保真原型，AI Studio / v0 / Codex 再落到 Next.js 页面。
-- 当前实现先使用 mock data，不接真实 OpenAI、Supabase、Stripe；结果页保持 transcript-first，AI Ask 只做可替换的 mock response 边界。
+- 当前实现使用 3 条真实公开英文视频作为本地样例数据，不接真实 OpenAI、Supabase、Stripe；结果页保持 transcript-first，AI Ask 读取样例级 grounded Q&A，后续可替换为真实 RAG / Responses API。
 
 ## 已完成
 
@@ -35,19 +35,20 @@
 - 已同步旧工作区文档到当前正式仓库。
 - 已整理 AI Studio 结果页构建提示词：`docs/ai-studio-result-page-build-prompt.zh-CN.md`。
 - 已将 AI Studio 生成的结果页迁入 Next.js App Router，并放到 `/notes/[id]`。
-- 已用 mock research note 跑通结果页、Copy Markdown、AI Ask mock response、时间戳联动和 Key Moments。
+- 已用真实公开视频样例跑通结果页、Copy Markdown、AI Ask grounded Q&A、时间戳联动和 Key Moments。
+- 已接入 3 条本地真实样例：Andrew Ng《How AI could empower any business》、Greg Brockman《The inside story of ChatGPT's astonishing potential》、Ian Bremmer《The next global superpower isn't who you think》。
 
 ## 下一步 3 个动作
 
-1. 选 3 条英文商业/金融/AI 视频，产出 3 篇高质量中文研究笔记样例，并填入当前结果页验证观感。
-2. 基于当前 `/notes/[id]` 结果页，补 landing、dashboard、new analysis、generation progress 等 MVP Pro 页面流。
-3. 设计真实数据边界：`NoteRepository` / `AskService` / `MarkdownExport`，再接 OpenAI Responses API、Supabase 和 Stripe。
+1. 基于当前 `/notes/[id]` 结果页，补 landing、dashboard、new analysis、generation progress 等 MVP Pro 页面流。
+2. 抽出真实数据边界：`NoteRepository` / `AskService` / `MarkdownExport`，为 OpenAI Responses API、Supabase 和 Stripe 接入做准备。
+3. 找 5-10 个目标用户查看 3 条样例，记录“是否愿意复制/保存/付费”的反馈。
 
 ## 指标
 
 | 指标 | 当前值 | 目标 |
 |---|---:|---:|
-| 高质量样例 | 0 | 3 |
+| 高质量样例 | 3 | 3 |
 | 可自助页面 | 1 | 7 |
 | 真实视频测试 | 0 | 10 |
 | 注册用户 | 0 | 100 |
@@ -59,9 +60,17 @@
 - YouTube 字幕、音视频处理和缓存存在平台政策风险，第一版保持 transcript-first 和用户主动输入。
 - 如果结果页不够惊艳，用户很难感知付费价值。
 - 如果范围扩到 App、插件、推荐、多语言，会拖慢个人项目验证。
-- 当前结果页仍是 mock 数据，需要尽快用真实英文视频底稿做 3 篇样例，否则无法验证内容质量。
+- 当前 3 条样例基于公开视频页面与主题整理，还需要进一步补齐逐段 transcript 摘录和更严格的来源核对。
 
 ## 更新记录
+
+### 2026-05-27
+
+- 将结果页数据从单条虚构 mock 改为 3 条真实公开视频样例，并支持 `/notes/[id]` 切换。
+- 新增样例：Andrew Ng《How AI could empower any business》、Greg Brockman《The inside story of ChatGPT's astonishing potential》、Ian Bremmer《The next global superpower isn't who you think》。
+- AI Ask 改为读取当前样例自己的 grounded Q&A，不再使用全局虚构 VC 问答。
+- README 默认路由改为 `/notes/andrew-ng-ai-for-any-business`，并列出 3 条样例链接。
+- 保留本地静态数据方式，暂不接 OpenAI / Supabase / Stripe；后续再抽真实 `NoteRepository` 和 `AskService`。
 
 ### 2026-05-26
 

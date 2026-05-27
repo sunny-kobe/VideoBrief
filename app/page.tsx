@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation';
+import { defaultSampleNoteId } from '@/src/sampleNotes';
 
 export default function HomePage() {
-  redirect('/notes/vc-impact-ai-2026');
+  redirect(`/notes/${defaultSampleNoteId}`);
 }
