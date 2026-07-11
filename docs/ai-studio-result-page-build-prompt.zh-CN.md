@@ -1,7 +1,9 @@
 # AI Studio 构建 Result Page 提示词
 
+> 归档说明（2026-07-07）：本文用于旧 `视频研究笔记结果页` 原型，不再代表当前项目主线。当前最高优先级是 `海外 AI 信息再制生产台`，新的方向和执行依据见 `docs/overseas-ai-content-remix-roadmap.zh-CN.md`。
+
 > 用途：把 Stitch / 设计稿中的 VideoBrief 结果页转成可运行的 AI Studio 页面原型。  
-> 当前优先级：先把结果页做得可演示、可截图、可复制，再扩展 Dashboard / New Analysis / Progress。
+> 旧阶段优先级：先把结果页做得可演示、可截图、可复制，再扩展 Dashboard / New Analysis / Progress。
 
 ## 1. 是否需要喂上下文
 

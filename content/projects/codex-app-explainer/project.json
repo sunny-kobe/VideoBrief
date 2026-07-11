@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "id": "codex-app-explainer",
+  "title": "OpenAI Codex app：AI 编程开始变成任务台",
+  "format": "single_signal",
+  "targetAudience": "中文 AI 实践者 / 开发者 / 独立开发者",
+  "status": "draft",
+  "sources": [
+    {
+      "id": "openai-codex-official",
+      "label": "OpenAI Codex 官方原片",
+      "sourceType": "official",
+      "originUrl": "https://www.youtube.com/watch?v=HFM3se4lNiw",
+      "assetPath": "public/source-clips/openai-codex-app-vertical-30fps.mp4",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "仅使用解释所需的官方短片段；正式发布前复核平台规则、引用比例和 AIGC 标识。"
+    }
+  ],
+  "editorial": {
+    "claim": "OpenAI Codex app 把 coding agent 从聊天入口扩展成可发起、追踪和检查任务的工作台。",
+    "whyItMatters": "关键变化不是多一个聊天框，而是 AI 编程开始围绕完整任务和结果交付组织。",
+    "chinaContext": "中文开发者应重点验证它能否稳定接住真实项目里的小任务，而不是只看发布演示。",
+    "riskNote": "当前结论基于官方演示，不能等同于真实项目中的稳定性验证。"
+  },
+  "outputs": {
+    "outputVideo": "output/videos/codex-app-explainer.mp4",
+    "publicRender": "public/renders/codex-app-explainer.mp4",
+    "workDir": "output/videos/codex-app-explainer-work"
+  },
+  "render": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "voice": "Eddy (中文（中国大陆）)",
+    "rate": 205
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "enabled": true,
+      "sourceId": "openai-codex-official",
+      "sourceStart": 0,
+      "sourceEnd": 6.45,
+      "eyebrow": "OPENAI / CODEX APP",
+      "title": "AI 编程，不只是聊天框了",
+      "subtitle": "OpenAI 这个 Codex app，重点不是又多了一个聊天框，而是把 AI 编程变成任务台。"
+    },
+    {
+      "id": "scene-02",
+      "enabled": true,
+      "sourceId": "openai-codex-official",
+      "sourceStart": 66,
+      "sourceEnd": 70.39,
+      "eyebrow": "MOBILE WORKFLOW",
+      "title": "任务可以在手机上继续追踪",
+      "subtitle": "你可以在手机上发起和追踪任务，不一定一直守着 IDE。"
+    },
+    {
+      "id": "scene-03",
+      "enabled": true,
+      "sourceId": "openai-codex-official",
+      "sourceStart": 109,
+      "sourceEnd": 113.75,
+      "eyebrow": "TASK DASHBOARD",
+      "title": "关键变化：进度可见",
+      "subtitle": "更关键的是，任务进度、结果和失败原因开始变得可检查。"
+    },
+    {
+      "id": "scene-04",
+      "enabled": true,
+      "sourceId": "openai-codex-official",
+      "sourceStart": 159,
+      "sourceEnd": 165.08,
+      "eyebrow": "CODE AGENT",
+      "title": "它瞄准的是交付任务",
+      "subtitle": "它瞄准的不是写几行代码，而是修 bug、查代码、生成改动这种完整开发任务。"
+    },
+    {
+      "id": "scene-05",
+      "enabled": true,
+      "sourceId": "openai-codex-official",
+      "sourceStart": 190,
+      "sourceEnd": 192.57,
+      "eyebrow": "MY TAKE",
+      "title": "先别只看发布会",
+      "subtitle": "所以我觉得，别只看发布会。"
+    },
+    {
+      "id": "scene-06",
+      "enabled": true,
+      "sourceId": "openai-codex-official",
+      "sourceStart": 231,
+      "sourceEnd": 235.82,
+      "eyebrow": "VALIDATION",
+      "title": "要拿真实项目小任务去测",
+      "subtitle": "真正要验证的是，它能不能稳定接住你真实项目里的小任务。"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # AI 视频消费工具个人项目 / 一人公司 MVP 落地方案
 
+> 归档说明（2026-07-07）：本文是旧方向文档，已不再作为当前项目主线。当前最高优先级已经切换为 `海外 AI 信息再制生产台`，详见 `docs/overseas-ai-content-remix-roadmap.zh-CN.md` 和 `docs/ai-video-solo-founder-progress.zh-CN.md`。除非明确回看历史方案，不要继续按本文的 `英文公开视频 -> 中文研究笔记`、`MVP Pro Web/PWA`、登录、付费和 SaaS 路线推进。
+
 > 基于 `ai-video-consumption-tool-roadmap.zh-CN.md` 的个人项目改写版。  
 > 目标：不站在公司资源角度，而是站在一个人、副业、一人公司的角度，用最小 MVP 快速验证 Kim 所说的最终方向。
 

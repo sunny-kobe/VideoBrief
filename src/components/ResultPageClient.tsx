@@ -147,7 +147,7 @@ export default function ResultPageClient({ note, noteId, qaPairs }: ResultPageCl
           <div className="flex items-center gap-2 min-w-0">
             <Info className="w-4 h-4 text-blue-200 shrink-0" />
             <span className="truncate">
-              VideoBrief MVP Pro 样例页：基于公开视频信息整理，transcript-first，不接后端 API
+              Legacy 样例页：旧公开视频研究笔记原型，仅保留为 UI/交互参考，不再代表当前主线
             </span>
           </div>
           <div className="hidden sm:flex items-center gap-2">
@@ -173,8 +173,8 @@ export default function ResultPageClient({ note, noteId, qaPairs }: ResultPageCl
               <div className="bg-white border border-slate-200 rounded-lg p-4 flex items-start gap-3 shadow-[0_1px_2px_rgba(15,23,42,0.01)]">
                 <Sparkles className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                 <div className="text-xs text-slate-600 leading-relaxed">
-                  <strong className="text-slate-900">Transcript-first 边界：</strong>
-                  当前页面使用真实公开英文视频作为样例，笔记已按 transcript-first 方式整理。AI Ask 现在读取本样例的本地 grounded Q&A，后续可替换成真实 RAG / Responses API。
+                  <strong className="text-slate-900">Legacy 边界：</strong>
+                  {'当前页面属于旧“英文公开视频 -> 中文研究笔记”原型，只用于复用布局、复制、时间戳和侧栏交互。当前主线已经切换到首页的海外 AI 信息再制生产台。'}
                 </div>
               </div>
 

@@ -1,5 +1,7 @@
 # VideoBrief MVP Pro 工作流与 Prompt 手册
 
+> 归档说明（2026-07-07）：本文是旧 `VideoBrief MVP Pro` prompt 手册，已不再作为当前执行依据。当前最高优先级是 `海外 AI 信息再制生产台`：海外信号筛选、来源核验、中文再制、短视频/图文/周报输出和反馈复盘。新的执行依据见 `docs/overseas-ai-content-remix-roadmap.zh-CN.md`。
+
 > 用途：把 AI 视频研究笔记个人项目从“行动方针”变成可执行工作流。  
 > 原则：场景要窄，体验要完整。先做英文 YouTube 视频 -> 中文/繁中研究笔记的 MVP Pro Web/PWA。
 

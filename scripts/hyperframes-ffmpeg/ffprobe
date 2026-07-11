@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+
+ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+LIB_DIR="$ROOT/node_modules/@remotion/compositor-darwin-arm64"
+
+export DYLD_LIBRARY_PATH="$LIB_DIR${DYLD_LIBRARY_PATH:+:$DYLD_LIBRARY_PATH}"
+exec "$LIB_DIR/ffprobe" "$@"

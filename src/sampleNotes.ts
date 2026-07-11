@@ -182,7 +182,7 @@ export const sampleNotes: Record<string, SampleNoteRecord> = {
       {
         question: '这套思路适合 VideoBrief 这类一人公司吗？',
         answer:
-          '适合。VideoBrief 的第一版也应该选择窄场景：英文 YouTube 的 AI、商业、金融视频转中文研究笔记。不要做全网视频平台，而是用 transcript-first 流程把一个细分需求做完整。',
+          '这条回答来自旧样例。当前 VideoBrief 不再把英文 YouTube 视频转中文研究笔记作为主线；更适合借鉴的是它的结构化输出和时间戳交互，把这些能力迁移到海外 AI 信息再制生产台。',
         sources: [{ timestamp: '05:10', label: '业务专家参与模型构建' }],
         keywords: ['VideoBrief', '一人公司', '创业', '适合'],
       },

@@ -76,3 +76,77 @@ export interface ChatMessage {
   text: string;
   timestamp: Date;
 }
+
+export type SignalSourceType =
+  | 'official'
+  | 'github'
+  | 'paper'
+  | 'demo'
+  | 'social'
+  | 'video'
+  | 'news';
+
+export type VerificationStatus = 'verified' | 'needs_check' | 'weak';
+
+export type SignalStage =
+  | 'intake'
+  | 'source_check'
+  | 'judgment'
+  | 'packaged'
+  | 'ready_to_publish'
+  | 'published';
+
+export interface SignalSource {
+  id: string;
+  title: string;
+  sourceUrl: string;
+  sourceType: SignalSourceType;
+  publishedAt: string;
+  stage: SignalStage;
+  verificationStatus: VerificationStatus;
+  claim: string;
+  whyItMatters: string;
+  chinaContext: string;
+  riskNote: string;
+  tags: string[];
+  clipReference?: string;
+}
+
+export interface ShortVideoScript {
+  hook: string;
+  voiceover: string[];
+  subtitleLines: string[];
+  shotList: string[];
+}
+
+export interface PlatformCopy {
+  xiaohongshuCards: string[];
+  wechatParagraph: string;
+  sourceLinks: string[];
+  callToAction: string;
+}
+
+export interface FeedbackMetric {
+  platform: 'douyin' | 'xiaohongshu' | 'wechat' | 'bilibili' | 'other';
+  publishedAt?: string;
+  views?: number;
+  saves?: number;
+  comments?: number;
+  dms?: number;
+  downloads?: number;
+  paidIntent?: number;
+  notes: string;
+}
+
+export interface ContentBrief {
+  id: string;
+  title: string;
+  format: 'weekly_roundup' | 'single_signal' | 'deep_dive';
+  targetAudience: string;
+  status: 'draft' | 'review' | 'ready' | 'published';
+  signals: SignalSource[];
+  shortVideo: ShortVideoScript;
+  platformCopy: PlatformCopy;
+  feedback: FeedbackMetric[];
+  nextAction: string;
+}

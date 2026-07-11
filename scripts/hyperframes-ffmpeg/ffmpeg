@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+
+ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+FFMPEG_BIN="$ROOT/node_modules/ffmpeg-static/ffmpeg"
+
+exec "$FFMPEG_BIN" "$@"

@@ -1,93 +1,56 @@
-# AI 视频个人项目进度记录
+# 海外 AI 信息再制项目进度记录
 
-> 用途：记录 VideoBrief / AI 视频研究笔记个人项目的关键进展。保持短、准、可执行。
+> 当前主线：把一条可核验海外 AI 信号做成中文短视频成片，并保留来源、判断、版权、分镜和技术验收证据。
 
 ## 当前状态
 
-- 当前阶段：结果页已接入 3 条真实公开视频样例，进入 MVP Pro 页面流补齐阶段。
-- 当前目标：先做一个窄而完整的 Web/PWA MVP，把英文 YouTube 商业、金融、科技、AI 视频转成中文/繁中研究笔记。
-- 当前重点：用真实样例验证结果页价值，并补齐 landing / dashboard / new analysis / progress 等页面流。
-- 最近更新时间：2026-05-27
-
-## 已确认决策
-
-- GitHub 仓库：`sunny-kobe/VideoBrief`。
-- 本地工作目录：`/Users/rust/Documents/VideoBrief`。
-- 本地 Git 身份：`sunny-kobe <92256132+sunny-kobe@users.noreply.github.com>`。
-- `main` 分支用于稳定版本，后续变更通过 PR 合并。
-- 不做粗糙表单型 MVP，改为 MVP Pro：登录、提交、生成、追问、历史、复制、额度、付费入口都要有。
-- 第一阶段只做英文 YouTube 视频到中文/繁中研究笔记，不做 feed、推荐、插件、原生 App、多视频网站和复杂知识库。
-- 人工只用于前期样例润色、质检和用户反馈，不作为产品主形态。
-- 默认技术路线为 Next.js + Vercel + Supabase + OpenAI/LLM API + Stripe + Markdown 导出。
-- 原型工具推荐路线：Stitch 或 Figma Make 先做高保真原型，AI Studio / v0 / Codex 再落到 Next.js 页面。
-- 当前实现使用 3 条真实公开英文视频作为本地样例数据，不接真实 OpenAI、Supabase、Stripe；结果页保持 transcript-first，AI Ask 读取样例级 grounded Q&A，后续可替换为真实 RAG / Responses API。
+- 当前 v1 模板：单信号 AI 工具/项目解读，使用官方画面和中文判断。
+- 当前项目：`codex-app-explainer`。
+- 唯一项目文件：`content/projects/codex-app-explainer/project.json`。
+- 当前工作台：`http://127.0.0.1:3100/workbench`。
+- 当前渲染器：FFmpeg；Remotion 和 HyperFrames 降为 legacy/实验轨道。
+- 当前成片：29.06 秒、1080×1920、30fps，已通过 manifest 驱动的技术 proof。
+- 最近更新时间：2026-07-10。
 
 ## 已完成
 
-- 本地仓库已连接到 GitHub 远端。
-- GitHub CLI 已切换到 `sunny-kobe` 账号。
-- 本地仓库 Git 提交身份已改为 `sunny-kobe`。
-- 已整理公司级 AI 视频消费工具路线图：`docs/ai-video-consumption-tool-roadmap.zh-CN.md`。
-- 已整理个人项目 / 一人公司 MVP Pro 路线图：`docs/ai-video-solo-mvp-roadmap.zh-CN.md`。
-- 已抽离项目 skill：`/Users/rust/.codex/skills/ai-video-solo-founder/SKILL.md`。
-- 已完成原型图生成工具调研：`docs/prototype-tools-research.zh-CN.md`。
-- 已整理 MVP Pro 工作流与 Prompt 手册：`docs/ai-video-mvp-workflow-prompts.zh-CN.md`。
-- 已同步旧工作区文档到当前正式仓库。
-- 已整理 AI Studio 结果页构建提示词：`docs/ai-studio-result-page-build-prompt.zh-CN.md`。
-- 已将 AI Studio 生成的结果页迁入 Next.js App Router，并放到 `/notes/[id]`。
-- 已用真实公开视频样例跑通结果页、Copy Markdown、AI Ask grounded Q&A、时间戳联动和 Key Moments。
-- 已接入 3 条本地真实样例：Andrew Ng《How AI could empower any business》、Greg Brockman《The inside story of ChatGPT's astonishing potential》、Ian Bremmer《The next global superpower isn't who you think》。
+- 项目模型统一为 `project -> sources -> scenes -> outputs`。
+- scene 通过 `sourceId` 绑定来源，不再依赖单个顶层 `sourceVideo`。
+- 来源包含一手链接、核验状态、版权状态和使用说明。
+- 工作台支持编辑事实判断、来源状态、版权说明、分镜点位、标题和字幕。
+- 工作台改成场景轨道、固定竖屏预览和单一检查器，删除宽表格和重复编辑器。
+- 项目保存改成原子写入；输出路径和素材路径不能从浏览器请求任意覆盖。
+- 工作台渲染加入最小并发锁，并只绑定本机 `127.0.0.1`。
+- 生产渲染生成 `render-manifest.json`，记录项目指纹、实际时长和全部产物。
+- proof 按当前 manifest 验收，不再硬编码 38 秒。
+- 根路由直接进入当前工作台，不再展示静态周报假数据。
+- 已加入候选片段交互原型：排名列表和并排比较共用真实场景时间点，选择不持久化，分数明确标为启发式示例。
+- 候选片段原型默认采用排名列表；并排比较暂作为诊断变体，等真实评分数据后再决定是否吸收。
+- 已加入逐句 TTS 试听原型：macOS `say` 通过独立 adapter 生成音频，并按场景、文案、音色和语速做内容哈希缓存。
 
-## 下一步 3 个动作
+## 当前生产流程
 
-1. 基于当前 `/notes/[id]` 结果页，补 landing、dashboard、new analysis、generation progress 等 MVP Pro 页面流。
-2. 抽出真实数据边界：`NoteRepository` / `AskService` / `MarkdownExport`，为 OpenAI Responses API、Supabase 和 Stripe 接入做准备。
-3. 找 5-10 个目标用户查看 3 条样例，记录“是否愿意复制/保存/付费”的反馈。
+```text
+来源与事实判断
+-> 来源核验和版权确认
+-> 场景与来源片段匹配
+-> 字幕/旁白编辑
+-> FFmpeg 渲染
+-> 当前成片 proof
+-> 发布前人工确认
+```
 
-## 指标
+## 下一阶段
 
-| 指标 | 当前值 | 目标 |
-|---|---:|---:|
-| 高质量样例 | 3 | 3 |
-| 可自助页面 | 1 | 7 |
-| 真实视频测试 | 0 | 10 |
-| 注册用户 | 0 | 100 |
-| 完成视频分析用户 | 0 | 50 |
-| 付费用户 | 0 | 10 |
+1. 用真实转录、画面变化和语义匹配替换候选片段的启发式示例分数，再验证排名列表是否仍是最佳默认。
+2. 用户确认选片交互后，吸收保留变体并删除未采用的 prototype 分支。
+3. 为 TTS adapter 接入更自然的中文音色；当前系统音色只用于校对语速和句长。
+4. 将阻塞式渲染升级为可查询进度、可取消的 render job。
+5. 在真实发布 URL 出现后再建立平台版本和反馈账本；`published` 不等于 `validated`。
 
-## 风险 / 阻塞
+## 风险边界
 
-- YouTube 字幕、音视频处理和缓存存在平台政策风险，第一版保持 transcript-first 和用户主动输入。
-- 如果结果页不够惊艳，用户很难感知付费价值。
-- 如果范围扩到 App、插件、推荐、多语言，会拖慢个人项目验证。
-- 当前 3 条样例基于公开视频页面与主题整理，还需要进一步补齐逐段 transcript 摘录和更严格的来源核对。
-
-## 更新记录
-
-### 2026-05-27
-
-- 将结果页数据从单条虚构 mock 改为 3 条真实公开视频样例，并支持 `/notes/[id]` 切换。
-- 新增样例：Andrew Ng《How AI could empower any business》、Greg Brockman《The inside story of ChatGPT's astonishing potential》、Ian Bremmer《The next global superpower isn't who you think》。
-- AI Ask 改为读取当前样例自己的 grounded Q&A，不再使用全局虚构 VC 问答。
-- README 默认路由改为 `/notes/andrew-ng-ai-for-any-business`，并列出 3 条样例链接。
-- 保留本地静态数据方式，暂不接 OpenAI / Supabase / Stripe；后续再抽真实 `NoteRepository` 和 `AskService`。
-
-### 2026-05-26
-
-- 将 AI Studio 生成的 Vite React 结果页迁入 Next.js App Router，删除 Vite 入口，新增 `/notes/[id]` 动态路由。
-- 保留结果页视觉和信息结构：左侧研究笔记、右侧 Grounded AI Ask、Key Moments、反馈和额度展示。
-- 用 mock data 跑通页面，不接真实 OpenAI / Supabase / Stripe；AI Ask 保留后续接真实 API 的组件边界。
-- 修复 Copy Markdown 为可用交互，并保留 transcript-first 的章节、时间戳、免责声明等 Markdown 输出。
-- 完成基础验证：`npm run lint`、`npm run build`、浏览器点击 Copy Markdown / AI Ask / 问题填入。
-- 将旧工作区的路线图、工作流手册、原型工具调研和公司版路线图同步到当前正式仓库。
-- 修正当前阶段优先级：先结果页原型和高质量样例，再搭完整产品壳。
-- 明确 AI Studio 可用于承接现有设计稿，先构建结果页可运行版本。
-- 新增 AI Studio 结果页构建提示词，说明需要喂的上下文、第一轮构建 prompt、后续优化 prompt 和 Codex 接手说明。
-
-### 2026-05-25
-
-- 确认采用“窄而完整”的 MVP Pro 路线，不再采用简陋人工表单 MVP。
-- 创建项目进度记录文件，后续继续更新。
-- 创建 `ai-video-solo-founder` skill，用于后续持续对齐路线图并记录项目进度。
-- 完成原型工具调研，结论为 Stitch/Figma Make 定视觉，v0/Codex 落代码。
-- 完成工作流与 prompt 手册，覆盖样例、原型、v0、Codex、AI API、问答、付费、验收和进度更新。
+- 官方视频不等于自动获得发布权；正式发布前必须确认引用比例、平台规则和 AIGC 标识。
+- 官方演示不等于真实项目验证，判断文案必须保留不确定性。
+- 当前没有真实发布和外部反馈，不能写成市场验证完成。
+- 暂不做自动发布、多账号矩阵、通用 SaaS 和多信号周报引擎。

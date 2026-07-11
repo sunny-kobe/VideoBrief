@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "policy": {
+    "publishRule": "Only clips with rightsStatus=cleared may be used as external source footage in production exports.",
+    "placeholderFallback": "Placeholder clips are allowed for layout review only. The Remotion composition replaces them with original motion visuals."
+  },
+  "clips": {
+    "source-clips/openai-codex-app-vertical-30fps.mp4": {
+      "rightsStatus": "local-review",
+      "publishable": false,
+      "sourceUrl": "https://www.youtube.com/watch?v=HFM3se4lNiw",
+      "credit": "OpenAI official YouTube: Introducing the Codex app, normalized 30fps local review source",
+      "replacementNeeded": "Replace with self-recorded, licensed, or otherwise permission-cleared footage before publication."
+    },
+    "source-clips/anthropic-demo-placeholder.mp4": {
+      "rightsStatus": "placeholder",
+      "publishable": false,
+      "productionFallback": "original-motion",
+      "sourceUrl": "",
+      "credit": "Draft visual placeholder",
+      "replacementNeeded": "Replace with official / permission-cleared Anthropic demo footage or keep original generated motion background."
+    },
+    "source-clips/research-agent-placeholder.mp4": {
+      "rightsStatus": "placeholder",
+      "publishable": false,
+      "productionFallback": "original-motion",
+      "sourceUrl": "",
+      "credit": "Draft visual placeholder",
+      "replacementNeeded": "Replace with official / permission-cleared product workflow footage or keep original generated motion background."
+    },
+    "source-clips/comfy-workflow-placeholder.mp4": {
+      "rightsStatus": "placeholder",
+      "publishable": false,
+      "productionFallback": "original-motion",
+      "sourceUrl": "",
+      "credit": "Draft visual placeholder",
+      "replacementNeeded": "Replace with official / author-cleared ComfyUI workflow footage or keep original generated motion background."
+    },
+    "source-clips/research-ui-placeholder.mp4": {
+      "rightsStatus": "placeholder",
+      "publishable": false,
+      "productionFallback": "original-motion",
+      "sourceUrl": "",
+      "credit": "Draft visual placeholder",
+      "replacementNeeded": "Replace with official / permission-cleared project demo footage or keep original generated motion background."
+    },
+    "source-clips/excerpts/codex-intro-00-00-00-5s.mp4": {
+      "rightsStatus": "local-review",
+      "publishable": false,
+      "sourceUrl": "https://www.youtube.com/watch?v=HFM3se4lNiw",
+      "credit": "OpenAI official YouTube: Introducing the Codex app, 0:00-0:05",
+      "replacementNeeded": "Replace with self-recorded, licensed, or otherwise permission-cleared footage before publication."
+    },
+    "source-clips/excerpts/codex-mobile-demo-00-00-20-6s.mp4": {
+      "rightsStatus": "local-review",
+      "publishable": false,
+      "sourceUrl": "https://www.youtube.com/watch?v=HFM3se4lNiw",
+      "credit": "OpenAI official YouTube: Introducing the Codex app, 0:20-0:26",
+      "replacementNeeded": "Replace with self-recorded, licensed, or otherwise permission-cleared footage before publication."
+    },
+    "source-clips/excerpts/codex-progress-00-02-00-7s.mp4": {
+      "rightsStatus": "local-review",
+      "publishable": false,
+      "sourceUrl": "https://www.youtube.com/watch?v=HFM3se4lNiw",
+      "credit": "OpenAI official YouTube: Introducing the Codex app, 2:00-2:07",
+      "replacementNeeded": "Replace with self-recorded, licensed, or otherwise permission-cleared footage before publication."
+    },
+    "source-clips/excerpts/codex-code-review-00-02-20-7s.mp4": {
+      "rightsStatus": "local-review",
+      "publishable": false,
+      "sourceUrl": "https://www.youtube.com/watch?v=HFM3se4lNiw",
+      "credit": "OpenAI official YouTube: Introducing the Codex app, 2:20-2:27",
+      "replacementNeeded": "Replace with self-recorded, licensed, or otherwise permission-cleared footage before publication."
+    },
+    "source-clips/excerpts/codex-task-templates-00-03-20-7s.mp4": {
+      "rightsStatus": "local-review",
+      "publishable": false,
+      "sourceUrl": "https://www.youtube.com/watch?v=HFM3se4lNiw",
+      "credit": "OpenAI official YouTube: Introducing the Codex app, 3:20-3:27",
+      "replacementNeeded": "Replace with self-recorded, licensed, or otherwise permission-cleared footage before publication."
+    },
+    "source-clips/excerpts/codex-outro-00-04-00-6s.mp4": {
+      "rightsStatus": "local-review",
+      "publishable": false,
+      "sourceUrl": "https://www.youtube.com/watch?v=HFM3se4lNiw",
+      "credit": "OpenAI official YouTube: Introducing the Codex app, 4:00-4:06",
+      "replacementNeeded": "Replace with self-recorded, licensed, or otherwise permission-cleared footage before publication."
+    }
+  }
+}

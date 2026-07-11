@@ -1,0 +1,208 @@
+<!doctype html>
+<html
+  lang="zh-CN"
+  data-composition-variables='[
+    {"id":"topic","type":"string","label":"Topic","default":"ComfyUI + MCP"},
+    {"id":"judgment","type":"string","label":"Judgment","default":"图像工作流可能被智能体调度"},
+    {"id":"source","type":"string","label":"Source","default":"ComfyUI ecosystem / MCP demos"}
+  ]'
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weekly AI Signal Card</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: system-ui, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #020617;
+        color: #f8fafc;
+      }
+
+      #weekly-ai-card-root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 12% 22%, rgba(56, 189, 248, 0.42), transparent 31%),
+          radial-gradient(circle at 92% 28%, rgba(244, 63, 94, 0.38), transparent 28%),
+          linear-gradient(155deg, #04111f 0%, #17112b 48%, #050816 100%);
+      }
+
+      .clip {
+        position: absolute;
+        left: 84px;
+        right: 84px;
+      }
+
+      .topbar {
+        top: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: rgba(248, 250, 252, 0.82);
+        font-size: 30px;
+        font-weight: 800;
+      }
+
+      .badge {
+        top: 256px;
+        width: max-content;
+        border: 2px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        padding: 16px 24px;
+        color: #d1fae5;
+        font-size: 28px;
+        font-weight: 900;
+        letter-spacing: 3px;
+      }
+
+      .title {
+        top: 392px;
+        margin: 0;
+        max-width: 880px;
+        font-size: 88px;
+        line-height: 1.08;
+        font-weight: 950;
+        letter-spacing: 0;
+      }
+
+      .body {
+        top: 650px;
+        margin: 0;
+        max-width: 850px;
+        color: #e2e8f0;
+        font-size: 42px;
+        line-height: 1.42;
+        font-weight: 760;
+      }
+
+      .signal-list {
+        bottom: 354px;
+        display: grid;
+        gap: 20px;
+      }
+
+      .signal {
+        min-height: 106px;
+        border: 2px solid rgba(255, 255, 255, 0.14);
+        border-radius: 28px;
+        background: rgba(2, 6, 23, 0.5);
+        padding: 24px 30px;
+      }
+
+      .signal strong {
+        display: block;
+        color: #f8fafc;
+        font-size: 30px;
+        line-height: 1.2;
+      }
+
+      .signal span {
+        display: block;
+        margin-top: 8px;
+        color: #a7f3d0;
+        font-size: 24px;
+        font-weight: 800;
+      }
+
+      .subtitle {
+        bottom: 80px;
+        border-radius: 34px;
+        border: 2px solid rgba(255, 255, 255, 0.14);
+        background: rgba(2, 6, 23, 0.86);
+        color: #f8fafc !important;
+        padding: 36px 40px;
+        text-align: center;
+        font-size: 42px;
+        line-height: 1.25;
+        font-weight: 950;
+      }
+
+      .subtitle * {
+        color: inherit;
+      }
+
+      .source {
+        display: inline-block;
+        margin-top: 10px;
+        color: #a7f3d0 !important;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <main
+      id="weekly-ai-card-root"
+      data-composition-id="weekly-ai-card"
+      data-width="1080"
+      data-height="1920"
+      data-start="0"
+      data-duration="12"
+    >
+      <div id="topbar" class="clip topbar" data-start="0" data-duration="12">
+        <span>VideoBrief / HTML Experiment</span>
+        <span>00:12</span>
+      </div>
+
+      <div id="badge" class="clip badge" data-start="0" data-duration="12">WEEKLY AI SIGNAL</div>
+
+      <h1 id="signal-title" class="clip title" data-start="0.5" data-duration="11"></h1>
+
+      <p id="signal-body" class="clip body" data-start="1.2" data-duration="10.8">
+        节点式图像生产如果接入智能体协议，内容生产就不再只是手工拖节点，
+        而是可以被 Agent 调度、复用和批量执行。
+      </p>
+
+      <section id="signal-list" class="clip signal-list" data-start="2.4" data-duration="8.8">
+        <div class="signal">
+          <strong>它是什么</strong>
+          <span>ComfyUI 工作流接入智能体协议</span>
+        </div>
+        <div class="signal">
+          <strong>为什么重要</strong>
+          <span>把图片生产从手工工具变成可编排流程</span>
+        </div>
+        <div class="signal">
+          <strong>该不该试</strong>
+          <span>内容团队、设计自动化、Agent 工作流值得关注</span>
+        </div>
+      </section>
+
+      <div id="subtitle" class="clip subtitle" data-start="0" data-duration="12"></div>
+    </main>
+
+    <script>
+      const fallback = {
+        topic: "ComfyUI + MCP",
+        judgment: "图像工作流可能被智能体调度",
+        source: "ComfyUI ecosystem / MCP demos",
+      };
+      const variables = window.__hyperframes?.getVariables?.() ?? fallback;
+
+      document.querySelector(".title").textContent = variables.judgment;
+      document.querySelector(".subtitle").innerHTML =
+        `${variables.topic}：${variables.judgment}<br><span class="source">Source: ${variables.source}</span>`;
+
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.from("#badge", { opacity: 0, y: 24, duration: 0.5 }, 0);
+      tl.from("#signal-title", { opacity: 0, y: 52, duration: 0.7 }, 0.25);
+      tl.from("#signal-body", { opacity: 0, y: 36, duration: 0.7 }, 0.8);
+      tl.from("#signal-list .signal", { opacity: 0, y: 28, stagger: 0.18, duration: 0.5 }, 1.4);
+      tl.from("#subtitle", { opacity: 0, y: 34, duration: 0.5 }, 1.8);
+      window.__timelines["weekly-ai-card"] = tl;
+    </script>
+  </body>
+</html>

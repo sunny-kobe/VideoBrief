@@ -10,3 +10,10 @@ coverage/
 !.env.example
 .antigravity/
 .vscode/
+.playwright-cli/
+output/
+public/renders/
+public/source-clips/
+public/audio/
+content/sources/
+experiments/cutstorm/
