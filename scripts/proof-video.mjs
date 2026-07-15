@@ -35,9 +35,10 @@ const proofDir = args.get('proof-dir')
   : resolve(dirname(manifestPath), 'proof');
 const issues = [];
 const proofFrames = [];
+let projectMatchesManifest = false;
 
 function writeProofResult(passed) {
-  const next = {
+  let next = {
     ...manifest,
     proof: {
       passed,
@@ -46,6 +47,43 @@ function writeProofResult(passed) {
       frames: proofFrames,
     },
   };
+  if (projectMatchesManifest && manifest.briefPath && existsSync(manifest.briefPath)) {
+    const project = JSON.parse(readFileSync(manifest.briefPath, 'utf8'));
+    const previousTechnicalStatus = project.technical_status;
+    const completedAt = new Date().toISOString();
+    project.technical_status = passed ? 'passed' : 'failed';
+    project.rights_status = project.rights_status || (
+      project.sources?.some((source) => source.rightsStatus === 'blocked')
+        ? 'blocked'
+        : project.sources?.length > 0 && project.sources.every((source) => source.rightsStatus === 'cleared')
+          ? 'cleared'
+          : 'review_required'
+    );
+    project.publication_status = project.publication_status || 'draft-unpublished';
+    project.market_status = project.market_status || 'none';
+    if (passed && previousTechnicalStatus !== 'passed') {
+      project.production = {
+        ...(project.production ?? {}),
+        updatedAt: completedAt,
+        firstRenderCompletedAt: project.production?.firstRenderCompletedAt || completedAt,
+        lastRenderCompletedAt: completedAt,
+      };
+    }
+    const projectText = `${JSON.stringify(project, null, 2)}\n`;
+    const temporaryProjectPath = `${manifest.briefPath}.tmp`;
+    writeFileSync(temporaryProjectPath, projectText);
+    renameSync(temporaryProjectPath, manifest.briefPath);
+    next = {
+      ...next,
+      projectFingerprint: createHash('sha256').update(projectText).digest('hex'),
+      statuses: {
+        technical_status: project.technical_status,
+        rights_status: project.rights_status,
+        publication_status: project.publication_status,
+        market_status: project.market_status,
+      },
+    };
+  }
   const temporaryPath = `${manifestPath}.tmp`;
   writeFileSync(temporaryPath, `${JSON.stringify(next, null, 2)}\n`);
   renameSync(temporaryPath, manifestPath);
@@ -65,6 +103,8 @@ if (manifest.briefPath && existsSync(manifest.briefPath)) {
     .digest('hex');
   if (fingerprint !== manifest.projectFingerprint) {
     issues.push('Project file changed after render; the MP4 is stale.');
+  } else {
+    projectMatchesManifest = true;
   }
 } else {
   issues.push(`Project file not found: ${manifest.briefPath ?? 'missing path'}.`);

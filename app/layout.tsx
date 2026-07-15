@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'VideoBrief | 海外 AI 信息再制生产台',
-  description: 'Internal workspace for remixing overseas AI signals into Chinese short videos, cards, briefs, and reusable assets.',
+  title: 'VideoBrief | AI 视频生产工作台',
+  description: 'Local AI video production workbench driven by creative briefs and mixed source materials.',
   icons: {
     icon: '/icon.svg',
   },

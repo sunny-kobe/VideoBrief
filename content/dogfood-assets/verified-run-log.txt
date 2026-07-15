@@ -1,0 +1,12 @@
+VideoBrief local verification record
+Date: 2026-07-11
+
+npm run lint: passed
+npm run build: passed
+npm run video:proof: passed for codex-app-explainer
+phase1-self-serve-demo export package: passed
+
+Interpretation boundary:
+- Technical proof only establishes the current rendering contract.
+- No project in this record was published.
+- market_status remains none.

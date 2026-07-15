@@ -97,5 +97,14 @@
       "title": "要拿真实项目小任务去测",
       "subtitle": "真正要验证的是，它能不能稳定接住你真实项目里的小任务。"
     }
-  ]
+  ],
+  "technical_status": "passed",
+  "rights_status": "review_required",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "production": {
+    "updatedAt": "2026-07-12T05:18:09.139Z",
+    "firstRenderCompletedAt": "2026-07-12T05:18:09.139Z",
+    "lastRenderCompletedAt": "2026-07-12T05:18:09.139Z"
+  }
 }

@@ -1,5 +1,7 @@
 # 海外 AI 信息再制项目进度记录
 
+> Scope notice（2026-07-11）：本文只记录 `codex-app-explainer` 和海外 AI 单信号模板的历史实现进度，不再承担 VideoBrief 顶层产品路线。当前主路线见 `video-production-workflow-and-roadmap.zh-CN.md`。
+
 > 当前主线：把一条可核验海外 AI 信号做成中文短视频成片，并保留来源、判断、版权、分镜和技术验收证据。
 
 ## 当前状态

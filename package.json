@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start --hostname 127.0.0.1 --port 3100",
     "lint": "tsc --noEmit",
+    "transcription:setup": "node scripts/setup-local-whisper.mjs",
     "video:studio": "remotion studio remotion/index.ts",
     "video:still": "mkdir -p output/videos && remotion still remotion/index.ts WeeklyAiShort output/videos/weekly-ai-cover.png --frame=0",
     "video:render": "mkdir -p output/videos && remotion render remotion/index.ts WeeklyAiShort output/videos/weekly-ai-short.mp4 --codec=h264 --pixel-format=yuv420p",
@@ -17,9 +18,9 @@
     "video:check-assets": "node scripts/validate-source-clips.mjs",
     "video:check-assets:production": "node scripts/validate-source-clips.mjs --strict",
     "video:proof": "node scripts/proof-video.mjs --manifest=output/videos/codex-app-explainer-work/render-manifest.json",
-    "video:export": "npm run video:render:local:synced && npm run video:proof",
-    "video:export:review": "npm run video:export",
-    "video:export:production": "npm run video:export",
+    "video:export": "node scripts/export-production.mjs",
+    "video:export:review": "node scripts/export-production.mjs",
+    "video:export:production": "node scripts/export-production.mjs",
     "video:export:legacy": "npm run audio:voiceover && npm run video:check-assets:production && npm run video:render && npm run video:still && npm run video:postprocess && npm run video:publish-preview",
     "source-clips:placeholder": "node scripts/generate-placeholder-clips.mjs",
     "source-clips:excerpt": "node scripts/prepare-source-excerpt.mjs",
@@ -40,13 +41,16 @@
   "dependencies": {
     "@remotion/cli": "^4.0.486",
     "@remotion/renderer": "^4.0.486",
+    "edge-tts-universal": "^1.4.0",
     "ffmpeg-static": "^5.3.0",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
     "next": "^16.2.6",
+    "openai": "^6.46.0",
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
-    "remotion": "^4.0.486"
+    "remotion": "^4.0.486",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.14",

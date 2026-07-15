@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <rect width="1080" height="1920" fill="#101418"/>
+  <text x="74" y="410" fill="#ffffff" font-family="Arial" font-size="36" font-weight="900">PROGRAMMATIC TOOL CALLING</text>
+  <rect x="74" y="520" width="390" height="180" fill="#37f5a2"/>
+  <rect x="616" y="520" width="390" height="180" fill="#ffffff"/>
+  <rect x="345" y="840" width="390" height="180" fill="#ffd447"/>
+  <rect x="74" y="1160" width="390" height="180" fill="#ff6b5f"/>
+  <rect x="616" y="1160" width="390" height="180" fill="#8ab4ff"/>
+  <text x="112" y="630" fill="#101418" font-family="Arial" font-size="42" font-weight="900">PLAN</text>
+  <text x="654" y="630" fill="#101418" font-family="Arial" font-size="42" font-weight="900">CODE</text>
+  <text x="383" y="950" fill="#101418" font-family="Arial" font-size="42" font-weight="900">CALL</text>
+  <text x="112" y="1270" fill="#101418" font-family="Arial" font-size="42" font-weight="900">FILTER</text>
+  <text x="654" y="1270" fill="#101418" font-family="Arial" font-size="42" font-weight="900">RESULT</text>
+  <path d="M464 610 H616 M811 700 L700 840 M540 1020 L270 1160 M540 1020 L810 1160" fill="none" stroke="#ffffff" stroke-width="12"/>
+  <circle cx="540" cy="790" r="16" fill="#ffffff"/>
+</svg>

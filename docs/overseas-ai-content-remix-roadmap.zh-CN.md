@@ -1,5 +1,7 @@
 # 海外 AI 信息再制生产台路线图
 
+> Scope notice（2026-07-11）：本文档现在只描述 VideoBrief 的一个内容模板和历史实验，不再定义最终产品。顶层产品定义与实施顺序以 `video-production-workflow-and-roadmap.zh-CN.md` 为准。海外 AI、单信号解读和自营内容账号都可以作为 dogfood 场景，但不能反向限制通用视频生产流水线。
+
 ## 1. 项目定义
 
 当前项目不再定义为“AI 视频研究笔记产品”，而是定义为：

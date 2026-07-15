@@ -1,0 +1,777 @@
+{
+  "schemaVersion": 3,
+  "id": "phase1-self-serve-demo",
+  "title": "Phase 1 自助闭环样片",
+  "format": "video_project",
+  "targetAudience": "个人视频创作者与 AI 工作流实践者",
+  "status": "draft",
+  "technical_status": "stale",
+  "rights_status": "cleared",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "brief": {
+    "objective": "用自有合成录屏制作一条可技术验收的竖屏演示",
+    "audience": "个人视频创作者与 AI 工作流实践者",
+    "platform": "vertical-short-video",
+    "aspectRatio": "9:16",
+    "targetDurationSeconds": 45,
+    "tone": "清晰、克制",
+    "style": "真实画面配简洁标题与字幕",
+    "reference": "本机生成的测试画面",
+    "coreMessage": "从 Creative Brief 到通过 proof 的 MP4 不需要修改代码",
+    "cta": "检查项目产物",
+    "prohibitedMaterial": "未授权第三方连续原片、未经确认的事实"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "本机合成自有测试录屏",
+      "sourceType": "video",
+      "originUrl": "",
+      "assetPath": "public/project-assets/phase1-self-serve-demo/videobrief-phase1-owned-1783780737506.mp4",
+      "originalFileName": "",
+      "mimeType": "",
+      "bytes": 0,
+      "importedAt": "",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "本机使用 FFmpeg testsrc2 生成，无第三方素材，可用于技术验收",
+      "contentHash": "fcb006992cbb5d7dd9fa080cc98fbd206ea3a9a65900faf2b623387e0c647001",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "fcb006992cbb5d7dd9fa080cc98fbd206ea3a9a65900faf2b623387e0c647001",
+        "startedAt": "2026-07-12T01:35:32.450Z",
+        "completedAt": "2026-07-12T01:36:02.038Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "未检测到可转录音轨。",
+        "visualDescription": "画面为竖向测试图案，主体是从左至右排列的红、绿、黄、蓝、品红和青色垂直色带。蓝色、品红色和青色区域交界的下半部偏右位置，有品红与青色交错的方格状区域。画面中还出现跨越色带的彩色斜线，以及左侧不同位置和形态的灰色几何元素。三个代表帧的斜线位置、灰色元素形态和部分小型彩色方块分布有所不同。；本地理解覆盖 1.60s、4.00s、6.40s 代表帧。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-01-fact-01",
+            "statement": "三个代表帧中均可见由多条垂直纯色条带构成的测试图案，条带从左至右显示红、绿、黄、蓝、品红和青色区域。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "start": 1.6,
+                "note": "代表帧整体画面；可见多条自上而下的垂直纯色条带，颜色从左至右依次为红、绿、黄、蓝、品红、青色。"
+              },
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "start": 4,
+                "note": "代表帧整体画面；垂直彩色条带仍占据画面主体。"
+              },
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "start": 6.4,
+                "note": "代表帧整体画面；垂直彩色条带仍占据画面主体。"
+              }
+            ],
+            "reviewStatus": "proposed"
+          },
+          {
+            "id": "source-01-fact-02",
+            "statement": "三个代表帧的画面下半部偏右均可见品红与青色交错的方格状图案。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "start": 1.6,
+                "note": "画面下半部偏右，蓝色、品红色和青色条带交界附近可见品红与青色交错的方格状区域。"
+              },
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "start": 4,
+                "note": "画面下半部偏右，蓝色、品红色和青色条带交界附近可见品红与青色交错的方格状区域。"
+              },
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "start": 6.4,
+                "note": "画面下半部偏右，蓝色、品红色和青色条带交界附近可见品红与青色交错的方格状区域。"
+              }
+            ],
+            "reviewStatus": "proposed"
+          },
+          {
+            "id": "source-01-fact-03",
+            "statement": "三个代表帧中均可见一条跨越垂直色带的彩色斜线，斜线的位置或倾斜方向在代表帧之间不同。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "start": 1.6,
+                "note": "从画面左下区域向右上方向延伸的彩色斜线，经过多个垂直色带。"
+              },
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "start": 4,
+                "note": "从画面左上区域向右下区域延伸的彩色斜线，经过多个垂直色带。"
+              },
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "start": 6.4,
+                "note": "从画面左下区域向右上区域延伸的彩色斜线，经过多个垂直色带。"
+              }
+            ],
+            "reviewStatus": "proposed"
+          },
+          {
+            "id": "source-01-fact-04",
+            "statement": "左侧区域可见灰色几何元素；在1.60秒代表帧中为竖条，在4.00秒代表帧中为小矩形，在6.40秒代表帧中为十字形。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "start": 1.6,
+                "note": "画面左下至左中部可见灰色竖条；画面左下部另可见一条浅色斜线。"
+              },
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "start": 4,
+                "note": "画面左下部可见小型灰色矩形。"
+              },
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "start": 6.4,
+                "note": "画面左下至中部可见灰色十字形，由水平条和竖直条组成。"
+              }
+            ],
+            "reviewStatus": "proposed"
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-01-uncertainty-01",
+            "statement": "无法根据三个代表帧确定代表帧之间的连续动画、物体运动轨迹或完整视频中的其他画面内容。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "来源明确说明仅提供本地转录和代表帧，未提供完整动态画面覆盖。"
+              }
+            ],
+            "resolution": ""
+          },
+          {
+            "id": "source-01-uncertainty-02",
+            "statement": "无法从来源提取对白、旁白或其他音频信息。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "本地转录标注为“未检测到可转录音轨”。"
+              }
+            ],
+            "resolution": ""
+          },
+          {
+            "id": "source-01-uncertainty-no-audio",
+            "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "本地媒体流探测"
+              }
+            ],
+            "resolution": ""
+          },
+          {
+            "id": "source-01-uncertainty-frame-sampling",
+            "statement": "视频画面理解基于 20%、50% 和 80% 代表帧，未逐帧覆盖完整动态过程。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "time",
+                "start": 1.6,
+                "end": 1.6,
+                "note": "20% 本地代表帧"
+              },
+              {
+                "sourceId": "source-01",
+                "locatorType": "time",
+                "start": 4,
+                "end": 4,
+                "note": "50% 本地代表帧"
+              },
+              {
+                "sourceId": "source-01",
+                "locatorType": "time",
+                "start": 6.4,
+                "end": 6.4,
+                "note": "80% 本地代表帧"
+              }
+            ],
+            "resolution": ""
+          }
+        ]
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [],
+    "facts": [
+      {
+        "id": "source-01-fact-01",
+        "statement": "三个代表帧中均可见由多条垂直纯色条带构成的测试图案，条带从左至右显示红、绿、黄、蓝、品红和青色区域。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 1.6,
+            "note": "代表帧整体画面；可见多条自上而下的垂直纯色条带，颜色从左至右依次为红、绿、黄、蓝、品红、青色。"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 4,
+            "note": "代表帧整体画面；垂直彩色条带仍占据画面主体。"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 6.4,
+            "note": "代表帧整体画面；垂直彩色条带仍占据画面主体。"
+          }
+        ],
+        "reviewStatus": "proposed"
+      },
+      {
+        "id": "source-01-fact-02",
+        "statement": "三个代表帧的画面下半部偏右均可见品红与青色交错的方格状图案。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 1.6,
+            "note": "画面下半部偏右，蓝色、品红色和青色条带交界附近可见品红与青色交错的方格状区域。"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 4,
+            "note": "画面下半部偏右，蓝色、品红色和青色条带交界附近可见品红与青色交错的方格状区域。"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 6.4,
+            "note": "画面下半部偏右，蓝色、品红色和青色条带交界附近可见品红与青色交错的方格状区域。"
+          }
+        ],
+        "reviewStatus": "proposed"
+      },
+      {
+        "id": "source-01-fact-03",
+        "statement": "三个代表帧中均可见一条跨越垂直色带的彩色斜线，斜线的位置或倾斜方向在代表帧之间不同。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 1.6,
+            "note": "从画面左下区域向右上方向延伸的彩色斜线，经过多个垂直色带。"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 4,
+            "note": "从画面左上区域向右下区域延伸的彩色斜线，经过多个垂直色带。"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 6.4,
+            "note": "从画面左下区域向右上区域延伸的彩色斜线，经过多个垂直色带。"
+          }
+        ],
+        "reviewStatus": "proposed"
+      },
+      {
+        "id": "source-01-fact-04",
+        "statement": "左侧区域可见灰色几何元素；在1.60秒代表帧中为竖条，在4.00秒代表帧中为小矩形，在6.40秒代表帧中为十字形。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 1.6,
+            "note": "画面左下至左中部可见灰色竖条；画面左下部另可见一条浅色斜线。"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 4,
+            "note": "画面左下部可见小型灰色矩形。"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 6.4,
+            "note": "画面左下至中部可见灰色十字形，由水平条和竖直条组成。"
+          }
+        ],
+        "reviewStatus": "proposed"
+      }
+    ],
+    "uncertainties": [
+      {
+        "id": "source-01-uncertainty-01",
+        "statement": "无法根据三个代表帧确定代表帧之间的连续动画、物体运动轨迹或完整视频中的其他画面内容。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "来源明确说明仅提供本地转录和代表帧，未提供完整动态画面覆盖。"
+          }
+        ],
+        "resolution": ""
+      },
+      {
+        "id": "source-01-uncertainty-02",
+        "statement": "无法从来源提取对白、旁白或其他音频信息。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "本地转录标注为“未检测到可转录音轨”。"
+          }
+        ],
+        "resolution": ""
+      },
+      {
+        "id": "source-01-uncertainty-no-audio",
+        "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "本地媒体流探测"
+          }
+        ],
+        "resolution": ""
+      },
+      {
+        "id": "source-01-uncertainty-frame-sampling",
+        "statement": "视频画面理解基于 20%、50% 和 80% 代表帧，未逐帧覆盖完整动态过程。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "time",
+            "start": 1.6,
+            "end": 1.6,
+            "note": "20% 本地代表帧"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "time",
+            "start": 4,
+            "end": 4,
+            "note": "50% 本地代表帧"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "time",
+            "start": 6.4,
+            "end": 6.4,
+            "note": "80% 本地代表帧"
+          }
+        ],
+        "resolution": ""
+      }
+    ]
+  },
+  "narrative": {
+    "status": "completed",
+    "error": "",
+    "activeVersionId": "",
+    "versions": [],
+    "pendingDraft": {
+      "id": "narrative-01",
+      "generatedAt": "2026-07-12T01:38:24.537Z",
+      "model": "gpt-5.6-luna",
+      "promptVersion": "videobrief-2026-07-11-v1",
+      "inputHash": "4835e5a7de58221096a35e9c801e533b6d69f2bd394cc463643f9e3bc81cb6c9",
+      "conclusion": "以本机生成的竖屏测试画面作为唯一可见证据，视频展示从 Creative Brief 到项目产物检查的演示结构。画面内容只确认测试图案、代表帧差异和无可转录音轨；“无需修改代码”应作为待验收的流程结论，不能仅凭当前代表帧直接证明。",
+      "hook": "不用改代码，先看一条合成录屏如何被整理成可检查的 MP4 产物。",
+      "outline": [
+        "先展示竖屏测试画面的整体结构，建立“这是自有合成录屏”的上下文。",
+        "通过三个代表帧，展示垂直色带、方格区域、彩色斜线和灰色几何元素。",
+        "将画面变化转化为验收关注点：可见内容、时间点和产物检查。",
+        "结尾回到项目产物检查，并明确完整动画连续性和音频状态仍需人工确认。"
+      ],
+      "voiceoverScript": "这是本机生成的竖屏测试录屏。画面主体由多条垂直纯色色带组成，从左至右可以看到红、绿、黄、蓝、品红和青色。今天只围绕可见证据检查产物，不补写画面之外的事实。\n\n把画面拆开看，色带并不是唯一的检查对象。在下半部偏右，蓝色、品红色和青色交界附近，可以看到品红与青色交错的方格状区域。这个局部适合用一次短暂的框选或轻微放大提示。\n\n接着对照三个代表帧。跨越垂直色带的彩色斜线始终可见，但在不同代表帧中的位置或倾斜方向不同；左侧灰色几何元素也分别呈现为竖条、小矩形和十字形。这里展示的是代表帧差异，不把它扩大解释为完整动画轨迹。\n\n因此，验收可以先记录三类可见结果：主体色带是否出现，方格区域是否出现，以及斜线和灰色几何元素在代表帧中的状态。画面证据支持这些可见检查项，但不支持推断完整视频的所有变化。\n\n最后检查项目产物：确认输出的是目标竖屏 MP4，并对照 Creative Brief 检查画面是否保持自有合成录屏和清晰字幕。当前资料没有检测到可转录音轨，也只覆盖三个代表帧；完整动画连续性、最终编码结果，以及“无需修改代码”的结论，都需要人工确认。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "来源为本机合成自有测试录屏，已完成处理；视觉理解覆盖三个代表帧，未检测到可转录音轨。"
+        },
+        {
+          "sourceId": "source-01",
+          "locatorType": "image",
+          "start": 1.6,
+          "note": "三个代表帧均显示竖向测试图案、垂直色带、彩色斜线和灰色几何元素。"
+        }
+      ],
+      "uncertainties": [
+        "无法根据 1.60 秒、4.00 秒和 6.40 秒三个代表帧确认完整视频中的连续动画、物体运动轨迹或其他未采样画面；需要人工逐帧检查。",
+        "来源未检测到可转录音轨，无法为视频补写对白、旁白或音频内容；需要人工确认最终 MP4 是否应包含音频。",
+        "“不需要修改代码”是 Creative Brief 的核心信息，但当前来源仅证明代表帧中的视觉内容，不能单独证明代码未被修改或流程已经通过 proof；需要检查项目版本记录、导出日志或最终验收结果。",
+        "最终 MP4 的竖屏比例、时长、编码状态和字幕可读性未由来源证据确认；需要人工检查导出文件。"
+      ]
+    },
+    "pendingScenes": [
+      {
+        "id": "scene-01",
+        "enabled": true,
+        "sourceId": "source-01",
+        "sourceStart": 1.6,
+        "sourceEnd": 10.6,
+        "eyebrow": "00–06 秒｜建立上下文",
+        "title": "先确认画面本身",
+        "subtitle": "本机合成｜竖屏测试画面",
+        "narration": "这是本机生成的竖屏测试录屏。画面主体由多条垂直纯色色带组成，从左至右可以看到红、绿、黄、蓝、品红和青色。今天只围绕可见证据检查产物，不补写画面之外的事实。",
+        "visualRequirement": "使用自有合成录屏的竖屏画面作为全屏背景；叠加简洁标题和底部字幕。不要使用第三方连续原片。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 1.6,
+            "note": "代表帧整体画面可见竖向测试图案，以及从左至右排列的红、绿、黄、蓝、品红和青色垂直色带。"
+          }
+        ],
+        "candidates": [
+          {
+            "id": "candidate-01",
+            "sourceId": "source-01",
+            "assetPath": "public/project-assets/phase1-self-serve-demo/videobrief-phase1-owned-1783780737506.mp4",
+            "mediaType": "video",
+            "sourceStart": 1.6,
+            "sourceEnd": 10.6,
+            "matchReason": "代表帧整体画面可见竖向测试图案，以及从左至右排列的红、绿、黄、蓝、品红和青色垂直色带。",
+            "rightsStatus": "cleared"
+          }
+        ],
+        "selectedCandidateId": "",
+        "generatedBy": "ai",
+        "userEdited": false
+      },
+      {
+        "id": "scene-02",
+        "enabled": true,
+        "sourceId": "source-01",
+        "sourceStart": 4,
+        "sourceEnd": 13,
+        "eyebrow": "06–15 秒｜检查结构",
+        "title": "再看局部细节",
+        "subtitle": "局部核对｜方格区域",
+        "narration": "把画面拆开看，色带并不是唯一的检查对象。在下半部偏右，蓝色、品红色和青色交界附近，可以看到品红与青色交错的方格状区域。这个局部适合用一次短暂的框选或轻微放大提示。",
+        "visualRequirement": "保留原始画面比例，在方格区域附近加入细边框或短暂放大；标注必须指向画面中实际可见的位置。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 4,
+            "note": "画面下半部偏右可见品红与青色交错的方格状图案，位于蓝色、品红色和青色区域交界附近。"
+          }
+        ],
+        "candidates": [
+          {
+            "id": "candidate-01",
+            "sourceId": "source-01",
+            "assetPath": "public/project-assets/phase1-self-serve-demo/videobrief-phase1-owned-1783780737506.mp4",
+            "mediaType": "video",
+            "sourceStart": 4,
+            "sourceEnd": 13,
+            "matchReason": "画面下半部偏右可见品红与青色交错的方格状图案，位于蓝色、品红色和青色区域交界附近。",
+            "rightsStatus": "cleared"
+          }
+        ],
+        "selectedCandidateId": "",
+        "generatedBy": "ai",
+        "userEdited": false
+      },
+      {
+        "id": "scene-03",
+        "enabled": true,
+        "sourceId": "source-01",
+        "sourceStart": 1.6,
+        "sourceEnd": 10.6,
+        "eyebrow": "15–25 秒｜对照代表帧",
+        "title": "代表帧只说明可见差异",
+        "subtitle": "1.60 s　→　4.00 s　→　6.40 s",
+        "narration": "接着对照三个代表帧。跨越垂直色带的彩色斜线始终可见，但在不同代表帧中的位置或倾斜方向不同；左侧灰色几何元素也分别呈现为竖条、小矩形和十字形。这里展示的是代表帧差异，不把它扩大解释为完整动画轨迹。",
+        "visualRequirement": "采用三段代表帧并列或快速切换；每帧显示时间标签。避免使用补间动画暗示未被来源确认的连续运动。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 1.6,
+            "note": "1.60 秒代表帧可见跨越色带的左下至右上的彩色斜线，以及左侧灰色竖条。"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 4,
+            "note": "4.00 秒代表帧可见左上至右下方向的彩色斜线，以及左下部灰色小矩形。"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 6.4,
+            "note": "6.40 秒代表帧可见左下至右上的彩色斜线，以及左侧灰色十字形。"
+          }
+        ],
+        "candidates": [
+          {
+            "id": "candidate-01",
+            "sourceId": "source-01",
+            "assetPath": "public/project-assets/phase1-self-serve-demo/videobrief-phase1-owned-1783780737506.mp4",
+            "mediaType": "video",
+            "sourceStart": 1.6,
+            "sourceEnd": 10.6,
+            "matchReason": "1.60 秒代表帧可见跨越色带的左下至右上的彩色斜线，以及左侧灰色竖条。",
+            "rightsStatus": "cleared"
+          }
+        ],
+        "selectedCandidateId": "",
+        "generatedBy": "ai",
+        "userEdited": false
+      },
+      {
+        "id": "scene-04",
+        "enabled": true,
+        "sourceId": "source-01",
+        "sourceStart": 1.6,
+        "sourceEnd": 10.6,
+        "eyebrow": "25–35 秒｜形成验收视角",
+        "title": "把画面变成检查项",
+        "subtitle": "可见内容｜时间点｜状态",
+        "narration": "因此，验收可以先记录三类可见结果：主体色带是否出现，方格区域是否出现，以及斜线和灰色几何元素在代表帧中的状态。画面证据支持这些可见检查项，但不支持推断完整视频的所有变化。",
+        "visualRequirement": "画面左侧或底部出现三项简洁检查标记，分别对应色带、方格区域、斜线与灰色元素；不要添加来源未确认的技术指标或性能结论。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "start": 1.6,
+            "note": "三个代表帧均可见垂直色带、彩色斜线和左侧灰色几何元素；下半部偏右可见品红与青色方格区域。"
+          }
+        ],
+        "candidates": [
+          {
+            "id": "candidate-01",
+            "sourceId": "source-01",
+            "assetPath": "public/project-assets/phase1-self-serve-demo/videobrief-phase1-owned-1783780737506.mp4",
+            "mediaType": "video",
+            "sourceStart": 1.6,
+            "sourceEnd": 10.6,
+            "matchReason": "三个代表帧均可见垂直色带、彩色斜线和左侧灰色几何元素；下半部偏右可见品红与青色方格区域。",
+            "rightsStatus": "cleared"
+          }
+        ],
+        "selectedCandidateId": "",
+        "generatedBy": "ai",
+        "userEdited": false
+      },
+      {
+        "id": "scene-05",
+        "enabled": true,
+        "sourceId": "source-01",
+        "sourceStart": 0,
+        "sourceEnd": 9,
+        "eyebrow": "35–45 秒｜回到项目产物",
+        "title": "检查项目产物",
+        "subtitle": "检查项目产物｜人工确认未覆盖项",
+        "narration": "最后检查项目产物：确认输出的是目标竖屏 MP4，并对照 Creative Brief 检查画面是否保持自有合成录屏和清晰字幕。当前资料没有检测到可转录音轨，也只覆盖三个代表帧；完整动画连续性、最终编码结果，以及“无需修改代码”的结论，都需要人工确认。",
+        "visualRequirement": "显示最终竖屏视频的项目文件或导出界面，使用简洁的“待人工确认”提示；若实际导出文件、编码信息或代码变更状态未在录屏中出现，不得伪造检查结果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "来源记录未检测到可转录音轨，并明确画面理解仅覆盖代表帧，未覆盖完整动态过程。"
+          }
+        ],
+        "candidates": [
+          {
+            "id": "candidate-01",
+            "sourceId": "source-01",
+            "assetPath": "public/project-assets/phase1-self-serve-demo/videobrief-phase1-owned-1783780737506.mp4",
+            "mediaType": "video",
+            "sourceStart": 0,
+            "sourceEnd": 9,
+            "matchReason": "来源记录未检测到可转录音轨，并明确画面理解仅覆盖代表帧，未覆盖完整动态过程。",
+            "rightsStatus": "cleared"
+          }
+        ],
+        "selectedCandidateId": "",
+        "generatedBy": "ai",
+        "userEdited": false
+      }
+    ],
+    "generatedAt": "2026-07-12T01:38:24.537Z",
+    "model": "gpt-5.6-luna",
+    "promptVersion": "videobrief-2026-07-11-v1"
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-5.6",
+    "transcriptionModel": "gpt-4o-mini-transcribe",
+    "promptVersion": "videobrief-2026-07-11-v1",
+    "calls": [
+      {
+        "id": "ai-call-001",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "2223dcfcc3b8c641b480bf8272ad51716babf658905fa5c87b3fc52ae4b773a5",
+        "startedAt": "2026-07-12T01:35:32.450Z",
+        "completedAt": "2026-07-12T01:36:02.039Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-002",
+        "purpose": "narrative-planning",
+        "status": "failed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "582fa7d701f53ffbd4fdc4b9447db5534b2c04981468b8d0f5b2d069b7962855",
+        "startedAt": "2026-07-12T01:36:19.237Z",
+        "completedAt": "2026-07-12T01:37:12.185Z",
+        "error": "Narrative scene 1 has no source references.",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-003",
+        "purpose": "narrative-planning",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "4835e5a7de58221096a35e9c801e533b6d69f2bd394cc463643f9e3bc81cb6c9",
+        "startedAt": "2026-07-12T01:37:41.307Z",
+        "completedAt": "2026-07-12T01:38:24.537Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-004",
+        "purpose": "candidate-ranking",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "e26aab9c09881deb249afe2fcb791774e61af4c74b03db2fe63e2285108cb5d9",
+        "startedAt": "2026-07-12T01:38:47.079Z",
+        "completedAt": "2026-07-12T01:38:51.933Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-005",
+        "purpose": "production-assets",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "85dbae1263922727191b8c8e595a97604fb032003c0544b82f028f0e42944afc",
+        "startedAt": "2026-07-12T01:39:00.005Z",
+        "completedAt": "2026-07-12T01:39:05.544Z",
+        "error": "",
+        "cacheHit": false
+      }
+    ]
+  },
+  "editorial": {
+    "claim": "从 Creative Brief 到通过 proof 的 MP4 不需要修改代码",
+    "whyItMatters": "",
+    "chinaContext": "",
+    "riskNote": ""
+  },
+  "platformCopy": {
+    "coverTitle": "竖屏测试画面：先看可见证据",
+    "title": "从 Creative Brief 到项目产物：竖屏测试画面的代表帧检查",
+    "description": "用本机生成的竖屏测试画面，按代表帧检查垂直色带、方格区域、彩色斜线和灰色几何元素。视频仅展示已确认的画面证据，不推断完整动画轨迹；最终 MP4、编码、字幕、音频状态及“无需修改代码”的结论仍需人工确认。",
+    "hashtags": [
+      "#竖屏视频",
+      "#视频工作流",
+      "#AI工作流",
+      "#合成录屏",
+      "#视频验收",
+      "#CreativeBrief"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "",
+    "updatedAt": "2026-07-12T01:39:05.544Z",
+    "sourceImportCount": 1,
+    "manualSaveCount": 0,
+    "renderAttemptCount": 1,
+    "renderFailureCount": 0,
+    "lastRenderStartedAt": "2026-07-11T16:27:56.273Z",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "outputs": {
+    "outputVideo": "output/videos/phase1-self-serve-demo.mp4",
+    "publicRender": "public/renders/phase1-self-serve-demo.mp4",
+    "workDir": "output/videos/phase1-self-serve-demo-work",
+    "exportDir": "output/exports/phase1-self-serve-demo",
+    "coverImage": "output/exports/phase1-self-serve-demo/cover.png",
+    "platformCopy": "output/exports/phase1-self-serve-demo/platform-copy.json",
+    "sourceList": "output/exports/phase1-self-serve-demo/source-list.json",
+    "projectSnapshot": "output/exports/phase1-self-serve-demo/project.snapshot.json"
+  },
+  "render": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "voice": "Eddy (中文（中国大陆）)",
+    "rate": 205
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 0,
+      "sourceEnd": 5,
+      "eyebrow": "PHASE 1 / SELF SERVE",
+      "title": "第二个项目不需要定制代码（失效验证）",
+      "subtitle": "从空项目填写创作目标，导入自有素材，编辑后直接导出通过技术验收的成片。",
+      "narration": "从空项目填写创作目标，导入自有素材，编辑后直接导出通过技术验收的成片。",
+      "visualRequirement": "",
+      "sourceReferences": [],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/phase1-self-serve-demo/videobrief-phase1-owned-1783780737506.mp4",
+          "mediaType": "video",
+          "sourceStart": 0,
+          "sourceEnd": 8,
+          "matchReason": "画面为标准彩色测试图案，包含红、绿、黄、蓝、品红和青色垂直色带及几何测试元素，可用于表现“失效验证”或测试状态；但与“第二个项目不需要定制代码”的具体项目内容没有直接视觉对应。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "",
+      "generatedBy": "user",
+      "userEdited": false
+    }
+  ]
+}

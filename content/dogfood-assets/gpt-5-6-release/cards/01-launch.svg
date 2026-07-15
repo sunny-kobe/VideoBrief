@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <rect width="1080" height="1920" fill="#07110f"/>
+  <rect x="70" y="340" width="940" height="6" fill="#37f5a2"/>
+  <text x="74" y="430" fill="#b8c8c2" font-family="Arial" font-size="30" font-weight="700">JUL 09 / 2026</text>
+  <text x="55" y="1050" fill="#ffffff" font-family="Arial" font-size="460" font-weight="900">5.6</text>
+  <rect x="74" y="1220" width="280" height="110" fill="#37f5a2"/>
+  <rect x="374" y="1220" width="280" height="110" fill="#ffd447"/>
+  <rect x="674" y="1220" width="280" height="110" fill="#ff6b5f"/>
+  <text x="96" y="1292" fill="#07110f" font-family="Arial" font-size="38" font-weight="900">SOL</text>
+  <text x="396" y="1292" fill="#07110f" font-family="Arial" font-size="38" font-weight="900">TERRA</text>
+  <text x="696" y="1292" fill="#07110f" font-family="Arial" font-size="38" font-weight="900">LUNA</text>
+</svg>

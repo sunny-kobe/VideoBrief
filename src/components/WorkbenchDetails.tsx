@@ -1,13 +1,14 @@
-import { Film, SlidersHorizontal, Subtitles, Video } from 'lucide-react';
+import { BrainCircuit, CheckCircle2, Film, SlidersHorizontal, Subtitles, Video, WandSparkles } from 'lucide-react';
 import VoicePreviewPrototype from '@/src/components/VoicePreviewPrototype';
 import {
   ProductionScene,
-  ShortVideoEditorial,
+  PlatformCopy,
   ShortVideoProject,
   ShortVideoProjectScene,
   ShortVideoSource,
 } from '@/src/shortVideoBrief';
 import { WorkbenchView } from '@/src/workbench';
+import { researchReviewSummary } from '@/src/researchReview';
 
 interface WorkbenchDetailsProps {
   view: WorkbenchView;
@@ -17,8 +18,9 @@ interface WorkbenchDetailsProps {
   activeSource?: ShortVideoSource;
   renderedScene?: ProductionScene;
   onUpdateScene: (patch: Partial<ShortVideoProjectScene>) => void;
-  onUpdateEditorial: (patch: Partial<ShortVideoEditorial>) => void;
+  onConfirmVisual: () => void;
   onUpdateSource: (sourceId: string, patch: Partial<ShortVideoSource>) => void;
+  onUpdatePlatformCopy: (patch: Partial<PlatformCopy>) => void;
 }
 
 const fieldClass =
@@ -36,9 +38,56 @@ export default function WorkbenchDetails({
   activeSource,
   renderedScene,
   onUpdateScene,
-  onUpdateEditorial,
+  onConfirmVisual,
   onUpdateSource,
+  onUpdatePlatformCopy,
 }: WorkbenchDetailsProps) {
+  if (view === 'research') {
+    const completed = project.sources.filter((source) => source.processing.status === 'completed').length;
+    const failed = project.sources.filter((source) => source.processing.status === 'failed').length;
+    const review = researchReviewSummary(project);
+    const reviewedFacts = review.keyFacts.length - review.pendingFacts.length;
+    return (
+      <section className="rounded-md border border-slate-200 bg-white">
+        <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
+          <BrainCircuit aria-hidden="true" className="h-4 w-4 text-slate-600" />
+          <h2 className="text-sm font-extrabold text-slate-950">项目核验进度</h2>
+        </div>
+        <dl className="grid grid-cols-2 gap-4 p-4 text-xs">
+          <div><dt className="font-bold text-slate-400">处理完成</dt><dd className="mt-1 font-mono font-extrabold">{completed} / {project.sources.length}</dd></div>
+          <div><dt className="font-bold text-slate-400">失败</dt><dd className="mt-1 font-mono font-extrabold">{failed}</dd></div>
+          <div><dt className="font-bold text-slate-400">关键主张</dt><dd className="mt-1 font-mono font-extrabold">{reviewedFacts} / {review.keyFacts.length}</dd></div>
+          <div><dt className="font-bold text-slate-400">高风险问题</dt><dd className="mt-1 font-mono font-extrabold">{review.unresolvedUncertainties.length} 待处理</dd></div>
+          <div className="col-span-2"><dt className="font-bold text-slate-400">完整提取</dt><dd className="mt-1 font-mono font-extrabold">{project.research.facts.length} 条事实 · {project.research.uncertainties.length} 条疑问</dd></div>
+        </dl>
+      </section>
+    );
+  }
+
+  if (view === 'planning') {
+    return (
+      <section className="rounded-md border border-slate-200 bg-white">
+        <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
+          <WandSparkles aria-hidden="true" className="h-4 w-4 text-slate-600" />
+          <h2 className="text-sm font-extrabold text-slate-950">AI 运行详情</h2>
+        </div>
+        <div className="divide-y divide-slate-200">
+          {project.ai.calls.slice().reverse().slice(0, 8).map((call) => (
+            <div className="p-3" key={call.id}>
+              <div className="flex items-center justify-between gap-2">
+                <p className="text-xs font-extrabold text-slate-900">{call.purpose.startsWith('source-analysis') ? '资料解析' : call.purpose.startsWith('narrative-planning') ? '脚本生成' : call.purpose.startsWith('candidate-ranking') ? '候选画面推荐' : '生产文案生成'}</p>
+                <span className={`text-[10px] font-bold ${call.status === 'completed' ? 'text-emerald-700' : 'text-rose-700'}`}>{call.status === 'completed' ? '完成' : '失败'}</span>
+              </div>
+              <details className="mt-1 text-[10px] text-slate-500"><summary className="cursor-pointer">技术信息</summary><p className="mt-1 break-all font-mono">{call.model} · cache={String(call.cacheHit)}</p></details>
+              {call.error ? <p className="mt-2 text-xs leading-relaxed text-rose-700">{call.error}</p> : null}
+            </div>
+          ))}
+          {!project.ai.calls.length ? <p className="p-4 text-xs text-slate-500">尚无 AI 调用记录。</p> : null}
+        </div>
+      </section>
+    );
+  }
+
   if (view === 'subtitles') {
     return (
       <section className="rounded-md border border-slate-200 bg-white">
@@ -53,7 +102,12 @@ export default function WorkbenchDetails({
               <p className="mt-1 text-sm font-extrabold text-slate-950">{activeScene.title || '未命名片段'}</p>
               <p className="mt-3 text-sm leading-relaxed text-slate-700">{activeScene.subtitle || '暂无字幕文案'}</p>
               <div className="mt-4">
-                <VoicePreviewPrototype sceneId={activeScene.id} text={activeScene.subtitle} />
+                <VoicePreviewPrototype
+                  projectId={project.id}
+                  sceneId={activeScene.id}
+                  text={activeScene.narration || activeScene.subtitle}
+                  voice={project.render.voice}
+                />
               </div>
             </>
           ) : (
@@ -84,14 +138,14 @@ export default function WorkbenchDetails({
               </label>
               <div className="grid grid-cols-2 gap-3">
                 <label className="block">
-                  <FieldLabel>核验状态</FieldLabel>
+                  <FieldLabel>来源可信度</FieldLabel>
                   <select
                     className={fieldClass}
                     value={activeSource.verificationStatus}
                     onChange={(event) => onUpdateSource(activeSource.id, { verificationStatus: event.target.value as ShortVideoSource['verificationStatus'] })}
                   >
-                    <option value="verified">已核验</option>
-                    <option value="needs_check">待核验</option>
+                    <option value="verified">来源已确认</option>
+                    <option value="needs_check">来源待确认</option>
                     <option value="weak">弱证据</option>
                   </select>
                 </label>
@@ -117,27 +171,6 @@ export default function WorkbenchDetails({
                 />
               </label>
 
-              <div className="border-t border-slate-200 pt-4">
-                <h3 className="text-xs font-extrabold text-slate-950">内容依据</h3>
-                <div className="mt-3 space-y-4">
-                  <label className="block">
-                    <FieldLabel>可核验事实</FieldLabel>
-                    <textarea className={`${fieldClass} min-h-20 resize-y`} value={project.editorial.claim} onChange={(event) => onUpdateEditorial({ claim: event.target.value })} />
-                  </label>
-                  <label className="block">
-                    <FieldLabel>为什么重要</FieldLabel>
-                    <textarea className={`${fieldClass} min-h-20 resize-y`} value={project.editorial.whyItMatters} onChange={(event) => onUpdateEditorial({ whyItMatters: event.target.value })} />
-                  </label>
-                  <label className="block">
-                    <FieldLabel>中文语境判断</FieldLabel>
-                    <textarea className={`${fieldClass} min-h-20 resize-y`} value={project.editorial.chinaContext} onChange={(event) => onUpdateEditorial({ chinaContext: event.target.value })} />
-                  </label>
-                  <label className="block">
-                    <FieldLabel>风险与不确定点</FieldLabel>
-                    <textarea className={`${fieldClass} min-h-20 resize-y`} value={project.editorial.riskNote} onChange={(event) => onUpdateEditorial({ riskNote: event.target.value })} />
-                  </label>
-                </div>
-              </div>
             </>
           ) : (
             <p className="text-sm text-slate-500">请先选择一个素材。</p>
@@ -172,6 +205,35 @@ export default function WorkbenchDetails({
             <dd className="mt-1 font-mono font-extrabold text-slate-900">{project.render.rate}</dd>
           </div>
         </dl>
+        <div className="space-y-4 border-t border-slate-200 p-4">
+          <h3 className="text-xs font-extrabold text-slate-950">可选发布信息</h3>
+          <label className="block">
+            <FieldLabel>封面标题</FieldLabel>
+            <input className={fieldClass} value={project.platformCopy.coverTitle} onChange={(event) => onUpdatePlatformCopy({ coverTitle: event.target.value })} />
+          </label>
+          <label className="block">
+            <FieldLabel>平台标题</FieldLabel>
+            <input className={fieldClass} value={project.platformCopy.title} onChange={(event) => onUpdatePlatformCopy({ title: event.target.value })} />
+          </label>
+          <label className="block">
+            <FieldLabel>平台简介</FieldLabel>
+            <textarea className={`${fieldClass} min-h-24 resize-y leading-relaxed`} value={project.platformCopy.description} onChange={(event) => onUpdatePlatformCopy({ description: event.target.value })} />
+          </label>
+          <label className="block">
+            <FieldLabel>标签（逗号分隔）</FieldLabel>
+            <input className={fieldClass} value={project.platformCopy.hashtags.join(', ')} onChange={(event) => onUpdatePlatformCopy({ hashtags: event.target.value.split(/[,，]/).map((value) => value.trim()).filter(Boolean) })} />
+          </label>
+        </div>
+        <details className="border-t border-slate-200">
+          <summary className="cursor-pointer px-4 py-3 text-xs font-extrabold text-slate-700">制作记录</summary>
+          <dl className="grid grid-cols-2 gap-4 border-t border-slate-200 p-4 text-xs">
+            <div><dt className="font-bold text-slate-400">素材导入 / 保存</dt><dd className="mt-1 font-mono font-extrabold text-slate-900">{project.production.sourceImportCount} / {project.production.manualSaveCount}</dd></div>
+            <div><dt className="font-bold text-slate-400">渲染尝试 / 失败</dt><dd className="mt-1 font-mono font-extrabold text-slate-900">{project.production.renderAttemptCount} / {project.production.renderFailureCount}</dd></div>
+            <div><dt className="font-bold text-slate-400">复用素材</dt><dd className="mt-1 font-mono font-extrabold text-slate-900">{project.production.reusedSourceIds.length}</dd></div>
+            <div><dt className="font-bold text-slate-400">研究审核</dt><dd className="mt-1 font-extrabold text-slate-900">{project.production.researchReviewedAt ? '已完成' : '尚未完成'}</dd></div>
+            <div><dt className="font-bold text-slate-400">首次技术验收</dt><dd className="mt-1 font-extrabold text-slate-900">{project.production.firstRenderCompletedAt ? '已通过' : '尚未通过'}</dd></div>
+          </dl>
+        </details>
       </section>
     );
   }
@@ -195,10 +257,19 @@ export default function WorkbenchDetails({
                 参与成片
               </label>
             </div>
+            <label className="flex cursor-pointer items-center justify-between gap-3 rounded-md border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs font-bold text-slate-700">
+              <span>显示顶部编辑文案</span>
+              <input
+                className="h-4 w-4 accent-emerald-700"
+                type="checkbox"
+                checked={activeScene.showEditorialOverlay !== false}
+                onChange={(event) => onUpdateScene({ showEditorialOverlay: event.target.checked })}
+              />
+            </label>
             <label className="block">
               <FieldLabel>画面素材</FieldLabel>
               <select className={fieldClass} value={activeScene.sourceId} onChange={(event) => onUpdateScene({ sourceId: event.target.value })}>
-                {project.sources.map((source) => <option key={source.id} value={source.id}>{source.label}</option>)}
+                {project.sources.filter((source) => source.sourceType === 'video' || source.sourceType === 'image').map((source) => <option key={source.id} value={source.id}>{source.label}</option>)}
               </select>
             </label>
             <div className="grid grid-cols-2 gap-3">
@@ -230,9 +301,38 @@ export default function WorkbenchDetails({
               <input className={fieldClass} value={activeScene.title} onChange={(event) => onUpdateScene({ title: event.target.value })} />
             </label>
             <label className="block">
-              <FieldLabel>字幕文案（同时用于旁白）</FieldLabel>
+              <FieldLabel>字幕文案</FieldLabel>
               <textarea className={`${fieldClass} min-h-28 resize-y leading-relaxed`} value={activeScene.subtitle} onChange={(event) => onUpdateScene({ subtitle: event.target.value })} />
             </label>
+            <label className="block">
+              <FieldLabel>旁白文案</FieldLabel>
+              <textarea className={`${fieldClass} min-h-28 resize-y leading-relaxed`} value={activeScene.narration} onChange={(event) => onUpdateScene({ narration: event.target.value })} />
+            </label>
+            <label className="block">
+              <FieldLabel>画面需求</FieldLabel>
+              <textarea className={`${fieldClass} min-h-20 resize-y leading-relaxed`} value={activeScene.visualRequirement} onChange={(event) => onUpdateScene({ visualRequirement: event.target.value })} />
+            </label>
+            <div className={`rounded-md border p-3 ${activeScene.selectedCandidateId ? 'border-emerald-200 bg-emerald-50' : 'border-amber-200 bg-amber-50'}`}>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 aria-hidden="true" className={`mt-0.5 h-4 w-4 shrink-0 ${activeScene.selectedCandidateId ? 'text-emerald-700' : 'text-amber-700'}`} />
+                <div>
+                  <p className="text-xs font-extrabold text-slate-900">{activeScene.selectedCandidateId ? '当前画面已确认' : '等待你确认画面'}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                    {activeScene.selectedCandidateId
+                      ? '修改素材或时间段后，需要重新确认。'
+                      : '请先查看上方预览，确认这段画面可以用于成片。'}
+                  </p>
+                </div>
+              </div>
+              <button
+                className="mt-3 inline-flex h-9 w-full items-center justify-center gap-2 rounded-md bg-emerald-700 px-3 text-xs font-extrabold text-white hover:bg-emerald-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+                type="button"
+                onClick={onConfirmVisual}
+              >
+                <CheckCircle2 aria-hidden="true" className="h-4 w-4" />
+                {activeScene.selectedCandidateId ? '重新确认当前画面' : '确认使用当前画面'}
+              </button>
+            </div>
           </>
         ) : (
           <p className="text-sm text-slate-500">请先新增或选择一个片段。</p>

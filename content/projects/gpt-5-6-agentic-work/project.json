@@ -1,0 +1,5449 @@
+{
+  "schemaVersion": 3,
+  "id": "gpt-5-6-agentic-work",
+  "title": "GPT-5.6：真正升级的是工作方式",
+  "format": "video_project",
+  "targetAudience": "中文开发者、独立开发者和 AI 工作流实践者",
+  "status": "draft",
+  "technical_status": "passed",
+  "rights_status": "review_required",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "brief": {
+    "objective": "用 60 秒解释 GPT-5.6 发布后对开发者真正重要的变化，并给出可执行的验收建议。",
+    "audience": "中文开发者、独立开发者和 AI 工作流实践者",
+    "platform": "小红书 / 视频号",
+    "aspectRatio": "9:16",
+    "targetDurationSeconds": 60,
+    "tone": "克制、清晰、有判断",
+    "style": "瑞士编辑设计、强信息层级、轻动态",
+    "reference": "OpenAI 2026-07-09 官方发布页和近 30 天社区实测",
+    "coreMessage": "GPT-5.6 的关键不是更会聊天，而是模型、程序化工具、持久化推理和多智能体开始组成可持续运行的工作系统。",
+    "cta": "拿一个真实仓库，用明确目标、工具边界和测试跑一遍。",
+    "prohibitedMaterial": "未经核验的 benchmark、第三方连续原片、品牌 logo 搬运和夸张性能承诺"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "GPT-5.6 发布研究笔记",
+      "sourceType": "markdown",
+      "originUrl": "",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/research-1783863606621.md",
+      "originalFileName": "research.md",
+      "mimeType": "application/octet-stream",
+      "bytes": 2047,
+      "importedAt": "2026-07-12T13:40:06.621Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "原创研究笔记，基于官方链接和独立社区检索整理。",
+      "contentHash": "4d20b9285aee7c9555c3caa3393aa5c7864df81d82d400a2eeb8d71616b61f9f",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 3,
+        "inputHash": "4d20b9285aee7c9555c3caa3393aa5c7864df81d82d400a2eeb8d71616b61f9f",
+        "startedAt": "2026-07-12T14:33:42.617Z",
+        "completedAt": "2026-07-12T14:33:42.620Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": true
+      },
+      "analysis": {
+        "extractedText": "# GPT-5.6 发布研究笔记\n\n## 官方事实\n\n1. OpenAI 在 2026 年 7 月 9 日发布 GPT-5.6 模型家族。\n2. GPT-5.6 Sol 面向前沿能力和高难度长任务，Terra 平衡能力与成本，Luna 面向快速和高频工作负载。\n3. `gpt-5.6` API 别名指向 `gpt-5.6-sol`。\n4. Responses API 新增 Programmatic Tool Calling。模型可以编写轻量程序协调工具、处理过程数据并决定下一步。\n5. GPT-5.6 增加显式 prompt caching 控制、persisted reasoning、max reasoning effort 和 Pro mode。\n6. Multi-agent orchestration 以 beta 形式提供，可以并发运行子智能体并综合结果。\n7. GPT-5.6 在 original 或 auto image detail 下可以保留输入图片原始尺寸。\n\n## 官方来源\n\n- OpenAI 发布页：https://openai.com/index/gpt-5-6\n- OpenAI API changelog：https://developers.openai.com/api/docs/changelog\n- GPT-5.6 prompting guidance：https://developers.openai.com/api/docs/guides/prompt-guidance-gpt-5p6\n- Programmatic Tool Calling：https://developers.openai.com/api/docs/guides/tools-programmatic-tool-calling\n- GPT-5.6 system card：https://deploymentsafety.openai.com/gpt-5-6\n\n## 近 30 天社区信号\n\n1. last30days 收集到 9 个 Reddit 线程、5 个带转录的 YouTube 视频、6 个 Hacker News 讨论和 20 个 GitHub 结果。\n2. 早期用户普遍关注编码判断、长任务和工具效率，但这些反馈仍是发布初期样本，不等于稳定 benchmark。\n3. 社区同时讨论额度消耗、产品入口、指令遵循和子智能体模型选择。这些属于实际使用摩擦，不能用官方性能数据替代。\n4. X 数据因为查询额度耗尽没有覆盖，不能声称已经完整代表 X 舆论。\n\n## 本条视频的原创判断\n\nGPT-5.6 最值得关注的变化不是版本号，也不是单项跑分，而是模型、程序化工具调用、持久化推理和多智能体开始组成一套更完整的 agentic work 运行方式。开发者应该用真实仓库、明确目标、工具边界和测试来验收，而不是只看发布页。\n",
+        "visualDescription": "",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-01-fact-01",
+            "statement": "OpenAI 在 2026 年 7 月 9 日发布 GPT-5.6 模型家族。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 5,
+                "end": 5,
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "来源第 5 行明确陈述发布日期和模型家族。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 95
+          },
+          {
+            "id": "source-01-fact-02",
+            "statement": "GPT-5.6 Sol 面向前沿能力和高难度长任务，Terra 平衡能力与成本，Luna 面向快速和高频工作负载。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 6,
+                "end": 6,
+                "lineStart": 6,
+                "lineEnd": 6,
+                "note": "来源第 6 行描述三个模型变体的定位。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 91
+          },
+          {
+            "id": "source-01-fact-03",
+            "statement": "`gpt-5.6` API 别名指向 `gpt-5.6-sol`。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 7,
+                "end": 7,
+                "lineStart": 7,
+                "lineEnd": 7,
+                "note": "来源第 7 行明确说明 API 别名指向关系。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 87
+          },
+          {
+            "id": "source-01-fact-04",
+            "statement": "Responses API 新增 Programmatic Tool Calling；模型可以编写轻量程序协调工具、处理过程数据并决定下一步。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 8,
+                "end": 8,
+                "lineStart": 8,
+                "lineEnd": 8,
+                "note": "来源第 8 行描述 Responses API 的新增能力及其工作方式。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 83
+          },
+          {
+            "id": "source-01-fact-05",
+            "statement": "GPT-5.6 增加显式 prompt caching 控制、persisted reasoning、max reasoning effort 和 Pro mode。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 9,
+                "end": 9,
+                "lineStart": 9,
+                "lineEnd": 9,
+                "note": "来源第 9 行列出新增控制和模式。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 79
+          },
+          {
+            "id": "source-01-fact-06",
+            "statement": "Multi-agent orchestration 以 beta 形式提供，可以并发运行子智能体并综合结果。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 10,
+                "end": 10,
+                "lineStart": 10,
+                "lineEnd": 10,
+                "note": "来源第 10 行说明多智能体编排以 beta 形式提供，并支持并发运行和结果综合。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 75
+          },
+          {
+            "id": "source-01-fact-07",
+            "statement": "GPT-5.6 在 original 或 auto image detail 下可以保留输入图片原始尺寸。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 11,
+                "end": 11,
+                "lineStart": 11,
+                "lineEnd": 11,
+                "note": "来源第 11 行说明图片原始尺寸保留条件。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 71
+          },
+          {
+            "id": "source-01-fact-08",
+            "statement": "近 30 天收集到 9 个 Reddit 线程、5 个带转录的 YouTube 视频、6 个 Hacker News 讨论和 20 个 GitHub 结果。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 23,
+                "end": 23,
+                "lineStart": 23,
+                "lineEnd": 23,
+                "note": "来源第 23 行给出近 30 天社区信号的收集数量。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 67
+          },
+          {
+            "id": "source-01-fact-09",
+            "statement": "早期用户普遍关注编码判断、长任务和工具效率；这些反馈属于发布初期样本，不等于稳定 benchmark。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 24,
+                "end": 24,
+                "lineStart": 24,
+                "lineEnd": 24,
+                "note": "来源第 24 行描述早期用户关注点，并明确其不等于稳定 benchmark。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 63
+          },
+          {
+            "id": "source-01-fact-10",
+            "statement": "社区讨论额度消耗、产品入口、指令遵循和子智能体模型选择；这些属于实际使用摩擦，不能用官方性能数据替代。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 25,
+                "end": 25,
+                "lineStart": 25,
+                "lineEnd": 25,
+                "note": "来源第 25 行列出社区讨论的实际使用摩擦及其限制。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 59
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-01-uncertainty-01",
+            "statement": "这些近 30 天社区信号不能证明完整代表所有社区或 X 舆论。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 23,
+                "end": 23,
+                "lineStart": 23,
+                "lineEnd": 23,
+                "note": "来源只报告收集到的社区内容数量，没有提供完整样本清单、采集方法或代表性验证。"
+              },
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 26,
+                "end": 26,
+                "lineStart": 26,
+                "lineEnd": 26,
+                "note": "来源明确说明 X 数据因查询额度耗尽未覆盖。"
+              }
+            ],
+            "resolution": "已确认：与当前脚本无关，不作为内容依据。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 95
+          },
+          {
+            "id": "source-01-uncertainty-02",
+            "statement": "目前无法仅凭该来源确认 GPT-5.6 的长期稳定性能或正式 benchmark 结论。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 24,
+                "end": 24,
+                "lineStart": 24,
+                "lineEnd": 24,
+                "note": "来源明确将相关反馈限定为发布初期样本，并说明不等于稳定 benchmark。"
+              }
+            ],
+            "resolution": "已确认：与当前脚本无关，不作为内容依据。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 90
+          },
+          {
+            "id": "source-01-uncertainty-03",
+            "statement": "“模型、程序化工具调用、持久化推理和多智能体组成更完整的 agentic work 运行方式”是来源作者的判断，不能表述为已由官方资料证明的事实。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 30,
+                "end": 30,
+                "lineStart": 30,
+                "lineEnd": 30,
+                "note": "来源将“更完整的 agentic work 运行方式”标注为本条视频的原创判断，而非官方事实。"
+              }
+            ],
+            "resolution": "已确认：与当前脚本无关，不作为内容依据。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 85
+          },
+          {
+            "id": "source-01-uncertainty-04",
+            "statement": "来源没有证明 GPT-5.6 在任何特定真实仓库或具体工作流中已经达到预期效果。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 30,
+                "end": 30,
+                "lineStart": 30,
+                "lineEnd": 30,
+                "note": "来源建议使用真实仓库、明确目标、工具边界和测试验收，但未提供具体验收结果或案例。"
+              }
+            ],
+            "resolution": "已确认：与当前脚本无关，不作为内容依据。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 80
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-02",
+      "label": "发布主视觉",
+      "sourceType": "image",
+      "originUrl": "",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/01-launch-1783863606637.png",
+      "originalFileName": "01-launch.png",
+      "mimeType": "image/png",
+      "bytes": 72175,
+      "importedAt": "2026-07-12T13:40:06.638Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "原创程序化编辑卡片。",
+      "contentHash": "eba09017cf340843005c775ecc2966cf8d9a7bd11a24a9123d9ba57fddd027f1",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 3,
+        "inputHash": "eba09017cf340843005c775ecc2966cf8d9a7bd11a24a9123d9ba57fddd027f1",
+        "startedAt": "2026-07-12T14:33:42.621Z",
+        "completedAt": "2026-07-12T14:33:42.659Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": true
+      },
+      "analysis": {
+        "extractedText": "JUL 09 / 2026\n5.6\nSOL\nTERRA\nLUNA",
+        "visualDescription": "竖向画布，整体为近黑色背景。上方偏中位置有一条细长的亮绿色水平线，其下方左侧显示浅灰绿色日期“JUL 09 / 2026”。画面中部偏左至中央为大型白色“5.6”。下方横向排列三个等高的彩色矩形：左侧亮绿色并标有黑色“SOL”，中间黄色并标有黑色“TERRA”，右侧珊瑚红色并标有黑色“LUNA”。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-02-fact-01",
+            "statement": "图片中可见日期文字“JUL 09 / 2026”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "image",
+                "note": "文字位于图片上方偏中部，约 x=74–265、y=407–432 像素。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-02-fact-02",
+            "statement": "图片中可见大型数字“5.6”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "image",
+                "note": "大型数字位于图片中部偏左，约 x=75–679、y=720–1055 像素。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-02-fact-03",
+            "statement": "图片中可见绿色标签“SOL”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "image",
+                "note": "绿色矩形区域位于图片中下部偏左，约 x=74–354、y=1220–1331 像素，内含文字“SOL”。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-02-fact-04",
+            "statement": "图片中可见黄色标签“TERRA”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "image",
+                "note": "黄色矩形区域位于图片中下部中央，约 x=374–654、y=1220–1331 像素，内含文字“TERRA”。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-02-fact-05",
+            "statement": "图片中可见红色标签“LUNA”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "image",
+                "note": "红色矩形区域位于图片中下部偏右，约 x=674–954、y=1220–1331 像素，内含文字“LUNA”。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-02-fact-06",
+            "statement": "图片上部有一条水平绿色线，背景整体为近黑色。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "image",
+                "note": "水平线位于图片上部偏中，约 x=70–1010、y=340–346 像素。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-02-fact-07",
+            "statement": "三个彩色标签从左到右分别显示“SOL”“TERRA”“LUNA”，标签之间有间隔。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "image",
+                "note": "图片中下部可见三个并列的彩色矩形标签，分别为绿色、黄色和红色。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          }
+        ],
+        "uncertainties": []
+      }
+    },
+    {
+      "id": "source-03",
+      "label": "模型家族视觉",
+      "sourceType": "image",
+      "originUrl": "",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/02-family-1783863606653.png",
+      "originalFileName": "02-family.png",
+      "mimeType": "image/png",
+      "bytes": 90841,
+      "importedAt": "2026-07-12T13:40:06.653Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "原创程序化编辑卡片。",
+      "contentHash": "6ca07e42bd05436528525030d0cf16d79405c5098489467ca2470ee300202342",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 3,
+        "inputHash": "6ca07e42bd05436528525030d0cf16d79405c5098489467ca2470ee300202342",
+        "startedAt": "2026-07-12T14:33:42.662Z",
+        "completedAt": "2026-07-12T14:33:42.701Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": true
+      },
+      "analysis": {
+        "extractedText": "ONE FAMILY / THREE LANES\nSOL\nFRONTIER\nTERRA\nBALANCED\nLUNA\nVOLUME",
+        "visualDescription": "一张纵向浅灰白背景的版式图。上方偏中位置是粗体黑色标题“ONE FAMILY / THREE LANES”。下方中央横向排列三张等高的窄长矩形卡片：左卡为近黑色，顶部写“SOL”，底部写“FRONTIER”，中央有绿色粗线空心圆环；中卡为鲜绿色，顶部写“TERRA”，底部写“BALANCED”，中央有近黑色粗线空心圆环；右卡为黄色，顶部写“LUNA”，底部写“VOLUME”，中央有一个近黑色实心圆。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-03-fact-01",
+            "statement": "图片顶部偏中位置可见标题“ONE FAMILY / THREE LANES”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "图像上半部偏中位置，三列卡片上方。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-03-fact-02",
+            "statement": "左侧卡片显示文字“SOL”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "左侧深色竖直卡片内，上方。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-03-fact-03",
+            "statement": "左侧卡片底部显示文字“FRONTIER”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "左侧深色竖直卡片内，下方。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-03-fact-04",
+            "statement": "中间卡片显示文字“TERRA”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "中间绿色竖直卡片内，上方。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-03-fact-05",
+            "statement": "中间卡片底部显示文字“BALANCED”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "中间绿色竖直卡片内，下方。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-03-fact-06",
+            "statement": "右侧卡片显示文字“LUNA”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "右侧黄色竖直卡片内，上方。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-03-fact-07",
+            "statement": "右侧卡片底部显示文字“VOLUME”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "右侧黄色竖直卡片内，下方。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-03-fact-08",
+            "statement": "画面中有三张并排的竖直矩形卡片，分别位于左、中、右。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "画面中央，横向排列的三张竖直矩形卡片。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-03-fact-09",
+            "statement": "左侧卡片为近黑色背景，包含一个绿色空心圆环和一个深色圆形内部区域。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "左侧卡片区域。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-03-fact-10",
+            "statement": "中间卡片为绿色背景，包含一个近黑色空心圆环和一个绿色圆形内部区域。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "中间卡片区域。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-03-fact-11",
+            "statement": "右侧卡片为黄色背景，包含一个近黑色实心圆。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "右侧卡片区域。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-03-fact-12",
+            "statement": "整张图片使用浅灰白色背景，整体为扁平化图形布局。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "整张图片背景区域。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-03-uncertainty-01",
+            "statement": "图片未明确说明“SOL”“TERRA”“LUNA”与“FRONTIER”“BALANCED”“VOLUME”之间的具体语义关系，也无法仅凭视觉确定这些词是否代表模型、模式或其他分类。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "图片仅呈现文字与图形，没有提供额外说明文字。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-04",
+      "label": "工具调用视觉",
+      "sourceType": "image",
+      "originUrl": "",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/03-tools-1783863606668.png",
+      "originalFileName": "03-tools.png",
+      "mimeType": "image/png",
+      "bytes": 74524,
+      "importedAt": "2026-07-12T13:40:06.668Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "原创程序化编辑卡片。",
+      "contentHash": "4f5935210f6ccfc0e527878a2bdf541a8e0e2099556772c0b2942daa4f2379a3",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 3,
+        "inputHash": "4f5935210f6ccfc0e527878a2bdf541a8e0e2099556772c0b2942daa4f2379a3",
+        "startedAt": "2026-07-12T14:33:42.702Z",
+        "completedAt": "2026-07-12T14:34:08.809Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "PROGRAMMATIC TOOL CALLING\nPLAN\nCODE\nCALL\nFILTER\nRESULT",
+        "visualDescription": "一张竖版流程图，整体为深色背景。上方偏左是白色大标题“PROGRAMMATIC TOOL CALLING”。中上部左侧为绿色的PLAN矩形，右侧为白色的CODE矩形，两者由白色水平线连接。中央为黄色的CALL矩形，CODE与CALL之间有白色斜线；CALL上方偏左有一个独立白色圆点。下方左侧为珊瑚红色的FILTER矩形，右侧为浅蓝色的RESULT矩形，CALL分别通过白色斜线连接到这两个矩形。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-04-fact-01",
+            "statement": "图片标题文字为“PROGRAMMATIC TOOL CALLING”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "标题位于图片上部偏左。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-04-fact-02",
+            "statement": "左上区域有一个绿色矩形，标注为“PLAN”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "绿色矩形位于左上区域，内部有文字“PLAN”。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-04-fact-03",
+            "statement": "右上区域有一个白色矩形，标注为“CODE”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "白色矩形位于右上区域，内部有文字“CODE”。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-04-fact-04",
+            "statement": "图片中央有一个黄色矩形，标注为“CALL”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "黄色矩形位于图片中央，内部有文字“CALL”。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-04-fact-05",
+            "statement": "左下区域有一个珊瑚红色矩形，标注为“FILTER”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "左下区域有珊瑚红色矩形，内部有文字“FILTER”。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-04-fact-06",
+            "statement": "右下区域有一个浅蓝色矩形，标注为“RESULT”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "右下区域有浅蓝色矩形，内部有文字“RESULT”。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-04-fact-07",
+            "statement": "“PLAN”和“CODE”两个矩形之间可见一条白色水平线段。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "白色线段连接左上绿色矩形与右上白色矩形。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-04-fact-08",
+            "statement": "“CODE”矩形与“CALL”矩形之间可见一条白色斜线。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "白色斜线从右上白色矩形下方延伸至中央黄色矩形上方。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-04-fact-09",
+            "statement": "“CALL”矩形与“FILTER”及“RESULT”两个矩形之间各可见一条白色斜线。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "两条白色斜线从中央黄色矩形下方分别延伸至左下和右下矩形上方。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-04-fact-10",
+            "statement": "“CALL”矩形上方偏左位置可见一个独立的白色圆点。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "中央偏下、CALL矩形上方可见一个白色圆点。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-04-fact-11",
+            "statement": "图示背景为深色，节点标签使用黑色或白色文字，具体取决于节点填充色。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "所有节点和连线均位于深色背景上。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-04-uncertainty-01",
+            "statement": "无法仅根据图片确认这些连接线表示的具体方向。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "连接线未显示箭头或其他明确方向标记。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          },
+          {
+            "id": "source-04-uncertainty-02",
+            "statement": "无法仅根据图片确认PLAN、CODE、CALL、FILTER和RESULT各节点的具体功能或实际执行顺序。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "图片未提供节点行为、工具调用逻辑或执行顺序的文字说明。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-05",
+      "label": "持久化推理视觉",
+      "sourceType": "image",
+      "originUrl": "",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/04-state-1783863606684.png",
+      "originalFileName": "04-state.png",
+      "mimeType": "image/png",
+      "bytes": 73251,
+      "importedAt": "2026-07-12T13:40:06.684Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "原创程序化编辑卡片。",
+      "contentHash": "0d5f834639b638f492b23e60988bb1ad1f8aca38c85aaeac205051cc3a7aadfc",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 3,
+        "inputHash": "0d5f834639b638f492b23e60988bb1ad1f8aca38c85aaeac205051cc3a7aadfc",
+        "startedAt": "2026-07-12T14:34:08.812Z",
+        "completedAt": "2026-07-12T14:34:08.858Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": true
+      },
+      "analysis": {
+        "extractedText": "LONG WORK / LESS RESET\nCACHE\nREASONING\nSTATE",
+        "visualDescription": "浅灰白色背景上方偏左放置黑色粗体标题“LONG WORK / LESS RESET”。中央是一个近黑色的大矩形，其中自上而下排列绿色、黄色和浅蓝色三条横向矩形色块，分别写有“CACHE”“REASONING”“STATE”。右侧有红珊瑚色粗线形成的弧形并在下方呈箭头状，靠近浅蓝色的“STATE”条带。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-05-fact-01",
+            "statement": "图片上部显示标题“LONG WORK / LESS RESET”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "图像上部偏左可见标题文字"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-05-fact-02",
+            "statement": "深色矩形区域内有三条横向彩色条带；第一条为绿色，标注“CACHE”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "深色矩形区域内的第一条绿色横条"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-05-fact-03",
+            "statement": "第二条横向条带为黄色，标注“REASONING”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "深色矩形区域内的第二条黄色横条"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-05-fact-04",
+            "statement": "第三条横向条带为浅蓝色，标注“STATE”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "深色矩形区域内的第三条蓝色横条"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-05-fact-05",
+            "statement": "三条彩色横条位于一个深色矩形区域内。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "图像中央的深色矩形背景区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-05-fact-06",
+            "statement": "图像右侧有一条红珊瑚色弧形线，底部连接一个指向左上方的箭头形状。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "图像右侧可见红珊瑚色曲线和箭头形状"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-05-uncertainty-01",
+            "statement": "仅凭图片无法确定红珊瑚色弧形箭头所表达的具体含义或指向关系。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "红珊瑚色弧形箭头位于右侧并靠近“STATE”条带"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-06",
+      "label": "能力与体验视觉",
+      "sourceType": "image",
+      "originUrl": "",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/05-reality-1783863606699.png",
+      "originalFileName": "05-reality.png",
+      "mimeType": "image/png",
+      "bytes": 64523,
+      "importedAt": "2026-07-12T13:40:06.699Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "原创程序化编辑卡片。",
+      "contentHash": "c26641f36697bd712ccfbad172dfd7eea28db22d615198afa42673caba0b640d",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 3,
+        "inputHash": "c26641f36697bd712ccfbad172dfd7eea28db22d615198afa42673caba0b640d",
+        "startedAt": "2026-07-12T14:34:08.860Z",
+        "completedAt": "2026-07-12T14:34:26.147Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "CAPABILITY / EXPERIENCE\nJUDGMENT\nLIMITS / UX\n+\n!\n—",
+        "visualDescription": "纵向图片的顶部约三分之一为近黑色背景，左上偏中位置有白色大写标题“CAPABILITY / EXPERIENCE”。中部是等宽左右分栏：左栏亮绿色，右栏珊瑚红色。左栏上方有黑色加号，下方有三条黑色横条；右栏上方有黑色感叹号，下方有一个宽矩形和两个较小的并列矩形。两栏底部附近分别标有“JUDGMENT”和“LIMITS / UX”。中部区域下方再次出现大面积近黑色背景。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-06-fact-01",
+            "statement": "图片顶部深色区域显示白色标题“CAPABILITY / EXPERIENCE”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "位于图片上方偏左的深色区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-06-fact-02",
+            "statement": "左侧绿色区域底部显示黑色文字“JUDGMENT”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "位于图片中部左侧的绿色区域下方"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-06-fact-03",
+            "statement": "右侧珊瑚红色区域底部显示黑色文字“LIMITS / UX”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "位于图片中部右侧的珊瑚红色区域下方"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-06-fact-04",
+            "statement": "中部内容区域左右分栏：左侧为亮绿色，右侧为珊瑚红色。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "位于图片中部左侧绿色区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-06-fact-05",
+            "statement": "左侧绿色区域包含一个黑色加号，以及三条不同长度的黑色横条。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "左侧绿色区域中央偏上位置"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-06-fact-06",
+            "statement": "右侧珊瑚红色区域包含一个黑色感叹号、一个较宽的黑色横向矩形，以及下方两个并列的黑色矩形。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "右侧珊瑚红色区域中央偏上位置"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-06-fact-07",
+            "statement": "图片整体采用纵向构图；顶部和底部为深色背景，中部为左右分栏内容。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "整张图片可见区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          }
+        ],
+        "uncertainties": []
+      }
+    },
+    {
+      "id": "source-07",
+      "label": "工作流结论视觉",
+      "sourceType": "image",
+      "originUrl": "",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/06-workflow-1783863606714.png",
+      "originalFileName": "06-workflow.png",
+      "mimeType": "image/png",
+      "bytes": 71985,
+      "importedAt": "2026-07-12T13:40:06.714Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "原创程序化编辑卡片。",
+      "contentHash": "b3dfd4aac8c30f9324f7c23463aa3b5c53233629000141f3c7d454f6734981bd",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 3,
+        "inputHash": "b3dfd4aac8c30f9324f7c23463aa3b5c53233629000141f3c7d454f6734981bd",
+        "startedAt": "2026-07-12T14:34:26.150Z",
+        "completedAt": "2026-07-12T14:34:40.363Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "THE REAL TEST\nWORK\nFLOW\nGOAL\nTOOLS\nTESTS",
+        "visualDescription": "竖版画面采用深色背景。上部偏左显示绿色小标题“THE REAL TEST”，中部偏左显示分两行的白色大标题“WORK FLOW”。下半部分依次排列三条横向矩形区域：白色的“GOAL”、黄色的“TOOLS”和绿色的“TESTS”；每条左侧都有黑色方框和白色勾选标记。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-07-fact-01",
+            "statement": "图片显示绿色文字“THE REAL TEST”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "图像中部偏左可见绿色标题文字。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-07-fact-02",
+            "statement": "图片显示白色大号标题“WORK FLOW”，分为“WORK”和“FLOW”两行。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "图像左侧中部可见白色大号标题，分两行显示。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-07-fact-03",
+            "statement": "图片下半部分有一条白色横条，左侧为带白色勾的黑色方框，旁边文字为“GOAL”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "图像下半部分第一条白色横条内可见勾选框和文字。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-07-fact-04",
+            "statement": "图片下半部分有一条黄色横条，左侧为带白色勾的黑色方框，旁边文字为“TOOLS”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "图像下半部分第二条黄色横条内可见勾选框和文字。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-07-fact-05",
+            "statement": "图片下半部分有一条绿色横条，左侧为带白色勾的黑色方框，旁边文字为“TESTS”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "图像下半部分第三条绿色横条内可见勾选框和文字。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-07-fact-06",
+            "statement": "画面以近黑色背景为主，包含白色、黄色和绿色三条横向矩形区域。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "整体画面可见深色背景及三条彩色横条。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          }
+        ],
+        "uncertainties": []
+      }
+    },
+    {
+      "id": "source-08",
+      "label": "OpenAI GPT-5.6 官方发布首屏",
+      "sourceType": "image",
+      "originUrl": "https://openai.com/zh-Hans-CN/index/gpt-5-6/",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/openai-release-hero-1783866751615.png",
+      "originalFileName": "openai-release-hero.png",
+      "mimeType": "image/png",
+      "bytes": 122070,
+      "importedAt": "2026-07-12T14:32:31.615Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "OpenAI 官方发布页本地 dogfood 截图，发布前复核使用条件。",
+      "contentHash": "00a866ff81768bfdb6745f4438ed73c35b9bd053890ee15b84cdd07f240d89a8",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 2,
+        "inputHash": "00a866ff81768bfdb6745f4438ed73c35b9bd053890ee15b84cdd07f240d89a8",
+        "startedAt": "2026-07-12T14:34:40.365Z",
+        "completedAt": "2026-07-12T14:35:13.318Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "OpenAI\n研究\n产品\nBusiness\n开发人员\n公司\n基金会\n登录\n试用 ChatGPT ↗\n2026年7月9日\n产品\n发布\nGPT-5.6：随宏大目标\n灵活扩展的前沿智能\n每个 Token 都蕴含更多智能，更优的每美元性能，并可按需为最具挑战的任务提供更强能力\n正在加载...\n分享\n默认高效运作，按需释放强劲性能\n设计能力的跃升\n端到端知识型工作\n拓展网络安全与科学的前沿边界\nGPT-5.6 助力 OpenAI 加速发展\n安全与防护随模型能力同步提升\n可用性与定价\n在结束有限预览之后，我们正式推出 GPT-5.6 系列模型，包括全新旗舰模型 Sol、适用于日常工作的均衡模型 Terra，以及极具性价比的模型 Luna。\nGPT-5.6 Sol 树立了智能与效率的新标杆，在编程、知识型工作、网络安全及科学领域均取得了行业前沿水平的成果，且以更少的 Token 和更低的预估成本超越了上一代及市面上的其他前沿模型。因此，它带来了更高的单位成本对应的性能提升：在相同预算下能",
+        "visualDescription": "白色背景的 OpenAI 中文产品发布页面。顶部是横向导航栏，左侧为 OpenAI 标识和导航文字，右侧有浅灰色“登录”按钮及黑色“试用 ChatGPT ↗”按钮。首屏中央有大号黑色 GPT-5.6 标题，标题两侧有由彩色数字点组成的浅色球状视觉图形。标题下方是副标题。中部先显示加载状态和分享控件，随后是左侧章节目录与右侧大尺寸视频播放器。播放器为浅灰色空画面，中央有白色播放三角形，底部有深灰渐变控制栏。播放器下方为中文正文，介绍 GPT-5.6 系列模型及 Sol、Terra、Luna。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-08-fact-01",
+            "statement": "图片顶部导航栏可见 OpenAI、研究、产品、Business、开发人员、公司、基金会、搜索图标、登录和“试用 ChatGPT ↗”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "图片顶部导航栏区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-08-fact-02",
+            "statement": "页面中央显示日期“2026年7月9日”，并标注“产品”“发布”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "图片上方中央标题区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          },
+          {
+            "id": "source-08-fact-03",
+            "statement": "页面主标题为“GPT-5.6：随宏大目标灵活扩展的前沿智能”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "图片上方中央主标题区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-08-fact-04",
+            "statement": "主标题下方文字写着：“每个 Token 都蕴含更多智能，更优的每美元性能，并可按需为最具挑战的任务提供更强能力”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "主标题下方副标题区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-08-fact-05",
+            "statement": "页面中部有一条媒体区域，左侧显示播放图标和“正在加载...”，右侧显示链接图标及“分享”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "页面中部媒体控件区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-08-fact-06",
+            "statement": "左侧目录可见七项内容：“默认高效运作，按需释放强劲性能”“设计能力的跃升”“端到端知识型工作”“拓展网络安全与科学的前沿边界”“GPT-5.6 助力 OpenAI 加速发展”“安全与防护随模型能力同步提升”“可用性与定价”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "页面左侧目录区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-08-fact-07",
+            "statement": "页面中部有一个视频播放器，画面区域显示播放按钮；底部控制栏显示“00:00”、播放按钮、全屏图标和更多选项图标。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "页面中央视频播放器区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-08-fact-08",
+            "statement": "正文写道：在结束有限预览之后，正式推出 GPT-5.6 系列模型，包括旗舰模型 Sol、适用于日常工作的均衡模型 Terra，以及极具性价比的模型 Luna。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "视频播放器下方正文区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-08-fact-09",
+            "statement": "正文称 GPT-5.6 Sol 在编程、知识型工作、网络安全及科学领域取得了行业前沿水平的成果，并以更少的 Token 和更低的预估成本超越上一代及市面上的其他前沿模型。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "图片底部可见正文区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-08-uncertainty-01",
+            "statement": "截图底部正文在“在相同预算下能”处截断，后续内容无法从该图片核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "截图仅显示页面首屏及底部未完整显示的正文；无法确认后续文字或页面完整内容"
+              }
+            ],
+            "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          },
+          {
+            "id": "source-08-uncertainty-02",
+            "statement": "图片显示日期为“2026年7月9日”，但仅凭截图无法核验该日期是否为真实发布日期。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "页面日期文字区域"
+              }
+            ],
+            "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          },
+          {
+            "id": "source-08-uncertainty-03",
+            "statement": "播放器显示“正在加载...”，无法仅凭图片确认视频是否能够播放、视频内容是什么，或加载是否最终完成。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "媒体播放器区域显示“正在加载...”"
+              }
+            ],
+            "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-09",
+      "label": "OpenAI GPT-5.6 官方编码能力页面",
+      "sourceType": "image",
+      "originUrl": "https://openai.com/zh-Hans-CN/index/gpt-5-6/#mo-ren-gao-xiao-yun-zuoan-xu-shi-fang-qiang-jing-xing-neng",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/openai-programmatic-tools-1783866751633.png",
+      "originalFileName": "openai-programmatic-tools.png",
+      "mimeType": "image/png",
+      "bytes": 126408,
+      "importedAt": "2026-07-12T14:32:31.633Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "OpenAI 官方发布页本地 dogfood 截图，发布前复核使用条件。",
+      "contentHash": "965a08a22ba5fa25db847fb9a59f47b53a05226a7021b888dd717e5ade01facb",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 2,
+        "inputHash": "965a08a22ba5fa25db847fb9a59f47b53a05226a7021b888dd717e5ade01facb",
+        "startedAt": "2026-07-12T14:35:13.320Z",
+        "completedAt": "2026-07-12T14:36:00.600Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "OpenAI\n研究\n产品\nBusiness\n开发人员\n公司\n基金会\n搜索\n登录\n试用 ChatGPT ↗\n默认高效运作，按需释放强劲性能\n设计能力的跃升\n端到端知识型工作\n拓展网络安全与科学的前沿边界\nGPT-5.6 助力 OpenAI 加速发展\n安全与防护随模型能力同步提升\n可用性与定价\nGPT-5.6 Sol 是我们迄今为止最出色的编程模型。在 Artificial Analysis Coding Agent Index（编程智能体指数）中，开启 max 推理强度的 GPT-5.6 Sol 以 80 分创下新的 SOTA—比 Fable 5 高出 2.8 分—同时输出 Token 减少了一半以上，耗时缩短了一半以上，成本降低了约三分之一。这一优势贯穿整个产品系列：Terra 的表现略优于 Fable 5，而 Luna 表现优于 Opus 4.8；两者均在耗时约三分之一、输出 Token 减半的情况下达成，且预估成本仅为对手的约四分之一。它还在 Terminal-Bench 2.1 与 DeepSWE 测试中刷新了行业顶尖成绩，这两项基准专门考察复杂命令行工作流以及真实代码库中的长周期工程能力。\nArtificial Analysis Coding Agent Index v1.1\nTerminal-Bench 2.1\nDeepSWE v1.1\nCost\nGPT-5.6 Sol\nGPT-5.6 Luna\nClaude Fable 5\nGemini 3.1 Pro Preview\nGPT-5.6 Terra\nGPT-5.5\nClaude Opus 4.8\nIndex 得分\nAPI 成本 (USD)\nArtificial Analysis Coding Agent Index（编程智能体指数）：这是一项独立的指数，用于评估编程智能体在功能实现、终端操作及真实代码库中的表现。\nGPT-5.6 能够编写并运行轻量级程序，在工作开展过程中协调工",
+        "visualDescription": "白色背景的 OpenAI 中文网页截图。顶部是横向导航栏，左侧为 OpenAI 标识和导航文字，右侧有登录与试用 ChatGPT 按钮。左栏为页面章节导航，当前高亮“默认高效运作，按需释放强劲性能”。右侧主内容区域先显示大标题和多行中文说明文字，中部有三个胶囊式选项卡：“Artificial Analysis Coding Agent Index v1.1”“Terminal-Bench 2.1”“DeepSWE v1.1”。下方显示一个成本图表：有 Cost 下拉框、模型图例、散点和折线，横轴为 API 成本 (USD)，纵轴为 Index 得分。页面右侧有滚动条，表示当前页面并非位于顶部或底部的完整位置。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-09-fact-01",
+            "statement": "页面主标题为“默认高效运作，按需释放强劲性能”.",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片上方中部主标题区域，约 x=375-800、y=115-145。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-09-fact-02",
+            "statement": "页面正文称，GPT-5.6 Sol 是“我们迄今为止最出色的编程模型”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片中上部正文区域，约 x=375-925、y=175-445。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          },
+          {
+            "id": "source-09-fact-03",
+            "statement": "页面正文称，在 Artificial Analysis Coding Agent Index（编程智能体指数）中，开启 max 推理强度的 GPT-5.6 Sol 得分为 80 分，并称其创下新的 SOTA。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片中上部正文区域，约 x=375-925、y=180-445；正文明确写有 Artificial Analysis Coding Agent Index、max 推理强度和 80 分。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          },
+          {
+            "id": "source-09-fact-04",
+            "statement": "页面正文称，GPT-5.6 Sol 的得分比 Fable 5 高出 2.8 分。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片中上部正文区域，约 x=375-925、y=180-445。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          },
+          {
+            "id": "source-09-fact-05",
+            "statement": "页面正文称，GPT-5.6 Sol 的输出 Token 减少了一半以上，耗时缩短了一半以上，成本降低了约三分之一。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片中上部正文区域，约 x=375-925、y=180-445。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          },
+          {
+            "id": "source-09-fact-06",
+            "statement": "页面正文称，Terra 的表现略优于 Fable 5，Luna 的表现优于 Opus 4.8。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片中上部正文区域，约 x=375-925、y=180-445。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          },
+          {
+            "id": "source-09-fact-07",
+            "statement": "页面正文称，Terra 和 Luna 均在耗时约三分之一、输出 Token 减半的情况下达成相应表现，且预估成本仅为对手的约四分之一。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片中上部正文区域，约 x=375-925、y=180-445。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          },
+          {
+            "id": "source-09-fact-08",
+            "statement": "页面正文称，GPT-5.6 Sol 还在 Terminal-Bench 2.1 与 DeepSWE 测试中刷新了行业顶尖成绩。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片中上部正文区域，约 x=375-925、y=180-445。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          },
+          {
+            "id": "source-09-fact-09",
+            "statement": "页面正文将 Terminal-Bench 2.1 与 DeepSWE 描述为专门考察复杂命令行工作流以及真实代码库中的长周期工程能力的基准。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片中上部正文区域，约 x=375-925、y=180-445。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-09-fact-10",
+            "statement": "页面显示图表标题为“Artificial Analysis Coding Agent Index v1.1”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片中下部图表标题区域，约 x=375-705、y=615-635。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-09-fact-11",
+            "statement": "图表当前下拉选项显示为“Cost”，横轴标签为“API 成本 (USD)”，纵轴标签为“Index 得分”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片中下部图表控制与坐标轴区域，约 x=375-870、y=650-1015。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          },
+          {
+            "id": "source-09-fact-12",
+            "statement": "图表图例可见 GPT-5.6 Sol、GPT-5.6 Luna、Claude Fable 5、Gemini 3.1 Pro Preview、GPT-5.6 Terra、GPT-5.5 和 Claude Opus 4.8。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片中下部图表图例区域，约 x=445-755、y=710-775。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-09-fact-13",
+            "statement": "图表下方说明称，Artificial Analysis Coding Agent Index（编程智能体指数）是一项独立的指数，用于评估编程智能体在功能实现、终端操作及真实代码库中的表现。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片中下部图表下方说明文字区域，约 x=375-870、y=1080-1120。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-09-fact-14",
+            "statement": "页面顶部导航可见 OpenAI 标识，以及“研究”“产品”“Business”“开发人员”“公司”“基金会”和搜索图标。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片顶部导航栏区域，约 x=30-1045、y=15-55。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-09-fact-15",
+            "statement": "页面顶部右侧可见“登录”按钮和“试用 ChatGPT ↗”按钮。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片顶部右侧区域，约 x=805-1045、y=15-55。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-09-uncertainty-01",
+            "statement": "无法仅凭截图准确核验图表中每个模型的精确 API 成本和 Index 得分。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片中下部散点图区域，约 x=445-870、y=790-985。散点位置可见，但部分点的精确数值无法从截图准确读取。"
+              }
+            ],
+            "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          },
+          {
+            "id": "source-09-uncertainty-02",
+            "statement": "图片底部可见“GPT-5.6 能够编写并运行轻量级程序，在工作开展过程中协调工”这一未完整显示的句子，后续内容无法从当前截图核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "图片底部仅露出下一段正文的上半部分，约 x=375-925、y=1215-1234。"
+              }
+            ],
+            "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          },
+          {
+            "id": "source-09-uncertainty-03",
+            "statement": "无法仅凭该截图核验页面的具体 URL、发布日期以及截图中内容的发布时间。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "截图展示的是页面局部，未提供页面 URL、发布日期或完整页面元数据。"
+              }
+            ],
+            "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-10",
+      "label": "OpenAI GPT-5.6 官方设计能力页面",
+      "sourceType": "image",
+      "originUrl": "https://openai.com/zh-Hans-CN/index/gpt-5-6/#she-ji-neng-li-de-yue-sheng",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/openai-design-section-1783866751647.png",
+      "originalFileName": "openai-design-section.png",
+      "mimeType": "image/png",
+      "bytes": 117901,
+      "importedAt": "2026-07-12T14:32:31.647Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "OpenAI 官方发布页本地 dogfood 截图，发布前复核使用条件。",
+      "contentHash": "311532470f462a1f5e3fb604b6183589430c5344cf9636a6c959cde0c7ce7b5a",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 2,
+        "inputHash": "311532470f462a1f5e3fb604b6183589430c5344cf9636a6c959cde0c7ce7b5a",
+        "startedAt": "2026-07-12T14:36:00.603Z",
+        "completedAt": "2026-07-12T14:36:36.168Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "OpenAI；研究；产品；Business；开发人员；公司；基金会；搜索图标；登录；试用 ChatGPT ↗；默认高效运作，按需释放强劲性能；设计能力的跃升；端到端知识工作；拓展网络安全与科学的前沿边界；GPT-5.6 助力 OpenAI 加速发展；安全与防护随模型能力同步提升；可用性与定价；设计能力的跃升；GPT-5.6 在设计审美与判断力方面实现了大幅提升。仅凭高层次指导，GPT-5.6 就能创建美观、符合人体工学且功能完善的界面。凭借更强的计算机使用能力，它不再仅局限于生成底层代码或内容，而是能够检查并优化渲染后的结果——从而在交付最终作品前，主动捕获视觉与功能问题，并进行细节修饰。航海游戏；Tiny Voids 游戏；博物馆网站；Clockwork Village 游戏；室内设计演示文稿；SALTWIND；FLOW；A WIND-POWERED TIME TRIAL；Sailwind；Read the wind. Thread the gates. Chase a faster line across a sunlit sea.；START REGATTA →；HOW TO SAIL；提示词：Can you implement a 3d sailing game for me? For anything that needs bitmaps/textures/sprites (or if it helps to have a mockup reference for any 3d models you build) feel free to use imagemagen.；在 ChatGPT Work 中，GPT-5.6 的前端开发能力同样能将自然语言请求转化为精美、具有互动性的解释与可视化实现。",
+        "visualDescription": "白色背景的中文 OpenAI 页面截图。顶部为 OpenAI 标识和横向导航，右上角有浅灰色“登录”按钮及黑色“试用 ChatGPT ↗”按钮。左侧为章节导航，当前“设计能力的跃升”以浅灰色背景高亮。右侧主内容区先显示标题和中文介绍段落，随后是示例标签栏。下方展示一张蓝色海面与天空背景的航海游戏界面，左上角有“SALTWIND”标识，中央有大号“Sailwind”标题，底部有橙色“START REGATTA”按钮及“HOW TO SAIL”链接。页面右侧可见滚动条，表明当前页面处于可滚动状态。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-10-fact-01",
+            "statement": "图片展示的是一个中文页面，主标题为“设计能力的跃升”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "note": "页面中央主标题区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-10-fact-02",
+            "statement": "页面正文称，GPT-5.6 在设计审美与判断力方面实现了大幅提升。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "note": "页面中央标题下方正文区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          },
+          {
+            "id": "source-10-fact-03",
+            "statement": "页面正文称，仅凭高层次指导，GPT-5.6 就能创建美观、符合人体工学且功能完善的界面。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "note": "主标题下方的中文说明段落"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          },
+          {
+            "id": "source-10-fact-04",
+            "statement": "页面正文称，GPT-5.6 能检查并优化渲染后的结果，并在交付最终作品前主动捕获视觉与功能问题、进行细节修饰。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "note": "主标题下方的中文说明段落"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          },
+          {
+            "id": "source-10-fact-05",
+            "statement": "示例导航标签包括“航海游戏”“Tiny Voids 游戏”“博物馆网站”“Clockwork Village 游戏”和“室内设计演示文稿”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "note": "页面中部的示例导航标签栏"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-10-fact-06",
+            "statement": "航海游戏示例页面显示品牌名“SALTWIND”，并包含“FLOW”“A WIND-POWERED TIME TRIAL”“Sailwind”“START REGATTA”和“HOW TO SAIL”等可见文字。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "note": "页面中部的网页示例画面"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-10-fact-07",
+            "statement": "示例提示词请求实现一个 3D sailing game，并表示对于需要的位图、纹理、精灵或 3D 模型参考，可以使用 imagemagen。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "note": "航海游戏示例下方的提示词区域"
+              }
+            ],
+            "reviewStatus": "rejected",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-10-fact-08",
+            "statement": "页面底部文字称，在 ChatGPT Work 中，GPT-5.6 的前端开发能力能够将自然语言请求转化为精美、具有互动性的解释与可视化实现。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "note": "页面底部可见中文说明区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          },
+          {
+            "id": "source-10-fact-09",
+            "statement": "左侧导航栏当前高亮“设计能力的跃升”，其他可见栏目包括“端到端知识工作”“拓展网络安全与科学的前沿边界”“GPT-5.6 助力 OpenAI 加速发展”“安全与防护随模型能力同步提升”和“可用性与定价”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "note": "页面左侧导航栏"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-10-fact-10",
+            "statement": "页面右上角可见“登录”按钮和“试用 ChatGPT ↗”按钮。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "note": "页面右上角导航区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-10-uncertainty-01",
+            "statement": "仅凭图片无法核验该页面的具体 URL、发布日期、页面版本或 GPT-5.6 的正式产品状态。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "note": "整张页面截图；截图未提供网页 URL、发布日期或可复制的页面元数据"
+              }
+            ],
+            "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          },
+          {
+            "id": "source-10-uncertainty-02",
+            "statement": "图片只能证明页面展示了该航海游戏示例和相关提示词，无法证明该游戏已经实际运行、可交互或已完成部署。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "note": "航海游戏示例及其下方提示词区域"
+              }
+            ],
+            "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          },
+          {
+            "id": "source-10-uncertainty-03",
+            "statement": "图片中提示词末尾工具名称的拼写可见为“imagemagen”，但无法仅凭图片确认其是否为准确的产品名称或是否存在文字识别误差。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "note": "提示词英文文本区域；末尾工具名称显示为“imagemagen”"
+              }
+            ],
+            "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-11",
+      "label": "OpenAI ChatGPT Work 官方演示片段",
+      "sourceType": "video",
+      "originUrl": "https://videos.ctfassets.net/kftzwdyauwt9/4EpWY2r0tubXs7DCIhhWnE/77fba3d1e160789f067abc3458447603/OAI_ChatGPT_Blog_1920x1920_compressed.mp4",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/openai-chatgpt-work-demo-1783866751667.mp4",
+      "originalFileName": "openai-chatgpt-work-demo.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 1540413,
+      "importedAt": "2026-07-12T14:32:31.667Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "OpenAI 官方页面加载的视频，本地 dogfood 使用；发布前复核。",
+      "contentHash": "1f2d3799bddc6004c0961d8f907f178acf46474148240b3ae87c976d192e4aa8",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 2,
+        "inputHash": "1f2d3799bddc6004c0961d8f907f178acf46474148240b3ae87c976d192e4aa8",
+        "startedAt": "2026-07-12T14:36:36.171Z",
+        "completedAt": "2026-07-12T14:37:11.985Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "ChatGPT Work；Work；For getting work done；Codex；For developers；Scheduled；Sites",
+        "visualDescription": "在 3.00 秒、7.50 秒和 12.00 秒代表帧中，画面均显示深色星空背景上的白色窗口。窗口顶部有红、黄、绿三个圆形控件；主要界面区域显示“ChatGPT Work”及下拉箭头，下面有“Work / For getting work done”条目和“Codex / For developers”条目，底部可见“Scheduled”和“Sites”。；本地理解覆盖 3.00s、7.50s、12.00s 代表帧。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-11-fact-01",
+            "statement": "3.00 秒代表帧显示一个带有“ChatGPT Work”文字和下拉箭头的界面区域。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 3,
+                "end": 3,
+                "note": "3.00 秒代表帧中可见"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-11-fact-02",
+            "statement": "代表帧中可见“Work”，其下方文字为“For getting work done”，右侧有勾选标记。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 3,
+                "end": 3,
+                "note": "3.00 秒代表帧中可见"
+              },
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 7.5,
+                "end": 7.5,
+                "note": "7.50 秒代表帧中可见"
+              },
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 12,
+                "end": 12,
+                "note": "12.00 秒代表帧中可见"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-11-fact-03",
+            "statement": "代表帧中可见“Codex”，其下方文字为“For developers”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 3,
+                "end": 3,
+                "note": "3.00 秒代表帧中可见"
+              },
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 7.5,
+                "end": 7.5,
+                "note": "7.50 秒代表帧中可见"
+              },
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 12,
+                "end": 12,
+                "note": "12.00 秒代表帧中可见"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-11-fact-04",
+            "statement": "界面下方可见带时钟图标的“Scheduled”和带网格状图标的“Sites”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 3,
+                "end": 3,
+                "note": "3.00 秒代表帧中可见"
+              },
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 7.5,
+                "end": 7.5,
+                "note": "7.50 秒代表帧中可见"
+              },
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 12,
+                "end": 12,
+                "note": "12.00 秒代表帧中可见"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-11-fact-05",
+            "statement": "代表帧显示白色界面窗口，窗口外可见深色星空背景。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 3,
+                "end": 3,
+                "note": "3.00 秒代表帧中可见"
+              },
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 7.5,
+                "end": 7.5,
+                "note": "7.50 秒代表帧中可见"
+              },
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 12,
+                "end": 12,
+                "note": "12.00 秒代表帧中可见"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-11-uncertainty-01",
+            "statement": "无法从给定来源确认视频中的旁白、对白或其他音频内容。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-11",
+                "locatorType": "file",
+                "note": "来源明确说明未检测到可转录音轨，因此无法依据音频确认旁白或对白内容。"
+              }
+            ],
+            "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          },
+          {
+            "id": "source-11-uncertainty-02",
+            "statement": "无法仅依据这些代表帧确认未抽帧时间段内的完整动态画面或界面变化。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 3,
+                "end": 3,
+                "note": "仅提供 3.00 秒代表帧"
+              },
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 7.5,
+                "end": 7.5,
+                "note": "仅提供 7.50 秒代表帧"
+              },
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 12,
+                "end": 12,
+                "note": "仅提供 12.00 秒代表帧"
+              }
+            ],
+            "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          },
+          {
+            "id": "source-11-uncertainty-no-audio",
+            "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-11",
+                "locatorType": "file",
+                "note": "本地媒体流探测"
+              }
+            ],
+            "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          },
+          {
+            "id": "source-11-uncertainty-frame-sampling",
+            "statement": "视频画面理解基于 20%、50% 和 80% 代表帧，未逐帧覆盖完整动态过程。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 3,
+                "end": 3,
+                "note": "20% 本地代表帧"
+              },
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 7.5,
+                "end": 7.5,
+                "note": "50% 本地代表帧"
+              },
+              {
+                "sourceId": "source-11",
+                "locatorType": "time",
+                "start": 12,
+                "end": 12,
+                "note": "80% 本地代表帧"
+              }
+            ],
+            "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-12",
+      "label": "OpenAI GPT-5.6 官方发布首屏（手机排版）",
+      "sourceType": "image",
+      "originUrl": "https://openai.com/zh-Hans-CN/index/gpt-5-6/",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/openai-release-hero-mobile-1080x1920-1783870042366.png",
+      "originalFileName": "openai-release-hero-mobile-1080x1920.png",
+      "mimeType": "image/png",
+      "bytes": 1581094,
+      "importedAt": "2026-07-12T15:27:22.366Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "OpenAI 官方发布页 432x768 手机视口截图，仅用于本地 dogfood；发布前复核使用条件。",
+      "contentHash": "dac1472af70a3c5aac459ebb401b2a3acaaa91c4946808bb6885e570e8104e5d",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "dac1472af70a3c5aac459ebb401b2a3acaaa91c4946808bb6885e570e8104e5d",
+        "startedAt": "2026-07-12T15:28:43.541Z",
+        "completedAt": "2026-07-12T15:28:43.541Z",
+        "error": "",
+        "model": "manual-visual-review",
+        "promptVersion": "mobile-viewport-capture-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "OpenAI；2026年7月9日；GPT-5.6：随宏大目标灵活扩展的前沿智能；每个 Token 都蕴含更多智能。",
+        "visualDescription": "432×768 手机视口下的 OpenAI GPT-5.6 中文发布首屏，标题和日期按移动端单栏排版清晰显示。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-12-fact-01",
+            "statement": "手机页面显示日期“2026年7月9日”和标题“GPT-5.6：随宏大目标灵活扩展的前沿智能”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-12",
+                "locatorType": "image",
+                "note": "手机视口发布首屏"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-12-uncertainty-01",
+            "statement": "该截图用于画面表达，只证明截图中可见内容，不证明模型在用户具体项目中的实际效果。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-12",
+                "locatorType": "image",
+                "note": "手机视口截图边界"
+              }
+            ],
+            "resolution": "真实项目效果仍需通过仓库任务和测试单独验收。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-13",
+      "label": "OpenAI GPT-5.6 程序化工具调用（手机排版）",
+      "sourceType": "image",
+      "originUrl": "https://openai.com/zh-Hans-CN/index/gpt-5-6/#mo-ren-gao-xiao-yun-zuoan-xu-shi-fang-qiang-jing-xing-neng",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/openai-programmatic-tools-mobile-1080x1920-1783870053227.png",
+      "originalFileName": "openai-programmatic-tools-mobile-1080x1920.png",
+      "mimeType": "image/png",
+      "bytes": 1156275,
+      "importedAt": "2026-07-12T15:27:33.227Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "OpenAI 官方发布页 432x768 手机视口截图，仅用于本地 dogfood；发布前复核使用条件。",
+      "contentHash": "b2c0ff550b1c9e28eb23e525f0aca3131aee4e03088ceb364c652802b985290f",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "b2c0ff550b1c9e28eb23e525f0aca3131aee4e03088ceb364c652802b985290f",
+        "startedAt": "2026-07-12T15:28:43.541Z",
+        "completedAt": "2026-07-12T15:28:43.541Z",
+        "error": "",
+        "model": "manual-visual-review",
+        "promptVersion": "mobile-viewport-capture-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "GPT-5.6 能够编写并运行轻量级程序，在工作开展过程中协调工具、处理中间结果、监控进度并自主选择下一步操作。",
+        "visualDescription": "432×768 手机视口下的 OpenAI 官方程序化工具调用段落，正文占据主要画面，字号适合竖屏阅读。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-13-fact-01",
+            "statement": "官方页面写明 GPT-5.6 能够编写并运行轻量级程序，并协调工具、处理中间结果、监控进度和自主选择下一步。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-13",
+                "locatorType": "image",
+                "note": "手机视口中的程序化工具调用正文"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-13-uncertainty-01",
+            "statement": "该截图用于画面表达，只证明截图中可见内容，不证明模型在用户具体项目中的实际效果。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-13",
+                "locatorType": "image",
+                "note": "手机视口截图边界"
+              }
+            ],
+            "resolution": "真实项目效果仍需通过仓库任务和测试单独验收。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-14",
+      "label": "OpenAI GPT-5.6 设计能力与 Saltwind（手机排版）",
+      "sourceType": "image",
+      "originUrl": "https://openai.com/zh-Hans-CN/index/gpt-5-6/#she-ji-neng-li-de-yue-sheng",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/openai-design-section-mobile-1080x1920-1783870062991.png",
+      "originalFileName": "openai-design-section-mobile-1080x1920.png",
+      "mimeType": "image/png",
+      "bytes": 1122257,
+      "importedAt": "2026-07-12T15:27:42.991Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "OpenAI 官方发布页 432x768 手机视口截图，仅用于本地 dogfood；发布前复核使用条件。",
+      "contentHash": "9b8cffeb5cf59a253fc977e1a9ebd5ac9a7a558f494f377ade4a2b46d51088f4",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "9b8cffeb5cf59a253fc977e1a9ebd5ac9a7a558f494f377ade4a2b46d51088f4",
+        "startedAt": "2026-07-12T15:28:43.541Z",
+        "completedAt": "2026-07-12T15:28:43.541Z",
+        "error": "",
+        "model": "manual-visual-review",
+        "promptVersion": "mobile-viewport-capture-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "设计能力的跃升；GPT-5.6 能够检查并优化渲染后的结果；Saltwind 航海游戏。",
+        "visualDescription": "432×768 手机视口下的设计能力章节，包含设计判断与计算机使用说明，以及 Saltwind 航海游戏演示首屏。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-14-fact-01",
+            "statement": "官方页面称 GPT-5.6 能检查并优化渲染后的结果，并在交付前捕获视觉与功能问题。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-14",
+                "locatorType": "image",
+                "note": "手机视口中的设计能力说明"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 50
+          },
+          {
+            "id": "source-14-fact-02",
+            "statement": "设计能力章节展示了 Saltwind 航海游戏示例。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-14",
+                "locatorType": "image",
+                "note": "手机视口下方的 Saltwind 演示区域"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-14-uncertainty-01",
+            "statement": "该截图用于画面表达，只证明截图中可见内容，不证明模型在用户具体项目中的实际效果。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-14",
+                "locatorType": "image",
+                "note": "手机视口截图边界"
+              }
+            ],
+            "resolution": "真实项目效果仍需通过仓库任务和测试单独验收。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          }
+        ]
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [],
+    "facts": [
+      {
+        "id": "source-01-fact-01",
+        "statement": "OpenAI 在 2026 年 7 月 9 日发布 GPT-5.6 模型家族。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 5,
+            "end": 5,
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "来源第 5 行明确陈述发布日期和模型家族。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 95
+      },
+      {
+        "id": "source-01-fact-02",
+        "statement": "GPT-5.6 Sol 面向前沿能力和高难度长任务，Terra 平衡能力与成本，Luna 面向快速和高频工作负载。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 6,
+            "end": 6,
+            "lineStart": 6,
+            "lineEnd": 6,
+            "note": "来源第 6 行描述三个模型变体的定位。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 91
+      },
+      {
+        "id": "source-01-fact-03",
+        "statement": "`gpt-5.6` API 别名指向 `gpt-5.6-sol`。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 7,
+            "end": 7,
+            "lineStart": 7,
+            "lineEnd": 7,
+            "note": "来源第 7 行明确说明 API 别名指向关系。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 87
+      },
+      {
+        "id": "source-01-fact-04",
+        "statement": "Responses API 新增 Programmatic Tool Calling；模型可以编写轻量程序协调工具、处理过程数据并决定下一步。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 8,
+            "end": 8,
+            "lineStart": 8,
+            "lineEnd": 8,
+            "note": "来源第 8 行描述 Responses API 的新增能力及其工作方式。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 83
+      },
+      {
+        "id": "source-01-fact-05",
+        "statement": "GPT-5.6 增加显式 prompt caching 控制、persisted reasoning、max reasoning effort 和 Pro mode。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 9,
+            "end": 9,
+            "lineStart": 9,
+            "lineEnd": 9,
+            "note": "来源第 9 行列出新增控制和模式。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 79
+      },
+      {
+        "id": "source-01-fact-06",
+        "statement": "Multi-agent orchestration 以 beta 形式提供，可以并发运行子智能体并综合结果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 10,
+            "end": 10,
+            "lineStart": 10,
+            "lineEnd": 10,
+            "note": "来源第 10 行说明多智能体编排以 beta 形式提供，并支持并发运行和结果综合。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 75
+      },
+      {
+        "id": "source-01-fact-07",
+        "statement": "GPT-5.6 在 original 或 auto image detail 下可以保留输入图片原始尺寸。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 11,
+            "end": 11,
+            "lineStart": 11,
+            "lineEnd": 11,
+            "note": "来源第 11 行说明图片原始尺寸保留条件。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 71
+      },
+      {
+        "id": "source-01-fact-08",
+        "statement": "近 30 天收集到 9 个 Reddit 线程、5 个带转录的 YouTube 视频、6 个 Hacker News 讨论和 20 个 GitHub 结果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 23,
+            "end": 23,
+            "lineStart": 23,
+            "lineEnd": 23,
+            "note": "来源第 23 行给出近 30 天社区信号的收集数量。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 67
+      },
+      {
+        "id": "source-01-fact-09",
+        "statement": "早期用户普遍关注编码判断、长任务和工具效率；这些反馈属于发布初期样本，不等于稳定 benchmark。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 24,
+            "end": 24,
+            "lineStart": 24,
+            "lineEnd": 24,
+            "note": "来源第 24 行描述早期用户关注点，并明确其不等于稳定 benchmark。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 63
+      },
+      {
+        "id": "source-01-fact-10",
+        "statement": "社区讨论额度消耗、产品入口、指令遵循和子智能体模型选择；这些属于实际使用摩擦，不能用官方性能数据替代。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 25,
+            "end": 25,
+            "lineStart": 25,
+            "lineEnd": 25,
+            "note": "来源第 25 行列出社区讨论的实际使用摩擦及其限制。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 59
+      },
+      {
+        "id": "source-02-fact-01",
+        "statement": "图片中可见日期文字“JUL 09 / 2026”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "image",
+            "note": "文字位于图片上方偏中部，约 x=74–265、y=407–432 像素。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-02-fact-02",
+        "statement": "图片中可见大型数字“5.6”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "image",
+            "note": "大型数字位于图片中部偏左，约 x=75–679、y=720–1055 像素。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-02-fact-03",
+        "statement": "图片中可见绿色标签“SOL”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "image",
+            "note": "绿色矩形区域位于图片中下部偏左，约 x=74–354、y=1220–1331 像素，内含文字“SOL”。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-02-fact-04",
+        "statement": "图片中可见黄色标签“TERRA”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "image",
+            "note": "黄色矩形区域位于图片中下部中央，约 x=374–654、y=1220–1331 像素，内含文字“TERRA”。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-02-fact-05",
+        "statement": "图片中可见红色标签“LUNA”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "image",
+            "note": "红色矩形区域位于图片中下部偏右，约 x=674–954、y=1220–1331 像素，内含文字“LUNA”。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-02-fact-06",
+        "statement": "图片上部有一条水平绿色线，背景整体为近黑色。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "image",
+            "note": "水平线位于图片上部偏中，约 x=70–1010、y=340–346 像素。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-02-fact-07",
+        "statement": "三个彩色标签从左到右分别显示“SOL”“TERRA”“LUNA”，标签之间有间隔。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "image",
+            "note": "图片中下部可见三个并列的彩色矩形标签，分别为绿色、黄色和红色。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-03-fact-01",
+        "statement": "图片顶部偏中位置可见标题“ONE FAMILY / THREE LANES”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "图像上半部偏中位置，三列卡片上方。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-03-fact-02",
+        "statement": "左侧卡片显示文字“SOL”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "左侧深色竖直卡片内，上方。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-03-fact-03",
+        "statement": "左侧卡片底部显示文字“FRONTIER”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "左侧深色竖直卡片内，下方。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-03-fact-04",
+        "statement": "中间卡片显示文字“TERRA”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "中间绿色竖直卡片内，上方。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-03-fact-05",
+        "statement": "中间卡片底部显示文字“BALANCED”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "中间绿色竖直卡片内，下方。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-03-fact-06",
+        "statement": "右侧卡片显示文字“LUNA”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "右侧黄色竖直卡片内，上方。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-03-fact-07",
+        "statement": "右侧卡片底部显示文字“VOLUME”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "右侧黄色竖直卡片内，下方。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-03-fact-08",
+        "statement": "画面中有三张并排的竖直矩形卡片，分别位于左、中、右。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "画面中央，横向排列的三张竖直矩形卡片。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-03-fact-09",
+        "statement": "左侧卡片为近黑色背景，包含一个绿色空心圆环和一个深色圆形内部区域。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "左侧卡片区域。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-03-fact-10",
+        "statement": "中间卡片为绿色背景，包含一个近黑色空心圆环和一个绿色圆形内部区域。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "中间卡片区域。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-03-fact-11",
+        "statement": "右侧卡片为黄色背景，包含一个近黑色实心圆。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "右侧卡片区域。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-03-fact-12",
+        "statement": "整张图片使用浅灰白色背景，整体为扁平化图形布局。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "整张图片背景区域。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-04-fact-01",
+        "statement": "图片标题文字为“PROGRAMMATIC TOOL CALLING”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "标题位于图片上部偏左。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-04-fact-02",
+        "statement": "左上区域有一个绿色矩形，标注为“PLAN”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "绿色矩形位于左上区域，内部有文字“PLAN”。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-04-fact-03",
+        "statement": "右上区域有一个白色矩形，标注为“CODE”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "白色矩形位于右上区域，内部有文字“CODE”。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-04-fact-04",
+        "statement": "图片中央有一个黄色矩形，标注为“CALL”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "黄色矩形位于图片中央，内部有文字“CALL”。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-04-fact-05",
+        "statement": "左下区域有一个珊瑚红色矩形，标注为“FILTER”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "左下区域有珊瑚红色矩形，内部有文字“FILTER”。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-04-fact-06",
+        "statement": "右下区域有一个浅蓝色矩形，标注为“RESULT”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "右下区域有浅蓝色矩形，内部有文字“RESULT”。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-04-fact-07",
+        "statement": "“PLAN”和“CODE”两个矩形之间可见一条白色水平线段。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "白色线段连接左上绿色矩形与右上白色矩形。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-04-fact-08",
+        "statement": "“CODE”矩形与“CALL”矩形之间可见一条白色斜线。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "白色斜线从右上白色矩形下方延伸至中央黄色矩形上方。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-04-fact-09",
+        "statement": "“CALL”矩形与“FILTER”及“RESULT”两个矩形之间各可见一条白色斜线。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "两条白色斜线从中央黄色矩形下方分别延伸至左下和右下矩形上方。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-04-fact-10",
+        "statement": "“CALL”矩形上方偏左位置可见一个独立的白色圆点。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "中央偏下、CALL矩形上方可见一个白色圆点。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-04-fact-11",
+        "statement": "图示背景为深色，节点标签使用黑色或白色文字，具体取决于节点填充色。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "所有节点和连线均位于深色背景上。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-05-fact-01",
+        "statement": "图片上部显示标题“LONG WORK / LESS RESET”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "图像上部偏左可见标题文字"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-05-fact-02",
+        "statement": "深色矩形区域内有三条横向彩色条带；第一条为绿色，标注“CACHE”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "深色矩形区域内的第一条绿色横条"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-05-fact-03",
+        "statement": "第二条横向条带为黄色，标注“REASONING”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "深色矩形区域内的第二条黄色横条"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-05-fact-04",
+        "statement": "第三条横向条带为浅蓝色，标注“STATE”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "深色矩形区域内的第三条蓝色横条"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-05-fact-05",
+        "statement": "三条彩色横条位于一个深色矩形区域内。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "图像中央的深色矩形背景区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-05-fact-06",
+        "statement": "图像右侧有一条红珊瑚色弧形线，底部连接一个指向左上方的箭头形状。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "图像右侧可见红珊瑚色曲线和箭头形状"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-06-fact-01",
+        "statement": "图片顶部深色区域显示白色标题“CAPABILITY / EXPERIENCE”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "位于图片上方偏左的深色区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-06-fact-02",
+        "statement": "左侧绿色区域底部显示黑色文字“JUDGMENT”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "位于图片中部左侧的绿色区域下方"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-06-fact-03",
+        "statement": "右侧珊瑚红色区域底部显示黑色文字“LIMITS / UX”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "位于图片中部右侧的珊瑚红色区域下方"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-06-fact-04",
+        "statement": "中部内容区域左右分栏：左侧为亮绿色，右侧为珊瑚红色。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "位于图片中部左侧绿色区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-06-fact-05",
+        "statement": "左侧绿色区域包含一个黑色加号，以及三条不同长度的黑色横条。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "左侧绿色区域中央偏上位置"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-06-fact-06",
+        "statement": "右侧珊瑚红色区域包含一个黑色感叹号、一个较宽的黑色横向矩形，以及下方两个并列的黑色矩形。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "右侧珊瑚红色区域中央偏上位置"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-06-fact-07",
+        "statement": "图片整体采用纵向构图；顶部和底部为深色背景，中部为左右分栏内容。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "整张图片可见区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-07-fact-01",
+        "statement": "图片显示绿色文字“THE REAL TEST”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "图像中部偏左可见绿色标题文字。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-07-fact-02",
+        "statement": "图片显示白色大号标题“WORK FLOW”，分为“WORK”和“FLOW”两行。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "图像左侧中部可见白色大号标题，分两行显示。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-07-fact-03",
+        "statement": "图片下半部分有一条白色横条，左侧为带白色勾的黑色方框，旁边文字为“GOAL”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "图像下半部分第一条白色横条内可见勾选框和文字。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-07-fact-04",
+        "statement": "图片下半部分有一条黄色横条，左侧为带白色勾的黑色方框，旁边文字为“TOOLS”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "图像下半部分第二条黄色横条内可见勾选框和文字。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-07-fact-05",
+        "statement": "图片下半部分有一条绿色横条，左侧为带白色勾的黑色方框，旁边文字为“TESTS”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "图像下半部分第三条绿色横条内可见勾选框和文字。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-07-fact-06",
+        "statement": "画面以近黑色背景为主，包含白色、黄色和绿色三条横向矩形区域。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "整体画面可见深色背景及三条彩色横条。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-08-fact-01",
+        "statement": "图片顶部导航栏可见 OpenAI、研究、产品、Business、开发人员、公司、基金会、搜索图标、登录和“试用 ChatGPT ↗”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "图片顶部导航栏区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-08-fact-02",
+        "statement": "页面中央显示日期“2026年7月9日”，并标注“产品”“发布”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "图片上方中央标题区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-08-fact-03",
+        "statement": "页面主标题为“GPT-5.6：随宏大目标灵活扩展的前沿智能”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "图片上方中央主标题区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-08-fact-04",
+        "statement": "主标题下方文字写着：“每个 Token 都蕴含更多智能，更优的每美元性能，并可按需为最具挑战的任务提供更强能力”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "主标题下方副标题区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-08-fact-05",
+        "statement": "页面中部有一条媒体区域，左侧显示播放图标和“正在加载...”，右侧显示链接图标及“分享”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "页面中部媒体控件区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-08-fact-06",
+        "statement": "左侧目录可见七项内容：“默认高效运作，按需释放强劲性能”“设计能力的跃升”“端到端知识型工作”“拓展网络安全与科学的前沿边界”“GPT-5.6 助力 OpenAI 加速发展”“安全与防护随模型能力同步提升”“可用性与定价”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "页面左侧目录区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-08-fact-07",
+        "statement": "页面中部有一个视频播放器，画面区域显示播放按钮；底部控制栏显示“00:00”、播放按钮、全屏图标和更多选项图标。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "页面中央视频播放器区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-08-fact-08",
+        "statement": "正文写道：在结束有限预览之后，正式推出 GPT-5.6 系列模型，包括旗舰模型 Sol、适用于日常工作的均衡模型 Terra，以及极具性价比的模型 Luna。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "视频播放器下方正文区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-08-fact-09",
+        "statement": "正文称 GPT-5.6 Sol 在编程、知识型工作、网络安全及科学领域取得了行业前沿水平的成果，并以更少的 Token 和更低的预估成本超越上一代及市面上的其他前沿模型。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "图片底部可见正文区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-09-fact-01",
+        "statement": "页面主标题为“默认高效运作，按需释放强劲性能”.",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片上方中部主标题区域，约 x=375-800、y=115-145。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-09-fact-02",
+        "statement": "页面正文称，GPT-5.6 Sol 是“我们迄今为止最出色的编程模型”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片中上部正文区域，约 x=375-925、y=175-445。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-09-fact-03",
+        "statement": "页面正文称，在 Artificial Analysis Coding Agent Index（编程智能体指数）中，开启 max 推理强度的 GPT-5.6 Sol 得分为 80 分，并称其创下新的 SOTA。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片中上部正文区域，约 x=375-925、y=180-445；正文明确写有 Artificial Analysis Coding Agent Index、max 推理强度和 80 分。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-09-fact-04",
+        "statement": "页面正文称，GPT-5.6 Sol 的得分比 Fable 5 高出 2.8 分。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片中上部正文区域，约 x=375-925、y=180-445。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-09-fact-05",
+        "statement": "页面正文称，GPT-5.6 Sol 的输出 Token 减少了一半以上，耗时缩短了一半以上，成本降低了约三分之一。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片中上部正文区域，约 x=375-925、y=180-445。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-09-fact-06",
+        "statement": "页面正文称，Terra 的表现略优于 Fable 5，Luna 的表现优于 Opus 4.8。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片中上部正文区域，约 x=375-925、y=180-445。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-09-fact-07",
+        "statement": "页面正文称，Terra 和 Luna 均在耗时约三分之一、输出 Token 减半的情况下达成相应表现，且预估成本仅为对手的约四分之一。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片中上部正文区域，约 x=375-925、y=180-445。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-09-fact-08",
+        "statement": "页面正文称，GPT-5.6 Sol 还在 Terminal-Bench 2.1 与 DeepSWE 测试中刷新了行业顶尖成绩。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片中上部正文区域，约 x=375-925、y=180-445。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-09-fact-09",
+        "statement": "页面正文将 Terminal-Bench 2.1 与 DeepSWE 描述为专门考察复杂命令行工作流以及真实代码库中的长周期工程能力的基准。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片中上部正文区域，约 x=375-925、y=180-445。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-09-fact-10",
+        "statement": "页面显示图表标题为“Artificial Analysis Coding Agent Index v1.1”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片中下部图表标题区域，约 x=375-705、y=615-635。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-09-fact-11",
+        "statement": "图表当前下拉选项显示为“Cost”，横轴标签为“API 成本 (USD)”，纵轴标签为“Index 得分”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片中下部图表控制与坐标轴区域，约 x=375-870、y=650-1015。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-09-fact-12",
+        "statement": "图表图例可见 GPT-5.6 Sol、GPT-5.6 Luna、Claude Fable 5、Gemini 3.1 Pro Preview、GPT-5.6 Terra、GPT-5.5 和 Claude Opus 4.8。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片中下部图表图例区域，约 x=445-755、y=710-775。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-09-fact-13",
+        "statement": "图表下方说明称，Artificial Analysis Coding Agent Index（编程智能体指数）是一项独立的指数，用于评估编程智能体在功能实现、终端操作及真实代码库中的表现。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片中下部图表下方说明文字区域，约 x=375-870、y=1080-1120。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-09-fact-14",
+        "statement": "页面顶部导航可见 OpenAI 标识，以及“研究”“产品”“Business”“开发人员”“公司”“基金会”和搜索图标。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片顶部导航栏区域，约 x=30-1045、y=15-55。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-09-fact-15",
+        "statement": "页面顶部右侧可见“登录”按钮和“试用 ChatGPT ↗”按钮。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片顶部右侧区域，约 x=805-1045、y=15-55。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-10-fact-01",
+        "statement": "图片展示的是一个中文页面，主标题为“设计能力的跃升”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "note": "页面中央主标题区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-10-fact-02",
+        "statement": "页面正文称，GPT-5.6 在设计审美与判断力方面实现了大幅提升。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "note": "页面中央标题下方正文区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-10-fact-03",
+        "statement": "页面正文称，仅凭高层次指导，GPT-5.6 就能创建美观、符合人体工学且功能完善的界面。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "note": "主标题下方的中文说明段落"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-10-fact-04",
+        "statement": "页面正文称，GPT-5.6 能检查并优化渲染后的结果，并在交付最终作品前主动捕获视觉与功能问题、进行细节修饰。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "note": "主标题下方的中文说明段落"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-10-fact-05",
+        "statement": "示例导航标签包括“航海游戏”“Tiny Voids 游戏”“博物馆网站”“Clockwork Village 游戏”和“室内设计演示文稿”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "note": "页面中部的示例导航标签栏"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-10-fact-06",
+        "statement": "航海游戏示例页面显示品牌名“SALTWIND”，并包含“FLOW”“A WIND-POWERED TIME TRIAL”“Sailwind”“START REGATTA”和“HOW TO SAIL”等可见文字。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "note": "页面中部的网页示例画面"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-10-fact-07",
+        "statement": "示例提示词请求实现一个 3D sailing game，并表示对于需要的位图、纹理、精灵或 3D 模型参考，可以使用 imagemagen。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "note": "航海游戏示例下方的提示词区域"
+          }
+        ],
+        "reviewStatus": "rejected",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-10-fact-08",
+        "statement": "页面底部文字称，在 ChatGPT Work 中，GPT-5.6 的前端开发能力能够将自然语言请求转化为精美、具有互动性的解释与可视化实现。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "note": "页面底部可见中文说明区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-10-fact-09",
+        "statement": "左侧导航栏当前高亮“设计能力的跃升”，其他可见栏目包括“端到端知识工作”“拓展网络安全与科学的前沿边界”“GPT-5.6 助力 OpenAI 加速发展”“安全与防护随模型能力同步提升”和“可用性与定价”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "note": "页面左侧导航栏"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-10-fact-10",
+        "statement": "页面右上角可见“登录”按钮和“试用 ChatGPT ↗”按钮。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "note": "页面右上角导航区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-11-fact-01",
+        "statement": "3.00 秒代表帧显示一个带有“ChatGPT Work”文字和下拉箭头的界面区域。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 3,
+            "end": 3,
+            "note": "3.00 秒代表帧中可见"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-11-fact-02",
+        "statement": "代表帧中可见“Work”，其下方文字为“For getting work done”，右侧有勾选标记。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 3,
+            "end": 3,
+            "note": "3.00 秒代表帧中可见"
+          },
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 7.5,
+            "end": 7.5,
+            "note": "7.50 秒代表帧中可见"
+          },
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 12,
+            "end": 12,
+            "note": "12.00 秒代表帧中可见"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-11-fact-03",
+        "statement": "代表帧中可见“Codex”，其下方文字为“For developers”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 3,
+            "end": 3,
+            "note": "3.00 秒代表帧中可见"
+          },
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 7.5,
+            "end": 7.5,
+            "note": "7.50 秒代表帧中可见"
+          },
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 12,
+            "end": 12,
+            "note": "12.00 秒代表帧中可见"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-11-fact-04",
+        "statement": "界面下方可见带时钟图标的“Scheduled”和带网格状图标的“Sites”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 3,
+            "end": 3,
+            "note": "3.00 秒代表帧中可见"
+          },
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 7.5,
+            "end": 7.5,
+            "note": "7.50 秒代表帧中可见"
+          },
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 12,
+            "end": 12,
+            "note": "12.00 秒代表帧中可见"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-11-fact-05",
+        "statement": "代表帧显示白色界面窗口，窗口外可见深色星空背景。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 3,
+            "end": 3,
+            "note": "3.00 秒代表帧中可见"
+          },
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 7.5,
+            "end": 7.5,
+            "note": "7.50 秒代表帧中可见"
+          },
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 12,
+            "end": 12,
+            "note": "12.00 秒代表帧中可见"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-12-fact-01",
+        "statement": "手机页面显示日期“2026年7月9日”和标题“GPT-5.6：随宏大目标灵活扩展的前沿智能”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-12",
+            "locatorType": "image",
+            "note": "手机视口发布首屏"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-13-fact-01",
+        "statement": "官方页面写明 GPT-5.6 能够编写并运行轻量级程序，并协调工具、处理中间结果、监控进度和自主选择下一步。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-13",
+            "locatorType": "image",
+            "note": "手机视口中的程序化工具调用正文"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-14-fact-01",
+        "statement": "官方页面称 GPT-5.6 能检查并优化渲染后的结果，并在交付前捕获视觉与功能问题。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-14",
+            "locatorType": "image",
+            "note": "手机视口中的设计能力说明"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 50
+      },
+      {
+        "id": "source-14-fact-02",
+        "statement": "设计能力章节展示了 Saltwind 航海游戏示例。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-14",
+            "locatorType": "image",
+            "note": "手机视口下方的 Saltwind 演示区域"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      }
+    ],
+    "uncertainties": [
+      {
+        "id": "source-01-uncertainty-01",
+        "statement": "这些近 30 天社区信号不能证明完整代表所有社区或 X 舆论。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 23,
+            "end": 23,
+            "lineStart": 23,
+            "lineEnd": 23,
+            "note": "来源只报告收集到的社区内容数量，没有提供完整样本清单、采集方法或代表性验证。"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 26,
+            "end": 26,
+            "lineStart": 26,
+            "lineEnd": 26,
+            "note": "来源明确说明 X 数据因查询额度耗尽未覆盖。"
+          }
+        ],
+        "resolution": "已确认：与当前脚本无关，不作为内容依据。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 95
+      },
+      {
+        "id": "source-01-uncertainty-02",
+        "statement": "目前无法仅凭该来源确认 GPT-5.6 的长期稳定性能或正式 benchmark 结论。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 24,
+            "end": 24,
+            "lineStart": 24,
+            "lineEnd": 24,
+            "note": "来源明确将相关反馈限定为发布初期样本，并说明不等于稳定 benchmark。"
+          }
+        ],
+        "resolution": "已确认：与当前脚本无关，不作为内容依据。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 90
+      },
+      {
+        "id": "source-01-uncertainty-03",
+        "statement": "“模型、程序化工具调用、持久化推理和多智能体组成更完整的 agentic work 运行方式”是来源作者的判断，不能表述为已由官方资料证明的事实。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 30,
+            "end": 30,
+            "lineStart": 30,
+            "lineEnd": 30,
+            "note": "来源将“更完整的 agentic work 运行方式”标注为本条视频的原创判断，而非官方事实。"
+          }
+        ],
+        "resolution": "已确认：与当前脚本无关，不作为内容依据。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 85
+      },
+      {
+        "id": "source-01-uncertainty-04",
+        "statement": "来源没有证明 GPT-5.6 在任何特定真实仓库或具体工作流中已经达到预期效果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 30,
+            "end": 30,
+            "lineStart": 30,
+            "lineEnd": 30,
+            "note": "来源建议使用真实仓库、明确目标、工具边界和测试验收，但未提供具体验收结果或案例。"
+          }
+        ],
+        "resolution": "已确认：与当前脚本无关，不作为内容依据。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 80
+      },
+      {
+        "id": "source-03-uncertainty-01",
+        "statement": "图片未明确说明“SOL”“TERRA”“LUNA”与“FRONTIER”“BALANCED”“VOLUME”之间的具体语义关系，也无法仅凭视觉确定这些词是否代表模型、模式或其他分类。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "图片仅呈现文字与图形，没有提供额外说明文字。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-04-uncertainty-01",
+        "statement": "无法仅根据图片确认这些连接线表示的具体方向。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "连接线未显示箭头或其他明确方向标记。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-04-uncertainty-02",
+        "statement": "无法仅根据图片确认PLAN、CODE、CALL、FILTER和RESULT各节点的具体功能或实际执行顺序。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "图片未提供节点行为、工具调用逻辑或执行顺序的文字说明。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-05-uncertainty-01",
+        "statement": "仅凭图片无法确定红珊瑚色弧形箭头所表达的具体含义或指向关系。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "红珊瑚色弧形箭头位于右侧并靠近“STATE”条带"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-08-uncertainty-01",
+        "statement": "截图底部正文在“在相同预算下能”处截断，后续内容无法从该图片核验。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "截图仅显示页面首屏及底部未完整显示的正文；无法确认后续文字或页面完整内容"
+          }
+        ],
+        "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-08-uncertainty-02",
+        "statement": "图片显示日期为“2026年7月9日”，但仅凭截图无法核验该日期是否为真实发布日期。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "页面日期文字区域"
+          }
+        ],
+        "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-08-uncertainty-03",
+        "statement": "播放器显示“正在加载...”，无法仅凭图片确认视频是否能够播放、视频内容是什么，或加载是否最终完成。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "媒体播放器区域显示“正在加载...”"
+          }
+        ],
+        "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-09-uncertainty-01",
+        "statement": "无法仅凭截图准确核验图表中每个模型的精确 API 成本和 Index 得分。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片中下部散点图区域，约 x=445-870、y=790-985。散点位置可见，但部分点的精确数值无法从截图准确读取。"
+          }
+        ],
+        "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-09-uncertainty-02",
+        "statement": "图片底部可见“GPT-5.6 能够编写并运行轻量级程序，在工作开展过程中协调工”这一未完整显示的句子，后续内容无法从当前截图核验。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "图片底部仅露出下一段正文的上半部分，约 x=375-925、y=1215-1234。"
+          }
+        ],
+        "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-09-uncertainty-03",
+        "statement": "无法仅凭该截图核验页面的具体 URL、发布日期以及截图中内容的发布时间。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "image",
+            "note": "截图展示的是页面局部，未提供页面 URL、发布日期或完整页面元数据。"
+          }
+        ],
+        "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-10-uncertainty-01",
+        "statement": "仅凭图片无法核验该页面的具体 URL、发布日期、页面版本或 GPT-5.6 的正式产品状态。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "note": "整张页面截图；截图未提供网页 URL、发布日期或可复制的页面元数据"
+          }
+        ],
+        "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-10-uncertainty-02",
+        "statement": "图片只能证明页面展示了该航海游戏示例和相关提示词，无法证明该游戏已经实际运行、可交互或已完成部署。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "note": "航海游戏示例及其下方提示词区域"
+          }
+        ],
+        "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-10-uncertainty-03",
+        "statement": "图片中提示词末尾工具名称的拼写可见为“imagemagen”，但无法仅凭图片确认其是否为准确的产品名称或是否存在文字识别误差。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "note": "提示词英文文本区域；末尾工具名称显示为“imagemagen”"
+          }
+        ],
+        "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-11-uncertainty-01",
+        "statement": "无法从给定来源确认视频中的旁白、对白或其他音频内容。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-11",
+            "locatorType": "file",
+            "note": "来源明确说明未检测到可转录音轨，因此无法依据音频确认旁白或对白内容。"
+          }
+        ],
+        "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-11-uncertainty-02",
+        "statement": "无法仅依据这些代表帧确认未抽帧时间段内的完整动态画面或界面变化。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 3,
+            "end": 3,
+            "note": "仅提供 3.00 秒代表帧"
+          },
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 7.5,
+            "end": 7.5,
+            "note": "仅提供 7.50 秒代表帧"
+          },
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 12,
+            "end": 12,
+            "note": "仅提供 12.00 秒代表帧"
+          }
+        ],
+        "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-11-uncertainty-no-audio",
+        "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-11",
+            "locatorType": "file",
+            "note": "本地媒体流探测"
+          }
+        ],
+        "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-11-uncertainty-frame-sampling",
+        "statement": "视频画面理解基于 20%、50% 和 80% 代表帧，未逐帧覆盖完整动态过程。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 3,
+            "end": 3,
+            "note": "20% 本地代表帧"
+          },
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 7.5,
+            "end": 7.5,
+            "note": "50% 本地代表帧"
+          },
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 12,
+            "end": 12,
+            "note": "80% 本地代表帧"
+          }
+        ],
+        "resolution": "该来源只用于本地画面表达，不作为成片事实主证据；主张继续引用已核验的研究来源。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-12-uncertainty-01",
+        "statement": "该截图用于画面表达，只证明截图中可见内容，不证明模型在用户具体项目中的实际效果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-12",
+            "locatorType": "image",
+            "note": "手机视口截图边界"
+          }
+        ],
+        "resolution": "真实项目效果仍需通过仓库任务和测试单独验收。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-13-uncertainty-01",
+        "statement": "该截图用于画面表达，只证明截图中可见内容，不证明模型在用户具体项目中的实际效果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-13",
+            "locatorType": "image",
+            "note": "手机视口截图边界"
+          }
+        ],
+        "resolution": "真实项目效果仍需通过仓库任务和测试单独验收。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-14-uncertainty-01",
+        "statement": "该截图用于画面表达，只证明截图中可见内容，不证明模型在用户具体项目中的实际效果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-14",
+            "locatorType": "image",
+            "note": "手机视口截图边界"
+          }
+        ],
+        "resolution": "真实项目效果仍需通过仓库任务和测试单独验收。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      }
+    ]
+  },
+  "narrative": {
+    "status": "completed",
+    "error": "",
+    "activeVersionId": "narrative-02",
+    "versions": [
+      {
+        "id": "narrative-01",
+        "generatedAt": "2026-07-12T13:45:31.376Z",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "bda73c4dce741e7cb632f9a79ca1409ef2152cc98e9d87918b7bd4d658d1279f",
+        "conclusion": "GPT-5.6 值得关注的，不是版本号或未经核验的跑分，而是模型能力、程序化工具调用、持久化推理和多智能体编排开始连接成一套可持续运行的工作方式。是否真正有价值，仍要回到你的真实仓库，用明确目标、工具边界和测试验收。",
+        "hook": "GPT-5.6 发布后，开发者真正需要改变的，可能不是提示词，而是工作流的验收方式。",
+        "outline": [
+          "先确认发布与模型家族定位，避免把不同型号混为一谈。",
+          "解释从对话到执行的变化：程序化工具调用、多智能体并发和持久化推理。",
+          "把能力与实际摩擦放在一起看：社区早期信号不等于稳定 benchmark。",
+          "给出可执行验收闭环：真实仓库、明确目标、工具边界、测试。"
+        ],
+        "voiceoverScript": "GPT-5.6 在 2026 年 7 月 9 日发布。真正值得开发者关注的，不只是模型名称，而是它开始把模型能力和工作流控制放在一起讨论。\n\n模型家族分成三种方向：Sol 面向前沿能力和高难度长任务，Terra 平衡能力与成本，Luna 面向快速、高频工作负载。选择模型，开始变成工作流设计的一部分。\n\nResponses API 新增 Programmatic Tool Calling。模型可以编写轻量程序，协调搜索、代码和验证工具，处理过程数据，再决定下一步。重点从“回答得像不像”转向“能不能把任务推进下去”。\n\n同时出现的还有显式 prompt caching 控制、persisted reasoning、max reasoning effort、Pro mode，以及 beta 形态的多智能体编排。它们共同指向一个变化：任务不一定一次对话结束，而可以保留状态、拆分子任务，再综合结果。\n\n近 30 天收集到的社区样本包括 Reddit、YouTube、Hacker News 和 GitHub。早期用户关注编码判断、长任务和工具效率，也讨论额度、入口、指令遵循和子智能体选型。但这些是发布初期信号，不是稳定 benchmark。\n\n所以，别只看发布页。拿一个真实仓库，先写清目标；规定模型能调用哪些工具、不能做什么；最后用测试验收，包括失败、回滚和成本。跑完这一轮，你才知道 GPT-5.6 是否适合你的工作流。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 5,
+            "end": 5,
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "确认 GPT-5.6 的发布事实。"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 30,
+            "end": 30,
+            "lineStart": 30,
+            "lineEnd": 30,
+            "note": "支持全片核心编辑判断和验收建议；该判断需明确作为原创判断，不冒充官方结论。"
+          },
+          {
+            "sourceId": "source-02",
+            "locatorType": "image",
+            "note": "全片视觉方向使用原创发布、模型家族、工具调用、持久化推理、能力与体验、验收闭环素材。"
+          }
+        ],
+        "uncertainties": [
+          "近 30 天社区信号只覆盖已收集的 Reddit、YouTube、Hacker News 和 GitHub 样本，不能外推为完整社区或 X 舆论；来源明确说明 X 未覆盖。成片需保留“样本”和“早期信号”限定。",
+          "来源没有证明 GPT-5.6 的长期稳定性能，也没有提供可用于本片的正式 benchmark 结论；禁止加入未经核验的跑分或性能承诺。",
+          "“模型、程序化工具调用、持久化推理和多智能体组成更完整的 agentic work 运行方式”是本视频的原创编辑判断，需用“开始指向”“可以理解为”等表述，不能归因于官方已证实结论。",
+          "来源没有证明 GPT-5.6 在任何特定真实仓库或具体工作流中已经达到预期效果；结尾应要求观众自行验收，并人工确认成本、权限、失败处理和长期稳定性。"
+        ]
+      },
+      {
+        "id": "narrative-02",
+        "generatedAt": "2026-07-14T09:41:56.567Z",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "29fb260bedde673ec302b317b2a19d3899e43cb6c7c5ea83abcf978f834fe66c",
+        "conclusion": "本版尽量优先使用现有的 OpenAI 官方视频片段，尤其将 source-11 用于“持续工作界面”和工作流转场；但该视频仅提供代表帧，未检测到可转录音轨，不能据此证明完整动态过程或具体功能效果。其余官方发布内容继续以 source-12、source-13、source-14 等官方页面截图辅助呈现。所有性能、稳定性和真实项目效果仍需人工确认与实际测试。",
+        "hook": "GPT-5.6 的变化，可能不在于它回答得更像人，而在于它能否把一次对话推进成一段持续工作的流程。",
+        "outline": [
+          "先用官方发布页确认 GPT-5.6 的发布时间和发布语境。",
+          "用官方视频片段建立“从单次回答到持续工作界面”的视觉主线。",
+          "解释模型分工、程序化工具调用，以及持久化推理和多智能体编排这些能力方向。",
+          "明确官方演示和早期样本都不等于你的项目结果。",
+          "以真实仓库、明确目标、工具边界和测试组成验收闭环。"
+        ],
+        "voiceoverScript": "GPT-5.6 于 2026 年 7 月 9 日发布。真正值得开发者观察的，不只是版本号，而是它是否开始改变 AI 完成工作的方式。\n\n发布内容把模型家族分成不同方向：Sol 面向前沿能力和高难度长任务，Terra 平衡能力与成本，Luna 面向快速和高频工作负载。具体选择，开始成为工作流设计的一部分。\n\nResponses API 新增了 Programmatic Tool Calling。根据来源描述，模型可以编写轻量程序，协调工具、处理中间结果，并自主选择下一步操作。它指向的是任务推进能力，而不是单次回答的外观。\n\n接下来尽量使用官方演示视频。画面展示的是 ChatGPT Work 工作界面，其中可见 Work、Codex、Scheduled 和 Sites 等入口。它可以作为持续工作界面的视觉证据，但现有素材只有代表帧，无法核验完整动态流程。\n\n来源还列出了显式 prompt caching、persisted reasoning、max reasoning effort、Pro mode，以及 beta 形态的多智能体编排。它们共同指向一种可能性：任务不一定一次对话结束，而可以保留部分状态、拆分子任务，再综合结果。这里的“指向”是编辑判断，不是对长期效果的官方背书。\n\n但官方演示不等于你的项目体验，早期社区样本也不等于稳定 benchmark。拿一个真实仓库，写清目标，限定模型能调用哪些工具，最后用测试验收失败、回滚、成本和权限。跑完这一轮，才知道它是否适合你的工作流。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 5,
+            "end": 7,
+            "lineStart": 5,
+            "lineEnd": 7,
+            "note": "支持发布日期、模型定位和片中主要官方能力主张。"
+          },
+          {
+            "sourceId": "source-11",
+            "locatorType": "time",
+            "start": 0,
+            "end": 11,
+            "note": "全片优先使用的 OpenAI 官方动态素材，实际内容核验范围受代表帧和无音轨限制。"
+          },
+          {
+            "sourceId": "source-12",
+            "locatorType": "image",
+            "note": "官方发布页截图素材，用于补充无法由现有官方视频覆盖的发布信息。"
+          },
+          {
+            "sourceId": "source-13",
+            "locatorType": "image",
+            "note": "官方程序化工具调用截图，用于对应能力说明。"
+          }
+        ],
+        "uncertainties": [
+          "source-11 仅提供 3 秒、7.5 秒和 12 秒代表帧的分析，无法确认完整视频中的动态过程；成片剪辑前需要人工逐段观看并确认可用时间点。",
+          "source-11 未检测到可转录音轨，视频中的旁白、对白和音频含义均未被核验；旁白应使用本草案独立配音。",
+          "source-11、source-12、source-13、source-14 的 rightsStatus 为 review_required；官方素材是否可用于公开成片、是否需要保留来源标识，必须人工确认。",
+          "source-01 的社区反馈属于有限的发布初期样本，不能外推为完整社区意见，也不能替代稳定 benchmark。",
+          "“模型、工具调用、持久化推理和多智能体开始组成可持续工作系统”是本片原创编辑判断，旁白应保留“可能”“开始指向”等审慎措辞。",
+          "现有来源没有证明 GPT-5.6 已在任何特定真实仓库中达到预期效果；结尾只能提出验收方法，不能声称已有成功结果。",
+          "source-03、source-05、source-07 等原创信息图可用于视觉表达，但图片本身不能证明其中抽象结构对应真实执行顺序或完整产品功能。"
+        ]
+      }
+    ],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "generatedAt": "2026-07-14T09:41:56.567Z",
+    "model": "gpt-5.6-luna",
+    "promptVersion": "videobrief-2026-07-11-v1"
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-5.6-luna",
+    "transcriptionModel": "whisper.cpp:large-v3-turbo-q5_0",
+    "promptVersion": "videobrief-2026-07-11-v1",
+    "calls": [
+      {
+        "id": "ai-call-001",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "582a8f804a8d3b9b315cac0bf0b95201707f74e64dca26836fecf9fcadd470b6",
+        "startedAt": "2026-07-12T13:40:17.854Z",
+        "completedAt": "2026-07-12T13:40:58.450Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-002",
+        "purpose": "narrative-planning",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "bda73c4dce741e7cb632f9a79ca1409ef2152cc98e9d87918b7bd4d658d1279f",
+        "startedAt": "2026-07-12T13:43:57.158Z",
+        "completedAt": "2026-07-12T13:44:54.884Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-003",
+        "purpose": "narrative-planning",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "bda73c4dce741e7cb632f9a79ca1409ef2152cc98e9d87918b7bd4d658d1279f",
+        "startedAt": "2026-07-12T13:44:40.795Z",
+        "completedAt": "2026-07-12T13:45:31.377Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-004",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "582a8f804a8d3b9b315cac0bf0b95201707f74e64dca26836fecf9fcadd470b6",
+        "startedAt": "2026-07-12T14:32:42.922Z",
+        "completedAt": "2026-07-12T14:32:42.926Z",
+        "error": "",
+        "cacheHit": true
+      },
+      {
+        "id": "ai-call-005",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "7d0d9324cf51970828f1403800391f338785bd62eac47310c02f4695cf6eccf1",
+        "startedAt": "2026-07-12T14:32:42.927Z",
+        "completedAt": "2026-07-12T14:33:05.567Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-006",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "0fe1a4dfe77cb9663f6019b5ec5a789cd1edf83ddb298e5a6456e14d9615be55",
+        "startedAt": "2026-07-12T14:33:05.570Z",
+        "completedAt": "2026-07-12T14:33:32.905Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-007",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "582a8f804a8d3b9b315cac0bf0b95201707f74e64dca26836fecf9fcadd470b6",
+        "startedAt": "2026-07-12T14:33:42.617Z",
+        "completedAt": "2026-07-12T14:33:42.620Z",
+        "error": "",
+        "cacheHit": true
+      },
+      {
+        "id": "ai-call-008",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "7d0d9324cf51970828f1403800391f338785bd62eac47310c02f4695cf6eccf1",
+        "startedAt": "2026-07-12T14:33:42.621Z",
+        "completedAt": "2026-07-12T14:33:42.660Z",
+        "error": "",
+        "cacheHit": true
+      },
+      {
+        "id": "ai-call-009",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "0fe1a4dfe77cb9663f6019b5ec5a789cd1edf83ddb298e5a6456e14d9615be55",
+        "startedAt": "2026-07-12T14:33:42.662Z",
+        "completedAt": "2026-07-12T14:33:42.701Z",
+        "error": "",
+        "cacheHit": true
+      },
+      {
+        "id": "ai-call-010",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "3eeb93b997d44327daef69d350c6b4a1f4855a8c39129eb2083bc26912e11ac7",
+        "startedAt": "2026-07-12T14:33:32.907Z",
+        "completedAt": "2026-07-12T14:33:48.058Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-011",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "ed4b00cdf8edbc5548b825dde1a49078cd9005ab094a38218e5f3abc261b6609",
+        "startedAt": "2026-07-12T14:33:48.059Z",
+        "completedAt": "2026-07-12T14:34:04.034Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-012",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "3eeb93b997d44327daef69d350c6b4a1f4855a8c39129eb2083bc26912e11ac7",
+        "startedAt": "2026-07-12T14:33:42.702Z",
+        "completedAt": "2026-07-12T14:34:08.809Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-013",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "ed4b00cdf8edbc5548b825dde1a49078cd9005ab094a38218e5f3abc261b6609",
+        "startedAt": "2026-07-12T14:34:08.812Z",
+        "completedAt": "2026-07-12T14:34:08.858Z",
+        "error": "",
+        "cacheHit": true
+      },
+      {
+        "id": "ai-call-014",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "e06e7e3a0afaabcf0e43be438f5289edb068e08b7bf43b9e8b8751a3a0d638a2",
+        "startedAt": "2026-07-12T14:34:04.036Z",
+        "completedAt": "2026-07-12T14:34:21.646Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-015",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "e06e7e3a0afaabcf0e43be438f5289edb068e08b7bf43b9e8b8751a3a0d638a2",
+        "startedAt": "2026-07-12T14:34:08.860Z",
+        "completedAt": "2026-07-12T14:34:26.148Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-016",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "bddf03c28cf46ab0a834da5a94c7cd359ec23e93b26d88ea8d84bcd877e7add4",
+        "startedAt": "2026-07-12T14:34:21.649Z",
+        "completedAt": "2026-07-12T14:34:36.449Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-017",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "bddf03c28cf46ab0a834da5a94c7cd359ec23e93b26d88ea8d84bcd877e7add4",
+        "startedAt": "2026-07-12T14:34:26.150Z",
+        "completedAt": "2026-07-12T14:34:40.363Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-018",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "c4cd0b0392d9d9006595826ab7d62e2fd66adde14a22f599f2774747543960fb",
+        "startedAt": "2026-07-12T14:34:36.450Z",
+        "completedAt": "2026-07-12T14:35:11.924Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-019",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "c4cd0b0392d9d9006595826ab7d62e2fd66adde14a22f599f2774747543960fb",
+        "startedAt": "2026-07-12T14:34:40.365Z",
+        "completedAt": "2026-07-12T14:35:13.319Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-020",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "e0a48c62e9061632605eaba381a683e90a050c963c0ad4398ff02a5d8ea6a1bb",
+        "startedAt": "2026-07-12T14:35:13.320Z",
+        "completedAt": "2026-07-12T14:35:56.662Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-021",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "e0a48c62e9061632605eaba381a683e90a050c963c0ad4398ff02a5d8ea6a1bb",
+        "startedAt": "2026-07-12T14:35:11.926Z",
+        "completedAt": "2026-07-12T14:36:00.601Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-022",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "ba6aef2a2c95bedcb43c217fa4e244ae949001339392fab2b8f6302aebd13703",
+        "startedAt": "2026-07-12T14:35:56.664Z",
+        "completedAt": "2026-07-12T14:36:32.971Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-023",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "ba6aef2a2c95bedcb43c217fa4e244ae949001339392fab2b8f6302aebd13703",
+        "startedAt": "2026-07-12T14:36:00.603Z",
+        "completedAt": "2026-07-12T14:36:36.169Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-024",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "588f52de752987783b2f8e05ffe7769c43cafcdca61a6504f118181cee8ee052",
+        "startedAt": "2026-07-12T14:36:32.975Z",
+        "completedAt": "2026-07-12T14:36:58.089Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-025",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "588f52de752987783b2f8e05ffe7769c43cafcdca61a6504f118181cee8ee052",
+        "startedAt": "2026-07-12T14:36:36.171Z",
+        "completedAt": "2026-07-12T14:37:11.986Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-026",
+        "purpose": "narrative-planning",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "29fb260bedde673ec302b317b2a19d3899e43cb6c7c5ea83abcf978f834fe66c",
+        "startedAt": "2026-07-14T09:41:00.012Z",
+        "completedAt": "2026-07-14T09:41:56.570Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-027",
+        "purpose": "candidate-ranking",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "c9dce0bb40f9b8fc970a116a10773bd1063919e121e03dfcce07f213e27934d6",
+        "startedAt": "2026-07-14T09:41:56.579Z",
+        "completedAt": "2026-07-14T09:42:12.775Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-028",
+        "purpose": "production-assets",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "81573fca033b340a60a6398c59bd6884cf0a3840953a50b2e149a672c835c37c",
+        "startedAt": "2026-07-14T09:42:12.779Z",
+        "completedAt": "2026-07-14T09:42:19.501Z",
+        "error": "",
+        "cacheHit": false
+      }
+    ]
+  },
+  "editorial": {
+    "claim": "本版尽量优先使用现有的 OpenAI 官方视频片段，尤其将 source-11 用于“持续工作界面”和工作流转场；但该视频仅提供代表帧，未检测到可转录音轨，不能据此证明完整动态过程或具体功能效果。其余官方发布内容继续以 source-12、source-13、source-14 等官方页面截图辅助呈现。所有性能、稳定性和真实项目效果仍需人工确认与实际测试。",
+    "whyItMatters": "GPT-5.6 把模型选择、工具协调、推理状态和多智能体协作变成可配置的工程问题。",
+    "chinaContext": "面向中文开发者，重点不是复述发布参数，而是给出真实仓库验收方法。",
+    "riskNote": "社区反馈为发布初期样本，未覆盖 X，不代表长期 benchmark 或完整共识。"
+  },
+  "platformCopy": {
+    "coverTitle": "GPT-5.6\n开发者真正要验收什么？",
+    "title": "GPT-5.6 之后，开发者该怎么验收 AI 工作流？",
+    "description": "GPT-5.6 于 2026 年 7 月 9 日发布。本期不讨论未经核验的跑分，只看开发者更值得关注的变化：模型分工、程序化工具调用、持久化推理和 beta 多智能体编排，如何开始影响工作流设计。结尾给出一套可执行的验收方法：真实仓库、明确目标、工具边界、测试、失败处理与成本权限确认。官方演示和近 30 天社区样本仅作为参考，不等于你的项目结果或稳定 benchmark。",
+    "hashtags": [
+      "#GPT56",
+      "#AI编程",
+      "#程序化工具调用",
+      "#多智能体",
+      "#开发者工具",
+      "#AI工作流",
+      "#软件工程",
+      "#模型验收"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "2026-07-12T13:39:50.341Z",
+    "updatedAt": "2026-07-14T09:48:35.688Z",
+    "researchReviewedAt": "2026-07-12T13:43:51.762Z",
+    "firstRenderCompletedAt": "2026-07-12T13:51:47.084Z",
+    "lastRenderCompletedAt": "2026-07-14T09:48:35.688Z",
+    "sourceImportCount": 14,
+    "manualSaveCount": 10,
+    "renderAttemptCount": 9,
+    "renderFailureCount": 1,
+    "lastRenderStartedAt": "2026-07-14T09:47:57.709Z",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "outputs": {
+    "outputVideo": "output/videos/gpt-5-6-agentic-work.mp4",
+    "publicRender": "public/renders/gpt-5-6-agentic-work.mp4",
+    "workDir": "output/videos/gpt-5-6-agentic-work-work",
+    "exportDir": "output/exports/gpt-5-6-agentic-work",
+    "coverImage": "output/exports/gpt-5-6-agentic-work/cover.png",
+    "platformCopy": "output/exports/gpt-5-6-agentic-work/platform-copy.json",
+    "sourceList": "output/exports/gpt-5-6-agentic-work/source-list.json",
+    "projectSnapshot": "output/exports/gpt-5-6-agentic-work/project.snapshot.json"
+  },
+  "render": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "voice": "zh-CN-YunjianNeural",
+    "rate": 194
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "enabled": true,
+      "sourceId": "source-12",
+      "sourceStart": 0,
+      "sourceEnd": 3,
+      "showEditorialOverlay": true,
+      "eyebrow": "OPEN / 官方发布",
+      "title": "GPT-5.6 发布了",
+      "subtitle": "先看发布事实，再看工作方式",
+      "narration": "GPT-5.6 于 2026 年 7 月 9 日发布。真正值得开发者观察的，不只是版本号，而是它是否开始改变 AI 完成工作的方式。这里使用官方发布页面作为开场依据；这并不代表它已经在你的项目中验证有效。",
+      "visualRequirement": "开场优先使用 OpenAI 官方发布页手机排版截图 source-12，做轻微纵向推移或页面裁切。避免加入未经核验的跑分和性能承诺。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "start": 5,
+          "end": 7,
+          "lineStart": 5,
+          "lineEnd": 7,
+          "note": "研究笔记记录 GPT-5.6 模型家族及发布日期。"
+        },
+        {
+          "sourceId": "source-12",
+          "locatorType": "image",
+          "note": "OpenAI 官方 GPT-5.6 发布首屏手机排版，仅用于展示官方发布语境。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-12",
+          "assetPath": "public/project-assets/gpt-5-6-agentic-work/openai-release-hero-mobile-1080x1920-1783870042366.png",
+          "mediaType": "image",
+          "sourceStart": 0,
+          "sourceEnd": 3,
+          "matchReason": "source-12 是 OpenAI GPT-5.6 官方发布页的手机排版截图，画面直接呈现 GPT-5.6 标题和发布语境，符合开场要求；作为图片可使用 0 到 3 秒，并配合轻微纵向推移或裁切。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "generatedBy": "ai",
+      "userEdited": false
+    },
+    {
+      "id": "scene-02",
+      "enabled": true,
+      "sourceId": "source-03",
+      "sourceStart": 0,
+      "sourceEnd": 3,
+      "showEditorialOverlay": true,
+      "eyebrow": "01 / 模型选择",
+      "title": "三种方向",
+      "subtitle": "Sol 长任务｜Terra 平衡｜Luna 高频",
+      "narration": "发布内容把模型家族分成不同方向：Sol 面向前沿能力和高难度长任务，Terra 平衡能力与成本，Luna 面向快速和高频工作负载。具体选择，开始成为工作流设计的一部分。",
+      "visualRequirement": "使用 source-03 的模型家族信息图作为官方发布页截图后的版式转场。只呈现定位文字，不添加性能数字、排名或成本比例。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "start": 6,
+          "end": 6,
+          "lineStart": 6,
+          "lineEnd": 6,
+          "note": "来源记录 Sol、Terra、Luna 的定位。"
+        },
+        {
+          "sourceId": "source-03",
+          "locatorType": "image",
+          "note": "模型家族视觉可辅助呈现三种定位，但图片中的 FRONTIER、BALANCED、VOLUME 与具体语义关系仍需人工确认。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-03",
+          "assetPath": "public/project-assets/gpt-5-6-agentic-work/02-family-1783863606653.png",
+          "mediaType": "image",
+          "sourceStart": 0,
+          "sourceEnd": 3,
+          "matchReason": "source-03 直接呈现“ONE FAMILY / THREE LANES”以及 SOL、TERRA、LUNA 三列定位文字，适合表现三种方向；不依赖图片中尚未明确核验的具体语义关系。作为图片可使用 0 到 3 秒。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "generatedBy": "ai",
+      "userEdited": false
+    },
+    {
+      "id": "scene-03",
+      "enabled": true,
+      "sourceId": "source-13",
+      "sourceStart": 0,
+      "sourceEnd": 3,
+      "showEditorialOverlay": true,
+      "eyebrow": "02 / 从回答到执行",
+      "title": "程序化工具调用",
+      "subtitle": "写逻辑｜处理结果｜决定下一步",
+      "narration": "Responses API 新增了 Programmatic Tool Calling。根据来源描述，模型可以编写轻量程序，协调工具、处理中间结果，并自主选择下一步操作。它指向的是任务推进能力，而不是单次回答的外观。",
+      "visualRequirement": "优先使用官方 source-13 手机截图，配合局部放大和关键词高亮。不得把截图中的说明扩展为已验证的真实项目效果。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "start": 8,
+          "end": 8,
+          "lineStart": 8,
+          "lineEnd": 8,
+          "note": "来源记录 Programmatic Tool Calling 的工作方式。"
+        },
+        {
+          "sourceId": "source-13",
+          "locatorType": "image",
+          "note": "OpenAI 官方程序化工具调用手机排版截图，展示相关原文。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-13",
+          "assetPath": "public/project-assets/gpt-5-6-agentic-work/openai-programmatic-tools-mobile-1080x1920-1783870053227.png",
+          "mediaType": "image",
+          "sourceStart": 0,
+          "sourceEnd": 3,
+          "matchReason": "source-13 是 OpenAI 官方程序化工具调用手机截图，正文明确出现编写程序、协调工具、处理中间结果和自主选择下一步等关键词，匹配程序化工具调用主题；作为图片可使用 0 到 3 秒。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "generatedBy": "ai",
+      "userEdited": false
+    },
+    {
+      "id": "scene-04",
+      "enabled": true,
+      "sourceId": "source-11",
+      "sourceStart": 0,
+      "sourceEnd": 11,
+      "showEditorialOverlay": true,
+      "eyebrow": "03 / 官方视频片段",
+      "title": "让画面先动起来",
+      "subtitle": "官方演示：工作界面持续展开",
+      "narration": "接下来尽量使用官方演示视频。画面展示的是 ChatGPT Work 工作界面，其中可见 Work、Codex、Scheduled 和 Sites 等入口。它可以作为“持续工作界面”的视觉证据，但现有素材只有代表帧，无法核验未抽取时段的完整动态流程。",
+      "visualRequirement": "使用 source-11 官方视频原片作为本场景主画面，尽量保留其原始界面和动态，不叠加第三方连续原片。可在关键界面出现时加入简短中文字幕，但不要伪造视频中未出现的操作。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-11",
+          "locatorType": "time",
+          "start": 0,
+          "end": 11,
+          "note": "使用 OpenAI ChatGPT Work 官方视频的 0 至 11 秒片段；当前分析仅覆盖代表帧。"
+        },
+        {
+          "sourceId": "source-11",
+          "locatorType": "file",
+          "note": "官方视频文件用于优先级最高的动态画面素材；未检测到可转录音轨。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-11",
+          "assetPath": "public/project-assets/gpt-5-6-agentic-work/openai-chatgpt-work-demo-1783866751667.mp4",
+          "mediaType": "video",
+          "sourceStart": 0,
+          "sourceEnd": 11,
+          "matchReason": "source-11 是 OpenAI ChatGPT Work 官方视频，代表帧中可见 ChatGPT Work、Work、Codex、Scheduled 和 Sites 等动态界面元素，符合让画面先动起来的要求；使用 0 到 11 秒的原始视频片段。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "generatedBy": "ai",
+      "userEdited": false
+    },
+    {
+      "id": "scene-05",
+      "enabled": true,
+      "sourceId": "source-11",
+      "sourceStart": 0,
+      "sourceEnd": 11,
+      "showEditorialOverlay": true,
+      "eyebrow": "04 / 状态与协作",
+      "title": "状态可以留下来吗",
+      "subtitle": "缓存｜持久化推理｜多智能体 beta",
+      "narration": "来源还列出了显式 prompt caching、persisted reasoning、max reasoning effort、Pro mode，以及 beta 形态的多智能体编排。它们共同指向一种可能性：任务不一定一次对话结束，而可以保留部分状态、拆分子任务，再综合结果。这里的“指向”是编辑判断，不是对长期效果的官方背书。",
+      "visualRequirement": "先用 source-11 视频动态承接上一场，再以 source-05 抽象信息图作短暂叠化。字幕中保留“beta”“可能性”等限定词，不把视觉隐喻当作功能演示。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "start": 9,
+          "end": 10,
+          "lineStart": 9,
+          "lineEnd": 10,
+          "note": "来源记录缓存、持久化推理、推理强度和 Pro mode，以及 beta 多智能体编排。"
+        },
+        {
+          "sourceId": "source-11",
+          "locatorType": "time",
+          "start": 0,
+          "end": 11,
+          "note": "可继续使用 source-11 官方 Work 视频作为持续工作和界面转场素材，但只能说明画面中可见内容。"
+        },
+        {
+          "sourceId": "source-05",
+          "locatorType": "image",
+          "note": "持久化推理视觉用于抽象表现 CACHE、REASONING、STATE；图片本身不能证明具体执行顺序。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-11",
+          "assetPath": "public/project-assets/gpt-5-6-agentic-work/openai-chatgpt-work-demo-1783866751667.mp4",
+          "mediaType": "video",
+          "sourceStart": 0,
+          "sourceEnd": 11,
+          "matchReason": "source-11 可延续上一场的官方 Work 动态界面，画面中明确可见 ChatGPT Work、Work 和 Codex，适合承接持续工作状态；使用 0 到 11 秒，且不将画面扩展解释为已验证的持久化功能。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "generatedBy": "ai",
+      "userEdited": false
+    },
+    {
+      "id": "scene-06",
+      "enabled": true,
+      "sourceId": "source-07",
+      "sourceStart": 0,
+      "sourceEnd": 3,
+      "showEditorialOverlay": true,
+      "eyebrow": "CHECK / 人工验收",
+      "title": "真正的验收在你的仓库",
+      "subtitle": "目标｜工具边界｜测试｜失败处理",
+      "narration": "但官方演示不等于你的项目体验，早期社区样本也不等于稳定 benchmark。拿一个真实仓库，写清目标，限定模型能调用哪些工具，最后用测试验收失败、回滚、成本和权限。跑完这一轮，才知道它是否适合你的工作流。",
+      "visualRequirement": "使用 source-07 工作流视觉收尾；四步依次点亮：目标、工具边界、测试、失败与回滚。末屏保留 CTA：“拿一个真实仓库，跑一遍。”并标注“人工确认成本、权限、失败处理与长期稳定性”。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "start": 30,
+          "end": 30,
+          "lineStart": 30,
+          "lineEnd": 30,
+          "note": "来源将真实仓库、明确目标、工具边界和测试作为原创验收建议，并明确不能替代实际验证。"
+        },
+        {
+          "sourceId": "source-07",
+          "locatorType": "image",
+          "note": "工作流结论视觉呈现 GOAL、TOOLS、TESTS 三步；作为原创编辑图，不扩展为实际测试结果。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-07",
+          "assetPath": "public/project-assets/gpt-5-6-agentic-work/06-workflow-1783863606714.png",
+          "mediaType": "image",
+          "sourceStart": 0,
+          "sourceEnd": 3,
+          "matchReason": "source-07 以“THE REAL TEST / WORK FLOW”为标题，并依次呈现 GOAL、TOOLS、TESTS 三个勾选步骤，直接对应真实仓库验收的工作流收尾；作为图片可使用 0 到 3 秒。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "generatedBy": "ai",
+      "userEdited": false
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <rect width="1080" height="1920" fill="#f4f6f2"/>
+  <text x="74" y="420" fill="#111816" font-family="Arial" font-size="34" font-weight="900">ONE FAMILY / THREE LANES</text>
+  <rect x="74" y="510" width="286" height="880" fill="#111816"/>
+  <rect x="397" y="510" width="286" height="880" fill="#37f5a2"/>
+  <rect x="720" y="510" width="286" height="880" fill="#ffd447"/>
+  <text x="105" y="650" fill="#ffffff" font-family="Arial" font-size="58" font-weight="900">SOL</text>
+  <text x="428" y="650" fill="#111816" font-family="Arial" font-size="58" font-weight="900">TERRA</text>
+  <text x="751" y="650" fill="#111816" font-family="Arial" font-size="58" font-weight="900">LUNA</text>
+  <circle cx="217" cy="930" r="88" fill="none" stroke="#37f5a2" stroke-width="18"/>
+  <circle cx="540" cy="930" r="62" fill="none" stroke="#111816" stroke-width="18"/>
+  <circle cx="863" cy="930" r="38" fill="#111816"/>
+  <text x="112" y="1290" fill="#ffffff" font-family="Arial" font-size="28" font-weight="700">FRONTIER</text>
+  <text x="435" y="1290" fill="#111816" font-family="Arial" font-size="28" font-weight="700">BALANCED</text>
+  <text x="758" y="1290" fill="#111816" font-family="Arial" font-size="28" font-weight="700">VOLUME</text>
+</svg>

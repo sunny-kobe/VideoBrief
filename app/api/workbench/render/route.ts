@@ -13,11 +13,15 @@ import { NextRequest, NextResponse } from 'next/server';
 import {
   projectPaths,
   readBrief,
+  readRenderJob,
   readRenderManifest,
   renderStatus,
+  recordRenderAttempt,
+  recordRenderFailure,
+  writeRenderJob,
   writeBrief,
 } from '@/src/shortVideoProjectServer';
-import { ShortVideoProject } from '@/src/shortVideoBrief';
+import { RenderJobRecord, ShortVideoProject } from '@/src/shortVideoBrief';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -46,9 +50,9 @@ function acquireRenderLock() {
   }
 }
 
-function runRender() {
+function runRender(briefPath: string, onStage: (stage: RenderJobRecord['stage']) => void) {
   return new Promise<{ stdout: string; stderr: string }>((resolve, reject) => {
-    const child = spawn('npm', ['run', 'video:export:production'], {
+    const child = spawn(process.execPath, ['scripts/export-production.mjs', `--brief=${briefPath}`], {
       cwd: process.cwd(),
       env: process.env,
     });
@@ -56,7 +60,11 @@ function runRender() {
     let stderr = '';
 
     child.stdout.on('data', (chunk) => {
-      stdout += chunk.toString();
+      const text = chunk.toString();
+      stdout += text;
+      if (text.includes('[videobrief-stage] rendering')) onStage('rendering');
+      if (text.includes('[videobrief-stage] proof')) onStage('proof');
+      if (text.includes('[videobrief-stage] packaging')) onStage('packaging');
     });
     child.stderr.on('data', (chunk) => {
       stderr += chunk.toString();
@@ -72,6 +80,30 @@ function runRender() {
   });
 }
 
+function failedRenderMessage(error: unknown) {
+  const message = error instanceof Error ? error.message : 'render failed';
+  return message.split('\n').map((line) => line.trim()).filter(Boolean).slice(-12).join('\n');
+}
+
+export function GET(request: NextRequest) {
+  try {
+    const projectId = request.nextUrl.searchParams.get('projectId');
+    if (!projectId) throw new Error('projectId is required');
+    const project = readBrief(projectId);
+    const paths = projectPaths(project);
+    const manifest = readRenderManifest(paths.manifestPath);
+    return NextResponse.json({
+      job: readRenderJob(paths.renderJobPath),
+      renderStatus: renderStatus(manifest, projectId),
+    });
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : 'render status failed' },
+      { status: 400 },
+    );
+  }
+}
+
 export async function POST(request: NextRequest) {
   const releaseRenderLock = acquireRenderLock();
   if (!releaseRenderLock) {
@@ -81,24 +113,84 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  let renderJobPath = '';
+  let job: RenderJobRecord | null = null;
+  let activeProjectId = '';
+  let renderAttemptRecorded = false;
   try {
-    const body = (await request.json().catch(() => ({}))) as { brief?: ShortVideoProject };
-    const brief = body.brief ? writeBrief(body.brief) : readBrief();
-    const result = await runRender();
+    const body = (await request.json().catch(() => ({}))) as { projectId?: string; brief?: ShortVideoProject };
+    const projectId = body.projectId ?? body.brief?.id;
+    if (!projectId) throw new Error('projectId is required');
+    activeProjectId = projectId;
+    if (body.brief) writeBrief(projectId, body.brief);
+    const brief = recordRenderAttempt(projectId);
+    renderAttemptRecorded = true;
     const paths = projectPaths(brief);
+    renderJobPath = paths.renderJobPath;
+    const startedAt = new Date().toISOString();
+    job = writeRenderJob(renderJobPath, {
+      schemaVersion: 1,
+      projectId,
+      state: 'running',
+      stage: 'saving',
+      startedAt,
+      updatedAt: startedAt,
+      completedAt: '',
+      error: '',
+    });
+    const result = await runRender(paths.briefPath, (stage) => {
+      if (!job) return;
+      job = writeRenderJob(renderJobPath, {
+        ...job,
+        stage,
+        updatedAt: new Date().toISOString(),
+      });
+    });
+    const renderedBrief = readBrief(projectId);
     const manifest = readRenderManifest(paths.manifestPath);
+    const completedAt = new Date().toISOString();
+    job = writeRenderJob(renderJobPath, {
+      ...job,
+      state: 'completed',
+      stage: 'completed',
+      updatedAt: completedAt,
+      completedAt,
+      error: '',
+    });
 
     return NextResponse.json({
-      brief,
+      brief: renderedBrief,
       outputHref: paths.publicRenderHref,
       manifest,
-      renderStatus: renderStatus(manifest),
+      renderStatus: renderStatus(manifest, projectId),
+      renderJob: job,
       stdout: result.stdout,
       stderr: result.stderr,
     });
   } catch (error) {
+    const message = failedRenderMessage(error);
+    if (job && renderJobPath) {
+      const completedAt = new Date().toISOString();
+      writeRenderJob(renderJobPath, {
+        ...job,
+        state: 'failed',
+        updatedAt: completedAt,
+        completedAt,
+        error: message,
+      });
+    }
+    if (activeProjectId && renderAttemptRecorded) {
+      try {
+        recordRenderFailure(activeProjectId, message);
+      } catch (recordError) {
+        console.error(
+          'Failed to persist render failure:',
+          recordError instanceof Error ? recordError.message : recordError,
+        );
+      }
+    }
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'render failed' },
+      { error: message },
       { status: 500 },
     );
   } finally {

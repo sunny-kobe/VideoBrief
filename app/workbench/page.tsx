@@ -1,16 +1,19 @@
 import { existsSync } from 'node:fs';
+import { notFound } from 'next/navigation';
 import ProductionWorkbenchClient, { WorkbenchAsset } from '@/src/components/ProductionWorkbenchClient';
 import {
-  briefPath,
+  briefPathFor,
   fileSize,
   projectPaths,
   readBrief,
+  readRenderJob,
   readRenderManifest,
   readText,
   readTimeline,
   renderStatus,
 } from '@/src/shortVideoProjectServer';
-import { WorkbenchView } from '@/src/workbench';
+import { suggestedWorkbenchView, WorkbenchView, workbenchSteps } from '@/src/workbench';
+import { readAiConfig } from '@/src/aiConfig';
 
 export const dynamic = 'force-dynamic';
 
@@ -30,43 +33,82 @@ interface WorkbenchPageProps {
     prototype?: string;
     candidateLayout?: string;
     view?: string;
+    project?: string;
+    source?: string;
+    advanced?: string;
   }>;
 }
 
 export default async function WorkbenchPage({ searchParams }: WorkbenchPageProps) {
   const params = await searchParams;
-  const brief = readBrief();
+  let brief;
+  try {
+    brief = readBrief(params.project);
+  } catch {
+    notFound();
+  }
   const paths = projectPaths(brief);
   const timeline = readTimeline(paths.timelinePath);
   const manifest = readRenderManifest(paths.manifestPath);
-  const initialView: WorkbenchView = ['clips', 'subtitles', 'sources', 'export'].includes(params.view ?? '')
+  const currentRenderStatus = renderStatus(manifest, brief.id);
+  const initialView: WorkbenchView = params.view === 'research' || workbenchSteps.some((step) => step.view === params.view)
     ? params.view as WorkbenchView
-    : 'clips';
+    : suggestedWorkbenchView(brief);
+  const initialSourceId = brief.sources.some((source) => source.id === params.source)
+    ? params.source!
+    : brief.sources[0]?.id ?? '';
   const assets: WorkbenchAsset[] = [
     ...paths.sources.map((source) => asset(source.path, source.label, '素材', source.href)),
-    asset(briefPath, '项目配置 project.json', '时间轴'),
+    asset(briefPathFor(brief.id), '项目配置 project.json', '时间轴'),
     asset(paths.voiceoverPath, '分句拼接中文配音', '音频'),
     asset(paths.srtPath, '可编辑 SRT 字幕', '字幕'),
     asset(paths.assPath, '烧录 ASS 字幕', '字幕'),
     asset(paths.timelinePath, '同步时间轴 JSON', '时间轴'),
-    asset(paths.publicRenderPath, '当前生产 MP4', '成片', paths.publicRenderHref),
+    asset(
+      paths.publicRenderPath,
+      '当前生产 MP4',
+      '成片',
+      currentRenderStatus.state === 'ready' ? paths.publicRenderHref : undefined,
+    ),
+    asset(paths.coverImagePath, '封面 PNG', '封面'),
+    asset(paths.platformCopyPath, '平台文案 JSON', '文案'),
+    asset(paths.sourceListPath, '来源清单 JSON', '清单'),
+    asset(paths.projectSnapshotPath, '项目快照 JSON', '项目'),
+    asset(paths.exportManifestPath, '导出 manifest', '时间轴'),
+    asset(
+      paths.exportZipPath,
+      '完整导出包 ZIP',
+      '导出包',
+      currentRenderStatus.state === 'ready'
+        ? `/api/projects/${encodeURIComponent(brief.id)}/export`
+        : undefined,
+    ),
   ];
 
   return (
     <ProductionWorkbenchClient
       brief={brief}
+      projectId={brief.id}
       timeline={timeline}
       assets={assets}
       srtText={readText(paths.srtPath)}
-      renderHref={existsSync(paths.publicRenderPath) ? paths.publicRenderHref : ''}
+      renderHref={currentRenderStatus.state === 'ready' && existsSync(paths.publicRenderPath) ? paths.publicRenderHref : ''}
       sourceHrefs={Object.fromEntries(
-        paths.sources.map((source) => [source.id, source.href ?? '']),
+        paths.sources.map((source) => [
+          source.id,
+          source.sourceType === 'audio'
+            ? `/api/projects/${encodeURIComponent(brief.id)}/sources/${encodeURIComponent(source.id)}/preview`
+            : source.href ?? '',
+        ]),
       )}
-      renderStatus={renderStatus(manifest)}
-      renderCommand="npm run video:export:production"
+      renderStatus={currentRenderStatus}
+      renderJob={readRenderJob(paths.renderJobPath)}
       initialView={initialView}
+      initialSourceId={initialSourceId}
+      initialAdvanced={params.advanced === '1'}
       initialPrototype={params.prototype === 'clip-candidates' ? 'clip-candidates' : null}
       initialCandidateVariant={params.candidateLayout === 'compare' ? 'compare' : 'ranked'}
+      aiAvailable={readAiConfig().apiKeyAvailable}
     />
   );
 }

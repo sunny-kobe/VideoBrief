@@ -9,6 +9,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { dirname, resolve } from 'node:path';
+import { EdgeTTS } from 'edge-tts-universal';
 import ffmpegPath from 'ffmpeg-static';
 
 const args = new Map();
@@ -40,12 +41,7 @@ const sources = Array.isArray(brief.sources) && brief.sources.length
         assetPath: brief.sourceVideo,
       },
     ];
-const sourceInputs = sources.map((source) => ({
-  ...source,
-  path: resolve(source.assetPath),
-}));
-const sourceIndexById = new Map(sourceInputs.map((source, index) => [source.id, index]));
-const defaultSourceId = sourceInputs[0]?.id;
+const defaultSourceId = sources.find((source) => source.sourceType === 'video' || source.sourceType === 'image')?.id ?? sources[0]?.id;
 const output = resolve(args.get('output') ?? positional[0] ?? outputs.outputVideo);
 const publicRender = outputs.publicRender ? resolve(outputs.publicRender) : null;
 const workDir = resolve(outputs.workDir ?? 'output/videos/local-ffmpeg-synced-work');
@@ -60,11 +56,17 @@ const projectFingerprint = createHash('sha256').update(briefText).digest('hex');
 const width = Number(brief.render?.width ?? 1080);
 const height = Number(brief.render?.height ?? 1920);
 const fps = Number(brief.render?.fps ?? 30);
-const voice = process.env.VOICEOVER_VOICE ?? brief.render?.voice ?? 'Eddy (中文（中国大陆）)';
-const rate = String(process.env.VOICEOVER_RATE ?? brief.render?.rate ?? 205);
+const voice = process.env.VOICEOVER_VOICE ?? brief.render?.voice ?? 'zh-CN-YunxiNeural';
+const rate = Number(process.env.VOICEOVER_RATE ?? brief.render?.rate ?? 198);
+const voiceAdapter = voice.endsWith('Neural') ? 'edge-tts' : 'macos-say';
 const sceneSpecs = (brief.scenes ?? [])
   .filter((scene) => scene.enabled !== false)
   .map((scene) => ({ ...scene, sourceId: scene.sourceId ?? defaultSourceId }));
+const usedSourceIds = new Set(sceneSpecs.map((scene) => scene.sourceId));
+const sourceInputs = sources
+  .filter((source) => usedSourceIds.has(source.id))
+  .map((source) => ({ ...source, path: resolve(source.assetPath) }));
+const sourceIndexById = new Map(sourceInputs.map((source, index) => [source.id, index]));
 
 function run(command, args, errorMessage) {
   const result = spawnSync(command, args, { encoding: 'utf8' });
@@ -95,16 +97,38 @@ function audioDuration(path) {
   return Number(match[1]) * 3600 + Number(match[2]) * 60 + Number(match[3]);
 }
 
-function generateVoiceSegment(scene, index) {
-  const rawPath = resolve(workDir, `voice-${String(index + 1).padStart(2, '0')}.aiff`);
+function edgeRate(value) {
+  const percent = Math.max(-50, Math.min(50, Math.round((value / 190 - 1) * 100)));
+  return `${percent >= 0 ? '+' : ''}${percent}%`;
+}
+
+async function generateVoiceSegment(scene, index) {
+  const rawExtension = voiceAdapter === 'edge-tts' ? 'mp3' : 'aiff';
+  const rawPath = resolve(workDir, `voice-${String(index + 1).padStart(2, '0')}.${rawExtension}`);
   const paddedPath = resolve(workDir, `voice-padded-${String(index + 1).padStart(2, '0')}.aiff`);
   const subtitle = String(scene.subtitle ?? '').trim();
-  run(
-    '/usr/bin/say',
-    ['-v', voice, '-r', rate, '-o', rawPath, subtitle],
-    `Failed to generate voice segment ${index + 1}.`,
-  );
-  const voiceDuration = Math.max(1.8, audioDuration(rawPath) + 0.12);
+  const narration = String(scene.narration ?? scene.subtitle ?? '').trim();
+  if (voiceAdapter === 'edge-tts') {
+    try {
+      const tts = new EdgeTTS(narration, voice, {
+        rate: edgeRate(rate),
+        volume: '+0%',
+        pitch: '+0Hz',
+      });
+      const result = await tts.synthesize();
+      writeFileSync(rawPath, Buffer.from(await result.audio.arrayBuffer()));
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      throw new Error(`Failed to generate neural voice segment ${index + 1}: ${message}`);
+    }
+  } else {
+    run(
+      '/usr/bin/say',
+      ['-v', voice, '-r', String(rate), '-o', rawPath, narration],
+      `Failed to generate voice segment ${index + 1}.`,
+    );
+  }
+  const voiceDuration = Math.max(1.8, audioDuration(rawPath) + 0.28);
   const selectedDuration =
     Number.isFinite(scene.sourceEnd) && Number.isFinite(scene.sourceStart)
       ? Math.max(0, Number(scene.sourceEnd) - Number(scene.sourceStart))
@@ -161,8 +185,41 @@ function srtTime(seconds) {
   return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')},${String(ms).padStart(3, '0')}`;
 }
 
-function assText(text) {
-  return text.replaceAll('\\', '\\\\').replaceAll('{', '\\{').replaceAll('}', '\\}');
+function characterWidth(character) {
+  return /^[\x00-\x7F]$/.test(character) ? 0.55 : 1;
+}
+
+function wrapText(text, maxWidth) {
+  const lines = [];
+  for (const paragraph of String(text).split(/\r?\n/)) {
+    let line = '';
+    let width = 0;
+    for (const character of Array.from(paragraph)) {
+      const nextWidth = characterWidth(character);
+      const cannotStartLine = /^[，。！？；：、,.!?;:)）\]】]$/.test(character);
+      if (line && width + nextWidth > maxWidth && cannotStartLine) {
+        line += character;
+        width += nextWidth;
+        continue;
+      }
+      if (line && width + nextWidth > maxWidth) {
+        lines.push(line.trimEnd());
+        line = character.trimStart();
+        width = line ? nextWidth : 0;
+      } else {
+        line += character;
+        width += nextWidth;
+      }
+    }
+    lines.push(line);
+  }
+  return lines;
+}
+
+function assText(text, maxWidth) {
+  return wrapText(text, maxWidth)
+    .map((line) => line.replaceAll('\\', '\\\\').replaceAll('{', '\\{').replaceAll('}', '\\}'))
+    .join('\\N');
 }
 
 function buildTimeline(scenes) {
@@ -194,10 +251,13 @@ function buildAss(scenes) {
   const dialogue = scenes.flatMap((scene) => {
     const start = assTime(scene.start);
     const end = assTime(scene.end);
+    const editorialOverlay = scene.showEditorialOverlay === false ? [] : [
+      `Dialogue: 0,${start},${end},Eyebrow,,0,0,0,,${assText(scene.eyebrow, 28)}`,
+      `Dialogue: 0,${start},${end},Title,,0,0,0,,${assText(scene.title, 15)}`,
+    ];
     return [
-      `Dialogue: 0,${start},${end},Eyebrow,,0,0,0,,${assText(scene.eyebrow)}`,
-      `Dialogue: 0,${start},${end},Title,,0,0,0,,${assText(scene.title)}`,
-      `Dialogue: 0,${start},${end},Subtitle,,0,0,0,,${assText(scene.subtitle)}`,
+      ...editorialOverlay,
+      `Dialogue: 0,${start},${end},Subtitle,,0,0,0,,${assText(scene.subtitle, 21)}`,
     ];
   });
 
@@ -237,6 +297,8 @@ function buildVoiceover(scenes) {
       '0',
       '-i',
       concatListPath,
+      '-af',
+      'aresample=48000,highpass=f=80,lowpass=f=12000,acompressor=threshold=0.125:ratio=2:attack=20:release=250,loudnorm=I=-16:LRA=11:TP=-1.5',
       '-ar',
       '48000',
       '-ac',
@@ -252,6 +314,18 @@ function buildFilterComplex(scenes) {
     const length = scene.end - scene.start;
     const sourceIndex = sourceIndexById.get(scene.sourceId);
     if (sourceIndex == null) throw new Error(`Unknown sourceId ${scene.sourceId} in ${scene.id}.`);
+    const source = sourceInputs[sourceIndex];
+    if (source.sourceType === 'image') {
+      return [
+        `[${sourceIndex}:v]scale=${width}:${height}:force_original_aspect_ratio=increase`,
+        `crop=${width}:${height}`,
+        `zoompan=z='min(zoom+0.00035,1.06)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=${width}x${height}:fps=${fps}`,
+        `trim=duration=${length.toFixed(3)}`,
+        'setpts=PTS-STARTPTS',
+        'setsar=1',
+        `format=yuv420p[v${index}]`,
+      ].join(',');
+    }
     return [
       `[${sourceIndex}:v]trim=start=${scene.sourceStart}:duration=${length.toFixed(3)}`,
       'setpts=PTS-STARTPTS',
@@ -278,12 +352,32 @@ for (const source of sourceInputs) {
   if (!existsSync(source.path)) throw new Error(`Source video not found: ${source.path}`);
 }
 if (!sceneSpecs.length) throw new Error(`No enabled scenes found in ${briefPath}`);
+for (const scene of sceneSpecs) {
+  const source = sources.find((item) => item.id === scene.sourceId);
+  if (!source) throw new Error(`Scene ${scene.id} references unknown sourceId ${scene.sourceId}.`);
+  if (source.sourceType !== 'video' && source.sourceType !== 'image') {
+    throw new Error(`Scene ${scene.id} requires a video or image source; ${source.id} is ${source.sourceType}.`);
+  }
+  if (Array.isArray(scene.candidates) && scene.candidates.length > 0 && !scene.selectedCandidateId) {
+    throw new Error(`Scene ${scene.id} has candidates but no user-confirmed selectedCandidateId.`);
+  }
+  if (scene.selectedCandidateId) {
+    const selected = scene.candidates?.find((candidate) => candidate.id === scene.selectedCandidateId);
+    if (!selected) throw new Error(`Scene ${scene.id} selectedCandidateId does not exist in candidates.`);
+    if (selected.sourceId !== scene.sourceId) {
+      throw new Error(`Scene ${scene.id} selected candidate does not match its sourceId.`);
+    }
+  }
+}
 
 mkdirSync(dirname(output), { recursive: true });
 mkdirSync(workDir, { recursive: true });
 if (publicRender) mkdirSync(dirname(publicRender), { recursive: true });
 
-const scenesWithAudio = sceneSpecs.map(generateVoiceSegment);
+const scenesWithAudio = [];
+for (const [index, scene] of sceneSpecs.entries()) {
+  scenesWithAudio.push(await generateVoiceSegment(scene, index));
+}
 const scenes = buildTimeline(scenesWithAudio);
 const duration = scenes.at(-1).end;
 
@@ -294,7 +388,9 @@ writeFileSync(srtPath, buildSrt(scenes));
 runFfmpeg(
   [
     '-y',
-    ...sourceInputs.flatMap((source) => ['-i', source.path]),
+    ...sourceInputs.flatMap((source) => source.sourceType === 'image'
+      ? ['-loop', '1', '-framerate', String(fps), '-i', source.path]
+      : ['-i', source.path]),
     '-i',
     voiceoverPath,
     '-filter_complex',
@@ -357,7 +453,7 @@ const manifest = {
   projectFingerprint,
   renderedAt: new Date().toISOString(),
   briefPath,
-  render: { width, height, fps, duration },
+  render: { width, height, fps, duration, voice, rate, voiceAdapter },
   artifacts,
   scenes: scenes.map((scene) => ({
     id: scene.id,
@@ -366,6 +462,7 @@ const manifest = {
     end: scene.end,
     sourceStart: scene.sourceStart,
     sourceEnd: scene.sourceEnd,
+    showEditorialOverlay: scene.showEditorialOverlay !== false,
   })),
 };
 writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);

@@ -1,11 +1,27 @@
 import ShortVideoPreviewClient from '@/src/components/ShortVideoPreviewClient';
-import { projectPaths, readBrief } from '@/src/shortVideoProjectServer';
+import {
+  projectPaths,
+  readBrief,
+  readRenderManifest,
+  renderStatus,
+} from '@/src/shortVideoProjectServer';
 
 export const dynamic = 'force-dynamic';
 
-export default function ShortVideoPage() {
-  const brief = readBrief();
-  const paths = projectPaths(brief);
+interface ShortVideoPageProps {
+  searchParams: Promise<{ project?: string }>;
+}
 
-  return <ShortVideoPreviewClient renderHref={paths.publicRenderHref} title={brief.title} />;
+export default async function ShortVideoPage({ searchParams }: ShortVideoPageProps) {
+  const brief = readBrief((await searchParams).project);
+  const paths = projectPaths(brief);
+  const status = renderStatus(readRenderManifest(paths.manifestPath), brief.id);
+
+  return (
+    <ShortVideoPreviewClient
+      projectId={brief.id}
+      renderHref={status.state === 'ready' ? paths.publicRenderHref : ''}
+      title={brief.title}
+    />
+  );
 }

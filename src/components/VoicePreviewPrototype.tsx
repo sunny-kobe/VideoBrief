@@ -4,11 +4,13 @@ import { useEffect, useState } from 'react';
 import { Volume2 } from 'lucide-react';
 
 interface VoicePreviewPrototypeProps {
+  projectId: string;
   sceneId: string;
   text: string;
+  voice: string;
 }
 
-export default function VoicePreviewPrototype({ sceneId, text }: VoicePreviewPrototypeProps) {
+export default function VoicePreviewPrototype({ projectId, sceneId, text, voice }: VoicePreviewPrototypeProps) {
   const [state, setState] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
   const [audioHref, setAudioHref] = useState('');
   const [statusText, setStatusText] = useState('');
@@ -17,7 +19,7 @@ export default function VoicePreviewPrototype({ sceneId, text }: VoicePreviewPro
     setState('idle');
     setAudioHref('');
     setStatusText('');
-  }, [sceneId, text]);
+  }, [projectId, sceneId, text, voice]);
 
   async function generatePreview() {
     setState('loading');
@@ -26,7 +28,7 @@ export default function VoicePreviewPrototype({ sceneId, text }: VoicePreviewPro
       const response = await fetch('/api/workbench/voice-preview', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ sceneId, text }),
+        body: JSON.stringify({ projectId, sceneId, text }),
       });
       const payload = await response.json();
       if (!response.ok) throw new Error(payload.error ?? '试听生成失败');
@@ -47,7 +49,9 @@ export default function VoicePreviewPrototype({ sceneId, text }: VoicePreviewPro
             <Volume2 aria-hidden="true" className="h-3.5 w-3.5" />
             旁白试听
           </div>
-          <p className="mt-1 text-xs text-slate-500">macOS 系统音色</p>
+          <p className="mt-1 text-xs text-slate-500">
+            {voice} · {voice.endsWith('Neural') ? '神经语音' : '本地离线音色'}
+          </p>
         </div>
         <button
           className="inline-flex h-8 items-center gap-1.5 rounded-md bg-slate-950 px-3 text-xs font-extrabold text-white hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 disabled:cursor-not-allowed disabled:bg-slate-400"

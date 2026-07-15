@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <rect width="1080" height="1920" fill="#101418"/>
+  <rect x="0" y="420" width="540" height="980" fill="#37f5a2"/>
+  <rect x="540" y="420" width="540" height="980" fill="#ff6b5f"/>
+  <text x="74" y="360" fill="#ffffff" font-family="Arial" font-size="36" font-weight="900">CAPABILITY / EXPERIENCE</text>
+  <text x="80" y="720" fill="#101418" font-family="Arial" font-size="240" font-weight="900">+</text>
+  <text x="650" y="720" fill="#101418" font-family="Arial" font-size="240" font-weight="900">!</text>
+  <rect x="80" y="850" width="380" height="34" fill="#101418"/>
+  <rect x="80" y="930" width="320" height="34" fill="#101418"/>
+  <rect x="80" y="1010" width="350" height="34" fill="#101418"/>
+  <rect x="620" y="850" width="380" height="120" fill="#101418"/>
+  <rect x="620" y="1010" width="240" height="120" fill="#101418"/>
+  <rect x="880" y="1010" width="120" height="120" fill="#101418"/>
+  <text x="82" y="1250" fill="#101418" font-family="Arial" font-size="30" font-weight="900">JUDGMENT</text>
+  <text x="622" y="1250" fill="#101418" font-family="Arial" font-size="30" font-weight="900">LIMITS / UX</text>
+</svg>

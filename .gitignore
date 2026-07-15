@@ -12,8 +12,10 @@ coverage/
 .vscode/
 .playwright-cli/
 output/
+tmp/
 public/renders/
 public/source-clips/
 public/audio/
+public/project-assets/
 content/sources/
 experiments/cutstorm/

@@ -1,0 +1,874 @@
+{
+  "schemaVersion": 3,
+  "id": "dogfood-static-notes",
+  "title": "静态截图与工作流说明",
+  "format": "video_project",
+  "targetAudience": "需要可追溯 AI 内容工作流的个人创作者",
+  "status": "draft",
+  "technical_status": "stale",
+  "rights_status": "cleared",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "brief": {
+    "objective": "用自有截图和 Markdown 解释 VideoBrief 如何保持人工最终控制",
+    "audience": "需要可追溯 AI 内容工作流的个人创作者",
+    "platform": "vertical-short-video",
+    "aspectRatio": "9:16",
+    "targetDurationSeconds": 20,
+    "tone": "清晰、克制、工作流导向",
+    "style": "真实工作台截图、少装饰、信息清楚",
+    "reference": "VideoBrief 当前本地工作台",
+    "coreMessage": "混合资料可以自动进入生产链，但事实、权利和发布决定不能自动越权",
+    "cta": "检查来源和权利状态",
+    "prohibitedMaterial": "未授权第三方连续原片、虚构事实、市场验证暗示"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "VideoBrief 自有工作台截图",
+      "sourceType": "image",
+      "originUrl": "",
+      "assetPath": "public/project-assets/dogfood-static-notes/phase1-workbench-1783785010393.png",
+      "originalFileName": "phase1-workbench.png",
+      "mimeType": "image/png",
+      "bytes": 197485,
+      "importedAt": "2026-07-11T15:50:10.393Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "由本机 VideoBrief 页面真实截取，仅用于本项目 dogfood",
+      "contentHash": "f641a0139f3c915a26f1e9b5b11996b64e4602c8708b952d03d8d1bbe991b70b",
+      "reusedFrom": {
+        "projectId": "videobrief-mixed-demo",
+        "sourceId": "source-02"
+      },
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 3,
+        "inputHash": "f641a0139f3c915a26f1e9b5b11996b64e4602c8708b952d03d8d1bbe991b70b",
+        "startedAt": "2026-07-12T12:57:09.954Z",
+        "completedAt": "2026-07-12T12:57:09.955Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": true
+      },
+      "analysis": {
+        "extractedText": "视频项目｜草稿；Phase 1 自助闭环样片；成片已验收；理解 0；策划 1；片段 1；字幕 1；素材 1；导出；导出与验收；生产成片、字幕、配音与时间轴；全屏预览；下载 MP4；下载导出包；成片已验收；MP4、音轨、字幕、时间轴和抽帧均通过当前项目检查；technical_status passed；rights_status cleared；publication_status draft-unpublished；market_status none；来源事实已核验；所有来源均已核验；素材使用权已确认；所有素材均已确认可使用；片段配置有效；启用片段的素材、时间点、标题和字幕完整；成片通过技术验收；MP4、音轨、字幕、时间轴和抽帧均通过当前项目检查；项目产物；本机合成有自测试录屏 1.6 MB；项目配置 project.json 2 KB；分句拼接中文配音 1.2 MB；可编辑 SRT 字幕 139 B；烧录 ASS 字幕 1 KB；同步时间轴 JSON 814 B；当前生产 MP4 3.9 MB；封面 PNG 466 KB；平台文案 JSON 256 B；来源清单 JSON 511 B；项目快照 JSON 2 KB；画面预览；成片；素材；第二个项目不需要定制代码（失效验...；0.00s - 6.66s；播放本段；本机合成有自测试录屏；成片规格；画布 1080 × 1920；帧率 30 fps；旁白音色 Eddy（中文（中国大陆））；语速 205；视频预览显示彩条画面，播放器时长为 0:06。",
+        "visualDescription": "1440×900 截图显示一个浅灰背景的视频项目工作台。顶部是项目导航和操作按钮；主体左侧为“导出与验收”白色面板，中部为项目产物文件列表，右侧为深色视频预览面板及成片规格面板。右侧视频预览中显示多色竖向彩条和黑色区域，播放器控制条位于画面底部。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-01-fact-01",
+            "statement": "项目名称显示为“Phase 1 自助闭环样片”，状态显示为“成片已验收”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "note": "图片左上区域，项目标题旁的状态标签"
+              }
+            ],
+            "reviewStatus": "proposed"
+          },
+          {
+            "id": "source-01-fact-02",
+            "statement": "顶部导航显示“理解 0”“策划 1”“片段 1”“字幕 1”“素材 1”和“导出”，其中“导出”处于当前选中状态。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "note": "图片顶部导航栏"
+              }
+            ],
+            "reviewStatus": "proposed"
+          },
+          {
+            "id": "source-01-fact-03",
+            "statement": "验收状态框显示“成片已验收”，并写明 MP4、音轨、字幕、时间轴和抽帧均通过当前项目检查。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "note": "左侧“导出与验收”面板的绿色状态框"
+              }
+            ],
+            "reviewStatus": "proposed"
+          },
+          {
+            "id": "source-01-fact-04",
+            "statement": "状态字段显示：technical_status 为 passed，rights_status 为 cleared，publication_status 为 draft-unpublished，market_status 为 none。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "note": "左侧状态网格"
+              }
+            ],
+            "reviewStatus": "proposed"
+          },
+          {
+            "id": "source-01-fact-05",
+            "statement": "验收清单显示“来源事实已核验”“素材使用权已确认”“片段配置有效”“成片通过技术验收”，每项左侧均有绿色勾选图标。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "note": "左侧验收清单"
+              }
+            ],
+            "reviewStatus": "proposed"
+          },
+          {
+            "id": "source-01-fact-06",
+            "statement": "项目产物列表可见：本机合成有自测试录屏（1.6 MB）、项目配置 project.json（2 KB）、分句拼接中文配音（1.2 MB）、可编辑 SRT 字幕（139 B）、烧录 ASS 字幕（1 KB）、同步时间轴 JSON（814 B）、当前生产 MP4（3.9 MB）、封面 PNG（466 KB）、平台文案 JSON（256 B）、来源清单 JSON（511 B）和项目快照 JSON（2 KB）。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "note": "中部“项目产物”列表"
+              }
+            ],
+            "reviewStatus": "proposed"
+          },
+          {
+            "id": "source-01-fact-07",
+            "statement": "右侧“画面预览”区域显示“成片”与“素材”两个切换项；当前可见视频画面为彩条测试画面，播放器显示 0:00 / 0:06，片段信息显示时长为 0.00s - 6.66s。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "note": "右侧画面预览播放器和片段信息"
+              }
+            ],
+            "reviewStatus": "proposed"
+          },
+          {
+            "id": "source-01-fact-08",
+            "statement": "成片规格显示：画布 1080 × 1920，帧率 30 fps，旁白音色 Eddy（中文（中国大陆）），语速 205。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "note": "右侧“成片规格”面板"
+              }
+            ],
+            "reviewStatus": "proposed"
+          },
+          {
+            "id": "source-01-fact-09",
+            "statement": "播放器下方可见片段标题开头为“第二个项目不需要定制代码（失效验...”，文本在界面中被截断。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "note": "右侧播放器下方片段标题"
+              }
+            ],
+            "reviewStatus": "proposed"
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-01-uncertainty-01",
+            "statement": "项目产物的文件路径在截图中因列宽被截断，无法从来源准确还原完整路径。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "note": "中部项目产物列表中的文件路径"
+              }
+            ],
+            "resolution": ""
+          },
+          {
+            "id": "source-01-uncertainty-02",
+            "statement": "片段标题只显示到“第二个项目不需要定制代码（失效验...”，完整标题无法由截图确认。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "note": "右侧播放器下方标题"
+              }
+            ],
+            "resolution": ""
+          },
+          {
+            "id": "source-01-uncertainty-03",
+            "statement": "截图只能确认预览画面呈现彩条测试图案，无法据此确认视频内容、测试图案的具体标准或生成原因。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "note": "右侧视频播放器画面"
+              }
+            ],
+            "resolution": ""
+          },
+          {
+            "id": "source-01-uncertainty-04",
+            "statement": "播放器显示 0:00 / 0:06，而片段信息显示 0.00s - 6.66s；截图未说明两种时长显示之间的取整或格式化规则。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "image",
+                "note": "右侧播放器时间显示"
+              }
+            ],
+            "resolution": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-02",
+      "label": "VideoBrief 原创工作流说明",
+      "sourceType": "markdown",
+      "originUrl": "",
+      "assetPath": "public/project-assets/dogfood-static-notes/workflow-notes-1783785054967.md",
+      "originalFileName": "workflow-notes.md",
+      "mimeType": "text/markdown",
+      "bytes": 730,
+      "importedAt": "2026-07-11T15:50:54.967Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "本仓库原创 Markdown，可用于本项目 dogfood",
+      "contentHash": "aae73988ae416a47372d053689a4c5a7585b56e935fbc3b8e12532528cef38bd",
+      "reusedFrom": {
+        "projectId": "videobrief-mixed-demo",
+        "sourceId": "source-03"
+      },
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 4,
+        "inputHash": "aae73988ae416a47372d053689a4c5a7585b56e935fbc3b8e12532528cef38bd",
+        "startedAt": "2026-07-12T12:57:09.956Z",
+        "completedAt": "2026-07-12T12:57:09.957Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": true
+      },
+      "analysis": {
+        "extractedText": "# VideoBrief 自助生产闭环说明\n\nVideoBrief 从 Creative Brief 开始，而不是从一段待摘要的视频开始。\n\n当前本地流程包含：\n\n1. 创建独立项目并填写目标、受众、画幅和核心观点；\n2. 导入自有或已确认可用的视频、音频、图片、Markdown 和文本；\n3. 将来源、核验状态、权利状态和处理结果保存在同一份 project.json；\n4. 用户确认脚本、场景和候选画面后运行 FFmpeg；\n5. proof 检查项目指纹、成片、音轨、字幕和多个画面时间点；\n6. 导出完整生产包，但不自动发布。\n\n本文件由 VideoBrief 仓库自身维护，可用于本地 dogfood。它只描述当前仓库实现，不证明市场需求。\n",
+        "visualDescription": "",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-02-fact-01",
+            "statement": "VideoBrief 从 Creative Brief 开始，而不是从一段待摘要的视频开始。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 3,
+                "end": 3,
+                "lineStart": 3,
+                "lineEnd": 3,
+                "note": "来源第3行"
+              }
+            ],
+            "reviewStatus": "proposed"
+          },
+          {
+            "id": "source-02-fact-02",
+            "statement": "当前本地流程包括：创建独立项目并填写目标、受众、画幅和核心观点；导入自有或已确认可用的视频、音频、图片、Markdown 和文本；将来源、核验状态、权利状态和处理结果保存在同一份 project.json；用户确认脚本、场景和候选画面后运行 FFmpeg；proof 检查项目指纹、成片、音轨、字幕和多个画面时间点；导出完整生产包，但不自动发布。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 7,
+                "end": 7,
+                "lineStart": 7,
+                "lineEnd": 7,
+                "note": "来源第7行"
+              },
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 8,
+                "end": 8,
+                "lineStart": 8,
+                "lineEnd": 8,
+                "note": "来源第8行"
+              },
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 9,
+                "end": 9,
+                "lineStart": 9,
+                "lineEnd": 9,
+                "note": "来源第9行"
+              },
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 10,
+                "end": 10,
+                "lineStart": 10,
+                "lineEnd": 10,
+                "note": "来源第10行"
+              },
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 11,
+                "end": 11,
+                "lineStart": 11,
+                "lineEnd": 11,
+                "note": "来源第11行"
+              },
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 12,
+                "end": 12,
+                "lineStart": 12,
+                "lineEnd": 12,
+                "note": "来源第12行"
+              }
+            ],
+            "reviewStatus": "proposed"
+          },
+          {
+            "id": "source-02-fact-03",
+            "statement": "该文件由 VideoBrief 仓库自身维护，可用于本地 dogfood。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 14,
+                "end": 14,
+                "lineStart": 14,
+                "lineEnd": 14,
+                "note": "来源第14行"
+              }
+            ],
+            "reviewStatus": "proposed"
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-02-uncertainty-01",
+            "statement": "来源不提供关于市场需求的证据，因此无法据此判断 VideoBrief 是否存在市场需求。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 14,
+                "end": 14,
+                "lineStart": 14,
+                "lineEnd": 14,
+                "note": "来源第14行"
+              }
+            ],
+            "resolution": ""
+          }
+        ]
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [],
+    "facts": [
+      {
+        "id": "source-01-fact-01",
+        "statement": "项目名称显示为“Phase 1 自助闭环样片”，状态显示为“成片已验收”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "note": "图片左上区域，项目标题旁的状态标签"
+          }
+        ],
+        "reviewStatus": "proposed"
+      },
+      {
+        "id": "source-01-fact-02",
+        "statement": "顶部导航显示“理解 0”“策划 1”“片段 1”“字幕 1”“素材 1”和“导出”，其中“导出”处于当前选中状态。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "note": "图片顶部导航栏"
+          }
+        ],
+        "reviewStatus": "proposed"
+      },
+      {
+        "id": "source-01-fact-03",
+        "statement": "验收状态框显示“成片已验收”，并写明 MP4、音轨、字幕、时间轴和抽帧均通过当前项目检查。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "note": "左侧“导出与验收”面板的绿色状态框"
+          }
+        ],
+        "reviewStatus": "proposed"
+      },
+      {
+        "id": "source-01-fact-04",
+        "statement": "状态字段显示：technical_status 为 passed，rights_status 为 cleared，publication_status 为 draft-unpublished，market_status 为 none。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "note": "左侧状态网格"
+          }
+        ],
+        "reviewStatus": "proposed"
+      },
+      {
+        "id": "source-01-fact-05",
+        "statement": "验收清单显示“来源事实已核验”“素材使用权已确认”“片段配置有效”“成片通过技术验收”，每项左侧均有绿色勾选图标。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "note": "左侧验收清单"
+          }
+        ],
+        "reviewStatus": "proposed"
+      },
+      {
+        "id": "source-01-fact-06",
+        "statement": "项目产物列表可见：本机合成有自测试录屏（1.6 MB）、项目配置 project.json（2 KB）、分句拼接中文配音（1.2 MB）、可编辑 SRT 字幕（139 B）、烧录 ASS 字幕（1 KB）、同步时间轴 JSON（814 B）、当前生产 MP4（3.9 MB）、封面 PNG（466 KB）、平台文案 JSON（256 B）、来源清单 JSON（511 B）和项目快照 JSON（2 KB）。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "note": "中部“项目产物”列表"
+          }
+        ],
+        "reviewStatus": "proposed"
+      },
+      {
+        "id": "source-01-fact-07",
+        "statement": "右侧“画面预览”区域显示“成片”与“素材”两个切换项；当前可见视频画面为彩条测试画面，播放器显示 0:00 / 0:06，片段信息显示时长为 0.00s - 6.66s。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "note": "右侧画面预览播放器和片段信息"
+          }
+        ],
+        "reviewStatus": "proposed"
+      },
+      {
+        "id": "source-01-fact-08",
+        "statement": "成片规格显示：画布 1080 × 1920，帧率 30 fps，旁白音色 Eddy（中文（中国大陆）），语速 205。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "note": "右侧“成片规格”面板"
+          }
+        ],
+        "reviewStatus": "proposed"
+      },
+      {
+        "id": "source-01-fact-09",
+        "statement": "播放器下方可见片段标题开头为“第二个项目不需要定制代码（失效验...”，文本在界面中被截断。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "note": "右侧播放器下方片段标题"
+          }
+        ],
+        "reviewStatus": "proposed"
+      },
+      {
+        "id": "source-02-fact-01",
+        "statement": "VideoBrief 从 Creative Brief 开始，而不是从一段待摘要的视频开始。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 3,
+            "end": 3,
+            "lineStart": 3,
+            "lineEnd": 3,
+            "note": "来源第3行"
+          }
+        ],
+        "reviewStatus": "proposed"
+      },
+      {
+        "id": "source-02-fact-02",
+        "statement": "当前本地流程包括：创建独立项目并填写目标、受众、画幅和核心观点；导入自有或已确认可用的视频、音频、图片、Markdown 和文本；将来源、核验状态、权利状态和处理结果保存在同一份 project.json；用户确认脚本、场景和候选画面后运行 FFmpeg；proof 检查项目指纹、成片、音轨、字幕和多个画面时间点；导出完整生产包，但不自动发布。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 7,
+            "end": 7,
+            "lineStart": 7,
+            "lineEnd": 7,
+            "note": "来源第7行"
+          },
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 8,
+            "end": 8,
+            "lineStart": 8,
+            "lineEnd": 8,
+            "note": "来源第8行"
+          },
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 9,
+            "end": 9,
+            "lineStart": 9,
+            "lineEnd": 9,
+            "note": "来源第9行"
+          },
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 10,
+            "end": 10,
+            "lineStart": 10,
+            "lineEnd": 10,
+            "note": "来源第10行"
+          },
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 11,
+            "end": 11,
+            "lineStart": 11,
+            "lineEnd": 11,
+            "note": "来源第11行"
+          },
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 12,
+            "end": 12,
+            "lineStart": 12,
+            "lineEnd": 12,
+            "note": "来源第12行"
+          }
+        ],
+        "reviewStatus": "proposed"
+      },
+      {
+        "id": "source-02-fact-03",
+        "statement": "该文件由 VideoBrief 仓库自身维护，可用于本地 dogfood。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 14,
+            "end": 14,
+            "lineStart": 14,
+            "lineEnd": 14,
+            "note": "来源第14行"
+          }
+        ],
+        "reviewStatus": "proposed"
+      }
+    ],
+    "uncertainties": [
+      {
+        "id": "source-01-uncertainty-01",
+        "statement": "项目产物的文件路径在截图中因列宽被截断，无法从来源准确还原完整路径。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "note": "中部项目产物列表中的文件路径"
+          }
+        ],
+        "resolution": ""
+      },
+      {
+        "id": "source-01-uncertainty-02",
+        "statement": "片段标题只显示到“第二个项目不需要定制代码（失效验...”，完整标题无法由截图确认。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "note": "右侧播放器下方标题"
+          }
+        ],
+        "resolution": ""
+      },
+      {
+        "id": "source-01-uncertainty-03",
+        "statement": "截图只能确认预览画面呈现彩条测试图案，无法据此确认视频内容、测试图案的具体标准或生成原因。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "note": "右侧视频播放器画面"
+          }
+        ],
+        "resolution": ""
+      },
+      {
+        "id": "source-01-uncertainty-04",
+        "statement": "播放器显示 0:00 / 0:06，而片段信息显示 0.00s - 6.66s；截图未说明两种时长显示之间的取整或格式化规则。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "image",
+            "note": "右侧播放器时间显示"
+          }
+        ],
+        "resolution": ""
+      },
+      {
+        "id": "source-02-uncertainty-01",
+        "statement": "来源不提供关于市场需求的证据，因此无法据此判断 VideoBrief 是否存在市场需求。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 14,
+            "end": 14,
+            "lineStart": 14,
+            "lineEnd": 14,
+            "note": "来源第14行"
+          }
+        ],
+        "resolution": ""
+      }
+    ]
+  },
+  "narrative": {
+    "status": "idle",
+    "error": "",
+    "activeVersionId": "",
+    "versions": [],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "generatedAt": "2026-07-12T01:34:29.152Z",
+    "model": "gpt-5.6-luna",
+    "promptVersion": "videobrief-2026-07-11-v1"
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-5.6",
+    "transcriptionModel": "gpt-4o-mini-transcribe",
+    "promptVersion": "videobrief-2026-07-11-v1",
+    "calls": [
+      {
+        "id": "ai-call-001",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "f641a0139f3c915a26f1e9b5b11996b64e4602c8708b952d03d8d1bbe991b70b",
+        "startedAt": "2026-07-11T15:51:31.352Z",
+        "completedAt": "2026-07-11T15:51:31.426Z",
+        "error": "OPENAI_API_KEY 未配置；未执行 OpenAI API 调用。",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-002",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "aae73988ae416a47372d053689a4c5a7585b56e935fbc3b8e12532528cef38bd",
+        "startedAt": "2026-07-11T15:51:31.426Z",
+        "completedAt": "2026-07-11T15:51:31.427Z",
+        "error": "OPENAI_API_KEY 未配置；未执行 OpenAI API 调用。",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-003",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "aae73988ae416a47372d053689a4c5a7585b56e935fbc3b8e12532528cef38bd",
+        "startedAt": "2026-07-11T16:05:49.137Z",
+        "completedAt": "2026-07-11T16:05:49.138Z",
+        "error": "OPENAI_API_KEY 未配置；未执行 OpenAI API 调用。",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-004",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "2468fdf0518e28528c53af240383dc4d5e82fa17e8d2f7214aa0e1aa4e60d2ba",
+        "startedAt": "2026-07-12T01:32:39.866Z",
+        "completedAt": "2026-07-12T01:33:14.502Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-005",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "ca747586d449c3754f5d8b10ea15866cc643b23568fae7440485ad5b4f8fb2e9",
+        "startedAt": "2026-07-12T01:33:14.504Z",
+        "completedAt": "2026-07-12T01:33:33.705Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-006",
+        "purpose": "narrative-planning",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "53a49c28b0cc0ba6333af065507751937925aa0c5b16dcf4e4d083c998789d02",
+        "startedAt": "2026-07-12T01:33:47.190Z",
+        "completedAt": "2026-07-12T01:34:29.156Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-007",
+        "purpose": "candidate-ranking",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "c645b06854618eb49837d4d23b50b7d2f8ff00884f0fc3022ce208225e72a2f7",
+        "startedAt": "2026-07-12T01:34:51.021Z",
+        "completedAt": "2026-07-12T01:34:55.868Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-008",
+        "purpose": "production-assets",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "a8a7bd2617371dcd791d46cdb4504a7de5f72e6d974dcfa86a3c37aaeb08b4df",
+        "startedAt": "2026-07-12T01:35:07.150Z",
+        "completedAt": "2026-07-12T01:35:12.950Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-009",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "f641a0139f3c915a26f1e9b5b11996b64e4602c8708b952d03d8d1bbe991b70b",
+        "startedAt": "2026-07-12T12:57:09.954Z",
+        "completedAt": "2026-07-12T12:57:09.955Z",
+        "error": "",
+        "cacheHit": true
+      },
+      {
+        "id": "ai-call-010",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "aae73988ae416a47372d053689a4c5a7585b56e935fbc3b8e12532528cef38bd",
+        "startedAt": "2026-07-12T12:57:09.956Z",
+        "completedAt": "2026-07-12T12:57:09.957Z",
+        "error": "",
+        "cacheHit": true
+      }
+    ]
+  },
+  "editorial": {
+    "claim": "混合资料可以自动进入生产链，但事实、权利和发布决定不能自动越权",
+    "whyItMatters": "",
+    "chinaContext": "",
+    "riskNote": ""
+  },
+  "platformCopy": {
+    "coverTitle": "导出，不等于发布",
+    "title": "VideoBrief：混合资料进入生产链，但发布决定仍由人工控制",
+    "description": "VideoBrief 的本地工作流：从 Creative Brief 开始，导入自有或已确认可用的混合资料，记录来源、核验和权利状态。脚本、场景与候选画面由人工确认后再进入生产，proof 检查成片、音轨、字幕和时间点，最后导出生产包但不自动发布。检查来源和权利状态，再做最后决定。",
+    "hashtags": [
+      "#VideoBrief",
+      "#内容工作流",
+      "#人工确认",
+      "#素材权利",
+      "#事实核验",
+      "#视频生产"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "2026-07-11T15:50:10.393Z",
+    "updatedAt": "2026-07-12T12:57:09.957Z",
+    "researchReviewedAt": "",
+    "firstRenderCompletedAt": "2026-07-12T10:46:54.462Z",
+    "lastRenderCompletedAt": "2026-07-12T10:46:54.462Z",
+    "sourceImportCount": 2,
+    "manualSaveCount": 0,
+    "renderAttemptCount": 2,
+    "renderFailureCount": 0,
+    "lastRenderStartedAt": "2026-07-12T10:46:49.161Z",
+    "lastRenderError": "",
+    "reusedSourceIds": [
+      "source-01",
+      "source-02"
+    ]
+  },
+  "outputs": {
+    "outputVideo": "output/videos/dogfood-static-notes.mp4",
+    "publicRender": "public/renders/dogfood-static-notes.mp4",
+    "workDir": "output/videos/dogfood-static-notes-work",
+    "exportDir": "output/exports/dogfood-static-notes",
+    "coverImage": "output/exports/dogfood-static-notes/cover.png",
+    "platformCopy": "output/exports/dogfood-static-notes/platform-copy.json",
+    "sourceList": "output/exports/dogfood-static-notes/source-list.json",
+    "projectSnapshot": "output/exports/dogfood-static-notes/project.snapshot.json"
+  },
+  "render": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "voice": "Eddy (中文（中国大陆）)",
+    "rate": 205
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 0,
+      "sourceEnd": 3,
+      "eyebrow": "VERTICAL-SHORT-VIDEO",
+      "title": "混合资料可以自动进入生产链，但事实、权利和发布决定不能自动越权",
+      "subtitle": "混合资料可以自动进入生产链，但事实、权利和发布决定不能自动越权",
+      "narration": "混合资料可以自动进入生产链，但事实、权利和发布决定不能自动越权",
+      "visualRequirement": "使用 VideoBrief 自有工作台截图 展示项目主题",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "image",
+          "note": "导入素材"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/dogfood-static-notes/phase1-workbench-1783785010393.png",
+          "mediaType": "image",
+          "sourceStart": 0,
+          "sourceEnd": 6.66,
+          "matchReason": "该截图直接展示 VideoBrief 自有工作台的项目主题与生产状态，包括“Phase 1 自助闭环样片”、导出与验收、素材使用权确认及成片验收等信息，能够匹配“混合资料可以自动进入生产链，但事实、权利和发布决定不能自动越权”的视觉要求。图片素材无可定位视频时间轴，按建议时长使用 0 到建议时长；输入未提供明确建议时长，采用 0 到 6.66 秒这一截图中显示的预览片段时长。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "generatedBy": "user",
+      "userEdited": false
+    }
+  ]
+}

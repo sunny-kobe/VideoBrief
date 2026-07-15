@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <rect width="1080" height="1920" fill="#eef0ec"/>
+  <text x="74" y="405" fill="#101418" font-family="Arial" font-size="36" font-weight="900">LONG WORK / LESS RESET</text>
+  <rect x="92" y="520" width="896" height="790" fill="#101418"/>
+  <rect x="160" y="600" width="760" height="170" fill="#37f5a2"/>
+  <rect x="160" y="810" width="760" height="170" fill="#ffd447"/>
+  <rect x="160" y="1020" width="760" height="170" fill="#8ab4ff"/>
+  <text x="205" y="705" fill="#101418" font-family="Arial" font-size="44" font-weight="900">CACHE</text>
+  <text x="205" y="915" fill="#101418" font-family="Arial" font-size="44" font-weight="900">REASONING</text>
+  <text x="205" y="1125" fill="#101418" font-family="Arial" font-size="44" font-weight="900">STATE</text>
+  <path d="M920 685 C1010 685 1010 1105 920 1105" fill="none" stroke="#ff6b5f" stroke-width="18"/>
+  <path d="M920 1105 L870 1065 M920 1105 L870 1145" fill="none" stroke="#ff6b5f" stroke-width="18"/>
+</svg>

@@ -26,8 +26,8 @@ export default function WorkbenchSubtitleManager({
       <div className="flex items-center gap-3 border-b border-slate-200 px-4 py-3">
         <Subtitles aria-hidden="true" className="h-4 w-4 text-slate-600" />
         <div>
-          <h2 className="text-sm font-extrabold text-slate-950">全部字幕</h2>
-          <p className="mt-1 text-xs text-slate-500">{project.scenes.length} 条字幕文案</p>
+          <h2 className="text-sm font-extrabold text-slate-950">旁白与字幕</h2>
+          <p className="mt-1 text-xs text-slate-500">逐段校对 {project.scenes.length} 个片段</p>
         </div>
       </div>
 
@@ -63,13 +63,28 @@ export default function WorkbenchSubtitleManager({
                 </div>
               </div>
 
-              <textarea
-                className="mt-3 min-h-24 w-full resize-y rounded-md border border-slate-300 bg-white px-3 py-2 text-sm leading-relaxed text-slate-950 shadow-sm focus-visible:border-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200"
-                aria-label={`片段 ${index + 1} 字幕文案`}
-                value={scene.subtitle}
-                onFocus={() => onSelect(scene.id)}
-                onChange={(event) => onUpdate(scene.id, { subtitle: event.target.value })}
-              />
+              <div className="mt-3 grid gap-3 lg:grid-cols-2">
+                <label className="block">
+                  <span className="text-xs font-bold text-slate-600">旁白文案</span>
+                  <textarea
+                    className="mt-1.5 min-h-28 w-full resize-y rounded-md border border-slate-300 bg-white px-3 py-2 text-sm leading-relaxed text-slate-950 shadow-sm focus-visible:border-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200"
+                    aria-label={`片段 ${index + 1} 旁白文案`}
+                    value={scene.narration}
+                    onFocus={() => onSelect(scene.id)}
+                    onChange={(event) => onUpdate(scene.id, { narration: event.target.value })}
+                  />
+                </label>
+                <label className="block">
+                  <span className="text-xs font-bold text-slate-600">屏幕字幕</span>
+                  <textarea
+                    className="mt-1.5 min-h-28 w-full resize-y rounded-md border border-slate-300 bg-white px-3 py-2 text-sm leading-relaxed text-slate-950 shadow-sm focus-visible:border-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200"
+                    aria-label={`片段 ${index + 1} 字幕文案`}
+                    value={scene.subtitle}
+                    onFocus={() => onSelect(scene.id)}
+                    onChange={(event) => onUpdate(scene.id, { subtitle: event.target.value })}
+                  />
+                </label>
+              </div>
 
               <div className="mt-2 flex justify-end gap-2">
                 <button
