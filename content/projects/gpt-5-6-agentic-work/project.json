@@ -16,7 +16,7 @@
     "aspectRatio": "9:16",
     "targetDurationSeconds": 60,
     "tone": "克制、清晰、有判断",
-    "style": "瑞士编辑设计、强信息层级、轻动态",
+    "style": "官方实拍与产品操作混剪，竖屏特写，快速硬切，极少图形覆盖",
     "reference": "OpenAI 2026-07-09 官方发布页和近 30 天社区实测",
     "coreMessage": "GPT-5.6 的关键不是更会聊天，而是模型、程序化工具、持久化推理和多智能体开始组成可持续运行的工作系统。",
     "cta": "拿一个真实仓库，用明确目标、工具边界和测试跑一遍。",
@@ -2604,6 +2604,336 @@
           }
         ]
       }
+    },
+    {
+      "id": "source-15",
+      "label": "OpenAI Meet GPT-5.6 官方发布视频",
+      "originUrl": "https://www.youtube.com/watch?v=-MPGU2a67Ls",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/01-launch-presenter.mp4",
+      "originalFileName": "01-launch-presenter.mp4",
+      "clip": "官方视频 0-16 秒的开场、真人中景和近景，重剪为 11 秒竖屏发布镜头。",
+      "sourceType": "video",
+      "mimeType": "video/mp4",
+      "bytes": 2892617,
+      "importedAt": "2026-07-15T07:01:44.811Z",
+      "publishedAt": "2026-07-09T00:00:00.000Z",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "OpenAI 官方 YouTube 视频片段，仅用于本地 dogfood；发布前复核使用范围。",
+      "contentHash": "509db7e9cc50e6f24af205702cabe837986b798388e54fc3070fe84b61bab8ea",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "509db7e9cc50e6f24af205702cabe837986b798388e54fc3070fe84b61bab8ea",
+        "startedAt": "2026-07-15T07:01:44.811Z",
+        "completedAt": "2026-07-15T07:01:44.811Z",
+        "error": "",
+        "model": "manual-official-source-selection",
+        "promptVersion": "official-video-2026-07-15",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "官方视频 0-16 秒的开场、真人中景和近景，重剪为 11 秒竖屏发布镜头。",
+        "visualDescription": "OpenAI 官方视频的竖屏适配片段，保留真实人物、产品界面和操作过程。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [
+          {
+            "id": "source-15-uncertainty-01",
+            "statement": "当前只使用所列时间段，不能据此推断完整视频中的全部功能或效果。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-15",
+                "locatorType": "time",
+                "start": 0,
+                "end": 1,
+                "note": "官方视频 0-16 秒的开场、真人中景和近景，重剪为 11 秒竖屏发布镜头。"
+              }
+            ],
+            "resolution": "保留为发布前限制说明。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 60
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-16",
+      "label": "OpenAI GPT-5.6 Codex 游戏生成演示",
+      "originUrl": "https://www.youtube.com/watch?v=-MPGU2a67Ls&t=26s",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/02-game-build.mp4",
+      "originalFileName": "02-game-build.mp4",
+      "clip": "官方视频 26-52 秒内的三段动态镜头，竖屏聚焦游戏运行、生成结果和视觉资产。",
+      "sourceType": "video",
+      "mimeType": "video/mp4",
+      "bytes": 3335543,
+      "importedAt": "2026-07-15T07:01:44.811Z",
+      "publishedAt": "2026-07-09T00:00:00.000Z",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "OpenAI 官方 YouTube 视频片段，仅用于本地 dogfood；发布前复核使用范围。",
+      "contentHash": "e5e6d8b16d7e5f7e6c10af7aa13f31a12b2fece00f77f98d09b329bf70fb4c76",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "e5e6d8b16d7e5f7e6c10af7aa13f31a12b2fece00f77f98d09b329bf70fb4c76",
+        "startedAt": "2026-07-15T07:01:44.811Z",
+        "completedAt": "2026-07-15T07:01:44.811Z",
+        "error": "",
+        "model": "manual-official-source-selection",
+        "promptVersion": "official-video-2026-07-15",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "官方视频 26-52 秒内的三段动态镜头，竖屏聚焦游戏运行、生成结果和视觉资产。",
+        "visualDescription": "OpenAI 官方视频的竖屏适配片段，保留真实人物、产品界面和操作过程。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [
+          {
+            "id": "source-16-uncertainty-01",
+            "statement": "当前只使用所列时间段，不能据此推断完整视频中的全部功能或效果。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-16",
+                "locatorType": "time",
+                "start": 0,
+                "end": 1,
+                "note": "官方视频 26-52 秒内的三段动态镜头，竖屏聚焦游戏运行、生成结果和视觉资产。"
+              }
+            ],
+            "resolution": "保留为发布前限制说明。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 60
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-17",
+      "label": "OpenAI GPT-5.6 程序化工具调用演示",
+      "originUrl": "https://www.youtube.com/watch?v=-MPGU2a67Ls&t=52s",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/03-programmatic-tools.mp4",
+      "originalFileName": "03-programmatic-tools.mp4",
+      "clip": "官方视频 52-72 秒的真人讲解与产品操作，竖屏聚焦 programmatic tool calling。",
+      "sourceType": "video",
+      "mimeType": "video/mp4",
+      "bytes": 3211805,
+      "importedAt": "2026-07-15T07:01:44.811Z",
+      "publishedAt": "2026-07-09T00:00:00.000Z",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "OpenAI 官方 YouTube 视频片段，仅用于本地 dogfood；发布前复核使用范围。",
+      "contentHash": "d5a0458d3322285970096f6945455ee467f092f45416b9f4ea8e653cee30a1d3",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "d5a0458d3322285970096f6945455ee467f092f45416b9f4ea8e653cee30a1d3",
+        "startedAt": "2026-07-15T07:01:44.811Z",
+        "completedAt": "2026-07-15T07:01:44.811Z",
+        "error": "",
+        "model": "manual-official-source-selection",
+        "promptVersion": "official-video-2026-07-15",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "官方视频 52-72 秒的真人讲解与产品操作，竖屏聚焦 programmatic tool calling。",
+        "visualDescription": "OpenAI 官方视频的竖屏适配片段，保留真实人物、产品界面和操作过程。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [
+          {
+            "id": "source-17-uncertainty-01",
+            "statement": "当前只使用所列时间段，不能据此推断完整视频中的全部功能或效果。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-17",
+                "locatorType": "time",
+                "start": 0,
+                "end": 1,
+                "note": "官方视频 52-72 秒的真人讲解与产品操作，竖屏聚焦 programmatic tool calling。"
+              }
+            ],
+            "resolution": "保留为发布前限制说明。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 60
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-18",
+      "label": "OpenAI GPT-5.6 Subagents 官方演示",
+      "originUrl": "https://www.youtube.com/watch?v=-MPGU2a67Ls&t=75s",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/04-subagents.mp4",
+      "originalFileName": "04-subagents.mp4",
+      "clip": "官方视频 75-91 秒的多段产品操作，竖屏聚焦任务拆分和 subagents 并行工作。",
+      "sourceType": "video",
+      "mimeType": "video/mp4",
+      "bytes": 2977549,
+      "importedAt": "2026-07-15T07:01:44.811Z",
+      "publishedAt": "2026-07-09T00:00:00.000Z",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "OpenAI 官方 YouTube 视频片段，仅用于本地 dogfood；发布前复核使用范围。",
+      "contentHash": "4c210aeec3e7e4d09ed7e8181d348a484d62e2103cec116ce83481fbd61e398b",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "4c210aeec3e7e4d09ed7e8181d348a484d62e2103cec116ce83481fbd61e398b",
+        "startedAt": "2026-07-15T07:01:44.811Z",
+        "completedAt": "2026-07-15T07:01:44.811Z",
+        "error": "",
+        "model": "manual-official-source-selection",
+        "promptVersion": "official-video-2026-07-15",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "官方视频 75-91 秒的多段产品操作，竖屏聚焦任务拆分和 subagents 并行工作。",
+        "visualDescription": "OpenAI 官方视频的竖屏适配片段，保留真实人物、产品界面和操作过程。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [
+          {
+            "id": "source-18-uncertainty-01",
+            "statement": "当前只使用所列时间段，不能据此推断完整视频中的全部功能或效果。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-18",
+                "locatorType": "time",
+                "start": 0,
+                "end": 1,
+                "note": "官方视频 75-91 秒的多段产品操作，竖屏聚焦任务拆分和 subagents 并行工作。"
+              }
+            ],
+            "resolution": "保留为发布前限制说明。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 60
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-19",
+      "label": "OpenAI Codex Computer Use 官方演示",
+      "originUrl": "https://www.youtube.com/watch?v=eiQgljOrkWU&t=98s",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/05-computer-browser-use.mp4",
+      "originalFileName": "05-computer-browser-use.mp4",
+      "clip": "官方视频 118-130 秒，依次聚焦手机界面、Codex 工作区和视觉操作结果。",
+      "sourceType": "video",
+      "mimeType": "video/mp4",
+      "bytes": 1736713,
+      "importedAt": "2026-07-15T07:01:44.811Z",
+      "publishedAt": "2026-07-09T00:00:00.000Z",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "OpenAI 官方 YouTube 视频片段，仅用于本地 dogfood；发布前复核使用范围。",
+      "contentHash": "501329d1174607aa20925c71267ece81f13ae79b9383c542b506430598752dfa",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "501329d1174607aa20925c71267ece81f13ae79b9383c542b506430598752dfa",
+        "startedAt": "2026-07-15T07:01:44.811Z",
+        "completedAt": "2026-07-15T07:01:44.811Z",
+        "error": "",
+        "model": "manual-official-source-selection",
+        "promptVersion": "official-video-2026-07-15",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "官方视频 118-130 秒，依次聚焦手机界面、Codex 工作区和视觉操作结果。",
+        "visualDescription": "OpenAI 官方视频的竖屏适配片段，保留真实人物、产品界面和操作过程。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [
+          {
+            "id": "source-19-uncertainty-01",
+            "statement": "当前只使用所列时间段，不能据此推断完整视频中的全部功能或效果。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-19",
+                "locatorType": "time",
+                "start": 0,
+                "end": 1,
+                "note": "官方视频 118-130 秒，依次聚焦手机界面、Codex 工作区和视觉操作结果。"
+              }
+            ],
+            "resolution": "保留为发布前限制说明。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 60
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-20",
+      "label": "OpenAI Codex PR 工作流官方演示",
+      "originUrl": "https://www.youtube.com/watch?v=eiQgljOrkWU&t=341s",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/06-pr-workflow.mp4",
+      "originalFileName": "06-pr-workflow.mp4",
+      "clip": "官方视频 341-365 秒的真人与产品操作混剪，聚焦 PR、检查状态和修复工作流。",
+      "sourceType": "video",
+      "mimeType": "video/mp4",
+      "bytes": 3126645,
+      "importedAt": "2026-07-15T07:01:44.811Z",
+      "publishedAt": "2026-07-09T00:00:00.000Z",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "OpenAI 官方 YouTube 视频片段，仅用于本地 dogfood；发布前复核使用范围。",
+      "contentHash": "7e63fed7a6d11cddb884fe08da3525c335254f07de0c3b581ab2208733c1d700",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "7e63fed7a6d11cddb884fe08da3525c335254f07de0c3b581ab2208733c1d700",
+        "startedAt": "2026-07-15T07:01:44.811Z",
+        "completedAt": "2026-07-15T07:01:44.811Z",
+        "error": "",
+        "model": "manual-official-source-selection",
+        "promptVersion": "official-video-2026-07-15",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "官方视频 341-365 秒的真人与产品操作混剪，聚焦 PR、检查状态和修复工作流。",
+        "visualDescription": "OpenAI 官方视频的竖屏适配片段，保留真实人物、产品界面和操作过程。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [
+          {
+            "id": "source-20-uncertainty-01",
+            "statement": "当前只使用所列时间段，不能据此推断完整视频中的全部功能或效果。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-20",
+                "locatorType": "time",
+                "start": 0,
+                "end": 1,
+                "note": "官方视频 341-365 秒的真人与产品操作混剪，聚焦 PR、检查状态和修复工作流。"
+              }
+            ],
+            "resolution": "保留为发布前限制说明。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 60
+          }
+        ]
+      }
     }
   ],
   "research": {
@@ -4663,6 +4993,108 @@
         "riskLevel": "medium",
         "reviewPriority": "supporting",
         "briefRelevance": 45
+      },
+      {
+        "id": "source-15-uncertainty-01",
+        "statement": "当前只使用所列时间段，不能据此推断完整视频中的全部功能或效果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-15",
+            "locatorType": "time",
+            "start": 0,
+            "end": 1,
+            "note": "官方视频 0-16 秒，发布介绍与真人讲解。"
+          }
+        ],
+        "resolution": "保留为发布前限制说明。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 60
+      },
+      {
+        "id": "source-16-uncertainty-01",
+        "statement": "当前只使用所列时间段，不能据此推断完整视频中的全部功能或效果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-16",
+            "locatorType": "time",
+            "start": 0,
+            "end": 1,
+            "note": "官方视频 28-52 秒内的三段动态镜头，展示游戏运行、生成结果和视觉资产。"
+          }
+        ],
+        "resolution": "保留为发布前限制说明。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 60
+      },
+      {
+        "id": "source-17-uncertainty-01",
+        "statement": "当前只使用所列时间段，不能据此推断完整视频中的全部功能或效果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-17",
+            "locatorType": "time",
+            "start": 0,
+            "end": 1,
+            "note": "官方视频 52-68 秒，讲解 programmatic tool calling。"
+          }
+        ],
+        "resolution": "保留为发布前限制说明。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 60
+      },
+      {
+        "id": "source-18-uncertainty-01",
+        "statement": "当前只使用所列时间段，不能据此推断完整视频中的全部功能或效果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-18",
+            "locatorType": "time",
+            "start": 0,
+            "end": 1,
+            "note": "官方视频 75-96 秒，展示任务拆分和 subagents 并行工作。"
+          }
+        ],
+        "resolution": "保留为发布前限制说明。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 60
+      },
+      {
+        "id": "source-19-uncertainty-01",
+        "statement": "当前只使用所列时间段，不能据此推断完整视频中的全部功能或效果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-19",
+            "locatorType": "time",
+            "start": 0,
+            "end": 1,
+            "note": "官方视频 118-131 秒，先聚焦手机界面，再切到 Codex 视觉操作。"
+          }
+        ],
+        "resolution": "保留为发布前限制说明。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 60
+      },
+      {
+        "id": "source-20-uncertainty-01",
+        "statement": "当前只使用所列时间段，不能据此推断完整视频中的全部功能或效果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-20",
+            "locatorType": "time",
+            "start": 0,
+            "end": 1,
+            "note": "官方视频 341-385 秒，展示 PR、检查状态和修复工作流。"
+          }
+        ],
+        "resolution": "保留为发布前限制说明。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 60
       }
     ]
   },
@@ -5146,15 +5578,15 @@
   },
   "production": {
     "trackingStartedAt": "2026-07-12T13:39:50.341Z",
-    "updatedAt": "2026-07-14T09:48:35.688Z",
+    "updatedAt": "2026-07-15T07:03:18.516Z",
     "researchReviewedAt": "2026-07-12T13:43:51.762Z",
     "firstRenderCompletedAt": "2026-07-12T13:51:47.084Z",
-    "lastRenderCompletedAt": "2026-07-14T09:48:35.688Z",
-    "sourceImportCount": 14,
-    "manualSaveCount": 10,
-    "renderAttemptCount": 9,
+    "lastRenderCompletedAt": "2026-07-15T07:03:18.516Z",
+    "sourceImportCount": 20,
+    "manualSaveCount": 15,
+    "renderAttemptCount": 12,
     "renderFailureCount": 1,
-    "lastRenderStartedAt": "2026-07-14T09:47:57.709Z",
+    "lastRenderStartedAt": "2026-07-15T06:41:06.552Z",
     "lastRenderError": "",
     "reusedSourceIds": []
   },
@@ -5179,271 +5611,224 @@
     {
       "id": "scene-01",
       "enabled": true,
-      "sourceId": "source-12",
+      "sourceId": "source-15",
       "sourceStart": 0,
-      "sourceEnd": 3,
-      "showEditorialOverlay": true,
-      "eyebrow": "OPEN / 官方发布",
-      "title": "GPT-5.6 发布了",
-      "subtitle": "先看发布事实，再看工作方式",
-      "narration": "GPT-5.6 于 2026 年 7 月 9 日发布。真正值得开发者观察的，不只是版本号，而是它是否开始改变 AI 完成工作的方式。这里使用官方发布页面作为开场依据；这并不代表它已经在你的项目中验证有效。",
-      "visualRequirement": "开场优先使用 OpenAI 官方发布页手机排版截图 source-12，做轻微纵向推移或页面裁切。避免加入未经核验的跑分和性能承诺。",
+      "sourceEnd": 11,
+      "showEditorialOverlay": false,
+      "eyebrow": "OPENAI / OFFICIAL",
+      "title": "GPT-5.6 正式发布",
+      "subtitle": "重点不是版本号，而是完整工作流",
+      "narration": "GPT-5.6 正式发布。但真正的变化，不是版本号，而是它开始把复杂任务做成完整工作流。",
+      "visualRequirement": "使用 OpenAI 官方发布视频的开场、真人中景和近景快速切换，竖屏全画幅裁切。",
       "sourceReferences": [
         {
-          "sourceId": "source-01",
-          "locatorType": "line",
-          "start": 5,
-          "end": 7,
-          "lineStart": 5,
-          "lineEnd": 7,
-          "note": "研究笔记记录 GPT-5.6 模型家族及发布日期。"
-        },
-        {
-          "sourceId": "source-12",
-          "locatorType": "image",
-          "note": "OpenAI 官方 GPT-5.6 发布首屏手机排版，仅用于展示官方发布语境。"
+          "sourceId": "source-15",
+          "locatorType": "time",
+          "start": 0,
+          "end": 11,
+          "note": "OpenAI Meet GPT-5.6 官方发布视频，官方视频 0-16 秒的开场、真人中景和近景，重剪为 11 秒竖屏发布镜头。"
         }
       ],
       "candidates": [
         {
-          "id": "candidate-01",
-          "sourceId": "source-12",
-          "assetPath": "public/project-assets/gpt-5-6-agentic-work/openai-release-hero-mobile-1080x1920-1783870042366.png",
-          "mediaType": "image",
+          "id": "candidate-official-video",
+          "sourceId": "source-15",
+          "assetPath": "public/project-assets/gpt-5-6-agentic-work/01-launch-presenter.mp4",
+          "mediaType": "video",
           "sourceStart": 0,
-          "sourceEnd": 3,
-          "matchReason": "source-12 是 OpenAI GPT-5.6 官方发布页的手机排版截图，画面直接呈现 GPT-5.6 标题和发布语境，符合开场要求；作为图片可使用 0 到 3 秒，并配合轻微纵向推移或裁切。",
+          "sourceEnd": 11,
+          "matchReason": "OpenAI Meet GPT-5.6 官方发布视频 与本场景叙述直接对应，使用真实动态画面替代静态信息卡。",
           "rightsStatus": "review_required"
         }
       ],
-      "selectedCandidateId": "candidate-01",
-      "generatedBy": "ai",
-      "userEdited": false
+      "selectedCandidateId": "candidate-official-video",
+      "generatedBy": "manual",
+      "userEdited": true
     },
     {
       "id": "scene-02",
       "enabled": true,
-      "sourceId": "source-03",
+      "sourceId": "source-16",
       "sourceStart": 0,
-      "sourceEnd": 3,
-      "showEditorialOverlay": true,
-      "eyebrow": "01 / 模型选择",
-      "title": "三种方向",
-      "subtitle": "Sol 长任务｜Terra 平衡｜Luna 高频",
-      "narration": "发布内容把模型家族分成不同方向：Sol 面向前沿能力和高难度长任务，Terra 平衡能力与成本，Luna 面向快速和高频工作负载。具体选择，开始成为工作流设计的一部分。",
-      "visualRequirement": "使用 source-03 的模型家族信息图作为官方发布页截图后的版式转场。只呈现定位文字，不添加性能数字、排名或成本比例。",
+      "sourceEnd": 11,
+      "showEditorialOverlay": false,
+      "eyebrow": "CODEX / BUILD",
+      "title": "一句话生成可运行产品",
+      "subtitle": "玩法、画面和代码同时落地",
+      "narration": "官方演示里，Codex 从一句开放提示出发，设计玩法、生成画面，并交付可以运行的游戏。",
+      "visualRequirement": "使用官方卡牌游戏生成与运行过程，按竖屏依次放大游戏、卡牌和运行结果。",
       "sourceReferences": [
         {
-          "sourceId": "source-01",
-          "locatorType": "line",
-          "start": 6,
-          "end": 6,
-          "lineStart": 6,
-          "lineEnd": 6,
-          "note": "来源记录 Sol、Terra、Luna 的定位。"
-        },
-        {
-          "sourceId": "source-03",
-          "locatorType": "image",
-          "note": "模型家族视觉可辅助呈现三种定位，但图片中的 FRONTIER、BALANCED、VOLUME 与具体语义关系仍需人工确认。"
+          "sourceId": "source-16",
+          "locatorType": "time",
+          "start": 0,
+          "end": 11,
+          "note": "OpenAI GPT-5.6 Codex 游戏生成演示，官方视频 26-52 秒内的三段动态镜头，竖屏聚焦游戏运行、生成结果和视觉资产。"
         }
       ],
       "candidates": [
         {
-          "id": "candidate-01",
-          "sourceId": "source-03",
-          "assetPath": "public/project-assets/gpt-5-6-agentic-work/02-family-1783863606653.png",
-          "mediaType": "image",
+          "id": "candidate-official-video",
+          "sourceId": "source-16",
+          "assetPath": "public/project-assets/gpt-5-6-agentic-work/02-game-build.mp4",
+          "mediaType": "video",
           "sourceStart": 0,
-          "sourceEnd": 3,
-          "matchReason": "source-03 直接呈现“ONE FAMILY / THREE LANES”以及 SOL、TERRA、LUNA 三列定位文字，适合表现三种方向；不依赖图片中尚未明确核验的具体语义关系。作为图片可使用 0 到 3 秒。",
-          "rightsStatus": "cleared"
+          "sourceEnd": 11,
+          "matchReason": "OpenAI GPT-5.6 Codex 游戏生成演示 与本场景叙述直接对应，使用真实动态画面替代静态信息卡。",
+          "rightsStatus": "review_required"
         }
       ],
-      "selectedCandidateId": "candidate-01",
-      "generatedBy": "ai",
-      "userEdited": false
+      "selectedCandidateId": "candidate-official-video",
+      "generatedBy": "manual",
+      "userEdited": true
     },
     {
       "id": "scene-03",
       "enabled": true,
-      "sourceId": "source-13",
+      "sourceId": "source-17",
       "sourceStart": 0,
-      "sourceEnd": 3,
-      "showEditorialOverlay": true,
-      "eyebrow": "02 / 从回答到执行",
-      "title": "程序化工具调用",
-      "subtitle": "写逻辑｜处理结果｜决定下一步",
-      "narration": "Responses API 新增了 Programmatic Tool Calling。根据来源描述，模型可以编写轻量程序，协调工具、处理中间结果，并自主选择下一步操作。它指向的是任务推进能力，而不是单次回答的外观。",
-      "visualRequirement": "优先使用官方 source-13 手机截图，配合局部放大和关键词高亮。不得把截图中的说明扩展为已验证的真实项目效果。",
+      "sourceEnd": 10,
+      "showEditorialOverlay": false,
+      "eyebrow": "TOOLS / PROGRAMMATIC",
+      "title": "工具调用进入程序化阶段",
+      "subtitle": "组织工具、处理结果、继续执行",
+      "narration": "程序化工具调用让模型在沙箱里组织工具、处理中间结果，减少来回搬运上下文。",
+      "visualRequirement": "使用官方真人讲解与 programmatic tool calling 操作特写混剪。",
       "sourceReferences": [
         {
-          "sourceId": "source-01",
-          "locatorType": "line",
-          "start": 8,
-          "end": 8,
-          "lineStart": 8,
-          "lineEnd": 8,
-          "note": "来源记录 Programmatic Tool Calling 的工作方式。"
-        },
-        {
-          "sourceId": "source-13",
-          "locatorType": "image",
-          "note": "OpenAI 官方程序化工具调用手机排版截图，展示相关原文。"
+          "sourceId": "source-17",
+          "locatorType": "time",
+          "start": 0,
+          "end": 10,
+          "note": "OpenAI GPT-5.6 程序化工具调用演示，官方视频 52-72 秒的真人讲解与产品操作，竖屏聚焦 programmatic tool calling。"
         }
       ],
       "candidates": [
         {
-          "id": "candidate-01",
-          "sourceId": "source-13",
-          "assetPath": "public/project-assets/gpt-5-6-agentic-work/openai-programmatic-tools-mobile-1080x1920-1783870053227.png",
-          "mediaType": "image",
+          "id": "candidate-official-video",
+          "sourceId": "source-17",
+          "assetPath": "public/project-assets/gpt-5-6-agentic-work/03-programmatic-tools.mp4",
+          "mediaType": "video",
           "sourceStart": 0,
-          "sourceEnd": 3,
-          "matchReason": "source-13 是 OpenAI 官方程序化工具调用手机截图，正文明确出现编写程序、协调工具、处理中间结果和自主选择下一步等关键词，匹配程序化工具调用主题；作为图片可使用 0 到 3 秒。",
+          "sourceEnd": 10,
+          "matchReason": "OpenAI GPT-5.6 程序化工具调用演示 与本场景叙述直接对应，使用真实动态画面替代静态信息卡。",
           "rightsStatus": "review_required"
         }
       ],
-      "selectedCandidateId": "candidate-01",
-      "generatedBy": "ai",
-      "userEdited": false
+      "selectedCandidateId": "candidate-official-video",
+      "generatedBy": "manual",
+      "userEdited": true
     },
     {
       "id": "scene-04",
       "enabled": true,
-      "sourceId": "source-11",
+      "sourceId": "source-18",
       "sourceStart": 0,
-      "sourceEnd": 11,
-      "showEditorialOverlay": true,
-      "eyebrow": "03 / 官方视频片段",
-      "title": "让画面先动起来",
-      "subtitle": "官方演示：工作界面持续展开",
-      "narration": "接下来尽量使用官方演示视频。画面展示的是 ChatGPT Work 工作界面，其中可见 Work、Codex、Scheduled 和 Sites 等入口。它可以作为“持续工作界面”的视觉证据，但现有素材只有代表帧，无法核验未抽取时段的完整动态流程。",
-      "visualRequirement": "使用 source-11 官方视频原片作为本场景主画面，尽量保留其原始界面和动态，不叠加第三方连续原片。可在关键界面出现时加入简短中文字幕，但不要伪造视频中未出现的操作。",
+      "sourceEnd": 10,
+      "showEditorialOverlay": false,
+      "eyebrow": "AGENTS / PARALLEL",
+      "title": "子智能体开始并行协作",
+      "subtitle": "研究、代码、图像和声音并行推进",
+      "narration": "新的推理等级和子智能体协作，让研究、代码、图像和声音可以并行推进。",
+      "visualRequirement": "使用官方 subagents 面板的左、中、右区域特写，突出并行任务变化。",
       "sourceReferences": [
         {
-          "sourceId": "source-11",
+          "sourceId": "source-18",
           "locatorType": "time",
           "start": 0,
-          "end": 11,
-          "note": "使用 OpenAI ChatGPT Work 官方视频的 0 至 11 秒片段；当前分析仅覆盖代表帧。"
-        },
-        {
-          "sourceId": "source-11",
-          "locatorType": "file",
-          "note": "官方视频文件用于优先级最高的动态画面素材；未检测到可转录音轨。"
+          "end": 10,
+          "note": "OpenAI GPT-5.6 Subagents 官方演示，官方视频 75-91 秒的多段产品操作，竖屏聚焦任务拆分和 subagents 并行工作。"
         }
       ],
       "candidates": [
         {
-          "id": "candidate-01",
-          "sourceId": "source-11",
-          "assetPath": "public/project-assets/gpt-5-6-agentic-work/openai-chatgpt-work-demo-1783866751667.mp4",
+          "id": "candidate-official-video",
+          "sourceId": "source-18",
+          "assetPath": "public/project-assets/gpt-5-6-agentic-work/04-subagents.mp4",
           "mediaType": "video",
           "sourceStart": 0,
-          "sourceEnd": 11,
-          "matchReason": "source-11 是 OpenAI ChatGPT Work 官方视频，代表帧中可见 ChatGPT Work、Work、Codex、Scheduled 和 Sites 等动态界面元素，符合让画面先动起来的要求；使用 0 到 11 秒的原始视频片段。",
+          "sourceEnd": 10,
+          "matchReason": "OpenAI GPT-5.6 Subagents 官方演示 与本场景叙述直接对应，使用真实动态画面替代静态信息卡。",
           "rightsStatus": "review_required"
         }
       ],
-      "selectedCandidateId": "candidate-01",
-      "generatedBy": "ai",
-      "userEdited": false
+      "selectedCandidateId": "candidate-official-video",
+      "generatedBy": "manual",
+      "userEdited": true
     },
     {
       "id": "scene-05",
       "enabled": true,
-      "sourceId": "source-11",
+      "sourceId": "source-19",
       "sourceStart": 0,
       "sourceEnd": 11,
-      "showEditorialOverlay": true,
-      "eyebrow": "04 / 状态与协作",
-      "title": "状态可以留下来吗",
-      "subtitle": "缓存｜持久化推理｜多智能体 beta",
-      "narration": "来源还列出了显式 prompt caching、persisted reasoning、max reasoning effort、Pro mode，以及 beta 形态的多智能体编排。它们共同指向一种可能性：任务不一定一次对话结束，而可以保留部分状态、拆分子任务，再综合结果。这里的“指向”是编辑判断，不是对长期效果的官方背书。",
-      "visualRequirement": "先用 source-11 视频动态承接上一场，再以 source-05 抽象信息图作短暂叠化。字幕中保留“beta”“可能性”等限定词，不把视觉隐喻当作功能演示。",
+      "showEditorialOverlay": false,
+      "eyebrow": "COMPUTER / BROWSER",
+      "title": "模型开始直接操作界面",
+      "subtitle": "模拟器、浏览器和视觉修改",
+      "narration": "在真实产品里，Codex 已经能操作模拟器和浏览器，并直接根据画面继续修改。",
+      "visualRequirement": "使用官方模拟器与 browser use 动态演示，依次放大手机、工作区和运行结果。",
       "sourceReferences": [
         {
-          "sourceId": "source-01",
-          "locatorType": "line",
-          "start": 9,
-          "end": 10,
-          "lineStart": 9,
-          "lineEnd": 10,
-          "note": "来源记录缓存、持久化推理、推理强度和 Pro mode，以及 beta 多智能体编排。"
-        },
-        {
-          "sourceId": "source-11",
+          "sourceId": "source-19",
           "locatorType": "time",
           "start": 0,
           "end": 11,
-          "note": "可继续使用 source-11 官方 Work 视频作为持续工作和界面转场素材，但只能说明画面中可见内容。"
-        },
-        {
-          "sourceId": "source-05",
-          "locatorType": "image",
-          "note": "持久化推理视觉用于抽象表现 CACHE、REASONING、STATE；图片本身不能证明具体执行顺序。"
+          "note": "OpenAI Codex Computer Use 官方演示，官方视频 118-130 秒，依次聚焦手机界面、Codex 工作区和视觉操作结果。"
         }
       ],
       "candidates": [
         {
-          "id": "candidate-01",
-          "sourceId": "source-11",
-          "assetPath": "public/project-assets/gpt-5-6-agentic-work/openai-chatgpt-work-demo-1783866751667.mp4",
+          "id": "candidate-official-video",
+          "sourceId": "source-19",
+          "assetPath": "public/project-assets/gpt-5-6-agentic-work/05-computer-browser-use.mp4",
           "mediaType": "video",
           "sourceStart": 0,
           "sourceEnd": 11,
-          "matchReason": "source-11 可延续上一场的官方 Work 动态界面，画面中明确可见 ChatGPT Work、Work 和 Codex，适合承接持续工作状态；使用 0 到 11 秒，且不将画面扩展解释为已验证的持久化功能。",
+          "matchReason": "OpenAI Codex Computer Use 官方演示 与本场景叙述直接对应，使用真实动态画面替代静态信息卡。",
           "rightsStatus": "review_required"
         }
       ],
-      "selectedCandidateId": "candidate-01",
-      "generatedBy": "ai",
-      "userEdited": false
+      "selectedCandidateId": "candidate-official-video",
+      "generatedBy": "manual",
+      "userEdited": true
     },
     {
       "id": "scene-06",
       "enabled": true,
-      "sourceId": "source-07",
+      "sourceId": "source-20",
       "sourceStart": 0,
-      "sourceEnd": 3,
-      "showEditorialOverlay": true,
-      "eyebrow": "CHECK / 人工验收",
-      "title": "真正的验收在你的仓库",
-      "subtitle": "目标｜工具边界｜测试｜失败处理",
-      "narration": "但官方演示不等于你的项目体验，早期社区样本也不等于稳定 benchmark。拿一个真实仓库，写清目标，限定模型能调用哪些工具，最后用测试验收失败、回滚、成本和权限。跑完这一轮，才知道它是否适合你的工作流。",
-      "visualRequirement": "使用 source-07 工作流视觉收尾；四步依次点亮：目标、工具边界、测试、失败与回滚。末屏保留 CTA：“拿一个真实仓库，跑一遍。”并标注“人工确认成本、权限、失败处理与长期稳定性”。",
+      "sourceEnd": 12,
+      "showEditorialOverlay": false,
+      "eyebrow": "CHECK / REAL WORK",
+      "title": "最后还是要看真实仓库",
+      "subtitle": "任务拆分、失败修复、PR 验收",
+      "narration": "所以别只看跑分。拿真实仓库测试任务拆分、失败修复和 PR，才知道它是否真的有用。",
+      "visualRequirement": "使用官方真人、PR 详情和检查状态特写混剪收尾。",
       "sourceReferences": [
         {
-          "sourceId": "source-01",
-          "locatorType": "line",
-          "start": 30,
-          "end": 30,
-          "lineStart": 30,
-          "lineEnd": 30,
-          "note": "来源将真实仓库、明确目标、工具边界和测试作为原创验收建议，并明确不能替代实际验证。"
-        },
-        {
-          "sourceId": "source-07",
-          "locatorType": "image",
-          "note": "工作流结论视觉呈现 GOAL、TOOLS、TESTS 三步；作为原创编辑图，不扩展为实际测试结果。"
+          "sourceId": "source-20",
+          "locatorType": "time",
+          "start": 0,
+          "end": 12,
+          "note": "OpenAI Codex PR 工作流官方演示，官方视频 341-365 秒的真人与产品操作混剪，聚焦 PR、检查状态和修复工作流。"
         }
       ],
       "candidates": [
         {
-          "id": "candidate-01",
-          "sourceId": "source-07",
-          "assetPath": "public/project-assets/gpt-5-6-agentic-work/06-workflow-1783863606714.png",
-          "mediaType": "image",
+          "id": "candidate-official-video",
+          "sourceId": "source-20",
+          "assetPath": "public/project-assets/gpt-5-6-agentic-work/06-pr-workflow.mp4",
+          "mediaType": "video",
           "sourceStart": 0,
-          "sourceEnd": 3,
-          "matchReason": "source-07 以“THE REAL TEST / WORK FLOW”为标题，并依次呈现 GOAL、TOOLS、TESTS 三个勾选步骤，直接对应真实仓库验收的工作流收尾；作为图片可使用 0 到 3 秒。",
-          "rightsStatus": "cleared"
+          "sourceEnd": 12,
+          "matchReason": "OpenAI Codex PR 工作流官方演示 与本场景叙述直接对应，使用真实动态画面替代静态信息卡。",
+          "rightsStatus": "review_required"
         }
       ],
-      "selectedCandidateId": "candidate-01",
-      "generatedBy": "ai",
-      "userEdited": false
+      "selectedCandidateId": "candidate-official-video",
+      "generatedBy": "manual",
+      "userEdited": true
     }
   ]
 }

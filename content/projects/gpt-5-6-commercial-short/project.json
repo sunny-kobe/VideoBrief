@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 3,
+  "id": "gpt-5-6-commercial-short",
+  "title": "GPT-5.6：升级的不是聊天",
+  "format": "video_project",
+  "targetAudience": "中文开发者、独立开发者和 AI 工作流实践者",
+  "status": "draft",
+  "technical_status": "passed",
+  "rights_status": "review_required",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "brief": {
+    "objective": "用强钩子和真实产品镜头，在 45 秒内解释 GPT-5.6 对开发者工作流的核心价值。",
+    "audience": "中文开发者、独立开发者和 AI 工作流实践者",
+    "platform": "抖音 / 小红书 / 视频号 / YouTube Shorts",
+    "aspectRatio": "9:16",
+    "targetDurationSeconds": 45,
+    "tone": "克制、快速、有判断",
+    "style": "官方实拍与产品操作混剪，竖屏特写，硬切，动态信息层",
+    "coreMessage": "GPT-5.6 值得关注的不是聊天外观，而是把工具调用、并行协作、界面操作和工程验收连接成工作流。",
+    "cta": "拿真实仓库验收任务拆分、失败修复和 PR。",
+    "prohibitedMaterial": "未经核验的 benchmark、夸张性能承诺和把官方演示描述成用户项目实测"
+  },
+  "rightsNote": "本地审片版使用 OpenAI 官方演示片段；公开发布或付费投放前必须复核官方素材、商标和 Edge TTS 语音的商业使用条款。",
+  "platformCopy": {
+    "coverTitle": "GPT-5.6\n最重要的升级，不是更会聊天",
+    "title": "GPT-5.6 真正升级的，是完成工作的方式",
+    "description": "不看未经核验的跑分，只看工作流：从一句需求交付可运行产品，程序化调用工具，子智能体并行推进，再用模拟器、浏览器和 PR 完成验收。官方演示不等于你的项目结果，最终还是要回到真实仓库测试。",
+    "hashtags": [
+      "#GPT56",
+      "#AI编程",
+      "#Codex",
+      "#多智能体",
+      "#开发者工具",
+      "#AI工作流"
+    ]
+  },
+  "sources": [
+    {
+      "id": "launch",
+      "label": "OpenAI Meet GPT-5.6 官方发布视频",
+      "sourceType": "video",
+      "originUrl": "https://www.youtube.com/watch?v=-MPGU2a67Ls",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/01-launch-presenter.mp4",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required"
+    },
+    {
+      "id": "game",
+      "label": "OpenAI GPT-5.6 Codex 游戏生成演示",
+      "sourceType": "video",
+      "originUrl": "https://www.youtube.com/watch?v=-MPGU2a67Ls&t=26s",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/02-game-build.mp4",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required"
+    },
+    {
+      "id": "tools",
+      "label": "OpenAI GPT-5.6 程序化工具调用演示",
+      "sourceType": "video",
+      "originUrl": "https://www.youtube.com/watch?v=-MPGU2a67Ls&t=52s",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/03-programmatic-tools.mp4",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required"
+    },
+    {
+      "id": "subagents",
+      "label": "OpenAI GPT-5.6 Subagents 官方演示",
+      "sourceType": "video",
+      "originUrl": "https://www.youtube.com/watch?v=-MPGU2a67Ls&t=75s",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/04-subagents.mp4",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required"
+    },
+    {
+      "id": "computer",
+      "label": "OpenAI Codex Computer Use 官方演示",
+      "sourceType": "video",
+      "originUrl": "https://www.youtube.com/watch?v=eiQgljOrkWU&t=98s",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/05-computer-browser-use.mp4",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required"
+    },
+    {
+      "id": "pr",
+      "label": "OpenAI Codex PR 工作流官方演示",
+      "sourceType": "video",
+      "originUrl": "https://www.youtube.com/watch?v=eiQgljOrkWU&t=341s",
+      "assetPath": "public/project-assets/gpt-5-6-agentic-work/06-pr-workflow.mp4",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "enabled": true,
+      "sourceId": "launch",
+      "sourceStart": 0,
+      "sourceEnd": 4.8,
+      "showEditorialOverlay": false,
+      "subtitle": "GPT-5.6 最重要的升级，不是更会聊天",
+      "narration": "GPT-5.6 最重要的升级，不是更会聊天。"
+    },
+    {
+      "id": "build",
+      "enabled": true,
+      "sourceId": "game",
+      "sourceStart": 0,
+      "sourceEnd": 7.4,
+      "showEditorialOverlay": false,
+      "subtitle": "而是把一句需求，交付成能运行的产品",
+      "narration": "而是从一句需求出发，设计、写代码，再交付一个能运行的产品。"
+    },
+    {
+      "id": "programmatic-tools",
+      "enabled": true,
+      "sourceId": "tools",
+      "sourceStart": 1.2,
+      "sourceEnd": 8.2,
+      "showEditorialOverlay": false,
+      "subtitle": "自己组织工具、处理结果、决定下一步",
+      "narration": "程序化工具调用，让模型自己组织工具、处理结果，再决定下一步。"
+    },
+    {
+      "id": "parallel-agents",
+      "enabled": true,
+      "sourceId": "subagents",
+      "sourceStart": 0,
+      "sourceEnd": 7.2,
+      "showEditorialOverlay": false,
+      "subtitle": "研究、代码、图像，可以并行推进",
+      "narration": "子智能体并行研究、写代码、生成图像，复杂任务不再只能串行推进。"
+    },
+    {
+      "id": "computer-use",
+      "enabled": true,
+      "sourceId": "computer",
+      "sourceStart": 0.4,
+      "sourceEnd": 7.8,
+      "showEditorialOverlay": false,
+      "subtitle": "操作模拟器和浏览器，看见结果再修改",
+      "narration": "它还能操作模拟器和浏览器，看见结果后继续修改。"
+    },
+    {
+      "id": "real-repo",
+      "enabled": true,
+      "sourceId": "pr",
+      "sourceStart": 0,
+      "sourceEnd": 9,
+      "showEditorialOverlay": false,
+      "subtitle": "真正的价值，要回到真实仓库验收",
+      "narration": "但别只看官方演示。拿真实仓库测试任务拆分、失败修复和 PR，这才是 GPT-5.6 真正的价值。"
+    }
+  ],
+  "render": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "voice": "zh-CN-YunjianNeural",
+    "rate": 198
+  },
+  "outputs": {
+    "outputVideo": "output/videos/gpt-5-6-commercial-short-final.mp4",
+    "publicRender": "public/renders/gpt-5-6-commercial-short-final.mp4",
+    "workDir": "output/videos/gpt-5-6-commercial-short-work",
+    "exportDir": "output/exports/gpt-5-6-commercial-short",
+    "coverImage": "output/exports/gpt-5-6-commercial-short/cover.png",
+    "platformCopy": "output/exports/gpt-5-6-commercial-short/platform-copy.json",
+    "sourceList": "output/exports/gpt-5-6-commercial-short/source-list.json",
+    "projectSnapshot": "output/exports/gpt-5-6-commercial-short/project.snapshot.json"
+  }
+}
