@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "projectId": "2026-07-19-repoprompt-repoprompt-ce",
+  "name": "repoprompt-official-semantic-walkthrough",
+  "url": "https://github.com/repoprompt/repoprompt-ce",
+  "colorScheme": "dark",
+  "steps": [
+    { "action": "hold", "label": "repository-overview", "holdMs": 8000 },
+    { "action": "scrollToRole", "role": "heading", "name": "RepoPrompt CE", "level": 1, "label": "readme-positioning", "holdMs": 8000 },
+    { "action": "scrollToText", "text": "assembles focused, reviewable context", "exact": false, "label": "context-inputs", "holdMs": 9000 },
+    { "action": "scrollToRole", "role": "heading", "name": "Features", "level": 2, "label": "features", "holdMs": 9000 },
+    { "action": "scrollToText", "text": "MCP server and CLI integration", "exact": false, "label": "mcp-cli", "holdMs": 9000 },
+    { "action": "scrollToRole", "role": "heading", "name": "License", "level": 2, "label": "license", "holdMs": 8000 },
+    { "action": "scrollTop", "label": "verification-cta", "holdMs": 8000 }
+  ]
+}

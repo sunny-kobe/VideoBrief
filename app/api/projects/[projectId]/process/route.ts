@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
-import { processProjectSource } from '@/src/sourceProcessingServer';
+import {
+  enqueueProjectSourceProcessing,
+  projectSourceProcessingStatus,
+} from '@/src/sourceProcessingQueueServer';
 import { readBrief } from '@/src/shortVideoProjectServer';
 
 export const runtime = 'nodejs';
@@ -11,17 +14,25 @@ interface ProcessProjectRouteProps {
 
 export async function POST(_request: Request, { params }: ProcessProjectRouteProps) {
   const { projectId } = await params;
-  const sourceIds = readBrief(projectId).sources.map((source) => source.id);
-  const failures: Array<{ sourceId: string; error: string }> = [];
-  for (const sourceId of sourceIds) {
-    try {
-      await processProjectSource(projectId, sourceId);
-    } catch (error) {
-      failures.push({
-        sourceId,
-        error: error instanceof Error ? error.message : '资料处理失败',
-      });
-    }
+  try {
+    const sourceIds = readBrief(projectId).sources.map((source) => source.id);
+    return NextResponse.json(enqueueProjectSourceProcessing(projectId, sourceIds), { status: 202 });
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : '资料处理入队失败' },
+      { status: 400 },
+    );
   }
-  return NextResponse.json({ project: readBrief(projectId), failures });
+}
+
+export async function GET(_request: Request, { params }: ProcessProjectRouteProps) {
+  const { projectId } = await params;
+  try {
+    return NextResponse.json(projectSourceProcessingStatus(projectId));
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : '读取资料处理状态失败' },
+      { status: 400 },
+    );
+  }
 }

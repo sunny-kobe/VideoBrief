@@ -3,6 +3,7 @@ import type {
   ResearchUncertainty,
   ShortVideoProject,
 } from './shortVideoBrief';
+import { automaticSourceReadiness } from './productionReadiness';
 
 const MAX_KEY_FACTS = 12;
 const MAX_REQUIRED_UNCERTAINTIES = 6;
@@ -25,7 +26,10 @@ export function keyResearchFacts(project: ShortVideoProject): ResearchFact[] {
     .filter((fact) => fact.kind === 'claim' && fact.reviewPriority !== 'reference')
     .sort(rankByReviewValue);
   const required = claims.filter((fact) => fact.reviewPriority === 'required');
-  return (required.length ? required : claims).slice(0, MAX_KEY_FACTS);
+  const ranked = required.length ? required : claims;
+  return project.brief.targetDurationSeconds >= 180
+    ? ranked
+    : ranked.slice(0, MAX_KEY_FACTS);
 }
 
 export function requiredResearchUncertainties(project: ShortVideoProject): ResearchUncertainty[] {
@@ -46,7 +50,9 @@ export function researchReviewSummary(project: ShortVideoProject) {
   const confirmedFacts = keyFacts.filter((fact) => fact.reviewStatus === 'confirmed');
   const unresolvedUncertainties = requiredUncertainties.filter((item) => !item.resolution.trim());
   const completedSources = project.sources.filter((source) => source.processing.status === 'completed').length;
-  const allSourcesProcessed = project.sources.length > 0 && completedSources === project.sources.length;
+  const allSourcesProcessed = automaticSourceReadiness(
+    project.sources.map((source) => source.processing.status),
+  ).ready;
 
   return {
     keyFacts,

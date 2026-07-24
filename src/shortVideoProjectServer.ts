@@ -5,6 +5,7 @@ import {
   readFileSync,
   renameSync,
   statSync,
+  unlinkSync,
   writeFileSync,
 } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -16,6 +17,8 @@ import {
   DEFAULT_PROJECT_ID,
   NarrativeVersion,
   ProductionTimeline,
+  ProjectMaterialReview,
+  ProjectChapter,
   ProjectProductionRecord,
   ProjectNarrative,
   RenderJobRecord,
@@ -28,16 +31,26 @@ import {
   ShortVideoRenderManifest,
   ShortVideoSource,
   SourceAnalysis,
+  SourceAnalysisChapter,
   SourceProcessing,
   SourceReference,
   WorkbenchRenderStatus,
 } from './shortVideoBrief';
+import { assertProjectTargetDuration } from '../scripts/lib/video-duration-contract.mjs';
 import {
   AI_PROMPT_VERSION,
   DEFAULT_TRANSCRIPTION_MODEL,
   OPENAI_DEFAULT_MODEL,
 } from './aiConfig';
+import { materialReviewReadiness, sceneSelectionReadiness } from './productionReadiness';
+import { renderAcceptanceState } from './renderAcceptance';
 import { researchReviewSummary } from './researchReview';
+import {
+  exportPackageReadiness,
+  fileSha256,
+  readExportPackageReceipt,
+} from './exportPackage';
+import { DEFAULT_NEW_PROJECT_VOICE } from './voiceProfile';
 
 export const briefPath = resolve(DEFAULT_BRIEF_PATH);
 export const projectsRoot = resolve('content/projects');
@@ -67,6 +80,7 @@ export interface ImportSourceInput {
   label: string;
   originUrl?: string;
   mimeType: string;
+  materialRole?: ShortVideoSource['materialRole'];
   verificationStatus: ShortVideoSource['verificationStatus'];
   rightsStatus: ShortVideoSource['rightsStatus'];
   rightsNote: string;
@@ -190,7 +204,7 @@ function normalizeProcessing(value?: Partial<SourceProcessing>): SourceProcessin
   const status = ['idle', 'pending', 'running', 'completed', 'failed'].includes(value?.status ?? '')
     ? value!.status!
     : 'idle';
-  const stage = ['idle', 'local-extraction', 'transcription', 'vision', 'fact-extraction', 'completed'].includes(value?.stage ?? '')
+  const stage = ['idle', 'local-extraction', 'transcription', 'vision', 'fact-extraction', 'hierarchy', 'completed'].includes(value?.stage ?? '')
     ? value!.stage!
     : 'idle';
   return {
@@ -204,6 +218,12 @@ function normalizeProcessing(value?: Partial<SourceProcessing>): SourceProcessin
     model: textValue(value?.model),
     promptVersion: textValue(value?.promptVersion),
     cacheHit: value?.cacheHit === true,
+    ...(value?.chapterProgress ? {
+      chapterProgress: {
+        completed: Math.max(0, numberValue(value.chapterProgress.completed, 0)),
+        total: Math.max(0, numberValue(value.chapterProgress.total, 0)),
+      },
+    } : {}),
   };
 }
 
@@ -214,6 +234,7 @@ function normalizeAnalysis(
   return {
     extractedText: textValue(value?.extractedText),
     visualDescription: textValue(value?.visualDescription),
+    hierarchicalSummary: textValue(value?.hierarchicalSummary),
     transcript: Array.isArray(value?.transcript)
       ? value.transcript.map((segment, index) => ({
           id: textValue(segment.id) || `segment-${String(index + 1).padStart(2, '0')}`,
@@ -229,6 +250,66 @@ function normalizeAnalysis(
     uncertainties: Array.isArray(value?.uncertainties)
       ? value.uncertainties.map((item, index) => normalizeUncertainty(item, index, sourceType))
       : [],
+    chapters: Array.isArray(value?.chapters)
+      ? value.chapters.map((chapter, index) => normalizeSourceChapter(chapter, index, sourceType))
+      : [],
+  };
+}
+
+function normalizeSourceChapter(
+  value: Partial<SourceAnalysisChapter>,
+  index: number,
+  sourceType?: ShortVideoSource['sourceType'],
+): SourceAnalysisChapter {
+  const start = Math.max(0, numberValue(value.start, 0));
+  const end = Math.max(start, numberValue(value.end, start));
+  return {
+    id: textValue(value.id) || `chapter-${String(index + 1).padStart(2, '0')}`,
+    sourceId: textValue(value.sourceId),
+    index: Math.max(0, numberValue(value.index, index)),
+    start,
+    end,
+    title: textValue(value.title) || `章节 ${index + 1}`,
+    summary: textValue(value.summary),
+    visualDescription: textValue(value.visualDescription),
+    frameSamples: Array.isArray(value.frameSamples)
+      ? value.frameSamples.flatMap((frame) => {
+          const second = numberValue(frame?.second, -1);
+          if (second < start || second > end) return [];
+          return [{
+            second,
+            reason: frame?.reason === 'scene-change' ? 'scene-change' as const : 'coverage' as const,
+          }];
+        })
+      : [],
+    transcript: Array.isArray(value.transcript)
+      ? value.transcript.map((segment, segmentIndex) => ({
+          id: textValue(segment.id) || `${textValue(value.id) || `chapter-${index + 1}`}-segment-${segmentIndex + 1}`,
+          sourceId: textValue(segment.sourceId) || textValue(value.sourceId),
+          start: Math.max(start, numberValue(segment.start, start)),
+          end: Math.min(end, Math.max(start, numberValue(segment.end, start))),
+          text: textValue(segment.text),
+        }))
+      : [],
+    facts: Array.isArray(value.facts)
+      ? value.facts.map((fact, factIndex) => normalizeFact(fact, factIndex, sourceType))
+      : [],
+    uncertainties: Array.isArray(value.uncertainties)
+      ? value.uncertainties.map((item, itemIndex) => normalizeUncertainty(item, itemIndex, sourceType))
+      : [],
+    processing: {
+      status: value.processing?.status === 'completed'
+        ? 'completed'
+        : value.processing?.status === 'failed'
+          ? 'failed'
+          : 'pending',
+      inputHash: textValue(value.processing?.inputHash),
+      model: textValue(value.processing?.model),
+      promptVersion: textValue(value.processing?.promptVersion),
+      cacheHit: value.processing?.cacheHit === true,
+      error: textValue(value.processing?.error),
+      ...(textValue(value.processing?.resumeKey) ? { resumeKey: textValue(value.processing?.resumeKey) } : {}),
+    },
   };
 }
 
@@ -258,11 +339,19 @@ function normalizeSource(source: Partial<ShortVideoSource>, index: number): Shor
   )
     ? source.rightsStatus!
     : 'review_required';
+  const materialRole = ['official_demo', 'broll', 'evidence', 'research'].includes(source.materialRole ?? '')
+    ? source.materialRole!
+    : sourceType !== 'video' && sourceType !== 'image'
+      ? 'research'
+      : /截图|screenshot|capture/i.test(`${source.label ?? ''} ${source.originalFileName ?? ''}`)
+        ? 'evidence'
+        : 'official_demo';
 
   return {
     id: textValue(source.id) || `source-${String(index + 1).padStart(2, '0')}`,
     label: textValue(source.label) || `来源 ${index + 1}`,
     sourceType,
+    materialRole,
     originUrl: textValue(source.originUrl),
     assetPath: textValue(source.assetPath),
     originalFileName: textValue(source.originalFileName),
@@ -305,6 +394,27 @@ function normalizeProduction(
   };
 }
 
+function normalizeMaterialReview(
+  value: Partial<ProjectMaterialReview> | undefined,
+  sources: ShortVideoSource[],
+): ProjectMaterialReview {
+  const approvedSourceIds = stringArray(value?.approvedSourceIds).filter((sourceId) => {
+    const source = sources.find((item) => item.id === sourceId);
+    return source
+      && (source.sourceType === 'video' || source.sourceType === 'image')
+      && source.materialRole !== 'research'
+      && source.rightsStatus !== 'blocked';
+  });
+  const reviewedAt = textValue(value?.reviewedAt);
+  const hasVideo = approvedSourceIds.some((sourceId) =>
+    sources.find((source) => source.id === sourceId)?.sourceType === 'video');
+  return {
+    status: value?.status === 'approved' && reviewedAt && hasVideo ? 'approved' : 'pending',
+    approvedSourceIds,
+    reviewedAt: value?.status === 'approved' && hasVideo ? reviewedAt : '',
+  };
+}
+
 function normalizeCandidate(
   candidate: Partial<SceneCandidate>,
   index: number,
@@ -334,9 +444,26 @@ function normalizeScene(
 ): ShortVideoProjectScene {
   const sourceStart = Math.max(0, numberValue(scene.sourceStart, 0));
   const sourceEnd = Math.max(sourceStart + 0.5, numberValue(scene.sourceEnd, sourceStart + 3));
+  const selectedCandidateId = textValue(scene.selectedCandidateId);
+  const inferredSelectionStatus = selectedCandidateId
+    ? scene.generatedBy === 'user'
+      ? 'user_approved'
+      : scene.userEdited === true
+        ? 'codex_reviewed'
+        : 'ai_suggested'
+    : 'unselected';
+  const selectionStatus = [
+    'unselected',
+    'ai_suggested',
+    'codex_reviewed',
+    'user_approved',
+  ].includes(scene.selectionStatus ?? '')
+    ? scene.selectionStatus!
+    : inferredSelectionStatus;
 
   return {
     id: textValue(scene.id) || `scene-${String(index + 1).padStart(2, '0')}`,
+    chapterId: textValue(scene.chapterId),
     enabled: scene.enabled !== false,
     sourceId: textValue(scene.sourceId) || defaultSourceId,
     sourceStart,
@@ -353,9 +480,43 @@ function normalizeScene(
     candidates: Array.isArray(scene.candidates)
       ? scene.candidates.map(normalizeCandidate)
       : [],
-    selectedCandidateId: textValue(scene.selectedCandidateId),
+    selectedCandidateId,
+    selectionStatus: selectedCandidateId ? selectionStatus : 'unselected',
+    selectionReviewedAt: textValue(scene.selectionReviewedAt),
+    selectionNote: textValue(scene.selectionNote),
     generatedBy: scene.generatedBy === 'ai' ? 'ai' : 'user',
     userEdited: scene.userEdited === true,
+  };
+}
+
+function normalizeProjectChapter(
+  value: Partial<ProjectChapter>,
+  index: number,
+  sceneIds: Set<string>,
+): ProjectChapter {
+  const targetDurationSeconds = Number(value.targetDurationSeconds);
+  return {
+    id: textValue(value.id) || `chapter-${String(index + 1).padStart(2, '0')}`,
+    title: textValue(value.title) || `章节 ${index + 1}`,
+    summary: textValue(value.summary),
+    order: Math.max(0, numberValue(value.order, index)),
+    sceneIds: stringArray(value.sceneIds).filter((sceneId) => sceneIds.has(sceneId)),
+    sourceReferences: Array.isArray(value.sourceReferences)
+      ? value.sourceReferences.map(normalizeReference)
+      : [],
+    ...(textValue(value.objective) ? { objective: textValue(value.objective) } : {}),
+    ...(Number.isFinite(targetDurationSeconds) && targetDurationSeconds > 0
+      ? { targetDurationSeconds }
+      : {}),
+    ...(Array.isArray(value.evidenceUnitIds)
+      ? { evidenceUnitIds: stringArray(value.evidenceUnitIds) }
+      : {}),
+    ...(textValue(value.script) ? { script: textValue(value.script) } : {}),
+    ...(textValue(value.generatedAt) ? { generatedAt: textValue(value.generatedAt) } : {}),
+    ...(textValue(value.model) ? { model: textValue(value.model) } : {}),
+    ...(textValue(value.promptVersion) ? { promptVersion: textValue(value.promptVersion) } : {}),
+    ...(textValue(value.inputHash) ? { inputHash: textValue(value.inputHash) } : {}),
+    ...(typeof value.cacheHit === 'boolean' ? { cacheHit: value.cacheHit } : {}),
   };
 }
 
@@ -386,6 +547,13 @@ function normalizeNarrative(value?: Partial<ProjectNarrative>): ProjectNarrative
     pendingDraft: value?.pendingDraft ? normalizeVersion(value.pendingDraft, 0) : null,
     pendingScenes: Array.isArray(value?.pendingScenes)
       ? value.pendingScenes.map((scene, index) => normalizeScene(scene, index, textValue(scene.sourceId)))
+      : [],
+    pendingChapters: Array.isArray(value?.pendingChapters)
+      ? value.pendingChapters.map((chapter, index) => normalizeProjectChapter(
+          chapter,
+          index,
+          new Set((value.pendingScenes ?? []).map((scene) => textValue(scene.id))),
+        ))
       : [],
     generatedAt: textValue(value?.generatedAt),
     model: textValue(value?.model),
@@ -429,6 +597,30 @@ export function normalizeBrief(input: LegacyProjectInput): ShortVideoProject {
   ).map(normalizeSource);
   const defaultSourceId = sources[0]?.id ?? 'source-01';
   const scenes = Array.isArray(input.scenes) ? input.scenes : [];
+  const normalizedScenes = scenes.map((scene, index) => normalizeScene(scene, index, defaultSourceId));
+  const sceneIds = new Set(normalizedScenes.map((scene) => scene.id));
+  const rawChapters = Array.isArray(input.chapters) ? input.chapters : [];
+  let chapters = rawChapters.length
+    ? rawChapters.map((chapter, index) => normalizeProjectChapter(chapter, index, sceneIds))
+    : normalizedScenes.length
+      ? [{
+          id: 'chapter-01',
+          title: textValue(input.title) || '完整视频',
+          summary: '',
+          order: 0,
+          sceneIds: normalizedScenes.map((scene) => scene.id),
+          sourceReferences: [],
+        }]
+      : [];
+  const chapterIds = new Set(chapters.map((chapter) => chapter.id));
+  const scenesWithChapters = normalizedScenes.map((scene) => ({
+    ...scene,
+    chapterId: chapterIds.has(scene.chapterId) ? scene.chapterId : chapters[0]?.id ?? '',
+  }));
+  chapters = chapters.map((chapter) => ({
+    ...chapter,
+    sceneIds: scenesWithChapters.filter((scene) => scene.chapterId === chapter.id).map((scene) => scene.id),
+  }));
   const researchFacts = Array.isArray(input.research?.facts)
     ? input.research.facts.map((fact, index) => {
         const sourceId = fact.sourceReferences?.[0]?.sourceId;
@@ -516,6 +708,8 @@ export function normalizeBrief(input: LegacyProjectInput): ShortVideoProject {
       hashtags: stringArray(input.platformCopy?.hashtags),
     },
     production: normalizeProduction(input.production, sources),
+    materialReview: normalizeMaterialReview(input.materialReview, sources),
+    chapters,
     outputs: {
       outputVideo:
         textValue(input.outputs?.outputVideo) ||
@@ -546,8 +740,44 @@ export function normalizeBrief(input: LegacyProjectInput): ShortVideoProject {
       fps: numberValue(input.render?.fps, 30),
       voice: textValue(input.render?.voice) || 'zh-CN-YunxiNeural',
       rate: numberValue(input.render?.rate, 198),
+      voiceEngine: ['edge-tts', 'gemini-tts', 'macos-say'].includes(input.render?.voiceEngine ?? '')
+        ? input.render!.voiceEngine!
+        : (textValue(input.render?.voice) || 'zh-CN-YunxiNeural').endsWith('Neural')
+          ? 'edge-tts'
+          : 'macos-say',
+      voiceModel: textValue(input.render?.voiceModel)
+        || (input.render?.voiceEngine === 'gemini-tts'
+          ? 'gemini-3.1-flash-tts-preview'
+          : (textValue(input.render?.voice) || 'zh-CN-YunxiNeural').endsWith('Neural')
+            ? 'edge-tts-universal'
+            : 'macos-say'),
+      voiceProfile: textValue(input.render?.voiceProfile) || 'default',
+      voiceStyle: textValue(input.render?.voiceStyle),
+      voiceGenerationMode: ['batch', 'per-scene'].includes(input.render?.voiceGenerationMode ?? '')
+        ? input.render!.voiceGenerationMode!
+        : 'auto',
+      renderStrategy: input.render?.renderStrategy === 'monolithic'
+        ? 'monolithic'
+        : 'segmented-concat',
+      pronunciations: Array.isArray(input.render?.pronunciations)
+        ? input.render.pronunciations.flatMap((item) => {
+          const term = textValue(item?.term).trim();
+          const guidance = textValue(item?.guidance).trim();
+            const spokenText = textValue(item?.spokenText).trim();
+            const asrAliases = Array.isArray(item?.asrAliases)
+              ? [...new Set(item.asrAliases.map((alias) => textValue(alias).trim()).filter(Boolean))]
+              : [];
+            return term && guidance ? [{
+              term,
+              guidance,
+              ...(spokenText ? { spokenText } : {}),
+              ...(asrAliases.length ? { asrAliases } : {}),
+            }] : [];
+          })
+        : [],
+      mediaFit: input.render?.mediaFit === 'cover' ? 'cover' : 'contain',
     },
-    scenes: scenes.map((scene, index) => normalizeScene(scene, index, defaultSourceId)),
+    scenes: scenesWithChapters,
   };
 }
 
@@ -566,6 +796,7 @@ function aggregateRightsStatus(sources: ShortVideoSource[]) {
 }
 
 function writeProjectFile(projectId: string, project: ShortVideoProject) {
+  assertProjectTargetDuration(project.brief.targetDurationSeconds);
   const targetPath = briefPathFor(projectId);
   mkdirSync(dirname(targetPath), { recursive: true });
   const temporaryPath = `${targetPath}.tmp`;
@@ -604,6 +835,7 @@ function invalidatePendingNarrative(current: ShortVideoProject, next: ShortVideo
       error: '',
       pendingDraft: null,
       pendingScenes: [],
+      pendingChapters: [],
     },
   };
 }
@@ -716,6 +948,11 @@ export function createProject(input: CreateProjectInput) {
       lastRenderError: '',
       reusedSourceIds: [],
     },
+    materialReview: {
+      status: 'pending',
+      approvedSourceIds: [],
+      reviewedAt: '',
+    },
     brief: { ...briefInput, objective, audience, coreMessage, aspectRatio } as CreativeBrief,
     sources: [],
     scenes: [],
@@ -730,7 +967,14 @@ export function createProject(input: CreateProjectInput) {
       publicRender: `public/renders/${projectId}.mp4`,
       workDir: `output/videos/${projectId}-work`,
     },
-    render: { ...renderSize, fps: 30, voice: 'zh-CN-YunxiNeural', rate: 198 },
+    render: {
+      ...renderSize,
+      fps: 30,
+      ...DEFAULT_NEW_PROJECT_VOICE,
+      renderStrategy: 'segmented-concat',
+      pronunciations: [],
+      mediaFit: 'contain',
+    },
   });
   return writeProjectFile(projectId, project);
 }
@@ -743,7 +987,7 @@ export function listProjects() {
     .sort((left, right) => left.title.localeCompare(right.title, 'zh-CN'));
 }
 
-function safeFileName(fileName: string) {
+export function safeProjectSourceFileName(fileName: string) {
   const extension = extname(fileName).toLowerCase();
   if (!['.mp4', '.mov', '.m4v', '.webm', '.mp3', '.wav', '.m4a', '.aiff', '.aac', '.png', '.jpg', '.jpeg', '.webp', '.md', '.txt'].includes(extension)) {
     throw new Error('支持 MP4/MOV/WebM、MP3/WAV/M4A、PNG/JPEG/WebP、Markdown 和纯文本。');
@@ -780,28 +1024,60 @@ function findReusableSource(contentHash: string, currentProjectId: string, impor
 }
 
 export function importProjectSource(projectId: string, fileName: string, bytes: Uint8Array, input: ImportSourceInput) {
-  const project = readBrief(projectId);
   if (bytes.byteLength === 0) throw new Error('上传文件为空。');
-  if (!textValue(input.rightsNote).trim()) throw new Error('必须填写权利与来源说明。');
-  const storedName = safeFileName(fileName);
-  const sourceType = sourceTypeForFile(fileName);
+  const storedName = safeProjectSourceFileName(fileName);
   const contentHash = createHash('sha256').update(bytes).digest('hex');
-  const importedAt = new Date().toISOString();
-  const reusedFrom = findReusableSource(contentHash, projectId, importedAt);
   const assetDirectory = resolve('public/project-assets', projectId);
   mkdirSync(assetDirectory, { recursive: true });
   const absoluteAssetPath = join(assetDirectory, storedName);
   writeFileSync(absoluteAssetPath, bytes);
+  try {
+    return registerProjectSourceFile(projectId, fileName, storedName, bytes.byteLength, contentHash, input);
+  } catch (error) {
+    unlinkSync(absoluteAssetPath);
+    throw error;
+  }
+}
+
+export function projectSourceAssetTarget(projectId: string, fileName: string) {
+  const storedName = safeProjectSourceFileName(fileName);
+  const assetDirectory = resolve('public/project-assets', assertProjectId(projectId));
+  return {
+    storedName,
+    assetDirectory,
+    absoluteAssetPath: join(assetDirectory, storedName),
+  };
+}
+
+export function registerProjectSourceFile(
+  projectId: string,
+  fileName: string,
+  storedName: string,
+  bytes: number,
+  contentHash: string,
+  input: ImportSourceInput,
+) {
+  const project = readBrief(projectId);
+  if (!Number.isSafeInteger(bytes) || bytes <= 0) throw new Error('上传文件为空。');
+  if (!/^[a-f0-9]{64}$/.test(contentHash)) throw new Error('素材内容哈希无效。');
+  if (!textValue(input.rightsNote).trim()) throw new Error('必须填写权利与来源说明。');
+  if (basename(storedName) !== storedName || sourceTypeForFile(storedName) !== sourceTypeForFile(fileName)) {
+    throw new Error('素材存储文件名无效。');
+  }
+  const sourceType = sourceTypeForFile(fileName);
+  const importedAt = new Date().toISOString();
+  const reusedFrom = findReusableSource(contentHash, projectId, importedAt);
   const id = `source-${String(project.sources.length + 1).padStart(2, '0')}`;
   const source: ShortVideoSource = {
     id,
     label: textValue(input.label).trim() || fileName,
     sourceType,
+    materialRole: input.materialRole ?? (sourceType === 'video' || sourceType === 'image' ? 'official_demo' : 'research'),
     originUrl: textValue(input.originUrl),
     assetPath: `public/project-assets/${projectId}/${storedName}`,
     originalFileName: fileName,
     mimeType: textValue(input.mimeType),
-    bytes: bytes.byteLength,
+    bytes,
     importedAt,
     publishedAt: '',
     verificationStatus: input.verificationStatus,
@@ -836,6 +1112,9 @@ export function importProjectSource(projectId: string, fileName: string, bytes: 
       rightsStatus: source.rightsStatus,
     }],
     selectedCandidateId: 'candidate-01',
+    selectionStatus: 'ai_suggested',
+    selectionReviewedAt: '',
+    selectionNote: '首个可视素材自动填入，尚未经过 Codex 或用户复核。',
   }, 0, id)];
   const next: ShortVideoProject = {
     ...project,
@@ -849,6 +1128,11 @@ export function importProjectSource(projectId: string, fileName: string, bytes: 
         ? [...new Set([...project.production.reusedSourceIds, id])]
         : project.production.reusedSourceIds,
     },
+    materialReview: {
+      ...project.materialReview,
+      status: 'pending',
+      reviewedAt: '',
+    },
     sources: [...project.sources, source],
     scenes,
   };
@@ -856,9 +1140,50 @@ export function importProjectSource(projectId: string, fileName: string, bytes: 
   return { project: next, source };
 }
 
+export function approveProjectMaterials(projectId: string, sourceIds: string[]) {
+  return updateCanonicalProject(projectId, (project) => {
+    const uniqueIds = [...new Set(sourceIds)];
+    const selected = uniqueIds.map((sourceId) => {
+      const source = project.sources.find((item) => item.id === sourceId);
+      if (!source) throw new Error(`素材 ${sourceId} 不存在。`);
+      if (source.sourceType !== 'video' && source.sourceType !== 'image') {
+        throw new Error(`素材 ${sourceId} 不是图片或视频。`);
+      }
+      if (source.materialRole === 'research') throw new Error(`素材 ${sourceId} 仅用于研究，不能进入成片。`);
+      if (source.rightsStatus === 'blocked') throw new Error(`素材 ${sourceId} 已标记为禁止使用。`);
+      return source;
+    });
+    if (!selected.length) throw new Error('请至少选择一份可视素材。');
+    if (!selected.some((source) => source.sourceType === 'video')) {
+      throw new Error('自动成片至少需要一段视频素材；图片只能作为补充。');
+    }
+    return {
+      ...project,
+      materialReview: {
+        status: 'approved',
+        approvedSourceIds: uniqueIds,
+        reviewedAt: new Date().toISOString(),
+      },
+      production: { ...project.production, updatedAt: new Date().toISOString() },
+    };
+  });
+}
+
 export function recordRenderAttempt(projectId: string) {
   const startedAt = new Date().toISOString();
   return updateCanonicalProject(projectId, (project) => {
+    const readiness = materialReviewReadiness(project.materialReview, project.sources);
+    if (!readiness.ready) throw new Error(readiness.reason);
+    const enabledScenes = project.scenes.filter((scene) => scene.enabled);
+    const selectionReadiness = sceneSelectionReadiness(
+      enabledScenes,
+      project.materialReview.approvedSourceIds,
+    );
+    if (!selectionReadiness.ready) throw new Error(selectionReadiness.reason);
+    const usesVideo = enabledScenes.some((scene) => (
+      project.sources.find((source) => source.id === scene.sourceId)?.sourceType === 'video'
+    ));
+    if (!usesVideo) throw new Error('当前分镜没有使用已批准的视频素材；图片只能作为补充。');
     const sources = project.sources.map((source) => {
       if (!source.contentHash) return source;
       return {
@@ -922,6 +1247,7 @@ export function projectPaths(project: ShortVideoProject) {
     sourceListPath: resolve(project.outputs.sourceList),
     projectSnapshotPath: resolve(project.outputs.projectSnapshot),
     exportManifestPath: resolve(project.outputs.exportDir, 'export-manifest.json'),
+    exportPackageReceiptPath: resolve(`${project.outputs.exportDir}.package.json`),
     timelinePath: join(workDir, 'timeline.json'),
     manifestPath: join(workDir, 'render-manifest.json'),
     renderJobPath: join(workDir, 'render-job.json'),
@@ -948,8 +1274,8 @@ export function readRenderJob(path: string): RenderJobRecord | null {
   if (
     value.schemaVersion !== 1 ||
     typeof value.projectId !== 'string' ||
-    !['running', 'completed', 'failed'].includes(value.state ?? '') ||
-    !['saving', 'rendering', 'proof', 'packaging', 'completed'].includes(value.stage ?? '')
+    !['queued', 'running', 'cancelling', 'cancelled', 'awaiting_review', 'completed', 'failed'].includes(value.state ?? '') ||
+    !['saving', 'rendering', 'proof', 'review', 'packaging', 'completed'].includes(value.stage ?? '')
   ) return null;
   return value as RenderJobRecord;
 }
@@ -988,8 +1314,8 @@ export function renderStatus(
   if (!manifest.proof?.passed) {
     return {
       state: 'unverified',
-      label: '等待验收',
-      message: '成片已生成，但尚未通过当前项目的画面、音轨和产物检查。',
+      label: '等待技术检查',
+      message: '成片已生成，但尚未通过格式、音轨、解码和基础画面检查。',
       renderedAt: manifest.renderedAt,
       duration: manifest.render.duration,
     };
@@ -1006,12 +1332,66 @@ export function renderStatus(
       duration: manifest.render.duration,
     };
   }
+  const videoPath = manifest.artifacts.publicRender ?? manifest.artifacts.outputVideo;
+  const acceptance = manifest.acceptance;
+  const acceptanceState = renderAcceptanceState(acceptance, fileSha256(videoPath));
+  if (acceptanceState === 'awaiting_semantic') {
+    return {
+      state: 'awaiting_semantic',
+      label: '技术检查通过，等待内容验收',
+      message: '需要逐场景核对旁白、字幕、来源窗口和实际可见画面。',
+      renderedAt: manifest.renderedAt,
+      duration: manifest.render.duration,
+    };
+  }
+  if (acceptanceState === 'review_failed' && acceptance?.semantic.status === 'failed') {
+    return {
+      state: 'review_failed',
+      label: '语义验收未通过',
+      message: acceptance.semantic.issues.join('；') || '至少一个场景的旁白与画面不一致。',
+      renderedAt: manifest.renderedAt,
+      duration: manifest.render.duration,
+    };
+  }
+  if (acceptanceState === 'review_failed') {
+    return {
+      state: 'review_failed',
+      label: '浏览器验收未通过',
+      message: acceptance?.browser.issues.join('；') || acceptance?.browser.mediaError || '真实播放器未能完整播放到结尾。',
+      renderedAt: manifest.renderedAt,
+      duration: manifest.render.duration,
+    };
+  }
+  if (acceptanceState === 'awaiting_browser') {
+    return {
+      state: 'awaiting_browser',
+      label: '内容验收通过，等待浏览器验收',
+      message: '需要在真实播放器中确认媒体加载、播放推进和最后一段结束事件。',
+      renderedAt: manifest.renderedAt,
+      duration: manifest.render.duration,
+    };
+  }
+  const project = readBrief(projectId);
+  const paths = projectPaths(project);
+  const packageStatus = exportPackageReadiness({
+    projectId,
+    projectFingerprint: manifest.projectFingerprint,
+    renderedAt: manifest.renderedAt,
+    renderManifestPath: paths.manifestPath,
+    videoPath,
+    zipPath: paths.exportZipPath,
+    receipt: readExportPackageReceipt(paths.exportPackageReceiptPath),
+  });
   return {
     state: 'ready',
-    label: '成片已验收',
-    message: 'MP4、音轨、字幕、时间轴和抽帧均通过当前项目检查。',
+    label: packageStatus.ready ? '成片与导出包已验收' : '成片已验收，导出包待生成',
+    message: packageStatus.ready
+      ? '技术、逐场景语义和真实浏览器播放均通过，导出包与当前版本一致。'
+      : '技术、逐场景语义和真实浏览器播放均通过；完整 ZIP 尚未绑定当前版本。',
     renderedAt: manifest.renderedAt,
     duration: manifest.render.duration,
+    packageReady: packageStatus.ready,
+    packageMessage: packageStatus.reason,
   };
 }
 

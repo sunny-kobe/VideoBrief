@@ -4,17 +4,36 @@ import {
   mkdirSync,
   readFileSync,
   readdirSync,
+  renameSync,
   statSync,
+  writeFileSync,
 } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { readAiConfig } from './aiConfig';
 import {
   analyzeImageSource,
+  analyzeSourceHierarchy,
   analyzeTextSource,
   analyzeVideoSource,
 } from './aiProvider';
 import { readLocalTranscriptionConfig, transcribeAudioLocally } from './localTranscriptionServer';
+import {
+  planRepresentativeFrameSamples,
+  type FrameSampleReason,
+} from './videoFrameSampling';
+import {
+  canReuseCompletedSourceChapter,
+  HIGH_CONFIDENCE_SCENE_THRESHOLD,
+  LONG_SOURCE_THRESHOLD_SECONDS,
+  needsStructuralSceneFallback,
+  normalizeDetectedSceneChanges,
+  planChapterFrameSamples,
+  planSourceChapters,
+  sourceChapterResumeKey,
+  STRUCTURAL_SCENE_THRESHOLD,
+  type SourceChapterPlan,
+} from './sourceChaptering';
 import type { SourceUnderstanding } from './aiSchemas';
 import type {
   AiCallRecord,
@@ -23,6 +42,7 @@ import type {
   ShortVideoProject,
   ShortVideoSource,
   SourceAnalysis,
+  SourceAnalysisChapter,
   SourceReference,
   TranscriptSegment,
 } from './shortVideoBrief';
@@ -60,6 +80,16 @@ interface RepresentativeFrame {
   path: string;
   second: number;
   ratio: number;
+  reason: FrameSampleReason;
+}
+
+function frameSamplingStatement(frames: RepresentativeFrame[]) {
+  const sceneChangeCount = frames.filter((frame) => frame.reason === 'scene-change').length;
+  return `视频画面理解使用 ${frames.length} 张自适应代表帧（时长覆盖${sceneChangeCount ? ` + ${sceneChangeCount} 张镜头变化帧` : ''}），未逐帧覆盖完整动态过程。`;
+}
+
+function frameReferenceNote(frame: RepresentativeFrame) {
+  return `${frame.second.toFixed(2)}s ${frame.reason === 'scene-change' ? '镜头变化' : '时长覆盖'}代表帧`;
 }
 
 interface SpawnResult {
@@ -199,6 +229,7 @@ function remapReusedAnalysis(sourceId: string, analysis: SourceAnalysis): Source
   return {
     extractedText: analysis.extractedText,
     visualDescription: analysis.visualDescription,
+    hierarchicalSummary: analysis.hierarchicalSummary,
     transcript: analysis.transcript.map((segment, index) => ({
       ...segment,
       id: `${sourceId}-segment-${String(index + 1).padStart(2, '0')}`,
@@ -215,6 +246,28 @@ function remapReusedAnalysis(sourceId: string, analysis: SourceAnalysis): Source
       id: `${sourceId}-uncertainty-${String(index + 1).padStart(2, '0')}`,
       sourceReferences: remapReferences(item.sourceReferences),
       resolution: '',
+    })),
+    chapters: analysis.chapters.map((chapter, chapterIndex) => ({
+      ...chapter,
+      id: `${sourceId}-chapter-${String(chapterIndex + 1).padStart(2, '0')}`,
+      sourceId,
+      transcript: chapter.transcript.map((segment, segmentIndex) => ({
+        ...segment,
+        id: `${sourceId}-chapter-${String(chapterIndex + 1).padStart(2, '0')}-segment-${String(segmentIndex + 1).padStart(3, '0')}`,
+        sourceId,
+      })),
+      facts: chapter.facts.map((fact, factIndex) => ({
+        ...fact,
+        id: `${sourceId}-chapter-${String(chapterIndex + 1).padStart(2, '0')}-fact-${String(factIndex + 1).padStart(2, '0')}`,
+        sourceReferences: remapReferences(fact.sourceReferences),
+        reviewStatus: 'proposed',
+      })),
+      uncertainties: chapter.uncertainties.map((item, itemIndex) => ({
+        ...item,
+        id: `${sourceId}-chapter-${String(chapterIndex + 1).padStart(2, '0')}-uncertainty-${String(itemIndex + 1).padStart(2, '0')}`,
+        sourceReferences: remapReferences(item.sourceReferences),
+        resolution: '',
+      })),
     })),
   };
 }
@@ -244,7 +297,7 @@ function referenceFromAi(reference: SourceUnderstanding['facts'][number]['source
   };
 }
 
-function factsFromAi(sourceId: string, result: SourceUnderstanding): ResearchFact[] {
+function factsFromAi(sourceId: string, result: SourceUnderstanding, idPrefix = sourceId): ResearchFact[] {
   const requiredIndexes = new Set(result.facts
     .map((fact, index) => ({ fact, index }))
     .filter(({ fact }) => fact.kind === 'claim' && fact.reviewPriority === 'required')
@@ -252,7 +305,7 @@ function factsFromAi(sourceId: string, result: SourceUnderstanding): ResearchFac
     .slice(0, 3)
     .map(({ index }) => index));
   return result.facts.map((fact, index) => ({
-    id: `${sourceId}-fact-${String(index + 1).padStart(2, '0')}`,
+    id: `${idPrefix}-fact-${String(index + 1).padStart(2, '0')}`,
     statement: fact.statement,
     sourceReferences: fact.sourceReferences.map(referenceFromAi),
     reviewStatus: 'proposed',
@@ -269,6 +322,7 @@ function factsFromAi(sourceId: string, result: SourceUnderstanding): ResearchFac
 function uncertaintiesFromAi(
   sourceId: string,
   result: SourceUnderstanding,
+  idPrefix = sourceId,
 ): ResearchUncertainty[] {
   const requiredIndexes = new Set(result.uncertainties
     .map((item, index) => ({ item, index }))
@@ -277,7 +331,7 @@ function uncertaintiesFromAi(
     .slice(0, 2)
     .map(({ index }) => index));
   return result.uncertainties.map((uncertainty, index) => ({
-    id: `${sourceId}-uncertainty-${String(index + 1).padStart(2, '0')}`,
+    id: `${idPrefix}-uncertainty-${String(index + 1).padStart(2, '0')}`,
     statement: uncertainty.statement,
     sourceReferences: uncertainty.sourceReferences.map(referenceFromAi),
     resolution: '',
@@ -292,7 +346,7 @@ function uncertaintiesFromAi(
 function validateSourceUnderstanding(
   source: ShortVideoSource,
   result: SourceUnderstanding,
-  options: { duration?: number; lineCount?: number } = {},
+  options: { duration?: number; lineCount?: number; rangeStart?: number; rangeEnd?: number } = {},
 ) {
   const entries = [
     ...result.facts.map((item, index) => ({ entryKind: `fact ${index + 1}`, ...item })),
@@ -316,6 +370,13 @@ function validateSourceUnderstanding(
         }
         if (options.duration && reference.end > options.duration + 0.25) {
           throw new Error(`AI source analysis ${entry.entryKind} time range exceeds the source duration.`);
+        }
+        if (
+          options.rangeStart != null &&
+          options.rangeEnd != null &&
+          (reference.start < options.rangeStart - 0.25 || reference.end > options.rangeEnd + 0.25)
+        ) {
+          throw new Error(`AI source analysis ${entry.entryKind} time range exceeds the current chapter.`);
         }
       }
       if (reference.locatorType === 'line') {
@@ -403,35 +464,150 @@ function extractAudioChunks(projectId: string, sourceId: string, inputPath: stri
   return chunks;
 }
 
+function detectSceneChanges(
+  projectId: string,
+  sourceId: string,
+  inputPath: string,
+  hash: string,
+  duration: number,
+) {
+  const ffmpegBinary = resolveFfmpegBinary();
+  const workDir = resolve('output/source-processing', projectId, sourceId, hash);
+  mkdirSync(workDir, { recursive: true });
+  const planPath = resolve(workDir, 'representative-frame-plan-v3.json');
+  let sceneChanges: number[] = [];
+  let sceneDetectionError = '';
+  let sceneDetectionMethod = 'high-confidence';
+  let sceneThreshold = HIGH_CONFIDENCE_SCENE_THRESHOLD;
+  let cachedPlanValid = false;
+  if (existsSync(planPath)) {
+    try {
+      const cached = JSON.parse(readFileSync(planPath, 'utf8'));
+      if (cached.version === 3 && Math.abs(Number(cached.duration) - duration) < 0.01) {
+        cachedPlanValid = true;
+        sceneChanges = Array.isArray(cached.sceneChanges) ? cached.sceneChanges.map(Number) : [];
+        sceneDetectionError = String(cached.sceneDetectionError ?? '');
+        sceneDetectionMethod = String(cached.sceneDetectionMethod ?? sceneDetectionMethod);
+        sceneThreshold = Number(cached.sceneThreshold) || sceneThreshold;
+      }
+    } catch {
+      sceneChanges = [];
+    }
+  }
+  if (!cachedPlanValid) {
+    const detectAtThreshold = (threshold: number) => {
+      const detection = spawnSync(
+        ffmpegBinary,
+        [
+          '-hide_banner', '-nostdin', '-i', inputPath, '-an',
+          '-vf', `scale=320:-2,select='gt(scene,${threshold})',showinfo`,
+          '-fps_mode', 'vfr', '-f', 'null', '-',
+        ],
+        { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 },
+      );
+      return {
+        result: detection,
+        changes: detection.status === 0
+          ? normalizeDetectedSceneChanges(
+            [...String(detection.stderr ?? '').matchAll(/pts_time:([0-9]+(?:\.[0-9]+)?)/g)]
+              .map((match) => Number(match[1])),
+            duration,
+          )
+          : [],
+      };
+    };
+    const primary = detectAtThreshold(HIGH_CONFIDENCE_SCENE_THRESHOLD);
+    sceneChanges = primary.changes;
+    if (primary.result.status !== 0) {
+      sceneDetectionError = spawnFailureDetails(primary.result);
+    } else if (needsStructuralSceneFallback(duration, sceneChanges.length)) {
+      const fallback = detectAtThreshold(STRUCTURAL_SCENE_THRESHOLD);
+      if (fallback.result.status === 0 && fallback.changes.length > sceneChanges.length) {
+        sceneChanges = fallback.changes;
+        sceneDetectionMethod = 'structural-fallback';
+        sceneThreshold = STRUCTURAL_SCENE_THRESHOLD;
+      } else if (fallback.result.status !== 0) {
+        sceneDetectionError = spawnFailureDetails(fallback.result);
+      }
+    }
+    const temporaryPlanPath = `${planPath}.tmp`;
+    writeFileSync(temporaryPlanPath, `${JSON.stringify({
+      version: 3,
+      duration,
+      sceneThreshold,
+      sceneDetectionMethod,
+      sceneChanges,
+      sceneDetectionError,
+    }, null, 2)}\n`);
+    renameSync(temporaryPlanPath, planPath);
+  }
+  return { sceneChanges, sceneDetectionError };
+}
+
+function extractPlannedFrames(
+  projectId: string,
+  sourceId: string,
+  inputPath: string,
+  hash: string,
+  samples: Array<{ second: number; ratio: number; reason: FrameSampleReason }>,
+  filePrefix: string,
+): RepresentativeFrame[] {
+  const ffmpegBinary = resolveFfmpegBinary();
+  const workDir = resolve('output/source-processing', projectId, sourceId, hash);
+  mkdirSync(workDir, { recursive: true });
+  return samples.map((sample, index) => {
+    const framePath = resolve(
+      workDir,
+      `${filePrefix}-${String(index + 1).padStart(2, '0')}-${Math.round(sample.second * 1000)}ms.png`,
+    );
+    if (!existsSync(framePath) || statSync(framePath).size === 0) {
+      const result = spawnSync(
+        ffmpegBinary,
+        ['-y', '-ss', sample.second.toFixed(3), '-i', inputPath, '-frames:v', '1', framePath],
+        { encoding: 'utf8' },
+      );
+      if (result.status !== 0 || !existsSync(framePath) || statSync(framePath).size === 0) {
+        throw new Error(`代表帧抽取失败（${sample.second.toFixed(2)}s）：${spawnFailureDetails(result)}`);
+      }
+    }
+    return { path: framePath, ...sample };
+  });
+}
+
 function extractRepresentativeFrames(
   projectId: string,
   sourceId: string,
   inputPath: string,
   hash: string,
   duration: number,
-): RepresentativeFrame[] {
-  const ffmpegBinary = resolveFfmpegBinary();
-  const workDir = resolve('output/source-processing', projectId, sourceId, hash);
-  mkdirSync(workDir, { recursive: true });
-  const ratios = duration > 0.2 ? [0.2, 0.5, 0.8] : [0.5];
-  return ratios.map((ratio) => {
-    const label = String(Math.round(ratio * 100)).padStart(2, '0');
-    const framePath = resolve(workDir, `representative-frame-${label}pct.png`);
-    const second = duration > 0
-      ? Math.max(0, Math.min(duration * ratio, duration - 0.05))
-      : 0;
-    if (!existsSync(framePath) || statSync(framePath).size === 0) {
-      const result = spawnSync(
-        ffmpegBinary,
-        ['-y', '-ss', second.toFixed(3), '-i', inputPath, '-frames:v', '1', framePath],
-        { encoding: 'utf8' },
-      );
-      if (result.status !== 0 || !existsSync(framePath) || statSync(framePath).size === 0) {
-        throw new Error(`代表帧抽取失败（${second.toFixed(2)}s）：${spawnFailureDetails(result)}`);
-      }
-    }
-    return { path: framePath, second, ratio };
-  });
+  sceneChanges: number[],
+) {
+  return extractPlannedFrames(
+    projectId,
+    sourceId,
+    inputPath,
+    hash,
+    planRepresentativeFrameSamples(duration, sceneChanges),
+    'representative-frame-v2',
+  );
+}
+
+function extractChapterFrames(
+  projectId: string,
+  sourceId: string,
+  inputPath: string,
+  hash: string,
+  chapter: SourceChapterPlan,
+  sceneChanges: number[],
+) {
+  return extractPlannedFrames(
+    projectId,
+    sourceId,
+    inputPath,
+    hash,
+    planChapterFrameSamples(chapter, sceneChanges),
+    `chapter-${String(chapter.index + 1).padStart(2, '0')}-frame-v1`,
+  );
 }
 
 async function processText(
@@ -448,9 +624,11 @@ async function processText(
     analysis: {
       extractedText: text,
       visualDescription: '',
+      hierarchicalSummary: ai.data.summary,
       transcript: [] as TranscriptSegment[],
       facts: factsFromAi(source.id, ai.data),
       uncertainties: uncertaintiesFromAi(source.id, ai.data),
+      chapters: [],
     },
   };
 }
@@ -469,11 +647,222 @@ async function processImage(
     analysis: {
       extractedText: ai.data.extractedText,
       visualDescription: ai.data.visualDescription || localDescription,
+      hierarchicalSummary: ai.data.summary,
       transcript: [] as TranscriptSegment[],
       facts: factsFromAi(source.id, ai.data),
       uncertainties: uncertaintiesFromAi(source.id, ai.data),
+      chapters: [],
     },
     localDescription,
+  };
+}
+
+interface AiCallMetadata {
+  model: string;
+  promptVersion: string;
+  inputHash: string;
+  cacheHit: boolean;
+}
+
+function persistCompletedSourceChapter(
+  projectId: string,
+  sourceId: string,
+  transcript: TranscriptSegment[],
+  chapter: SourceAnalysisChapter,
+  totalChapters: number,
+) {
+  updateCanonicalProject(projectId, (project) => updateSource(project, sourceId, (source) => {
+    const chapters = [
+      ...source.analysis.chapters.filter((item) => item.id !== chapter.id),
+      chapter,
+    ].sort((left, right) => left.index - right.index);
+    return {
+      ...source,
+      analysis: {
+        ...source.analysis,
+        transcript,
+        chapters,
+        visualDescription: `长素材正在按章节理解：已完成 ${chapters.length}/${totalChapters} 章。`,
+      },
+      processing: {
+        ...source.processing,
+        stage: 'fact-extraction',
+        chapterProgress: { completed: chapters.length, total: totalChapters },
+      },
+    };
+  }));
+}
+
+async function processLongAudioOrVideo(
+  projectId: string,
+  source: ShortVideoSource,
+  path: string,
+  hash: string,
+  media: MediaProbe,
+  transcript: TranscriptSegment[],
+  transcriptMetadata: Array<{ model: string; cacheHit: boolean }>,
+  sceneChanges: number[],
+  brief: ShortVideoProject['brief'],
+) {
+  const plans = planSourceChapters(
+    media.duration,
+    sceneChanges,
+    transcript.map((segment) => segment.end),
+  );
+  const chapters: SourceAnalysisChapter[] = [];
+  const aiResults: AiCallMetadata[] = [];
+  const aiConfig = readAiConfig();
+  const existingChapters = new Map(
+    (readBrief(projectId).sources.find((item) => item.id === source.id)?.analysis.chapters ?? [])
+      .map((chapter) => [chapter.id, chapter]),
+  );
+
+  for (const plan of plans) {
+    const chapterId = `${source.id}-${plan.id}`;
+    const chapterTranscript = transcript.filter((segment) => (
+      segment.end > plan.start && segment.start < plan.end
+    ));
+    const transcriptText = chapterTranscript
+      .map((segment) => `[${segment.start.toFixed(2)}-${segment.end.toFixed(2)}] ${segment.text}`)
+      .join('\n');
+    const frames = source.sourceType === 'video'
+      ? extractChapterFrames(projectId, source.id, path, hash, plan, sceneChanges)
+      : [];
+    const resumeKey = sourceChapterResumeKey({
+      sourceHash: hash,
+      model: aiConfig.model,
+      promptVersion: aiConfig.promptVersion,
+      brief,
+      plan: { start: plan.start, end: plan.end },
+      transcriptText,
+      frameSeconds: frames.map((frame) => frame.second),
+    });
+    const existing = existingChapters.get(chapterId);
+    if (existing && canReuseCompletedSourceChapter(existing, plan, resumeKey)) {
+      chapters.push(existing);
+      persistCompletedSourceChapter(projectId, source.id, transcript, existing, plans.length);
+      continue;
+    }
+    const scope = `当前只分析章节 ${plan.index + 1}/${plans.length}，时间范围 ${plan.start.toFixed(2)}-${plan.end.toFixed(2)} 秒。所有 time 引用必须位于这个范围内。`;
+    const ai = source.sourceType === 'video'
+      ? await analyzeVideoSource(
+          source,
+          transcriptText,
+          frames.map((frame) => ({ second: frame.second, imageBase64: readFileSync(frame.path, 'base64') })),
+          brief,
+          { purposeSuffix: plan.id, scope },
+        )
+      : await analyzeTextSource(
+          source,
+          transcriptText,
+          brief,
+          { purposeSuffix: plan.id, scope },
+        );
+    validateSourceUnderstanding(source, ai.data, {
+      duration: media.duration,
+      rangeStart: plan.start,
+      rangeEnd: plan.end,
+    });
+    const frameUncertainty: ResearchUncertainty[] = source.sourceType === 'video'
+      ? [{
+          id: `${chapterId}-uncertainty-frame-sampling`,
+          statement: `章节 ${plan.index + 1} 的视觉理解使用 ${frames.length} 张局部代表帧，未逐帧覆盖该章节的完整动态过程。`,
+          sourceReferences: frames.map((frame) => ({
+            sourceId: source.id,
+            locatorType: 'time' as const,
+            start: frame.second,
+            end: frame.second,
+            note: frameReferenceNote(frame),
+          })),
+          resolution: '',
+          riskLevel: 'low' as const,
+          reviewPriority: 'reference' as const,
+          briefRelevance: 10,
+        }]
+      : [];
+    const chapter: SourceAnalysisChapter = {
+      id: chapterId,
+      sourceId: source.id,
+      index: plan.index,
+      start: plan.start,
+      end: plan.end,
+      title: `章节 ${plan.index + 1}`,
+      summary: ai.data.summary,
+      visualDescription: ai.data.visualDescription,
+      frameSamples: frames.map((frame) => ({ second: frame.second, reason: frame.reason })),
+      transcript: chapterTranscript,
+      facts: factsFromAi(source.id, ai.data, chapterId),
+      uncertainties: [...uncertaintiesFromAi(source.id, ai.data, chapterId), ...frameUncertainty],
+      processing: {
+        status: 'completed',
+        inputHash: ai.inputHash,
+        model: ai.model,
+        promptVersion: ai.promptVersion,
+        cacheHit: ai.cacheHit,
+        error: '',
+        resumeKey,
+      },
+    };
+    chapters.push(chapter);
+    aiResults.push(ai);
+    persistCompletedSourceChapter(projectId, source.id, transcript, chapter, plans.length);
+  }
+
+  updateCanonicalProject(projectId, (project) => updateSource(project, source.id, (current) => ({
+    ...current,
+    processing: {
+      ...current.processing,
+      stage: 'hierarchy',
+      chapterProgress: { completed: chapters.length, total: plans.length },
+    },
+  })));
+  const hierarchy = await analyzeSourceHierarchy(source, chapters, brief);
+  aiResults.push(hierarchy);
+  const hierarchyById = new Map(hierarchy.data.chapters.map((chapter) => [chapter.chapterId, chapter]));
+  const titledChapters = chapters.map((chapter) => {
+    const hierarchical = hierarchyById.get(chapter.id);
+    return {
+      ...chapter,
+      title: hierarchical?.title || chapter.title,
+      summary: hierarchical?.summary || chapter.summary,
+    };
+  });
+  const transcriptText = transcript
+    .map((segment) => `[${segment.start.toFixed(2)}-${segment.end.toFixed(2)}] ${segment.text}`)
+    .join('\n');
+  const noAudioUncertainty: ResearchUncertainty[] = source.sourceType === 'video' && !media.hasAudio
+    ? [{
+        id: `${source.id}-uncertainty-no-audio`,
+        statement: '该长视频未检测到可转录音轨；各章节仅依据局部代表帧完成视觉理解。',
+        sourceReferences: [{ sourceId: source.id, locatorType: 'file', note: '本地媒体流探测' }],
+        resolution: '',
+        riskLevel: 'low',
+        reviewPriority: 'reference',
+        briefRelevance: 10,
+      }]
+    : [];
+
+  return {
+    ai: hierarchy,
+    aiResults,
+    transcriptMetadata,
+    analysis: {
+      extractedText: [
+        transcriptText,
+        ...titledChapters.map((chapter) => (
+          `## ${chapter.title} [${chapter.start.toFixed(2)}-${chapter.end.toFixed(2)}]\n${chapter.summary}`
+        )),
+      ].filter(Boolean).join('\n\n'),
+      visualDescription: `本地${source.sourceType === 'video' ? '视频' : '音频'}时长 ${media.duration.toFixed(2)} 秒；已按 ${titledChapters.length} 个章节完成局部理解。`,
+      hierarchicalSummary: hierarchy.data.summary,
+      transcript,
+      facts: titledChapters.flatMap((chapter) => chapter.facts),
+      uncertainties: [
+        ...titledChapters.flatMap((chapter) => chapter.uncertainties),
+        ...noAudioUncertainty,
+      ],
+      chapters: titledChapters,
+    } satisfies SourceAnalysis,
   };
 }
 
@@ -484,9 +873,27 @@ async function processAudioOrVideo(
   hash: string,
   media: MediaProbe,
   frames: RepresentativeFrame[],
+  sceneChanges: number[],
   prompt: string,
   brief: ShortVideoProject['brief'],
 ) {
+  if (
+    media.duration > LONG_SOURCE_THRESHOLD_SECONDS &&
+    source.sourceType === 'video' &&
+    !media.hasAudio
+  ) {
+    return processLongAudioOrVideo(
+      projectId,
+      source,
+      path,
+      hash,
+      media,
+      [],
+      [],
+      sceneChanges,
+      brief,
+    );
+  }
   if (source.sourceType === 'video' && !media.hasAudio) {
     const ai = await analyzeVideoSource(
       source,
@@ -501,6 +908,7 @@ async function processAudioOrVideo(
       analysis: {
         extractedText: ai.data.extractedText,
         visualDescription: `${ai.data.visualDescription || `本地视频 ${media.width || '?'}x${media.height || '?'}，时长 ${media.duration.toFixed(2)} 秒`}；本地理解覆盖 ${frames.map((frame) => `${frame.second.toFixed(2)}s`).join('、')} 代表帧。`,
+        hierarchicalSummary: ai.data.summary,
         transcript: [] as TranscriptSegment[],
         facts: factsFromAi(source.id, ai.data),
         uncertainties: [
@@ -516,13 +924,13 @@ async function processAudioOrVideo(
           },
           {
             id: `${source.id}-uncertainty-frame-sampling`,
-            statement: '视频画面理解基于 20%、50% 和 80% 代表帧，未逐帧覆盖完整动态过程。',
+            statement: frameSamplingStatement(frames),
             sourceReferences: frames.map((frame) => ({
               sourceId: source.id,
               locatorType: 'time' as const,
               start: frame.second,
               end: frame.second,
-              note: `${Math.round(frame.ratio * 100)}% 本地代表帧`,
+              note: frameReferenceNote(frame),
             })),
             resolution: '',
             riskLevel: 'low' as const,
@@ -530,6 +938,7 @@ async function processAudioOrVideo(
             briefRelevance: 10,
           },
         ],
+        chapters: [],
       },
     };
   }
@@ -540,13 +949,13 @@ async function processAudioOrVideo(
   const frameSamplingUncertainty: ResearchUncertainty[] = source.sourceType === 'video'
     ? [{
         id: `${source.id}-uncertainty-frame-sampling`,
-        statement: '视频画面理解基于 20%、50% 和 80% 代表帧，未逐帧覆盖完整动态过程。',
+        statement: frameSamplingStatement(frames),
         sourceReferences: frames.map((frame) => ({
           sourceId: source.id,
           locatorType: 'time',
           start: frame.second,
           end: frame.second,
-          note: `${Math.round(frame.ratio * 100)}% 本地代表帧`,
+          note: frameReferenceNote(frame),
         })),
         resolution: '',
         riskLevel: 'low',
@@ -588,6 +997,7 @@ async function processAudioOrVideo(
       analysis: {
         extractedText: ai.data.extractedText,
         visualDescription: `${ai.data.visualDescription || `本地视频 ${media.width || '?'}x${media.height || '?'}，时长 ${media.duration.toFixed(2)} 秒`}；本地理解覆盖 ${frames.map((frame) => `${frame.second.toFixed(2)}s`).join('、')} 代表帧。`,
+        hierarchicalSummary: ai.data.summary,
         transcript: [] as TranscriptSegment[],
         facts: factsFromAi(source.id, ai.data),
         uncertainties: [
@@ -603,12 +1013,26 @@ async function processAudioOrVideo(
           },
           ...frameSamplingUncertainty,
         ],
+        chapters: [],
       },
     };
   }
   const transcriptText = transcript
     .map((segment) => `[${segment.start.toFixed(2)}-${segment.end.toFixed(2)}] ${segment.text}`)
     .join('\n');
+  if (media.duration > LONG_SOURCE_THRESHOLD_SECONDS) {
+    return processLongAudioOrVideo(
+      projectId,
+      source,
+      path,
+      hash,
+      media,
+      transcript,
+      transcriptMetadata,
+      sceneChanges,
+      brief,
+    );
+  }
   const ai = source.sourceType === 'video'
     ? await analyzeVideoSource(
         source,
@@ -626,9 +1050,11 @@ async function processAudioOrVideo(
       visualDescription: source.sourceType === 'video'
         ? `${ai.data.visualDescription || `本地视频 ${media.width || '?'}x${media.height || '?'}，时长 ${media.duration.toFixed(2)} 秒`}；本地理解覆盖 ${frames.map((frame) => `${frame.second.toFixed(2)}s`).join('、')} 代表帧。`
         : '',
+      hierarchicalSummary: ai.data.summary,
       transcript,
       facts: factsFromAi(source.id, ai.data),
       uncertainties: [...uncertaintiesFromAi(source.id, ai.data), ...frameSamplingUncertainty],
+      chapters: [],
     },
   };
 }
@@ -660,6 +1086,12 @@ export async function processProjectSource(projectId: string, sourceId: string) 
           model: reusedSource.processing.model,
           promptVersion: reusedSource.processing.promptVersion,
           cacheHit: true,
+          chapterProgress: reusedSource.analysis.chapters.length
+            ? {
+                completed: reusedSource.analysis.chapters.length,
+                total: reusedSource.analysis.chapters.length,
+              }
+            : undefined,
         },
       }));
       const record = callRecord({
@@ -688,6 +1120,9 @@ export async function processProjectSource(projectId: string, sourceId: string) 
       completedAt: '',
       error: '',
       cacheHit: false,
+      chapterProgress: source.analysis.chapters.length
+        ? { completed: source.analysis.chapters.length, total: source.analysis.chapters.length }
+        : undefined,
     },
   })));
 
@@ -717,13 +1152,29 @@ export async function processProjectSource(projectId: string, sourceId: string) 
       result = await processImage(initialSource, path, initialProject.brief);
     } else if (initialSource.sourceType === 'audio' || initialSource.sourceType === 'video') {
       const media = probeMedia(path);
-      const frames = initialSource.sourceType === 'video'
-        ? extractRepresentativeFrames(projectId, initialSource.id, path, hash, media.duration)
+      const sceneDetection = initialSource.sourceType === 'video'
+        ? detectSceneChanges(projectId, initialSource.id, path, hash, media.duration)
+        : { sceneChanges: [], sceneDetectionError: '' };
+      const longForm = media.duration > LONG_SOURCE_THRESHOLD_SECONDS;
+      const frames = initialSource.sourceType === 'video' && !longForm
+        ? extractRepresentativeFrames(
+            projectId,
+            initialSource.id,
+            path,
+            hash,
+            media.duration,
+            sceneDetection.sceneChanges,
+          )
         : [];
+      const plannedChapterCount = longForm
+        ? planSourceChapters(media.duration, sceneDetection.sceneChanges).length
+        : 0;
       const noAudioUncertainty: ResearchUncertainty[] = initialSource.sourceType === 'video' && !media.hasAudio
         ? [{
             id: `${initialSource.id}-uncertainty-no-audio`,
-            statement: '该视频未检测到可转录音轨，资料理解仅覆盖 20%、50% 和 80% 代表帧，未覆盖完整动态画面。',
+            statement: longForm
+              ? `该长视频未检测到可转录音轨；将按 ${plannedChapterCount} 个章节使用局部代表帧理解。`
+              : `该视频未检测到可转录音轨；${frameSamplingStatement(frames)}`,
             sourceReferences: [{ sourceId: initialSource.id, locatorType: 'file', note: '本地媒体流探测' }],
             resolution: '',
             riskLevel: 'low',
@@ -731,7 +1182,7 @@ export async function processProjectSource(projectId: string, sourceId: string) 
             briefRelevance: 10,
           }]
         : [];
-      const frameSamplingUncertainty: ResearchUncertainty[] = initialSource.sourceType === 'video'
+      const frameSamplingUncertainty: ResearchUncertainty[] = initialSource.sourceType === 'video' && !longForm
         ? [{
             id: `${initialSource.id}-uncertainty-frame-sampling`,
             statement: `视频画面理解基于 ${frames.length} 张代表帧，未逐帧覆盖完整动态过程。`,
@@ -740,7 +1191,7 @@ export async function processProjectSource(projectId: string, sourceId: string) 
               locatorType: 'time',
               start: frame.second,
               end: frame.second,
-              note: `${Math.round(frame.ratio * 100)}% 本地代表帧`,
+          note: frameReferenceNote(frame),
             })),
             resolution: '',
             riskLevel: 'low',
@@ -751,7 +1202,9 @@ export async function processProjectSource(projectId: string, sourceId: string) 
       localAnalysis = {
         ...localAnalysis,
         visualDescription: initialSource.sourceType === 'video'
-          ? `本地视频 ${media.width || '?'}x${media.height || '?'}，时长 ${media.duration.toFixed(2)} 秒；已抽取 ${frames.length} 张代表帧，${media.hasAudio ? '等待转录和联合语义理解。' : '无音轨，等待代表帧视觉理解。'}`
+          ? longForm
+            ? `本地视频 ${media.width || '?'}x${media.height || '?'}，时长 ${media.duration.toFixed(2)} 秒；已规划 ${plannedChapterCount} 个章节，等待逐章转录与视觉理解。`
+            : `本地视频 ${media.width || '?'}x${media.height || '?'}，时长 ${media.duration.toFixed(2)} 秒；已抽取 ${frames.length} 张代表帧，${media.hasAudio ? '等待转录和联合语义理解。' : '无音轨，等待代表帧视觉理解。'}`
           : '',
         uncertainties: [...noAudioUncertainty, ...frameSamplingUncertainty],
       };
@@ -761,6 +1214,12 @@ export async function processProjectSource(projectId: string, sourceId: string) 
         processing: {
           ...source.processing,
           stage: initialSource.sourceType === 'video' && !media.hasAudio ? 'vision' : 'transcription',
+          ...(longForm ? {
+            chapterProgress: {
+              completed: source.analysis.chapters.length,
+              total: plannedChapterCount,
+            },
+          } : {}),
         },
       })));
       result = await processAudioOrVideo(
@@ -770,6 +1229,7 @@ export async function processProjectSource(projectId: string, sourceId: string) 
         hash,
         media,
         frames,
+        sceneDetection.sceneChanges,
         transcriptionPrompt(initialProject, initialSource),
         initialProject.brief,
       );
@@ -791,17 +1251,33 @@ export async function processProjectSource(projectId: string, sourceId: string) 
           error: '',
           model: result.ai.model,
           promptVersion: result.ai.promptVersion,
-          cacheHit: result.ai.cacheHit,
+          cacheHit: ('aiResults' in result
+            ? (result.aiResults as AiCallMetadata[]).every((item) => item.cacheHit)
+            : result.ai.cacheHit)
+            && (!('transcriptMetadata' in result)
+              || (result.transcriptMetadata as Array<{ cacheHit: boolean }>).every((item) => item.cacheHit)),
+          chapterProgress: result.analysis.chapters.length
+            ? { completed: result.analysis.chapters.length, total: result.analysis.chapters.length }
+            : undefined,
         },
       }));
-      const record = callRecord({
-        project: updated,
-        status: 'completed',
-        model: result.ai.model,
-        inputHash: result.ai.inputHash,
-        startedAt,
-        cacheHit: result.ai.cacheHit,
-      });
+      const aiResults = 'aiResults' in result
+        ? result.aiResults as AiCallMetadata[]
+        : [result.ai];
+      const records: AiCallRecord[] = [];
+      for (const aiResult of aiResults) {
+        records.push(callRecord({
+          project: {
+            ...updated,
+            ai: { ...updated.ai, calls: [...updated.ai.calls, ...records] },
+          },
+          status: 'completed',
+          model: aiResult.model,
+          inputHash: aiResult.inputHash,
+          startedAt,
+          cacheHit: aiResult.cacheHit,
+        }));
+      }
       const transcriptMetadata = 'transcriptMetadata' in result
         ? result.transcriptMetadata as Array<{ model: string; cacheHit: boolean }>
         : [];
@@ -812,7 +1288,7 @@ export async function processProjectSource(projectId: string, sourceId: string) 
           ...updated.ai,
           model: result.ai.model,
           transcriptionModel: transcriptionModel ?? updated.ai.transcriptionModel,
-          calls: [...updated.ai.calls, record],
+          calls: [...updated.ai.calls, ...records],
         },
       });
     });
@@ -820,10 +1296,12 @@ export async function processProjectSource(projectId: string, sourceId: string) 
     const message = sourceProcessingMessage(error);
     const config = readAiConfig();
     const transcriptionConfig = readLocalTranscriptionConfig();
+    const preservedAnalysis = readBrief(projectId).sources.find((source) => source.id === sourceId)?.analysis
+      ?? localAnalysis;
     updateCanonicalProject(projectId, (project) => {
       const updated = updateSource(project, sourceId, (source) => ({
         ...source,
-        analysis: localAnalysis,
+        analysis: preservedAnalysis,
         processing: {
           ...source.processing,
           status: 'failed',
@@ -846,4 +1324,21 @@ export async function processProjectSource(projectId: string, sourceId: string) 
     });
     throw new Error(message);
   }
+}
+
+export function markProjectSourceProcessingInterrupted(
+  projectId: string,
+  sourceId: string,
+  message: string,
+) {
+  return updateCanonicalProject(projectId, (project) => updateSource(project, sourceId, (source) => ({
+    ...source,
+    processing: {
+      ...source.processing,
+      status: 'failed',
+      completedAt: new Date().toISOString(),
+      error: message,
+      cacheHit: false,
+    },
+  })));
 }

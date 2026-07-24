@@ -33,6 +33,7 @@ import {
   ShortVideoSource,
   WorkbenchRenderStatus,
 } from '@/src/shortVideoBrief';
+import type { PersistedSourceProcessingJob } from '@/src/sourceProcessingQueue';
 import {
   WorkbenchAsset,
   WorkbenchView,
@@ -51,6 +52,7 @@ interface ProductionWorkbenchClientProps {
   assets: WorkbenchAsset[];
   srtText: string;
   renderHref: string;
+  remotionHref: string;
   sourceHrefs: Record<string, string>;
   renderStatus: WorkbenchRenderStatus;
   renderJob: RenderJobRecord | null;
@@ -94,6 +96,36 @@ function nextSceneId(scenes: ShortVideoProjectScene[]) {
   return `scene-${String(nextNumber).padStart(2, '0')}`;
 }
 
+function withSyncedChapterScenes(project: ShortVideoProject, scenes: ShortVideoProjectScene[]) {
+  const chapters = project.chapters.length
+    ? project.chapters
+    : scenes.length
+      ? [{
+          id: 'chapter-01',
+          title: project.title,
+          summary: '',
+          order: 0,
+          sceneIds: [],
+          sourceReferences: [],
+        }]
+      : [];
+  const fallbackChapterId = chapters[0]?.id ?? '';
+  const normalizedScenes = scenes.map((scene) => ({
+    ...scene,
+    chapterId: chapters.some((chapter) => chapter.id === scene.chapterId)
+      ? scene.chapterId
+      : fallbackChapterId,
+  }));
+  return {
+    ...project,
+    scenes: normalizedScenes,
+    chapters: chapters.map((chapter) => ({
+      ...chapter,
+      sceneIds: normalizedScenes.filter((scene) => scene.chapterId === chapter.id).map((scene) => scene.id),
+    })),
+  };
+}
+
 function playVideo(video: HTMLVideoElement) {
   void video.play().catch((error: unknown) => {
     if (!(error instanceof DOMException) || error.name !== 'NotAllowedError') return;
@@ -109,6 +141,7 @@ export default function ProductionWorkbenchClient({
   assets,
   srtText,
   renderHref,
+  remotionHref,
   sourceHrefs,
   renderStatus,
   renderJob,
@@ -173,18 +206,22 @@ export default function ProductionWorkbenchClient({
   const currentStep = workbenchSteps[currentStepIndex];
   const nextStep = workbenchSteps[currentStepIndex + 1];
   const canAdvance = view === 'sources'
-    ? draftProject.sources.length > 0
+    ? draftProject.materialReview.status === 'approved'
     : view === 'research'
       ? reviewSummary.ready
       : view === 'planning'
         ? draftProject.scenes.length > 0 && !draftProject.narrative.pendingDraft
         : view === 'clips'
-          ? draftProject.scenes.length > 0 && draftProject.scenes.filter((scene) => scene.enabled).every((scene) => Boolean(scene.selectedCandidateId))
+          ? draftProject.scenes.length > 0 && draftProject.scenes.filter((scene) => scene.enabled).every((scene) => (
+              scene.selectionStatus === 'codex_reviewed' || scene.selectionStatus === 'user_approved'
+            ))
           : view === 'subtitles'
             ? draftProject.scenes.length > 0
           : false;
   const renderBlockReason = !draftProject.sources.length
     ? '请先导入素材。'
+    : draftProject.materialReview.status !== 'approved'
+      ? '请先预览并确认包含真实视频的素材包。'
     : !draftProject.scenes.length
       ? '请先生成或添加场景。'
       : reviewSummary.pendingFacts.length > 0
@@ -195,10 +232,12 @@ export default function ProductionWorkbenchClient({
             ? '项目包含禁止使用的素材。'
             : draftProject.scenes.some((scene) => !draftProject.sources.some((source) => source.id === scene.sourceId))
               ? '有场景尚未选择有效素材。'
-              : draftProject.scenes.some((scene) => scene.enabled && !scene.selectedCandidateId)
-                ? '请先确认每个参与成片的画面。'
+              : draftProject.scenes.some((scene) => scene.enabled && (
+                  scene.selectionStatus !== 'codex_reviewed' && scene.selectionStatus !== 'user_approved'
+                ))
+                ? '每个参与成片的画面都必须经过 Codex 复核或用户确认。'
                 : '';
-  const showPreviewPanel = advancedMode && (sourceFocusedView
+  const showPreviewPanel = advancedMode && view !== 'sources' && (sourceFocusedView
     ? Boolean(previewSource)
     : view !== 'planning' || Boolean(draftProject.narrative.activeVersionId && activeScene));
 
@@ -343,15 +382,97 @@ export default function ProductionWorkbenchClient({
     }
   }
 
+  async function runSourceProcessing(action: string, path: string) {
+    setProjectAction(action);
+    setStatusText(`${action}：正在加入持久化队列…`);
+    setSaveState('idle');
+    try {
+      const response = await fetch(path, { method: 'POST' });
+      const payload = await response.json();
+      if (payload.project) acceptServerProject(payload.project as ShortVideoProject);
+      if (!response.ok) throw new Error(payload.error ?? `${action}入队失败`);
+      const jobs = (Array.isArray(payload.jobs) ? payload.jobs : payload.job ? [payload.job] : []) as PersistedSourceProcessingJob[];
+      const jobIds = new Set(jobs.map((job) => job.jobId));
+      if (!jobIds.size) {
+        setStatusText(`${action}：没有需要执行的任务。`);
+        return;
+      }
+
+      while (true) {
+        await new Promise((resolvePromise) => window.setTimeout(resolvePromise, 750));
+        const statusResponse = await fetch(`/api/projects/${encodeURIComponent(projectId)}/process`, { cache: 'no-store' });
+        const statusPayload = await statusResponse.json();
+        if (statusPayload.project) acceptServerProject(statusPayload.project as ShortVideoProject);
+        if (!statusResponse.ok) throw new Error(statusPayload.error ?? '无法读取资料处理任务状态。');
+        const currentJobs = (statusPayload.jobs as PersistedSourceProcessingJob[])
+          .filter((job) => jobIds.has(job.jobId));
+        const active = currentJobs.filter((job) => ['queued', 'running', 'cancelling'].includes(job.state));
+        const currentProject = statusPayload.project as ShortVideoProject;
+        const progress = currentProject.sources
+          .filter((source) => currentJobs.some((job) => job.sourceId === source.id))
+          .map((source) => {
+            const chapterProgress = source.processing.chapterProgress;
+            return chapterProgress?.total
+              ? `${source.label} ${chapterProgress.completed}/${chapterProgress.total} 章`
+              : source.label;
+          });
+        if (active.length) {
+          const queuedCount = active.filter((job) => job.state === 'queued').length;
+          setStatusText(`${action}：${progress.join('；')}${queuedCount ? `；${queuedCount} 项等待执行` : ''}…`);
+          continue;
+        }
+        const failed = currentJobs.find((job) => job.state === 'failed');
+        if (failed) throw new Error(failed.error || '资料处理失败');
+        const cancelled = currentJobs.filter((job) => job.state === 'cancelled').length;
+        setStatusText(cancelled ? `${action}已取消，已完成章节继续保留。` : `${action}完成。`);
+        break;
+      }
+    } catch (error) {
+      setSaveState('error');
+      setStatusText(error instanceof Error ? error.message : `${action}失败`);
+    } finally {
+      setProjectAction('');
+    }
+  }
+
   function processSource(sourceId: string) {
-    void runProjectAction(
+    void runSourceProcessing(
       '处理来源',
       `/api/projects/${encodeURIComponent(projectId)}/sources/${encodeURIComponent(sourceId)}/process`,
     );
   }
 
   function processAllSources() {
-    void runProjectAction('处理全部来源', `/api/projects/${encodeURIComponent(projectId)}/process`);
+    void runSourceProcessing('处理全部来源', `/api/projects/${encodeURIComponent(projectId)}/process`);
+  }
+
+  async function cancelSourceProcessing(sourceId: string) {
+    setStatusText('正在取消资料处理任务…');
+    try {
+      const response = await fetch(
+        `/api/projects/${encodeURIComponent(projectId)}/sources/${encodeURIComponent(sourceId)}/process`,
+        { method: 'DELETE' },
+      );
+      const payload = await response.json();
+      if (payload.project) acceptServerProject(payload.project as ShortVideoProject);
+      if (!response.ok) throw new Error(payload.error ?? '取消资料处理失败');
+      setStatusText('已发送取消请求；已完成章节会保留。');
+    } catch (error) {
+      setStatusText(error instanceof Error ? error.message : '取消资料处理失败');
+    }
+  }
+
+  async function approveMaterials(sourceIds: string[]) {
+    const payload = await runProjectAction(
+      '确认素材包',
+      `/api/projects/${encodeURIComponent(projectId)}/material-review`,
+      {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ sourceIds }),
+      },
+    );
+    if (!payload) throw new Error('素材包确认失败，请查看页面状态提示。');
   }
 
   async function projectSavedForAction() {
@@ -414,6 +535,9 @@ export default function ProductionWorkbenchClient({
     if (!scene || !candidate) return;
     updateSceneById(sceneId, {
       selectedCandidateId: candidate.id,
+      selectionStatus: 'ai_suggested',
+      selectionReviewedAt: '',
+      selectionNote: '已选择候选，仍需明确确认当前画面。',
       sourceId: candidate.sourceId,
       sourceStart: candidate.sourceStart,
       sourceEnd: candidate.sourceEnd,
@@ -428,9 +552,22 @@ export default function ProductionWorkbenchClient({
       (patch.sourceEnd != null && patch.sourceEnd !== activeScene.sourceEnd)
     );
     updateSceneById(activeScene.id, sourceChanged
-      ? { ...patch, candidates: [], selectedCandidateId: '' }
+      ? {
+          ...patch,
+          candidates: [],
+          selectedCandidateId: '',
+          selectionStatus: 'unselected',
+          selectionReviewedAt: '',
+          selectionNote: '',
+        }
       : timingChanged
-        ? { ...patch, selectedCandidateId: '' }
+        ? {
+            ...patch,
+            selectedCandidateId: '',
+            selectionStatus: 'unselected',
+            selectionReviewedAt: '',
+            selectionNote: '',
+          }
         : patch);
     if (patch.sourceId) setActiveSourceId(patch.sourceId);
   }
@@ -461,6 +598,9 @@ export default function ProductionWorkbenchClient({
     updateSceneById(activeScene.id, {
       candidates: matchingCandidate ? activeScene.candidates : [...activeScene.candidates, candidate],
       selectedCandidateId: candidate.id,
+      selectionStatus: 'user_approved',
+      selectionReviewedAt: new Date().toISOString(),
+      selectionNote: '用户在画面编辑步骤中预览并确认。',
       sourceReferences: activeScene.sourceReferences.some((reference) => reference.sourceId === source.id)
         ? activeScene.sourceReferences
         : [
@@ -482,6 +622,20 @@ export default function ProductionWorkbenchClient({
     setDraftProject((current) => ({
       ...current,
       platformCopy: { ...current.platformCopy, ...patch },
+    }));
+  }
+
+  function updateAspectRatio(aspectRatio: ShortVideoProject['brief']['aspectRatio']) {
+    const size = aspectRatio === '16:9'
+      ? { width: 1920, height: 1080 }
+      : aspectRatio === '1:1'
+        ? { width: 1080, height: 1080 }
+        : { width: 1080, height: 1920 };
+    markChanged();
+    setDraftProject((current) => ({
+      ...current,
+      brief: { ...current.brief, aspectRatio },
+      render: { ...current.render, ...size, mediaFit: 'contain' },
     }));
   }
 
@@ -586,6 +740,7 @@ export default function ProductionWorkbenchClient({
     const sourceStart = activeScene?.sourceEnd ?? 0;
     const newScene: ShortVideoProjectScene = {
       id,
+      chapterId: activeScene?.chapterId ?? draftProject.chapters[0]?.id ?? '',
       enabled: true,
       sourceId,
       sourceStart,
@@ -600,11 +755,23 @@ export default function ProductionWorkbenchClient({
         : [],
       candidates: [],
       selectedCandidateId: '',
+      selectionStatus: 'unselected',
+      selectionReviewedAt: '',
+      selectionNote: '',
       generatedBy: 'user',
       userEdited: true,
     };
     markChanged();
-    setDraftProject((current) => ({ ...current, scenes: [...current.scenes, newScene] }));
+    setDraftProject((current) => {
+      const scenes = [...current.scenes];
+      const chapterId = newScene.chapterId;
+      const lastChapterSceneIndex = scenes.reduce(
+        (lastIndex, scene, index) => scene.chapterId === chapterId ? index : lastIndex,
+        -1,
+      );
+      scenes.splice(lastChapterSceneIndex + 1, 0, newScene);
+      return withSyncedChapterScenes(current, scenes);
+    });
     setActiveSceneId(id);
     replaceWorkbenchQuery({ view: 'clips', scene: id });
     if (window.matchMedia('(max-width: 1023px)').matches) {
@@ -617,11 +784,18 @@ export default function ProductionWorkbenchClient({
     if (index < 0) return;
     const id = nextSceneId(draftProject.scenes);
     const original = draftProject.scenes[index];
-    const duplicate = { ...original, id, title: `${original.title || '未命名片段'}（副本）` };
+    const duplicate = {
+      ...original,
+      id,
+      title: `${original.title || '未命名片段'}（副本）`,
+      selectionStatus: 'unselected' as const,
+      selectionReviewedAt: '',
+      selectionNote: '',
+    };
     const scenes = [...draftProject.scenes];
     scenes.splice(index + 1, 0, duplicate);
     markChanged();
-    setDraftProject((current) => ({ ...current, scenes }));
+    setDraftProject((current) => withSyncedChapterScenes(current, scenes));
     setActiveSceneId(id);
     replaceWorkbenchQuery({ scene: id });
   }
@@ -630,10 +804,11 @@ export default function ProductionWorkbenchClient({
     const index = draftProject.scenes.findIndex((scene) => scene.id === sceneId);
     const target = index + direction;
     if (index < 0 || target < 0 || target >= draftProject.scenes.length) return;
+    if (draftProject.scenes[index].chapterId !== draftProject.scenes[target].chapterId) return;
     const scenes = [...draftProject.scenes];
     [scenes[index], scenes[target]] = [scenes[target], scenes[index]];
     markChanged();
-    setDraftProject((current) => ({ ...current, scenes }));
+    setDraftProject((current) => withSyncedChapterScenes(current, scenes));
   }
 
   function deleteScene(sceneId: string) {
@@ -643,7 +818,7 @@ export default function ProductionWorkbenchClient({
     const scenes = draftProject.scenes.filter((item) => item.id !== sceneId);
     const nextActive = scenes[Math.min(index, scenes.length - 1)]?.id ?? '';
     markChanged();
-    setDraftProject((current) => ({ ...current, scenes }));
+    setDraftProject((current) => withSyncedChapterScenes(current, scenes));
     if (activeSceneId === sceneId) setActiveSceneId(nextActive);
     replaceWorkbenchQuery({ scene: nextActive || null });
   }
@@ -702,59 +877,137 @@ export default function ProductionWorkbenchClient({
     }
   }
 
-  async function renderProject(projectToRender: ShortVideoProject = draftProject) {
+  async function renderProject(
+    projectToRender: ShortVideoProject = draftProject,
+    mode: 'start' | 'resume' = 'start',
+  ) {
     setSaveState('rendering');
-    setStatusText('正在保存、渲染并执行验收…');
-    let pollTimer: number | null = null;
+    setStatusText('正在保存项目并加入渲染队列…');
     const pollRenderJob = async () => {
       const response = await fetch(`/api/workbench/render?projectId=${encodeURIComponent(projectId)}`, { cache: 'no-store' });
-      if (!response.ok) return;
+      if (!response.ok) throw new Error('无法读取渲染任务状态。');
       const payload = await response.json();
       if (payload.job) {
         setCurrentRenderJob(payload.job as RenderJobRecord);
         const stageLabel: Record<RenderJobRecord['stage'], string> = {
-          saving: '保存项目',
+          saving: (payload.job as RenderJobRecord).state === 'queued' ? '等待执行' : '保存项目',
           rendering: '生成配音、字幕和画面',
           proof: '执行技术验收',
+          review: '等待逐场景与浏览器验收',
           packaging: '生成封面和导出包',
           completed: '完成',
         };
-        setStatusText(`渲染任务：${stageLabel[(payload.job as RenderJobRecord).stage]}…`);
+        const job = payload.job as RenderJobRecord;
+        const queueLabel = job.state === 'queued' && job.queuePosition
+          ? `（队列第 ${job.queuePosition} 位）`
+          : '';
+        setStatusText(`渲染任务：${stageLabel[job.stage]}${queueLabel}…`);
       }
+      return payload;
     };
     try {
-      const renderRequest = fetch('/api/workbench/render', {
+      const response = await fetch('/api/workbench/render', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ projectId, brief: projectToRender }),
+        body: JSON.stringify({ projectId, brief: projectToRender, mode }),
       });
-      pollTimer = window.setInterval(() => void pollRenderJob(), 750);
-      const response = await renderRequest;
       const payload = await response.json();
-      if (!response.ok) throw new Error(payload.error ?? '渲染失败');
       if (payload.renderJob) setCurrentRenderJob(payload.renderJob as RenderJobRecord);
+      if (!response.ok) throw new Error(payload.error ?? '渲染入队失败');
+
+      while (true) {
+        await new Promise((resolvePromise) => window.setTimeout(resolvePromise, 750));
+        const statusPayload = await pollRenderJob();
+        const job = statusPayload?.job as RenderJobRecord | undefined;
+        if (!job || ['queued', 'running', 'cancelling'].includes(job.state)) continue;
+        if (job.state === 'failed') throw new Error(job.error || '渲染失败');
+        if (job.state === 'cancelled') {
+          setSaveState('saved');
+          setStatusText('渲染任务已取消，可以继续渲染。');
+          return;
+        }
+        break;
+      }
       setSaveState('saved');
-      setStatusText('渲染和验收已完成，正在刷新项目状态…');
+      setStatusText('技术渲染已完成，正在刷新内容验收状态…');
       window.location.href = `/workbench?project=${encodeURIComponent(projectId)}&view=export&scene=${encodeURIComponent(activeSceneId)}&refresh=${Date.now()}`;
     } catch (error) {
       setSaveState('error');
       setStatusText(error instanceof Error ? error.message : '渲染失败');
-    } finally {
-      if (pollTimer != null) window.clearInterval(pollTimer);
-      void pollRenderJob();
     }
   }
 
-  async function importSource(formData: FormData) {
+  async function cancelRenderProject() {
+    setStatusText('正在取消渲染任务…');
+    try {
+      const response = await fetch(`/api/workbench/render?projectId=${encodeURIComponent(projectId)}`, {
+        method: 'DELETE',
+      });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error ?? '取消渲染失败');
+      if (payload.job) setCurrentRenderJob(payload.job as RenderJobRecord);
+      setStatusText('已发送取消请求，正在停止渲染进程…');
+    } catch (error) {
+      setStatusText(error instanceof Error ? error.message : '取消渲染失败');
+    }
+  }
+
+  async function importSource(
+    formData: FormData,
+    onProgress: (progress: number) => void,
+    signal: AbortSignal,
+  ) {
     setSaveState('saving');
     setStatusText('正在导入本地素材…');
     try {
-      const response = await fetch(`/api/projects/${encodeURIComponent(projectId)}/sources`, {
-        method: 'POST',
-        body: formData,
+      const file = formData.get('file');
+      if (!(file instanceof File)) throw new Error('请选择本地素材文件。');
+      const metadata = {
+        fileName: file.name,
+        fileSize: file.size,
+        mimeType: file.type,
+        label: String(formData.get('label') ?? ''),
+        originUrl: String(formData.get('originUrl') ?? ''),
+        materialRole: String(formData.get('materialRole') ?? 'official_demo'),
+        verificationStatus: String(formData.get('verificationStatus') ?? 'needs_check'),
+        rightsStatus: String(formData.get('rightsStatus') ?? 'review_required'),
+        rightsNote: String(formData.get('rightsNote') ?? ''),
+        confirmRights: String(formData.get('confirmRights') ?? ''),
+      };
+      const payload = await new Promise<Record<string, unknown>>((resolvePromise, rejectPromise) => {
+        const request = new XMLHttpRequest();
+        const abort = () => request.abort();
+        request.open('POST', `/api/projects/${encodeURIComponent(projectId)}/sources`);
+        request.setRequestHeader('content-type', file.type || 'application/octet-stream');
+        request.setRequestHeader(
+          'x-videobrief-source-metadata',
+          encodeURIComponent(JSON.stringify(metadata)),
+        );
+        request.upload.onprogress = (event) => {
+          if (event.lengthComputable && event.total > 0) onProgress(event.loaded / event.total);
+        };
+        request.onerror = () => rejectPromise(new Error('素材上传网络失败。'));
+        request.onabort = () => rejectPromise(new DOMException('素材导入已取消。', 'AbortError'));
+        request.onload = () => {
+          signal.removeEventListener('abort', abort);
+          let body: Record<string, unknown> = {};
+          try {
+            body = JSON.parse(request.responseText) as Record<string, unknown>;
+          } catch {
+            rejectPromise(new Error('素材导入返回了无效响应。'));
+            return;
+          }
+          if (request.status < 200 || request.status >= 300) {
+            rejectPromise(new Error(typeof body.error === 'string' ? body.error : '素材导入失败'));
+            return;
+          }
+          onProgress(1);
+          resolvePromise(body);
+        };
+        signal.addEventListener('abort', abort, { once: true });
+        request.send(file);
       });
-      const payload = await response.json();
-      if (!response.ok) throw new Error(payload.error ?? '素材导入失败');
+      if (!payload.source) throw new Error('素材导入结果缺少来源记录。');
       setStatusText('素材已导入，正在刷新项目…');
       window.location.href = `/workbench?project=${encodeURIComponent(projectId)}&view=sources&refresh=${Date.now()}`;
     } catch (error) {
@@ -839,6 +1092,7 @@ export default function ProductionWorkbenchClient({
       projectId={projectId}
       project={draftProject}
       renderHref={renderHref}
+      remotionHref={remotionHref}
       renderStatus={visibleRenderStatus}
       renderJob={currentRenderJob}
     />
@@ -849,6 +1103,7 @@ export default function ProductionWorkbenchClient({
       busy={Boolean(projectAction)}
       onProcessAll={processAllSources}
       onProcessSource={processSource}
+      onCancelSource={cancelSourceProcessing}
       onUpdateSource={updateSource}
       onUpdateFact={updateResearchFact}
       onUpdateUncertainty={updateResearchUncertainty}
@@ -912,6 +1167,7 @@ export default function ProductionWorkbenchClient({
       onSelect={selectSourceForReview}
       onReview={reviewSource}
       onImport={importSource}
+      onApproveMaterials={approveMaterials}
       onContinue={() => changeView('research')}
     />
   ) : (
@@ -925,7 +1181,9 @@ export default function ProductionWorkbenchClient({
       renderJob={currentRenderJob}
       renderBlockedReason={renderBlockReason}
       rendering={saveState === 'rendering'}
-      onRender={renderProject}
+      onRender={() => void renderProject()}
+      onResume={() => void renderProject(draftProject, 'resume')}
+      onCancel={() => void cancelRenderProject()}
     />
   );
 
@@ -1071,6 +1329,7 @@ export default function ProductionWorkbenchClient({
               onConfirmVisual={confirmActiveSceneVisual}
               onUpdateSource={updateSource}
               onUpdatePlatformCopy={updatePlatformCopy}
+              onUpdateAspectRatio={updateAspectRatio}
             />
           </aside> : null}
         </div>

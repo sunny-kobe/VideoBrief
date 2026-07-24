@@ -1,12 +1,11 @@
 'use client';
 
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, Fragment, useEffect, useRef, useState } from 'react';
 import {
   ArrowRight,
   BrainCircuit,
   ExternalLink,
   Film,
-  Play,
   ShieldCheck,
   TriangleAlert,
   Upload,
@@ -23,7 +22,12 @@ interface WorkbenchSourceManagerProps {
   activeSourceId: string;
   onSelect: (sourceId: string) => void;
   onReview: (sourceId: string) => void;
-  onImport: (formData: FormData) => Promise<void>;
+  onImport: (
+    formData: FormData,
+    onProgress: (progress: number) => void,
+    signal: AbortSignal,
+  ) => Promise<void>;
+  onApproveMaterials: (sourceIds: string[]) => Promise<void>;
   onContinue: () => void;
 }
 
@@ -61,6 +65,13 @@ const processingLabel = {
   failed: '解析失败',
 } as const;
 
+const materialRoleLabel = {
+  official_demo: '官方/本项目演示',
+  broll: '通用 B-roll',
+  evidence: '证据画面',
+  research: '研究资料',
+} as const;
+
 export default function WorkbenchSourceManager({
   project,
   assets,
@@ -69,14 +80,48 @@ export default function WorkbenchSourceManager({
   onSelect,
   onReview,
   onImport,
+  onApproveMaterials,
   onContinue,
 }: WorkbenchSourceManagerProps) {
+  const visualSources = project.sources.filter((source) => source.sourceType === 'video' || source.sourceType === 'image');
+  const selectableVisuals = visualSources.filter((source) => (
+    source.rightsStatus !== 'blocked' && source.materialRole !== 'research'
+  ));
+  const orderedSources = [
+    ...visualSources.filter((source) => source.sourceType === 'video'),
+    ...visualSources.filter((source) => source.sourceType === 'image'),
+    ...project.sources.filter((source) => source.sourceType !== 'video' && source.sourceType !== 'image'),
+  ];
   const [importing, setImporting] = useState(false);
+  const [importProgress, setImportProgress] = useState(0);
+  const [approving, setApproving] = useState(false);
   const [importError, setImportError] = useState('');
   const [expandedSourceId, setExpandedSourceId] = useState('');
+  const importAbortRef = useRef<AbortController | null>(null);
+  const [selectedSourceIds, setSelectedSourceIds] = useState<string[]>(() => (
+    project.materialReview.approvedSourceIds.length
+      ? project.materialReview.approvedSourceIds
+      : selectableVisuals.map((source) => source.id)
+  ));
   const expandedSource = project.sources.find((source) => source.id === expandedSourceId);
   const expandedHref = expandedSource ? sourceHrefs[expandedSource.id] ?? '' : '';
   const review = researchReviewSummary(project);
+  const selectedSources = selectableVisuals.filter((source) => selectedSourceIds.includes(source.id));
+  const selectedVideoCount = selectedSources.filter((source) => source.sourceType === 'video').length;
+  const selectedImageCount = selectedSources.filter((source) => source.sourceType === 'image').length;
+  const packageApproved = project.materialReview.status === 'approved';
+
+  useEffect(() => {
+    const availableIds = new Set(selectableVisuals.map((source) => source.id));
+    const nextIds = packageApproved || project.materialReview.approvedSourceIds.length
+      ? project.materialReview.approvedSourceIds.filter((sourceId) => availableIds.has(sourceId))
+      : selectableVisuals.map((source) => source.id);
+    setSelectedSourceIds(nextIds);
+  }, [
+    packageApproved,
+    project.materialReview.reviewedAt,
+    selectableVisuals.map((source) => `${source.id}:${source.rightsStatus}`).join('|'),
+  ]);
 
   useEffect(() => {
     if (!expandedSourceId) return;
@@ -90,13 +135,36 @@ export default function WorkbenchSourceManager({
   async function handleImport(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setImporting(true);
+    setImportProgress(0);
     setImportError('');
+    const controller = new AbortController();
+    importAbortRef.current = controller;
     try {
-      await onImport(new FormData(event.currentTarget));
+      await onImport(new FormData(event.currentTarget), setImportProgress, controller.signal);
     } catch (error) {
       setImportError(error instanceof Error ? error.message : '素材导入失败');
+    } finally {
       setImporting(false);
+      importAbortRef.current = null;
     }
+  }
+
+  async function handleApproveMaterials() {
+    setApproving(true);
+    setImportError('');
+    try {
+      await onApproveMaterials(selectedSourceIds);
+    } catch (error) {
+      setImportError(error instanceof Error ? error.message : '素材包确认失败');
+    } finally {
+      setApproving(false);
+    }
+  }
+
+  function toggleMaterial(sourceId: string) {
+    setSelectedSourceIds((current) => current.includes(sourceId)
+      ? current.filter((id) => id !== sourceId)
+      : [...current, sourceId]);
   }
 
   const importForm = (
@@ -109,6 +177,19 @@ export default function WorkbenchSourceManager({
       <label className="block">
         <span className="text-xs font-bold text-slate-600">素材名称</span>
         <input className="mt-1.5 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm" name="label" placeholder="例如：产品操作录屏…" />
+      </label>
+      <label className="block">
+        <span className="text-xs font-bold text-slate-600">这份素材在成片里的用途</span>
+        <select className="mt-1.5 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm" name="materialRole" defaultValue="official_demo">
+          <option value="official_demo">官方/本项目演示</option>
+          <option value="broll">通用 B-roll</option>
+          <option value="evidence">证据画面</option>
+          <option value="research">只用于研究，不进成片</option>
+        </select>
+      </label>
+      <label className="block sm:col-span-2">
+        <span className="text-xs font-bold text-slate-600">原始来源链接</span>
+        <input className="mt-1.5 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm" name="originUrl" type="url" placeholder="https://…" />
       </label>
       <label className="block">
         <span className="text-xs font-bold text-slate-600">来源是否已经核对？</span>
@@ -134,11 +215,30 @@ export default function WorkbenchSourceManager({
         <input className="mt-0.5 h-4 w-4 accent-emerald-700" name="confirmRights" type="checkbox" value="yes" required />
         我已如实登记这份素材的来源和使用权，不把“公开可见”自动视为“可以使用”。
       </label>
-      <div className="flex items-center gap-3 sm:col-span-2">
+      <div className="flex flex-wrap items-center gap-3 sm:col-span-2">
         <button className="inline-flex h-9 items-center gap-2 rounded-md bg-slate-950 px-3 text-xs font-extrabold text-white disabled:bg-slate-400" type="submit" disabled={importing}>
           <Upload aria-hidden="true" className="h-3.5 w-3.5" />
           {importing ? '导入中…' : '导入这份素材'}
         </button>
+        {importing ? (
+          <>
+            <div className="min-w-40 flex-1" aria-live="polite">
+              <progress className="h-2 w-full accent-emerald-700" max={100} value={Math.round(importProgress * 100)} />
+              <p className="mt-1 text-[11px] font-bold text-slate-600">
+                {importProgress >= 1 ? '上传完成，正在校验并登记…' : `已上传 ${Math.round(importProgress * 100)}%`}
+              </p>
+            </div>
+            <button
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-300 bg-white text-slate-700"
+              type="button"
+              title="取消导入"
+              aria-label="取消导入"
+              onClick={() => importAbortRef.current?.abort()}
+            >
+              <X aria-hidden="true" className="h-4 w-4" />
+            </button>
+          </>
+        ) : null}
         {importError ? <p className="text-xs font-bold text-rose-700" role="alert">{importError}</p> : null}
       </div>
     </form>
@@ -154,10 +254,38 @@ export default function WorkbenchSourceManager({
         </div>
       </div>
 
+      <div className={`border-b px-4 py-3 ${packageApproved ? 'border-emerald-200 bg-emerald-50' : 'border-amber-200 bg-amber-50'}`}>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p className={`text-xs font-extrabold ${packageApproved ? 'text-emerald-900' : 'text-amber-950'}`}>
+              {packageApproved ? '这批素材已确认用于成片' : '先预览并勾选本次成片素材'}
+            </p>
+            <p className={`mt-1 text-[11px] leading-relaxed ${packageApproved ? 'text-emerald-800' : 'text-amber-900'}`}>
+              已选 {selectedVideoCount} 段视频 · {selectedImageCount} 张图片
+              {selectedVideoCount === 0 ? ' · 缺少视频，暂不能生成脚本或成片' : ' · 图片只作为补充画面'}
+            </p>
+          </div>
+          <button
+            className="inline-flex h-9 items-center gap-2 rounded-md bg-slate-950 px-3 text-xs font-extrabold text-white disabled:bg-slate-400"
+            type="button"
+            disabled={approving || selectedVideoCount === 0}
+            onClick={() => void handleApproveMaterials()}
+          >
+            <ShieldCheck aria-hidden="true" className="h-3.5 w-3.5" />
+            {approving ? '确认中…' : packageApproved ? '重新确认这批素材' : '确认这批素材'}
+          </button>
+        </div>
+        {project.materialReview.reviewedAt ? (
+          <p className="mt-2 text-[11px] text-emerald-800">确认时间：{new Date(project.materialReview.reviewedAt).toLocaleString('zh-CN')}</p>
+        ) : null}
+        {importError ? <p className="mt-2 text-xs font-bold text-rose-700" role="alert">{importError}</p> : null}
+      </div>
+
       {!project.sources.length ? importForm : null}
 
       <div className="divide-y divide-slate-200">
-        {project.sources.map((source, index) => {
+        {orderedSources.map((source, index) => {
+          const sourceNumber = project.sources.findIndex((item) => item.id === source.id) + 1;
           const usedBy = project.scenes.filter((scene) => scene.sourceId === source.id).length;
           const asset = assets.find(
             (item) => item.kind === '素材' && item.path.endsWith(source.assetPath),
@@ -171,42 +299,56 @@ export default function WorkbenchSourceManager({
           const sourceHref = sourceHrefs[source.id] ?? '';
           const isVisualSource = source.sourceType === 'image' || source.sourceType === 'video';
           return (
-            <article key={source.id} className={`px-4 py-4 ${active ? 'bg-emerald-50/70' : 'bg-white'}`}>
-              <div className={isVisualSource && sourceHref ? 'grid gap-4 sm:grid-cols-[210px_minmax(0,1fr)]' : ''}>
+            <Fragment key={source.id}>
+              {index === 0 && visualSources.length ? (
+                <div className="bg-slate-100 px-4 py-2 text-xs font-extrabold text-slate-700">图片与视频 · 视频优先展示</div>
+              ) : null}
+              {index === visualSources.length ? (
+                <div className="bg-slate-100 px-4 py-2 text-xs font-extrabold text-slate-700">研究资料 · 不作为主要画面</div>
+              ) : null}
+            <article className={`px-4 py-4 ${active ? 'bg-emerald-50/70' : 'bg-white'}`}>
+              <div className={isVisualSource && sourceHref ? 'space-y-4' : ''}>
                 {isVisualSource && sourceHref ? (
-                  <button
-                    className="group relative h-40 w-full overflow-hidden rounded-md border border-slate-200 bg-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 sm:h-32"
-                    type="button"
-                    aria-label={`${source.sourceType === 'video' ? '播放' : '查看'} ${source.label}`}
-                    onClick={() => {
-                      onSelect(source.id);
-                      setExpandedSourceId(source.id);
-                    }}
-                  >
-                    {source.sourceType === 'image' ? (
+                  source.sourceType === 'image' ? (
+                    <button
+                      className="relative flex aspect-video max-h-[680px] w-full items-center justify-center overflow-hidden rounded-md border border-slate-200 bg-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+                      type="button"
+                      aria-label={`查看 ${source.label}`}
+                      onClick={() => {
+                        onSelect(source.id);
+                        setExpandedSourceId(source.id);
+                      }}
+                    >
                       <img className="h-full w-full object-contain" src={sourceHref} alt={source.label} loading="lazy" />
-                    ) : (
-                      <video className="h-full w-full object-contain" src={sourceHref} muted playsInline preload="metadata" />
-                    )}
-                    {source.sourceType === 'video' ? (
-                      <span className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/25">
-                        <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/65 text-white shadow-sm">
-                          <Play aria-hidden="true" className="h-4 w-4 fill-current" />
-                        </span>
-                      </span>
-                    ) : null}
-                  </button>
+                    </button>
+                  ) : (
+                    <div className="flex aspect-video max-h-[680px] w-full items-center justify-center overflow-hidden rounded-md border border-slate-200 bg-black">
+                      <video className="h-full w-full object-contain" src={sourceHref} controls muted playsInline preload="auto" onPlay={() => onSelect(source.id)} />
+                    </div>
+                  )
                 ) : null}
 
                 <div className="min-w-0">
                   <div className="flex items-start gap-3">
+                    {isVisualSource ? (
+                      <label className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-md border border-slate-300 bg-white" title={source.materialRole === 'research' ? '该素材只用于研究参考' : source.rightsStatus === 'blocked' ? '该素材禁止使用' : '选择用于本次成片'}>
+                        <input
+                          className="h-4 w-4 accent-emerald-700"
+                          type="checkbox"
+                          checked={selectedSourceIds.includes(source.id)}
+                          disabled={source.rightsStatus === 'blocked' || source.materialRole === 'research'}
+                          aria-label={`选择 ${source.label} 用于本次成片`}
+                          onChange={() => toggleMaterial(source.id)}
+                        />
+                      </label>
+                    ) : null}
                     <button
                       className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md font-mono text-xs font-extrabold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${active ? 'bg-emerald-700 text-white' : 'bg-slate-900 text-white'}`}
                       type="button"
                       aria-label={`编辑素材 ${index + 1}`}
                       onClick={() => onSelect(source.id)}
                     >
-                      {index + 1}
+                      {sourceNumber}
                     </button>
                     <button
                       className="min-w-0 flex-1 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
@@ -230,10 +372,14 @@ export default function WorkbenchSourceManager({
                     ) : null}
                   </div>
 
-                  <dl className="mt-4 grid grid-cols-2 gap-3 text-xs sm:grid-cols-4">
+                  <dl className="mt-4 grid grid-cols-2 gap-3 text-xs sm:grid-cols-5">
                     <div>
                       <dt className="font-bold text-slate-400">类型</dt>
                       <dd className="mt-1 font-bold text-slate-700">{sourceTypeLabel[source.sourceType]}</dd>
+                    </div>
+                    <div>
+                      <dt className="font-bold text-slate-400">用途</dt>
+                      <dd className="mt-1 font-bold text-slate-700">{materialRoleLabel[source.materialRole]}</dd>
                     </div>
                     <div>
                       <dt className="font-bold text-slate-400">用于片段</dt>
@@ -276,6 +422,7 @@ export default function WorkbenchSourceManager({
                 </div>
               </div>
             </article>
+            </Fragment>
           );
         })}
       </div>
@@ -289,9 +436,13 @@ export default function WorkbenchSourceManager({
 
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 bg-emerald-50 px-4 py-3">
         <p className="text-xs font-bold leading-relaxed text-emerald-900">
-          {project.sources.length ? `只需确认 ${review.keyFacts.length} 条关键主张并处理 ${review.unresolvedUncertainties.length} 个高风险问题。` : '先导入至少一份自有或已确认可用的素材。'}
+          {packageApproved
+            ? `素材包已锁定；下一步确认 ${review.keyFacts.length} 条关键主张并处理 ${review.unresolvedUncertainties.length} 个高风险问题。`
+            : selectedVideoCount === 0
+              ? '当前没有可用视频。请补充真实操作录屏或命题相关视频后再继续。'
+              : '请先播放预览并确认这批素材，确认后才能进入核验与脚本生产。'}
         </p>
-        <button className="inline-flex h-9 items-center gap-2 rounded-md bg-emerald-700 px-3 text-xs font-extrabold text-white disabled:bg-slate-400" type="button" disabled={!project.sources.length || importing} onClick={onContinue}>
+        <button className="inline-flex h-9 items-center gap-2 rounded-md bg-emerald-700 px-3 text-xs font-extrabold text-white disabled:bg-slate-400" type="button" disabled={!packageApproved || importing || approving} onClick={onContinue}>
           查看关键核验
           <ArrowRight aria-hidden="true" className="h-3.5 w-3.5" />
         </button>

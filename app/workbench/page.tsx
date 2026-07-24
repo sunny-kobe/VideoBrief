@@ -1,4 +1,5 @@
 import { existsSync } from 'node:fs';
+import { basename, dirname, extname, resolve } from 'node:path';
 import { notFound } from 'next/navigation';
 import ProductionWorkbenchClient, { WorkbenchAsset } from '@/src/components/ProductionWorkbenchClient';
 import {
@@ -48,6 +49,9 @@ export default async function WorkbenchPage({ searchParams }: WorkbenchPageProps
     notFound();
   }
   const paths = projectPaths(brief);
+  const outputStem = basename(brief.outputs.outputVideo, extname(brief.outputs.outputVideo));
+  const remotionPublicPath = resolve(dirname(brief.outputs.publicRender), `${outputStem}-remotion-final.mp4`);
+  const remotionHref = `/renders/${encodeURIComponent(`${outputStem}-remotion-final.mp4`)}`;
   const timeline = readTimeline(paths.timelinePath);
   const manifest = readRenderManifest(paths.manifestPath);
   const currentRenderStatus = renderStatus(manifest, brief.id);
@@ -79,7 +83,7 @@ export default async function WorkbenchPage({ searchParams }: WorkbenchPageProps
       paths.exportZipPath,
       '完整导出包 ZIP',
       '导出包',
-      currentRenderStatus.state === 'ready'
+      currentRenderStatus.state === 'ready' && currentRenderStatus.packageReady
         ? `/api/projects/${encodeURIComponent(brief.id)}/export`
         : undefined,
     ),
@@ -93,6 +97,7 @@ export default async function WorkbenchPage({ searchParams }: WorkbenchPageProps
       assets={assets}
       srtText={readText(paths.srtPath)}
       renderHref={currentRenderStatus.state === 'ready' && existsSync(paths.publicRenderPath) ? paths.publicRenderHref : ''}
+      remotionHref={existsSync(remotionPublicPath) ? remotionHref : ''}
       sourceHrefs={Object.fromEntries(
         paths.sources.map((source) => [
           source.id,
@@ -105,7 +110,7 @@ export default async function WorkbenchPage({ searchParams }: WorkbenchPageProps
       renderJob={readRenderJob(paths.renderJobPath)}
       initialView={initialView}
       initialSourceId={initialSourceId}
-      initialAdvanced={params.advanced === '1'}
+      initialAdvanced={params.advanced === '1' || Boolean(params.view)}
       initialPrototype={params.prototype === 'clip-candidates' ? 'clip-candidates' : null}
       initialCandidateVariant={params.candidateLayout === 'compare' ? 'compare' : 'ranked'}
       aiAvailable={readAiConfig().apiKeyAvailable}

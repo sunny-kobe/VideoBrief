@@ -1,0 +1,2646 @@
+{
+  "schemaVersion": 3,
+  "id": "2026-07-19-create-edit-and-star-in-videos-with-two-google-v",
+  "title": "Create, edit and star in videos with two Google Vids updates",
+  "format": "video_project",
+  "targetAudience": "中文开发者、独立开发者、产品人和 AI 工作流实践者",
+  "status": "draft",
+  "technical_status": "passed",
+  "rights_status": "review_required",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "brief": {
+    "objective": "用一手来源和真实画面，在 40-60 秒内解释“Create, edit and star in videos with two Google Vids updates”为什么值得中文 AI 实践者关注。",
+    "audience": "中文开发者、独立开发者、产品人和 AI 工作流实践者",
+    "platform": "小红书 / 视频号 / YouTube Shorts",
+    "aspectRatio": "9:16",
+    "targetDurationSeconds": 48,
+    "tone": "克制、清晰、有判断",
+    "style": "真实产品素材优先，程序化信息层辅助，避免泛库存画面堆叠",
+    "reference": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/",
+    "coreMessage": "Google Vids introduces Gemini Omni and personal avatars for video creation; explain the official claims without presenting them as user-tested results.",
+    "cta": "查看原始来源，并用一个真实任务验证。",
+    "prohibitedMaterial": "未经核验的数字、无法追溯的素材、把官方演示描述成用户实测、自动发布"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "每日候选信号卡",
+      "sourceType": "markdown",
+      "originUrl": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars",
+      "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/signal-card-1784438725399.md",
+      "originalFileName": "signal-card.md",
+      "mimeType": "text/markdown",
+      "bytes": 622,
+      "importedAt": "2026-07-19T05:25:25.399Z",
+      "publishedAt": "",
+      "verificationStatus": "needs_check",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 自动生成的原创元数据卡，不复制原文。",
+      "contentHash": "7c53137408701a4182002d5b2ef68d65e0f3ce616793f831f2d9c82a08863a26",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "7c53137408701a4182002d5b2ef68d65e0f3ce616793f831f2d9c82a08863a26",
+        "startedAt": "2026-07-19T05:52:19.453Z",
+        "completedAt": "2026-07-19T05:52:39.640Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# Create, edit and star in videos with two Google Vids updates\n\n## 候选摘要\n<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/omni-blog-header_OarEe2t.max-600x600.format-webp.webp\">Gemini Omni and personal avatars in Google Vids make video creation easier than ever.\n\n## 原始来源\n- [Create, edit and star in videos with two Google Vids updates](https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/)\n\n## 自动收集说明\n本文件只保存候选元数据、短摘要和原始链接。候选入选不代表事实、版权或市场价值已经确认。",
+        "visualDescription": "",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-01-fact-01",
+            "statement": "来源摘要声称，Gemini Omni 和个人头像功能让 Google Vids 中的视频创作变得更容易。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 4,
+                "end": 4,
+                "lineStart": 4,
+                "lineEnd": 4,
+                "note": "候选摘要直接声称 Gemini Omni 和 personal avatars 可让视频创作变得更容易。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 98
+          },
+          {
+            "id": "source-01-fact-02",
+            "statement": "来源标题将主题表述为 Google Vids 的两项更新，涉及视频的创建、编辑和加星。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 1,
+                "end": 1,
+                "lineStart": 1,
+                "lineEnd": 1,
+                "note": "标题指出来源讨论 Google Vids 的两项更新，但未在本文件中展开功能细节。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-01-fact-03",
+            "statement": "来源包含一张候选摘要配图，图片 URL 为 https://storage.googleapis.com/gweb-uniblog-publish-prod/images/omni-blog-header_OarEe2t.max-600x600.format-webp.webp。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 4,
+                "end": 4,
+                "lineStart": 4,
+                "lineEnd": 4,
+                "note": "该行包含候选摘要配图的图片 URL。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 35
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-01-uncertainty-01",
+            "statement": "本文件明确说明候选入选不代表事实已经确认，因此“让视频创作变得更容易”目前只能作为来源摘要中的官方候选主张，不能表述为用户实测结果或已独立验证的结论。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 10,
+                "end": 10,
+                "lineStart": 10,
+                "lineEnd": 10,
+                "note": "来源明确声明候选入选不代表事实已经确认。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-01-uncertainty-02",
+            "statement": "本文件没有确认配图或其他候选素材的版权状态，也没有确认其市场价值。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 10,
+                "end": 10,
+                "lineStart": 10,
+                "lineEnd": 10,
+                "note": "来源明确声明候选入选不代表版权或市场价值已经确认。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 78
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-02",
+      "label": "Create, edit and star in videos with two Google Vids updates",
+      "sourceType": "markdown",
+      "originUrl": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars",
+      "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/primary-source-1784438725414.md",
+      "originalFileName": "primary-source.md",
+      "mimeType": "text/markdown",
+      "bytes": 5256,
+      "importedAt": "2026-07-19T05:25:25.414Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "本地研究摘录，仅用于事实核验；公开导出前复核原始网页使用边界。",
+      "contentHash": "9f096c5f90df49f90e78bc4e2e69140940cbb030654459ce9d715e71d3752e05",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "9f096c5f90df49f90e78bc4e2e69140940cbb030654459ce9d715e71d3752e05",
+        "startedAt": "2026-07-19T05:52:39.642Z",
+        "completedAt": "2026-07-19T05:53:10.618Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# Create, edit and star in videos with two Google Vids updates\n\nGemini Omni and personal avatars in Google Vids make video creation easier than ever.\n\nCreate, edit and star in videos with two Google Vids updates Jul 16, 2026 | x.com Facebook LinkedIn Mail Copy link Gemini Omni and personal avatars in Google Vids make video creation easier than ever. Now you can generate and edit high-quality clips using everyday language, and create a custom digital avatar to star in your videos. Justin Luk Product Manager Share x.com Facebook LinkedIn Mail Copy link Your browser does not support the audio element. Listen to article [[duration]] minutes This content is generated by Google AI. Generative AI is experimental Voice Speed Voice Speed 0.75X 1X 1.5X 2X Read AI-generated summary Google Vids now features Gemini Omni, which lets you generate and edit high-quality videos using simple text prompts and image references. You can also create a digital avatar to deliver messages for you by uploading a selfie and a voice recording. Check your eligibility for these tools and start experimenting with your next video project today. Summaries were generated by Google AI. Generative AI is experimental. Google Vids just added two new features to help you create better videos faster. Use Gemini Omni to generate or edit high-quality clips with simple text prompts. Easily swap backgrounds or fix lighting by just describing what you want to change. Create a digital avatar to star in videos without needing a camera or recording. Every AI-generated clip includes a digital watermark to keep your content transparent and honest. Summaries were generated by Google AI. Generative AI is experimental. Google Vids now uses AI to help you make videos just by typing what you want to see. You can even edit your clips by simply describing the changes you need. If you don't want to be on camera, you can create a digital avatar that looks and sounds like you. Every AI-made video gets a special watermark so people know it was generated. Summaries were generated by Google AI. Generative AI is experimental. Explore other styles: General summary Bullet points Basic explainer Today, we’re rolling out two new updates to Google Vids to make it easier than ever to create, edit and personalize your videos: Gemini Omni and personal avatars. Gemini Omni takes the hard work out of the editing process, so generating and refining high-quality clips is as easy as writing a simple prompt. And with personal avatars, you have an entirely new way to star in videos without setting up a camera.Here’s a look at how these new tools transform video creation.Generate videos from text and imagesIn the past year, you’ve created millions of videos in Google Vids to share your stories and bring your ideas to life. In February, we made the process simpler by rolling out Veo 3.1 to all users, helping everyone generate videos within Vids. Now, we’re bringing Gemini Omni to Vids, so you can create and edit high-quality videos just by describing what you want to see. Start with a simple text prompt in natural language, and add image references — like a photo or a rough sketch — for more detail. Omni mixes your inputs to generate a video that matches your vision.Chat to edit, step-by-stepGetting a video exactly right often requires a few tweaks after that first draft — and making those edits is now as easy as describing what you want to see. Whether you're refining a video you generated with Omni or a clip you shot on your phone, you can use everyday language to prompt Vids to swap backgrounds, fix lighting or add effects. Because Omni supports step-by-step edits, you can now make changes to your videos without starting from scratch.Star in videos, instantlyWant to send a quick video update or personalized shout-out, but don't have time to get camera-ready? With new personal avatars, you can create a digital avatar that looks and sounds like you. Just upload a selfie and a short voice recording. From there, type what you want to say and your avatar will deliver the message — no recording required. Gemini Omni and personal avatars are available in Google Vids for Google AI Pro and Ultra subscribers and Google Workspace business customers. Access to personal avatars is currently limited to users in certain regions who are 18 or older. Personal avatars are linked to a user’s Google Account and are restricted to the account holder’s likeness.Create and share with transparencyWe want you to feel confident sharing what you create. To ensure content transparency, every generated clip includes an invisible SynthID digital watermark. This allows people to verify that a video was created with AI, so you can explore your creativity and share your AI videos responsibly.Come see what you can create with Gemini Omni and personal avatars in Google Vids. Get the latest news from Google in your inbox Sign up for our newsletters with product updates, event information, special offers, and more. Done. Just one step more. Check your inbox to confirm your subscription. You can also subscribe with a different email address. Your information will be used in accordance with Google's privacy policy. You may opt out at any time. POSTED IN:\n",
+        "visualDescription": "",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-02-fact-01",
+            "statement": "来源称，Google Vids 推出 Gemini Omni 和 personal avatars，目标是帮助用户更容易地创建、编辑和个性化视频。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 5,
+                "end": 5,
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "文章正文称 Google Vids 推出 Gemini Omni 和 personal avatars 两项更新。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 98
+          },
+          {
+            "id": "source-02-fact-02",
+            "statement": "来源称，Gemini Omni 可以通过自然语言文字提示词和图片参考生成、编辑高质量视频。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 5,
+                "end": 5,
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "文章正文描述 Gemini Omni 的文字提示词、图片参考、生成和编辑能力。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 96
+          },
+          {
+            "id": "source-02-fact-03",
+            "statement": "来源称，用户可以用日常语言逐步编辑视频，例如替换背景、修复光线或添加效果，并且无需从头开始。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 5,
+                "end": 5,
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "文章正文列举替换背景、修复光线、添加效果和逐步编辑等示例。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 94
+          },
+          {
+            "id": "source-02-fact-04",
+            "statement": "来源称，personal avatars 可以通过上传自拍照和简短语音录音创建数字头像，再输入想说的内容让头像传达消息，无需录制。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 5,
+                "end": 5,
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "文章正文说明 personal avatars 的创建输入和使用方式。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 95
+          },
+          {
+            "id": "source-02-fact-05",
+            "statement": "来源称，Gemini Omni 和 personal avatars 面向 Google AI Pro、Google AI Ultra 订阅者及 Google Workspace 企业客户。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 5,
+                "end": 5,
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "文章正文列出两项功能的适用订阅和客户类型。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 89
+          },
+          {
+            "id": "source-02-fact-06",
+            "statement": "来源称，personal avatars 目前仅限部分地区的 18 岁以上用户，绑定用户的 Google Account，并限制为账户持有者本人的形象。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 5,
+                "end": 5,
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "文章正文说明 personal avatars 的地区、年龄、账户和形象限制。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 87
+          },
+          {
+            "id": "source-02-fact-07",
+            "statement": "来源称，每个生成片段都包含不可见的 SynthID 数字水印，用于让人们验证视频由 AI 创建。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 5,
+                "end": 5,
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "文章正文说明生成片段包含不可见的 SynthID 数字水印及其用途。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 91
+          },
+          {
+            "id": "source-02-fact-08",
+            "statement": "页面可见文本包含文章标题、日期、作者信息、社交分享入口、音频播放器提示、AI 生成摘要提示和新闻订阅入口。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 5,
+                "end": 5,
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "来源页面文本包含标题、社交分享入口、音频播放器提示、订阅入口等页面元素。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 55
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-02-uncertainty-01",
+            "statement": "来源没有证明这些功能在真实用户任务中的实际效果、稳定性、生成质量或节省时间；脚本应将相关内容表述为 Google 的官方产品声明，而不是用户实测结果。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 5,
+                "end": 5,
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "文章正文使用产品发布口吻陈述功能，并未提供独立测试、用户测试数据或具体效果测量。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 97
+          },
+          {
+            "id": "source-02-uncertainty-02",
+            "statement": "来源未明确列出 personal avatars 当前支持的具体地区，也未证明观众所在地区或账号一定具备访问资格；脚本不应推断普遍可用。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 5,
+                "end": 5,
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "文章正文仅说明 personal avatars 限于某些地区和 18 岁以上用户，没有列出具体地区、完整资格条件或开放时间。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 92
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-03",
+      "label": "命题相关网页素材 1",
+      "sourceType": "image",
+      "originUrl": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/omni-blog-header_OarEe2t.max-600x600.format-webp.webp",
+      "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/topic-media-1-1784438725911.webp",
+      "originalFileName": "topic-media-1.webp",
+      "mimeType": "application/octet-stream",
+      "bytes": 17112,
+      "importedAt": "2026-07-19T05:25:25.911Z",
+      "publishedAt": "",
+      "verificationStatus": "needs_check",
+      "rightsStatus": "review_required",
+      "rightsNote": "自动发现的第三方网页素材，仅用于本地候选成片；发布前必须确认使用权。",
+      "contentHash": "1f5c6d59580effa685385406960908918053fdf75d44c657be64d84291707f3e",
+      "reusedFrom": null,
+      "processing": {
+        "status": "failed",
+        "stage": "vision",
+        "attempts": 4,
+        "inputHash": "1f5c6d59580effa685385406960908918053fdf75d44c657be64d84291707f3e",
+        "startedAt": "2026-07-19T06:00:44.028Z",
+        "completedAt": "2026-07-19T06:02:47.743Z",
+        "error": "502 status code (no body)",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "本地图片 ?x?，等待 AI 视觉理解。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": []
+      }
+    },
+    {
+      "id": "source-04",
+      "label": "命题相关网页素材 2",
+      "sourceType": "image",
+      "originUrl": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/omni-blog-header_OarEe2t.width-1300.png",
+      "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/topic-media-2-1784438727164.png",
+      "originalFileName": "topic-media-2.png",
+      "mimeType": "image/png",
+      "bytes": 591747,
+      "importedAt": "2026-07-19T05:25:27.165Z",
+      "publishedAt": "",
+      "verificationStatus": "needs_check",
+      "rightsStatus": "review_required",
+      "rightsNote": "自动发现的第三方网页素材，仅用于本地候选成片；发布前必须确认使用权。",
+      "contentHash": "1e98493a320e016b39dd1bca961f0d739b76a80b65260e70736c0c01293e283d",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "1e98493a320e016b39dd1bca961f0d739b76a80b65260e70736c0c01293e283d",
+        "startedAt": "2026-07-19T06:02:47.746Z",
+        "completedAt": "2026-07-19T06:03:17.684Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "Gemini Omni\nand Personal Avatars\nin Google Vids\nHappy Birthday",
+        "visualDescription": "一张 1300×729 的横向介绍页。背景主体为白色，下方带浅蓝色渐变感区域。中央是三行大号黑色无衬线标题“Gemini Omni / and Personal Avatars / in Google Vids”，标题左侧有蓝紫色播放样式图标。周围以不同尺寸的圆角矩形缩略图环绕，包括客厅、书架局部、生日蛋糕、男性头像、星系、火箭手绘、烟花和宇航员。整体呈产品发布或功能介绍封面布局。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-04-fact-01",
+            "statement": "该图片将“Gemini Omni”和“Personal Avatars”与“Google Vids”并列展示。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "画面中央的大标题文字，位于图片约 x=358-943、y=255-472 区域。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 98
+          },
+          {
+            "id": "source-04-fact-02",
+            "statement": "画面中央标题旁出现蓝紫色、带白色播放三角形的图标。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "画面中央显示 Google Vids 播放样式图标，位于标题中“Google Vids”左侧，约 x=472-543、y=407-476。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 78
+          },
+          {
+            "id": "source-04-fact-03",
+            "statement": "图片采用白色背景与浅蓝色下部区域，中央为大号黑色标题，周围分布多个圆角缩略图，包括室内空间、星系、生日蛋糕、人物头像、火箭草图、烟花和宇航员。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "画面左上区域展示客厅室内画面，约 x=78-388、y=0-173。"
+              },
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "画面左中区域展示银河或星系图像，约 x=0-248、y=347-521。"
+              },
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "画面右上区域展示生日蛋糕和烟花图像，约 x=841-1072、y=0-197。"
+              },
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "画面右侧展示一名男性头像照片，约 x=1095-1225、y=226-416。"
+              },
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "画面左下区域展示手绘火箭草图，约 x=219-430、y=566-729。"
+              },
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "画面下方中部展示烟花图像，约 x=701-802、y=539-639。"
+              },
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "画面右下区域展示宇航员图像，约 x=912-1225、y=566-729。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 35
+          },
+          {
+            "id": "source-04-fact-04",
+            "statement": "右上方生日蛋糕缩略图上的可见文字为“Happy Birthday”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "画面右上生日蛋糕缩略图中可见英文“Happy Birthday”字样，约 x=841-1072、y=0-197。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 40
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-04-uncertainty-01",
+            "statement": "仅凭该图片无法核验 Gemini Omni 或 Personal Avatars 的具体功能、使用方式、可用范围、性能或用户实测效果；这些内容不应从图片标题推断。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "图片仅包含标题和示意性图片，没有可见的功能操作、结果对比或用户测试信息。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-05",
+      "label": "命题相关网页素材 3",
+      "sourceType": "image",
+      "originUrl": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/omni-blog-header_OarEe2t.width-200.format-webp.webp",
+      "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/topic-media-3-1784438727235.webp",
+      "originalFileName": "topic-media-3.webp",
+      "mimeType": "application/octet-stream",
+      "bytes": 3818,
+      "importedAt": "2026-07-19T05:25:27.235Z",
+      "publishedAt": "",
+      "verificationStatus": "needs_check",
+      "rightsStatus": "review_required",
+      "rightsNote": "自动发现的第三方网页素材，仅用于本地候选成片；发布前必须确认使用权。",
+      "contentHash": "08513b066ec65f912502fd1b6e2505b681a771fc002a0b129a0340db24896cee",
+      "reusedFrom": null,
+      "processing": {
+        "status": "failed",
+        "stage": "vision",
+        "attempts": 6,
+        "inputHash": "08513b066ec65f912502fd1b6e2505b681a771fc002a0b129a0340db24896cee",
+        "startedAt": "2026-07-19T06:11:00.294Z",
+        "completedAt": "2026-07-19T06:11:01.431Z",
+        "error": "502 status code (no body)",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "本地图片 ?x?，等待 AI 视觉理解。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": []
+      }
+    },
+    {
+      "id": "source-06",
+      "label": "Google 官方来源页面截图 1",
+      "sourceType": "image",
+      "originUrl": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/#videobrief-capture-1",
+      "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/google-official-page-1-1784441433805.png",
+      "originalFileName": "google-official-page-1.png",
+      "mimeType": "image/png",
+      "bytes": 520810,
+      "importedAt": "2026-07-19T06:10:33.805Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "Google 官方文章页面截图，仅用于本地候选成片；发布前复核引用与画面使用边界。",
+      "contentHash": "c1f4dc1c37753d2caca3924dcb5ec252010b84a8b325e0281c5883116a1dda50",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "c1f4dc1c37753d2caca3924dcb5ec252010b84a8b325e0281c5883116a1dda50",
+        "startedAt": "2026-07-19T06:11:01.433Z",
+        "completedAt": "2026-07-19T06:11:47.864Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "News from Google\nInnovation & AI\nProducts & platforms\nCompany news\nFeed\nSubscribe\n\nHome > Products & Platforms > Products > Google Workspace\n\nCreate, edit and star in videos with two Google Vids updates\n\nJul 16, 2026\n3 min read\n\nGemini Omni and personal avatars in Google Vids make video creation easier than ever. Now you can generate and edit high-quality clips using everyday language, and create a custom digital avatar to star in your videos.\n\nJustin Luk\nProduct Manager\nShare\n\nGemini Omni and Personal Avatars in Google Vids\n\nListen to article 3:23 minutes\nRead AI-generated summary\n\nToday, we’re rolling out two new updates to Google Vids to make it easier than ever to create, edit and personalize your videos: Gemini Omni and personal avatars. Gemini Omni takes the hard work out of the editing process, so generating and refining high-quality clips is as easy as writing a simple prompt. And with personal avatars, you have an entirely new way to star in videos without setting up a camera.\n\nHere’s a look at how these new tools transform video creation.\n\nGenerate videos from text and images\n\nIn the past year, you’ve created millions of videos in Google Vids to share your stories and bring your ideas to life. In February, we made the process simpler by rolling out Veo 3.1 to all users, helping everyone generate videos within Vids.",
+        "visualDescription": "竖向网页截图，顶部为 Google News 导航栏，包含多个菜单和蓝色 Subscribe 按钮。主体使用浅青色背景展示文章标题，标题下方有日期、阅读时长、作者信息和摘要。中部是一张圆角主视觉图，白色与浅蓝紫背景上居中排列“Gemini Omni and Personal Avatars in Google Vids”字样，周围分布客厅、生日蛋糕、人物头像、星系、烟花、火箭草图和宇航员等缩略图。主视觉下方是文章音频与 AI 摘要控件，随后进入正文，能看到关于两项更新的引言以及“Generate videos from text and images”小节。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-06-fact-01",
+            "statement": "该页面将内容定位为 Google Vids 的两项更新，标题称其用于“Create, edit and star in videos”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "页面主标题区域，约 x=230-850、y=180-375：可见文字为“Create, edit and star in videos with two Google Vids updates”。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 98
+          },
+          {
+            "id": "source-06-fact-02",
+            "statement": "页面摘要声称，Gemini Omni 和 personal avatars 可让用户使用日常语言生成和编辑高质量视频片段，并创建一个可在视频中出镜的自定义数字化身。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "标题下方摘要区域，约 x=340-850、y=415-520：可见文字称 Gemini Omni 和 personal avatars 可用于生成、编辑高质量片段，并创建可出现在视频中的自定义数字化身。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-06-fact-03",
+            "statement": "页面正文声称，Gemini Omni 可通过简单提示词生成和优化高质量片段；personal avatars 提供无需架设摄像机即可在视频中出镜的方式。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "正文首段区域，约 x=310-790、y=1420-1605：可见文字称 Gemini Omni 让生成和优化高质量片段像写一个简单提示词一样，并称 personal avatars 让用户无需架设摄像机即可出现在视频中。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-06-fact-04",
+            "statement": "页面正文包含“Generate videos from text and images”小节，并声称 Veo 3.1 已向所有用户推出，使用户能够在 Google Vids 内生成视频。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "正文小标题及其下方段落，约 x=310-790、y=1680-1870：可见小标题“Generate videos from text and images”，并提到 Google Vids 中的 Veo 3.1 已向所有用户推出，帮助用户在 Vids 内生成视频。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 92
+          },
+          {
+            "id": "source-06-fact-05",
+            "statement": "截图显示 Google News 页面顶部导航，包含 News from Google、Innovation & AI、Products & platforms、Company news、Feed 和 Subscribe。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "页面顶部导航区域，约 x=70-1045、y=20-60：可见“News from Google”、多个导航项、搜索图标、更多菜单和蓝色“Subscribe”按钮。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 35
+          },
+          {
+            "id": "source-06-fact-06",
+            "statement": "截图显示文章日期为 Jul 16, 2026，标注 3 min read，作者为 Justin Luk（Product Manager），并有 Share 控件。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "文章信息区域，约 x=230-850、y=410-650：可见日期“Jul 16, 2026”、阅读时长“3 min read”、作者“Justin Luk”、职位“Product Manager”和“Share”。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 60
+          },
+          {
+            "id": "source-06-fact-07",
+            "statement": "截图中的文章主视觉以“Gemini Omni and Personal Avatars in Google Vids”为中心文字，并排列多个内容缩略图和一个人物头像。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "文章主视觉区域，约 x=25-1055、y=705-1285：白色和浅蓝紫背景中展示“Gemini Omni and Personal Avatars in Google Vids”文字、Google Vids 图标，以及客厅、生日蛋糕、人物头像、星系、烟花、火箭草图和宇航员等缩略图。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 65
+          },
+          {
+            "id": "source-06-fact-08",
+            "statement": "截图显示正文上方有文章收听控件（3:23 minutes）和“Read AI-generated summary”控件。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "正文上方控件区域，约 x=310-935、y=1345-1395：可见“Listen to article 3:23 minutes”和“Read AI-generated summary”两个控件。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 30
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-06-uncertainty-01",
+            "statement": "截图能够证明页面作出了上述功能声称，但无法仅凭该图片证明 Gemini Omni 或 personal avatars 的实际可用范围、效果质量、限制条件或用户实测表现。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "标题、摘要和正文均为截图中的页面文字，约位于 x=230-850、y=180-1870；截图未提供可独立核验的产品操作过程或测试结果。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 82
+          },
+          {
+            "id": "source-06-uncertainty-02",
+            "statement": "页面声称 Veo 3.1 已向所有用户推出，但截图无法进一步确认“所有用户”所涵盖的地区、账户类型、发布时间范围或具体使用条件。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "正文下方可见“Veo 3.1 to all users”的文字，约 x=310-790、y=1785-1870；截图未显示发布时间上下文、地区、账户类型或功能开关。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "low",
+            "reviewPriority": "supporting",
+            "briefRelevance": 78
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-07",
+      "label": "Google 官方来源页面截图 2",
+      "sourceType": "image",
+      "originUrl": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/#videobrief-capture-2",
+      "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/google-official-page-2-1784441433818.png",
+      "originalFileName": "google-official-page-2.png",
+      "mimeType": "image/png",
+      "bytes": 222354,
+      "importedAt": "2026-07-19T06:10:33.818Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "Google 官方文章页面截图，仅用于本地候选成片；发布前复核引用与画面使用边界。",
+      "contentHash": "9eb3bf4522732b0d21d0cadf16fac3b097ed80286b1a0daaf64a03b2a3cd6fb3",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "9eb3bf4522732b0d21d0cadf16fac3b097ed80286b1a0daaf64a03b2a3cd6fb3",
+        "startedAt": "2026-07-19T06:11:47.867Z",
+        "completedAt": "2026-07-19T06:12:26.601Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "Create, edit and star in videos with two Google Vids updates\nListen to article 3:23 minutes\nRead AI-generated summary\nToday, we're rolling out two new updates to Google Vids to make it easier than ever to create, edit and personalize your videos: Gemini Omni and personal avatars. Gemini Omni takes the hard work out of the editing process, so generating and refining high-quality clips is as easy as writing a simple prompt. And with personal avatars, you have an entirely new way to star in videos without setting up a camera.\nHere's a look at how these new tools transform video creation.\nGenerate videos from text and images\nIn the past year, you've created millions of videos in Google Vids to share your stories and bring your ideas to life. In February, we made the process simpler by rolling out Veo 3.1 to all users, helping everyone generate videos within Vids.\nNow, we're bringing Gemini Omni to Vids, so you can create and edit high-quality videos just by describing what you want to see. Start with a simple text prompt in natural language, and add image references — like a photo or a rough sketch — for more detail. Omni mixes your inputs to generate a video that matches your vision.\nChat to edit, step-by-step\nGetting a video exactly right often requires a few tweaks after that first draft — and making those edits is now as easy as describing what you want to see. Whether you're refining a video you generated with Omni or a clip you shot on your phone, you can use everyday language to prompt Vids to swap backgrounds, fix lighting or add effects.\nLet's stay in touch. Get the latest news from Google in your inbox.\nSubscribe\nNo thanks",
+        "visualDescription": "纵向网页截图，白色背景，顶部为 Google 彩色 G 标志、文章标题、搜索和分享图标。正文位于页面中央的窄栏，顶部有“Listen to article 3:23 minutes”和“Read AI-generated summary”控件。正文先介绍两项 Google Vids 更新，随后出现“Generate videos from text and images”标题、一个灰色圆角视频占位框和播放按钮，再出现 Gemini Omni 的文字与图片参考说明；下方是“Chat to edit, step-by-step”标题、编辑说明和第二个灰色圆角视频占位框。底部覆盖邮件订阅栏，包含订阅提示、“Subscribe”和“No thanks”按钮。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-07-fact-01",
+            "statement": "页面标题将内容概括为 Google Vids 的两项更新：Gemini Omni 和 personal avatars。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "页面顶部标题区域，位于截图上方约 0-65 px；可见标题为“Create, edit and star in videos with two Google Vids updates”。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-07-fact-02",
+            "statement": "来源称两项更新分别是 Gemini Omni 和 personal avatars；来源声称 personal avatars 可以让用户无需设置摄像头即可在视频中出镜。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图上方正文区域，约 160-330 px；正文明确写出 Gemini Omni 和 personal avatars，并称 personal avatars 提供一种无需架设摄像头即可出镜的新方式。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-07-fact-03",
+            "statement": "来源称 Gemini Omni 已被带入 Google Vids，用户可以用自然语言文字提示，并添加照片或粗略草图等图片参考，生成符合其设想的视频。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图中部正文区域，约 1050-1210 px；段落写明 Gemini Omni 可通过自然语言文字提示并加入照片或草图等图片参考来生成视频。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-07-fact-04",
+            "statement": "来源称 Vids 支持使用日常语言进行逐步编辑，可用于替换背景、修正光照或添加效果；对象可以是 Omni 生成的视频，也可以是手机拍摄的片段。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图中部“Chat to edit, step-by-step”标题及其下方正文，约 1235-1455 px；正文列举 swap backgrounds、fix lighting、add effects。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 95
+          },
+          {
+            "id": "source-07-fact-05",
+            "statement": "来源声称过去一年用户在 Google Vids 中创建了数百万个视频，并声称二月已向所有用户推出 Veo 3.1，以便在 Vids 中生成视频。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图中部“Generate videos from text and images”段落，约 515-610 px；正文写明来源称过去一年用户在 Google Vids 中创建了数百万个视频，并提到二月向所有用户推出 Veo 3.1。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 82
+          },
+          {
+            "id": "source-07-fact-06",
+            "statement": "截图显示一个 Google 官方来源页面的文章视图：顶部有 Google 标志和文章标题，正文包含音频播放、AI 摘要、文章标题、段落文字以及视频播放占位区域。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "整张截图：白色背景、顶部 Google 彩色 G 标志、文章正文居中窄栏；可见“Listen to article 3:23 minutes”和“Read AI-generated summary”按钮，正文中有两个灰色视频占位区域及播放按钮。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 40
+          },
+          {
+            "id": "source-07-fact-07",
+            "statement": "截图底部可见 Google 邮件订阅提示及“Subscribe”和“No thanks”两个按钮。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图底部约 1830-1920 px；可见订阅提示“Let's stay in touch. Get the latest news from Google in your inbox.”以及“Subscribe”“No thanks”按钮。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 18
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-07-uncertainty-01",
+            "statement": "截图无法核验 Gemini Omni 或 personal avatars 的实际操作流程、生成质量、输出稳定性或用户实测效果；脚本不应将页面中的官方描述改写成实测结论。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图中的视频区域仅显示灰色占位画面和播放按钮，未展示视频播放后的具体演示过程。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-07-uncertainty-02",
+            "statement": "来源中的“数百万个视频”“所有用户”和“高质量”等表述在截图中缺少统计口径、可用范围和质量评估标准；如脚本使用这些表述，应保留其为官方声称并人工确认。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "“millions of videos”“all users”以及“high-quality”等表述位于截图正文中，但截图未提供统计口径、适用地区、时间点或评估标准。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 90
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-08",
+      "label": "Google 官方来源页面截图 3",
+      "sourceType": "image",
+      "originUrl": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/#videobrief-capture-3",
+      "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/google-official-page-3-1784441433822.png",
+      "originalFileName": "google-official-page-3.png",
+      "mimeType": "image/png",
+      "bytes": 222036,
+      "importedAt": "2026-07-19T06:10:33.822Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "Google 官方文章页面截图，仅用于本地候选成片；发布前复核引用与画面使用边界。",
+      "contentHash": "20947c5d7832849b712ae88cc4b31ae981c0766f232f1fb8bcc6d95f4d69ed74",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "20947c5d7832849b712ae88cc4b31ae981c0766f232f1fb8bcc6d95f4d69ed74",
+        "startedAt": "2026-07-19T06:12:26.605Z",
+        "completedAt": "2026-07-19T06:13:00.616Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "Create, edit and star in videos with two Google Vids updates\n\nChat to edit, step-by-step\n\nGetting a video exactly right often requires a few tweaks after that first draft — and making those edits is now as easy as describing what you want to see. Whether you're refining a video you generated with Omni or a clip you shot on your phone, you can use everyday language to prompt Vids to swap backgrounds, fix lighting or add effects.\n\nBecause Omni supports step-by-step edits, you can now make changes to your videos without starting from scratch.\n\nStar in videos, instantly\n\nWant to send a quick video update or personalized shout-out, but don't have time to get camera-ready? With new personal avatars, you can create a digital avatar that looks and sounds like you. Just upload a selfie and a short voice recording. From there, type what you want to say and your avatar will deliver the message — no recording required.\n\nGemini Omni and personal avatars are available in Google Vids for Google AI Pro and Ultra subscribers and Google Workspace business customers. Access to personal avatars is currently limited to users in certain regions who are 18 or older. Personal avatars are linked to a user’s Google Account and are restricted to the account holder’s likeness.\n\nCreate and share with transparency\n\nWe want you to feel confident sharing what you create. To ensure content transparency, every generated clip includes an invisible SynthID digital watermark. This allows people to verify that a video was created with AI, so you can explore your\n\nLet's stay in touch. Get the latest news from Google in your inbox.\nSubscribe\nNo thanks",
+        "visualDescription": "一张纵向网页截图，白色背景，顶部有 Google 彩色 G 标志和页面标题。主体为居中的文章内容，依次出现“Chat to edit, step-by-step”“Star in videos, instantly”“Create and share with transparency”等黑色标题，配有多段英文说明。页面中有两个浅灰色大尺寸圆角视频占位区，中央各有白色播放按钮和部分 Google Vids 标识。底部固定或覆盖着浅色邮件订阅提示条，带蓝色“Subscribe”按钮和白色“No thanks”按钮。截图底部内容被提示条部分遮挡。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-08-fact-01",
+            "statement": "截图中的 Google Vids 页面声称，用户可以用日常语言逐步编辑视频，包括替换背景、修复光照或添加效果；并称 Omni 支持分步编辑，因此无需从头开始。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "图中上半部“Chat to edit, step-by-step”段落及其下方说明文字。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 97
+          },
+          {
+            "id": "source-08-fact-02",
+            "statement": "截图中的 Google Vids 页面声称，个人头像可以通过上传自拍和一段简短的声音录音创建；用户输入想说的话后，头像会传达消息，无需录制视频。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "图中中部“Star in videos, instantly”段落及其下方说明文字。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 96
+          },
+          {
+            "id": "source-08-fact-03",
+            "statement": "截图中的页面声称，Gemini Omni 和个人头像可用于 Google Vids 的 Google AI Pro、Ultra 订阅者及 Google Workspace 企业客户；个人头像目前限于部分地区的 18 岁以上用户，且与用户 Google Account 关联并限制为账户持有者本人的 likeness。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "图中下半部关于可用对象、地区、年龄、Google Account 和 likeness 限制的段落。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 94
+          },
+          {
+            "id": "source-08-fact-04",
+            "statement": "截图中的页面声称，每个生成片段都包含不可见的 SynthID 数字水印，可帮助人们验证视频由 AI 创建。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "图中底部“Create and share with transparency”段落可见文字。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 88
+          },
+          {
+            "id": "source-08-fact-05",
+            "statement": "画面是 Google 官方来源页面截图，顶部可见 Google 彩色 G 标志、标题“Create, edit and star in videos with two Google Vids updates”，右上角有搜索和分享图标。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "整张截图顶部页面标题区域。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-08-fact-06",
+            "statement": "截图中可见两个浅灰色圆角视频区域，中央都有白色播放按钮；画面未展示实际视频内容或可辨认的产品操作界面。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "页面中部和下部各有一个浅灰色圆角视频占位区域，中央显示播放按钮及部分 Google Vids 标识。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 82
+          },
+          {
+            "id": "source-08-fact-07",
+            "statement": "截图底部可见 Google 邮件订阅提示条，包含“Subscribe”和“No thanks”两个按钮。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "截图最底部可见浅色订阅提示条，包含“Let's stay in touch...”以及“Subscribe”和“No thanks”按钮。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 56
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-08-uncertainty-01",
+            "statement": "关于 SynthID 水印后续具体说明无法从截图完整核验；可确认的文字只到“so you can explore your”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "“Create and share with transparency”段落在截图底部被订阅提示条遮挡，句子停在“so you can explore your”。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 91
+          },
+          {
+            "id": "source-08-uncertainty-02",
+            "statement": "截图无法证明 Omni 分步编辑或个人头像功能的实际运行效果、输出质量、可用性或用户实测表现；这些内容只能作为页面中的官方主张引用。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "截图中的两个视频区域均为灰色占位画面，只有播放按钮和部分标识可见。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 96
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-09",
+      "label": "Google 官方文章语义录屏",
+      "sourceType": "video",
+      "originUrl": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/",
+      "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/google-vids-official-semantic-walkthrough-portrait.webm",
+      "originalFileName": "google-vids-official-semantic-walkthrough-portrait.webm",
+      "mimeType": "video/webm",
+      "bytes": 5850344,
+      "importedAt": "2026-07-22T07:39:30.000Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "Google 官方文章页面的本地语义录屏，仅用于未发布 dogfood；发布前复核页面引用边界。",
+      "contentHash": "e10d5f0a44289310be0bb3d7f5194398612afc434df38d8f0506d4c116919856",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "e10d5f0a44289310be0bb3d7f5194398612afc434df38d8f0506d4c116919856",
+        "startedAt": "2026-07-22T02:45:57.000Z",
+        "completedAt": "2026-07-22T02:47:20.000Z",
+        "error": "",
+        "model": "capture-receipt",
+        "promptVersion": "google-vids-semantic-walkthrough-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "80.88 秒、720x1280 的 Google 官方文章页面录屏，按 article overview、text and images、step-by-step edit、personal avatars、availability limits、transparency、SynthID 和 verification CTA 八个独立语义窗口缓慢滚动并停留。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-09-fact-01",
+            "statement": "录屏来自 Google 官方文章，并为八个功能、限制或核验主题保留了互不混用的页面窗口。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "time",
+                "start": 6.122,
+                "end": 79.498,
+                "note": "capture receipt 保存八个命名窗口及各自起止时间。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 100
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-09-uncertainty-01",
+            "statement": "录屏只证明官方页面在录制时显示了这些描述，不证明功能效果、稳定性或普遍可用性。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "time",
+                "start": 6.122,
+                "end": 79.498,
+                "note": "画面是官方文章而非独立产品实测。"
+              }
+            ],
+            "resolution": "旁白和字幕始终保留为官方说明，并以真实任务验证收束。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          }
+        ]
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [],
+    "facts": [
+      {
+        "id": "source-01-fact-01",
+        "statement": "来源摘要声称，Gemini Omni 和个人头像功能让 Google Vids 中的视频创作变得更容易。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 4,
+            "end": 4,
+            "lineStart": 4,
+            "lineEnd": 4,
+            "note": "候选摘要直接声称 Gemini Omni 和 personal avatars 可让视频创作变得更容易。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 98
+      },
+      {
+        "id": "source-01-fact-02",
+        "statement": "来源标题将主题表述为 Google Vids 的两项更新，涉及视频的创建、编辑和加星。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 1,
+            "end": 1,
+            "lineStart": 1,
+            "lineEnd": 1,
+            "note": "标题指出来源讨论 Google Vids 的两项更新，但未在本文件中展开功能细节。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-01-fact-03",
+        "statement": "来源包含一张候选摘要配图，图片 URL 为 https://storage.googleapis.com/gweb-uniblog-publish-prod/images/omni-blog-header_OarEe2t.max-600x600.format-webp.webp。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 4,
+            "end": 4,
+            "lineStart": 4,
+            "lineEnd": 4,
+            "note": "该行包含候选摘要配图的图片 URL。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 35
+      },
+      {
+        "id": "source-02-fact-01",
+        "statement": "来源称，Google Vids 推出 Gemini Omni 和 personal avatars，目标是帮助用户更容易地创建、编辑和个性化视频。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 5,
+            "end": 5,
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "文章正文称 Google Vids 推出 Gemini Omni 和 personal avatars 两项更新。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 98
+      },
+      {
+        "id": "source-02-fact-02",
+        "statement": "来源称，Gemini Omni 可以通过自然语言文字提示词和图片参考生成、编辑高质量视频。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 5,
+            "end": 5,
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "文章正文描述 Gemini Omni 的文字提示词、图片参考、生成和编辑能力。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 96
+      },
+      {
+        "id": "source-02-fact-03",
+        "statement": "来源称，用户可以用日常语言逐步编辑视频，例如替换背景、修复光线或添加效果，并且无需从头开始。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 5,
+            "end": 5,
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "文章正文列举替换背景、修复光线、添加效果和逐步编辑等示例。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 94
+      },
+      {
+        "id": "source-02-fact-04",
+        "statement": "来源称，personal avatars 可以通过上传自拍照和简短语音录音创建数字头像，再输入想说的内容让头像传达消息，无需录制。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 5,
+            "end": 5,
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "文章正文说明 personal avatars 的创建输入和使用方式。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 95
+      },
+      {
+        "id": "source-02-fact-05",
+        "statement": "来源称，Gemini Omni 和 personal avatars 面向 Google AI Pro、Google AI Ultra 订阅者及 Google Workspace 企业客户。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 5,
+            "end": 5,
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "文章正文列出两项功能的适用订阅和客户类型。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 89
+      },
+      {
+        "id": "source-02-fact-06",
+        "statement": "来源称，personal avatars 目前仅限部分地区的 18 岁以上用户，绑定用户的 Google Account，并限制为账户持有者本人的形象。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 5,
+            "end": 5,
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "文章正文说明 personal avatars 的地区、年龄、账户和形象限制。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 87
+      },
+      {
+        "id": "source-02-fact-07",
+        "statement": "来源称，每个生成片段都包含不可见的 SynthID 数字水印，用于让人们验证视频由 AI 创建。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 5,
+            "end": 5,
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "文章正文说明生成片段包含不可见的 SynthID 数字水印及其用途。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 91
+      },
+      {
+        "id": "source-02-fact-08",
+        "statement": "页面可见文本包含文章标题、日期、作者信息、社交分享入口、音频播放器提示、AI 生成摘要提示和新闻订阅入口。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 5,
+            "end": 5,
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "来源页面文本包含标题、社交分享入口、音频播放器提示、订阅入口等页面元素。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 55
+      },
+      {
+        "id": "source-04-fact-01",
+        "statement": "该图片将“Gemini Omni”和“Personal Avatars”与“Google Vids”并列展示。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "画面中央的大标题文字，位于图片约 x=358-943、y=255-472 区域。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 98
+      },
+      {
+        "id": "source-04-fact-02",
+        "statement": "画面中央标题旁出现蓝紫色、带白色播放三角形的图标。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "画面中央显示 Google Vids 播放样式图标，位于标题中“Google Vids”左侧，约 x=472-543、y=407-476。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 78
+      },
+      {
+        "id": "source-04-fact-03",
+        "statement": "图片采用白色背景与浅蓝色下部区域，中央为大号黑色标题，周围分布多个圆角缩略图，包括室内空间、星系、生日蛋糕、人物头像、火箭草图、烟花和宇航员。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "画面左上区域展示客厅室内画面，约 x=78-388、y=0-173。"
+          },
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "画面左中区域展示银河或星系图像，约 x=0-248、y=347-521。"
+          },
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "画面右上区域展示生日蛋糕和烟花图像，约 x=841-1072、y=0-197。"
+          },
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "画面右侧展示一名男性头像照片，约 x=1095-1225、y=226-416。"
+          },
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "画面左下区域展示手绘火箭草图，约 x=219-430、y=566-729。"
+          },
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "画面下方中部展示烟花图像，约 x=701-802、y=539-639。"
+          },
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "画面右下区域展示宇航员图像，约 x=912-1225、y=566-729。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 35
+      },
+      {
+        "id": "source-04-fact-04",
+        "statement": "右上方生日蛋糕缩略图上的可见文字为“Happy Birthday”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "画面右上生日蛋糕缩略图中可见英文“Happy Birthday”字样，约 x=841-1072、y=0-197。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 40
+      },
+      {
+        "id": "source-06-fact-01",
+        "statement": "该页面将内容定位为 Google Vids 的两项更新，标题称其用于“Create, edit and star in videos”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "页面主标题区域，约 x=230-850、y=180-375：可见文字为“Create, edit and star in videos with two Google Vids updates”。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 98
+      },
+      {
+        "id": "source-06-fact-02",
+        "statement": "页面摘要声称，Gemini Omni 和 personal avatars 可让用户使用日常语言生成和编辑高质量视频片段，并创建一个可在视频中出镜的自定义数字化身。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "标题下方摘要区域，约 x=340-850、y=415-520：可见文字称 Gemini Omni 和 personal avatars 可用于生成、编辑高质量片段，并创建可出现在视频中的自定义数字化身。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-06-fact-03",
+        "statement": "页面正文声称，Gemini Omni 可通过简单提示词生成和优化高质量片段；personal avatars 提供无需架设摄像机即可在视频中出镜的方式。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "正文首段区域，约 x=310-790、y=1420-1605：可见文字称 Gemini Omni 让生成和优化高质量片段像写一个简单提示词一样，并称 personal avatars 让用户无需架设摄像机即可出现在视频中。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-06-fact-04",
+        "statement": "页面正文包含“Generate videos from text and images”小节，并声称 Veo 3.1 已向所有用户推出，使用户能够在 Google Vids 内生成视频。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "正文小标题及其下方段落，约 x=310-790、y=1680-1870：可见小标题“Generate videos from text and images”，并提到 Google Vids 中的 Veo 3.1 已向所有用户推出，帮助用户在 Vids 内生成视频。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 92
+      },
+      {
+        "id": "source-06-fact-05",
+        "statement": "截图显示 Google News 页面顶部导航，包含 News from Google、Innovation & AI、Products & platforms、Company news、Feed 和 Subscribe。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "页面顶部导航区域，约 x=70-1045、y=20-60：可见“News from Google”、多个导航项、搜索图标、更多菜单和蓝色“Subscribe”按钮。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 35
+      },
+      {
+        "id": "source-06-fact-06",
+        "statement": "截图显示文章日期为 Jul 16, 2026，标注 3 min read，作者为 Justin Luk（Product Manager），并有 Share 控件。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "文章信息区域，约 x=230-850、y=410-650：可见日期“Jul 16, 2026”、阅读时长“3 min read”、作者“Justin Luk”、职位“Product Manager”和“Share”。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 60
+      },
+      {
+        "id": "source-06-fact-07",
+        "statement": "截图中的文章主视觉以“Gemini Omni and Personal Avatars in Google Vids”为中心文字，并排列多个内容缩略图和一个人物头像。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "文章主视觉区域，约 x=25-1055、y=705-1285：白色和浅蓝紫背景中展示“Gemini Omni and Personal Avatars in Google Vids”文字、Google Vids 图标，以及客厅、生日蛋糕、人物头像、星系、烟花、火箭草图和宇航员等缩略图。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 65
+      },
+      {
+        "id": "source-06-fact-08",
+        "statement": "截图显示正文上方有文章收听控件（3:23 minutes）和“Read AI-generated summary”控件。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "正文上方控件区域，约 x=310-935、y=1345-1395：可见“Listen to article 3:23 minutes”和“Read AI-generated summary”两个控件。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 30
+      },
+      {
+        "id": "source-07-fact-01",
+        "statement": "页面标题将内容概括为 Google Vids 的两项更新：Gemini Omni 和 personal avatars。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "页面顶部标题区域，位于截图上方约 0-65 px；可见标题为“Create, edit and star in videos with two Google Vids updates”。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-07-fact-02",
+        "statement": "来源称两项更新分别是 Gemini Omni 和 personal avatars；来源声称 personal avatars 可以让用户无需设置摄像头即可在视频中出镜。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图上方正文区域，约 160-330 px；正文明确写出 Gemini Omni 和 personal avatars，并称 personal avatars 提供一种无需架设摄像头即可出镜的新方式。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-07-fact-03",
+        "statement": "来源称 Gemini Omni 已被带入 Google Vids，用户可以用自然语言文字提示，并添加照片或粗略草图等图片参考，生成符合其设想的视频。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图中部正文区域，约 1050-1210 px；段落写明 Gemini Omni 可通过自然语言文字提示并加入照片或草图等图片参考来生成视频。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-07-fact-04",
+        "statement": "来源称 Vids 支持使用日常语言进行逐步编辑，可用于替换背景、修正光照或添加效果；对象可以是 Omni 生成的视频，也可以是手机拍摄的片段。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图中部“Chat to edit, step-by-step”标题及其下方正文，约 1235-1455 px；正文列举 swap backgrounds、fix lighting、add effects。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 95
+      },
+      {
+        "id": "source-07-fact-05",
+        "statement": "来源声称过去一年用户在 Google Vids 中创建了数百万个视频，并声称二月已向所有用户推出 Veo 3.1，以便在 Vids 中生成视频。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图中部“Generate videos from text and images”段落，约 515-610 px；正文写明来源称过去一年用户在 Google Vids 中创建了数百万个视频，并提到二月向所有用户推出 Veo 3.1。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 82
+      },
+      {
+        "id": "source-07-fact-06",
+        "statement": "截图显示一个 Google 官方来源页面的文章视图：顶部有 Google 标志和文章标题，正文包含音频播放、AI 摘要、文章标题、段落文字以及视频播放占位区域。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "整张截图：白色背景、顶部 Google 彩色 G 标志、文章正文居中窄栏；可见“Listen to article 3:23 minutes”和“Read AI-generated summary”按钮，正文中有两个灰色视频占位区域及播放按钮。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 40
+      },
+      {
+        "id": "source-07-fact-07",
+        "statement": "截图底部可见 Google 邮件订阅提示及“Subscribe”和“No thanks”两个按钮。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图底部约 1830-1920 px；可见订阅提示“Let's stay in touch. Get the latest news from Google in your inbox.”以及“Subscribe”“No thanks”按钮。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 18
+      },
+      {
+        "id": "source-08-fact-01",
+        "statement": "截图中的 Google Vids 页面声称，用户可以用日常语言逐步编辑视频，包括替换背景、修复光照或添加效果；并称 Omni 支持分步编辑，因此无需从头开始。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "图中上半部“Chat to edit, step-by-step”段落及其下方说明文字。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 97
+      },
+      {
+        "id": "source-08-fact-02",
+        "statement": "截图中的 Google Vids 页面声称，个人头像可以通过上传自拍和一段简短的声音录音创建；用户输入想说的话后，头像会传达消息，无需录制视频。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "图中中部“Star in videos, instantly”段落及其下方说明文字。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 96
+      },
+      {
+        "id": "source-08-fact-03",
+        "statement": "截图中的页面声称，Gemini Omni 和个人头像可用于 Google Vids 的 Google AI Pro、Ultra 订阅者及 Google Workspace 企业客户；个人头像目前限于部分地区的 18 岁以上用户，且与用户 Google Account 关联并限制为账户持有者本人的 likeness。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "图中下半部关于可用对象、地区、年龄、Google Account 和 likeness 限制的段落。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 94
+      },
+      {
+        "id": "source-08-fact-04",
+        "statement": "截图中的页面声称，每个生成片段都包含不可见的 SynthID 数字水印，可帮助人们验证视频由 AI 创建。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "图中底部“Create and share with transparency”段落可见文字。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 88
+      },
+      {
+        "id": "source-08-fact-05",
+        "statement": "画面是 Google 官方来源页面截图，顶部可见 Google 彩色 G 标志、标题“Create, edit and star in videos with two Google Vids updates”，右上角有搜索和分享图标。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "整张截图顶部页面标题区域。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-08-fact-06",
+        "statement": "截图中可见两个浅灰色圆角视频区域，中央都有白色播放按钮；画面未展示实际视频内容或可辨认的产品操作界面。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "页面中部和下部各有一个浅灰色圆角视频占位区域，中央显示播放按钮及部分 Google Vids 标识。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 82
+      },
+      {
+        "id": "source-08-fact-07",
+        "statement": "截图底部可见 Google 邮件订阅提示条，包含“Subscribe”和“No thanks”两个按钮。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "截图最底部可见浅色订阅提示条，包含“Let's stay in touch...”以及“Subscribe”和“No thanks”按钮。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 56
+      }
+    ],
+    "uncertainties": [
+      {
+        "id": "source-01-uncertainty-01",
+        "statement": "本文件明确说明候选入选不代表事实已经确认，因此“让视频创作变得更容易”目前只能作为来源摘要中的官方候选主张，不能表述为用户实测结果或已独立验证的结论。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 10,
+            "end": 10,
+            "lineStart": 10,
+            "lineEnd": 10,
+            "note": "来源明确声明候选入选不代表事实已经确认。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-01-uncertainty-02",
+        "statement": "本文件没有确认配图或其他候选素材的版权状态，也没有确认其市场价值。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 10,
+            "end": 10,
+            "lineStart": 10,
+            "lineEnd": 10,
+            "note": "来源明确声明候选入选不代表版权或市场价值已经确认。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 78
+      },
+      {
+        "id": "source-02-uncertainty-01",
+        "statement": "来源没有证明这些功能在真实用户任务中的实际效果、稳定性、生成质量或节省时间；脚本应将相关内容表述为 Google 的官方产品声明，而不是用户实测结果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 5,
+            "end": 5,
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "文章正文使用产品发布口吻陈述功能，并未提供独立测试、用户测试数据或具体效果测量。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 97
+      },
+      {
+        "id": "source-02-uncertainty-02",
+        "statement": "来源未明确列出 personal avatars 当前支持的具体地区，也未证明观众所在地区或账号一定具备访问资格；脚本不应推断普遍可用。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 5,
+            "end": 5,
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "文章正文仅说明 personal avatars 限于某些地区和 18 岁以上用户，没有列出具体地区、完整资格条件或开放时间。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 92
+      },
+      {
+        "id": "source-04-uncertainty-01",
+        "statement": "仅凭该图片无法核验 Gemini Omni 或 Personal Avatars 的具体功能、使用方式、可用范围、性能或用户实测效果；这些内容不应从图片标题推断。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "图片仅包含标题和示意性图片，没有可见的功能操作、结果对比或用户测试信息。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-06-uncertainty-01",
+        "statement": "截图能够证明页面作出了上述功能声称，但无法仅凭该图片证明 Gemini Omni 或 personal avatars 的实际可用范围、效果质量、限制条件或用户实测表现。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "标题、摘要和正文均为截图中的页面文字，约位于 x=230-850、y=180-1870；截图未提供可独立核验的产品操作过程或测试结果。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 82
+      },
+      {
+        "id": "source-06-uncertainty-02",
+        "statement": "页面声称 Veo 3.1 已向所有用户推出，但截图无法进一步确认“所有用户”所涵盖的地区、账户类型、发布时间范围或具体使用条件。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "正文下方可见“Veo 3.1 to all users”的文字，约 x=310-790、y=1785-1870；截图未显示发布时间上下文、地区、账户类型或功能开关。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "low",
+        "reviewPriority": "supporting",
+        "briefRelevance": 78
+      },
+      {
+        "id": "source-07-uncertainty-01",
+        "statement": "截图无法核验 Gemini Omni 或 personal avatars 的实际操作流程、生成质量、输出稳定性或用户实测效果；脚本不应将页面中的官方描述改写成实测结论。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图中的视频区域仅显示灰色占位画面和播放按钮，未展示视频播放后的具体演示过程。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-07-uncertainty-02",
+        "statement": "来源中的“数百万个视频”“所有用户”和“高质量”等表述在截图中缺少统计口径、可用范围和质量评估标准；如脚本使用这些表述，应保留其为官方声称并人工确认。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "“millions of videos”“all users”以及“high-quality”等表述位于截图正文中，但截图未提供统计口径、适用地区、时间点或评估标准。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 90
+      },
+      {
+        "id": "source-08-uncertainty-01",
+        "statement": "关于 SynthID 水印后续具体说明无法从截图完整核验；可确认的文字只到“so you can explore your”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "“Create and share with transparency”段落在截图底部被订阅提示条遮挡，句子停在“so you can explore your”。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 91
+      },
+      {
+        "id": "source-08-uncertainty-02",
+        "statement": "截图无法证明 Omni 分步编辑或个人头像功能的实际运行效果、输出质量、可用性或用户实测表现；这些内容只能作为页面中的官方主张引用。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "image",
+            "note": "截图中的两个视频区域均为灰色占位画面，只有播放按钮和部分标识可见。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 96
+      }
+    ]
+  },
+  "narrative": {
+    "status": "completed",
+    "error": "",
+    "activeVersionId": "narrative-01",
+    "versions": [
+      {
+        "id": "narrative-01",
+        "generatedAt": "2026-07-19T06:13:32.779Z",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "564a1a7ea461897ad7a65b28c70514fe1767b13e5ea96e677a131d950971faba",
+        "conclusion": "这两项更新的价值，按 Google 官方描述，在于用自然语言生成、编辑视频，并让数字化身代替本人出镜；但功能效果、稳定性和实际可用范围仍需人工确认与真实任务验证。",
+        "hook": "做视频不一定先架相机：Google Vids 正把“描述想法”和“出镜表达”交给两项新功能。",
+        "outline": [
+          "先说明 Google 官方发布的两项更新。",
+          "解释 Gemini Omni 如何结合文字与图片参考生成视频。",
+          "展示其官方所称的分步自然语言编辑。",
+          "解释 personal avatars 的输入与出镜方式。",
+          "单独说明资格与账号限制。",
+          "单独说明透明度与 SynthID 标识。",
+          "以实测建议收束，区分官方描述与实际结果。"
+        ],
+        "voiceoverScript": "Google 官方介绍了两项更新：Gemini Omni 与 personal avatars。官方称，Omni 可用自然语言提示，并结合照片或粗略草图生成视频。它还被描述为支持分步编辑，例如替换背景、修复光照或添加效果。Personal avatars 据官方介绍，可用自拍和短语音创建数字化身，再输入文字让它传达消息。官方同时提示，头像功能受地区、年龄、订阅和账号条件限制。生成内容会标注来源，并带有 SynthID 水印，方便识别。这是官方说明，不是实测结论。回到原文，再用真实任务验证。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "time",
+            "start": 6.122,
+            "end": 79.498,
+            "note": "总叙事逐幕绑定 Google 官方文章竖屏语义录屏中的八个命名窗口。"
+          }
+        ],
+        "uncertainties": [
+          "上述功能、质量、稳定性和节省时间的效果均未被这些截图独立实测；旁白保留为“官方称”或“据官方介绍”。",
+          "personal avatars 的具体地区、账号资格和开放条件需要人工确认，不能推断为普遍可用。",
+          "页面中的 SynthID 说明不应延伸推断其具体验证流程或全部适用范围。",
+          "所有候选事实当前仍可能处于待人工确认状态，画面素材版权和最终可用性也需复核。"
+        ]
+      }
+    ],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "generatedAt": "2026-07-19T06:13:32.779Z",
+    "model": "gpt-5.6-luna",
+    "promptVersion": "videobrief-2026-07-11-v1"
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-5.6-luna",
+    "transcriptionModel": "whisper.cpp:large-v3-turbo-q5_0",
+    "promptVersion": "videobrief-2026-07-11-v1",
+    "calls": [
+      {
+        "id": "ai-call-001",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "735713b9a1ae90f6b97135a8a2b8804f723561d6bfafa7a0acd8801ee6a2da6e",
+        "startedAt": "2026-07-19T05:52:19.453Z",
+        "completedAt": "2026-07-19T05:52:39.640Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-002",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "ae0582be7ba5124b653bf767f6fc8cfb609a8cbfc5c37bf6cb4f94e553893ede",
+        "startedAt": "2026-07-19T05:52:39.642Z",
+        "completedAt": "2026-07-19T05:53:10.618Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-003",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "1f5c6d59580effa685385406960908918053fdf75d44c657be64d84291707f3e",
+        "startedAt": "2026-07-19T05:53:10.622Z",
+        "completedAt": "2026-07-19T05:55:16.318Z",
+        "error": "502 status code (no body)",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-004",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "1f5c6d59580effa685385406960908918053fdf75d44c657be64d84291707f3e",
+        "startedAt": "2026-07-19T05:56:35.032Z",
+        "completedAt": "2026-07-19T05:58:38.178Z",
+        "error": "502 status code (no body)",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-005",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "1f5c6d59580effa685385406960908918053fdf75d44c657be64d84291707f3e",
+        "startedAt": "2026-07-19T05:58:38.931Z",
+        "completedAt": "2026-07-19T06:00:42.525Z",
+        "error": "502 status code (no body)",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-006",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "1f5c6d59580effa685385406960908918053fdf75d44c657be64d84291707f3e",
+        "startedAt": "2026-07-19T06:00:44.028Z",
+        "completedAt": "2026-07-19T06:02:47.743Z",
+        "error": "502 status code (no body)",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-007",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "81b08ec50f8a6b2b5489f840e0877a1bab5fa64d609a0a22fac70e356d7c0b49",
+        "startedAt": "2026-07-19T06:02:47.746Z",
+        "completedAt": "2026-07-19T06:03:17.685Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-008",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "08513b066ec65f912502fd1b6e2505b681a771fc002a0b129a0340db24896cee",
+        "startedAt": "2026-07-19T06:03:17.686Z",
+        "completedAt": "2026-07-19T06:05:25.034Z",
+        "error": "502 status code (no body)",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-009",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "08513b066ec65f912502fd1b6e2505b681a771fc002a0b129a0340db24896cee",
+        "startedAt": "2026-07-19T06:05:25.786Z",
+        "completedAt": "2026-07-19T06:07:32.083Z",
+        "error": "502 status code (no body)",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-010",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "08513b066ec65f912502fd1b6e2505b681a771fc002a0b129a0340db24896cee",
+        "startedAt": "2026-07-19T06:10:55.803Z",
+        "completedAt": "2026-07-19T06:10:57.077Z",
+        "error": "502 status code (no body)",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-011",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "08513b066ec65f912502fd1b6e2505b681a771fc002a0b129a0340db24896cee",
+        "startedAt": "2026-07-19T06:10:57.829Z",
+        "completedAt": "2026-07-19T06:10:58.792Z",
+        "error": "502 status code (no body)",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-012",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "08513b066ec65f912502fd1b6e2505b681a771fc002a0b129a0340db24896cee",
+        "startedAt": "2026-07-19T06:11:00.294Z",
+        "completedAt": "2026-07-19T06:11:01.431Z",
+        "error": "502 status code (no body)",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-013",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "2d7dab8543eea2004a59d153cee9819e974e6bc18ca33737677b97381111c165",
+        "startedAt": "2026-07-19T06:11:01.433Z",
+        "completedAt": "2026-07-19T06:11:47.865Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-014",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "e87972f3d97ceafa185c7a60938d11d2c5be5b68c42d1cc0dc05799f27b17446",
+        "startedAt": "2026-07-19T06:11:47.867Z",
+        "completedAt": "2026-07-19T06:12:26.601Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-015",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "30fcc5afb9412a6e91aa6caca0825c8b5f28770e5bf133ebafb36f89e3281e0a",
+        "startedAt": "2026-07-19T06:12:26.605Z",
+        "completedAt": "2026-07-19T06:13:00.617Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-016",
+        "purpose": "narrative-planning",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "564a1a7ea461897ad7a65b28c70514fe1767b13e5ea96e677a131d950971faba",
+        "startedAt": "2026-07-19T06:13:00.631Z",
+        "completedAt": "2026-07-19T06:13:32.781Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-017",
+        "purpose": "candidate-ranking",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "cc292825152c8f652f327b1bd72e9761d77a0ca6977963eb2606795d392bf355",
+        "startedAt": "2026-07-19T06:13:32.788Z",
+        "completedAt": "2026-07-19T06:13:46.497Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-018",
+        "purpose": "production-assets",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "a9258ba25503ddefc51d90cc27320a2d61e0f646ee11c93a97086a687873209c",
+        "startedAt": "2026-07-19T06:13:46.500Z",
+        "completedAt": "2026-07-19T06:13:51.516Z",
+        "error": "",
+        "cacheHit": false
+      }
+    ]
+  },
+  "editorial": {
+    "claim": "这两项更新的价值，按 Google 官方描述，在于用自然语言生成、编辑视频，并让数字化身代替本人出镜；但功能效果、稳定性和实际可用范围仍需人工确认与真实任务验证。",
+    "whyItMatters": "",
+    "chinaContext": "",
+    "riskNote": ""
+  },
+  "platformCopy": {
+    "coverTitle": "Google Vids 两项更新：先看官方说法",
+    "title": "Google Vids 两项更新：Gemini Omni 与 Personal Avatars",
+    "description": "Google 官方介绍了 Gemini Omni 和 personal avatars：前者据称可结合文字与图片参考生成视频，并支持分步编辑；后者据称可通过自拍、短语音和文字输入创建数字化身。本文仅整理官方描述，不代表用户实测结果。功能资格、地区限制与实际效果仍需人工确认。查看原始来源，再用一个真实任务验证。",
+    "hashtags": [
+      "#GoogleVids",
+      "#GeminiOmni",
+      "#PersonalAvatars",
+      "#AI视频",
+      "#AI工作流",
+      "#中文开发者"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "2026-07-19T05:25:24.124Z",
+    "updatedAt": "2026-07-22T07:57:17.324Z",
+    "researchReviewedAt": "",
+    "firstRenderCompletedAt": "2026-07-19T08:50:15.010Z",
+    "lastRenderCompletedAt": "2026-07-22T07:57:17.324Z",
+    "sourceImportCount": 8,
+    "manualSaveCount": 0,
+    "renderAttemptCount": 0,
+    "renderFailureCount": 0,
+    "lastRenderStartedAt": "",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "outputs": {
+    "outputVideo": "output/videos/2026-07-19-create-edit-and-star-in-videos-with-two-google-v.mp4",
+    "publicRender": "public/renders/2026-07-19-create-edit-and-star-in-videos-with-two-google-v.mp4",
+    "workDir": "output/videos/2026-07-19-create-edit-and-star-in-videos-with-two-google-v-work",
+    "exportDir": "output/exports/2026-07-19-create-edit-and-star-in-videos-with-two-google-v",
+    "coverImage": "output/exports/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/cover.png",
+    "platformCopy": "output/exports/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/platform-copy.json",
+    "sourceList": "output/exports/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/source-list.json",
+    "projectSnapshot": "output/exports/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/project.snapshot.json"
+  },
+  "render": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "voice": "zh-CN-YunxiNeural",
+    "rate": 198,
+    "voiceEngine": "edge-tts",
+    "voiceModel": "edge-tts-universal",
+    "voiceProfile": "natural-tech-zh-v1",
+    "pronunciations": [
+      {
+        "term": "Gemini Omni",
+        "guidance": "Gemini 与 Omni 分开朗读，保持英文产品名自然连贯",
+        "asrAliases": [
+          "Gemini Omni"
+        ]
+      },
+      {
+        "term": "personal avatars",
+        "guidance": "两个英文单词分开朗读，不要连成中文音译",
+        "asrAliases": [
+          "Personal Avatars"
+        ]
+      },
+      {
+        "term": "SynthID",
+        "guidance": "读作 Synth I D，I 和 D 按英文字母朗读",
+        "asrAliases": [
+          "Synth ID"
+        ]
+      }
+    ],
+    "mediaFit": "contain"
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 6.122,
+      "sourceEnd": 14.126,
+      "showEditorialOverlay": false,
+      "eyebrow": "Google Vids / 官方发布",
+      "title": "Omni 与个人头像",
+      "subtitle": "两项更新",
+      "narration": "Google 官方介绍了两项更新：Gemini Omni 与 personal avatars。",
+      "visualRequirement": "展示 Google 官方文章标题、摘要和两项功能主视觉；保持官方说明语境，不包装成实测证据。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 6.122,
+          "end": 14.126,
+          "note": "article-overview 窗口展示文章标题、摘要和 Gemini Omni / Personal Avatars 主视觉。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-source-09-article-overview",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/google-vids-official-semantic-walkthrough-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 6.122,
+          "sourceEnd": 14.126,
+          "matchReason": "竖屏 article-overview 窗口完整展示官方文章标题、摘要和两项功能主视觉，直接对应开场介绍；仅作为官方说明证据。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-source-09-article-overview",
+      "selectionStatus": "codex_reviewed",
+      "selectionNote": "接触表和窗口中点确认标题、摘要与主视觉在竖屏中可读，且没有混入其他论点。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-02",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 15.201,
+      "sourceEnd": 24.204,
+      "showEditorialOverlay": false,
+      "eyebrow": "Gemini Omni / 生成",
+      "title": "从描述到视频",
+      "subtitle": "文字 + 图片参考",
+      "narration": "官方称，Omni 可用自然语言提示，并结合照片或粗略草图生成视频。",
+      "visualRequirement": "展示官方文章的 Generate videos from text and images 段落；不要把页面中的视频占位图描述为生成结果。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 15.201,
+          "end": 24.204,
+          "note": "text-and-images 窗口展示文字提示、照片和粗略草图等官方描述。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-source-09-text-images",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/google-vids-official-semantic-walkthrough-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 15.201,
+          "sourceEnd": 24.204,
+          "matchReason": "竖屏 text-and-images 窗口清晰展示对应标题和自然语言、照片、粗略草图说明；不把视频占位图当作实测输出。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-source-09-text-images",
+      "selectionStatus": "codex_reviewed",
+      "selectionNote": "窗口中点可完整读到 Generate videos from text and images 标题与关键说明。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-03",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 25.26,
+      "sourceEnd": 34.262,
+      "showEditorialOverlay": false,
+      "eyebrow": "Gemini Omni / 编辑",
+      "title": "分步编辑",
+      "subtitle": "描述修改，不必重做",
+      "narration": "它还被描述为支持分步编辑，例如替换背景、修复光照或添加效果。",
+      "visualRequirement": "展示 Chat to edit, step-by-step 标题和替换背景、修复光照、添加效果的官方说明；不声称实际输出质量。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 25.26,
+          "end": 34.262,
+          "note": "step-by-step-edit 窗口展示分步编辑及三个具体编辑意图。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-source-09-step-edit",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/google-vids-official-semantic-walkthrough-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 25.26,
+          "sourceEnd": 34.262,
+          "matchReason": "竖屏 step-by-step-edit 窗口同时呈现标题和替换背景、修复光照、添加效果的页面文字，直接支撑旁白中的官方描述。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-source-09-step-edit",
+      "selectionStatus": "codex_reviewed",
+      "selectionNote": "窗口中点确认编辑标题和三项示例均可读，未混入头像或资格限制段落。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-04",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 35.309,
+      "sourceEnd": 44.312,
+      "showEditorialOverlay": false,
+      "eyebrow": "Personal avatars / 出镜",
+      "title": "无需录制本人出镜",
+      "subtitle": "自拍 + 语音 + 文本",
+      "narration": "Personal avatars 据官方介绍，可用自拍和短语音创建数字化身，再输入文字让它传达消息。",
+      "visualRequirement": "展示 Star in videos, instantly 段落及自拍、短语音、文本输入的官方流程说明；不得把占位图当作真实生成样片。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 35.309,
+          "end": 44.312,
+          "note": "personal-avatars 窗口展示自拍、短语音、文字输入和头像传达消息的官方说明。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-source-09-personal-avatars",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/google-vids-official-semantic-walkthrough-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 35.309,
+          "sourceEnd": 44.312,
+          "matchReason": "竖屏 personal-avatars 窗口清晰展示 Star in videos, instantly 及自拍、语音、文字输入流程；页面只代表官方说明。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-source-09-personal-avatars",
+      "selectionStatus": "codex_reviewed",
+      "selectionNote": "窗口中点确认头像流程文字完整可读，视频占位图没有被表述成生成结果。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-05",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 45.363,
+      "sourceEnd": 54.363,
+      "showEditorialOverlay": false,
+      "eyebrow": "可用范围 / 资格",
+      "title": "可用性有前提",
+      "subtitle": "资格先查清",
+      "narration": "官方同时提示，头像功能受地区、年龄、订阅和账号条件限制。",
+      "visualRequirement": "展示订阅类型、地区、年龄和账号绑定限制；把资格条件与透明标识分开表达。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 45.363,
+          "end": 54.363,
+          "note": "availability-limits 窗口展示订阅、地区、18 岁以上与账号绑定限制。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-source-09-availability",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/google-vids-official-semantic-walkthrough-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 45.363,
+          "sourceEnd": 54.363,
+          "matchReason": "竖屏 availability-limits 窗口完整显示订阅、地区、年龄和账号限制，单独承接资格论点，不与 SynthID 混用。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-source-09-availability",
+      "selectionStatus": "codex_reviewed",
+      "selectionNote": "窗口中点确认资格限制文本可读，且没有使用同一窗口同时解释透明标识。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-06",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 64.487,
+      "sourceEnd": 72.488,
+      "showEditorialOverlay": false,
+      "eyebrow": "透明度 / AI 标识",
+      "title": "生成内容带标识",
+      "subtitle": "来源可识别",
+      "narration": "生成内容会标注来源，并带有 SynthID 水印，方便识别。",
+      "visualRequirement": "展示 Create and share with transparency 与 SynthID 说明；只陈述页面可见的标识信息，不延伸为完整验证能力。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 64.487,
+          "end": 72.488,
+          "note": "synthid 窗口完整展示 AI 内容标识和 invisible SynthID digital watermark 说明。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-source-09-synthid",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/google-vids-official-semantic-walkthrough-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 64.487,
+          "sourceEnd": 72.488,
+          "matchReason": "竖屏 synthid 窗口完整显示 Create and share with transparency 及 SynthID 水印原文，独立支撑透明标识论点。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-source-09-synthid",
+      "selectionStatus": "codex_reviewed",
+      "selectionNote": "窗口中点确认透明度和 SynthID 文字完整可读，不再依赖被遮挡的旧截图。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-07",
+      "enabled": true,
+      "sourceId": "source-06",
+      "sourceStart": 0,
+      "sourceEnd": 7,
+      "showEditorialOverlay": false,
+      "eyebrow": "结论 / 实践建议",
+      "title": "先核对，再验证",
+      "subtitle": "官方描述 ≠ 用户实测",
+      "narration": "这是官方说明，不是实测结论。回到原文，再用真实任务验证。",
+      "visualRequirement": "以 Google 官方文章标题截图作为来源返回和 CTA，不承担新的功能证据；明确要求真实任务验证。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-06",
+          "locatorType": "image",
+          "note": "官方文章标题截图在结尾仅作为返回原文的 CTA 背景，不作为新的功能证据。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-source-06-verification-cta",
+          "sourceId": "source-06",
+          "assetPath": "public/project-assets/2026-07-19-create-edit-and-star-in-videos-with-two-google-v/google-official-page-1-1784441433805.png",
+          "mediaType": "image",
+          "sourceStart": 0,
+          "sourceEnd": 7,
+          "matchReason": "官方文章标题截图作为来源返回和验证 CTA 的非证据背景；它不承担新的功能主张，也不证明实际效果。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-source-06-verification-cta",
+      "selectionStatus": "codex_reviewed",
+      "selectionNote": "结尾静态图明确记录为来源返回和 CTA 背景，不复用前文视频窗口解释新论点。",
+      "generatedBy": "ai",
+      "userEdited": true
+    }
+  ]
+}

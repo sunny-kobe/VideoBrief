@@ -28,7 +28,12 @@
 - 策划 Gate 和正式 AI 叙事输入已统一使用关键队列：只有 confirmed 关键主张进入脚本，未解决高风险问题会阻断重新生成；完整提取结果仍保留在 `project.json`，用户可以手动把任意结果设为关键或降为参考。
 - 首次用户路径的问题、修复和浏览器证据记录在 `docs/video-production-user-journey-acceptance.zh-CN.md`。
 - 素材核验页直接展示并切换 canonical source：视频、图片、Markdown、文本和音频都可在同页核验，当前 `source` 写入 URL，刷新和事实引用跳转可恢复到同一来源。AIFF 等浏览器不能直接解码的本地音频会生成只读 WAV 预览缓存，原文件和 `project.json` 引用不变。
-- 视频来源会在本地抽取 20%、50%、80% 三张代表帧，并与本地转录一起提交结构化理解；转录失败时仍保留视觉结果并标记音轨 uncertainty，不写伪造 facts/transcript。
+- 视频来源按时长自适应抽取 3-12 张代表帧，混合开头/中段/结尾覆盖与 FFmpeg 镜头变化点，并与本地转录一起提交结构化理解；镜头检测失败时降级为时长覆盖，转录失败时仍保留视觉结果并标记 uncertainty，不写伪造 facts/transcript。
+- 渲染 API 已改为持久化 FIFO 入队并立即返回 `202`；`output/render-queue/queue.json` 是调度事实源，独立 worker 跨 Next.js 重启继续运行，并支持多项目串行、同项目去重、queued/running 取消、死 worker 重排与存活渲染子进程接管。项目 workDir 的 `render-job.json` 保留为页面镜像。
+- 最终验收新增七项结构化编辑质量记录；反向转写对当前旁白中的专名单独提示，异常必须按一倍速确认；桌面与移动浏览器都必须以一倍速、非静音完整播放到 `ended`。旧的仅 `status=passed`、桌面四倍速或移动端只推进开头的 acceptance 不再放行。
+- 正式 FFmpeg 渲染已升级到 Render Contract V3：每幕按来源、时间窗、旁白和版式生成内容寻址 MP4，缓存 metadata 与视频 SHA-256 同时验证；中断后只补齐缺失幕，最终视频 stream copy 拼接并对整片音频统一归一化。
+- CLI 与网页渲染现在都由 `export-production.mjs` 调用同一个 lifecycle preflight；素材包、选片状态、渲染尝试和失败记录不再因入口不同而分叉。
+- RepoPrompt CE 已完成真实 V3 重渲染与 proof。受控在第 3 幕后中断后，恢复运行命中前 3 幕缓存并只生成剩余 3 幕；恢复成片 48.73 秒、-16.0 LUFS、-1.9 dBTP，主文件与 public 副本 SHA-256 一致。
 - AI 结果写入前会校验 source、fact/uncertainty 引用、定位范围、候选来源和 scene 覆盖；非法引用会使调用失败而不是污染 canonical project。
 - 项目入口：`http://127.0.0.1:3100/`
 - canonical 项目目录：`content/projects/<project-id>/project.json`
@@ -79,6 +84,8 @@ market_status = none
 
 按顺序执行，不要跳过前置 Gate。
 
+当前优先完成 SylphxAI、RepoPrompt CE 和 Google Vids 三个项目的新版 `technical -> semantic/editorial -> browser -> package` 闭环。不得用旧式技术 proof 计入 Phase 5；结构化质量模板见 `docs/editorial-quality-review.example.json`。
+
 ### 1. 重新确认现状
 
 - 读取 `README.md` 和主路线图；
@@ -90,7 +97,7 @@ market_status = none
 
 - 已建立项目列表和创建入口；
 - 已将 Creative Brief、混合来源理解、叙事版本、候选画面和 AI 调用记录纳入 canonical schema v3，并兼容读取 v1/v2 fixture；
-- 已支持本地视频导入、受控扩展名、500 MB 上限和显式权利登记；
+- 已支持本地视频、音频、图片和文本资料的流式导入、受控扩展名、显式权利登记、增量 SHA-256、原子落盘、磁盘保留线、真实上传进度和取消；默认单文件上限 20 GiB，导入后至少保留 4 GiB，可通过环境变量调整；
 - workbench、save、render、preview、manifest 和 proof 已按 projectId 工作；
 - 已从浏览器建立第二个项目并导出通过 proof 的 MP4；
 - 已实证项目保存后旧成片/manifest 失效，重新渲染后恢复通过。
@@ -102,7 +109,7 @@ market_status = none
 - 保存 source reference、时间点/位置、状态和失败原因；
 - 不在解析失败时静默生成内容。
 
-已完成类型化 intake、媒体探测、音频分段、视频 20%/50%/80% 三帧抽取、本地 Whisper 转录、多帧联合理解、本地文本抽取、可见 processing 状态、重试和语义引用校验。混合项目音频来源已由 failed 恢复为 completed，写入真实 transcript、时间定位、facts 和 uncertainties；`project.ai.transcriptionModel=whisper.cpp:large-v3-turbo-q5_0`。工作台支持逐段人工校对，专有名词和歧义词不会自动被视为最终事实。
+已完成类型化 intake、媒体探测、音频分段、自适应视频取帧、本地 Whisper 转录、多帧联合理解、本地文本抽取、可见 processing 状态、重试和语义引用校验。自适应取帧按时长扩展到最多 12 帧，优先覆盖全片并吸收 FFmpeg 检出的镜头变化；真实素材已分别验证“无硬切时均匀覆盖”和“检测出 0.5s/9.5s 切换点”两条路径。混合项目音频来源已由 failed 恢复为 completed，写入真实 transcript、时间定位、facts 和 uncertainties；`project.ai.transcriptionModel=whisper.cpp:large-v3-turbo-q5_0`。工作台支持逐段人工校对，专有名词和歧义词不会自动被视为最终事实。
 
 素材核验界面已补齐五类来源的真实预览和来源选择：视频/图片使用本地原始文件，Markdown/文本显示 canonical extraction，音频通过本地 WAV 预览端点提供 Range 响应；选中来源持久化在 `source` query，facts/uncertainties 的来源引用可跳回同一预览。移动端预览不再以 sticky 层遮挡下方审核控件。
 
@@ -257,12 +264,13 @@ git status --short
 - 本地转录依赖 `whisper-cli` 和约 574 MB 的 `large-v3-turbo-q5_0` 模型；原始音频不上传，但专有名词和歧义词仍需人工校对。
 - 不得把 `review_required`、`local-review` 或 `official` 自动视为可发布。
 - 当前仓库包含 legacy/experimental 渲染轨道；不要让它们重新成为 production acceptance target。
-- Phase 1 上传通过 Next.js `formData()` 在内存中接收文件，已有 500 MB 上限；进入更大生产素材前应改为流式复制并显示导入进度。
+- 来源上传已经改为原始请求体流式落盘，不再通过 Next.js `formData()` / `arrayBuffer()` 缓冲整文件；真实浏览器已验证成功导入、进度显示与中断清理。当前剩余容量风险在于长素材解析仍缺少章节级调度与逐章缓存，而不是上传入口本身。
 - `public/project-assets/` 是本机素材目录并被 gitignore；project.json 可以跨会话保留引用，但跨机器迁移必须单独复制素材并校验缺失状态。
 - 当前生产配音默认依赖在线 Edge 神经 TTS；无需额外 Key，但需要网络且服务可用性不受本项目控制。macOS `/usr/bin/say` 作为显式离线降级保留，不能在神经语音失败时静默冒充同等质量。
 - 浏览器音频预览首次访问会调用本地 FFmpeg 生成 `output/source-previews/` WAV 缓存；原始音频不修改、不上传。超长音频的首次转码仍可能有明显等待，后续若成为高频问题再增加显式预生成状态和清理策略。
 - 用户提供的兼容端点已安全配置到 gitignored `.env.local`，主模型 `gpt-5.6-luna` 的 Responses API 已成功；音频转录由本地 Whisper 完成，不使用 Key。三份 pending narrative 还需要用户明确确认或拒绝。
-- 当前 render job 可查询阶段和失败原因，但不支持取消；先完成真实 AI dogfood，再判断取消是否是高频必要动作。
+- 当前 render job 可查询 queue position 和阶段、取消 queued 或真实 running 渲染进程组，并在失败或取消后创建关联任务继续渲染；全局锁按渲染进程存活与 token 所有权管理，不会在固定 30 分钟后误回收长任务。调度队列和 worker 已持久化，但长素材导入与章节化理解仍未完成。
+- 最终 manifest 记录门禁耗时、绑定视频哈希的系统计时审片会话、AI/TTS 外部请求和缓存命中、失败请求数与已知失败等待；供应商 usage/价格缺失时不推算金额，旧式 `--active-seconds` 自报时长不再接受。
 - 当前 proof 能检查画面非空，无法自动证明字幕未裁切；仍需保留关键抽帧的视觉检查。
 - `video-project-1783855221061` 使用单张自有工作台截图持续 45 秒，只证明端到端流程和技术契约，不代表成片节奏、视觉丰富度或市场质量已验证。
 - `gpt-5-6-agentic-work` 显著改善了画面丰富度与信息节奏，但仍是未发布 dogfood；技术通过、内部视觉判断和音轨可识别都不能提升 `market_status`。

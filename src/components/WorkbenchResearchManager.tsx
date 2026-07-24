@@ -26,6 +26,7 @@ interface WorkbenchResearchManagerProps {
   busy: boolean;
   onProcessAll: () => void;
   onProcessSource: (sourceId: string) => void;
+  onCancelSource: (sourceId: string) => void;
   onUpdateSource: (sourceId: string, patch: Partial<ShortVideoSource>) => void;
   onUpdateFact: (factId: string, patch: Partial<ResearchFact>) => void;
   onUpdateUncertainty: (uncertaintyId: string, patch: Partial<ResearchUncertainty>) => void;
@@ -191,6 +192,7 @@ export default function WorkbenchResearchManager({
   busy,
   onProcessAll,
   onProcessSource,
+  onCancelSource,
   onUpdateSource,
   onUpdateFact,
   onUpdateUncertainty,
@@ -274,12 +276,21 @@ export default function WorkbenchResearchManager({
                 <span className={`rounded px-2 py-1 text-[10px] font-bold ${statusTone[activeSource.processing.status]}`}>
                   {activeSource.processing.status === 'completed' ? '解析完成' : activeSource.processing.status === 'failed' ? '解析失败' : activeSource.processing.status === 'running' ? '正在解析' : '等待解析'}
                 </span>
+                {activeSource.processing.chapterProgress?.total ? (
+                  <span className="font-mono text-[10px] font-bold text-sky-800">
+                    {activeSource.processing.chapterProgress.completed}/{activeSource.processing.chapterProgress.total} 章
+                  </span>
+                ) : null}
               </div>
               <p className="mt-1 truncate text-[10px] text-slate-500">{activeSource.originalFileName || activeSource.label}</p>
             </div>
             <div className="flex flex-wrap items-center gap-2">
               <button className="inline-flex h-8 items-center gap-2 rounded-md border border-emerald-700 bg-emerald-700 px-2.5 text-xs font-bold text-white" type="button" aria-pressed="true" aria-label={`正在查看 ${activeSource.label}`} onClick={() => onSelectSource(activeSource.id)}><Eye aria-hidden="true" className="h-3.5 w-3.5" />正在查看</button>
-              <button className="inline-flex h-8 items-center gap-2 rounded-md border border-slate-300 bg-white px-2.5 text-xs font-bold text-slate-700 disabled:opacity-40" type="button" disabled={busy || activeSource.processing.status === 'running'} onClick={() => onProcessSource(activeSource.id)}><RefreshCw aria-hidden="true" className="h-3.5 w-3.5" />{activeSource.processing.status === 'idle' || activeSource.processing.status === 'pending' ? '解析这份素材' : '重新解析'}</button>
+              {activeSource.processing.status === 'pending' || activeSource.processing.status === 'running' ? (
+                <button className="inline-flex h-8 items-center gap-2 rounded-md border border-rose-300 bg-white px-2.5 text-xs font-bold text-rose-700" type="button" onClick={() => onCancelSource(activeSource.id)}><X aria-hidden="true" className="h-3.5 w-3.5" />取消解析</button>
+              ) : (
+                <button className="inline-flex h-8 items-center gap-2 rounded-md border border-slate-300 bg-white px-2.5 text-xs font-bold text-slate-700 disabled:opacity-40" type="button" disabled={busy} onClick={() => onProcessSource(activeSource.id)}><RefreshCw aria-hidden="true" className="h-3.5 w-3.5" />{activeSource.processing.status === 'idle' ? '解析这份素材' : '重新解析'}</button>
+              )}
             </div>
           </div>
           {activeSource.processing.error ? <p className="mt-3 flex items-start gap-2 rounded-md bg-rose-50 px-3 py-2 text-xs font-bold leading-relaxed text-rose-800"><TriangleAlert aria-hidden="true" className="mt-0.5 h-3.5 w-3.5 shrink-0" />{activeSource.processing.error}</p> : null}

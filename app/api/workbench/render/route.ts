@@ -1,100 +1,62 @@
-import { spawn } from 'node:child_process';
-import {
-  closeSync,
-  existsSync,
-  mkdirSync,
-  openSync,
-  statSync,
-  unlinkSync,
-  writeFileSync,
-} from 'node:fs';
-import { dirname, resolve } from 'node:path';
 import { NextRequest, NextResponse } from 'next/server';
+import {
+  cancelRenderQueueJob,
+  DEFAULT_RENDER_QUEUE_PATH,
+  enqueueRenderQueueJob,
+  latestRenderQueueJobForProject,
+  updateRenderQueueJob,
+} from '@/src/renderQueue';
+import { ensureRenderQueueWorker } from '@/src/renderQueueWorkerClient';
+import { signalProcessTree } from '@/src/renderProcessRegistry';
 import {
   projectPaths,
   readBrief,
-  readRenderJob,
   readRenderManifest,
   renderStatus,
-  recordRenderAttempt,
-  recordRenderFailure,
-  writeRenderJob,
   writeBrief,
+  writeRenderJob,
 } from '@/src/shortVideoProjectServer';
-import { RenderJobRecord, ShortVideoProject } from '@/src/shortVideoBrief';
+import { ShortVideoProject } from '@/src/shortVideoBrief';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-const renderLockPath = resolve('output/videos/.videobrief-render.lock');
-
-function acquireRenderLock() {
-  mkdirSync(dirname(renderLockPath), { recursive: true });
-  if (
-    existsSync(renderLockPath) &&
-    Date.now() - statSync(renderLockPath).mtimeMs > 30 * 60 * 1000
-  ) {
-    unlinkSync(renderLockPath);
-  }
-
-  try {
-    const descriptor = openSync(renderLockPath, 'wx');
-    writeFileSync(descriptor, `${process.pid}\n${new Date().toISOString()}\n`);
-    closeSync(descriptor);
-    return () => {
-      if (existsSync(renderLockPath)) unlinkSync(renderLockPath);
-    };
-  } catch (error) {
-    if (error instanceof Error && 'code' in error && error.code === 'EEXIST') return null;
-    throw error;
-  }
+function mirrorQueueJob(projectId: string) {
+  const job = latestRenderQueueJobForProject(DEFAULT_RENDER_QUEUE_PATH, projectId);
+  if (!job) return null;
+  const project = readBrief(projectId);
+  writeRenderJob(projectPaths(project).renderJobPath, job);
+  return job;
 }
 
-function runRender(briefPath: string, onStage: (stage: RenderJobRecord['stage']) => void) {
-  return new Promise<{ stdout: string; stderr: string }>((resolve, reject) => {
-    const child = spawn(process.execPath, ['scripts/export-production.mjs', `--brief=${briefPath}`], {
-      cwd: process.cwd(),
-      env: process.env,
+function reconcileCompletedAcceptance(projectId: string) {
+  const project = readBrief(projectId);
+  const paths = projectPaths(project);
+  const status = renderStatus(readRenderManifest(paths.manifestPath), projectId);
+  const current = latestRenderQueueJobForProject(DEFAULT_RENDER_QUEUE_PATH, projectId);
+  if (current?.state === 'awaiting_review' && status.state === 'ready') {
+    updateRenderQueueJob(DEFAULT_RENDER_QUEUE_PATH, current.jobId, {
+      state: 'completed',
+      stage: 'completed',
+      completedAt: new Date().toISOString(),
+      error: '',
     });
-    let stdout = '';
-    let stderr = '';
-
-    child.stdout.on('data', (chunk) => {
-      const text = chunk.toString();
-      stdout += text;
-      if (text.includes('[videobrief-stage] rendering')) onStage('rendering');
-      if (text.includes('[videobrief-stage] proof')) onStage('proof');
-      if (text.includes('[videobrief-stage] packaging')) onStage('packaging');
-    });
-    child.stderr.on('data', (chunk) => {
-      stderr += chunk.toString();
-    });
-    child.on('error', reject);
-    child.on('close', (code) => {
-      if (code === 0) {
-        resolve({ stdout, stderr });
-      } else {
-        reject(new Error(`render exited with ${code}\n${stdout}\n${stderr}`));
-      }
-    });
-  });
-}
-
-function failedRenderMessage(error: unknown) {
-  const message = error instanceof Error ? error.message : 'render failed';
-  return message.split('\n').map((line) => line.trim()).filter(Boolean).slice(-12).join('\n');
+  }
+  return { project, paths, status };
 }
 
 export function GET(request: NextRequest) {
   try {
     const projectId = request.nextUrl.searchParams.get('projectId');
     if (!projectId) throw new Error('projectId is required');
-    const project = readBrief(projectId);
-    const paths = projectPaths(project);
-    const manifest = readRenderManifest(paths.manifestPath);
+    const { status } = reconcileCompletedAcceptance(projectId);
+    const job = latestRenderQueueJobForProject(DEFAULT_RENDER_QUEUE_PATH, projectId);
+    if (job && ['queued', 'running', 'cancelling'].includes(job.state)) {
+      ensureRenderQueueWorker(DEFAULT_RENDER_QUEUE_PATH);
+    }
     return NextResponse.json({
-      job: readRenderJob(paths.renderJobPath),
-      renderStatus: renderStatus(manifest, projectId),
+      job: mirrorQueueJob(projectId),
+      renderStatus: status,
     });
   } catch (error) {
     return NextResponse.json(
@@ -105,95 +67,84 @@ export function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const releaseRenderLock = acquireRenderLock();
-  if (!releaseRenderLock) {
-    return NextResponse.json(
-      { error: '已有渲染任务正在执行，请等待完成后再试。' },
-      { status: 409 },
-    );
-  }
-
-  let renderJobPath = '';
-  let job: RenderJobRecord | null = null;
-  let activeProjectId = '';
-  let renderAttemptRecorded = false;
   try {
-    const body = (await request.json().catch(() => ({}))) as { projectId?: string; brief?: ShortVideoProject };
+    const body = (await request.json().catch(() => ({}))) as {
+      projectId?: string;
+      brief?: ShortVideoProject;
+      mode?: 'start' | 'resume';
+    };
     const projectId = body.projectId ?? body.brief?.id;
     if (!projectId) throw new Error('projectId is required');
-    activeProjectId = projectId;
-    if (body.brief) writeBrief(projectId, body.brief);
-    const brief = recordRenderAttempt(projectId);
-    renderAttemptRecorded = true;
-    const paths = projectPaths(brief);
-    renderJobPath = paths.renderJobPath;
-    const startedAt = new Date().toISOString();
-    job = writeRenderJob(renderJobPath, {
-      schemaVersion: 1,
-      projectId,
-      state: 'running',
-      stage: 'saving',
-      startedAt,
-      updatedAt: startedAt,
-      completedAt: '',
-      error: '',
-    });
-    const result = await runRender(paths.briefPath, (stage) => {
-      if (!job) return;
-      job = writeRenderJob(renderJobPath, {
-        ...job,
-        stage,
-        updatedAt: new Date().toISOString(),
-      });
-    });
-    const renderedBrief = readBrief(projectId);
-    const manifest = readRenderManifest(paths.manifestPath);
-    const completedAt = new Date().toISOString();
-    job = writeRenderJob(renderJobPath, {
-      ...job,
-      state: 'completed',
-      stage: 'completed',
-      updatedAt: completedAt,
-      completedAt,
-      error: '',
-    });
 
-    return NextResponse.json({
-      brief: renderedBrief,
-      outputHref: paths.publicRenderHref,
-      manifest,
-      renderStatus: renderStatus(manifest, projectId),
-      renderJob: job,
-      stdout: result.stdout,
-      stderr: result.stderr,
-    });
-  } catch (error) {
-    const message = failedRenderMessage(error);
-    if (job && renderJobPath) {
-      const completedAt = new Date().toISOString();
-      writeRenderJob(renderJobPath, {
-        ...job,
-        state: 'failed',
-        updatedAt: completedAt,
-        completedAt,
-        error: message,
-      });
-    }
-    if (activeProjectId && renderAttemptRecorded) {
-      try {
-        recordRenderFailure(activeProjectId, message);
-      } catch (recordError) {
-        console.error(
-          'Failed to persist render failure:',
-          recordError instanceof Error ? recordError.message : recordError,
+    const active = latestRenderQueueJobForProject(DEFAULT_RENDER_QUEUE_PATH, projectId);
+    if (active && ['queued', 'running', 'cancelling'].includes(active.state)) {
+      const canonical = readBrief(projectId);
+      if (body.brief && JSON.stringify(body.brief) !== JSON.stringify(canonical)) {
+        return NextResponse.json(
+          { error: '项目已有渲染任务，不能在执行期间改写 canonical project。', renderJob: active },
+          { status: 409 },
         );
       }
+      ensureRenderQueueWorker(DEFAULT_RENDER_QUEUE_PATH);
+      return NextResponse.json({
+        brief: canonical,
+        renderStatus: renderStatus(readRenderManifest(projectPaths(canonical).manifestPath), projectId),
+        renderJob: mirrorQueueJob(projectId),
+      }, { status: 202 });
     }
+
+    const previousJob = active;
+    if (body.mode === 'resume' && previousJob && !['failed', 'cancelled'].includes(previousJob.state)) {
+      return NextResponse.json(
+        { error: '只有失败或已取消的任务可以继续渲染。' },
+        { status: 409 },
+      );
+    }
+    if (body.brief) writeBrief(projectId, body.brief);
+    const brief = readBrief(projectId);
+    const paths = projectPaths(brief);
+    const queued = enqueueRenderQueueJob(DEFAULT_RENDER_QUEUE_PATH, {
+      projectId,
+      briefPath: paths.briefPath,
+    }, {
+      resumedFromJobId: body.mode === 'resume' ? previousJob?.jobId : undefined,
+    });
+    writeRenderJob(paths.renderJobPath, queued.job);
+    ensureRenderQueueWorker(DEFAULT_RENDER_QUEUE_PATH);
+
+    return NextResponse.json({
+      brief,
+      renderStatus: renderStatus(readRenderManifest(paths.manifestPath), projectId),
+      renderJob: queued.job,
+    }, { status: 202 });
+  } catch (error) {
     return NextResponse.json(
-      { error: message },
+      { error: error instanceof Error ? error.message : 'render enqueue failed' },
       { status: 500 },
     );
-  } finally {
-    releaseRenderLock();
+  }
+}
+
+export function DELETE(request: NextRequest) {
+  try {
+    const projectId = request.nextUrl.searchParams.get('projectId');
+    if (!projectId) throw new Error('projectId is required');
+    readBrief(projectId);
+    const current = latestRenderQueueJobForProject(DEFAULT_RENDER_QUEUE_PATH, projectId);
+    if (!current || !['queued', 'running', 'cancelling'].includes(current.state)) {
+      return NextResponse.json({ error: '当前没有可取消的渲染任务。' }, { status: 409 });
+    }
+    const next = cancelRenderQueueJob(DEFAULT_RENDER_QUEUE_PATH, current.jobId);
+    if (!next) return NextResponse.json({ error: '渲染任务已结束。' }, { status: 409 });
+    if (next.processId && next.state === 'cancelling') {
+      signalProcessTree(next.processId, 'SIGTERM');
+    }
+    ensureRenderQueueWorker(DEFAULT_RENDER_QUEUE_PATH);
+    return NextResponse.json({ job: mirrorQueueJob(projectId) }, { status: 202 });
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : 'cancel render failed' },
+      { status: 400 },
+    );
   }
 }

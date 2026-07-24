@@ -27,6 +27,7 @@
       "id": "source-01",
       "label": "VideoBrief 工作流说明",
       "sourceType": "markdown",
+      "materialRole": "research",
       "originUrl": "",
       "assetPath": "public/project-assets/ux-acceptance-demo-20260712/workflow-notes-1783854138084.md",
       "originalFileName": "workflow-notes.md",
@@ -73,7 +74,10 @@
                 "note": "来源第3行"
               }
             ],
-            "reviewStatus": "proposed"
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 95
           },
           {
             "id": "source-01-fact-02",
@@ -134,7 +138,10 @@
                 "note": "来源第12行"
               }
             ],
-            "reviewStatus": "proposed"
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 91
           },
           {
             "id": "source-01-fact-03",
@@ -150,7 +157,10 @@
                 "note": "来源第14行"
               }
             ],
-            "reviewStatus": "proposed"
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 87
           }
         ],
         "uncertainties": [
@@ -168,9 +178,89 @@
                 "note": "来源第14行"
               }
             ],
-            "resolution": ""
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 95
           }
         ]
+      }
+    },
+    {
+      "id": "source-02",
+      "label": "流式导入验收录屏",
+      "sourceType": "video",
+      "materialRole": "official_demo",
+      "originUrl": "",
+      "assetPath": "public/project-assets/ux-acceptance-demo-20260712/videobrief-workbench-recording-1783783635853-1784771624473.mp4",
+      "originalFileName": "videobrief-workbench-recording-1783783635853.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 80905,
+      "importedAt": "2026-07-23T01:53:44.476Z",
+      "publishedAt": "",
+      "verificationStatus": "needs_check",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 自有工作台录屏，用于本地流式导入验收",
+      "contentHash": "a9afa9065985d72cf66be6b07376eaaf65a4ad584a9c526c0f3e8790c0d11884",
+      "reusedFrom": {
+        "projectId": "videobrief-mixed-demo",
+        "sourceId": "source-01"
+      },
+      "processing": {
+        "status": "idle",
+        "stage": "idle",
+        "attempts": 0,
+        "inputHash": "",
+        "startedAt": "",
+        "completedAt": "",
+        "error": "",
+        "model": "",
+        "promptVersion": "",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": []
+      }
+    },
+    {
+      "id": "source-03",
+      "label": "取消导入验收",
+      "sourceType": "video",
+      "materialRole": "official_demo",
+      "originUrl": "",
+      "assetPath": "public/project-assets/ux-acceptance-demo-20260712/gpt-5-6-agentic-work-1784771713198.mp4",
+      "originalFileName": "gpt-5-6-agentic-work.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 18594597,
+      "importedAt": "2026-07-23T01:55:13.224Z",
+      "publishedAt": "",
+      "verificationStatus": "needs_check",
+      "rightsStatus": "cleared",
+      "rightsNote": "仅用于验证取消上传，不应登记为项目素材",
+      "contentHash": "d3f2cee1e717d8b2d9ade45c8bf35a782a97e72341aa68015660543a4a3016e1",
+      "reusedFrom": null,
+      "processing": {
+        "status": "idle",
+        "stage": "idle",
+        "attempts": 0,
+        "inputHash": "",
+        "startedAt": "",
+        "completedAt": "",
+        "error": "",
+        "model": "",
+        "promptVersion": "",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": []
       }
     }
   ],
@@ -191,7 +281,10 @@
             "note": "来源第3行"
           }
         ],
-        "reviewStatus": "proposed"
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 95
       },
       {
         "id": "source-01-fact-02",
@@ -252,7 +345,10 @@
             "note": "来源第12行"
           }
         ],
-        "reviewStatus": "proposed"
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 91
       },
       {
         "id": "source-01-fact-03",
@@ -268,7 +364,10 @@
             "note": "来源第14行"
           }
         ],
-        "reviewStatus": "proposed"
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 87
       }
     ],
     "uncertainties": [
@@ -286,7 +385,10 @@
             "note": "来源第14行"
           }
         ],
-        "resolution": ""
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 95
       }
     ]
   },
@@ -359,19 +461,25 @@
   },
   "production": {
     "trackingStartedAt": "2026-07-12T11:01:43.530Z",
-    "updatedAt": "2026-07-12T11:17:29.559Z",
+    "updatedAt": "2026-07-23T01:55:13.230Z",
     "researchReviewedAt": "",
     "firstRenderCompletedAt": "",
     "lastRenderCompletedAt": "",
-    "sourceImportCount": 1,
+    "sourceImportCount": 3,
     "manualSaveCount": 0,
     "renderAttemptCount": 0,
     "renderFailureCount": 0,
     "lastRenderStartedAt": "",
     "lastRenderError": "",
     "reusedSourceIds": [
-      "source-01"
+      "source-01",
+      "source-02"
     ]
+  },
+  "materialReview": {
+    "status": "pending",
+    "approvedSourceIds": [],
+    "reviewedAt": ""
   },
   "outputs": {
     "outputVideo": "output/videos/ux-acceptance-demo-20260712.mp4",
@@ -388,7 +496,54 @@
     "height": 1920,
     "fps": 30,
     "voice": "Eddy (中文（中国大陆）)",
-    "rate": 205
+    "rate": 205,
+    "voiceEngine": "macos-say",
+    "voiceModel": "macos-say",
+    "voiceProfile": "default",
+    "voiceStyle": "",
+    "voiceGenerationMode": "auto",
+    "renderStrategy": "segmented-concat",
+    "pronunciations": [],
+    "mediaFit": "contain"
   },
-  "scenes": []
+  "scenes": [
+    {
+      "id": "scene-01",
+      "enabled": true,
+      "sourceId": "source-02",
+      "sourceStart": 0,
+      "sourceEnd": 3,
+      "showEditorialOverlay": true,
+      "eyebrow": "竖屏短视频",
+      "title": "AI 负责整理草案，用户负责确认事实、画面和发布",
+      "subtitle": "AI 负责整理草案，用户负责确认事实、画面和发布",
+      "narration": "AI 负责整理草案，用户负责确认事实、画面和发布",
+      "visualRequirement": "使用 流式导入验收录屏 展示项目主题",
+      "sourceReferences": [
+        {
+          "sourceId": "source-02",
+          "locatorType": "time",
+          "note": "导入素材"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-02",
+          "assetPath": "public/project-assets/ux-acceptance-demo-20260712/videobrief-workbench-recording-1783783635853-1784771624473.mp4",
+          "mediaType": "video",
+          "sourceStart": 0,
+          "sourceEnd": 3,
+          "matchReason": "首个可视素材，等待用户确认或 AI 候选排序。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "ai_suggested",
+      "selectionReviewedAt": "",
+      "selectionNote": "首个可视素材自动填入，尚未经过 Codex 或用户复核。",
+      "generatedBy": "user",
+      "userEdited": false
+    }
+  ]
 }

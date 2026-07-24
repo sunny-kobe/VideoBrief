@@ -81,5 +81,8 @@ export const renderStatusTone: Record<
   missing: { badge: 'border-slate-300 bg-slate-100 text-slate-700', dot: 'bg-slate-400' },
   stale: { badge: 'border-amber-300 bg-amber-50 text-amber-800', dot: 'bg-amber-500' },
   unverified: { badge: 'border-sky-300 bg-sky-50 text-sky-800', dot: 'bg-sky-500' },
+  awaiting_semantic: { badge: 'border-amber-300 bg-amber-50 text-amber-800', dot: 'bg-amber-500' },
+  awaiting_browser: { badge: 'border-amber-300 bg-amber-50 text-amber-800', dot: 'bg-amber-500' },
+  review_failed: { badge: 'border-rose-300 bg-rose-50 text-rose-800', dot: 'bg-rose-500' },
   ready: { badge: 'border-emerald-300 bg-emerald-50 text-emerald-800', dot: 'bg-emerald-500' },
 };

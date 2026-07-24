@@ -1,26 +1,28 @@
 import { createHash } from 'node:crypto';
 import {
   copyFileSync,
+  createReadStream,
   existsSync,
   mkdirSync,
   readFileSync,
   renameSync,
   rmSync,
+  statSync,
   writeFileSync,
 } from 'node:fs';
 import { basename, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import ffmpegPath from 'ffmpeg-static';
+import { parseCliArgs } from './lib/cli-args.mjs';
+import {
+  validateBrowserChecks,
+  validateSemanticAcceptanceRecord,
+} from './lib/acceptance-validation.mjs';
+import { buildProductionMetrics } from './lib/production-metrics.mjs';
 
-const args = new Map();
-for (let index = 2; index < process.argv.length; index += 1) {
-  const arg = process.argv[index];
-  if (!arg.startsWith('--')) continue;
-  const [key, inlineValue] = arg.slice(2).split('=');
-  const value = inlineValue ?? process.argv[index + 1];
-  args.set(key, value);
-  if (inlineValue == null) index += 1;
-}
+const packageProcessStartedAt = new Date();
+
+const { args } = parseCliArgs(process.argv.slice(2));
 
 function characterWidth(character) {
   return /^[\x00-\x7F]$/.test(character) ? 0.55 : 1;
@@ -54,7 +56,33 @@ const projectText = readFileSync(briefPath, 'utf8');
 const project = JSON.parse(projectText);
 const manifestPath = resolve(project.outputs.workDir, 'render-manifest.json');
 const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+const projectFingerprint = createHash('sha256').update(projectText).digest('hex');
+if (resolve(manifest.briefPath ?? '') !== briefPath) {
+  throw new Error('Cannot build export package from a manifest that belongs to another project file.');
+}
+if (manifest.projectFingerprint !== projectFingerprint) {
+  throw new Error('Cannot build export package from a stale render; the canonical project changed after rendering.');
+}
 if (!manifest.proof?.passed) throw new Error('Cannot build export package before technical proof passes.');
+const renderedVideo = resolve(manifest.artifacts.publicRender ?? manifest.artifacts.outputVideo);
+const renderedVideoSha256 = createHash('sha256').update(readFileSync(renderedVideo)).digest('hex');
+if (manifest.acceptance?.videoSha256 !== renderedVideoSha256) {
+  throw new Error('Cannot build export package before acceptance is bound to the current video bytes.');
+}
+const semanticValidation = validateSemanticAcceptanceRecord(manifest.acceptance.semantic);
+if (!semanticValidation.passed) {
+  throw new Error(`Cannot build export package before measured semantic review passes:\n- ${semanticValidation.issues.join('\n- ')}`);
+}
+if (manifest.acceptance.browser?.status !== 'passed') {
+  throw new Error('Cannot build export package before browser playback acceptance passes.');
+}
+const browserValidation = validateBrowserChecks(
+  manifest.acceptance.browser?.checks ?? [],
+  Number(manifest.render?.duration),
+);
+if (!browserValidation.passed) {
+  throw new Error(`Cannot build export package because browser acceptance is incomplete:\n- ${browserValidation.issues.join('\n- ')}`);
+}
 
 const exportDir = resolve(project.outputs.exportDir ?? `output/exports/${project.id}`);
 const zipPath = resolve(`${exportDir}.zip`);
@@ -69,6 +97,7 @@ const sourceList = resolve(exportDir, 'source-list.json');
 const projectSnapshot = resolve(exportDir, 'project.snapshot.json');
 const renderManifest = resolve(exportDir, 'render-manifest.json');
 const exportManifestPath = resolve(exportDir, 'export-manifest.json');
+const exportPackageReceiptPath = resolve(`${exportDir}.package.json`);
 
 copyFileSync(manifest.artifacts.publicRender ?? manifest.artifacts.outputVideo, finalVideo);
 copyFileSync(manifest.artifacts.srt, subtitlesSrt);
@@ -160,6 +189,25 @@ const statuses = {
   publication_status: project.publication_status || 'draft-unpublished',
   market_status: project.market_status || 'none',
 };
+const metricsCapturedAt = new Date().toISOString();
+const productionMetrics = buildProductionMetrics({
+  project,
+  manifest: {
+    ...manifest,
+    productionMetrics: {
+      ...(manifest.productionMetrics ?? {}),
+      stages: {
+        ...(manifest.productionMetrics?.stages ?? {}),
+        packagingPreparation: {
+          startedAt: packageProcessStartedAt.toISOString(),
+          completedAt: metricsCapturedAt,
+          wallMs: Date.now() - packageProcessStartedAt.getTime(),
+        },
+      },
+    },
+  },
+  finalizedAt: metricsCapturedAt,
+});
 
 const enhancedManifest = {
   ...manifest,
@@ -179,6 +227,7 @@ const enhancedManifest = {
     sourceProcessingFailureCount: project.sources.filter((source) => source.processing?.status === 'failed').length,
     aiFailureCount: project.ai?.calls?.filter((call) => call.status === 'failed').length ?? 0,
   },
+  productionMetrics,
 };
 const temporaryManifestPath = `${manifestPath}.tmp`;
 writeFileSync(temporaryManifestPath, `${JSON.stringify(enhancedManifest, null, 2)}\n`);
@@ -188,11 +237,14 @@ writeFileSync(renderManifest, `${JSON.stringify(enhancedManifest, null, 2)}\n`);
 const exportManifest = {
   schemaVersion: 1,
   projectId: project.id,
-  projectFingerprint: createHash('sha256').update(projectText).digest('hex'),
+  projectFingerprint,
   createdAt: new Date().toISOString(),
   technicalProof: enhancedManifest.proof,
+  semanticAcceptance: enhancedManifest.acceptance.semantic,
+  browserAcceptance: enhancedManifest.acceptance.browser,
   rightsCheck,
   production: enhancedManifest.production,
+  productionMetrics,
   statuses,
   artifacts: {
     finalVideo,
@@ -207,14 +259,47 @@ const exportManifest = {
 };
 writeFileSync(exportManifestPath, `${JSON.stringify(exportManifest, null, 2)}\n`);
 
-if (existsSync(zipPath)) {
-  const remove = spawnSync('/bin/rm', ['-f', zipPath]);
-  if (remove.status !== 0) throw new Error(`Failed to replace ${zipPath}`);
-}
-const zip = spawnSync('/usr/bin/zip', ['-q', '-r', zipPath, basename(exportDir)], {
+const temporaryZipPath = `${zipPath}.tmp-${process.pid}`;
+rmSync(temporaryZipPath, { force: true });
+const zip = spawnSync('/usr/bin/zip', ['-q', '-r', temporaryZipPath, basename(exportDir)], {
   cwd: resolve(exportDir, '..'),
   encoding: 'utf8',
 });
 if (zip.status !== 0) throw new Error(`Failed to create export zip: ${zip.stderr}`);
+renameSync(temporaryZipPath, zipPath);
 
-console.log(JSON.stringify({ exportDir, zipPath, rightsCheck, artifacts: exportManifest.artifacts }, null, 2));
+function fileSha256(path) {
+  return new Promise((resolveHash, reject) => {
+    const hash = createHash('sha256');
+    const input = createReadStream(path);
+    input.on('error', reject);
+    input.on('data', (chunk) => hash.update(chunk));
+    input.on('end', () => resolveHash(hash.digest('hex')));
+  });
+}
+
+const packageReceipt = {
+  schemaVersion: 1,
+  projectId: project.id,
+  projectFingerprint: exportManifest.projectFingerprint,
+  renderedAt: enhancedManifest.renderedAt,
+  renderManifestPath: manifestPath,
+  renderManifestSha256: await fileSha256(manifestPath),
+  videoPath: manifest.artifacts.publicRender ?? manifest.artifacts.outputVideo,
+  videoSha256: await fileSha256(manifest.artifacts.publicRender ?? manifest.artifacts.outputVideo),
+  zipPath,
+  zipBytes: statSync(zipPath).size,
+  zipSha256: await fileSha256(zipPath),
+  createdAt: new Date().toISOString(),
+};
+const temporaryReceiptPath = `${exportPackageReceiptPath}.tmp`;
+writeFileSync(temporaryReceiptPath, `${JSON.stringify(packageReceipt, null, 2)}\n`);
+renameSync(temporaryReceiptPath, exportPackageReceiptPath);
+
+console.log(JSON.stringify({
+  exportDir,
+  zipPath,
+  exportPackageReceiptPath,
+  rightsCheck,
+  artifacts: exportManifest.artifacts,
+}, null, 2));

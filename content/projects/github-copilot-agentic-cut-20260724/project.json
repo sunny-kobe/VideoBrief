@@ -1,0 +1,763 @@
+{
+  "schemaVersion": 3,
+  "id": "github-copilot-agentic-cut-20260724",
+  "title": "GitHub Copilot：从 Issue 到可审查 PR",
+  "format": "video_project",
+  "targetAudience": "中文开发者、独立开发者和 AI coding 工作流实践者",
+  "status": "draft",
+  "technical_status": "passed",
+  "rights_status": "review_required",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "brief": {
+    "objective": "用一条 60-90 秒竖屏短视频验证网上现成官方动态素材能否支撑紧凑、语义一致的开发工具成片。",
+    "audience": "中文开发者、独立开发者和 AI coding 工作流实践者",
+    "platform": "小红书 / 视频号",
+    "aspectRatio": "9:16",
+    "targetDurationSeconds": 70,
+    "tone": "克制、清晰、证据优先",
+    "style": "GitHub 官方真实产品操作，3-9 秒硬切，保留完整 UI，不加音乐或夸张转场",
+    "reference": "GitHub 官方 YouTube 视频 Demo: end-to-end agentic development with GitHub Copilot",
+    "coreMessage": "Coding Agent 的价值不在于生成更多代码，而在于把 Issue、改动、测试、结果和 PR 审查连成可验证的交付闭环。",
+    "cta": "下一次试用 Coding Agent 时，用一个真实 Issue 和真实测试验收，而不是只看聊天结果。",
+    "prohibitedMaterial": "网页滚动录屏、静态卡整幕、循环、时间拉伸、无关 B-roll、音乐和未经核验的效率承诺"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "GitHub Copilot coding agent 官方端到端演示",
+      "sourceType": "video",
+      "materialRole": "official_demo",
+      "originUrl": "https://www.youtube.com/watch?v=onVn-lnHZ9s",
+      "assetPath": "public/project-assets/github-copilot-agentic-cut-20260724/official-github-copilot-agentic-demo.mp4",
+      "originalFileName": "official-github-copilot-agentic-demo.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 18114954,
+      "importedAt": "2026-07-24T08:02:44.000Z",
+      "publishedAt": "2025-08-26T00:00:00.000Z",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "GitHub 官方公开 YouTube 视频，无登录、无 Cookie 下载，仅用于本地未发布生产实验；公开或商业使用前需单独清权。",
+      "contentHash": "625aa20af9e9731782a8299a7e2f8a995dab144857ac8db3ae2f4b9977af9ec6",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "625aa20af9e9731782a8299a7e2f8a995dab144857ac8db3ae2f4b9977af9ec6",
+        "startedAt": "2026-07-24T08:02:44.000Z",
+        "completedAt": "2026-07-24T08:08:00.000Z",
+        "error": "",
+        "model": "manual-source-review",
+        "promptVersion": "online-video-cut-20260724-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "Official chaptered demo: setting up environments, prioritizing work, generating code, agent mode, fixing tests and dependencies, using instruction files, writing commits and pull requests, and reviewing Copilot's work.",
+        "visualDescription": "A real GitHub repository moves through Codespaces, VS Code, issue context, code edits, terminal tests, instruction files, source control, a rendered app result and a GitHub pull request review.",
+        "hierarchicalSummary": "The official demo follows one development task from repository setup through implementation, test repair, repository instructions, result inspection and pull-request review.",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [
+          {
+            "id": "source-01-uncertainty-01",
+            "statement": "官方来源不等于素材已经获得公开发布或商业投放许可。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "本地完整官方演示视频，仅用于内部未发布实验。"
+              }
+            ],
+            "resolution": "保持 rights_status=review_required 和 publication_status=draft-unpublished，发布前另行清权。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          }
+        ],
+        "chapters": []
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [],
+    "facts": [],
+    "uncertainties": [
+      {
+        "id": "source-01-uncertainty-01",
+        "statement": "官方来源不等于素材已经获得公开发布或商业投放许可。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "本地完整官方演示视频，仅用于内部未发布实验。"
+          }
+        ],
+        "resolution": "保持 rights_status=review_required 和 publication_status=draft-unpublished，发布前另行清权。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      }
+    ]
+  },
+  "narrative": {
+    "status": "completed",
+    "error": "",
+    "activeVersionId": "manual-v1",
+    "versions": [
+      {
+        "id": "manual-v1",
+        "generatedAt": "2026-07-24T08:12:00.000Z",
+        "model": "manual-editorial",
+        "promptVersion": "online-video-cut-20260724-v1",
+        "inputHash": "625aa20af9e9731782a8299a7e2f8a995dab144857ac8db3ae2f4b9977af9ec6",
+        "conclusion": "Coding Agent 的完成标准是可审查、可测试、有人类最终批准的 PR。",
+        "hook": "这不是代码补全，而是一次从 Issue 到可审查 PR 的完整交付。",
+        "outline": [
+          "环境与任务上下文",
+          "跨文件实现与测试修复",
+          "仓库约束、真实结果和人工审查"
+        ],
+        "voiceoverScript": "这不是代码补全。Copilot 要把一个 Issue，直接推进到可审查的 PR。第一步不是装环境，而是从仓库打开云端开发空间，分支和代码直接就位。进入 VS Code 后，Agent 先读取项目结构，确认当前仓库到底在做什么。任务从 Issue 出发，需求和上下文直接进入编辑器，不必重新讲一遍。局部代码可以快速补齐，但跨前端、后端和测试的改动，才是重头戏。把完整目标交给 Agent，它会读取相关文件，规划并同时修改多个位置。真正有价值的是它会运行测试，让失败和缺失依赖直接暴露出来。发现错误后，它继续修实现、补测试、再验证，而不是停在一段答案。仓库里的指令文件，把编码规范、测试要求和提交习惯变成长期约束。完成修改后，Copilot 汇总变更并准备提交，让审查者先看清改了什么。它还会打开真实功能结果，确认不只是测试变绿，界面也按要求工作。终点不是 Agent 说完成，而是 PR 可审查、检查通过，最后仍由人批准。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "time",
+            "start": 0,
+            "end": 311.5,
+            "note": "GitHub 官方端到端开发演示的选定非连续窗口。"
+          }
+        ],
+        "uncertainties": [
+          "本片只说明官方演示中的工作流，不声称所有仓库、模型或任务都会得到相同结果。"
+        ]
+      }
+    ],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "pendingChapters": [],
+    "generatedAt": "2026-07-24T08:12:00.000Z",
+    "model": "manual-editorial",
+    "promptVersion": "online-video-cut-20260724-v1"
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "manual-editorial",
+    "transcriptionModel": "whisper.cpp:large-v3-turbo-q5_0",
+    "promptVersion": "online-video-cut-20260724-v1",
+    "calls": []
+  },
+  "editorial": {
+    "claim": "Coding Agent 的核心价值是把开发任务推进到可验证、可审查的交付状态。",
+    "whyItMatters": "它把生成代码和运行测试、修复失败、检查结果及 PR 审查连接起来。",
+    "chinaContext": "中文开发者评估 Coding Agent 时，应观察真实仓库闭环，而不是只看一次 prompt 的输出速度。",
+    "riskNote": "官方演示不能证明普遍效率，也不能替代发布素材清权。"
+  },
+  "platformCopy": {
+    "coverTitle": "Copilot 真正交付了什么？",
+    "title": "GitHub Copilot：从 Issue 到可审查 PR",
+    "description": "用 GitHub 官方端到端演示，看 Coding Agent 如何连接环境、Issue、代码、测试、结果和 PR 审查。本片为本地未发布生产实验。",
+    "hashtags": [
+      "GitHubCopilot",
+      "CodingAgent",
+      "AICoding",
+      "开发者工具"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "2026-07-24T08:02:44.000Z",
+    "updatedAt": "2026-07-24T08:43:16.778Z",
+    "researchReviewedAt": "2026-07-24T08:12:00.000Z",
+    "firstRenderCompletedAt": "2026-07-24T08:12:54.602Z",
+    "lastRenderCompletedAt": "2026-07-24T08:43:16.778Z",
+    "sourceImportCount": 1,
+    "manualSaveCount": 1,
+    "renderAttemptCount": 9,
+    "renderFailureCount": 1,
+    "lastRenderStartedAt": "2026-07-24T08:43:00.269Z",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "materialReview": {
+    "status": "approved",
+    "approvedSourceIds": [
+      "source-01"
+    ],
+    "reviewedAt": "2026-07-24T08:12:00.000Z"
+  },
+  "chapters": [
+    {
+      "id": "chapter-01",
+      "title": "从 Issue 到可审查 PR",
+      "summary": "用真实官方操作拆解 Coding Agent 的完整交付闭环。",
+      "order": 0,
+      "sceneIds": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06",
+        "scene-07",
+        "scene-08",
+        "scene-09",
+        "scene-10",
+        "scene-11",
+        "scene-12"
+      ],
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 0,
+          "end": 311.5,
+          "note": "12 个互不重叠的官方演示窗口。"
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "outputVideo": "output/videos/github-copilot-agentic-cut-20260724.mp4",
+    "publicRender": "public/renders/github-copilot-agentic-cut-20260724.mp4",
+    "workDir": "output/videos/github-copilot-agentic-cut-20260724-work",
+    "exportDir": "output/exports/github-copilot-agentic-cut-20260724",
+    "coverImage": "output/exports/github-copilot-agentic-cut-20260724/cover.png",
+    "platformCopy": "output/exports/github-copilot-agentic-cut-20260724/platform-copy.json",
+    "sourceList": "output/exports/github-copilot-agentic-cut-20260724/source-list.json",
+    "projectSnapshot": "output/exports/github-copilot-agentic-cut-20260724/project.snapshot.json"
+  },
+  "render": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "voice": "zh-CN-YunjianNeural",
+    "rate": 194,
+    "voiceEngine": "edge-tts",
+    "voiceModel": "edge-tts-universal",
+    "voiceProfile": "natural-tech-zh-v1",
+    "voiceStyle": "",
+    "voiceGenerationMode": "per-scene",
+    "renderStrategy": "segmented-concat",
+    "pronunciations": [
+      {
+        "term": "GitHub Copilot",
+        "guidance": "GitHub 与 Copilot 分开自然朗读",
+        "asrAliases": [
+          "GitHub Copilot",
+          "Copilot"
+        ]
+      },
+      {
+        "term": "Issue",
+        "guidance": "按英文单词自然朗读",
+        "asrAliases": [
+          "Issue"
+        ]
+      },
+      {
+        "term": "PR",
+        "guidance": "按字母 P R 分开朗读",
+        "spokenText": "P R",
+        "asrAliases": [
+          "PR",
+          "P R"
+        ]
+      }
+    ],
+    "mediaFit": "contain"
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 273.8,
+      "sourceEnd": 280.3,
+      "showEditorialOverlay": true,
+      "eyebrow": "GITHUB COPILOT",
+      "title": "不是代码补全",
+      "subtitle": "从 Issue 推进到可审查 PR",
+      "narration": "这不是代码补全。Copilot 要把一个 Issue，直接推进到可审查的 PR。",
+      "visualRequirement": "展示 PR 描述、真实功能截图和返回编辑器的操作，用交付结果建立钩子。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 273.8,
+          "end": 280.3,
+          "note": "PR 描述、可见功能结果与返回编辑器。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/github-copilot-agentic-cut-20260724/official-github-copilot-agentic-demo.mp4",
+          "mediaType": "video",
+          "sourceStart": 273.8,
+          "sourceEnd": 280.3,
+          "matchReason": "PR 描述、真实功能结果和编辑器切换直接支持从 Issue 推进到可审查 PR 的钩子。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T08:12:00.000Z",
+      "selectionNote": "起中末窗口覆盖 PR 描述、可见结果和编辑器切换，交付结果与钩子一致。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-02",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 18,
+      "sourceEnd": 24.733333,
+      "showEditorialOverlay": true,
+      "eyebrow": "ENVIRONMENT",
+      "title": "云端环境直接就位",
+      "subtitle": "仓库、分支、环境连在一起",
+      "narration": "第一步不是装环境，而是从仓库打开云端开发空间，分支和代码直接就位。",
+      "visualRequirement": "展示 Codespaces 菜单、分支和打开云端环境的真实操作。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 18,
+          "end": 24.733333,
+          "note": "GitHub Codespaces 菜单和环境入口。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-02",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/github-copilot-agentic-cut-20260724/official-github-copilot-agentic-demo.mp4",
+          "mediaType": "video",
+          "sourceStart": 18,
+          "sourceEnd": 24.733333,
+          "matchReason": "Codespaces 菜单、当前分支和环境操作直接对应云端环境旁白。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-02",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T08:12:00.000Z",
+      "selectionNote": "窗口内完成菜单展开和环境选择，动作清晰且不重复其他观点。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-03",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 33.5,
+      "sourceEnd": 39.966667,
+      "showEditorialOverlay": true,
+      "eyebrow": "REPOSITORY CONTEXT",
+      "title": "先读懂项目",
+      "subtitle": "Agent 从真实仓库开始",
+      "narration": "进入 VS Code 后，Agent 先读取项目结构，确认当前仓库到底在做什么。",
+      "visualRequirement": "展示 VS Code 项目树和 Agent 读取仓库的工作状态。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 33.5,
+          "end": 39.966667,
+          "note": "VS Code 项目树和 Agent 开始工作。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-03",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/github-copilot-agentic-cut-20260724/official-github-copilot-agentic-demo.mp4",
+          "mediaType": "video",
+          "sourceStart": 33.5,
+          "sourceEnd": 39.966667,
+          "matchReason": "项目树、编辑器和 Agent 工作状态直接支持读取仓库语义。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-03",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T08:12:00.000Z",
+      "selectionNote": "中点帧可见项目树和 Agent 面板，窗口不用于代码生成观点。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-04",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 56,
+      "sourceEnd": 61.733333,
+      "showEditorialOverlay": true,
+      "eyebrow": "ISSUE CONTEXT",
+      "title": "任务上下文直接进入",
+      "subtitle": "需求不用重新讲一遍",
+      "narration": "任务从 Issue 出发，需求和上下文直接进入编辑器，不必重新讲一遍。",
+      "visualRequirement": "展示 GitHub Issue 列表、Issue 内容和加入 Copilot 上下文的操作。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 56,
+          "end": 61.733333,
+          "note": "Issue 内容与加入上下文操作。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-04",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/github-copilot-agentic-cut-20260724/official-github-copilot-agentic-demo.mp4",
+          "mediaType": "video",
+          "sourceStart": 56,
+          "sourceEnd": 61.733333,
+          "matchReason": "Issue 内容和 Copilot 上下文操作与任务上下文旁白一一对应。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-04",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T08:12:00.000Z",
+      "selectionNote": "窗口内从 Issue 阅读到上下文操作，动作有明确叙事目的。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-05",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 82,
+      "sourceEnd": 88.533333,
+      "showEditorialOverlay": true,
+      "eyebrow": "LOCAL COMPLETION",
+      "title": "局部生成只是开始",
+      "subtitle": "跨模块改动才是重头戏",
+      "narration": "局部代码可以快速补齐，但跨前端、后端和测试的改动，才是重头戏。",
+      "visualRequirement": "展示真实路由代码和 Copilot 局部建议被接受。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 82,
+          "end": 88.533333,
+          "note": "路由代码和局部 Copilot 建议。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-05",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/github-copilot-agentic-cut-20260724/official-github-copilot-agentic-demo.mp4",
+          "mediaType": "video",
+          "sourceStart": 82,
+          "sourceEnd": 88.533333,
+          "matchReason": "可见代码建议和接受动作，直接说明局部代码补齐。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-05",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T08:12:00.000Z",
+      "selectionNote": "该窗口只承担局部补全观点，不复用为 Agent 跨文件证据。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-06",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 126,
+      "sourceEnd": 132.7,
+      "showEditorialOverlay": true,
+      "eyebrow": "AGENT MODE",
+      "title": "跨文件执行",
+      "subtitle": "读文件、规划、连续修改",
+      "narration": "把完整目标交给 Agent，它会读取相关文件，规划并同时修改多个位置。",
+      "visualRequirement": "展示 Agent 工作状态、任务 criteria、相关文件和连续改动。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 126,
+          "end": 132.7,
+          "note": "Agent criteria 与跨文件工作状态。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-06",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/github-copilot-agentic-cut-20260724/official-github-copilot-agentic-demo.mp4",
+          "mediaType": "video",
+          "sourceStart": 126,
+          "sourceEnd": 132.7,
+          "matchReason": "Agent 工作面板和多个文件直接支持跨文件执行观点。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-06",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T08:12:00.000Z",
+      "selectionNote": "窗口显示任务 criteria 与多个相关文件，不与局部补全窗口重叠。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-07",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 153,
+      "sourceEnd": 159.066667,
+      "showEditorialOverlay": true,
+      "eyebrow": "TEST FEEDBACK",
+      "title": "让失败直接暴露",
+      "subtitle": "测试不是结尾才运行",
+      "narration": "真正有价值的是它会运行测试，让失败和缺失依赖直接暴露出来。",
+      "visualRequirement": "展示终端测试命令、错误输出和失败状态。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 153,
+          "end": 159.066667,
+          "note": "终端测试失败和错误信息。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-07",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/github-copilot-agentic-cut-20260724/official-github-copilot-agentic-demo.mp4",
+          "mediaType": "video",
+          "sourceStart": 153,
+          "sourceEnd": 159.066667,
+          "matchReason": "真实终端测试失败直接证明 Agent 会进入验证环节。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-07",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T08:12:00.000Z",
+      "selectionNote": "起中末均可见终端或错误状态，语义明确且有动态变化。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-08",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 176,
+      "sourceEnd": 181.9,
+      "showEditorialOverlay": true,
+      "eyebrow": "ITERATE",
+      "title": "修复，再验证",
+      "subtitle": "不在第一段答案停下",
+      "narration": "发现错误后，它继续修实现、补测试、再验证，而不是停在一段答案。",
+      "visualRequirement": "展示 Agent 根据失败信息修改并继续运行命令。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 176,
+          "end": 181.9,
+          "note": "Agent 继续修改、安装依赖和重跑测试。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-08",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/github-copilot-agentic-cut-20260724/official-github-copilot-agentic-demo.mp4",
+          "mediaType": "video",
+          "sourceStart": 176,
+          "sourceEnd": 181.9,
+          "matchReason": "Agent 命令和测试状态变化直接对应修复再验证。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-08",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T08:12:00.000Z",
+      "selectionNote": "与 scene-07 的失败暴露分开，当前窗口只承担修复重试观点。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-09",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 199,
+      "sourceEnd": 203.3,
+      "showEditorialOverlay": true,
+      "eyebrow": "REPOSITORY RULES",
+      "title": "指令进入仓库",
+      "subtitle": "规范不只存在于对话里",
+      "narration": "仓库指令把测试和编码规范变成长期约束。",
+      "visualRequirement": "展示 copilot-instructions 文件中真实可读的测试和代码标准。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 199,
+          "end": 203.3,
+          "note": "切入 copilot-instructions 文件并停留在编码与测试规则。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-09",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/github-copilot-agentic-cut-20260724/official-github-copilot-agentic-demo.mp4",
+          "mediaType": "video",
+          "sourceStart": 199,
+          "sourceEnd": 203.3,
+          "matchReason": "动态切入指令文件，随后短暂停留供阅读编码与测试约束。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-09",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T08:12:00.000Z",
+      "selectionNote": "短窗口专门展示仓库级持久指令，不延长静态阅读时间。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-10",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 234,
+      "sourceEnd": 240.466667,
+      "showEditorialOverlay": true,
+      "eyebrow": "SOURCE CONTROL",
+      "title": "先看清改了什么",
+      "subtitle": "变更汇总进入提交",
+      "narration": "完成修改后，Copilot 汇总变更并准备提交，让审查者先看清改了什么。",
+      "visualRequirement": "展示 Source Control 文件列表、提交状态和 Copilot Code Review。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 234,
+          "end": 240.466667,
+          "note": "Source Control 和变更文件列表。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-10",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/github-copilot-agentic-cut-20260724/official-github-copilot-agentic-demo.mp4",
+          "mediaType": "video",
+          "sourceStart": 234,
+          "sourceEnd": 240.466667,
+          "matchReason": "变更文件和提交界面直接对应汇总与准备提交。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-10",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T08:12:00.000Z",
+      "selectionNote": "窗口显示真实变更列表和提交操作，不将聊天总结冒充审查结果。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-11",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 266,
+      "sourceEnd": 272.6,
+      "showEditorialOverlay": true,
+      "eyebrow": "VISIBLE RESULT",
+      "title": "检查可见功能结果",
+      "subtitle": "不只看测试变绿",
+      "narration": "它还会检查 PR 里的功能截图，确认不只是测试变绿，界面也按要求工作。",
+      "visualRequirement": "展示 PR 中的 Visual Impact 真实应用截图，明确这是截图证据而非现场打开应用。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 266,
+          "end": 272.6,
+          "note": "PR 中的 Visual Impact 区域与真实应用截图。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-11",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/github-copilot-agentic-cut-20260724/official-github-copilot-agentic-demo.mp4",
+          "mediaType": "video",
+          "sourceStart": 266,
+          "sourceEnd": 272.6,
+          "matchReason": "PR 中的 Visual Impact 区域展示真实应用截图，直接支持可见结果检查。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-11",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T08:12:00.000Z",
+      "selectionNote": "窗口动态滚动到 Visual Impact 截图；不将截图描述成现场打开应用，也不与钩子窗口重叠。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-12",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 299,
+      "sourceEnd": 305.466667,
+      "showEditorialOverlay": true,
+      "eyebrow": "HUMAN REVIEW",
+      "title": "完成不等于自动合并",
+      "subtitle": "PR 仍由人最终批准",
+      "narration": "终点不是 Agent 说完成，而是 PR 可审查、检查通过，最后仍由人批准。",
+      "visualRequirement": "展示 GitHub PR 的 review requested、workflow approval 和 merge 状态。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 299,
+          "end": 305.466667,
+          "note": "从 PR 活动流滚动到审查和人工批准状态。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-12",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/github-copilot-agentic-cut-20260724/official-github-copilot-agentic-demo.mp4",
+          "mediaType": "video",
+          "sourceStart": 299,
+          "sourceEnd": 305.466667,
+          "matchReason": "活动流动态滚动到 review requested、workflow approval 和 merge 状态，直接支持人工终审。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-12",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T08:12:00.000Z",
+      "selectionNote": "结尾从 PR 活动流进入审批门禁，不暗示 Agent 已自动发布或合并。",
+      "generatedBy": "user",
+      "userEdited": true
+    }
+  ]
+}

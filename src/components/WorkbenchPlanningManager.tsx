@@ -1,4 +1,5 @@
 import { ArrowLeft, ArrowRight, BrainCircuit, Check, Image, Sparkles, Trash2, TriangleAlert, WandSparkles } from 'lucide-react';
+import { Fragment } from 'react';
 import type { ShortVideoProject } from '@/src/shortVideoBrief';
 import { researchReviewSummary } from '@/src/researchReview';
 
@@ -32,11 +33,14 @@ export default function WorkbenchPlanningManager({
   const draft = project.narrative.pendingDraft;
   const review = researchReviewSummary(project);
   const researchReady = review.ready;
-  const displayedScenes = draft
+  const displayedScenes = draft || project.narrative.pendingScenes.length
     ? project.narrative.pendingScenes
     : project.narrative.activeVersionId
       ? project.scenes
       : [];
+  const displayedChapters = draft || project.narrative.pendingChapters.length
+    ? project.narrative.pendingChapters
+    : project.chapters;
   return (
     <section className="min-w-0 overflow-hidden rounded-md border border-slate-200 bg-white">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-4 py-3">
@@ -76,6 +80,15 @@ export default function WorkbenchPlanningManager({
       ) : null}
 
       {project.narrative.error ? <p className="border-b border-rose-200 bg-rose-50 px-4 py-3 text-xs font-bold text-rose-800">{project.narrative.error}</p> : null}
+
+      {!draft && project.narrative.pendingChapters.length ? (
+        <div className="border-b border-slate-200 bg-slate-50 px-4 py-3">
+          <p className="text-xs font-extrabold text-slate-900">
+            逐章策划：{project.narrative.pendingChapters.filter((chapter) => chapter.inputHash).length} / {project.narrative.pendingChapters.length} 章完成
+          </p>
+          <p className="mt-1 text-[11px] text-slate-500">已完成章节会保留并按输入哈希复用。</p>
+        </div>
+      ) : null}
 
       <div className="grid lg:grid-cols-2">
         <div className="border-b border-slate-200 p-4 lg:border-b-0 lg:border-r">
@@ -123,8 +136,22 @@ export default function WorkbenchPlanningManager({
         <div className="p-4">
           <h3 className="text-xs font-extrabold text-slate-950">{draft ? '待审场景' : '已应用场景'}</h3>
           <div className="mt-3 space-y-3">
-            {displayedScenes.map((scene, sceneIndex) => (
-              <div className="rounded-md border border-slate-200 p-3" key={scene.id}>
+            {displayedScenes.map((scene, sceneIndex) => {
+              const chapter = displayedChapters.find((item) => item.id === scene.chapterId);
+              const showChapterHeader = Boolean(chapter && displayedScenes[sceneIndex - 1]?.chapterId !== scene.chapterId);
+              return (
+              <Fragment key={scene.id}>
+              {showChapterHeader ? (
+                <div className="border-y border-slate-300 bg-slate-100 px-3 py-2.5">
+                  <p className="text-[10px] font-extrabold uppercase text-emerald-700">章节 {chapter!.order + 1}</p>
+                  <div className="mt-0.5 flex items-baseline justify-between gap-3">
+                    <h4 className="min-w-0 truncate text-xs font-extrabold text-slate-950">{chapter!.title}</h4>
+                    <span className="shrink-0 font-mono text-[10px] font-bold text-slate-500">{chapter!.targetDurationSeconds ? `${chapter!.targetDurationSeconds}s` : ''}</span>
+                  </div>
+                  {chapter!.objective ? <p className="mt-1 text-[11px] leading-relaxed text-slate-600">{chapter!.objective}</p> : null}
+                </div>
+              ) : null}
+              <div className="rounded-md border border-slate-200 p-3">
                 <p className="text-xs font-extrabold text-slate-900">{sceneIndex + 1}. {scene.title}</p>
                 <p className="mt-1 text-xs font-bold leading-relaxed text-slate-700">{scene.subtitle}</p>
                 <p className="mt-2 text-xs leading-relaxed text-slate-600">{scene.narration || '尚未填写旁白'}</p>
@@ -156,7 +183,9 @@ export default function WorkbenchPlanningManager({
                   {!scene.candidates.length ? <p className="text-xs text-slate-500">尚无候选。</p> : null}
                 </div>
               </div>
-            ))}
+              </Fragment>
+              );
+            })}
             {!displayedScenes.length ? <p className="text-xs leading-relaxed text-slate-500">生成脚本后会在这里看到完整场景草案；导入素材时创建的占位场景不会当作脚本。</p> : null}
           </div>
         </div>

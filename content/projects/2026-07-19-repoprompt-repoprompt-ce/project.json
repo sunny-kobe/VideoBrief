@@ -1,0 +1,3334 @@
+{
+  "schemaVersion": 3,
+  "id": "2026-07-19-repoprompt-repoprompt-ce",
+  "title": "repoprompt/repoprompt-ce",
+  "format": "video_project",
+  "targetAudience": "中文开发者、独立开发者、产品人和 AI 工作流实践者",
+  "status": "draft",
+  "technical_status": "passed",
+  "rights_status": "review_required",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "brief": {
+    "objective": "用一手来源和真实画面，在 40-60 秒内解释“repoprompt/repoprompt-ce”为什么值得中文 AI 实践者关注。",
+    "audience": "中文开发者、独立开发者、产品人和 AI 工作流实践者",
+    "platform": "B站 / YouTube 横屏",
+    "aspectRatio": "16:9",
+    "targetDurationSeconds": 48,
+    "tone": "克制、清晰、有判断",
+    "style": "真实产品素材优先，程序化信息层辅助，避免泛库存画面堆叠",
+    "reference": "https://github.com/repoprompt/repoprompt-ce",
+    "coreMessage": "Community edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.（817 stars，101 forks，许可 Apache-2.0）",
+    "cta": "查看原始来源，并用一个真实任务验证。",
+    "prohibitedMaterial": "未经核验的数字、无法追溯的素材、把官方演示描述成用户实测、自动发布"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "每日候选信号卡",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://github.com/repoprompt/repoprompt-ce",
+      "assetPath": "public/project-assets/2026-07-19-repoprompt-repoprompt-ce/signal-card-1784438940386.md",
+      "originalFileName": "signal-card.md",
+      "mimeType": "text/markdown",
+      "bytes": 445,
+      "importedAt": "2026-07-19T05:29:00.386Z",
+      "publishedAt": "",
+      "verificationStatus": "needs_check",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 自动生成的原创元数据卡，不复制原文。",
+      "contentHash": "988b11308ff36a28411a8842b44586dc7c06dc6292e75f98d92b548a6dc9662b",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 2,
+        "inputHash": "988b11308ff36a28411a8842b44586dc7c06dc6292e75f98d92b548a6dc9662b",
+        "startedAt": "2026-07-19T05:30:13.699Z",
+        "completedAt": "2026-07-19T05:30:33.949Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# repoprompt/repoprompt-ce\n\n## 候选摘要\nCommunity edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.（817 stars，101 forks，许可 Apache-2.0）\n\n## 原始来源\n- [repoprompt/repoprompt-ce](https://github.com/repoprompt/repoprompt-ce)\n\n## 自动收集说明\n本文件只保存候选元数据、短摘要和原始链接。候选入选不代表事实、版权或市场价值已经确认。",
+        "visualDescription": "",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-01-fact-01",
+            "statement": "来源摘要将 repoprompt/repoprompt-ce 描述为 RepoPrompt 的社区版、面向 AI 编程代理的原生 macOS context engineering 应用，并带有 MCP CLI；摘要同时列出 817 stars、101 forks 和 Apache-2.0 许可。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 4,
+                "end": 4,
+                "lineStart": 4,
+                "lineEnd": 4,
+                "note": "候选摘要中的核心产品描述及数字、许可证信息。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-01-fact-02",
+            "statement": "来源提供的原始来源是 GitHub 仓库 repoprompt/repoprompt-ce。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 7,
+                "end": 7,
+                "lineStart": 7,
+                "lineEnd": 7,
+                "note": "原始来源链接。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 95
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-01-uncertainty-01",
+            "statement": "817 stars、101 forks、Apache-2.0 许可，以及“原生 macOS context engineering 应用”和“MCP CLI”等描述，当前只能证明为本文件记录的候选摘要内容；来源明确说明候选入选不代表事实已经确认，因此在进入脚本前需要核对 GitHub 原始仓库。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 10,
+                "end": 10,
+                "lineStart": 10,
+                "lineEnd": 10,
+                "note": "自动收集说明明确限制了本文件中候选元数据的确认状态。"
+              },
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 4,
+                "end": 4,
+                "lineStart": 4,
+                "lineEnd": 4,
+                "note": "817 stars、101 forks、Apache-2.0 及产品描述仅出现在候选摘要中。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-01-uncertainty-02",
+            "statement": "本来源没有提供真实产品界面、操作流程、用户实测或演示画面，不能据此证明产品的具体功能表现或使用体验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 10,
+                "end": 10,
+                "lineStart": 10,
+                "lineEnd": 10,
+                "note": "文件说明其内容范围仅包括候选元数据、短摘要和原始链接。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 78
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-02",
+      "label": "GitHub - repoprompt/repoprompt-ce: Community edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://github.com/repoprompt/repoprompt-ce",
+      "assetPath": "public/project-assets/2026-07-19-repoprompt-repoprompt-ce/primary-source-1784438940396.md",
+      "originalFileName": "primary-source.md",
+      "mimeType": "text/markdown",
+      "bytes": 6059,
+      "importedAt": "2026-07-19T05:29:00.396Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "本地研究摘录，仅用于事实核验；公开导出前复核原始网页使用边界。",
+      "contentHash": "639bde7691d7d77d13e9d0f6079a43241d824df5a7367b27f82c08707d39c2c1",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "639bde7691d7d77d13e9d0f6079a43241d824df5a7367b27f82c08707d39c2c1",
+        "startedAt": "2026-07-19T05:30:33.951Z",
+        "completedAt": "2026-07-19T05:31:27.307Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# GitHub - repoprompt/repoprompt-ce: Community edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.\n\nCommunity edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI. - repoprompt/repoprompt-ce\n\nRepoPrompt CE A free, open-source native macOS app and agent orchestrator for context engineering. RepoPrompt CE helps coding agents understand your codebase before they act. It assembles focused, reviewable context from files, CodeMaps, repository structure, and Git diffs, then hands that context to AI tools and CLI agents. RepoPrompt CE also builds an agent harness around its bundled MCP server. Connect MCP-compatible clients and CLI agents to search repositories, inspect files, curate context, run agent sessions, and orchestrate work through a shared native macOS interface. Get Started Choose one of these setup paths. You do not need to open Xcode. Install with Homebrew For the signed and notarized public app, use the dedicated RepoPrompt CE Homebrew tap: brew tap repoprompt/repoprompt-ce brew install --cask repoprompt-ce This installs /Applications/RepoPrompt CE.app from the repoprompt/homebrew-repoprompt-ce tap. The cask consumes the promoted public updater ZIP from repoprompt/repoprompt-ce-updates; it does not build from source. Source-build paths remain below for contributors and local development. Build and launch locally For development and quick evaluation, double-click Launch RepoPrompt CE.command in Finder. The launcher requires Python 3, builds RepoPrompt CE through the coordinated developer daemon, opens the debug app, and keeps a small terminal window available for rebuild, status, and stop controls. It does not provide an uncoordinated no-Python fallback because lifecycle actions validate the exact debug executable path. The debug launcher uses an available Apple Development: signing identity. If your Mac does not have one, run the same debug app from Terminal with explicit ad-hoc signing: ALLOW_ADHOC_SIGNING=1 ./conductor app relaunch Ad-hoc debug builds use in-memory secure storage, so saved API keys and secure permission changes do not persist across launches. For persistent debug Keychain storage, pass a stable Apple Development identity explicitly: SIGN_IDENTITY=\"Apple Development: Your Name (TEAMID)\" ./conductor app relaunch For a stable locally signed app under /Applications, use the local production installer below. Its self-signed identity is separate from the debug launcher's Apple Development signing path. Note: If you use the debug app to modify RepoPrompt CE itself, validation flows that launch the app or run live smoke checks may rebuild and relaunch it. Expect the debug app to restart while those checks run. Key Action r Rebuild and relaunch s Show app status x Stop the app q Close the launcher without stopping the app Install a local production build For a release-mode app under /Applications, install Python 3 and double-click Install RepoPrompt CE Local Production.command in Finder. The Finder launcher uses the coordinated developer daemon. The installer builds RepoPrompt CE from source and replaces any existing /Applications/RepoPrompt CE.app using a dedicated self-signed certificate trusted only on your Mac. macOS may ask you to approve the certificate. The resulting app is local-only. It is not notarized and should not be copied to another Mac or redistributed. Source-build requirements macOS 26 or later Xcode 26, or matching Command Line Tools with the macOS 26 SDK Develop in Xcode Generate and open the disposable contributor workspace with: make xcode In Xcode 26.3, use RepoPrompt CE App for the packaged debug app, RepoPrompt CE MCP for the coordinated MCP executable, and RepoPrompt CE Tests for tests. The test scheme delegates to conductor because RepoPromptMCP is an executable-only SwiftPM target. Xcode also exposes the native RepoPrompt and repoprompt-mcp product schemes. See docs/architecture/xcode-workspace.md for generation, validation, cleanup, and workflow boundaries. Release packaging is unchanged and does not use the generated workspace. Features Context engineering: Build dense, reviewable prompts with the files and repository details an AI model actually needs. Codebase orientation: Combine file trees, selected file contents, line slices, CodeMaps, and Git diffs. Context Builder: Let an agent explore the repository, identify relevant files, and curate context within a token budget. Long-running MCP calls expose request-scoped progress when the client supplies a progress token. Agent orchestration: Run and coordinate CLI-backed coding agents from the native macOS app. See docs/worktrees.md for app-managed worktrees and .worktreeinclude local file copying. MCP server and CLI integration: Connect external MCP-compatible tools and CLI agents to RepoPrompt CE's repository context and agent harness. Multi-root workspaces: Work across related repositories, packages, and documentation folders in one workspace. Reviewable handoffs: Inspect and refine selected context before sending it to another model or agent. About the Community Edition RepoPrompt CE is the free, open-source community edition of RepoPrompt. It is a native macOS workspace for context engineering, agent orchestration, and local development. Maintainers track release signing, Sparkle metadata, dependency pins, and third-party notices in docs/open-source-readiness.md. Contributor Documentation AGENTS.md: coordinated builds, tests, launches, live MCP checks, source placement, and contribution preflight CONTRIBUTING.md: contribution policy and pull request steps docs/architecture/source-layout.md: source ownership and placement rules docs/architecture/provider-plugins.md: Agent Mode provider architecture docs/architecture/xcode-workspace.md: generated Xcode developer workflow and boundaries docs/releasing.md: release-candidate and publishing workflows docs/open-source-readiness.md: public readiness inventory License RepoPrompt CE is licensed under Apache-2.0.\n",
+        "visualDescription": "",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-02-fact-01",
+            "statement": "RepoPrompt CE 是 RepoPrompt 的免费、开源社区版，是面向 context engineering 的原生 macOS 应用和 agent orchestrator，并带有 MCP CLI。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "来源第 5 行明确描述项目定位、平台、开源属性及 MCP CLI。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-02-fact-02",
+            "statement": "RepoPrompt CE 的目标之一是帮助 coding agents 在行动前理解代码库。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "来源第 5 行描述其在 coding agents 执行前帮助其理解代码库。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 98
+          },
+          {
+            "id": "source-02-fact-03",
+            "statement": "它可以从文件、CodeMaps、仓库结构和 Git diffs 组装聚焦且可审查的上下文，再交给 AI 工具和 CLI agents。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "来源第 5 行列出 files、CodeMaps、repository structure 和 Git diffs，并说明这些内容会交给 AI tools 和 CLI agents。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 96
+          },
+          {
+            "id": "source-02-fact-04",
+            "statement": "通过内置 MCP server，MCP 兼容客户端和 CLI agents 可以搜索仓库、检查文件、整理上下文、运行 agent sessions，并通过共享的原生 macOS 界面协调工作。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "来源第 5 行列出 MCP-compatible clients 和 CLI agents 可进行的操作。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 92
+          },
+          {
+            "id": "source-02-fact-05",
+            "statement": "Context Builder 支持让 agent 探索仓库、识别相关文件，并在 token budget 内整理上下文；发送给其他模型或 agent 前可以检查和优化所选上下文。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "来源第 5 行的 Features 部分描述 Context Builder、token budget 和 reviewable handoffs。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 90
+          },
+          {
+            "id": "source-02-fact-06",
+            "statement": "项目支持多根工作区、从原生 macOS 应用运行和协调 CLI-backed coding agents，以及连接外部 MCP-compatible tools 和 CLI agents。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "来源第 5 行的 Features 部分描述多根工作区、agent orchestration 和 MCP 集成。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 84
+          },
+          {
+            "id": "source-02-fact-07",
+            "statement": "RepoPrompt CE 使用 Apache-2.0 许可证。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "来源第 5 行明确写出许可证为 Apache-2.0。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 82
+          },
+          {
+            "id": "source-02-fact-08",
+            "statement": "来源提供了通过专用 Homebrew tap 安装公开应用的路径，并称该公开应用已签名和 notarized。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "来源第 5 行说明可通过专用 Homebrew tap 安装签名且 notarized 的 public app。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 70
+          },
+          {
+            "id": "source-02-fact-09",
+            "statement": "来源是 Markdown 文本，不包含可用于视频画面还原的真实产品截图或界面布局信息。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "文本来源未提供可核验的界面截图、颜色、布局或按钮位置；仅出现命令、文件路径和按键字符。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 30
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-02-uncertainty-01",
+            "statement": "无法由本来源证明项目当前拥有 817 stars 和 101 forks；脚本中不应将这两个数字作为已核验事实。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "Creative Brief 声称 817 stars 和 101 forks，但来源第 5 行正文未出现这两个数字。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-02-uncertainty-02",
+            "statement": "来源只能证明官方文档对功能的描述，不能证明真实用户实测效果、效率提升、稳定性或具体任务成功率；视频中若展示功能，不应表述为用户实测结论。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "来源第 5 行描述产品能力和安装说明，但没有提供实际操作录屏、用户任务结果或性能数据。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 95
+          },
+          {
+            "id": "source-02-uncertainty-03",
+            "statement": "来源未提供版本号、发布日期或这些安装路径在当前环境中的可用性验证；安装演示的具体状态仍需人工核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "来源第 5 行同时描述公开 notarized 安装和本地 production/debug 构建，但未提供当前版本号或发布日期。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 72
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-03",
+      "label": "命题相关网页素材 1",
+      "sourceType": "image",
+      "materialRole": "official_demo",
+      "originUrl": "https://opengraph.githubassets.com/d5f0796129edbb15390435feb1e41fb939b8c7cff3454e74ae7f0b8aa066c075/repoprompt/repoprompt-ce",
+      "assetPath": "public/project-assets/2026-07-19-repoprompt-repoprompt-ce/topic-media-1-1784438941962.png",
+      "originalFileName": "topic-media-1.png",
+      "mimeType": "image/png",
+      "bytes": 64353,
+      "importedAt": "2026-07-19T05:29:01.962Z",
+      "publishedAt": "",
+      "verificationStatus": "needs_check",
+      "rightsStatus": "review_required",
+      "rightsNote": "自动发现的第三方网页素材，仅用于本地候选成片；发布前必须确认使用权。",
+      "contentHash": "5c5bb71194196ecb96c656c85aa3718a9ccf14efe9fac1885a48f665a391be38",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "5c5bb71194196ecb96c656c85aa3718a9ccf14efe9fac1885a48f665a391be38",
+        "startedAt": "2026-07-19T05:31:27.308Z",
+        "completedAt": "2026-07-19T05:31:53.329Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "repoprompt/\nrepoprompt-ce\nCommunity edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.\n29 Contributors\n103 Issues\n817 Stars\n101 Forks",
+        "visualDescription": "一张 1200x600 的浅色项目介绍图。左上至中部以大号深色文字显示“repoprompt/”和加粗的“repoprompt-ce”，下方是多行灰色英文项目描述。描述下方横向排列 Contributors、Issues、Stars、Forks 四项统计及对应图标，右上有带浅米色背景的项目图标，右下有 GitHub 图标。底部有红橙色、深灰色和绿色等横向色带。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-03-fact-01",
+            "statement": "图片将 repoprompt-ce 描述为 RepoPrompt 的社区版：一个面向 AI coding agents 的原生 macOS context engineering app，并带有 MCP CLI。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "图片左上至中部可见项目名称与描述文字；项目名位于约 x=80-680、y=100-260，描述位于约 x=80-830、y=310-440。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-03-fact-02",
+            "statement": "图片显示该项目有 817 Stars。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "图片下方统计区域可见“817 Stars”。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-03-fact-03",
+            "statement": "图片显示该项目有 101 Forks。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "图片下方统计区域可见“101 Forks”。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 98
+          },
+          {
+            "id": "source-03-fact-04",
+            "statement": "图片显示该项目有 29 Contributors 和 103 Issues。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "图片下方统计区域可见“29 Contributors”和“103 Issues”。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 70
+          },
+          {
+            "id": "source-03-fact-05",
+            "statement": "画面是一个浅色项目介绍页，采用左侧文字信息、右上项目图标和底部统计/装饰色带的布局。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "1200x600 图片中，左侧为项目名称、描述和统计信息；右上为项目图标；底部有横向色带；右下有 GitHub 图标。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 35
+          },
+          {
+            "id": "source-03-fact-06",
+            "statement": "图片右上显示由多个重叠方形和圆环构成的项目图标，右下显示 GitHub 图标。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "右上区域约 x=920-1120、y=80-280 可见重叠方形图标；右下约 x=1070-1120、y=465-515 可见 GitHub 标识。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 30
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-03-uncertainty-01",
+            "statement": "图片无法证明项目使用 Apache-2.0 许可证，因此不能仅依据本来源在脚本中确认该许可证。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "图片可见项目描述和部分 GitHub 统计，但未显示许可证信息。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-03-uncertainty-02",
+            "statement": "图片无法证明该应用的具体功能、实际工作流效果或用户实测结果；不能将该介绍页描述为功能演示或用户验证。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "图片只呈现项目标题、描述和仓库统计，没有功能操作画面或用户任务过程。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 95
+          },
+          {
+            "id": "source-03-uncertainty-03",
+            "statement": "817 Stars、101 Forks、29 Contributors 和 103 Issues 的统计时间点无法由图片确定；这些数字不应被表述为当前实时数据。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "统计数字出现在单张图片中，图片未提供抓取时间或统计页面上下文。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 85
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-04",
+      "label": "repoprompt/repoprompt-ce README",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://raw.githubusercontent.com/repoprompt/repoprompt-ce/HEAD/README.md",
+      "assetPath": "public/project-assets/2026-07-19-repoprompt-repoprompt-ce/github-readme-1784439293242.md",
+      "originalFileName": "github-readme.md",
+      "mimeType": "text/markdown",
+      "bytes": 7170,
+      "importedAt": "2026-07-19T05:34:53.243Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "GitHub README 本地研究副本；仓库许可不自动覆盖全部嵌入媒体，发布前逐项复核。",
+      "contentHash": "cd1d60e9b9a145f646c65152cd1e3b18a2c316bb7675e0f55e6b51743492c53d",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "cd1d60e9b9a145f646c65152cd1e3b18a2c316bb7675e0f55e6b51743492c53d",
+        "startedAt": "2026-07-19T05:37:43.870Z",
+        "completedAt": "2026-07-19T05:38:22.333Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# RepoPrompt CE\n\n[![CI](https://github.com/repoprompt/repoprompt-ce/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/repoprompt/repoprompt-ce/actions/workflows/ci.yml?query=branch%3Amain)\n[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)\n![Platform: macOS 26+](https://img.shields.io/badge/platform-macOS%2026%2B-black)\n\n**A free, open-source native macOS app and agent orchestrator for context engineering.**\n\nRepoPrompt CE helps coding agents understand your codebase before they act. It\nassembles focused, reviewable context from files, CodeMaps, repository\nstructure, and Git diffs, then hands that context to AI tools and CLI agents.\n\nRepoPrompt CE also builds an agent harness around its bundled MCP server.\nConnect MCP-compatible clients and CLI agents to search repositories, inspect\nfiles, curate context, run agent sessions, and orchestrate work through a shared\nnative macOS interface.\n\n## Get Started\n\nChoose one of these setup paths. You do not need to open Xcode.\n\n### Install with Homebrew\n\nFor the signed and notarized public app, use the dedicated RepoPrompt CE\nHomebrew tap:\n\n```bash\nbrew tap repoprompt/repoprompt-ce\nbrew install --cask repoprompt-ce\n```\n\nThis installs `/Applications/RepoPrompt CE.app` from the\n[`repoprompt/homebrew-repoprompt-ce`](https://github.com/repoprompt/homebrew-repoprompt-ce)\ntap. The cask consumes the promoted public updater ZIP from\n[`repoprompt/repoprompt-ce-updates`](https://github.com/repoprompt/repoprompt-ce-updates);\nit does not build from source. Source-build paths remain below for contributors\nand local development.\n\n### Build and launch locally\n\nFor development and quick evaluation, double-click\n[`Launch RepoPrompt CE.command`](Launch%20RepoPrompt%20CE.command) in Finder.\n\nThe launcher requires Python 3, builds RepoPrompt CE through the coordinated\ndeveloper daemon, opens the debug app, and keeps a small terminal window\navailable for rebuild, status, and stop controls. It does not provide an\nuncoordinated no-Python fallback because lifecycle actions validate the exact\ndebug executable path.\n\nThe debug launcher uses an available `Apple Development:` signing identity. If\nyour Mac does not have one, run the same debug app from Terminal with explicit\nad-hoc signing:\n\n```bash\nALLOW_ADHOC_SIGNING=1 ./conductor app relaunch\n```\n\nAd-hoc debug builds use in-memory secure storage, so saved API keys and secure\npermission changes do not persist across launches. For persistent debug\nKeychain storage, pass a stable Apple Development identity explicitly:\n\n```bash\nSIGN_IDENTITY=\"Apple Development: Your Name (TEAMID)\" ./conductor app relaunch\n```\n\nFor a stable locally signed app under `/Applications`, use the local production\ninstaller below. Its self-signed identity is separate from the debug launcher's\nApple Development signing path.\n\n> **Note:** If you use the debug app to modify RepoPrompt CE itself, validation\n> flows that launch the app or run live smoke checks may rebuild and relaunch it.\n> Expect the debug app to restart while those checks run.\n\n| Key | Action                                      |\n| --- | ------------------------------------------- |\n| `r` | Rebuild and relaunch                        |\n| `s` | Show app status                             |\n| `x` | Stop the app                                |\n| `q` | Close the launcher without stopping the app |\n\n### Install a local production build\n\nFor a release-mode app under `/Applications`, install Python 3 and double-click\n[`Install RepoPrompt CE Local Production.command`](Install%20RepoPrompt%20CE%20Local%20Production.command)\nin Finder. The Finder launcher uses the coordinated developer daemon.\n\nThe installer builds RepoPrompt CE from source and replaces any existing\n`/Applications/RepoPrompt CE.app` using a dedicated self-signed certificate\ntrusted only on your Mac. macOS may ask you to approve the certificate.\n\nThe resulting app is local-only. It is not notarized and should not be copied to\nanother Mac or redistributed.\n\n### Source-build requirements\n\n- macOS 26 or later\n- Xcode 26, or matching Command Line Tools with the macOS 26 SDK\n\n### Develop in Xcode\n\nGenerate and open the disposable contributor workspace with:\n\n```bash\nmake xcode\n```\n\nIn Xcode 26.3, use `RepoPrompt CE App` for the packaged debug app,\n`RepoPrompt CE MCP` for the coordinated MCP executable, and `RepoPrompt CE\nTests` for tests. The test scheme delegates to conductor because\n`RepoPromptMCP` is an executable-only SwiftPM target. Xcode also exposes the\nnative `RepoPrompt` and `repoprompt-mcp` product schemes.\n\nSee [`docs/architecture/xcode-workspace.md`](docs/architecture/xcode-workspace.md)\nfor generation, validation, cleanup, and workflow boundaries. Release packaging\nis unchanged and does not use the generated workspace.\n\n## Features\n\n- **Context engineering**: Build dense, reviewable prompts with the files and\n  repository details an AI model actually needs.\n- **Codebase orientation**: Combine file trees, selected file contents, line\n  slices, CodeMaps, and Git diffs.\n- **Context Builder**: Let an agent explore the repository, identify relevant\n  files, and curate context within a token budget. Long-running MCP calls expose\n  [request-scoped progress](docs/mcp-progress.md) when the client supplies a\n  progress token.\n- **Agent orchestration**: Run and coordinate CLI-backed coding agents from the\n  native macOS app. See [`docs/worktrees.md`](docs/worktrees.md) for app-managed\n  worktrees and `.worktreeinclude` local file copying.\n- **MCP server and CLI integration**: Connect external MCP-compatible tools and\n  CLI agents to RepoPrompt CE's repository context and agent harness.\n- **Multi-root workspaces**: Work across related repositories, packages, and\n  documentation folders in one workspace.\n- **Reviewable handoffs**: Inspect and refine selected context before sending it\n  to another model or agent.\n\n## About the Community Edition\n\nRepoPrompt CE is the free, open-source community edition of RepoPrompt. It is a\nnative macOS workspace for context engineering, agent orchestration, and local\ndevelopment.\n\nMaintainers track release signing, Sparkle metadata, dependency pins, and\nthird-party notices in\n[`docs/open-source-readiness.md`](docs/open-source-readiness.md).\n\n## Contributor Documentation\n\n- [`AGENTS.md`](AGENTS.md): coordinated builds, tests, launches, live MCP\n  checks, source placement, and contribution preflight\n- [`CONTRIBUTING.md`](CONTRIBUTING.md): contribution policy and pull request\n  steps\n- [`docs/architecture/source-layout.md`](docs/architecture/source-layout.md):\n  source ownership and placement rules\n- [`docs/architecture/provider-plugins.md`](docs/architecture/provider-plugins.md):\n  Agent Mode provider architecture\n- [`docs/architecture/xcode-workspace.md`](docs/architecture/xcode-workspace.md):\n  generated Xcode developer workflow and boundaries\n- [`docs/releasing.md`](docs/releasing.md): release-candidate and publishing\n  workflows\n- [`docs/open-source-readiness.md`](docs/open-source-readiness.md): public\n  readiness inventory\n\n## License\n\nRepoPrompt CE is licensed under [Apache-2.0](LICENSE).\n",
+        "visualDescription": "",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-04-fact-01",
+            "statement": "RepoPrompt CE 是一个免费的开源原生 macOS 应用和 agent orchestrator，面向 context engineering；它帮助 coding agents 在行动前理解代码库，并组装来自文件、CodeMaps、仓库结构和 Git diff 的聚焦、可审查上下文，交给 AI 工具和 CLI agents。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "line",
+                "start": 7,
+                "end": 11,
+                "lineStart": 7,
+                "lineEnd": 11,
+                "note": "README 明确将 RepoPrompt CE 描述为免费、开源的原生 macOS 应用和 agent orchestrator，并说明其通过文件、CodeMaps、仓库结构和 Git diff 组装可审查上下文，交给 AI 工具和 CLI agents。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 98
+          },
+          {
+            "id": "source-04-fact-02",
+            "statement": "RepoPrompt CE 围绕其 bundled MCP server 构建 agent harness，可连接 MCP-compatible clients 和 CLI agents，用于搜索仓库、检查文件、整理上下文、运行 agent sessions，并通过共享的原生 macOS 界面编排工作。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "line",
+                "start": 13,
+                "end": 16,
+                "lineStart": 13,
+                "lineEnd": 16,
+                "note": "README 说明 bundled MCP server、MCP-compatible clients、CLI agents，以及搜索仓库、检查文件、整理上下文、运行 agent sessions 和编排工作的能力。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 97
+          },
+          {
+            "id": "source-04-fact-03",
+            "statement": "README 列出的核心能力包括：构建包含必要文件和仓库细节的密集且可审查 prompt；组合文件树、选中文件内容、行切片、CodeMaps 和 Git diff；在 token budget 内探索并整理上下文；运行和协调 CLI-backed coding agents；连接外部 MCP-compatible tools 和 CLI agents；支持 multi-root workspaces；以及在交给其他模型或 agent 前检查和细化上下文。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "line",
+                "start": 119,
+                "end": 136,
+                "lineStart": 119,
+                "lineEnd": 136,
+                "note": "Features 部分列出 Context Builder、代码库定位、token budget、agent orchestration、MCP/CLI integration、multi-root workspaces 和 reviewable handoffs。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 94
+          },
+          {
+            "id": "source-04-fact-04",
+            "statement": "README 提供了通过专用 Homebrew tap 安装签名并公证的公开应用的路径；该 cask 安装的是公开 updater ZIP，而不是从源码构建。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "line",
+                "start": 22,
+                "end": 36,
+                "lineStart": 22,
+                "lineEnd": 36,
+                "note": "安装说明写明可通过专用 Homebrew tap 安装 signed and notarized public app，且 cask 使用 public updater ZIP，不从源码构建。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 88
+          },
+          {
+            "id": "source-04-fact-05",
+            "statement": "源码构建要求 macOS 26 或更高版本，以及 Xcode 26，或带有 macOS 26 SDK 的匹配 Command Line Tools。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "line",
+                "start": 81,
+                "end": 97,
+                "lineStart": 81,
+                "lineEnd": 97,
+                "note": "README 区分 local production build 与 source-build requirements，并列出 macOS 26 或更高版本、Xcode 26 或匹配的 Command Line Tools 与 macOS 26 SDK。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 84
+          },
+          {
+            "id": "source-04-fact-06",
+            "statement": "RepoPrompt CE 是 RepoPrompt 的免费开源 Community Edition，是用于 context engineering、agent orchestration 和本地开发的原生 macOS workspace；README 明确其采用 Apache-2.0 许可证。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "line",
+                "start": 137,
+                "end": 166,
+                "lineStart": 137,
+                "lineEnd": 166,
+                "note": "README 将其定位为 RepoPrompt 的免费开源 Community Edition，并在 License 部分明确 Apache-2.0。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 79
+          },
+          {
+            "id": "source-04-fact-07",
+            "statement": "README 顶部可见 CI 徽章、Apache 2.0 许可证徽章和 macOS 26+ 平台徽章。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "line",
+                "start": 3,
+                "end": 5,
+                "lineStart": 3,
+                "lineEnd": 5,
+                "note": "README 顶部可见 CI、Apache 2.0 和 macOS 26+ 徽章。徽章属于 README 中的可见界面/文本元素。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 72
+          },
+          {
+            "id": "source-04-fact-08",
+            "statement": "README 以 Features 标题和项目符号列表组织功能信息。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "line",
+                "start": 117,
+                "end": 136,
+                "lineStart": 117,
+                "lineEnd": 136,
+                "note": "README 的 Features 区域使用项目符号列表呈现功能分类，包括 Context engineering、Codebase orientation、Context Builder 等。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 68
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-04-uncertainty-01",
+            "statement": "Creative Brief 中的“817 stars，101 forks”无法由 source-04 证明，不能在视频中作为当前项目数据呈现；需要另外核验 GitHub 页面或移除该数字。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "line",
+                "start": 1,
+                "end": 166,
+                "lineStart": 1,
+                "lineEnd": 166,
+                "note": "给定 README 全文中未出现 GitHub stars 或 forks 数字；来源仅展示项目说明、功能、安装、文档和许可证信息。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-04-uncertainty-02",
+            "statement": "source-04 只提供官方 README 的产品自述，不能证明真实用户任务中的效果、效率提升、稳定性或实际使用体验；脚本不能把这些官方描述改写成用户实测结论。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "line",
+                "start": 7,
+                "end": 11,
+                "lineStart": 7,
+                "lineEnd": 11,
+                "note": "README 证明的是产品定位和功能描述，没有提供用户实测、性能、效果提升或具体任务结果。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 96
+          },
+          {
+            "id": "source-04-uncertainty-03",
+            "statement": "除 README 徽章显示的 macOS 26+ 外，source-04 没有证明其他 macOS 版本或其他操作系统的兼容性，因此不能据此推断跨平台支持。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "line",
+                "start": 5,
+                "end": 5,
+                "lineStart": 5,
+                "lineEnd": 5,
+                "note": "README 徽章标注 macOS 26+，但给定内容没有提供兼容性测试范围或其他操作系统支持情况。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 86
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-05",
+      "label": "一手来源页面截图 1",
+      "sourceType": "image",
+      "materialRole": "evidence",
+      "originUrl": "https://github.com/repoprompt/repoprompt-ce#videobrief-capture-1",
+      "assetPath": "public/project-assets/2026-07-19-repoprompt-repoprompt-ce/source-page-1-1784439438328.png",
+      "originalFileName": "source-page-1.png",
+      "mimeType": "image/png",
+      "bytes": 235674,
+      "importedAt": "2026-07-19T05:37:18.328Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "VideoBrief 对一手来源页面的本地截图，仅用于证据化候选成片；公开发布前复核引用必要性和页面素材权利。",
+      "contentHash": "b9c34edd08ea6cf1414c0f493e890e271306d0b6e13f8605af034b4fb0775887",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "b9c34edd08ea6cf1414c0f493e890e271306d0b6e13f8605af034b4fb0775887",
+        "startedAt": "2026-07-19T05:38:22.336Z",
+        "completedAt": "2026-07-19T05:39:05.460Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "GitHub 仓库页面可见文字：\n- repoprompt / repoprompt-ce\n- Public\n- Notifications\n- Fork 101\n- Star 817\n- Code\n- Issues 103\n- Pull requests 66\n- Actions\n- Projects\n- Security and quality\n- Insights\n- main\n- 228 Branches\n- 29 Tags\n- 997 Commits\n- About\n- Community edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.\n- repoprompt.com\n- macos\n- swift\n- mcp\n- developer-tools\n- ai-agents\n- prompt-engineering\n- coding-agents\n- model-context-protocol\n- context-engineering\n- Readme\n- Apache-2.0 license\n- Contributing\n- Security policy\n- Activity\n- Custom properties\n- 817 stars\n- 7 watching\n- 101 forks\n- Releases 25\n- RepoPrompt CE 1.0.29\n- Latest\n- Packages\n- No packages published\n- Contributors 29\n- + 15 contributors\n- Languages: Swift 85.9%, C 9.1%, Python 4.2%, Shell 0.7%, C++ 0.1%, Makefile 0.0%\n- RepoPrompt CE\n- CI passing\n- License Apache 2.0\n- platform macOS 26+\n- A free, open-source native macOS app and agent orchestrator for context engineering.\n- RepoPrompt CE helps coding agents understand your codebase before they act. It assembles focused, reviewable context from files, CodeMaps, repository structure, and Git diffs, then hands that context to AI tools and CLI agents.",
+        "visualDescription": "一张约 9:16 的纵向 GitHub 页面截图。顶部是深色 GitHub 全局导航栏；主体显示公开仓库 repoprompt/repoprompt-ce 的代码页。左侧为分支、标签、提交数和文件列表，右侧为 About、项目标签、许可证、stars/forks、release、贡献者和语言统计。底部开始显示 README，标题为 RepoPrompt CE，并可见 CI、Apache 2.0、macOS 26+ 徽章及项目简介。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-05-fact-01",
+            "statement": "截图中的 GitHub About 区域将 repoprompt-ce 描述为 RepoPrompt 的社区版：原生 macOS context engineering 应用，面向 AI coding agents，并带有 MCP CLI。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "截图右侧 About 区域的完整描述文字。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-05-fact-02",
+            "statement": "截图显示该仓库有 817 stars 和 101 forks。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "截图右上方仓库操作区显示 Fork 101 和 Star 817；右侧 About 区域也重复显示 817 stars、101 forks。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 96
+          },
+          {
+            "id": "source-05-fact-03",
+            "statement": "截图显示该项目使用 Apache-2.0 许可。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "截图右侧 About 区域显示 Apache-2.0 license；README 标题下方徽章显示 License Apache 2.0。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 93
+          },
+          {
+            "id": "source-05-fact-04",
+            "statement": "README 可见文字将 RepoPrompt CE 描述为免费的、开源的原生 macOS 应用和面向 context engineering 的 agent orchestrator。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "截图下方 README 可见项目简介文字。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 88
+          },
+          {
+            "id": "source-05-fact-05",
+            "statement": "README 可见文字称，RepoPrompt CE 帮助 coding agents 在行动前理解代码库；它从文件、CodeMaps、仓库结构和 Git diffs 组装 focused、reviewable context，再交给 AI tools 和 CLI agents。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "截图下方 README 可见段落，描述其从文件、CodeMaps、仓库结构和 Git diff 组装 focused、reviewable context，并交给 AI tools 和 CLI agents。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 86
+          },
+          {
+            "id": "source-05-fact-06",
+            "statement": "截图显示仓库语言占比为：Swift 85.9%、C 9.1%、Python 4.2%、Shell 0.7%、C++ 0.1%、Makefile 0.0%。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "截图右侧 Languages 区域显示语言占比。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 72
+          },
+          {
+            "id": "source-05-fact-07",
+            "statement": "截图页面状态显示：Issues 103、Pull requests 66、228 Branches、29 Tags、997 Commits。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "截图顶部仓库导航和右侧 About 区域显示 Issues 103、Pull requests 66、228 Branches、29 Tags、997 Commits。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 54
+          },
+          {
+            "id": "source-05-fact-08",
+            "statement": "截图页面状态显示有 25 个 releases，当前可见最新发布项为 RepoPrompt CE 1.0.29。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "截图右侧 Releases 区域显示 Releases 25，并列出 RepoPrompt CE 1.0.29 和 Latest。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 40
+          },
+          {
+            "id": "source-05-fact-09",
+            "statement": "来源是一张纵向 GitHub 仓库页面截图，包含深色顶栏、仓库导航、代码文件列表、右侧 About/统计区域和下方 README 内容。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "整张截图。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 25
+          },
+          {
+            "id": "source-05-fact-10",
+            "statement": "代码列表中可见 .agents/skills、.github、AppBundle、AppResources、Packages/RepoPromptAgentPro...、Scripts、Sources、Tests、ThirdPartyLicenses、Vendor、docs 等目录或文件项。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "截图中部左侧代码列表区域。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 22
+          },
+          {
+            "id": "source-05-fact-11",
+            "statement": "About 区域可见 repoprompt.com 链接，以及 macos、swift、mcp、developer-tools、ai-agents、prompt-engineering、coding-agents、model-context-protocol、context-engineering 等标签。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "截图右侧 About 区域的标签和链接。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 18
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-05-uncertainty-01",
+            "statement": "817 stars 和 101 forks 是截图时页面显示的仓库统计，来源未证明这些数字在当前时刻仍然不变。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "截图右上角及右侧 About 统计区域；这是截图时页面显示的数值。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 96
+          },
+          {
+            "id": "source-05-uncertainty-02",
+            "statement": "关于应用能力、工作方式以及“免费”“开源”等描述来自仓库 About/README 自述；该截图没有证明用户实际使用效果，也没有证明这些描述之外的性能或结果。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "截图下方 README 简介区域；可见的是项目自述文字。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 82
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-06",
+      "label": "一手来源页面截图 2",
+      "sourceType": "image",
+      "materialRole": "evidence",
+      "originUrl": "https://github.com/repoprompt/repoprompt-ce#videobrief-capture-2",
+      "assetPath": "public/project-assets/2026-07-19-repoprompt-repoprompt-ce/source-page-2-1784439438680.png",
+      "originalFileName": "source-page-2.png",
+      "mimeType": "image/png",
+      "bytes": 323284,
+      "importedAt": "2026-07-19T05:37:18.680Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "VideoBrief 对一手来源页面的本地截图，仅用于证据化候选成片；公开发布前复核引用必要性和页面素材权利。",
+      "contentHash": "45a52cedb72bd24ff31991edf62c0c3e1a933fda400d8376d8ee05db7bcd2882",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "45a52cedb72bd24ff31991edf62c0c3e1a933fda400d8376d8ee05db7bcd2882",
+        "startedAt": "2026-07-19T05:39:05.464Z",
+        "completedAt": "2026-07-19T05:39:46.754Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "README\nContributing\nApache-2.0 license\nSecurity\nRepoPrompt CE\nCI passing\nLicense Apache 2.0\nplatform macOS 26+\nA free, open-source native macOS app and agent orchestrator for context engineering.\nRepoPrompt CE helps coding agents understand your codebase before they act. It assembles focused, reviewable context from files, CodeMaps, repository structure, and Git diffs, then hands that context to AI tools and CLI agents.\nRepoPrompt CE also builds an agent harness around its bundled MCP server. Connect MCP-compatible clients and CLI agents to search repositories, inspect files, curate context, run agent sessions, and orchestrate work through a shared native macOS interface.\nGet Started\nChoose one of these setup paths. You do not need to open Xcode.\nInstall with Homebrew\nFor the signed and notarized public app, use the dedicated RepoPrompt CE Homebrew tap:\nbrew tap repoprompt/repoprompt-ce\nbrew install --cask repoprompt-ce\nThis installs /Applications/RepoPrompt CE.app from the repoprompt/homebrew-repoprompt-ce tap. The cask consumes the promoted public updater ZIP from repoprompt/repoprompt-ce-updates; it does not build from source. Source-build paths remain below for contributors and local development.\nBuild and launch locally\nFor development and quick evaluation, double-click Launch RepoPrompt CE.command in Finder.\nThe launcher requires Python 3, builds RepoPrompt CE through the coordinated developer daemon, opens the debug app, and keeps a small terminal window available for rebuild, status, and stop controls. It does not provide an uncoordinated no-Python fallback because lifecycle actions validate the exact debug executable path.\nThe debug launcher uses an available Apple Development signing identity. If your Mac does not have one, run the same debug app from Terminal with explicit ad-hoc signing:\nALLOW_ADHOC_SIGNING=1 ./conductor app relaunch\nAd-hoc debug builds use in-memory secure storage, so saved API keys and secure permission changes do not persist across launches. For persistent debug Keychain storage, pass a stable Apple Development identity explicitly:\nSIGN_IDENTITY=\"Apple Development: Your Name (TEAMID)\" ./conductor app relaunch\nFor a stable locally signed app under /Applications, use the local production installer below. Its self-signed identity is separate from the debug launcher's Apple Development signing path.\nNote: If you use the debug app to modify RepoPrompt CE itself, validation flows that launch the app or run live smoke checks may rebuild and relaunch it. Expect the debug app to restart while those checks run.\nKey Action\nr Rebuild and relaunch\ns Show app status",
+        "visualDescription": "竖向 GitHub 页面截图，顶部可见仓库文件列表的下半部分，下面是 RepoPrompt CE 的 README 内容。README 标题旁有 CI passing、Apache 2.0 和 macOS 26+ 徽章。正文先介绍产品定位和代码库上下文整理能力，再介绍内置 MCP server、MCP-compatible clients、CLI agents 及共享原生 macOS 界面。下半部分显示 Get Started、Homebrew 安装命令、本地构建启动说明、Python 3 和签名相关说明，以及底部的快捷键操作表。整体为白色背景、深色文字、浅灰分隔线，代码使用浅灰代码块呈现。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-06-fact-01",
+            "statement": "截图中的 README 将 RepoPrompt CE 描述为免费的、开源的原生 macOS 应用和 agent orchestrator，用于 context engineering。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "截图中部 README 标题下方的产品简介文字区域。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-06-fact-02",
+            "statement": "截图文字称，RepoPrompt CE 会在 coding agents 执行前帮助它们理解代码库，并从文件、CodeMaps、仓库结构和 Git diffs 组装聚焦且可审查的上下文，再交给 AI 工具和 CLI agents。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "截图中部 README 的第一段产品说明区域。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 98
+          },
+          {
+            "id": "source-06-fact-03",
+            "statement": "截图文字称，RepoPrompt CE 围绕其内置 MCP server 构建 agent harness，可连接兼容 MCP 的客户端和 CLI agents，用于搜索仓库、检查文件、整理上下文、运行 agent sessions，并通过共享的原生 macOS 界面编排工作。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "截图中部 README 的第二段产品说明区域。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 98
+          },
+          {
+            "id": "source-06-fact-04",
+            "statement": "截图顶部徽章显示许可证为 Apache 2.0。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "截图顶部 README 徽章区域，显示 License Apache 2.0。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 85
+          },
+          {
+            "id": "source-06-fact-05",
+            "statement": "截图顶部徽章显示平台为 macOS 26+。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "截图顶部 README 徽章区域，显示 platform macOS 26+。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 82
+          },
+          {
+            "id": "source-06-fact-06",
+            "statement": "截图中的安装说明提供了 Homebrew 安装路径，并展示命令 brew tap repoprompt/repoprompt-ce 和 brew install --cask repoprompt-ce。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "截图下半部 Get Started、Install with Homebrew 和 Build and launch locally 区域。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 78
+          },
+          {
+            "id": "source-06-fact-07",
+            "statement": "截图文字称，本地开发启动器需要 Python 3，通过协调的 developer daemon 构建应用，打开 debug app，并保留终端窗口提供 rebuild、status 和 stop 控制。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "截图下半部 Build and launch locally 区域。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 65
+          },
+          {
+            "id": "source-06-fact-08",
+            "statement": "截图底部快捷键表显示：r 对应 Rebuild and relaunch，s 对应 Show app status。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "截图底部说明和表格区域。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "reference",
+            "briefRelevance": 45
+          },
+          {
+            "id": "source-06-fact-09",
+            "statement": "画面是 GitHub 仓库 README 页面截图；可见 README、Contributing、Apache-2.0 license、Security 等导航标签，以及代码块、徽章和底部快捷键表。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "整张截图：GitHub 仓库页面的 README 标签处于选中状态，页面采用白底、黑色正文、灰色分隔线和代码块。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 35
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-06-uncertainty-01",
+            "statement": "截图无法证明 Creative Brief 中的 817 stars 和 101 forks；这些数字不应仅依据本图写入脚本。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "截图仅展示 README 局部内容；仓库统计信息区域未出现在可见画面中。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-06-uncertainty-02",
+            "statement": "截图无法证明任何实际用户测评、真实任务效果、性能表现或使用成功率；README 中的功能描述不能表述为用户实测。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "截图展示的是 README 文本和安装说明，没有应用运行过程、任务结果或用户操作记录。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 95
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-07",
+      "label": "一手来源页面截图 3",
+      "sourceType": "image",
+      "materialRole": "evidence",
+      "originUrl": "https://github.com/repoprompt/repoprompt-ce#videobrief-capture-3",
+      "assetPath": "public/project-assets/2026-07-19-repoprompt-repoprompt-ce/source-page-3-1784439439027.png",
+      "originalFileName": "source-page-3.png",
+      "mimeType": "image/png",
+      "bytes": 353781,
+      "importedAt": "2026-07-19T05:37:19.027Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "VideoBrief 对一手来源页面的本地截图，仅用于证据化候选成片；公开发布前复核引用必要性和页面素材权利。",
+      "contentHash": "3d5c35a5018afd545f6f290f18dbfd3dc9247fd9eb994a23bf49748bba7cc9a3",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "3d5c35a5018afd545f6f290f18dbfd3dc9247fd9eb994a23bf49748bba7cc9a3",
+        "startedAt": "2026-07-19T05:39:46.759Z",
+        "completedAt": "2026-07-19T05:40:34.778Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "README\nContributing\nApache-2.0 license\nSecurity\n\n[上方内容被截断] developer daemon, opens the debug app, and keeps a small terminal window available for rebuild, status, and stop controls. It does not provide an uncoordinated no-Python fallback because lifecycle actions validate the exact debug executable path.\n\nThe debug launcher uses an available Apple Development signing identity. If your Mac does not have one, run the same debug app from Terminal with explicit ad-hoc signing:\n\nALLOW_ADHOC_SIGNING=1 ./conductor app relaunch\n\nAd-hoc debug builds use in-memory secure storage, so saved API keys and secure permission changes do not persist across launches. For persistent debug Keychain storage, pass a stable Apple Development identity explicitly:\n\nSIGN_IDENTITY=\"Apple Development: Your Name (TEAMID)\" ./conductor app r[内容被截断]\n\nFor a stable locally signed app under /Applications, use the local production installer below. Its self-signed identity is separate from the debug launcher's Apple Development signing path.\n\nNote: If you use the debug app to modify RepoPrompt CE itself, validation flows that launch the app or run live smoke checks may rebuild and relaunch it. Expect the debug app to restart while those checks run.\n\nKey | Action\nr | Rebuild and relaunch\ns | Show app status\nx | Stop the app\nq | Close the launcher without stopping the app\n\nInstall a local production build\n\nFor a release-mode app under /Applications, install Python 3 and double-click Install RepoPrompt CE Local Production.command in Finder. The Finder launcher uses the coordinated developer daemon.\n\nThe installer builds RepoPrompt CE from source and replaces any existing /Applications/RepoPrompt CE.app using a dedicated self-signed certificate trusted only on your Mac. macOS may ask you to approve the certificate.\n\nThe resulting app is local-only. It is not notarized and should not be copied to another Mac or redistributed.\n\nSource-build requirements\n• macOS 26 or later\n• Xcode 26, or matching Command Line Tools with the macOS 26 SDK\n\nDevelop in Xcode\n\nGenerate and open the disposable contributor workspace with:\n\nmake xcode\n\nIn Xcode 26.3, use RepoPrompt CE App for the packaged debug app, RepoPrompt CE MCP for the coordinated MCP executable, and RepoPrompt CE Tests for tests. The test scheme delegates to conductor because RepoPromptMCP is an executable-only SwiftPM target. Xcode also exposes the native RepoPrompt and repoprompt-mcp product schemes.\n\nSee docs/architecture/xcode-workspace.md for generation, validation, cleanup, and workflow boundaries. Release packaging is unchanged and does not use the generated workspace.\n\nFeatures\n• Context engineering: Build dense, reviewable prompts with the files and repository details an AI model actually needs.\n• Codebase orientation: Combine file trees, selected file contents, line slices, CodeMaps, and Git diffs.\n• Context Builder: Let an agent explore the repository, identify relevant files, and curate context within a token budget. Long-running MCP calls expose request-scoped progress when the client supplies a progress token.\n• Agent orchestration: Run and coordinate CLI-backed coding agents from the native macOS app. See docs/worktrees.md for app-managed worktrees and .worktreeinclude local file copying.\n• MCP server and CLI integration: Connect external MCP-compatible tools and CLI [内容在底部被截断]",
+        "visualDescription": "1080x2048 的纵向 GitHub README 截图，白色页面背景，内容集中在左侧约三分之二宽度，右侧大面积留白。顶部有 README 导航栏。正文包含黑色段落文字、粗体小节标题、浅灰色等宽字体代码块、复制图标、浅灰色 Note 提示框、Key/Action 表格，以及 Features 项目符号列表。可见内容从调试 launcher 和代码签名说明开始，延伸到本地 production build、source-build requirements、Xcode 开发和 Features；顶部起始段落和底部 MCP/CLI 条目均不完整。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-07-fact-01",
+            "statement": "截图中的 README 将 Context engineering 描述为：构建包含 AI 模型实际需要的文件和仓库细节的密集、可审阅提示词。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图下半部分“Features”列表：Context engineering 项说明其用于构建包含文件和仓库细节的密集、可审阅提示词。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 92
+          },
+          {
+            "id": "source-07-fact-02",
+            "statement": "截图中的 README 将 Codebase orientation 描述为可组合文件树、选中文件内容、代码行切片、CodeMaps 和 Git diff。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图下半部分“Features”列表：Codebase orientation 项列出 file trees、selected file contents、line slices、CodeMaps 和 Git diffs。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 90
+          },
+          {
+            "id": "source-07-fact-03",
+            "statement": "截图中的 README 将 Context Builder 描述为：让 agent 探索仓库、识别相关文件，并在 token budget 内整理上下文。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图下半部分“Features”列表：Context Builder 项描述 agent 探索仓库、识别相关文件并在 token budget 内整理上下文。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 90
+          },
+          {
+            "id": "source-07-fact-04",
+            "statement": "截图中的 README 描述 Agent orchestration 支持从原生 macOS app 运行并协调由 CLI 支持的 coding agents。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图下半部分“Features”列表：Agent orchestration 项描述从原生 macOS app 运行并协调 CLI-backed coding agents。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 82
+          },
+          {
+            "id": "source-07-fact-05",
+            "statement": "截图可见 README 将 MCP server and CLI integration 描述为可连接外部 MCP-compatible tools 和 CLI，但后续内容不可见。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图下半部分“Features”列表底部可见“MCP server and CLI integration: Connect external MCP-compatible tools and CLI”，句子在截图底部被截断。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 78
+          },
+          {
+            "id": "source-07-fact-06",
+            "statement": "截图中的安装说明称，本地 production installer 会从源代码构建 RepoPrompt CE，并替换 /Applications/RepoPrompt CE.app；生成的应用仅限本机使用、未 notarize，不应复制到另一台 Mac 或再分发。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图中部“Install a local production build”及后续段落。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 72
+          },
+          {
+            "id": "source-07-fact-07",
+            "statement": "截图中的 source-build requirements 列出 macOS 26 或更高版本，以及 Xcode 26 或带 macOS 26 SDK 的匹配 Command Line Tools。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图中部“Source-build requirements”列表。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 66
+          },
+          {
+            "id": "source-07-fact-08",
+            "statement": "图片显示一个 GitHub README 页面，顶部可见 README、Contributing、Apache-2.0 license、Security 导航项。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图顶部：GitHub README 页面导航可见 README、Contributing、Apache-2.0 license、Security 和菜单图标。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 45
+          },
+          {
+            "id": "source-07-fact-09",
+            "statement": "页面使用浅灰色代码块展示 shell 命令，代码块右侧有复制图标；页面还显示带左侧强调线的 Note 提示框和 Key/Action 表格。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图中部：可见浅灰色代码块、复制图标、提示框和 Key/Action 表格。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 42
+          },
+          {
+            "id": "source-07-fact-10",
+            "statement": "图片显示 debug launcher 的键盘操作表：r 重建并重新启动，s 显示应用状态，x 停止应用，q 关闭 launcher 但不停止应用。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图中部表格：r=Rebuild and relaunch，s=Show app status，x=Stop the app，q=Close the launcher without stopping the app。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 35
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-07-uncertainty-01",
+            "statement": "该截图不能证明 README 中完整的项目定位、仓库统计数字、许可证结论或 MCP/CLI 集成条目的完整能力范围；这些内容在本图中不可完整核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图为 README 局部页面，顶部段落从句中开始，底部 MCP/CLI 条目及页面内容均被截断。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 88
+          },
+          {
+            "id": "source-07-uncertainty-02",
+            "statement": "截图显示 macOS 26、Xcode 26 和 Xcode 26.3 等版本要求，但无法仅凭该局部截图确认这些要求是否适用于所有安装路径，或是否代表当前版本的完整兼容性范围。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "截图中的版本要求文字清晰可见，但来源是页面截图，无法从图中确认其适用范围、发布日期或当前有效性。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 75
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-08",
+      "label": "官方素材：RepoPrompt CE 仓库语义分段长录屏",
+      "sourceType": "video",
+      "materialRole": "official_demo",
+      "originUrl": "https://github.com/repoprompt/repoprompt-ce",
+      "assetPath": "public/project-assets/2026-07-19-repoprompt-repoprompt-ce/repoprompt-official-semantic-walkthrough.webm",
+      "originalFileName": "repoprompt-official-semantic-walkthrough.webm",
+      "mimeType": "video/webm",
+      "bytes": 5390317,
+      "importedAt": "2026-07-22T03:10:00.000Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "本机浏览器录制的 RepoPrompt CE 官方公开仓库页面，仅批准当前本地未发布审片；公开发布权利尚未确认。",
+      "contentHash": "bbde40e3c6676b9b3686627f7b8f9d2823478c4152ead1df5f63567b38df2c4d",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "bbde40e3c6676b9b3686627f7b8f9d2823478c4152ead1df5f63567b38df2c4d",
+        "startedAt": "2026-07-22T03:10:00.000Z",
+        "completedAt": "2026-07-22T03:10:00.000Z",
+        "error": "",
+        "model": "capture-plan-v1",
+        "promptVersion": "semantic-walkthrough-v1",
+        "cacheHit": true
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "1280x720 RepoPrompt CE 官方 GitHub 仓库页面长录屏，按仓库总览、README 定位、上下文输入、Features、MCP/CLI、License 和验证 CTA 分段停留。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": []
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [],
+    "facts": [
+      {
+        "id": "source-01-fact-01",
+        "statement": "来源摘要将 repoprompt/repoprompt-ce 描述为 RepoPrompt 的社区版、面向 AI 编程代理的原生 macOS context engineering 应用，并带有 MCP CLI；摘要同时列出 817 stars、101 forks 和 Apache-2.0 许可。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 4,
+            "end": 4,
+            "lineStart": 4,
+            "lineEnd": 4,
+            "note": "候选摘要中的核心产品描述及数字、许可证信息。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-01-fact-02",
+        "statement": "来源提供的原始来源是 GitHub 仓库 repoprompt/repoprompt-ce。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 7,
+            "end": 7,
+            "lineStart": 7,
+            "lineEnd": 7,
+            "note": "原始来源链接。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 95
+      },
+      {
+        "id": "source-02-fact-01",
+        "statement": "RepoPrompt CE 是 RepoPrompt 的免费、开源社区版，是面向 context engineering 的原生 macOS 应用和 agent orchestrator，并带有 MCP CLI。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "来源第 5 行明确描述项目定位、平台、开源属性及 MCP CLI。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-02-fact-02",
+        "statement": "RepoPrompt CE 的目标之一是帮助 coding agents 在行动前理解代码库。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "来源第 5 行描述其在 coding agents 执行前帮助其理解代码库。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 98
+      },
+      {
+        "id": "source-02-fact-03",
+        "statement": "它可以从文件、CodeMaps、仓库结构和 Git diffs 组装聚焦且可审查的上下文，再交给 AI 工具和 CLI agents。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "来源第 5 行列出 files、CodeMaps、repository structure 和 Git diffs，并说明这些内容会交给 AI tools 和 CLI agents。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 96
+      },
+      {
+        "id": "source-02-fact-04",
+        "statement": "通过内置 MCP server，MCP 兼容客户端和 CLI agents 可以搜索仓库、检查文件、整理上下文、运行 agent sessions，并通过共享的原生 macOS 界面协调工作。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "来源第 5 行列出 MCP-compatible clients 和 CLI agents 可进行的操作。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 92
+      },
+      {
+        "id": "source-02-fact-05",
+        "statement": "Context Builder 支持让 agent 探索仓库、识别相关文件，并在 token budget 内整理上下文；发送给其他模型或 agent 前可以检查和优化所选上下文。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "来源第 5 行的 Features 部分描述 Context Builder、token budget 和 reviewable handoffs。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 90
+      },
+      {
+        "id": "source-02-fact-06",
+        "statement": "项目支持多根工作区、从原生 macOS 应用运行和协调 CLI-backed coding agents，以及连接外部 MCP-compatible tools 和 CLI agents。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "来源第 5 行的 Features 部分描述多根工作区、agent orchestration 和 MCP 集成。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 84
+      },
+      {
+        "id": "source-02-fact-07",
+        "statement": "RepoPrompt CE 使用 Apache-2.0 许可证。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "来源第 5 行明确写出许可证为 Apache-2.0。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 82
+      },
+      {
+        "id": "source-02-fact-08",
+        "statement": "来源提供了通过专用 Homebrew tap 安装公开应用的路径，并称该公开应用已签名和 notarized。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "来源第 5 行说明可通过专用 Homebrew tap 安装签名且 notarized 的 public app。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 70
+      },
+      {
+        "id": "source-02-fact-09",
+        "statement": "来源是 Markdown 文本，不包含可用于视频画面还原的真实产品截图或界面布局信息。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "文本来源未提供可核验的界面截图、颜色、布局或按钮位置；仅出现命令、文件路径和按键字符。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 30
+      },
+      {
+        "id": "source-03-fact-01",
+        "statement": "图片将 repoprompt-ce 描述为 RepoPrompt 的社区版：一个面向 AI coding agents 的原生 macOS context engineering app，并带有 MCP CLI。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "图片左上至中部可见项目名称与描述文字；项目名位于约 x=80-680、y=100-260，描述位于约 x=80-830、y=310-440。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-03-fact-02",
+        "statement": "图片显示该项目有 817 Stars。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "图片下方统计区域可见“817 Stars”。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-03-fact-03",
+        "statement": "图片显示该项目有 101 Forks。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "图片下方统计区域可见“101 Forks”。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 98
+      },
+      {
+        "id": "source-03-fact-04",
+        "statement": "图片显示该项目有 29 Contributors 和 103 Issues。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "图片下方统计区域可见“29 Contributors”和“103 Issues”。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 70
+      },
+      {
+        "id": "source-03-fact-05",
+        "statement": "画面是一个浅色项目介绍页，采用左侧文字信息、右上项目图标和底部统计/装饰色带的布局。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "1200x600 图片中，左侧为项目名称、描述和统计信息；右上为项目图标；底部有横向色带；右下有 GitHub 图标。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 35
+      },
+      {
+        "id": "source-03-fact-06",
+        "statement": "图片右上显示由多个重叠方形和圆环构成的项目图标，右下显示 GitHub 图标。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "右上区域约 x=920-1120、y=80-280 可见重叠方形图标；右下约 x=1070-1120、y=465-515 可见 GitHub 标识。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 30
+      },
+      {
+        "id": "source-04-fact-01",
+        "statement": "RepoPrompt CE 是一个免费的开源原生 macOS 应用和 agent orchestrator，面向 context engineering；它帮助 coding agents 在行动前理解代码库，并组装来自文件、CodeMaps、仓库结构和 Git diff 的聚焦、可审查上下文，交给 AI 工具和 CLI agents。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "line",
+            "start": 7,
+            "end": 11,
+            "lineStart": 7,
+            "lineEnd": 11,
+            "note": "README 明确将 RepoPrompt CE 描述为免费、开源的原生 macOS 应用和 agent orchestrator，并说明其通过文件、CodeMaps、仓库结构和 Git diff 组装可审查上下文，交给 AI 工具和 CLI agents。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 98
+      },
+      {
+        "id": "source-04-fact-02",
+        "statement": "RepoPrompt CE 围绕其 bundled MCP server 构建 agent harness，可连接 MCP-compatible clients 和 CLI agents，用于搜索仓库、检查文件、整理上下文、运行 agent sessions，并通过共享的原生 macOS 界面编排工作。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "line",
+            "start": 13,
+            "end": 16,
+            "lineStart": 13,
+            "lineEnd": 16,
+            "note": "README 说明 bundled MCP server、MCP-compatible clients、CLI agents，以及搜索仓库、检查文件、整理上下文、运行 agent sessions 和编排工作的能力。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 97
+      },
+      {
+        "id": "source-04-fact-03",
+        "statement": "README 列出的核心能力包括：构建包含必要文件和仓库细节的密集且可审查 prompt；组合文件树、选中文件内容、行切片、CodeMaps 和 Git diff；在 token budget 内探索并整理上下文；运行和协调 CLI-backed coding agents；连接外部 MCP-compatible tools 和 CLI agents；支持 multi-root workspaces；以及在交给其他模型或 agent 前检查和细化上下文。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "line",
+            "start": 119,
+            "end": 136,
+            "lineStart": 119,
+            "lineEnd": 136,
+            "note": "Features 部分列出 Context Builder、代码库定位、token budget、agent orchestration、MCP/CLI integration、multi-root workspaces 和 reviewable handoffs。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 94
+      },
+      {
+        "id": "source-04-fact-04",
+        "statement": "README 提供了通过专用 Homebrew tap 安装签名并公证的公开应用的路径；该 cask 安装的是公开 updater ZIP，而不是从源码构建。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "line",
+            "start": 22,
+            "end": 36,
+            "lineStart": 22,
+            "lineEnd": 36,
+            "note": "安装说明写明可通过专用 Homebrew tap 安装 signed and notarized public app，且 cask 使用 public updater ZIP，不从源码构建。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 88
+      },
+      {
+        "id": "source-04-fact-05",
+        "statement": "源码构建要求 macOS 26 或更高版本，以及 Xcode 26，或带有 macOS 26 SDK 的匹配 Command Line Tools。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "line",
+            "start": 81,
+            "end": 97,
+            "lineStart": 81,
+            "lineEnd": 97,
+            "note": "README 区分 local production build 与 source-build requirements，并列出 macOS 26 或更高版本、Xcode 26 或匹配的 Command Line Tools 与 macOS 26 SDK。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 84
+      },
+      {
+        "id": "source-04-fact-06",
+        "statement": "RepoPrompt CE 是 RepoPrompt 的免费开源 Community Edition，是用于 context engineering、agent orchestration 和本地开发的原生 macOS workspace；README 明确其采用 Apache-2.0 许可证。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "line",
+            "start": 137,
+            "end": 166,
+            "lineStart": 137,
+            "lineEnd": 166,
+            "note": "README 将其定位为 RepoPrompt 的免费开源 Community Edition，并在 License 部分明确 Apache-2.0。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 79
+      },
+      {
+        "id": "source-04-fact-07",
+        "statement": "README 顶部可见 CI 徽章、Apache 2.0 许可证徽章和 macOS 26+ 平台徽章。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "line",
+            "start": 3,
+            "end": 5,
+            "lineStart": 3,
+            "lineEnd": 5,
+            "note": "README 顶部可见 CI、Apache 2.0 和 macOS 26+ 徽章。徽章属于 README 中的可见界面/文本元素。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 72
+      },
+      {
+        "id": "source-04-fact-08",
+        "statement": "README 以 Features 标题和项目符号列表组织功能信息。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "line",
+            "start": 117,
+            "end": 136,
+            "lineStart": 117,
+            "lineEnd": 136,
+            "note": "README 的 Features 区域使用项目符号列表呈现功能分类，包括 Context engineering、Codebase orientation、Context Builder 等。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 68
+      },
+      {
+        "id": "source-05-fact-01",
+        "statement": "截图中的 GitHub About 区域将 repoprompt-ce 描述为 RepoPrompt 的社区版：原生 macOS context engineering 应用，面向 AI coding agents，并带有 MCP CLI。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "截图右侧 About 区域的完整描述文字。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-05-fact-02",
+        "statement": "截图显示该仓库有 817 stars 和 101 forks。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "截图右上方仓库操作区显示 Fork 101 和 Star 817；右侧 About 区域也重复显示 817 stars、101 forks。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 96
+      },
+      {
+        "id": "source-05-fact-03",
+        "statement": "截图显示该项目使用 Apache-2.0 许可。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "截图右侧 About 区域显示 Apache-2.0 license；README 标题下方徽章显示 License Apache 2.0。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 93
+      },
+      {
+        "id": "source-05-fact-04",
+        "statement": "README 可见文字将 RepoPrompt CE 描述为免费的、开源的原生 macOS 应用和面向 context engineering 的 agent orchestrator。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "截图下方 README 可见项目简介文字。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 88
+      },
+      {
+        "id": "source-05-fact-05",
+        "statement": "README 可见文字称，RepoPrompt CE 帮助 coding agents 在行动前理解代码库；它从文件、CodeMaps、仓库结构和 Git diffs 组装 focused、reviewable context，再交给 AI tools 和 CLI agents。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "截图下方 README 可见段落，描述其从文件、CodeMaps、仓库结构和 Git diff 组装 focused、reviewable context，并交给 AI tools 和 CLI agents。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 86
+      },
+      {
+        "id": "source-05-fact-06",
+        "statement": "截图显示仓库语言占比为：Swift 85.9%、C 9.1%、Python 4.2%、Shell 0.7%、C++ 0.1%、Makefile 0.0%。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "截图右侧 Languages 区域显示语言占比。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 72
+      },
+      {
+        "id": "source-05-fact-07",
+        "statement": "截图页面状态显示：Issues 103、Pull requests 66、228 Branches、29 Tags、997 Commits。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "截图顶部仓库导航和右侧 About 区域显示 Issues 103、Pull requests 66、228 Branches、29 Tags、997 Commits。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 54
+      },
+      {
+        "id": "source-05-fact-08",
+        "statement": "截图页面状态显示有 25 个 releases，当前可见最新发布项为 RepoPrompt CE 1.0.29。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "截图右侧 Releases 区域显示 Releases 25，并列出 RepoPrompt CE 1.0.29 和 Latest。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 40
+      },
+      {
+        "id": "source-05-fact-09",
+        "statement": "来源是一张纵向 GitHub 仓库页面截图，包含深色顶栏、仓库导航、代码文件列表、右侧 About/统计区域和下方 README 内容。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "整张截图。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 25
+      },
+      {
+        "id": "source-05-fact-10",
+        "statement": "代码列表中可见 .agents/skills、.github、AppBundle、AppResources、Packages/RepoPromptAgentPro...、Scripts、Sources、Tests、ThirdPartyLicenses、Vendor、docs 等目录或文件项。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "截图中部左侧代码列表区域。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 22
+      },
+      {
+        "id": "source-05-fact-11",
+        "statement": "About 区域可见 repoprompt.com 链接，以及 macos、swift、mcp、developer-tools、ai-agents、prompt-engineering、coding-agents、model-context-protocol、context-engineering 等标签。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "截图右侧 About 区域的标签和链接。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 18
+      },
+      {
+        "id": "source-06-fact-01",
+        "statement": "截图中的 README 将 RepoPrompt CE 描述为免费的、开源的原生 macOS 应用和 agent orchestrator，用于 context engineering。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "截图中部 README 标题下方的产品简介文字区域。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-06-fact-02",
+        "statement": "截图文字称，RepoPrompt CE 会在 coding agents 执行前帮助它们理解代码库，并从文件、CodeMaps、仓库结构和 Git diffs 组装聚焦且可审查的上下文，再交给 AI 工具和 CLI agents。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "截图中部 README 的第一段产品说明区域。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 98
+      },
+      {
+        "id": "source-06-fact-03",
+        "statement": "截图文字称，RepoPrompt CE 围绕其内置 MCP server 构建 agent harness，可连接兼容 MCP 的客户端和 CLI agents，用于搜索仓库、检查文件、整理上下文、运行 agent sessions，并通过共享的原生 macOS 界面编排工作。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "截图中部 README 的第二段产品说明区域。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 98
+      },
+      {
+        "id": "source-06-fact-04",
+        "statement": "截图顶部徽章显示许可证为 Apache 2.0。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "截图顶部 README 徽章区域，显示 License Apache 2.0。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 85
+      },
+      {
+        "id": "source-06-fact-05",
+        "statement": "截图顶部徽章显示平台为 macOS 26+。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "截图顶部 README 徽章区域，显示 platform macOS 26+。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 82
+      },
+      {
+        "id": "source-06-fact-06",
+        "statement": "截图中的安装说明提供了 Homebrew 安装路径，并展示命令 brew tap repoprompt/repoprompt-ce 和 brew install --cask repoprompt-ce。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "截图下半部 Get Started、Install with Homebrew 和 Build and launch locally 区域。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 78
+      },
+      {
+        "id": "source-06-fact-07",
+        "statement": "截图文字称，本地开发启动器需要 Python 3，通过协调的 developer daemon 构建应用，打开 debug app，并保留终端窗口提供 rebuild、status 和 stop 控制。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "截图下半部 Build and launch locally 区域。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 65
+      },
+      {
+        "id": "source-06-fact-08",
+        "statement": "截图底部快捷键表显示：r 对应 Rebuild and relaunch，s 对应 Show app status。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "截图底部说明和表格区域。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "reference",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-06-fact-09",
+        "statement": "画面是 GitHub 仓库 README 页面截图；可见 README、Contributing、Apache-2.0 license、Security 等导航标签，以及代码块、徽章和底部快捷键表。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "整张截图：GitHub 仓库页面的 README 标签处于选中状态，页面采用白底、黑色正文、灰色分隔线和代码块。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 35
+      },
+      {
+        "id": "source-07-fact-01",
+        "statement": "截图中的 README 将 Context engineering 描述为：构建包含 AI 模型实际需要的文件和仓库细节的密集、可审阅提示词。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图下半部分“Features”列表：Context engineering 项说明其用于构建包含文件和仓库细节的密集、可审阅提示词。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 92
+      },
+      {
+        "id": "source-07-fact-02",
+        "statement": "截图中的 README 将 Codebase orientation 描述为可组合文件树、选中文件内容、代码行切片、CodeMaps 和 Git diff。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图下半部分“Features”列表：Codebase orientation 项列出 file trees、selected file contents、line slices、CodeMaps 和 Git diffs。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 90
+      },
+      {
+        "id": "source-07-fact-03",
+        "statement": "截图中的 README 将 Context Builder 描述为：让 agent 探索仓库、识别相关文件，并在 token budget 内整理上下文。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图下半部分“Features”列表：Context Builder 项描述 agent 探索仓库、识别相关文件并在 token budget 内整理上下文。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 90
+      },
+      {
+        "id": "source-07-fact-04",
+        "statement": "截图中的 README 描述 Agent orchestration 支持从原生 macOS app 运行并协调由 CLI 支持的 coding agents。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图下半部分“Features”列表：Agent orchestration 项描述从原生 macOS app 运行并协调 CLI-backed coding agents。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 82
+      },
+      {
+        "id": "source-07-fact-05",
+        "statement": "截图可见 README 将 MCP server and CLI integration 描述为可连接外部 MCP-compatible tools 和 CLI，但后续内容不可见。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图下半部分“Features”列表底部可见“MCP server and CLI integration: Connect external MCP-compatible tools and CLI”，句子在截图底部被截断。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 78
+      },
+      {
+        "id": "source-07-fact-06",
+        "statement": "截图中的安装说明称，本地 production installer 会从源代码构建 RepoPrompt CE，并替换 /Applications/RepoPrompt CE.app；生成的应用仅限本机使用、未 notarize，不应复制到另一台 Mac 或再分发。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图中部“Install a local production build”及后续段落。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 72
+      },
+      {
+        "id": "source-07-fact-07",
+        "statement": "截图中的 source-build requirements 列出 macOS 26 或更高版本，以及 Xcode 26 或带 macOS 26 SDK 的匹配 Command Line Tools。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图中部“Source-build requirements”列表。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 66
+      },
+      {
+        "id": "source-07-fact-08",
+        "statement": "图片显示一个 GitHub README 页面，顶部可见 README、Contributing、Apache-2.0 license、Security 导航项。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图顶部：GitHub README 页面导航可见 README、Contributing、Apache-2.0 license、Security 和菜单图标。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-07-fact-09",
+        "statement": "页面使用浅灰色代码块展示 shell 命令，代码块右侧有复制图标；页面还显示带左侧强调线的 Note 提示框和 Key/Action 表格。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图中部：可见浅灰色代码块、复制图标、提示框和 Key/Action 表格。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 42
+      },
+      {
+        "id": "source-07-fact-10",
+        "statement": "图片显示 debug launcher 的键盘操作表：r 重建并重新启动，s 显示应用状态，x 停止应用，q 关闭 launcher 但不停止应用。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图中部表格：r=Rebuild and relaunch，s=Show app status，x=Stop the app，q=Close the launcher without stopping the app。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 35
+      }
+    ],
+    "uncertainties": [
+      {
+        "id": "source-01-uncertainty-01",
+        "statement": "817 stars、101 forks、Apache-2.0 许可，以及“原生 macOS context engineering 应用”和“MCP CLI”等描述，当前只能证明为本文件记录的候选摘要内容；来源明确说明候选入选不代表事实已经确认，因此在进入脚本前需要核对 GitHub 原始仓库。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 10,
+            "end": 10,
+            "lineStart": 10,
+            "lineEnd": 10,
+            "note": "自动收集说明明确限制了本文件中候选元数据的确认状态。"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 4,
+            "end": 4,
+            "lineStart": 4,
+            "lineEnd": 4,
+            "note": "817 stars、101 forks、Apache-2.0 及产品描述仅出现在候选摘要中。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-01-uncertainty-02",
+        "statement": "本来源没有提供真实产品界面、操作流程、用户实测或演示画面，不能据此证明产品的具体功能表现或使用体验。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 10,
+            "end": 10,
+            "lineStart": 10,
+            "lineEnd": 10,
+            "note": "文件说明其内容范围仅包括候选元数据、短摘要和原始链接。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 78
+      },
+      {
+        "id": "source-02-uncertainty-01",
+        "statement": "无法由本来源证明项目当前拥有 817 stars 和 101 forks；脚本中不应将这两个数字作为已核验事实。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "Creative Brief 声称 817 stars 和 101 forks，但来源第 5 行正文未出现这两个数字。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-02-uncertainty-02",
+        "statement": "来源只能证明官方文档对功能的描述，不能证明真实用户实测效果、效率提升、稳定性或具体任务成功率；视频中若展示功能，不应表述为用户实测结论。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "来源第 5 行描述产品能力和安装说明，但没有提供实际操作录屏、用户任务结果或性能数据。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 95
+      },
+      {
+        "id": "source-02-uncertainty-03",
+        "statement": "来源未提供版本号、发布日期或这些安装路径在当前环境中的可用性验证；安装演示的具体状态仍需人工核验。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "来源第 5 行同时描述公开 notarized 安装和本地 production/debug 构建，但未提供当前版本号或发布日期。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 72
+      },
+      {
+        "id": "source-03-uncertainty-01",
+        "statement": "图片无法证明项目使用 Apache-2.0 许可证，因此不能仅依据本来源在脚本中确认该许可证。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "图片可见项目描述和部分 GitHub 统计，但未显示许可证信息。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-03-uncertainty-02",
+        "statement": "图片无法证明该应用的具体功能、实际工作流效果或用户实测结果；不能将该介绍页描述为功能演示或用户验证。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "图片只呈现项目标题、描述和仓库统计，没有功能操作画面或用户任务过程。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 95
+      },
+      {
+        "id": "source-03-uncertainty-03",
+        "statement": "817 Stars、101 Forks、29 Contributors 和 103 Issues 的统计时间点无法由图片确定；这些数字不应被表述为当前实时数据。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "统计数字出现在单张图片中，图片未提供抓取时间或统计页面上下文。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 85
+      },
+      {
+        "id": "source-04-uncertainty-01",
+        "statement": "Creative Brief 中的“817 stars，101 forks”无法由 source-04 证明，不能在视频中作为当前项目数据呈现；需要另外核验 GitHub 页面或移除该数字。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "line",
+            "start": 1,
+            "end": 166,
+            "lineStart": 1,
+            "lineEnd": 166,
+            "note": "给定 README 全文中未出现 GitHub stars 或 forks 数字；来源仅展示项目说明、功能、安装、文档和许可证信息。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-04-uncertainty-02",
+        "statement": "source-04 只提供官方 README 的产品自述，不能证明真实用户任务中的效果、效率提升、稳定性或实际使用体验；脚本不能把这些官方描述改写成用户实测结论。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "line",
+            "start": 7,
+            "end": 11,
+            "lineStart": 7,
+            "lineEnd": 11,
+            "note": "README 证明的是产品定位和功能描述，没有提供用户实测、性能、效果提升或具体任务结果。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 96
+      },
+      {
+        "id": "source-04-uncertainty-03",
+        "statement": "除 README 徽章显示的 macOS 26+ 外，source-04 没有证明其他 macOS 版本或其他操作系统的兼容性，因此不能据此推断跨平台支持。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "line",
+            "start": 5,
+            "end": 5,
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "README 徽章标注 macOS 26+，但给定内容没有提供兼容性测试范围或其他操作系统支持情况。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 86
+      },
+      {
+        "id": "source-05-uncertainty-01",
+        "statement": "817 stars 和 101 forks 是截图时页面显示的仓库统计，来源未证明这些数字在当前时刻仍然不变。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "截图右上角及右侧 About 统计区域；这是截图时页面显示的数值。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 96
+      },
+      {
+        "id": "source-05-uncertainty-02",
+        "statement": "关于应用能力、工作方式以及“免费”“开源”等描述来自仓库 About/README 自述；该截图没有证明用户实际使用效果，也没有证明这些描述之外的性能或结果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "截图下方 README 简介区域；可见的是项目自述文字。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 82
+      },
+      {
+        "id": "source-06-uncertainty-01",
+        "statement": "截图无法证明 Creative Brief 中的 817 stars 和 101 forks；这些数字不应仅依据本图写入脚本。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "截图仅展示 README 局部内容；仓库统计信息区域未出现在可见画面中。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-06-uncertainty-02",
+        "statement": "截图无法证明任何实际用户测评、真实任务效果、性能表现或使用成功率；README 中的功能描述不能表述为用户实测。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "image",
+            "note": "截图展示的是 README 文本和安装说明，没有应用运行过程、任务结果或用户操作记录。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 95
+      },
+      {
+        "id": "source-07-uncertainty-01",
+        "statement": "该截图不能证明 README 中完整的项目定位、仓库统计数字、许可证结论或 MCP/CLI 集成条目的完整能力范围；这些内容在本图中不可完整核验。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图为 README 局部页面，顶部段落从句中开始，底部 MCP/CLI 条目及页面内容均被截断。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 88
+      },
+      {
+        "id": "source-07-uncertainty-02",
+        "statement": "截图显示 macOS 26、Xcode 26 和 Xcode 26.3 等版本要求，但无法仅凭该局部截图确认这些要求是否适用于所有安装路径，或是否代表当前版本的完整兼容性范围。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "image",
+            "note": "截图中的版本要求文字清晰可见，但来源是页面截图，无法从图中确认其适用范围、发布日期或当前有效性。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 75
+      }
+    ]
+  },
+  "narrative": {
+    "status": "completed",
+    "error": "",
+    "activeVersionId": "narrative-02",
+    "versions": [
+      {
+        "id": "narrative-01",
+        "generatedAt": "2026-07-19T05:32:42.604Z",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "97e6beb0c015c80ea1d209a240f2c500d6c62c89b01a4db88f9725c23a755409",
+        "conclusion": "RepoPrompt CE 值得中文 AI 编程实践者关注的理由，暂可归纳为：它把“让代理先理解代码库、再行动”作为 context engineering 的核心，并据来源描述提供文件、CodeMaps、仓库结构与 Git diffs 的上下文整理，以及 MCP CLI 和代理编排能力。但这些判断仍基于当前来源记录，不能替代用户实测；结尾应回到真实 GitHub 仓库和一个真实任务进行验证。",
+        "hook": "AI 编程的瓶颈，可能不是模型不会写代码，而是它行动前没有拿到足够准确、可审查的上下文。",
+        "outline": [
+          "从“上下文工程”切入：重点不是把更多代码塞给模型，而是整理模型实际需要的仓库信息。",
+          "介绍 RepoPrompt CE 的来源定位：免费、开源的原生 macOS 应用与 agent orchestrator，面向 coding agents。",
+          "解释其来源所描述的上下文组装方式：文件、CodeMaps、仓库结构和 Git diffs。",
+          "说明 MCP CLI 与 agent harness 如何把整理后的上下文交给 AI 工具和 CLI agents；不把官方描述说成实测效果。",
+          "明确当前素材中的 stars、forks 与许可证等信息仍需核对，最后用真实仓库和真实任务验证。"
+        ],
+        "voiceoverScript": "AI 编程的瓶颈，可能不是模型不会写代码，而是它行动前没有拿到足够准确、可审查的上下文。\n\n根据 GitHub 来源的项目说明，RepoPrompt CE 是 RepoPrompt 的免费、开源社区版，也是一款原生 macOS 应用和 agent orchestrator，核心方向是 context engineering。这里说的是来源中的项目定位，不是用户实测结论。\n\n来源列出的思路，是把文件、CodeMaps、仓库结构和 Git diffs 组合成聚焦、可审查的上下文，再交给 AI 工具或 CLI agent。对中文 AI 编程实践者来说，重点不只是“给模型更多代码”，而是让模型拿到的内容更聚焦，也更容易被人复核。\n\n来源还描述了 MCP server、MCP CLI 和 agent harness：它们用于连接兼容 MCP 的客户端与 CLI agents，并围绕仓库上下文搜索、查看文件、整理上下文和运行 agent session。这里仍然只能说“来源描述支持这些能力”，不能说它已经在当前任务中成功运行。\n\n当前素材图片显示 817 Stars 和 101 Forks，候选摘要还提到 Apache-2.0；但统计时间点和许可证状态不能仅凭图片或自动候选摘要确认。不要把这些数字当成当前实时数据，也不要把 AI 提取结果说成人工背书。\n\n所以，RepoPrompt CE 的关键承诺不是让 AI 自动变聪明，而是帮助实践者更有意识地选择、检查并传递上下文。请打开真实的 repoprompt/repoprompt-ce 仓库，选一个真实编码任务，记录代理拿到的上下文、修改内容和复核结果，再判断它是否真的改善了你的工作流。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "end": 5,
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "主要依据：项目定位、上下文组装方式、MCP 与 agent orchestration 的官方来源描述。"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "end": 10,
+            "lineStart": 10,
+            "lineEnd": 10,
+            "note": "保留来源的自动收集限制：候选信息尚未代表事实确认。"
+          },
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "当前已应用素材用于展示项目名称与图片中可见的仓库统计。"
+          }
+        ],
+        "uncertainties": [
+          "source-01 中的 817 stars、101 forks、Apache-2.0 和产品定位属于候选摘要记录，必须人工核对真实 GitHub 仓库后才能作为已确认事实使用。",
+          "source-03 图片无法证明具体功能、实际工作流效果、用户实测结果或许可证状态。",
+          "817 Stars、101 Forks 等图片统计没有明确时间点，不应表述为当前实时数据。",
+          "source-02 只能支持官方文档对功能的描述，不能证明效率提升、稳定性、任务成功率或当前环境中的安装可用性。",
+          "视频最终结论需要通过真实仓库和真实编码任务验证，不能由来源文字直接推出。"
+        ]
+      },
+      {
+        "id": "narrative-02",
+        "generatedAt": "2026-07-19T05:41:34.482Z",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "2c64e3e06bf1ee621a56b210b036b01357d01b7e1860c5e0ca56b9d7a321ce3e",
+        "conclusion": "对中文 AI 编程实践者而言，RepoPrompt CE 值得关注的地方，暂时不是“它一定能提升效率”，而是它把上下文工程明确成一组可检查的工作：先理解代码库，再选择文件、结构、CodeMaps 与 Git diff，最后把整理后的上下文交给 AI 工具或 CLI agents。以上判断来自项目 README 和 GitHub 页面自述，不能替代真实使用结论。视频结尾应回到真实的 repoprompt/repoprompt-ce 仓库，用一个真实编码任务记录上下文、修改和人工复核结果。",
+        "hook": "AI 编程的瓶颈，可能不是模型不会写代码，而是它开始行动时，拿到的仓库上下文还不够准确、聚焦，也不容易复核。",
+        "outline": [
+          "从中文 AI 编程实践中的上下文工程问题切入：关键不是无差别提供更多代码，而是组织模型真正需要的仓库信息。",
+          "用 GitHub 一手页面说明 RepoPrompt CE 的项目定位，但将“官方描述”与“实际效果”明确区分。",
+          "解释 README 所列的上下文构成：文件、CodeMaps、仓库结构、选中文件内容、行切片和 Git diffs。",
+          "说明其 README 所描述的 Context Builder、MCP server、MCP-compatible clients、CLI agents 与 agent sessions 如何组成工作流。",
+          "保留统计数据、许可证、系统要求和安装路径的核验边界，最后要求在真实仓库和真实任务中验证。"
+        ],
+        "voiceoverScript": "AI 编程的瓶颈，可能不是模型不会写代码，而是它开始行动时，拿到的仓库上下文还不够准确、聚焦，也不容易复核。\n\n根据 GitHub README，RepoPrompt CE 是 RepoPrompt 的免费、开源社区版，也是一款原生 macOS 应用和 agent orchestrator，面向 context engineering，并带有 MCP CLI。这些是项目自述，不是用户实测结论。\n\n它所描述的上下文工程方式，是把文件、CodeMaps、仓库结构和 Git diffs 组合成聚焦、可审查的上下文，再交给 AI 工具或 CLI agents。对中文 AI 编程实践者来说，重点不是无差别提供更多代码，而是让模型拿到的内容更聚焦，并且能在发送前被人复核。\n\nREADME 还描述了围绕内置 MCP server 的 agent harness：连接 MCP-compatible clients 和 CLI agents，搜索仓库、检查文件、整理上下文、运行 agent sessions。这里仍然只能说“README 描述支持这些能力”，不能说它已经在当前任务中成功运行。\n\n素材中可以看到 817 Stars 和 101 Forks，候选摘要还提到 Apache-2.0。但统计时间点、许可证状态和自动提取结果都需要人工核对，不应直接当作当前实时数据或人工背书。\n\n最后，请打开真实的 repoprompt/repoprompt-ce 仓库，选一个真实编码任务，记录代理拿到的上下文、修改内容和人工复核结果。只有这样，才能判断它是否真的改善了你的上下文工程，而不是把项目介绍误当成使用效果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "end": 5,
+            "lineStart": 5,
+            "lineEnd": 5,
+            "note": "核心叙事依据：项目定位、代码库理解、上下文组装、MCP 与 agent orchestration 的 README 描述。"
+          },
+          {
+            "sourceId": "source-04",
+            "locatorType": "line",
+            "start": 7,
+            "end": 11,
+            "lineStart": 7,
+            "lineEnd": 11,
+            "note": "支持“文件、CodeMaps、仓库结构、Git diffs 形成聚焦且可审查上下文”的主要文本来源。"
+          },
+          {
+            "sourceId": "source-05",
+            "locatorType": "image",
+            "note": "一手 GitHub 页面截图用于展示项目页面、统计信息和 README 自述；统计时间点与实测效果仍需核验。"
+          }
+        ],
+        "uncertainties": [
+          "所有 facts 的 reviewStatus 仍为 proposed；本草案不得将自动提取结果表述为人工背书。",
+          "817 Stars、101 Forks 只可表述为截图时页面显示或候选摘要记录，不能表述为当前实时数据；应在成片前重新打开 GitHub 仓库核对。",
+          "Apache-2.0 可由 source-04 README 文本和 source-05 页面截图支持为页面声明，但许可证状态仍应以真实仓库 LICENSE 文件和当前页面人工确认。",
+          "README 支持的是官方功能描述，不能证明效率提升、稳定性、用户体验或任务成功率。",
+          "source-07 是局部截断截图，不能据此断言 MCP/CLI 能力的完整范围。",
+          "macOS 26+、Xcode 26 和相关安装路径的当前可用性尚未在本草案中验证。",
+          "结尾必须使用真实仓库和真实编码任务记录验证结果；在验证完成前，不应剪辑出代理已经成功改善工作流的结论。"
+        ]
+      }
+    ],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "generatedAt": "2026-07-19T05:41:34.482Z",
+    "model": "gpt-5.6-luna",
+    "promptVersion": "videobrief-2026-07-11-v1"
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-5.6-luna",
+    "transcriptionModel": "whisper.cpp:large-v3-turbo-q5_0",
+    "promptVersion": "videobrief-2026-07-11-v1",
+    "calls": [
+      {
+        "id": "ai-call-001",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "988b11308ff36a28411a8842b44586dc7c06dc6292e75f98d92b548a6dc9662b",
+        "startedAt": "2026-07-19T05:29:48.134Z",
+        "completedAt": "2026-07-19T05:29:48.142Z",
+        "error": "OPENAI_API_KEY 未配置；未执行 OpenAI API 调用。",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-002",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "6ea49536287991eec28830988cd3e00f23d6ef5a44dcc43786e775fe91f7157b",
+        "startedAt": "2026-07-19T05:30:13.699Z",
+        "completedAt": "2026-07-19T05:30:33.949Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-003",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "7d8895c429d54ac71dcfe070263f5f86b9e6c3d883a354ca72ba24fe80a70a7c",
+        "startedAt": "2026-07-19T05:30:33.951Z",
+        "completedAt": "2026-07-19T05:31:27.307Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-004",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "643c540274628874a8905cb6b1e8fb6f287f438bc0da7806e46fc366165c4e4c",
+        "startedAt": "2026-07-19T05:31:27.308Z",
+        "completedAt": "2026-07-19T05:31:53.330Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-005",
+        "purpose": "narrative-planning",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "97e6beb0c015c80ea1d209a240f2c500d6c62c89b01a4db88f9725c23a755409",
+        "startedAt": "2026-07-19T05:31:53.344Z",
+        "completedAt": "2026-07-19T05:32:42.607Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-006",
+        "purpose": "candidate-ranking",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "0491cb82d200c2da7fcabe81f88c0e862d9b6ba193877cfcc0d7e5bfe7fa9505",
+        "startedAt": "2026-07-19T05:32:42.611Z",
+        "completedAt": "2026-07-19T05:32:53.812Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-007",
+        "purpose": "production-assets",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "3a890467e1f05762b802b5d3bf9caedae36c1c9ceffefc4c00669691b9597c27",
+        "startedAt": "2026-07-19T05:32:53.816Z",
+        "completedAt": "2026-07-19T05:33:04.082Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-008",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "10e34efd0945b9cbbf0ebaba3a71d47f1425218c40e2e039fa27e2d044b39647",
+        "startedAt": "2026-07-19T05:37:43.870Z",
+        "completedAt": "2026-07-19T05:38:22.334Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-009",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "bd6111c2b3783c7fe23b98415640dd16d435ed9bba3940bc9681173e5db8da56",
+        "startedAt": "2026-07-19T05:38:22.336Z",
+        "completedAt": "2026-07-19T05:39:05.461Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-010",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "2d24876d5ada7525dee79c15ec3a92f068ea923efcc0f8ed23d3cbdea6a28579",
+        "startedAt": "2026-07-19T05:39:05.464Z",
+        "completedAt": "2026-07-19T05:39:46.755Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-011",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "fee238c0ed301a3b9762d4188dfac2f26ab254a83762ae6918e2db6a3b04586f",
+        "startedAt": "2026-07-19T05:39:46.759Z",
+        "completedAt": "2026-07-19T05:40:34.779Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-012",
+        "purpose": "narrative-planning",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "2c64e3e06bf1ee621a56b210b036b01357d01b7e1860c5e0ca56b9d7a321ce3e",
+        "startedAt": "2026-07-19T05:40:34.794Z",
+        "completedAt": "2026-07-19T05:41:34.485Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-013",
+        "purpose": "candidate-ranking",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "ffb96405e79e4c540d3e8506811beb8f0819e52a01bc0954a795bd78b7b8ccbf",
+        "startedAt": "2026-07-19T05:41:34.493Z",
+        "completedAt": "2026-07-19T05:41:47.072Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-014",
+        "purpose": "production-assets",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "24a8251735a47b270ec159054d3948e03197a8a7052b2607b5620cb15910f124",
+        "startedAt": "2026-07-19T05:41:47.076Z",
+        "completedAt": "2026-07-19T05:41:52.927Z",
+        "error": "",
+        "cacheHit": false
+      }
+    ]
+  },
+  "editorial": {
+    "claim": "对中文 AI 编程实践者而言，RepoPrompt CE 值得关注的地方，暂时不是“它一定能提升效率”，而是它把上下文工程明确成一组可检查的工作：先理解代码库，再选择文件、结构、CodeMaps 与 Git diff，最后把整理后的上下文交给 AI 工具或 CLI agents。以上判断来自项目 README 和 GitHub 页面自述，不能替代真实使用结论。视频结尾应回到真实的 repoprompt/repoprompt-ce 仓库，用一个真实编码任务记录上下文、修改和人工复核结果。",
+    "whyItMatters": "",
+    "chinaContext": "",
+    "riskNote": ""
+  },
+  "platformCopy": {
+    "coverTitle": "AI 编程，先整理上下文",
+    "title": "RepoPrompt CE：AI 编程为什么要先整理代码库上下文？",
+    "description": "RepoPrompt CE 是一个面向 AI 编程代理的原生 macOS 社区版项目。根据其 GitHub README，它围绕 context engineering，帮助整理文件、CodeMaps、仓库结构和 Git diffs，并通过 MCP CLI 等方式连接 AI 工具或 CLI agents。以上是项目的官方定位与功能描述，不代表实际效果或用户实测结论。建议打开 repoprompt/repoprompt-ce 原始仓库，用一个真实编码任务记录上下文、修改内容和人工复核结果，再判断它是否适合你的工作流。",
+    "hashtags": [
+      "#AI编程",
+      "#上下文工程",
+      "#开发者工具",
+      "#代码库理解",
+      "#MCP",
+      "#RepoPrompt",
+      "#独立开发者"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "2026-07-19T05:28:59.404Z",
+    "updatedAt": "2026-07-22T12:29:41.675Z",
+    "researchReviewedAt": "",
+    "firstRenderCompletedAt": "2026-07-19T05:43:29.940Z",
+    "lastRenderCompletedAt": "2026-07-22T12:29:41.675Z",
+    "sourceImportCount": 8,
+    "manualSaveCount": 0,
+    "renderAttemptCount": 13,
+    "renderFailureCount": 6,
+    "lastRenderStartedAt": "2026-07-22T12:29:35.674Z",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "materialReview": {
+    "status": "approved",
+    "approvedSourceIds": [
+      "source-08"
+    ],
+    "reviewedAt": "2026-07-22T03:10:00.000Z"
+  },
+  "outputs": {
+    "outputVideo": "output/videos/2026-07-19-repoprompt-repoprompt-ce.mp4",
+    "publicRender": "public/renders/2026-07-19-repoprompt-repoprompt-ce.mp4",
+    "workDir": "output/videos/2026-07-19-repoprompt-repoprompt-ce-work",
+    "exportDir": "output/exports/2026-07-19-repoprompt-repoprompt-ce",
+    "coverImage": "output/exports/2026-07-19-repoprompt-repoprompt-ce/cover.png",
+    "platformCopy": "output/exports/2026-07-19-repoprompt-repoprompt-ce/platform-copy.json",
+    "sourceList": "output/exports/2026-07-19-repoprompt-repoprompt-ce/source-list.json",
+    "projectSnapshot": "output/exports/2026-07-19-repoprompt-repoprompt-ce/project.snapshot.json"
+  },
+  "render": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice": "zh-CN-YunjianNeural",
+    "rate": 194,
+    "voiceEngine": "edge-tts",
+    "voiceModel": "edge-tts-universal",
+    "voiceProfile": "natural-tech-zh-v1",
+    "voiceStyle": "",
+    "voiceGenerationMode": "auto",
+    "renderStrategy": "segmented-concat",
+    "pronunciations": [
+      {
+        "term": "RepoPrompt CE",
+        "guidance": "读作 Repo Prompt C E，Repo 与 Prompt 分开，C 和 E 分别按英文字母读",
+        "spokenText": "Repo Prompt C E",
+        "asrAliases": [
+          "Repo Prompt C E",
+          "Repo Prompt C"
+        ]
+      },
+      {
+        "term": "CodeMaps",
+        "guidance": "读作 Code Maps，两个英文单词分开读",
+        "spokenText": "Code Maps",
+        "asrAliases": [
+          "Code Maps"
+        ]
+      }
+    ],
+    "mediaFit": "contain"
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "enabled": true,
+      "sourceId": "source-08",
+      "sourceStart": 15.4,
+      "sourceEnd": 24.406,
+      "showEditorialOverlay": true,
+      "eyebrow": "问题切入",
+      "title": "上下文工程解决的是什么",
+      "subtitle": "先让代理理解仓库，再讨论修改",
+      "narration": "代理任务出错，常因没先理解仓库。RepoPrompt CE 把这作为目标；但这只是项目自述。",
+      "visualRequirement": "使用 source-08 的 README positioning 独立窗口，展示 RepoPrompt CE 标题和项目自述；不伪装成产品操作实测。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-05",
+          "locatorType": "image",
+          "note": "一手 GitHub 仓库截图中可见项目名称、About 描述和 README 开始部分；用于建立问题与项目来源。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-semantic-readme-positioning",
+          "sourceId": "source-08",
+          "assetPath": "public/project-assets/2026-07-19-repoprompt-repoprompt-ce/repoprompt-official-semantic-walkthrough.webm",
+          "mediaType": "video",
+          "sourceStart": 15.4,
+          "sourceEnd": 24.406,
+          "matchReason": "README positioning 窗口持续展示项目定位，直接支撑上下文工程问题切入，并保留项目自述边界。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-semantic-readme-positioning",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-22T03:10:00.000Z",
+      "selectionNote": "将 README positioning 窗口向前扩到 15.4 秒以覆盖 8.70 秒旁白；与 scene-02 仍保留 0.061 秒间隔。",
+      "generatedBy": "ai",
+      "userEdited": false
+    },
+    {
+      "id": "scene-02",
+      "enabled": true,
+      "sourceId": "source-08",
+      "sourceStart": 7.336,
+      "sourceEnd": 15.339,
+      "showEditorialOverlay": true,
+      "eyebrow": "项目定位",
+      "title": "RepoPrompt CE 是什么",
+      "subtitle": "项目定位来自 README，不等于使用效果",
+      "narration": "README 将它定位为开源 macOS 上下文工具，并提供 MCP CLI。定位不等于效果。",
+      "visualRequirement": "使用 source-08 的 repository overview 独立窗口，展示真实仓库身份、About 与页面状态，并标明官方自述不等于效果。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-02",
+          "locatorType": "line",
+          "lineStart": 5,
+          "lineEnd": 5,
+          "note": "GitHub 页面文本描述免费、开源、原生 macOS 应用、agent orchestrator、context engineering 和 MCP CLI。"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "image",
+          "note": "一手 README 截图可见产品定位、Apache 2.0 与 macOS 26+ 徽章；仅展示页面内容，不作为实测证明。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-semantic-repository-overview",
+          "sourceId": "source-08",
+          "assetPath": "public/project-assets/2026-07-19-repoprompt-repoprompt-ce/repoprompt-official-semantic-walkthrough.webm",
+          "mediaType": "video",
+          "sourceStart": 7.336,
+          "sourceEnd": 15.339,
+          "matchReason": "仓库总览窗口显示真实项目身份和 About，适合说明 RepoPrompt CE 的官方定位而不暗示使用效果。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-semantic-repository-overview",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-22T03:10:00.000Z",
+      "selectionNote": "使用 capture receipt 的 repository overview 独立窗口；和 scene-01 的 README 窗口不重叠。",
+      "generatedBy": "ai",
+      "userEdited": false
+    },
+    {
+      "id": "scene-03",
+      "enabled": true,
+      "sourceId": "source-08",
+      "sourceStart": 25.1,
+      "sourceEnd": 34.484,
+      "showEditorialOverlay": true,
+      "eyebrow": "上下文组成",
+      "title": "它如何改善上下文工程",
+      "subtitle": "选择、组合、检查，而不是全量投喂",
+      "narration": "它用文件、CodeMaps、仓库结构和 Git diff 组成上下文。要验证是否更聚焦、更易复核。",
+      "visualRequirement": "使用 source-08 的 context inputs 独立窗口，画面中应能阅读 files、CodeMaps、repository structure 和 Git diffs；不伪造操作结果。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-04",
+          "locatorType": "line",
+          "start": 7,
+          "end": 11,
+          "lineStart": 7,
+          "lineEnd": 11,
+          "note": "README 描述从 files、CodeMaps、repository structure 和 Git diffs 组装 focused、reviewable context，并交给 AI tools 和 CLI agents。"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "image",
+          "note": "一手 README 截图 source-06 展示相同产品说明，可作为上下文组成的来源画面。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-semantic-context-inputs",
+          "sourceId": "source-08",
+          "assetPath": "public/project-assets/2026-07-19-repoprompt-repoprompt-ce/repoprompt-official-semantic-walkthrough.webm",
+          "mediaType": "video",
+          "sourceStart": 25.1,
+          "sourceEnd": 34.484,
+          "matchReason": "context inputs 窗口可见 files、CodeMaps、repository structure 和 Git diffs，与旁白逐项对应。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-semantic-context-inputs",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-22T03:10:00.000Z",
+      "selectionNote": "将 context-inputs 窗口向前扩到 25.1 秒以覆盖 9.28 秒旁白，仍保持独立语义窗口。",
+      "generatedBy": "ai",
+      "userEdited": false
+    },
+    {
+      "id": "scene-04",
+      "enabled": true,
+      "sourceId": "source-08",
+      "sourceStart": 45.337,
+      "sourceEnd": 54.34,
+      "showEditorialOverlay": true,
+      "eyebrow": "代理工作流",
+      "title": "MCP 与 CLI 怎样接上工作流",
+      "subtitle": "从整理上下文到连接代理",
+      "narration": "README 称它能通过 MCP 与 CLI 连接代理工作流；本片没有实测，能力仍待验证。",
+      "visualRequirement": "使用 source-08 的 MCP/CLI 独立窗口，画面应能阅读 MCP server and CLI integration；不制作虚假终端执行画面。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-07",
+          "locatorType": "image",
+          "note": "一手 README 局部截图中可见 bundled MCP server、MCP-compatible clients、CLI agents、搜索仓库、检查文件和 agent sessions 等文字。截图内容局部截断，不能覆盖完整能力范围。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-semantic-mcp-cli",
+          "sourceId": "source-08",
+          "assetPath": "public/project-assets/2026-07-19-repoprompt-repoprompt-ce/repoprompt-official-semantic-walkthrough.webm",
+          "mediaType": "video",
+          "sourceStart": 45.337,
+          "sourceEnd": 54.34,
+          "matchReason": "MCP/CLI 窗口持续展示对应 README 条目，与连接代理工作流的官方描述一致，并保留待实测边界。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-semantic-mcp-cli",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-22T03:10:00.000Z",
+      "selectionNote": "将 MCP/CLI 窗口收敛到 45.337-54.340 秒，完整覆盖旁白并在页面进入 License 区域前结束。",
+      "generatedBy": "ai",
+      "userEdited": false
+    },
+    {
+      "id": "scene-05",
+      "enabled": true,
+      "sourceId": "source-08",
+      "sourceStart": 54.4,
+      "sourceEnd": 63.288,
+      "showEditorialOverlay": true,
+      "eyebrow": "审慎核验",
+      "title": "哪些信息还不能直接下结论",
+      "subtitle": "统计和许可证都要看原始页面与时间点",
+      "narration": "README 声明 Apache 2.0；Stars 和 Forks 仍要回仓库按时间点核对，也不能证明效果。",
+      "visualRequirement": "使用 source-08 的 License 独立窗口展示 Apache 2.0 页面声明；字幕提醒 Stars 和 Forks 需回仓库按时间点核对。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-05",
+          "locatorType": "image",
+          "note": "一手 GitHub 页面截图显示截图时页面上的 Star 817、Fork 101，以及 About 区域和 Apache-2.0 标识。"
+        },
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "end": 4,
+          "lineStart": 4,
+          "lineEnd": 4,
+          "note": "候选摘要列出 817 stars、101 forks 和 Apache-2.0，但其自动收集说明要求进一步核对。"
+        },
+        {
+          "sourceId": "source-04",
+          "locatorType": "line",
+          "start": 1,
+          "end": 166,
+          "lineStart": 1,
+          "lineEnd": 166,
+          "note": "README 文本包含 Apache-2.0 许可和 macOS 26+ 徽章，但不包含 stars 或 forks 的当前统计。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-semantic-license",
+          "sourceId": "source-08",
+          "assetPath": "public/project-assets/2026-07-19-repoprompt-repoprompt-ce/repoprompt-official-semantic-walkthrough.webm",
+          "mediaType": "video",
+          "sourceStart": 54.4,
+          "sourceEnd": 63.288,
+          "matchReason": "License 窗口直接展示 Apache 2.0 页面声明；旁白把动态统计保留为待按时间点核对的信息。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-semantic-license",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-22T03:10:00.000Z",
+      "selectionNote": "使用 54.400-63.288 秒完整 License 窗口，避开 63.4 秒开始的仓库顶部转场。",
+      "generatedBy": "ai",
+      "userEdited": false
+    },
+    {
+      "id": "scene-06",
+      "enabled": true,
+      "sourceId": "source-08",
+      "sourceStart": 2.8,
+      "sourceEnd": 7.3,
+      "showEditorialOverlay": true,
+      "eyebrow": "真实仓库验证",
+      "title": "把承诺变成可复核实验",
+      "subtitle": "用真实仓库和真实任务验证",
+      "narration": "用真实任务对照，再判断它是否有效。",
+      "visualRequirement": "使用 source-08 的 verification CTA 独立窗口回到真实仓库顶部，以待验证状态收束，不展示未经执行的成功结论。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-04",
+          "locatorType": "line",
+          "start": 13,
+          "end": 16,
+          "lineStart": 13,
+          "lineEnd": 16,
+          "note": "README 描述 MCP server、MCP-compatible clients、CLI agents、搜索仓库、检查文件、整理上下文和运行 agent sessions。"
+        },
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "end": 7,
+          "lineStart": 7,
+          "lineEnd": 7,
+          "note": "候选来源提供真实 GitHub 仓库链接 repoprompt/repoprompt-ce；最终画面应打开该原始仓库进行验证。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-semantic-verification-cta",
+          "sourceId": "source-08",
+          "assetPath": "public/project-assets/2026-07-19-repoprompt-repoprompt-ce/repoprompt-official-semantic-walkthrough.webm",
+          "mediaType": "video",
+          "sourceStart": 2.8,
+          "sourceEnd": 7.3,
+          "matchReason": "verification CTA 窗口回到真实 GitHub 仓库顶部，适合引导用真实任务验证而不预设成功。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-semantic-verification-cta",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-22T03:10:00.000Z",
+      "selectionNote": "语义审片发现原 63.691-71.3 秒窗口仍停在 License 区域；改用 2.8-7.3 秒真实仓库顶部窗口，并缩短 CTA 旁白以保持与 scene-02 不重叠。",
+      "generatedBy": "ai",
+      "userEdited": false
+    }
+  ]
+}

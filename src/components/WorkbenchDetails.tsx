@@ -1,4 +1,4 @@
-import { BrainCircuit, CheckCircle2, Film, SlidersHorizontal, Subtitles, Video, WandSparkles } from 'lucide-react';
+import { BrainCircuit, CheckCircle2, Film, Monitor, SlidersHorizontal, Smartphone, Square, Subtitles, Video, WandSparkles } from 'lucide-react';
 import VoicePreviewPrototype from '@/src/components/VoicePreviewPrototype';
 import {
   ProductionScene,
@@ -21,6 +21,7 @@ interface WorkbenchDetailsProps {
   onConfirmVisual: () => void;
   onUpdateSource: (sourceId: string, patch: Partial<ShortVideoSource>) => void;
   onUpdatePlatformCopy: (patch: Partial<PlatformCopy>) => void;
+  onUpdateAspectRatio: (aspectRatio: ShortVideoProject['brief']['aspectRatio']) => void;
 }
 
 const fieldClass =
@@ -41,7 +42,10 @@ export default function WorkbenchDetails({
   onConfirmVisual,
   onUpdateSource,
   onUpdatePlatformCopy,
+  onUpdateAspectRatio,
 }: WorkbenchDetailsProps) {
+  const visualConfirmed = activeScene?.selectionStatus === 'codex_reviewed'
+    || activeScene?.selectionStatus === 'user_approved';
   if (view === 'research') {
     const completed = project.sources.filter((source) => source.processing.status === 'completed').length;
     const failed = project.sources.filter((source) => source.processing.status === 'failed').length;
@@ -138,6 +142,19 @@ export default function WorkbenchDetails({
               </label>
               <div className="grid grid-cols-2 gap-3">
                 <label className="block">
+                  <FieldLabel>素材用途</FieldLabel>
+                  <select
+                    className={fieldClass}
+                    value={activeSource.materialRole}
+                    onChange={(event) => onUpdateSource(activeSource.id, { materialRole: event.target.value as ShortVideoSource['materialRole'] })}
+                  >
+                    <option value="official_demo">官方/本项目演示</option>
+                    <option value="broll">通用 B-roll</option>
+                    <option value="evidence">证据画面</option>
+                    <option value="research">研究资料</option>
+                  </select>
+                </label>
+                <label className="block">
                   <FieldLabel>来源可信度</FieldLabel>
                   <select
                     className={fieldClass}
@@ -187,6 +204,33 @@ export default function WorkbenchDetails({
           <Video aria-hidden="true" className="h-4 w-4 text-slate-600" />
           <h2 className="text-sm font-extrabold text-slate-950">成片规格</h2>
         </div>
+        <div className="border-b border-slate-200 p-4">
+          <p className="text-xs font-bold text-slate-500">输出画幅</p>
+          <div className="mt-2 grid grid-cols-3 gap-1 rounded-md bg-slate-100 p-1" aria-label="选择输出画幅">
+            {([
+              { value: '16:9', label: '横屏', Icon: Monitor },
+              { value: '9:16', label: '竖屏', Icon: Smartphone },
+              { value: '1:1', label: '方形', Icon: Square },
+            ] as const).map(({ value, label, Icon }) => (
+              <button
+                className={`inline-flex h-9 items-center justify-center gap-1.5 rounded text-xs font-extrabold ${project.brief.aspectRatio === value ? 'bg-white text-slate-950 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
+                key={value}
+                type="button"
+                onClick={() => onUpdateAspectRatio(value)}
+              >
+                <Icon aria-hidden="true" className="h-3.5 w-3.5" />
+                {label}
+              </button>
+            ))}
+          </div>
+          <p className="mt-2 text-[11px] leading-relaxed text-slate-500">
+            {project.brief.aspectRatio === '16:9'
+              ? '适合网页演示、B站、视频号和横屏内容。'
+              : project.brief.aspectRatio === '9:16'
+                ? '横屏素材完整放在画布中央，上下区域承载标题和字幕。'
+                : '横屏素材完整居中，适合信息流复用。'}
+          </p>
+        </div>
         <dl className="grid grid-cols-2 gap-4 p-4 text-xs">
           <div>
             <dt className="font-bold text-slate-400">画布</dt>
@@ -203,6 +247,10 @@ export default function WorkbenchDetails({
           <div>
             <dt className="font-bold text-slate-400">语速</dt>
             <dd className="mt-1 font-mono font-extrabold text-slate-900">{project.render.rate}</dd>
+          </div>
+          <div>
+            <dt className="font-bold text-slate-400">素材适配</dt>
+            <dd className="mt-1 font-extrabold text-slate-900">{project.render.mediaFit === 'contain' ? '完整展示' : '裁切填满'}</dd>
           </div>
         </dl>
         <div className="space-y-4 border-t border-slate-200 p-4">
@@ -312,15 +360,17 @@ export default function WorkbenchDetails({
               <FieldLabel>画面需求</FieldLabel>
               <textarea className={`${fieldClass} min-h-20 resize-y leading-relaxed`} value={activeScene.visualRequirement} onChange={(event) => onUpdateScene({ visualRequirement: event.target.value })} />
             </label>
-            <div className={`rounded-md border p-3 ${activeScene.selectedCandidateId ? 'border-emerald-200 bg-emerald-50' : 'border-amber-200 bg-amber-50'}`}>
+            <div className={`rounded-md border p-3 ${visualConfirmed ? 'border-emerald-200 bg-emerald-50' : 'border-amber-200 bg-amber-50'}`}>
               <div className="flex items-start gap-2">
-                <CheckCircle2 aria-hidden="true" className={`mt-0.5 h-4 w-4 shrink-0 ${activeScene.selectedCandidateId ? 'text-emerald-700' : 'text-amber-700'}`} />
+                <CheckCircle2 aria-hidden="true" className={`mt-0.5 h-4 w-4 shrink-0 ${visualConfirmed ? 'text-emerald-700' : 'text-amber-700'}`} />
                 <div>
-                  <p className="text-xs font-extrabold text-slate-900">{activeScene.selectedCandidateId ? '当前画面已确认' : '等待你确认画面'}</p>
+                  <p className="text-xs font-extrabold text-slate-900">{visualConfirmed ? '当前画面已确认' : '等待你确认画面'}</p>
                   <p className="mt-1 text-xs leading-relaxed text-slate-600">
-                    {activeScene.selectedCandidateId
+                    {visualConfirmed
                       ? '修改素材或时间段后，需要重新确认。'
-                      : '请先查看上方预览，确认这段画面可以用于成片。'}
+                      : activeScene.selectionStatus === 'ai_suggested'
+                        ? '当前仅为 AI 推荐，请查看上方预览后明确确认。'
+                        : '请先查看上方预览，确认这段画面可以用于成片。'}
                   </p>
                 </div>
               </div>
@@ -330,7 +380,7 @@ export default function WorkbenchDetails({
                 onClick={onConfirmVisual}
               >
                 <CheckCircle2 aria-hidden="true" className="h-4 w-4" />
-                {activeScene.selectedCandidateId ? '重新确认当前画面' : '确认使用当前画面'}
+                {visualConfirmed ? '重新确认当前画面' : '确认使用当前画面'}
               </button>
             </div>
           </>

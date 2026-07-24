@@ -1,0 +1,741 @@
+{
+  "schemaVersion": 3,
+  "id": "google-vids-dynamic-cut-20260724",
+  "title": "Google Vids: dynamic material first, compact cut",
+  "format": "video_project",
+  "targetAudience": "中文开发者、产品人和 AI 视频工作流实践者",
+  "status": "draft",
+  "technical_status": "passed",
+  "rights_status": "review_required",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "brief": {
+    "objective": "用连续动态的一手页面录屏，在 60-90 秒内紧凑解释 Google Vids 的 Gemini Omni 与 personal avatars 更新。",
+    "audience": "中文开发者、产品人和 AI 视频工作流实践者",
+    "platform": "小红书 / 视频号 / YouTube Shorts",
+    "aspectRatio": "9:16",
+    "targetDurationSeconds": 62.7,
+    "tone": "克制、清晰、有判断",
+    "style": "真实动态素材优先，短镜头，不用静态整幕、循环、音乐或装饰性动效",
+    "reference": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/",
+    "coreMessage": "官方说明展示了生成、分步编辑与个人头像能力，但产品效果仍需真实任务验证。",
+    "cta": "回到官方来源，并用一个真实任务完整实测。",
+    "prohibitedMaterial": "静态整幕、循环、时间拉伸、无关 B-roll、把官方说明写成用户实测、自动发布"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "Google Vids 官方文章连续滚动录屏",
+      "sourceType": "video",
+      "materialRole": "official_demo",
+      "originUrl": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/",
+      "assetPath": "public/project-assets/google-vids-dynamic-cut-20260724/google-vids-dynamic-cut-official-scroll-portrait.webm",
+      "originalFileName": "google-vids-dynamic-cut-official-scroll-portrait.webm",
+      "mimeType": "video/webm",
+      "bytes": 9751620,
+      "importedAt": "2026-07-24T03:42:50.000Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "2026-07-24 从 Google 一手文章自录，仅用于本地制作与核验；官方来源不等于公开发布权利已清除。",
+      "contentHash": "36b3ab767099dfbc75fb7271ae5aa6fe31a9b0f327affd19dbcfcf0da54f7703",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "36b3ab767099dfbc75fb7271ae5aa6fe31a9b0f327affd19dbcfcf0da54f7703",
+        "startedAt": "2026-07-24T03:41:18.000Z",
+        "completedAt": "2026-07-24T03:42:50.000Z",
+        "error": "",
+        "model": "manual-first-party-review",
+        "promptVersion": "google-vids-dynamic-cut-20260724-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "Google first-party article walkthrough covering Gemini Omni, text and image inputs, step-by-step editing, personal avatars, access limits, transparency and invisible SynthID.",
+        "visualDescription": "720x1280 continuous browser recording with slow scrolls between the exact first-party article sections used by the narration.",
+        "hierarchicalSummary": "A first-party Google article is traversed in narrative order from the update overview through generation, editing, avatars, restrictions, transparency and the source-bound conclusion.",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [],
+    "facts": [],
+    "uncertainties": [
+      {
+        "id": "uncertainty-official-not-tested",
+        "statement": "官方产品说明不能证明真实任务中的生成质量、稳定性或可用性。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "time",
+            "start": 23.221,
+            "end": 91.151,
+            "note": "整条录屏只展示官方文章，没有独立产品任务实测。"
+          }
+        ],
+        "resolution": "在结尾明确保留为待实测边界。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      }
+    ]
+  },
+  "narrative": {
+    "status": "completed",
+    "error": "",
+    "activeVersionId": "narrative-dynamic-cut-v1",
+    "versions": [
+      {
+        "id": "narrative-dynamic-cut-v1",
+        "generatedAt": "2026-07-24T03:45:00.000Z",
+        "model": "codex-manual",
+        "promptVersion": "google-vids-dynamic-cut-20260724-v1",
+        "inputHash": "manual-first-party-source",
+        "conclusion": "Google Vids 的官方能力边界已说明，真实任务效果仍需实测。",
+        "hook": "两项更新分别覆盖生成编辑与个人头像。",
+        "outline": [
+          "Gemini Omni",
+          "描述、照片与草图",
+          "分步编辑",
+          "personal avatars",
+          "限制与透明标识",
+          "官方说明不等于真实效果"
+        ],
+        "voiceoverScript": "Google Vids 更新两项能力：Gemini Omni 与 personal avatars。官方说明覆盖生成、分步编辑、头像创建、使用限制和 SynthID，但真实效果仍需任务实测。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "time",
+            "start": 23.221,
+            "end": 91.151,
+            "note": "完整叙事顺序对应一手文章的连续滚动录屏。"
+          }
+        ],
+        "uncertainties": [
+          "没有执行 Google Vids 真实生成任务，不能把官方说明写成实测结论。"
+        ]
+      }
+    ],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "pendingChapters": [],
+    "generatedAt": "2026-07-24T03:45:00.000Z",
+    "model": "codex-manual",
+    "promptVersion": "google-vids-dynamic-cut-20260724-v1"
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "none-local-manual",
+    "transcriptionModel": "whisper.cpp:large-v3-turbo-q5_0",
+    "promptVersion": "google-vids-dynamic-cut-20260724-v1",
+    "calls": []
+  },
+  "editorial": {
+    "claim": "Google 官方把 Gemini Omni 定义为自然语言生成与分步编辑入口，并把 personal avatars 定义为自拍、短语音和文字驱动的出镜方式。",
+    "whyItMatters": "生成、修改和出镜被放进一条更短的视频生产路径。",
+    "chinaContext": "只整理一手说明，不推断当前地区可用性。",
+    "riskNote": "官方说明不等于真实任务效果；权利仍需发布前复核。"
+  },
+  "platformCopy": {
+    "coverTitle": "Google Vids 两项更新",
+    "title": "Google Vids：Omni 与个人头像，官方到底说了什么",
+    "description": "用 Google 一手文章的连续动态录屏，紧凑梳理 Gemini Omni、分步编辑、personal avatars、资格限制与 SynthID。官方说明不是实测结论。",
+    "hashtags": [
+      "#GoogleVids",
+      "#GeminiOmni",
+      "#PersonalAvatars",
+      "#AI视频"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "2026-07-24T03:41:18.000Z",
+    "updatedAt": "2026-07-24T04:03:42.574Z",
+    "researchReviewedAt": "2026-07-24T03:45:00.000Z",
+    "firstRenderCompletedAt": "2026-07-24T03:47:43.931Z",
+    "lastRenderCompletedAt": "2026-07-24T04:03:42.574Z",
+    "sourceImportCount": 1,
+    "manualSaveCount": 0,
+    "renderAttemptCount": 5,
+    "renderFailureCount": 0,
+    "lastRenderStartedAt": "2026-07-24T04:03:26.557Z",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "materialReview": {
+    "status": "approved",
+    "approvedSourceIds": [
+      "source-01"
+    ],
+    "reviewedAt": "2026-07-24T03:45:00.000Z"
+  },
+  "chapters": [
+    {
+      "id": "chapter-01",
+      "title": "Google Vids: dynamic material first, compact cut",
+      "summary": "",
+      "order": 0,
+      "sceneIds": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06",
+        "scene-07",
+        "scene-08",
+        "scene-09",
+        "scene-10",
+        "scene-11",
+        "scene-12"
+      ],
+      "sourceReferences": []
+    }
+  ],
+  "outputs": {
+    "outputVideo": "output/videos/google-vids-dynamic-cut-20260724.mp4",
+    "publicRender": "public/renders/google-vids-dynamic-cut-20260724.mp4",
+    "workDir": "output/videos/google-vids-dynamic-cut-20260724-work",
+    "exportDir": "output/exports/google-vids-dynamic-cut-20260724",
+    "coverImage": "output/exports/google-vids-dynamic-cut-20260724/cover.png",
+    "platformCopy": "output/exports/google-vids-dynamic-cut-20260724/platform-copy.json",
+    "sourceList": "output/exports/google-vids-dynamic-cut-20260724/source-list.json",
+    "projectSnapshot": "output/exports/google-vids-dynamic-cut-20260724/project.snapshot.json"
+  },
+  "render": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "voice": "zh-CN-YunjianNeural",
+    "rate": 194,
+    "voiceEngine": "edge-tts",
+    "voiceModel": "edge-tts-universal",
+    "voiceProfile": "natural-tech-zh-v1",
+    "voiceStyle": "",
+    "voiceGenerationMode": "per-scene",
+    "renderStrategy": "segmented-concat",
+    "pronunciations": [
+      {
+        "term": "Gemini Omni",
+        "guidance": "Gemini 与 Omni 分开自然朗读",
+        "asrAliases": [
+          "Gemini Omni"
+        ]
+      },
+      {
+        "term": "personal avatars",
+        "guidance": "两个英文单词分开朗读",
+        "asrAliases": [
+          "Personal Avatars"
+        ]
+      },
+      {
+        "term": "SynthID",
+        "guidance": "读作 Synth I D",
+        "asrAliases": [
+          "Synth ID"
+        ]
+      }
+    ],
+    "mediaFit": "contain"
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 23.221,
+      "sourceEnd": 27.611,
+      "showEditorialOverlay": false,
+      "eyebrow": "Google Vids",
+      "title": "两项更新",
+      "subtitle": "Google Vids 更新两项能力：生成编辑和个人头像。",
+      "narration": "Google Vids 更新两项能力：生成编辑和个人头像。",
+      "visualRequirement": "展示官方文章标题、摘要与两项更新主视觉。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 23.221,
+          "end": 27.611,
+          "note": "官方文章开头。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/google-vids-dynamic-cut-20260724/google-vids-dynamic-cut-official-scroll-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 23.221,
+          "sourceEnd": 27.611,
+          "matchReason": "官方标题与两项更新主视觉。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T03:45:00.000Z",
+      "selectionNote": "起中末抽帧显示同一篇 Google 官方文章的标题与主视觉。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-02",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 27.901,
+      "sourceEnd": 33.371,
+      "showEditorialOverlay": false,
+      "eyebrow": "Gemini Omni",
+      "title": "自然语言生成与编辑",
+      "subtitle": "第一项 Gemini Omni，用自然语言直接生成，也能继续编辑视频。",
+      "narration": "第一项 Gemini Omni，用自然语言直接生成，也能继续编辑视频。",
+      "visualRequirement": "从更新概览连续滚动到 Generate videos from text and images。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 27.901,
+          "end": 33.371,
+          "note": "滚动进入生成章节。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-02",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/google-vids-dynamic-cut-20260724/google-vids-dynamic-cut-official-scroll-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 27.901,
+          "sourceEnd": 33.371,
+          "matchReason": "连续进入 Gemini Omni 生成说明。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-02",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T03:45:00.000Z",
+      "selectionNote": "窗口只承接 Gemini Omni 的生成入口。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-03",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 33.701,
+      "sourceEnd": 38.931,
+      "showEditorialOverlay": false,
+      "eyebrow": "输入方式",
+      "title": "描述、照片或草图",
+      "subtitle": "输入不只是一段描述，还能加入照片，或一张粗略草图。",
+      "narration": "输入不只是一段描述，还能加入照片，或一张粗略草图。",
+      "visualRequirement": "展示官方文章对自然语言、照片与 rough sketch 的说明。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 33.701,
+          "end": 38.931,
+          "note": "输入说明段落。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-03",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/google-vids-dynamic-cut-20260724/google-vids-dynamic-cut-official-scroll-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 33.701,
+          "sourceEnd": 38.931,
+          "matchReason": "画面可见文字、图片参考和粗略草图说明。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-03",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T03:45:00.000Z",
+      "selectionNote": "不把页面视频占位图描述成真实生成结果。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-04",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 39.501,
+      "sourceEnd": 44.781,
+      "showEditorialOverlay": false,
+      "eyebrow": "分步编辑",
+      "title": "生成后继续改",
+      "subtitle": "生成初稿以后，不用推倒重来，可以继续对话分步修改。",
+      "narration": "生成初稿以后，不用推倒重来，可以继续对话分步修改。",
+      "visualRequirement": "连续滚动到 Chat to edit, step-by-step 标题。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 39.501,
+          "end": 44.781,
+          "note": "分步编辑标题与说明。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-04",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/google-vids-dynamic-cut-20260724/google-vids-dynamic-cut-official-scroll-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 39.501,
+          "sourceEnd": 44.781,
+          "matchReason": "画面进入分步编辑章节。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-04",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T03:45:00.000Z",
+      "selectionNote": "不延伸为实际编辑质量结论。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-05",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 45.301,
+      "sourceEnd": 50.901,
+      "showEditorialOverlay": false,
+      "eyebrow": "编辑能力",
+      "title": "背景、光线、效果",
+      "subtitle": "官方举的例子，包括替换背景、修复光线，或者添加效果。",
+      "narration": "官方举的例子，包括替换背景、修复光线，或者添加效果。",
+      "visualRequirement": "展示官方段落中的 swap backgrounds、fix lighting 和 add effects。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 45.301,
+          "end": 50.901,
+          "note": "三项编辑示例。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-05",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/google-vids-dynamic-cut-20260724/google-vids-dynamic-cut-official-scroll-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 45.301,
+          "sourceEnd": 50.901,
+          "matchReason": "可见官方三项分步编辑示例。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-05",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T03:45:00.000Z",
+      "selectionNote": "独立窗口只解释编辑示例。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-06",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 51.101,
+      "sourceEnd": 56.321,
+      "showEditorialOverlay": false,
+      "eyebrow": "Personal avatars",
+      "title": "不必本人录制",
+      "subtitle": "第二项 personal avatars，让数字化身替代本人出镜录制。",
+      "narration": "第二项 personal avatars，让数字化身替代本人出镜录制。",
+      "visualRequirement": "连续进入 Star in videos, instantly 章节。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 51.101,
+          "end": 56.321,
+          "note": "个人头像章节。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-06",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/google-vids-dynamic-cut-20260724/google-vids-dynamic-cut-official-scroll-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 51.101,
+          "sourceEnd": 56.321,
+          "matchReason": "画面进入 personal avatars 官方说明。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-06",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T03:45:00.000Z",
+      "selectionNote": "页面只作为官方功能说明。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-07",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 56.901,
+      "sourceEnd": 61.701,
+      "showEditorialOverlay": false,
+      "eyebrow": "头像创建",
+      "title": "自拍 + 短语音",
+      "subtitle": "先上传一张自拍和一段短语音，用来创建个人头像。",
+      "narration": "先上传一张自拍和一段短语音，用来创建个人头像。",
+      "visualRequirement": "展示 selfie 与 short voice recording 的官方流程文字。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 56.901,
+          "end": 61.701,
+          "note": "头像输入材料。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-07",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/google-vids-dynamic-cut-20260724/google-vids-dynamic-cut-official-scroll-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 56.901,
+          "sourceEnd": 61.701,
+          "matchReason": "画面可见自拍与短语音说明。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-07",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T03:45:00.000Z",
+      "selectionNote": "不把官方流程描述为已创建成功。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-08",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 62.701,
+      "sourceEnd": 67.571,
+      "showEditorialOverlay": false,
+      "eyebrow": "使用方式",
+      "title": "输入文字传达消息",
+      "subtitle": "再输入要说的文字，让这个头像替你传达完整消息。",
+      "narration": "再输入要说的文字，让这个头像替你传达完整消息。",
+      "visualRequirement": "从头像流程滚动到资格限制，保持文字输入语义可见。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 62.701,
+          "end": 67.571,
+          "note": "文字驱动头像消息。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-08",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/google-vids-dynamic-cut-20260724/google-vids-dynamic-cut-official-scroll-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 62.701,
+          "sourceEnd": 67.571,
+          "matchReason": "可见文字输入与头像传达消息说明。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-08",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T03:45:00.000Z",
+      "selectionNote": "窗口不与后续限制论点混用。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-09",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 68.501,
+      "sourceEnd": 74.201,
+      "showEditorialOverlay": false,
+      "eyebrow": "可用性限制",
+      "title": "地区、年龄、账号、订阅",
+      "subtitle": "可用性有前提：地区、十八岁、账号和订阅类型都有限制。",
+      "narration": "可用性有前提：地区、十八岁、账号和订阅类型都有限制。",
+      "visualRequirement": "展示 Pro/Ultra、Workspace、region、18+ 和 account holder 限制。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 68.501,
+          "end": 74.201,
+          "note": "资格限制文字。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-09",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/google-vids-dynamic-cut-20260724/google-vids-dynamic-cut-official-scroll-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 68.501,
+          "sourceEnd": 74.201,
+          "matchReason": "画面集中显示资格与账号限制。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-09",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T03:45:00.000Z",
+      "selectionNote": "限制条件与透明标识分开表达。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-10",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 74.301,
+      "sourceEnd": 80.001,
+      "showEditorialOverlay": false,
+      "eyebrow": "内容透明",
+      "title": "标识与 SynthID",
+      "subtitle": "生成片段会带内容标识，并写入 invisible SynthID 数字水印。",
+      "narration": "生成片段会带内容标识，并写入 invisible Synth I D 数字水印。",
+      "visualRequirement": "展示 Create and share with transparency 与 invisible SynthID 原文。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 74.301,
+          "end": 80.001,
+          "note": "透明标识和 SynthID 说明。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-10",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/google-vids-dynamic-cut-20260724/google-vids-dynamic-cut-official-scroll-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 74.301,
+          "sourceEnd": 80.001,
+          "matchReason": "可见透明度标题与 SynthID 原文。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-10",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T03:45:00.000Z",
+      "selectionNote": "只陈述页面可见的标识信息。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-11",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 80.101,
+      "sourceEnd": 85.301,
+      "showEditorialOverlay": false,
+      "eyebrow": "证据边界",
+      "title": "一手说明，不是实测",
+      "subtitle": "但这些证据，只能说明 Google 官方如何描述这两项更新。",
+      "narration": "但这些证据，只能说明 Google 官方如何描述这两项更新。",
+      "visualRequirement": "从文章尾部连续返回标题，强调当前证据是官方文章本身。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 80.101,
+          "end": 85.301,
+          "note": "返回官方文章顶部。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-11",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/google-vids-dynamic-cut-20260724/google-vids-dynamic-cut-official-scroll-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 80.101,
+          "sourceEnd": 85.301,
+          "matchReason": "回到标题明确证据来自 Google 官方文章。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-11",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T03:45:00.000Z",
+      "selectionNote": "返场是来源边界，不承担新的功能主张。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-12",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 85.901,
+      "sourceEnd": 91.151,
+      "showEditorialOverlay": false,
+      "eyebrow": "结论",
+      "title": "仍需真实任务验证",
+      "subtitle": "它们不是实测结果，真实任务里的效果仍然要完整验证。",
+      "narration": "它们不是实测结果，真实任务里的效果仍然要完整验证。",
+      "visualRequirement": "停在 Google 官方文章标题，明确官方说明不等于产品实测。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "time",
+          "start": 85.901,
+          "end": 91.151,
+          "note": "官方文章标题作为来源返回。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-12",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/google-vids-dynamic-cut-20260724/google-vids-dynamic-cut-official-scroll-portrait.webm",
+          "mediaType": "video",
+          "sourceStart": 85.901,
+          "sourceEnd": 91.151,
+          "matchReason": "回到官方标题并保留实测边界。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-12",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-07-24T03:45:00.000Z",
+      "selectionNote": "结尾仍是动态视频来源，没有静态卡或空白尾留。",
+      "generatedBy": "user",
+      "userEdited": true
+    }
+  ]
+}

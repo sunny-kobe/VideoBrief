@@ -8,6 +8,7 @@ import {
   Plus,
   Trash2,
 } from 'lucide-react';
+import { Fragment } from 'react';
 import { ShortVideoProject } from '@/src/shortVideoBrief';
 import { SceneTiming, formatTimecode } from '@/src/workbench';
 
@@ -63,12 +64,27 @@ export default function WorkbenchClipManager({
       <div className="divide-y divide-slate-200 md:min-h-0 md:flex-1 md:overflow-y-auto">
         {project.scenes.map((scene, index) => {
           const source = project.sources.find((item) => item.id === scene.sourceId);
+          const chapter = project.chapters.find((item) => item.id === scene.chapterId);
+          const previousChapterId = project.scenes[index - 1]?.chapterId;
+          const nextChapterId = project.scenes[index + 1]?.chapterId;
+          const showChapterHeader = Boolean(chapter && previousChapterId !== scene.chapterId);
           const timing = timings.get(scene.id);
           const active = scene.id === activeSceneId;
 
           return (
+            <Fragment key={scene.id}>
+            {showChapterHeader ? (
+              <div className="border-y border-slate-300 bg-slate-100 px-4 py-2.5">
+                <p className="text-[10px] font-extrabold uppercase text-emerald-700">章节 {chapter!.order + 1}</p>
+                <div className="mt-0.5 flex items-baseline justify-between gap-3">
+                  <h3 className="min-w-0 truncate text-xs font-extrabold text-slate-950">{chapter!.title}</h3>
+                  <span className="shrink-0 font-mono text-[10px] font-bold text-slate-500">
+                    {chapter!.targetDurationSeconds ? `${chapter!.targetDurationSeconds}s` : `${chapter!.sceneIds.length} 幕`}
+                  </span>
+                </div>
+              </div>
+            ) : null}
             <article
-              key={scene.id}
               className={`px-3 py-3 sm:px-4 ${active ? 'bg-emerald-50/70' : 'bg-white'} ${scene.enabled ? '' : 'opacity-60'}`}
               data-scene-id={scene.id}
             >
@@ -144,10 +160,10 @@ export default function WorkbenchClipManager({
                 <button className={iconButton} type="button" title="复制片段" aria-label={`复制片段 ${index + 1}`} onClick={() => onDuplicate(scene.id)}>
                   <Copy aria-hidden="true" className="h-4 w-4" />
                 </button>
-                <button className={iconButton} type="button" title="上移" aria-label={`上移片段 ${index + 1}`} disabled={index === 0} onClick={() => onMove(scene.id, -1)}>
+                <button className={iconButton} type="button" title="上移" aria-label={`上移片段 ${index + 1}`} disabled={index === 0 || previousChapterId !== scene.chapterId} onClick={() => onMove(scene.id, -1)}>
                   <ChevronUp aria-hidden="true" className="h-4 w-4" />
                 </button>
-                <button className={iconButton} type="button" title="下移" aria-label={`下移片段 ${index + 1}`} disabled={index === project.scenes.length - 1} onClick={() => onMove(scene.id, 1)}>
+                <button className={iconButton} type="button" title="下移" aria-label={`下移片段 ${index + 1}`} disabled={index === project.scenes.length - 1 || nextChapterId !== scene.chapterId} onClick={() => onMove(scene.id, 1)}>
                   <ChevronDown aria-hidden="true" className="h-4 w-4" />
                 </button>
                 <button className={`${iconButton} hover:border-rose-300 hover:bg-rose-50 hover:text-rose-700`} type="button" title="删除片段" aria-label={`删除片段 ${index + 1}`} onClick={() => onDelete(scene.id)}>
@@ -155,6 +171,7 @@ export default function WorkbenchClipManager({
                 </button>
               </div>
             </article>
+            </Fragment>
           );
         })}
 

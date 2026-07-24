@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "projectId": "2026-07-19-create-edit-and-star-in-videos-with-two-google-v",
+  "name": "google-vids-official-semantic-walkthrough-portrait",
+  "url": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/",
+  "viewport": { "width": 720, "height": 1280 },
+  "colorScheme": "light",
+  "steps": [
+    { "action": "hold", "label": "article-overview", "holdMs": 8000 },
+    { "action": "scrollToRole", "role": "heading", "name": "Generate videos from text and images", "label": "text-and-images", "holdMs": 9000 },
+    { "action": "scrollToRole", "role": "heading", "name": "Chat to edit, step-by-step", "label": "step-by-step-edit", "holdMs": 9000 },
+    { "action": "scrollToRole", "role": "heading", "name": "Star in videos, instantly", "label": "personal-avatars", "holdMs": 9000 },
+    { "action": "scrollToText", "text": "Access to personal avatars is currently limited", "exact": false, "label": "availability-limits", "holdMs": 9000 },
+    { "action": "scrollToRole", "role": "heading", "name": "Create and share with transparency", "label": "transparency", "holdMs": 8000 },
+    { "action": "scrollToText", "text": "every generated clip includes an invisible SynthID", "exact": false, "label": "synthid", "holdMs": 8000 },
+    { "action": "scrollTop", "label": "verification-cta", "holdMs": 7000 }
+  ]
+}

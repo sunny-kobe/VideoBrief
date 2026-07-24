@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "maxCandidates": 5,
+  "githubQueries": [
+    "topic:ai-agents stars:>=100 pushed:>={{sevenDaysAgo}}",
+    "topic:developer-tools stars:>=200 pushed:>={{sevenDaysAgo}}",
+    "topic:model-context-protocol stars:>=100 pushed:>={{sevenDaysAgo}}"
+  ],
+  "githubRepositories": [
+    "openai/codex",
+    "anthropics/claude-code",
+    "modelcontextprotocol/servers"
+  ],
+  "rssFeeds": [
+    {
+      "label": "OpenAI News",
+      "url": "https://openai.com/news/rss.xml",
+      "kind": "official"
+    },
+    {
+      "label": "Google AI Blog",
+      "url": "https://blog.google/technology/ai/rss/",
+      "kind": "official"
+    }
+  ],
+  "hackerNews": {
+    "enabled": true,
+    "limit": 30
+  }
+}

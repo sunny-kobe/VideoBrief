@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "projectId": "github-copilot-agentic-cut-20260724",
+  "preparedAt": "2026-07-24T08:02:44.000Z",
+  "topicComparison": [
+    {
+      "topic": "GitHub Copilot coding agent",
+      "publisher": "GitHub",
+      "sourceUrl": "https://www.youtube.com/watch?v=onVn-lnHZ9s",
+      "title": "Demo: end-to-end agentic development with GitHub Copilot",
+      "durationSeconds": 319.878095,
+      "dynamicMaterialAssessment": "pass",
+      "reason": "GitHub verified official channel; 5:19 of real Codespaces, VS Code, issue, code, test, instruction, preview and pull-request activity."
+    },
+    {
+      "topic": "Claude Code",
+      "publisher": "Anthropic",
+      "sourceUrl": "https://www.youtube.com/watch?v=AJpK3YTTKZ4",
+      "title": "Introducing Claude Code",
+      "durationSeconds": 234,
+      "dynamicMaterialAssessment": "pass",
+      "reason": "Anthropic official demo with enough real terminal activity, but less visual variety than the selected GitHub workflow."
+    },
+    {
+      "topic": "Cursor demos",
+      "publisher": "Cursor",
+      "sourceUrl": "https://www.youtube.com/watch?v=XbZvC4KTH68",
+      "title": "Cursor now shows you demos, not diffs",
+      "durationSeconds": 102,
+      "dynamicMaterialAssessment": "pass-with-limited-margin",
+      "reason": "Official 1080p product demo, but only 1:42 total material leaves little room to reject weak windows."
+    }
+  ],
+  "selection": {
+    "topic": "GitHub Copilot coding agent",
+    "reason": "The official video provides more than 90 seconds of non-repeating, chaptered product operation and supports a complete issue-to-review narrative.",
+    "timingPolicy": "Final windows were shortened after real TTS measurement to speech duration plus approximately 0.35 seconds, rounded up to the 30 fps frame grid."
+  },
+  "materials": [
+    {
+      "sourceId": "source-01",
+      "originalUrl": "https://www.youtube.com/watch?v=onVn-lnHZ9s",
+      "publisher": "GitHub",
+      "publisherChannelUrl": "https://www.youtube.com/channel/UC7c3Kb6jYCRj4JOHHZTxKsQ",
+      "title": "Demo: end-to-end agentic development with GitHub Copilot",
+      "publishedAt": "2025-08-26T00:00:00.000Z",
+      "downloadedAt": "2026-07-24T08:02:44.000Z",
+      "localPath": "public/project-assets/github-copilot-agentic-cut-20260724/official-github-copilot-agentic-demo.mp4",
+      "sha256": "625aa20af9e9731782a8299a7e2f8a995dab144857ac8db3ae2f4b9977af9ec6",
+      "bytes": 18114954,
+      "durationSeconds": 319.878095,
+      "resolution": "1920x1080",
+      "fps": 30,
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "rightsStatus": "review_required",
+      "rightsNote": "Official public GitHub YouTube video downloaded without login or cookies for local unpublished production testing. Public or commercial use requires a separate rights review.",
+      "reviewAssets": [
+        "public/project-assets/github-copilot-agentic-cut-20260724/contact-sheet-20s.jpg",
+        "public/project-assets/github-copilot-agentic-cut-20260724/selected-window-midpoints.jpg"
+      ],
+      "plannedWindows": [
+        {
+          "sceneId": "scene-01",
+          "start": 273.8,
+          "end": 280.3,
+          "intendedScene": "Issue 到 PR 的钩子",
+          "matchReason": "PR 描述、真实功能结果和编辑器切换可见，直接支持 Issue 到可审查 PR 的钩子。"
+        },
+        {
+          "sceneId": "scene-02",
+          "start": 18,
+          "end": 24.733333,
+          "intendedScene": "云端环境",
+          "matchReason": "Codespaces 菜单、分支和云开发环境入口直接可见。"
+        },
+        {
+          "sceneId": "scene-03",
+          "start": 33.5,
+          "end": 39.966667,
+          "intendedScene": "读取仓库",
+          "matchReason": "VS Code 与 Agent 面板开始读取项目结构。"
+        },
+        {
+          "sceneId": "scene-04",
+          "start": 56,
+          "end": 61.733333,
+          "intendedScene": "Issue 上下文",
+          "matchReason": "Issue 内容和 Copilot 上下文操作出现在同一画面。"
+        },
+        {
+          "sceneId": "scene-05",
+          "start": 82,
+          "end": 88.533333,
+          "intendedScene": "局部代码补齐",
+          "matchReason": "真实路由代码和 Copilot 建议被接受，支持局部生成观点。"
+        },
+        {
+          "sceneId": "scene-06",
+          "start": 126,
+          "end": 132.7,
+          "intendedScene": "Agent 跨文件执行",
+          "matchReason": "Agent criteria、工作状态和多个相关文件同时可见。"
+        },
+        {
+          "sceneId": "scene-07",
+          "start": 153,
+          "end": 159.066667,
+          "intendedScene": "测试暴露失败",
+          "matchReason": "终端与测试错误真实出现，直接支持验证不是只生成代码。"
+        },
+        {
+          "sceneId": "scene-08",
+          "start": 176,
+          "end": 181.9,
+          "intendedScene": "修复并重试",
+          "matchReason": "Agent 根据报错继续修改和运行命令，显示迭代闭环。"
+        },
+        {
+          "sceneId": "scene-09",
+          "start": 199,
+          "end": 203.3,
+          "intendedScene": "仓库指令",
+          "matchReason": "动态切入 copilot-instructions 文档并短暂停留，测试和代码规范条目清晰可见。"
+        },
+        {
+          "sceneId": "scene-10",
+          "start": 234,
+          "end": 240.466667,
+          "intendedScene": "提交与变更汇总",
+          "matchReason": "Source Control、文件改动和 Copilot Code Review 入口可见。"
+        },
+        {
+          "sceneId": "scene-11",
+          "start": 266,
+          "end": 272.6,
+          "intendedScene": "可见功能结果",
+          "matchReason": "PR 动态滚动到 Visual Impact 真实应用截图；该窗口不被描述成现场打开应用。"
+        },
+        {
+          "sceneId": "scene-12",
+          "start": 299,
+          "end": 305.466667,
+          "intendedScene": "PR 人工审查",
+          "matchReason": "GitHub PR 活动流动态滚动到 review requested、workflow approval 和 merge 状态。"
+        }
+      ]
+    }
+  ]
+}

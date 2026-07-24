@@ -77,7 +77,7 @@ export default function NewProjectForm() {
             <div className="grid gap-4 border-t border-slate-200 bg-slate-50 p-5 sm:grid-cols-2">
               <label className="block"><span className="text-xs font-bold text-slate-600">发布场景</span><input className={fieldClass} name="platform" defaultValue="竖屏短视频" /></label>
               <label className="block"><span className="text-xs font-bold text-slate-600">画幅</span><select className={fieldClass} name="aspectRatio" defaultValue="9:16"><option value="9:16">竖屏 9:16</option><option value="16:9">横屏 16:9</option><option value="1:1">方形 1:1</option></select></label>
-              <label className="block"><span className="text-xs font-bold text-slate-600">目标时长（秒）</span><input className={fieldClass} name="targetDurationSeconds" type="number" inputMode="numeric" min="3" max="600" defaultValue="45" /></label>
+              <label className="block"><span className="text-xs font-bold text-slate-600">目标时长（秒）</span><input className={fieldClass} name="targetDurationSeconds" type="number" inputMode="numeric" min="3" max="900" defaultValue="45" /></label>
               <label className="block"><span className="text-xs font-bold text-slate-600">表达语气</span><input className={fieldClass} name="tone" placeholder="例如：清晰、克制…" /></label>
               <label className="block sm:col-span-2"><span className="text-xs font-bold text-slate-600">视觉风格</span><input className={fieldClass} name="style" placeholder="例如：真实录屏、简洁字幕…" /></label>
               <label className="block sm:col-span-2"><span className="text-xs font-bold text-slate-600">参考样例</span><input className={fieldClass} name="reference" placeholder="描述参考节奏或视觉，不需要提供链接…" /></label>

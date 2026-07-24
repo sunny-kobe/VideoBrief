@@ -2,10 +2,15 @@ import { readFileSync, statSync } from 'node:fs';
 import { NextResponse } from 'next/server';
 import {
   projectPaths,
+  projectFingerprint,
   readBrief,
   readRenderManifest,
   renderStatus,
 } from '@/src/shortVideoProjectServer';
+import {
+  exportPackageReadiness,
+  readExportPackageReceipt,
+} from '@/src/exportPackage';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -15,10 +20,24 @@ interface ExportRouteProps { params: Promise<{ projectId: string }> }
 export async function GET(_request: Request, { params }: ExportRouteProps) {
   try {
     const { projectId } = await params;
-    const paths = projectPaths(readBrief(projectId));
-    const status = renderStatus(readRenderManifest(paths.manifestPath), projectId);
+    const project = readBrief(projectId);
+    const paths = projectPaths(project);
+    const manifest = readRenderManifest(paths.manifestPath);
+    const status = renderStatus(manifest, projectId);
     if (status.state !== 'ready') {
       return NextResponse.json({ error: `导出包不可用：${status.message}` }, { status: 409 });
+    }
+    const packageStatus = exportPackageReadiness({
+      projectId,
+      projectFingerprint: projectFingerprint(projectId),
+      renderedAt: manifest!.renderedAt,
+      renderManifestPath: paths.manifestPath,
+      videoPath: paths.publicRenderPath,
+      zipPath: paths.exportZipPath,
+      receipt: readExportPackageReceipt(paths.exportPackageReceiptPath),
+    });
+    if (!packageStatus.ready) {
+      return NextResponse.json({ error: `导出包不可用：${packageStatus.reason}` }, { status: 409 });
     }
     const path = paths.exportZipPath;
     const bytes = readFileSync(path);

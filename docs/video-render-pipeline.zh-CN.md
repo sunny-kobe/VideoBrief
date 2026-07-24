@@ -7,10 +7,15 @@ canonical project
 -> 分句中文配音
 -> 按 scene.sourceId 和时间点裁切来源
 -> 静态图片按场景时长循环
--> FFmpeg 合成字幕、音轨和竖屏画面
+-> 每幕按来源字节、时间窗、旁白字节和版式生成内容寻址 MP4
+-> 已完成幕直接复用，缺失幕原子生成
+-> FFmpeg 无重编码拼接视频，只对整片音频统一归一化与 AAC 编码
 -> render-manifest.json
--> 当前项目 proof
--> 平台兼容 MP4
+-> 当前项目技术 proof
+-> 逐场景语义验收
+-> 结构化编辑质量验收
+-> 桌面/移动浏览器播放验收
+-> 版本绑定导出包
 ```
 
 生产命令：
@@ -19,9 +24,13 @@ canonical project
 npm run video:export:production
 ```
 
-工作台的“渲染并验收”调用同一条命令，不存在另一套页面专用导出逻辑。
+工作台和 CLI 调用同一条渲染与 proof 逻辑，并由同一个 lifecycle preflight 检查素材包、场景选择和来源窗口，同时记录渲染尝试与失败。不存在可以绕过素材审批或漏记生产指标的页面/CLI 专用入口。首次执行会停在 `awaiting-review`；语义、浏览器和打包是后续明确阶段，不把技术 proof 伪装成最终验收。
 
-工作台在项目 workDir 原子维护 `render-job.json`，状态依次为 `saving`、`rendering`、`proof`、`packaging`、`completed`，失败时保留明确错误。它是瞬时运行记录，不写入 canonical project，避免运行进度改变项目 fingerprint。
+工作台在 `output/render-queue/queue.json` 原子维护全局 FIFO 队列，并在项目 workDir 镜像当前 `render-job.json`。任务状态区分 `queued`、`running`、`cancelling`、`cancelled`、`awaiting_review`、`completed` 和 `failed`，阶段区分 `saving`、`rendering`、`proof`、`review`、`packaging` 和 `completed`。任务记录包含 `jobId`、queue position、worker PID 与渲染子进程 PID；queued 任务可直接取消，running 任务按磁盘 PID 向独立进程组发送终止信号，失败或取消后可以创建关联上一任务的新任务继续渲染，并复用内容寻址缓存。
+
+当前“继续渲染”的计算语义是真实的逐幕恢复：每个场景先完成独立 MP4 并原子进入 `output/render-cache/scene-segments-v1/`，中断不会留下可误用的半成品；再次执行时验证缓存 metadata 和 MP4 SHA-256，已完成幕不再编码，剩余幕完成后再拼接。最终视频流使用 stream copy，只有全片音频重新归一化和编码。HTTP POST 只保存并入队，独立 worker 串行执行；Next.js 服务停止时 worker 继续处理，服务恢复后 GET 从磁盘恢复任务。worker 意外死亡时，无存活渲染子进程的 running job 会重新排队；仍有存活子进程时由新 worker 按 PID 接管观察，避免重复渲染。
+
+全局渲染锁按实际持锁进程是否存活判断，不再用固定 30 分钟超时回收。子进程启动后锁所有权从服务进程转交给渲染进程；释放时校验随机 token，因此长视频不会在运行中被第二个任务抢锁，旧任务也不能误删新锁。
 
 ## canonical project
 
@@ -44,10 +53,74 @@ npm run video:export:production -- --brief=content/projects/<project-id>/project
 - `scenes[].showEditorialOverlay` 控制顶部编辑标题是否烧录；页面或截图本身已有清晰标题时可以关闭，但 canonical 标题与字幕仍保留用于编辑和验收。
 - `outputs` 保存工作目录、成片和公开预览路径。
 - `render` 保存分辨率、帧率和配音参数。
+- `render.renderStrategy` 默认为 `segmented-concat`；仅为回归排查显式保留 `monolithic`。
 - `production` 保存素材导入、人工保存、渲染尝试/失败和跨项目复用记录。
 - `sources[].contentHash/reusedFrom` 只允许后导入素材引用更早的同内容来源，避免反向或循环关系。
 
 旧的顶层 `sourceVideo` 和硬编码 38 秒 timeline 只保留读取兼容，不再写回项目文件。
+
+## 镜头语义同步契约
+
+VideoBrief 同时维护两种不同的同步：
+
+- 技术同步：音频流、视频流、字幕和 scene 边界在同一 timeline 上，成片可以完整解码和播放；
+- 语义同步：旁白正在表达的内容，与当前镜头中真正可见的页面、操作、对象或信息一致。
+
+技术同步通过不能代替语义同步。一个持续滚动、没有黑帧且总时长正确的视频，仍可能因为镜头内容与旁白无关而不合格。
+
+每个启用场景必须满足：
+
+1. `selectedCandidateId` 指向真实存在的候选；
+2. scene 与选中候选的 `sourceId`、`sourceStart`、`sourceEnd` 完全一致；
+3. `narration`、`title`、`subtitle`、`visualRequirement`、source reference 和可见画面表达同一个叙事点；
+4. 视频窗口能够覆盖场景旁白，不依赖循环同一小段素材填满时长；
+5. 不用同一个通用窗口为多个不同论点充当证据；作为转场或背景复用时，必须在匹配原因中明确其非证据角色。
+
+`sourceStart/sourceEnd` 是用户或 Codex 确认的素材边界。渲染器可以根据旁白生成场景时间线，但不能静默改写已确认的 `sourceEnd`。若旁白比视频窗口长，或 `sourceEnd` 超出真实媒体时长，应在渲染前失败并要求选择更长且有效的语义片段。生产视频输入不使用循环参数掩盖越界。
+
+输出 timeline 必须落在目标帧率的整数帧网格上。视频场景先按不可变的 `sourceStart/sourceEnd` 裁切，再按 `frameCount` 截断到不超过所选窗口的最后一个完整输出帧；manifest 和 render plan 同时记录 `frameCount` 与 `renderSourceEnd`。场景起止时间由累计帧数派生，不能直接累加毫秒级素材窗口，避免多场景 FFmpeg 取整后产生累计音画边界漂移。
+
+素材不足时，按以下顺序处理：
+
+1. 补录更长、移动更慢且内容可读的官方或自有页面操作；
+2. 缩短旁白、合并场景或减少无法被素材支持的观点；
+3. 使用原创程序化信息层承接抽象机制；
+4. 必要时使用静态截图，但应通过局部放大、标注或信息层让重点可读。
+
+不得用循环、无关 B-roll、同类项目演示或快速滚动制造“画面很多”的假象。使用同类项目素材时必须明确标记为场景参考，不能表现为目标产品的真实运行结果。
+
+### 交付前语义验收
+
+在渲染前先整理可扫描的素材表，至少包含：来源标签、图片/视频预览、起止时间、对应场景、匹配理由和权利状态。素材没有完成这一步时，不进入最终选片。
+
+渲染后执行：
+
+1. 对比 canonical project 与生成 timeline，逐场景确认 `sourceId/sourceStart/sourceEnd` 未漂移；
+2. 每个场景至少抽取中点帧，镜头内有明显变化时再检查起点和终点；
+3. 逐句核对旁白主题、标题、字幕和画面中可读内容；
+4. FFmpeg 完整解码音频流和视频流到结尾；
+5. 在真实 `/short-video?project=<project-id>` 页面确认媒体元数据、实际播放和尾段；
+6. 预览组件开启循环时，临时关闭循环并确认最后一段能够到达 `ended`。
+
+语义通过必须为每个启用场景保存具体复核说明。审片前先以 `--start-session` 创建绑定当前项目指纹和视频 SHA-256 的一次性会话，完成命令从会话起止时间计算审片时长；调用者不能通过参数自报秒数。proof 检测到长静止区间时，reviewer 必须显式确认这些区间是有意保留的可读页面，而不能依赖一条泛化“已检查”记录。
+
+### 编辑质量验收
+
+语义一致只证明画面没有说错，不证明成片适合观看。`passed` 的语义验收还必须读取结构化质量记录，固定检查：
+
+1. `opening`：前五秒的问题、反差或结论是否脱离来源上下文仍可理解；
+2. `visualReadability`：目标视口下的关键对象与文字是否真正可读；
+3. `pacing`：静止区间是否有阅读目的，是否存在重复或无关填充；
+4. `subtitleReadability`：字幕是否裁切、遮挡主体或互相重叠；
+5. `pronunciation`：专名、数字和命令是否按一倍速人工确认；
+6. `platformFit`：画幅、节奏和信息密度是否符合 Creative Brief 的首发平台；
+7. `cta`：结尾行动是否与证据和 brief 一致。
+
+模板见 `docs/editorial-quality-review.example.json`。每项必须为 `passed` 并提供具体说明。proof 会把冻结覆盖比例、旁白相似度和未精确命中的专名写入 `editorialQuality.signals`；这些信号是审片依据，不能仅用 `--confirm-*` 参数机械跳过。
+
+浏览器验收同时覆盖 1440×900 桌面和 390×844 移动视口。两个视口都必须从 0 开始，以 1 倍速、非静音、顺序播放到 `ended`；倍速完整播放、只推进开头或跳到片尾只能作为诊断，不能构成交付验收。
+
+2026-07-20 的 SylphxAI dogfood 暴露了这一规则：两个约 8 秒录屏被重复绑定到 7 个不同观点，且渲染器曾把确认的短窗口改写为旁白时长。流时长和画面运动都可以通过，但旁白与镜头不对应。修复后的基线是为问题定义、产品定位、Agent Document Twin、证据链、OCR/Trust Report、安装和结论分别绑定独立语义窗口，并用逐场景抽帧和浏览器播放验收。
 
 ## render manifest
 
@@ -60,13 +133,18 @@ output/videos/<project-id>-work/render-manifest.json
 manifest 记录：
 
 - 当前项目文件 SHA-256 指纹。
+- `renderContractVersion=3` 的不可变 `render-plan.json`：渲染时项目指纹、来源文件 SHA-256、逐幕 `frameCount/renderSourceEnd`、segment cache key、segment MP4 SHA-256、原始逐幕 FFmpeg graph/命令、concat list 和最终拼接命令。V2 单体 graph 仅保留旧产物验证兼容。
 - 实际渲染时间、分辨率、帧率和时长。
 - MP4、SRT、ASS、配音和 timeline 路径。
 - 每个场景的来源、成片时间和原片时间。
-- proof 是否通过、检查时间、问题和抽帧路径。
+- proof 是否通过、检查时间、完整解码、响度、峰值、黑帧、长静止区间、旁白反向转写和逐场景抽帧。
+- 绑定当前视频 SHA-256 的逐幕语义、结构化编辑质量与桌面/移动一倍速浏览器验收证据。
 - production 记录、实际使用来源和 rights check。
+- `productionMetrics`：从渲染到各验收/打包阶段的耗时、逐幕视频缓存命中/未命中、是否重编码最终视频/音频、系统计时审片会话、AI/TTS 外部请求与缓存命中，以及失败请求数和已知失败等待时间；没有供应商 usage/价格数据时金额必须保持 `null`。
 
 项目文件保存后指纹发生变化，工作台必须显示“成片已过期”，不能继续把旧 MP4 标记为已验收。
+
+渲染时项目指纹与 proof 写回状态后的当前项目指纹分开保存。render plan 永远绑定渲染时输入；当前项目指纹继续用于 stale 检查，因此 proof 更新 `technical_status` 不会反向改写已经执行过的 plan。新契约的 plan 缺失、来源媒体字节变化、segment/list 字节变化、逐幕 graph/命令哈希漂移或最终拼接命令漂移时，technical proof 必须失败。
 
 下载 API 同样重新核对当前 fingerprint 与 proof。旧 MP4 和 ZIP 即使仍在磁盘，也不会在 stale 状态下提供下载；重新渲染、proof 和打包后才恢复。
 
@@ -75,21 +153,24 @@ manifest 记录：
 `npm run video:proof` 不再假设固定 38 秒。它从 manifest 读取本次渲染的真实契约，并检查：
 
 1. 项目指纹与当前项目文件一致。
-2. 所有声明产物存在且不为空。
-3. MP4 分辨率、帧率和时长与 manifest 一致。
-4. 存在可听音轨，平均音量不低于静音阈值。
-5. 在成片 10%、30%、50%、70%、90% 位置均能抽出有效画面。
+2. 新渲染必须存在 render plan，且计划中的来源字节、场景窗口、逐幕缓存字节、graph、concat list 和实际 FFmpeg 参数与 manifest 一致。
+3. 所有声明产物存在且不为空。
+4. MP4 分辨率、帧率和时长与 manifest 一致。
+5. 存在可听音轨，平均音量不低于静音阈值。
+6. 每个场景中点均能抽出有效画面。
+7. 响度接近 -16 LUFS、True Peak 不高于 -1.5 dBTP，且没有超过门槛的黑帧。
+8. 本地 Whisper 反向转写没有明显漏读、重复或额外内容，并单列当前旁白中的专名未精确命中项供一倍速人工确认。
 
 渲染器会对长中文 eyebrow、标题和字幕插入 ASS 显式换行，避免 libass 对无空格中文不换行造成左右裁切。proof 抽帧仍需用于视觉检查，不能只依赖文件存在。
 
-proof 结果会原子写回 manifest。只有指纹一致且 `proof.passed=true` 时，工作台显示“成片已验收”。
+proof 结果会原子写回 manifest。指纹一致且 `proof.passed=true` 时，工作台只显示“技术检查通过，等待内容验收”；语义和浏览器验收均绑定当前视频哈希后，才显示成片已验收。
 
 schema v2/v3 项目还会把 `technical_status` 写为 `passed` 或 `failed`，并同步更新 manifest 指纹。普通项目保存会把它改为 `stale`；proof 遇到指纹不一致时不会替旧成片“追认”新项目。
 
 ## 输出格式
 
 - H.264 High profile
-- 1080×1920
+- 9:16：1080×1920；16:9：1920×1080；1:1：1080×1080
 - 30fps
 - yuv420p
 - AAC 192kbps / 48kHz

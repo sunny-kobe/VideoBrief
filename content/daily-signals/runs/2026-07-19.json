@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-07-19",
+  "date": "2026-07-19",
+  "createdAt": "2026-07-19T05:28:49.085Z",
+  "completedAt": "2026-07-19T05:28:51.715Z",
+  "status": "completed",
+  "zeroCost": true,
+  "errors": [
+    "GitHub release: openai/codex: 403 rate limit exceeded",
+    "GitHub release: anthropics/claude-code: 403 rate limit exceeded",
+    "GitHub release: modelcontextprotocol/servers: 403 rate limit exceeded",
+    "RSS: Google AI Blog: fetch failed"
+  ],
+  "candidates": [
+    {
+      "id": "sylphxai-pdf-reader-mcp-87d242a7",
+      "title": "SylphxAI/pdf-reader-mcp",
+      "summary": "📄 The PDF intelligence layer for AI agents — Agent Document Twin, evidence-first extraction, visual crops, OCR provenance, trust reports, and benchmark-gated releases. MCP server for Claude, Cursor, VS Code, and any MCP client.（829 stars，71 forks，许可 MIT）",
+      "primaryUrl": "https://github.com/SylphxAI/pdf-reader-mcp",
+      "publishedAt": "2026-07-19T05:17:44Z",
+      "tags": [
+        "agent",
+        "mcp",
+        "claude"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "SylphxAI/pdf-reader-mcp",
+          "url": "https://github.com/SylphxAI/pdf-reader-mcp",
+          "publishedAt": "2026-07-19T05:17:44Z",
+          "summary": "📄 The PDF intelligence layer for AI agents — Agent Document Twin, evidence-first extraction, visual crops, OCR provenance, trust reports, and benchmark-gated releases. MCP server for Claude, Cursor, VS Code, and any MCP client.（829 stars，71 forks，许可 MIT）",
+          "author": "SylphxAI",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "approved",
+      "projectId": "2026-07-19-sylphxai-pdf-reader-mcp"
+    },
+    {
+      "id": "nirholas-xactions-8413337f",
+      "title": "nirholas/XActions",
+      "summary": "⚡ The Complete X/Twitter Automation Toolkit — Scrapers, MCP server for AI agents (Claude/GPT), CLI, browser scripts. No API fees. Open source. Unfollow people who don't follow back. Monitor real-time analytics. Auto follow, like, comment, scrape, without API. Follow Bot. Like bot. Grow your account automatically. （392 stars，81 forks，许可 NOASSERTION）",
+      "primaryUrl": "https://github.com/nirholas/XActions",
+      "publishedAt": "2026-07-19T04:53:58Z",
+      "tags": [
+        "agent",
+        "mcp",
+        "claude"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "nirholas/XActions",
+          "url": "https://github.com/nirholas/XActions",
+          "publishedAt": "2026-07-19T04:53:58Z",
+          "summary": "⚡ The Complete X/Twitter Automation Toolkit — Scrapers, MCP server for AI agents (Claude/GPT), CLI, browser scripts. No API fees. Open source. Unfollow people who don't follow back. Monitor real-time analytics. Auto follow, like, comment, scrape, without API. Follow Bot. Like bot. Grow your account automatically. （392 stars，81 forks，许可 NOASSERTION）",
+          "author": "nirholas",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "candidate",
+      "projectId": ""
+    },
+    {
+      "id": "repoprompt-repoprompt-ce-ea7a5ad1",
+      "title": "repoprompt/repoprompt-ce",
+      "summary": "Community edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.（817 stars，101 forks，许可 Apache-2.0）",
+      "primaryUrl": "https://github.com/repoprompt/repoprompt-ce",
+      "publishedAt": "2026-07-19T04:45:22Z",
+      "tags": [
+        "agent",
+        "mcp"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "repoprompt/repoprompt-ce",
+          "url": "https://github.com/repoprompt/repoprompt-ce",
+          "publishedAt": "2026-07-19T04:45:22Z",
+          "summary": "Community edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.（817 stars，101 forks，许可 Apache-2.0）",
+          "author": "repoprompt",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "approved",
+      "projectId": "2026-07-19-repoprompt-repoprompt-ce"
+    },
+    {
+      "id": "builderz-labs-mission-control-c2fef5eb",
+      "title": "builderz-labs/mission-control",
+      "summary": "Self-hosted control plane for AI agents: dispatch tasks, review runs, track spend, and operate OpenClaw, Claude Code, Codex, and other runtimes.（5775 stars，2 forks，许可 MIT）",
+      "primaryUrl": "https://github.com/builderz-labs/mission-control",
+      "publishedAt": "2026-07-19T05:28:18Z",
+      "tags": [
+        "agent",
+        "codex",
+        "claude"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "builderz-labs/mission-control",
+          "url": "https://github.com/builderz-labs/mission-control",
+          "publishedAt": "2026-07-19T05:28:18Z",
+          "summary": "Self-hosted control plane for AI agents: dispatch tasks, review runs, track spend, and operate OpenClaw, Claude Code, Codex, and other runtimes.（5775 stars，2 forks，许可 MIT）",
+          "author": "builderz-labs",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 0,
+        "rightsClarity": 1,
+        "total": 9
+      },
+      "status": "candidate",
+      "projectId": ""
+    },
+    {
+      "id": "saptarshi-coder-easemotion-css-3e77c3be",
+      "title": "SAPTARSHI-coder/EaseMotion-css",
+      "summary": "Animation-first CSS framework with reusable UI components, modern effects, and zero dependencies. Lightweight, beginner-friendly, and open-source.（241 stars，940 forks，许可 MIT）",
+      "primaryUrl": "https://github.com/SAPTARSHI-coder/EaseMotion-css",
+      "publishedAt": "2026-07-19T05:27:58Z",
+      "tags": [
+        "open-source"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "SAPTARSHI-coder/EaseMotion-css",
+          "url": "https://github.com/SAPTARSHI-coder/EaseMotion-css",
+          "publishedAt": "2026-07-19T05:27:58Z",
+          "summary": "Animation-first CSS framework with reusable UI components, modern effects, and zero dependencies. Lightweight, beginner-friendly, and open-source.（241 stars，940 forks，许可 MIT）",
+          "author": "SAPTARSHI-coder",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 0,
+        "rightsClarity": 1,
+        "total": 9
+      },
+      "status": "candidate",
+      "projectId": ""
+    },
+    {
+      "id": "create-edit-and-star-in-videos-with--6a0f44aa",
+      "title": "Create, edit and star in videos with two Google Vids updates",
+      "summary": "Gemini Omni and personal avatars in Google Vids make video creation easier than ever.",
+      "primaryUrl": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars",
+      "publishedAt": "2026-07-16T16:00:00.000Z",
+      "tags": [
+        "video"
+      ],
+      "sources": [
+        {
+          "kind": "official",
+          "title": "Create, edit and star in videos with two Google Vids updates",
+          "url": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/",
+          "publishedAt": "2026-07-16T16:00:00.000Z",
+          "summary": "Gemini Omni and personal avatars in Google Vids make video creation easier than ever.",
+          "author": "Google AI Blog",
+          "mediaUrls": [
+            "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/omni-blog-header_OarEe2t.max-600x600.format-webp.webp"
+          ]
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 1,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 2,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "approved",
+      "projectId": "2026-07-19-create-edit-and-star-in-videos-with-two-google-v"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "profile": "evidence-explainer-v1",
+  "checks": {
+    "opening": {
+      "status": "passed",
+      "note": "前五秒已明确问题、反差或结论，脱离来源上下文仍可理解。"
+    },
+    "visualReadability": {
+      "status": "passed",
+      "note": "目标视口下的关键对象与文字可读，没有用整页小字代替可见证据。"
+    },
+    "pacing": {
+      "status": "passed",
+      "note": "静止区间均有阅读目的，未用重复或无关画面填充旁白时长。"
+    },
+    "subtitleReadability": {
+      "status": "passed",
+      "note": "字幕在桌面与移动视口均未裁切、遮挡主体或与相邻内容重叠。"
+    },
+    "pronunciation": {
+      "status": "passed",
+      "note": "已按一倍速核对专名、数字和命令发音，异常项已有明确处理。"
+    },
+    "platformFit": {
+      "status": "passed",
+      "note": "画幅、节奏和信息密度符合 Creative Brief 指定的首发平台。"
+    },
+    "cta": {
+      "status": "passed",
+      "note": "结尾行动建议与视频证据和 Creative Brief 一致，没有扩大承诺。"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { EyeOff, ListVideo, Play, Subtitles } from 'lucide-react';
+import { Fragment } from 'react';
 import { ShortVideoProject, ShortVideoProjectScene } from '@/src/shortVideoBrief';
 import { SceneTiming, formatTimecode } from '@/src/workbench';
 
@@ -33,11 +34,24 @@ export default function WorkbenchSubtitleManager({
 
       <div className="divide-y divide-slate-200 md:min-h-0 md:flex-1 md:overflow-y-auto">
         {project.scenes.map((scene, index) => {
+          const chapter = project.chapters.find((item) => item.id === scene.chapterId);
+          const showChapterHeader = Boolean(chapter && project.scenes[index - 1]?.chapterId !== scene.chapterId);
           const timing = timings.get(scene.id);
           const active = activeSceneId === scene.id;
           return (
+            <Fragment key={scene.id}>
+            {showChapterHeader ? (
+              <div className="border-y border-slate-300 bg-slate-100 px-4 py-2.5">
+                <p className="text-[10px] font-extrabold uppercase text-emerald-700">章节 {chapter!.order + 1}</p>
+                <div className="mt-0.5 flex items-baseline justify-between gap-3">
+                  <h3 className="min-w-0 truncate text-xs font-extrabold text-slate-950">{chapter!.title}</h3>
+                  <span className="shrink-0 font-mono text-[10px] font-bold text-slate-500">
+                    {chapter!.targetDurationSeconds ? `${chapter!.targetDurationSeconds}s` : `${chapter!.sceneIds.length} 幕`}
+                  </span>
+                </div>
+              </div>
+            ) : null}
             <article
-              key={scene.id}
               className={`px-4 py-4 ${active ? 'bg-emerald-50/70' : 'bg-white'} ${scene.enabled ? '' : 'opacity-60'}`}
             >
               <div className="flex flex-wrap items-center justify-between gap-2">
@@ -105,6 +119,7 @@ export default function WorkbenchSubtitleManager({
                 </button>
               </div>
             </article>
+            </Fragment>
           );
         })}
       </div>

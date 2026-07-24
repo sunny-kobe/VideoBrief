@@ -4,14 +4,24 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "next dev --hostname 127.0.0.1 --port 3100",
-    "build": "next build",
+    "dev": "next dev --webpack --hostname 127.0.0.1 --port 3100",
+    "build": "next build --webpack",
     "start": "next start --hostname 127.0.0.1 --port 3100",
     "lint": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "docs:check": "node scripts/check-agent-docs.mjs",
+    "signals:scan": "tsx scripts/scan-daily-signals.ts",
+    "signals:approve": "tsx scripts/approve-daily-signal.ts",
+    "signals:enrich": "tsx scripts/enrich-daily-signal.ts",
+    "project:produce": "tsx scripts/produce-project.ts",
     "transcription:setup": "node scripts/setup-local-whisper.mjs",
     "video:studio": "remotion studio remotion/index.ts",
     "video:still": "mkdir -p output/videos && remotion still remotion/index.ts WeeklyAiShort output/videos/weekly-ai-cover.png --frame=0",
     "video:render": "mkdir -p output/videos && remotion render remotion/index.ts WeeklyAiShort output/videos/weekly-ai-short.mp4 --codec=h264 --pixel-format=yuv420p",
+    "video:render:remotion-project": "node scripts/render-remotion-project.mjs",
+    "video:review:semantic": "node scripts/review-video-semantics.mjs",
+    "video:review:browser": "node scripts/verify-video-browser.mjs",
+    "video:package:production": "node scripts/build-export-package.mjs",
     "video:postprocess": "node scripts/postprocess-video.mjs",
     "video:publish-preview": "mkdir -p public/renders && cp output/videos/weekly-ai-short-final.mp4 public/renders/weekly-ai-short-final.mp4 && cp output/videos/weekly-ai-cover.png public/renders/weekly-ai-cover.png",
     "audio:voiceover": "node scripts/generate-voiceover.mjs",
@@ -41,6 +51,7 @@
   "dependencies": {
     "@remotion/cli": "^4.0.486",
     "@remotion/renderer": "^4.0.486",
+    "cheerio": "^1.1.2",
     "edge-tts-universal": "^1.4.0",
     "ffmpeg-static": "^5.3.0",
     "lucide-react": "^0.546.0",
@@ -50,14 +61,16 @@
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
     "remotion": "^4.0.486",
-    "zod": "^4.4.3"
+    "zod": "4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.14",
     "@types/node": "^22.14.0",
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
+    "playwright-core": "^1.56.1",
     "tailwindcss": "^4.1.14",
+    "tsx": "^4.20.6",
     "typescript": "~5.8.2"
   }
 }

@@ -1,4 +1,4 @@
-import { ArrowRight, FolderPlus, ShieldAlert, ShieldCheck } from 'lucide-react';
+import { ArrowRight, FolderPlus, Radar, ShieldAlert, ShieldCheck } from 'lucide-react';
 import { listProjects, projectPaths, readRenderManifest, renderStatus } from '@/src/shortVideoProjectServer';
 import { suggestedWorkbenchView, workbenchSteps } from '@/src/workbench';
 
@@ -24,10 +24,13 @@ export default function HomePage() {
             <p className="text-xs font-extrabold text-emerald-700">VIDEOBRIEF</p>
             <h1 className="mt-1 text-xl font-extrabold">视频项目</h1>
           </div>
-          <a className="inline-flex h-10 items-center gap-2 rounded-md bg-slate-950 px-4 text-sm font-extrabold text-white hover:bg-slate-800" href="/projects/new">
-            <FolderPlus aria-hidden="true" className="h-4 w-4" />
-            新建项目
-          </a>
+          <div className="flex items-center gap-2">
+            <a className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-slate-300 text-slate-700 hover:bg-slate-50" href="/signals" title="每日候选命题" aria-label="每日候选命题"><Radar aria-hidden="true" className="h-4 w-4" /></a>
+            <a className="inline-flex h-10 items-center gap-2 rounded-md bg-slate-950 px-4 text-sm font-extrabold text-white hover:bg-slate-800" href="/projects/new">
+              <FolderPlus aria-hidden="true" className="h-4 w-4" />
+              新建项目
+            </a>
+          </div>
         </div>
       </header>
       <section className="mx-auto max-w-6xl px-4 py-6 sm:px-6">

@@ -11,7 +11,9 @@ import {
   Video,
   Image as ImageIcon,
   Package,
+  RotateCcw,
   ShieldCheck,
+  Square,
 } from 'lucide-react';
 import { RenderJobRecord, ShortVideoProject, WorkbenchRenderStatus } from '@/src/shortVideoBrief';
 import { WorkbenchAsset, renderStatusTone } from '@/src/workbench';
@@ -27,6 +29,8 @@ interface WorkbenchExportManagerProps {
   renderBlockedReason: string;
   rendering: boolean;
   onRender: () => void;
+  onResume: () => void;
+  onCancel: () => void;
 }
 
 const assetIcon = {
@@ -70,6 +74,8 @@ export default function WorkbenchExportManager({
   renderBlockedReason,
   rendering,
   onRender,
+  onResume,
+  onCancel,
 }: WorkbenchExportManagerProps) {
   const allSourcesVerified = project.sources.every((source) => source.verificationStatus === 'verified');
   const rightsCleared = project.sources.every((source) => source.rightsStatus === 'cleared');
@@ -82,10 +88,14 @@ export default function WorkbenchExportManager({
         project.sources.some((source) => source.id === scene.sourceId),
     );
   const tone = renderStatusTone[renderStatus.state];
-  const exportReady = renderStatus.state === 'ready' && assets.some((asset) => asset.kind === '导出包' && asset.exists);
+  const exportReady = renderStatus.state === 'ready'
+    && renderStatus.packageReady === true
+    && assets.some((asset) => asset.kind === '导出包' && asset.exists);
   const userFacingAssets = assets.filter((asset) => (
     asset.exists && ['成片', '封面', '字幕', '文案', '清单', '导出包'].includes(asset.kind)
   ));
+  const jobActive = renderJob?.state === 'queued' || renderJob?.state === 'running' || renderJob?.state === 'cancelling';
+  const jobRecoverable = renderJob?.state === 'failed' || renderJob?.state === 'cancelled';
   const statusItems = [
     ['技术状态', {
       not_rendered: '尚未渲染', stale: '需要重新渲染', unverified: '等待技术验收', passed: '技术验收通过', failed: '技术验收失败',
@@ -94,9 +104,11 @@ export default function WorkbenchExportManager({
     ['发布状态', { 'draft-unpublished': '未发布草稿', 'ready-for-review': '等待发布确认', published: '已发布' }[project.publication_status]],
     ['市场验证', { none: '尚未开始', collecting: '正在收集反馈', validated: '已有验证' }[project.market_status]],
   ];
-  const jobStateLabel = renderJob ? { queued: '等待开始', running: '处理中', completed: '已完成', failed: '失败' }[renderJob.state] : '';
+  const jobStateLabel = renderJob ? {
+    queued: renderJob.queuePosition ? `排队中（第 ${renderJob.queuePosition} 位）` : '排队中', running: '处理中', cancelling: '取消中', cancelled: '已取消', awaiting_review: '等待内容验收', completed: '已完成', failed: '失败',
+  }[renderJob.state] : '';
   const jobStageLabel = renderJob ? {
-    saving: '保存项目', rendering: '生成配音、字幕和画面', proof: '技术验收', packaging: '生成导出包', completed: '完成',
+    saving: '保存项目', rendering: '生成配音、字幕和画面', proof: '技术验收', review: '语义与浏览器验收', packaging: '生成导出包', completed: '完成',
   }[renderJob.stage] : '';
 
   return (
@@ -107,7 +119,12 @@ export default function WorkbenchExportManager({
           <p className="mt-1 text-xs text-slate-500">生产成片、字幕、配音与时间轴</p>
         </div>
         <div className="flex flex-wrap gap-2">
-          {renderStatus.state === 'ready' ? (
+          {jobActive ? (
+            <button className="inline-flex h-9 items-center gap-2 rounded-md border border-rose-300 bg-white px-3 text-xs font-extrabold text-rose-700 hover:bg-rose-50 disabled:cursor-wait disabled:opacity-60" type="button" disabled={renderJob?.state === 'cancelling'} onClick={onCancel}>
+              <Square aria-hidden="true" className="h-3.5 w-3.5 fill-current" />
+              {renderJob?.state === 'cancelling' ? '正在取消' : renderJob?.state === 'queued' ? '取消排队' : '取消渲染'}
+            </button>
+          ) : renderStatus.state === 'ready' ? (
             <>
               <a className="inline-flex h-9 items-center gap-2 rounded-md border border-slate-300 bg-white px-3 text-xs font-extrabold text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600" href={`/short-video?project=${encodeURIComponent(projectId)}`}>
                 <ExternalLink aria-hidden="true" className="h-3.5 w-3.5" />
@@ -123,9 +140,9 @@ export default function WorkbenchExportManager({
               </a>
             </>
           ) : (
-            <button className="inline-flex h-9 items-center gap-2 rounded-md bg-slate-950 px-3 text-xs font-extrabold text-white hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 disabled:cursor-not-allowed disabled:bg-slate-400" type="button" title={renderBlockedReason || '保存项目、生成成片并执行技术验收'} disabled={Boolean(renderBlockedReason) || rendering} onClick={onRender}>
-              <ShieldCheck aria-hidden="true" className="h-3.5 w-3.5" />
-              {rendering ? '渲染中…' : '渲染并验收'}
+            <button className="inline-flex h-9 items-center gap-2 rounded-md bg-slate-950 px-3 text-xs font-extrabold text-white hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 disabled:cursor-not-allowed disabled:bg-slate-400" type="button" title={renderBlockedReason || '保存项目、生成成片并执行技术验收'} disabled={Boolean(renderBlockedReason) || rendering} onClick={jobRecoverable ? onResume : onRender}>
+              {jobRecoverable ? <RotateCcw aria-hidden="true" className="h-3.5 w-3.5" /> : <ShieldCheck aria-hidden="true" className="h-3.5 w-3.5" />}
+              {rendering ? '渲染中…' : jobRecoverable ? '继续渲染' : '渲染并验收'}
             </button>
           )}
         </div>
@@ -138,7 +155,7 @@ export default function WorkbenchExportManager({
             <p className="mt-1 text-xs leading-relaxed">{renderStatus.message}</p>
           </div>
           {renderJob ? (
-            <div className={`mt-2 border-l-2 px-3 py-2 text-xs ${renderJob.state === 'failed' ? 'border-rose-500 bg-rose-50 text-rose-800' : renderJob.state === 'running' ? 'border-sky-500 bg-sky-50 text-sky-800' : 'border-emerald-500 bg-emerald-50 text-emerald-800'}`}>
+            <div className={`mt-2 border-l-2 px-3 py-2 text-xs ${renderJob.state === 'failed' ? 'border-rose-500 bg-rose-50 text-rose-800' : renderJob.state === 'cancelled' ? 'border-amber-500 bg-amber-50 text-amber-800' : renderJob.state === 'queued' || renderJob.state === 'running' || renderJob.state === 'cancelling' ? 'border-sky-500 bg-sky-50 text-sky-800' : 'border-emerald-500 bg-emerald-50 text-emerald-800'}`}>
               <p className="font-extrabold">渲染进度：{jobStateLabel} · {jobStageLabel}</p>
               {renderJob.error ? <pre className="mt-1 max-h-28 overflow-auto whitespace-pre-wrap font-mono text-[10px] leading-relaxed">{renderJob.error}</pre> : null}
             </div>

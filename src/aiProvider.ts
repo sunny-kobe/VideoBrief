@@ -8,11 +8,28 @@ import { z } from 'zod';
 import { readAiConfig } from './aiConfig';
 import {
   CandidateRankingSchema,
+  LongFormChapterPlanSchema,
+  LongFormOutlineSchema,
   NarrativePlanSchema,
   ProductionAssetsSchema,
+  SourceHierarchySchema,
   SourceUnderstandingSchema,
 } from './aiSchemas';
-import type { ShortVideoProject, ShortVideoSource } from './shortVideoBrief';
+import type { LongFormOutline } from './aiSchemas';
+import {
+  buildLongFormEvidenceUnits,
+  longFormEvidenceUnitsForPrompt,
+  longFormChapterVisualSourceIds,
+  longFormNarrationBudget,
+  selectLongFormEvidenceUnits,
+} from './longFormPlanning';
+import type {
+  ProjectChapter,
+  ShortVideoProject,
+  ShortVideoProjectScene,
+  ShortVideoSource,
+  SourceAnalysisChapter,
+} from './shortVideoBrief';
 import { confirmedNarrativeFacts, keyResearchFacts } from './researchReview';
 
 const cacheRoot = resolve('output/ai-cache');
@@ -44,6 +61,8 @@ function client() {
       apiKey: process.env.OPENAI_API_KEY,
       ...(config.baseUrl ? { baseURL: config.baseUrl } : {}),
       defaultHeaders: { 'User-Agent': 'VideoBrief/1.0' },
+      timeout: 90_000,
+      maxRetries: 0,
     }),
     config,
   };
@@ -145,12 +164,13 @@ export function analyzeTextSource(
   source: ShortVideoSource,
   extractedText: string,
   brief: ShortVideoProject['brief'],
+  context: { purposeSuffix?: string; scope?: string } = {},
 ) {
   return structuredCall({
     schema: SourceUnderstandingSchema,
     schemaName: 'videobrief_source_understanding',
-    purpose: `source-analysis:${source.id}`,
-    input: sourcePrompt(source, extractedText, brief),
+    purpose: `source-analysis:${source.id}${context.purposeSuffix ? `:${context.purposeSuffix}` : ''}`,
+    input: sourcePrompt(source, [context.scope, extractedText].filter(Boolean).join('\n'), brief),
   });
 }
 
@@ -186,6 +206,7 @@ export function analyzeVideoSource(
   transcriptText: string,
   frames: Array<{ second: number; imageBase64: string }>,
   brief: ShortVideoProject['brief'],
+  context: { purposeSuffix?: string; scope?: string } = {},
 ) {
   const input: ResponseInput = [{
     role: 'user',
@@ -194,6 +215,7 @@ export function analyzeVideoSource(
         type: 'input_text',
         text: sourcePrompt(source, [
           '下面是本地转录和代表帧。只引用提供的时间范围，不得声称覆盖了未抽帧的完整动态画面。',
+          context.scope || '',
           '本地转录：',
           transcriptText || '[未检测到可转录音轨]',
           '代表帧时间点：',
@@ -216,8 +238,45 @@ export function analyzeVideoSource(
   return structuredCall({
     schema: SourceUnderstandingSchema,
     schemaName: 'videobrief_video_understanding',
-    purpose: `source-analysis:${source.id}`,
+    purpose: `source-analysis:${source.id}${context.purposeSuffix ? `:${context.purposeSuffix}` : ''}`,
     input,
+  });
+}
+
+export function analyzeSourceHierarchy(
+  source: ShortVideoSource,
+  chapters: SourceAnalysisChapter[],
+  brief: ShortVideoProject['brief'],
+) {
+  const chapterIds = new Set(chapters.map((chapter) => chapter.id));
+  return structuredCall({
+    schema: SourceHierarchySchema,
+    schemaName: 'videobrief_source_hierarchy',
+    purpose: `source-hierarchy:${source.id}`,
+    input: [
+      '只根据下面已经完成的章节摘要，生成整份素材的层级摘要和简洁章节标题。',
+      '不得新增章节中不存在的事实，不得改变 chapterId，不得遗漏或增加章节。',
+      `sourceId: ${source.id}`,
+      `Creative Brief: ${JSON.stringify(brief)}`,
+      JSON.stringify(chapters.map((chapter) => ({
+        chapterId: chapter.id,
+        start: chapter.start,
+        end: chapter.end,
+        summary: chapter.summary,
+        facts: chapter.facts.map((fact) => fact.statement),
+        uncertainties: chapter.uncertainties.map((item) => item.statement),
+      }))),
+    ].join('\n'),
+    validate(data) {
+      if (data.chapters.length !== chapters.length) {
+        throw new Error('AI source hierarchy returned an incomplete chapter list.');
+      }
+      for (const chapter of data.chapters) {
+        if (!chapterIds.has(chapter.chapterId)) {
+          throw new Error(`AI source hierarchy referenced unknown chapterId ${chapter.chapterId}.`);
+        }
+      }
+    },
   });
 }
 
@@ -244,6 +303,114 @@ function projectEvidence(project: ShortVideoProject, allowUnconfirmedFacts = fal
   };
 }
 
+export function planLongFormOutline(
+  project: ShortVideoProject,
+  validate?: (data: z.infer<typeof LongFormOutlineSchema>) => void,
+  options: {
+    instruction?: string;
+    allowUnconfirmedFacts?: boolean;
+    validationFeedback?: string;
+  } = {},
+) {
+  const units = buildLongFormEvidenceUnits(project, options.allowUnconfirmedFacts === true);
+  const promptUnits = longFormEvidenceUnitsForPrompt(
+    units,
+    options.allowUnconfirmedFacts === true,
+  );
+  const maximumChapters = Math.max(2, Math.min(10, Math.floor(project.brief.targetDurationSeconds / 30)));
+  return structuredCall({
+    schema: LongFormOutlineSchema,
+    schemaName: 'videobrief_long_form_outline',
+    purpose: `long-form-outline:${project.id}`,
+    input: [
+      '先为长视频建立全片章节提纲。此调用不写逐幕旁白，也不生成 scenes。',
+      '每章必须有单一叙事目标、目标时长、可追溯来源引用，并只选择输入中存在的 evidenceUnitIds。',
+      '章节之间必须有推进关系，不能把同一论点换词重复；开头建立问题，结尾回到 Creative Brief 的结论和 CTA。',
+      `全片目标 ${project.brief.targetDurationSeconds} 秒，生成 2-${maximumChapters} 章；各章 targetDurationSeconds 合计应接近全片目标。`,
+      options.allowUnconfirmedFacts
+        ? '这是自动草稿，可使用未驳回事实，但必须保留审慎措辞和不确定项。'
+        : '只能使用已确认事实。',
+      options.instruction?.trim() ? `用户修改要求：${options.instruction.trim()}` : '',
+      `Creative Brief: ${JSON.stringify(project.brief)}`,
+      `可用证据单元 ID：${units.map((unit) => unit.id).join(', ')}`,
+      `sourceReferences.sourceId 只能逐字使用这些真实来源 ID：${[...new Set(units.map((unit) => unit.sourceId))].join(', ')}。`,
+      'sourceId 必须逐字节复制，不得添加空格、方向标记或其他不可见 Unicode 字符。',
+      '证据单元 ID 只能写入 evidenceUnitIds；即使证据单元 ID 形如 source-02:whole，也禁止把它写入 sourceReferences.sourceId。',
+      'sourceReferences 必须直接复用输入 facts[].sourceReferences 中的有效定位，不得自行猜测、扩大或改写定位范围。',
+      'visualDescription 只能用于 visualRequirement，不能作为旁白、结论或事实主张的依据。',
+      'locatorType=line 时 lineStart 和 lineEnd 必须复制为大于等于 1 的整数；locatorType=time 时 start 和 end 必须复制为非负数字。',
+      options.validationFeedback?.trim()
+        ? `前一次结果未通过服务端校验：${options.validationFeedback.trim()}。必须修正这个具体问题并重新返回完整提纲。`
+        : '',
+      JSON.stringify(promptUnits),
+    ].filter(Boolean).join('\n'),
+    validate,
+  });
+}
+
+export function planLongFormChapter(
+  project: ShortVideoProject,
+  outline: LongFormOutline,
+  chapterIndex: number,
+  validate?: (data: z.infer<typeof LongFormChapterPlanSchema>) => void,
+  options: {
+    instruction?: string;
+    allowUnconfirmedFacts?: boolean;
+    validationFeedback?: string;
+  } = {},
+) {
+  const chapter = outline.chapters[chapterIndex];
+  if (!chapter) throw new Error(`Long-form chapter index ${chapterIndex} does not exist.`);
+  const units = selectLongFormEvidenceUnits(
+    buildLongFormEvidenceUnits(project, options.allowUnconfirmedFacts === true),
+    chapter.evidenceUnitIds,
+  );
+  const promptUnits = longFormEvidenceUnitsForPrompt(
+    units,
+    options.allowUnconfirmedFacts === true,
+    chapter.sourceReferences,
+  );
+  const sceneTarget = Math.max(2, Math.ceil(chapter.targetDurationSeconds / 15));
+  const minimumScenes = Math.max(2, Math.ceil(chapter.targetDurationSeconds / 20));
+  const maximumScenes = Math.max(minimumScenes, Math.ceil(chapter.targetDurationSeconds / 8));
+  const narrationBudget = longFormNarrationBudget(chapter.targetDurationSeconds);
+  const narrationTarget = Math.round(chapter.targetDurationSeconds * 3.6);
+  return structuredCall({
+    schema: LongFormChapterPlanSchema,
+    schemaName: 'videobrief_long_form_chapter',
+    purpose: `long-form-chapter:${project.id}:${String(chapterIndex + 1).padStart(2, '0')}`,
+    input: [
+      `只生成第 ${chapterIndex + 1}/${outline.chapters.length} 章，不得生成或改写其他章节。`,
+      `本章标题：${chapter.title}`,
+      `本章目标：${chapter.objective}`,
+      `本章目标时长：${chapter.targetDurationSeconds} 秒。必须生成 ${minimumScenes}-${maximumScenes} 个 scenes，目标约 ${sceneTarget} 个；每个 scene 只承载一个 8-20 秒叙事点。`,
+      `本章全部 narration 合计必须在 ${narrationBudget.minimumCharacters}-${narrationBudget.maximumCharacters} 个非空白字符之间，这是服务端硬门禁，少于下限或多于上限都会拒绝整个章节。`,
+      `旁白应以约 ${narrationTarget} 个非空白字符为目标；优先压缩到中间值，不要贴近 ${narrationBudget.maximumCharacters} 字上限。`,
+      'voiceoverScript 必须逐字等于 scenes narration 按顺序拼接后的内容；不能用摘要、提纲或省略号代替完整口播。',
+      '只能使用本次输入的证据单元，不得借用其他章节证据，不得新增来源中不存在的事实。',
+      '每个 scene 必须给出可定位 sourceReferences 和明确 visualRequirement。',
+      `sourceReferences.sourceId 只能逐字使用这些真实来源 ID：${[...new Set(units.map((unit) => unit.sourceId))].join(', ')}。`,
+      'sourceId 必须逐字节复制，不得添加空格、方向标记或其他不可见 Unicode 字符。',
+      `证据单元 ID（${units.map((unit) => unit.id).join(', ')}）只能用于 evidenceUnitIds 上下文，禁止写入 sourceReferences.sourceId。`,
+      'sourceReferences 必须直接复用输入 facts[].sourceReferences 中的有效定位，不得自行猜测、扩大或改写定位范围。',
+      'visualDescription 只能用于 visualRequirement，不能作为 narration、summary 或事实主张的依据。',
+      'locatorType=line 时 lineStart 和 lineEnd 必须复制为大于等于 1 的整数；locatorType=time 时 start 和 end 必须复制为非负数字。',
+      options.validationFeedback?.trim()
+        ? `前一次结果未通过服务端校验：${options.validationFeedback.trim()}。必须修正这个具体问题并重新返回完整章节。`
+        : '',
+      options.instruction?.trim() ? `用户修改要求：${options.instruction.trim()}` : '',
+      `全片上下文：${JSON.stringify({
+        conclusion: outline.conclusion,
+        hook: outline.hook,
+        chapters: outline.chapters.map((item) => ({ title: item.title, objective: item.objective })),
+      })}`,
+      `Creative Brief: ${JSON.stringify(project.brief)}`,
+      JSON.stringify(promptUnits),
+    ].filter(Boolean).join('\n'),
+    validate,
+  });
+}
+
 export function planNarrative(
   project: ShortVideoProject,
   validate?: (data: z.infer<typeof NarrativePlanSchema>) => void,
@@ -251,6 +418,10 @@ export function planNarrative(
 ) {
   const evidence = projectEvidence(project, options.allowUnconfirmedFacts === true);
   const allowedSourceIds = evidence.sources.map((source) => source.id);
+  const narrationBudget = Math.max(30, Math.round(project.brief.targetDurationSeconds * 4.5));
+  const longFormSceneGuidance = project.brief.targetDurationSeconds >= 180
+    ? `这是长视频：outline 按 4-10 个顺序章节组织，scenes 必须严格按 outline 的章节顺序排列；每个 scene 只承载一个 8-20 秒叙事点，建议生成 ${Math.max(12, Math.ceil(project.brief.targetDurationSeconds / 15))} 个 scenes，不能用少量超长静态场景填满时长。`
+    : '这是短视频：保持场景紧凑，每个场景只承载一个核心信息。';
   return structuredCall({
     schema: NarrativePlanSchema,
     schemaName: 'videobrief_narrative_plan',
@@ -262,6 +433,8 @@ export function planNarrative(
         ? '这是自动制作草案。facts 可能尚未人工确认；必须保留审慎措辞和 uncertainties，不得把 AI 提取结果表述为人工背书。'
         : '只有 facts 数组中的 confirmed facts 可以作为正式事实主张；原始正文和转录只用于理解上下文。',
       '每个场景都要给出 sourceReferences、画面需求和独立旁白。',
+      longFormSceneGuidance,
+      `成片目标是 ${project.brief.targetDurationSeconds} 秒。全部 scenes[].narration 合计最多 ${narrationBudget} 个非空白字符；每段只保留一个核心信息，voiceoverScript 必须与精简后的旁白一致。`,
       '总叙事和每一个场景的 sourceReferences 数组都必须至少包含一个有效来源引用，禁止返回空数组。',
       '保留不确定项并明确需要人工确认的内容。',
       `sourceReferences.sourceId 只能逐字使用这些来源 ID：${allowedSourceIds.join(', ')}。`,
@@ -279,8 +452,10 @@ export function rankCandidates(
   project: ShortVideoProject,
   validate?: (data: z.infer<typeof CandidateRankingSchema>) => void,
 ) {
+  const approvedSourceIds = new Set(project.materialReview.approvedSourceIds);
   const visualSources = project.sources.filter(
-    (source) => source.sourceType === 'video' || source.sourceType === 'image',
+    (source) => approvedSourceIds.has(source.id)
+      && (source.sourceType === 'video' || source.sourceType === 'image'),
   );
   return structuredCall({
     schema: CandidateRankingSchema,
@@ -289,6 +464,8 @@ export function rankCandidates(
     input: [
       '为每个场景从给定的自有或已登记素材中选择一个候选画面。',
       '只允许返回输入中存在的 sourceId；必须说明匹配理由。',
+      '相关性满足时必须优先选择视频；图片只能补充视频无法表达的信息，不得把整条视频排成截图轮播。',
+      'official_demo 只用于项目身份、界面和明确功能；broll 用于开发、阅读、文档处理等通用过程旁白；evidence 只短时证明具体信息。不要把相似项目的演示当成当前项目官方素材。',
       `sourceId 只能逐字使用：${visualSources.map((source) => source.id).join(', ')}。`,
       '视频给出合理时间范围，图片时间范围使用 0 到场景建议时长。',
       JSON.stringify({
@@ -296,11 +473,68 @@ export function rankCandidates(
         sources: visualSources.map((source) => ({
           id: source.id,
           type: source.sourceType,
+          materialRole: source.materialRole,
           rightsStatus: source.rightsStatus,
           analysis: {
             ...source.analysis,
             facts: source.analysis.facts.filter((fact) => fact.reviewStatus !== 'rejected'),
           },
+        })),
+      }),
+    ].join('\n'),
+    validate,
+  });
+}
+
+export function rankLongFormChapterCandidates(
+  project: ShortVideoProject,
+  chapter: ProjectChapter,
+  scenes: ShortVideoProjectScene[],
+  validate?: (data: z.infer<typeof CandidateRankingSchema>) => void,
+) {
+  const allowedSourceIds = new Set(longFormChapterVisualSourceIds(project, chapter));
+  const visualSources = project.sources.filter((source) => allowedSourceIds.has(source.id));
+  const selectedUnits = selectLongFormEvidenceUnits(
+    buildLongFormEvidenceUnits(project, true),
+    chapter.evidenceUnitIds ?? [],
+  );
+  return structuredCall({
+    schema: CandidateRankingSchema,
+    schemaName: 'videobrief_long_form_chapter_candidates',
+    purpose: `candidate-ranking:${project.id}:${chapter.id}`,
+    input: [
+      `只为章节 ${chapter.id}「${chapter.title}」排序画面候选，不得处理其他章节。`,
+      '每个 scene 必须返回至少一个候选；只允许使用本章证据来源或已批准的通用 broll。',
+      '候选时间窗必须落在输入证据章节范围内，并足以覆盖对应旁白；不得复用一个通用窗口解释不同事实。',
+      `sourceId 只能逐字使用：${visualSources.map((source) => source.id).join(', ')}。`,
+      JSON.stringify({
+        chapter: {
+          id: chapter.id,
+          title: chapter.title,
+          objective: chapter.objective,
+          targetDurationSeconds: chapter.targetDurationSeconds,
+        },
+        scenes: scenes.map((scene, sceneIndex) => ({
+          sceneIndex,
+          title: scene.title,
+          narration: scene.narration,
+          visualRequirement: scene.visualRequirement,
+          sourceReferences: scene.sourceReferences,
+        })),
+        evidenceUnits: selectedUnits.map((unit) => ({
+          id: unit.id,
+          sourceId: unit.sourceId,
+          start: unit.start,
+          end: unit.end,
+          summary: unit.summary,
+          visualDescription: unit.visualDescription,
+          facts: unit.facts,
+        })),
+        sources: visualSources.map((source) => ({
+          id: source.id,
+          type: source.sourceType,
+          materialRole: source.materialRole,
+          rightsStatus: source.rightsStatus,
         })),
       }),
     ].join('\n'),
