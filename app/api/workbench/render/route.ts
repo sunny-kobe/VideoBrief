@@ -17,6 +17,7 @@ import {
   writeRenderJob,
 } from '@/src/shortVideoProjectServer';
 import { ShortVideoProject } from '@/src/shortVideoBrief';
+import { assertPreproductionGates } from '@/scripts/lib/production-workflow-contract.mjs';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -102,6 +103,7 @@ export async function POST(request: NextRequest) {
     }
     if (body.brief) writeBrief(projectId, body.brief);
     const brief = readBrief(projectId);
+    assertPreproductionGates(brief);
     const paths = projectPaths(brief);
     const queued = enqueueRenderQueueJob(DEFAULT_RENDER_QUEUE_PATH, {
       projectId,

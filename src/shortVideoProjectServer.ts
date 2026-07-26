@@ -18,6 +18,8 @@ import {
   NarrativeVersion,
   ProductionTimeline,
   ProjectMaterialReview,
+  ProjectWorkflow,
+  ProjectWorkflowOrigin,
   ProjectChapter,
   ProjectProductionRecord,
   ProjectNarrative,
@@ -35,6 +37,8 @@ import {
   SourceProcessing,
   SourceReference,
   WorkbenchRenderStatus,
+  WorkflowApproval,
+  WorkflowHumanDecision,
 } from './shortVideoBrief';
 import { assertProjectTargetDuration } from '../scripts/lib/video-duration-contract.mjs';
 import {
@@ -51,6 +55,15 @@ import {
   readExportPackageReceipt,
 } from './exportPackage';
 import { DEFAULT_NEW_PROJECT_VOICE } from './voiceProfile';
+import {
+  packageContentFingerprint,
+  productionContentFingerprint,
+} from '../scripts/lib/production-content-fingerprint.mjs';
+import {
+  approvalIsCurrent,
+  normalizeHumanWorkflowDecision,
+  topicApprovalFingerprint,
+} from '../scripts/lib/production-workflow-contract.mjs';
 
 export const briefPath = resolve(DEFAULT_BRIEF_PATH);
 export const projectsRoot = resolve('content/projects');
@@ -74,6 +87,8 @@ export interface CreateProjectInput {
   id: string;
   title: string;
   brief?: Partial<CreativeBrief>;
+  workflowOrigin?: Partial<ProjectWorkflowOrigin>;
+  topicApproval?: WorkflowHumanDecision;
 }
 
 export interface ImportSourceInput {
@@ -406,12 +421,78 @@ function normalizeMaterialReview(
       && source.rightsStatus !== 'blocked';
   });
   const reviewedAt = textValue(value?.reviewedAt);
-  const hasVideo = approvedSourceIds.some((sourceId) =>
-    sources.find((source) => source.id === sourceId)?.sourceType === 'video');
+  const hasVisual = approvedSourceIds.some((sourceId) => {
+    const sourceType = sources.find((source) => source.id === sourceId)?.sourceType;
+    return sourceType === 'video' || sourceType === 'image';
+  });
   return {
-    status: value?.status === 'approved' && reviewedAt && hasVideo ? 'approved' : 'pending',
+    status: value?.status === 'approved' && reviewedAt && hasVisual ? 'approved' : 'pending',
     approvedSourceIds,
-    reviewedAt: value?.status === 'approved' && hasVideo ? reviewedAt : '',
+    reviewedAt: value?.status === 'approved' && hasVisual ? reviewedAt : '',
+  };
+}
+
+function normalizeWorkflowApproval(value: Partial<WorkflowApproval> | undefined): WorkflowApproval {
+  const status = ['pending', 'approved', 'rejected'].includes(value?.status ?? '')
+    ? value!.status!
+    : 'pending';
+  return {
+    status,
+    decidedAt: status === 'pending' ? '' : textValue(value?.decidedAt),
+    decidedBy: status === 'pending' ? '' : textValue(value?.decidedBy),
+    note: status === 'pending' ? '' : textValue(value?.note),
+    fingerprint: status === 'pending' ? '' : textValue(value?.fingerprint),
+  };
+}
+
+function normalizeWorkflow(value: Partial<ProjectWorkflow> | undefined): ProjectWorkflow {
+  const originKind = ['manual', 'daily_signal', 'legacy'].includes(value?.origin?.kind ?? '')
+    ? value!.origin!.kind!
+    : 'legacy';
+  const marketDecision = ['pending', 'validated', 'not_validated', 'inconclusive'].includes(
+    value?.market?.decision ?? '',
+  ) ? value!.market!.decision! : 'pending';
+  return {
+    schemaVersion: 1,
+    origin: {
+      kind: originKind,
+      runId: textValue(value?.origin?.runId),
+      candidateId: textValue(value?.origin?.candidateId),
+      sourceUrl: textValue(value?.origin?.sourceUrl),
+      score: Number.isFinite(value?.origin?.score) ? Number(value?.origin?.score) : null,
+      summary: textValue(value?.origin?.summary),
+    },
+    topicApproval: normalizeWorkflowApproval(value?.topicApproval),
+    researchApproval: normalizeWorkflowApproval(value?.researchApproval),
+    deliveryApproval: normalizeWorkflowApproval(value?.deliveryApproval),
+    publication: {
+      approval: normalizeWorkflowApproval(value?.publication?.approval),
+      platform: textValue(value?.publication?.platform),
+      publishedUrl: textValue(value?.publication?.publishedUrl),
+      publishedAt: textValue(value?.publication?.publishedAt),
+      videoSha256: textValue(value?.publication?.videoSha256),
+      packageSha256: textValue(value?.publication?.packageSha256),
+    },
+    market: {
+      decision: marketDecision,
+      decidedAt: marketDecision === 'pending' ? '' : textValue(value?.market?.decidedAt),
+      decidedBy: marketDecision === 'pending' ? '' : textValue(value?.market?.decidedBy),
+      note: marketDecision === 'pending' ? '' : textValue(value?.market?.note),
+      evidence: Array.isArray(value?.market?.evidence)
+        ? value.market.evidence.map((item, index) => ({
+            id: textValue(item.id) || `market-evidence-${String(index + 1).padStart(3, '0')}`,
+            recordedAt: textValue(item.recordedAt),
+            source: textValue(item.source),
+            sourceUrl: textValue(item.sourceUrl),
+            metric: textValue(item.metric),
+            value: numberValue(item.value, 0),
+            unit: textValue(item.unit),
+            periodStart: textValue(item.periodStart),
+            periodEnd: textValue(item.periodEnd),
+            note: textValue(item.note),
+          }))
+        : [],
+    },
   };
 }
 
@@ -662,7 +743,7 @@ export function normalizeBrief(input: LegacyProjectInput): ShortVideoProject {
     publication_status: ['draft-unpublished', 'ready-for-review', 'published'].includes(input.publication_status ?? '')
       ? input.publication_status!
       : 'draft-unpublished',
-    market_status: ['none', 'collecting', 'validated'].includes(input.market_status ?? '')
+    market_status: ['none', 'collecting', 'validated', 'not_validated', 'inconclusive'].includes(input.market_status ?? '')
       ? input.market_status!
       : 'none',
     brief: {
@@ -709,6 +790,7 @@ export function normalizeBrief(input: LegacyProjectInput): ShortVideoProject {
     },
     production: normalizeProduction(input.production, sources),
     materialReview: normalizeMaterialReview(input.materialReview, sources),
+    workflow: normalizeWorkflow(input.workflow),
     chapters,
     outputs: {
       outputVideo:
@@ -787,6 +869,14 @@ export function readBrief(projectId = DEFAULT_PROJECT_ID) {
 
 export function projectFingerprint(projectId = DEFAULT_PROJECT_ID) {
   return createHash('sha256').update(readFileSync(briefPathFor(projectId))).digest('hex');
+}
+
+export function projectProductionContentFingerprint(projectId = DEFAULT_PROJECT_ID) {
+  return productionContentFingerprint(readBrief(projectId));
+}
+
+export function projectPackageContentFingerprint(projectId = DEFAULT_PROJECT_ID) {
+  return packageContentFingerprint(readBrief(projectId));
 }
 
 function aggregateRightsStatus(sources: ShortVideoSource[]) {
@@ -923,6 +1013,9 @@ export function createProject(input: CreateProjectInput) {
       ? { width: 1080, height: 1080 }
       : { width: 1080, height: 1920 };
   const createdAt = new Date().toISOString();
+  const topicDecision = input.topicApproval
+    ? normalizeHumanWorkflowDecision(input.topicApproval.decidedBy, input.topicApproval.note)
+    : null;
   const project = normalizeBrief({
     schemaVersion: 3,
     id: projectId,
@@ -953,6 +1046,31 @@ export function createProject(input: CreateProjectInput) {
       approvedSourceIds: [],
       reviewedAt: '',
     },
+    workflow: {
+      schemaVersion: 1,
+      origin: {
+        kind: input.workflowOrigin?.kind === 'daily_signal' ? 'daily_signal' : 'manual',
+        runId: textValue(input.workflowOrigin?.runId),
+        candidateId: textValue(input.workflowOrigin?.candidateId),
+        sourceUrl: textValue(input.workflowOrigin?.sourceUrl),
+        score: Number.isFinite(input.workflowOrigin?.score) ? Number(input.workflowOrigin?.score) : null,
+        summary: textValue(input.workflowOrigin?.summary),
+      },
+      topicApproval: {
+        status: topicDecision ? 'approved' : 'pending',
+        decidedAt: topicDecision ? createdAt : '',
+        decidedBy: topicDecision?.actor ?? '',
+        note: topicDecision?.note ?? '',
+        fingerprint: '',
+      },
+      researchApproval: { status: 'pending', decidedAt: '', decidedBy: '', note: '', fingerprint: '' },
+      deliveryApproval: { status: 'pending', decidedAt: '', decidedBy: '', note: '', fingerprint: '' },
+      publication: {
+        approval: { status: 'pending', decidedAt: '', decidedBy: '', note: '', fingerprint: '' },
+        platform: '', publishedUrl: '', publishedAt: '', videoSha256: '', packageSha256: '',
+      },
+      market: { decision: 'pending', decidedAt: '', decidedBy: '', note: '', evidence: [] },
+    },
     brief: { ...briefInput, objective, audience, coreMessage, aspectRatio } as CreativeBrief,
     sources: [],
     scenes: [],
@@ -976,6 +1094,7 @@ export function createProject(input: CreateProjectInput) {
       mediaFit: 'contain',
     },
   });
+  if (topicDecision) project.workflow.topicApproval.fingerprint = topicApprovalFingerprint(project);
   return writeProjectFile(projectId, project);
 }
 
@@ -1154,16 +1273,16 @@ export function approveProjectMaterials(projectId: string, sourceIds: string[]) 
       return source;
     });
     if (!selected.length) throw new Error('请至少选择一份可视素材。');
-    if (!selected.some((source) => source.sourceType === 'video')) {
-      throw new Error('自动成片至少需要一段视频素材；图片只能作为补充。');
-    }
+    const materialReview: ProjectMaterialReview = {
+      status: 'approved',
+      approvedSourceIds: uniqueIds,
+      reviewedAt: new Date().toISOString(),
+    };
+    const readiness = materialReviewReadiness(materialReview, project.sources);
+    if (!readiness.ready) throw new Error(readiness.reason);
     return {
       ...project,
-      materialReview: {
-        status: 'approved',
-        approvedSourceIds: uniqueIds,
-        reviewedAt: new Date().toISOString(),
-      },
+      materialReview,
       production: { ...project.production, updatedAt: new Date().toISOString() },
     };
   });
@@ -1180,10 +1299,6 @@ export function recordRenderAttempt(projectId: string) {
       project.materialReview.approvedSourceIds,
     );
     if (!selectionReadiness.ready) throw new Error(selectionReadiness.reason);
-    const usesVideo = enabledScenes.some((scene) => (
-      project.sources.find((source) => source.id === scene.sourceId)?.sourceType === 'video'
-    ));
-    if (!usesVideo) throw new Error('当前分镜没有使用已批准的视频素材；图片只能作为补充。');
     const sources = project.sources.map((source) => {
       if (!source.contentHash) return source;
       return {
@@ -1301,7 +1416,9 @@ export function renderStatus(
   }
   if (
     resolve(manifest.briefPath) !== briefPathFor(projectId) ||
-    manifest.projectFingerprint !== projectFingerprint(projectId)
+    (manifest.productionContentFingerprint
+      ? manifest.productionContentFingerprint !== projectProductionContentFingerprint(projectId)
+      : manifest.projectFingerprint !== projectFingerprint(projectId))
   ) {
     return {
       state: 'stale',
@@ -1334,7 +1451,8 @@ export function renderStatus(
   }
   const videoPath = manifest.artifacts.publicRender ?? manifest.artifacts.outputVideo;
   const acceptance = manifest.acceptance;
-  const acceptanceState = renderAcceptanceState(acceptance, fileSha256(videoPath));
+  const videoSha256 = fileSha256(videoPath);
+  const acceptanceState = renderAcceptanceState(acceptance, videoSha256);
   if (acceptanceState === 'awaiting_semantic') {
     return {
       state: 'awaiting_semantic',
@@ -1376,18 +1494,28 @@ export function renderStatus(
   const packageStatus = exportPackageReadiness({
     projectId,
     projectFingerprint: manifest.projectFingerprint,
+    productionContentFingerprint: manifest.productionContentFingerprint,
+    packageContentFingerprint: projectPackageContentFingerprint(projectId),
     renderedAt: manifest.renderedAt,
     renderManifestPath: paths.manifestPath,
     videoPath,
     zipPath: paths.exportZipPath,
+    deliveryApproval: project.workflow.deliveryApproval,
     receipt: readExportPackageReceipt(paths.exportPackageReceiptPath),
   });
+  const deliveryApproved = approvalIsCurrent(project.workflow.deliveryApproval, videoSha256);
   return {
     state: 'ready',
-    label: packageStatus.ready ? '成片与导出包已验收' : '成片已验收，导出包待生成',
+    label: packageStatus.ready
+      ? '成片与导出包已验收'
+      : deliveryApproved
+        ? '成片已批准，导出包待生成'
+        : '自动验收通过，等待真人审片',
     message: packageStatus.ready
       ? '技术、逐场景语义和真实浏览器播放均通过，导出包与当前版本一致。'
-      : '技术、逐场景语义和真实浏览器播放均通过；完整 ZIP 尚未绑定当前版本。',
+      : deliveryApproved
+        ? '真人已批准当前视频字节，完整 ZIP 尚未绑定当前版本。'
+        : '技术、逐场景语义和真实浏览器播放均通过；仍需真人一倍速完整审片并明确批准。',
     renderedAt: manifest.renderedAt,
     duration: manifest.render.duration,
     packageReady: packageStatus.ready,

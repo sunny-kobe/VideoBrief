@@ -41,6 +41,15 @@ export function validateReviewSession(input: {
   now?: string;
 }): { valid: boolean; activeSeconds: number | null; issues: string[] };
 
+export function reviewSessionTargetsArtifact(
+  session: SemanticReviewSession | null | undefined,
+  artifact: {
+    projectId: string;
+    projectFingerprint: string;
+    videoSha256: string;
+  },
+): boolean;
+
 export function validateSemanticAcceptanceRecord(
   semantic?: Record<string, any> | null,
 ): { passed: boolean; issues: string[] };

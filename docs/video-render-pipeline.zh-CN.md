@@ -15,6 +15,7 @@ canonical project
 -> 逐场景语义验收
 -> 结构化编辑质量验收
 -> 桌面/移动浏览器播放验收
+-> 真人完整审片并批准当前视频 SHA-256
 -> 版本绑定导出包
 ```
 
@@ -24,7 +25,7 @@ canonical project
 npm run video:export:production
 ```
 
-工作台和 CLI 调用同一条渲染与 proof 逻辑，并由同一个 lifecycle preflight 检查素材包、场景选择和来源窗口，同时记录渲染尝试与失败。不存在可以绕过素材审批或漏记生产指标的页面/CLI 专用入口。首次执行会停在 `awaiting-review`；语义、浏览器和打包是后续明确阶段，不把技术 proof 伪装成最终验收。
+工作台和 CLI 调用同一条渲染与 proof 逻辑，并由同一个 lifecycle preflight 检查命题、研究、素材包、场景选择和来源窗口，同时记录渲染尝试与失败。不存在可以绕过审批或漏记生产指标的页面/CLI 专用入口。`npm run project:workflow -- --project=<project-id>` 只自动执行来源处理、策划、渲染和打包，并在命题、素材包复核、研究、镜头复核、真人成片批准、发布或市场结论节点停止。素材包和镜头允许 Codex 作为生产操作员复核；命题、研究、成片、发布与市场结论仍要求真实人工决定。首次渲染会停在 `awaiting-review`；语义、浏览器、真人交付批准和打包是后续明确阶段，不把技术 proof 伪装成最终验收。
 
 工作台在 `output/render-queue/queue.json` 原子维护全局 FIFO 队列，并在项目 workDir 镜像当前 `render-job.json`。任务状态区分 `queued`、`running`、`cancelling`、`cancelled`、`awaiting_review`、`completed` 和 `failed`，阶段区分 `saving`、`rendering`、`proof`、`review`、`packaging` 和 `completed`。任务记录包含 `jobId`、queue position、worker PID 与渲染子进程 PID；queued 任务可直接取消，running 任务按磁盘 PID 向独立进程组发送终止信号，失败或取消后可以创建关联上一任务的新任务继续渲染，并复用内容寻址缓存。
 
@@ -142,7 +143,7 @@ manifest 记录：
 - production 记录、实际使用来源和 rights check。
 - `productionMetrics`：从渲染到各验收/打包阶段的耗时、逐幕视频缓存命中/未命中、是否重编码最终视频/音频、系统计时审片会话、AI/TTS 外部请求与缓存命中，以及失败请求数和已知失败等待时间；没有供应商 usage/价格数据时金额必须保持 `null`。
 
-项目文件保存后指纹发生变化，工作台必须显示“成片已过期”，不能继续把旧 MP4 标记为已验收。
+项目保存后，影响真实视频字节的 brief、来源文件、场景、窗口、旁白、画面文字或渲染配置变化会改变 `productionContentFingerprint`，工作台必须显示“成片已过期”。来源权利、核验和操作员复核元数据不改变视频内容指纹，因此不会强迫重渲染；这些字段进入独立 `packageContentFingerprint`，变化后旧 ZIP 必须失效并重新打包。
 
 渲染时项目指纹与 proof 写回状态后的当前项目指纹分开保存。render plan 永远绑定渲染时输入；当前项目指纹继续用于 stale 检查，因此 proof 更新 `technical_status` 不会反向改写已经执行过的 plan。新契约的 plan 缺失、来源媒体字节变化、segment/list 字节变化、逐幕 graph/命令哈希漂移或最终拼接命令漂移时，technical proof 必须失败。
 
@@ -163,7 +164,7 @@ manifest 记录：
 
 渲染器会对长中文 eyebrow、标题和字幕插入 ASS 显式换行，避免 libass 对无空格中文不换行造成左右裁切。proof 抽帧仍需用于视觉检查，不能只依赖文件存在。
 
-proof 结果会原子写回 manifest。指纹一致且 `proof.passed=true` 时，工作台只显示“技术检查通过，等待内容验收”；语义和浏览器验收均绑定当前视频哈希后，才显示成片已验收。
+proof 结果会原子写回 manifest。指纹一致且 `proof.passed=true` 时，工作台只显示“技术检查通过，等待内容验收”；语义、编辑质量和浏览器验收均绑定当前视频哈希后，只能显示“自动验收完成，等待真人一倍速审片”。只有真人批准当前视频哈希后，才显示当前成片已获交付批准。
 
 schema v2/v3 项目还会把 `technical_status` 写为 `passed` 或 `failed`，并同步更新 manifest 指纹。普通项目保存会把它改为 `stale`；proof 遇到指纹不一致时不会替旧成片“追认”新项目。
 
@@ -176,7 +177,7 @@ schema v2/v3 项目还会把 `technical_status` 写为 `passed` 或 `failed`，�
 - AAC 192kbps / 48kHz
 - faststart
 
-完整生产导出包还包含：`final.mp4`、`subtitles.srt`、`subtitles.ass`、`cover.png`、`platform-copy.json`、`source-list.json`、`render-manifest.json`、`project.snapshot.json`、`export-manifest.json` 和 ZIP。render/export manifest 都保存同一次生产记录；瞬时 render job 仍独立于 canonical project fingerprint。
+完整生产导出包还包含：`final.mp4`、`subtitles.srt`、`subtitles.ass`、`cover.png`、`platform-copy.json`、`source-list.json`、`render-manifest.json`、`project.snapshot.json`、`export-manifest.json` 和 ZIP。只有语义验收、桌面/移动浏览器一倍速播放和绑定当前视频哈希的真人交付批准都有效时才允许打包。receipt 同时绑定视频、render manifest、ZIP、生产内容指纹、打包元数据指纹和真人批准记录；瞬时 render job 仍独立于 canonical project fingerprint。
 
 ## 其他渲染轨道
 

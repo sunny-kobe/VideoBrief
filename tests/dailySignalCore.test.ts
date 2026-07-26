@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { rankSignalSources, scoreSignal, signalSlug, type DailySignalSource } from '../src/dailySignalCore';
+import { buildTopicPreflight, rankSignalSources, scoreSignal, signalSlug, type DailySignalSource } from '../src/dailySignalCore';
 
 const now = new Date('2026-07-19T04:00:00.000Z');
 
@@ -43,4 +43,16 @@ test('deduplicates tracking variants and keeps the richer source', () => {
 test('creates stable ASCII slugs with a hash fallback for Chinese-only titles', () => {
   assert.equal(signalSlug('Agent Workflow 2.0'), 'agent-workflow-2-0');
   assert.match(signalSlug('中文命题'), /^signal-[a-f0-9]{10}$/);
+});
+
+test('topic preflight keeps source coverage and material feasibility separate from score', () => {
+  const candidate = rankSignalSources([source({
+    kind: 'official',
+    mediaUrls: ['https://cdn.example.com/demo.mp4'],
+  })], { now })[0];
+  const preflight = buildTopicPreflight(candidate, ['RSS: fetch failed']);
+  assert.equal(preflight.sourceCoverage, 'partial');
+  assert.equal(preflight.materialFeasibility, 'promising');
+  assert.equal(preflight.recommendation, 'manual_review');
+  assert.match(preflight.risks.join('；'), /交叉核验|来源缺口/);
 });

@@ -42,6 +42,7 @@ import {
   workbenchSteps,
 } from '@/src/workbench';
 import { researchReviewSummary } from '@/src/researchReview';
+import WorkflowProgress from '@/src/components/WorkflowProgress';
 
 export type { WorkbenchAsset } from '@/src/workbench';
 
@@ -1095,6 +1096,7 @@ export default function ProductionWorkbenchClient({
       remotionHref={remotionHref}
       renderStatus={visibleRenderStatus}
       renderJob={currentRenderJob}
+      onProjectChange={acceptServerProject}
     />
   ) : view === 'research' ? (
     <WorkbenchResearchManager
@@ -1297,6 +1299,15 @@ export default function ProductionWorkbenchClient({
           ) : null}
         </div>
       </section> : null}
+
+      {advancedMode ? <details className="border-b border-slate-200 bg-white">
+        <summary className="cursor-pointer px-4 py-3 text-xs font-extrabold text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600">端到端生产 Gate</summary>
+        <WorkflowProgress
+          projectId={projectId}
+          projectUpdatedAt={draftProject.production.updatedAt}
+          onProjectChange={acceptServerProject}
+        />
+      </details> : null}
 
       <section className="w-full px-3 py-3 sm:px-5">
         <div className={`grid grid-cols-1 gap-3 ${advancedMode ? 'md:h-[calc(100dvh-250px)] md:grid-rows-[auto_minmax(0,1fr)] md:overflow-hidden lg:h-[calc(100dvh-190px)]' : ''} ${showPreviewPanel ? 'md:grid-cols-[minmax(0,1fr)_340px] lg:grid-cols-[minmax(0,1fr)_380px] 2xl:grid-cols-[minmax(0,1fr)_460px]' : 'md:grid-cols-1'}`}>

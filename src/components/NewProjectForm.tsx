@@ -17,6 +17,10 @@ export default function NewProjectForm() {
     const payload = {
       id: String(formData.get('id') ?? '').trim() || `video-project-${Date.now()}`,
       title: String(formData.get('title') ?? ''),
+      topicApproval: {
+        decidedBy: String(formData.get('decidedBy') ?? ''),
+        note: String(formData.get('decisionNote') ?? ''),
+      },
       brief: {
         objective: String(formData.get('objective') ?? ''),
         audience: String(formData.get('audience') ?? ''),
@@ -86,6 +90,10 @@ export default function NewProjectForm() {
               <label className="block sm:col-span-2"><span className="text-xs font-bold text-slate-600">项目 ID（高级）</span><input className={fieldClass} name="id" placeholder="留空会自动生成…" pattern="[a-z0-9]+(?:-[a-z0-9]+)*" spellCheck={false} /></label>
             </div>
           </details>
+          <div className="grid gap-4 border-t border-slate-200 p-5 sm:grid-cols-[180px_minmax(0,1fr)]">
+            <label className="block"><span className="text-xs font-bold text-slate-600">命题批准者</span><input className={fieldClass} name="decidedBy" placeholder="真实人工批准者" required /></label>
+            <label className="block"><span className="text-xs font-bold text-slate-600">命题决策说明</span><input className={fieldClass} name="decisionNote" minLength={12} placeholder="说明为什么值得进入素材与研究阶段" required /></label>
+          </div>
         </section>
         <div className="mt-5 flex items-center justify-between gap-4">
           {error ? <p className="text-sm font-bold text-rose-700" role="alert">{error}</p> : <span />}

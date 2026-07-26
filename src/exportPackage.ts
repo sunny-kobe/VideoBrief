@@ -3,9 +3,11 @@ import { existsSync, readFileSync, statSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 export interface ExportPackageReceipt {
-  schemaVersion: 1;
+  schemaVersion: 2;
   projectId: string;
   projectFingerprint: string;
+  productionContentFingerprint?: string;
+  packageContentFingerprint?: string;
   renderedAt: string;
   renderManifestPath: string;
   renderManifestSha256: string;
@@ -14,16 +16,29 @@ export interface ExportPackageReceipt {
   zipPath: string;
   zipBytes: number;
   zipSha256: string;
+  deliveryApprovalFingerprint: string;
+  deliveryApprovedAt: string;
+  deliveryApprovedBy: string;
   createdAt: string;
+}
+
+export interface ExportPackageDeliveryApproval {
+  status: 'pending' | 'approved' | 'rejected';
+  fingerprint: string;
+  decidedAt: string;
+  decidedBy: string;
 }
 
 export interface ExportPackageReadinessInput {
   projectId: string;
   projectFingerprint: string;
+  productionContentFingerprint?: string;
+  packageContentFingerprint?: string;
   renderedAt: string;
   renderManifestPath: string;
   videoPath: string;
   zipPath: string;
+  deliveryApproval: ExportPackageDeliveryApproval | null;
   receipt: ExportPackageReceipt | null;
 }
 
@@ -40,7 +55,7 @@ export function readExportPackageReceipt(path: string): ExportPackageReceipt | n
   try {
     const value = JSON.parse(readFileSync(path, 'utf8')) as Partial<ExportPackageReceipt>;
     if (
-      value.schemaVersion !== 1
+      value.schemaVersion !== 2
       || typeof value.projectId !== 'string'
       || typeof value.projectFingerprint !== 'string'
       || typeof value.renderedAt !== 'string'
@@ -51,6 +66,9 @@ export function readExportPackageReceipt(path: string): ExportPackageReceipt | n
       || typeof value.zipPath !== 'string'
       || typeof value.zipBytes !== 'number'
       || typeof value.zipSha256 !== 'string'
+      || typeof value.deliveryApprovalFingerprint !== 'string'
+      || typeof value.deliveryApprovedAt !== 'string'
+      || typeof value.deliveryApprovedBy !== 'string'
       || typeof value.createdAt !== 'string'
     ) return null;
     return value as ExportPackageReceipt;
@@ -67,11 +85,36 @@ export function exportPackageReadiness(
   if (receipt.projectId !== input.projectId) {
     return { ready: false, reason: '导出包属于其他项目，请重新渲染并打包。' };
   }
-  if (receipt.projectFingerprint !== input.projectFingerprint) {
+  const projectMatches = input.productionContentFingerprint && receipt.productionContentFingerprint
+    ? receipt.productionContentFingerprint === input.productionContentFingerprint
+    : receipt.projectFingerprint === input.projectFingerprint;
+  if (!projectMatches) {
     return { ready: false, reason: '导出包对应旧项目版本，请重新渲染并打包。' };
+  }
+  if (input.packageContentFingerprint) {
+    if (!receipt.packageContentFingerprint) {
+      return { ready: false, reason: '导出包缺少当前打包元数据指纹，请重新打包。' };
+    }
+    if (receipt.packageContentFingerprint !== input.packageContentFingerprint) {
+      return { ready: false, reason: '导出包中的来源、权利或发布素材已变化，请重新打包。' };
+    }
   }
   if (receipt.renderedAt !== input.renderedAt) {
     return { ready: false, reason: '导出包对应旧渲染版本，请重新渲染并打包。' };
+  }
+
+  const approval = input.deliveryApproval;
+  if (!approval || approval.status !== 'approved') {
+    return { ready: false, reason: '当前成片尚未通过真人完整审片批准。' };
+  }
+  if (
+    !approval.fingerprint
+    || receipt.videoSha256 !== approval.fingerprint
+    || receipt.deliveryApprovalFingerprint !== approval.fingerprint
+    || receipt.deliveryApprovedAt !== approval.decidedAt
+    || receipt.deliveryApprovedBy !== approval.decidedBy
+  ) {
+    return { ready: false, reason: '导出包未绑定当前真人交付批准，请重新批准并打包。' };
   }
 
   const expectedPaths = [

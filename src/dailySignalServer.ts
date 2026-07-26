@@ -11,6 +11,7 @@ import { basename, extname, resolve } from 'node:path';
 import { load } from 'cheerio';
 import { chromium } from 'playwright-core';
 import {
+  buildTopicPreflight,
   rankSignalSources,
   signalSlug,
   type DailySignalCandidate,
@@ -18,6 +19,7 @@ import {
   type DailySignalRun,
   type DailySignalSource,
 } from './dailySignalCore';
+import type { WorkflowHumanDecision } from './shortVideoBrief';
 import { createProject, importProjectSource, readBrief } from './shortVideoProjectServer';
 
 interface DailySignalConfig {
@@ -315,9 +317,10 @@ export async function scanDailySignals(options: { now?: Date; replace?: boolean 
   const previousById = new Map(previous?.candidates.map((candidate) => [candidate.id, candidate]) ?? []);
   const ranked = rankSignalSources(settled.flat(), { now, limit: config.maxCandidates }).map((candidate) => {
     const old = previousById.get(candidate.id);
-    return old?.status === 'approved'
+    const next = old?.status === 'approved'
       ? { ...candidate, status: old.status, projectId: old.projectId }
       : candidate;
+    return { ...next, preflight: buildTopicPreflight(next, run.errors) };
   });
   const rankedIds = new Set(ranked.map((candidate) => candidate.id));
   const approvedLedgerCandidates = readApprovals()
@@ -645,7 +648,11 @@ export async function enrichApprovedDailySignal(runId: string, candidateIdValue:
   return { projectId: candidate.projectId, imported: await enrichProjectFromCandidate(candidate.projectId, candidate) };
 }
 
-export async function approveDailySignal(runId: string, candidateIdValue: string) {
+export async function approveDailySignal(
+  runId: string,
+  candidateIdValue: string,
+  topicApproval: WorkflowHumanDecision,
+) {
   const run = readDailySignalRun(runId);
   const index = run.candidates.findIndex((candidate) => candidate.id === candidateIdValue);
   if (index < 0) throw new Error('找不到该候选命题。');
@@ -655,6 +662,15 @@ export async function approveDailySignal(runId: string, candidateIdValue: string
   createProject({
     id: projectId,
     title: candidate.title,
+    workflowOrigin: {
+      kind: 'daily_signal',
+      runId,
+      candidateId: candidate.id,
+      sourceUrl: candidate.primaryUrl,
+      score: candidate.score.total,
+      summary: candidate.summary,
+    },
+    topicApproval,
     brief: {
       objective: `用一手来源和真实画面，在 40-60 秒内解释“${candidate.title}”为什么值得中文 AI 实践者关注。`,
       audience: '中文开发者、独立开发者、产品人和 AI 工作流实践者',

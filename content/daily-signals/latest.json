@@ -1,125 +1,23 @@
 {
   "schemaVersion": 1,
-  "id": "2026-07-19",
-  "date": "2026-07-19",
-  "createdAt": "2026-07-19T05:28:49.085Z",
-  "completedAt": "2026-07-19T05:28:51.715Z",
+  "id": "2026-07-26",
+  "date": "2026-07-26",
+  "createdAt": "2026-07-26T01:30:07.099Z",
+  "completedAt": "2026-07-26T01:30:09.110Z",
   "status": "completed",
   "zeroCost": true,
   "errors": [
-    "GitHub release: openai/codex: 403 rate limit exceeded",
     "GitHub release: anthropics/claude-code: 403 rate limit exceeded",
-    "GitHub release: modelcontextprotocol/servers: 403 rate limit exceeded",
-    "RSS: Google AI Blog: fetch failed"
+    "GitHub release: openai/codex: 403 rate limit exceeded",
+    "GitHub release: modelcontextprotocol/servers: 403 rate limit exceeded"
   ],
   "candidates": [
     {
-      "id": "sylphxai-pdf-reader-mcp-87d242a7",
-      "title": "SylphxAI/pdf-reader-mcp",
-      "summary": "📄 The PDF intelligence layer for AI agents — Agent Document Twin, evidence-first extraction, visual crops, OCR provenance, trust reports, and benchmark-gated releases. MCP server for Claude, Cursor, VS Code, and any MCP client.（829 stars，71 forks，许可 MIT）",
-      "primaryUrl": "https://github.com/SylphxAI/pdf-reader-mcp",
-      "publishedAt": "2026-07-19T05:17:44Z",
-      "tags": [
-        "agent",
-        "mcp",
-        "claude"
-      ],
-      "sources": [
-        {
-          "kind": "github",
-          "title": "SylphxAI/pdf-reader-mcp",
-          "url": "https://github.com/SylphxAI/pdf-reader-mcp",
-          "publishedAt": "2026-07-19T05:17:44Z",
-          "summary": "📄 The PDF intelligence layer for AI agents — Agent Document Twin, evidence-first extraction, visual crops, OCR provenance, trust reports, and benchmark-gated releases. MCP server for Claude, Cursor, VS Code, and any MCP client.（829 stars，71 forks，许可 MIT）",
-          "author": "SylphxAI",
-          "mediaUrls": []
-        }
-      ],
-      "score": {
-        "firstParty": 2,
-        "recency": 2,
-        "actionability": 2,
-        "verifiability": 2,
-        "mediaRichness": 1,
-        "rightsClarity": 1,
-        "total": 10
-      },
-      "status": "approved",
-      "projectId": "2026-07-19-sylphxai-pdf-reader-mcp"
-    },
-    {
-      "id": "nirholas-xactions-8413337f",
-      "title": "nirholas/XActions",
-      "summary": "⚡ The Complete X/Twitter Automation Toolkit — Scrapers, MCP server for AI agents (Claude/GPT), CLI, browser scripts. No API fees. Open source. Unfollow people who don't follow back. Monitor real-time analytics. Auto follow, like, comment, scrape, without API. Follow Bot. Like bot. Grow your account automatically. （392 stars，81 forks，许可 NOASSERTION）",
-      "primaryUrl": "https://github.com/nirholas/XActions",
-      "publishedAt": "2026-07-19T04:53:58Z",
-      "tags": [
-        "agent",
-        "mcp",
-        "claude"
-      ],
-      "sources": [
-        {
-          "kind": "github",
-          "title": "nirholas/XActions",
-          "url": "https://github.com/nirholas/XActions",
-          "publishedAt": "2026-07-19T04:53:58Z",
-          "summary": "⚡ The Complete X/Twitter Automation Toolkit — Scrapers, MCP server for AI agents (Claude/GPT), CLI, browser scripts. No API fees. Open source. Unfollow people who don't follow back. Monitor real-time analytics. Auto follow, like, comment, scrape, without API. Follow Bot. Like bot. Grow your account automatically. （392 stars，81 forks，许可 NOASSERTION）",
-          "author": "nirholas",
-          "mediaUrls": []
-        }
-      ],
-      "score": {
-        "firstParty": 2,
-        "recency": 2,
-        "actionability": 2,
-        "verifiability": 2,
-        "mediaRichness": 1,
-        "rightsClarity": 1,
-        "total": 10
-      },
-      "status": "candidate",
-      "projectId": ""
-    },
-    {
-      "id": "repoprompt-repoprompt-ce-ea7a5ad1",
-      "title": "repoprompt/repoprompt-ce",
-      "summary": "Community edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.（817 stars，101 forks，许可 Apache-2.0）",
-      "primaryUrl": "https://github.com/repoprompt/repoprompt-ce",
-      "publishedAt": "2026-07-19T04:45:22Z",
-      "tags": [
-        "agent",
-        "mcp"
-      ],
-      "sources": [
-        {
-          "kind": "github",
-          "title": "repoprompt/repoprompt-ce",
-          "url": "https://github.com/repoprompt/repoprompt-ce",
-          "publishedAt": "2026-07-19T04:45:22Z",
-          "summary": "Community edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.（817 stars，101 forks，许可 Apache-2.0）",
-          "author": "repoprompt",
-          "mediaUrls": []
-        }
-      ],
-      "score": {
-        "firstParty": 2,
-        "recency": 2,
-        "actionability": 2,
-        "verifiability": 2,
-        "mediaRichness": 1,
-        "rightsClarity": 1,
-        "total": 10
-      },
-      "status": "approved",
-      "projectId": "2026-07-19-repoprompt-repoprompt-ce"
-    },
-    {
-      "id": "builderz-labs-mission-control-c2fef5eb",
-      "title": "builderz-labs/mission-control",
-      "summary": "Self-hosted control plane for AI agents: dispatch tasks, review runs, track spend, and operate OpenClaw, Claude Code, Codex, and other runtimes.（5775 stars，2 forks，许可 MIT）",
-      "primaryUrl": "https://github.com/builderz-labs/mission-control",
-      "publishedAt": "2026-07-19T05:28:18Z",
+      "id": "avibe-bot-avibe-bb3117f0",
+      "title": "avibe-bot/avibe",
+      "summary": "The local-first Agent OS — your AI partner lives on your own machine. Drive the official Claude Code, Codex & OpenCode from your browser or any chat app.（485 stars，74 forks，许可 MIT）",
+      "primaryUrl": "https://github.com/avibe-bot/avibe",
+      "publishedAt": "2026-07-26T01:25:33Z",
       "tags": [
         "agent",
         "codex",
@@ -128,11 +26,11 @@
       "sources": [
         {
           "kind": "github",
-          "title": "builderz-labs/mission-control",
-          "url": "https://github.com/builderz-labs/mission-control",
-          "publishedAt": "2026-07-19T05:28:18Z",
-          "summary": "Self-hosted control plane for AI agents: dispatch tasks, review runs, track spend, and operate OpenClaw, Claude Code, Codex, and other runtimes.（5775 stars，2 forks，许可 MIT）",
-          "author": "builderz-labs",
+          "title": "avibe-bot/avibe",
+          "url": "https://github.com/avibe-bot/avibe",
+          "publishedAt": "2026-07-26T01:25:33Z",
+          "summary": "The local-first Agent OS — your AI partner lives on your own machine. Drive the official Claude Code, Codex & OpenCode from your browser or any chat app.（485 stars，74 forks，许可 MIT）",
+          "author": "avibe-bot",
           "mediaUrls": []
         }
       ],
@@ -141,30 +39,159 @@
         "recency": 2,
         "actionability": 2,
         "verifiability": 2,
-        "mediaRichness": 0,
+        "mediaRichness": 1,
         "rightsClarity": 1,
-        "total": 9
+        "total": 10
       },
       "status": "candidate",
-      "projectId": ""
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 3 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
     },
     {
-      "id": "saptarshi-coder-easemotion-css-3e77c3be",
-      "title": "SAPTARSHI-coder/EaseMotion-css",
-      "summary": "Animation-first CSS framework with reusable UI components, modern effects, and zero dependencies. Lightweight, beginner-friendly, and open-source.（241 stars，940 forks，许可 MIT）",
-      "primaryUrl": "https://github.com/SAPTARSHI-coder/EaseMotion-css",
-      "publishedAt": "2026-07-19T05:27:58Z",
+      "id": "risa-labs-inc-bossconsole-112d3f41",
+      "title": "risa-labs-inc/BossConsole",
+      "summary": "Open-source, multi-platform harness for AI agents — a native, multi-threaded operator's console (JVM, not Electron) to run Claude Code, Codex, Gemini or OpenCode with a real browser, terminal, editor, secrets & 100+ MCP tools. Built for enterprises, science & research.（189 stars，5 forks，许可 Apache-2.0）",
+      "primaryUrl": "https://github.com/risa-labs-inc/BossConsole",
+      "publishedAt": "2026-07-26T01:12:57Z",
       "tags": [
+        "agent",
+        "mcp",
+        "codex",
+        "claude",
         "open-source"
       ],
       "sources": [
         {
           "kind": "github",
-          "title": "SAPTARSHI-coder/EaseMotion-css",
-          "url": "https://github.com/SAPTARSHI-coder/EaseMotion-css",
-          "publishedAt": "2026-07-19T05:27:58Z",
-          "summary": "Animation-first CSS framework with reusable UI components, modern effects, and zero dependencies. Lightweight, beginner-friendly, and open-source.（241 stars，940 forks，许可 MIT）",
-          "author": "SAPTARSHI-coder",
+          "title": "risa-labs-inc/BossConsole",
+          "url": "https://github.com/risa-labs-inc/BossConsole",
+          "publishedAt": "2026-07-26T01:12:57Z",
+          "summary": "Open-source, multi-platform harness for AI agents — a native, multi-threaded operator's console (JVM, not Electron) to run Claude Code, Codex, Gemini or OpenCode with a real browser, terminal, editor, secrets & 100+ MCP tools. Built for enterprises, science & research.（189 stars，5 forks，许可 Apache-2.0）",
+          "author": "risa-labs-inc",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 3 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    },
+    {
+      "id": "lidge-jun-opencodex-c47cbc7e",
+      "title": "lidge-jun/opencodex",
+      "summary": "Universal provider proxy for OpenAI Codex & Claude Code — use any LLM (Claude, Gemini, Grok, DeepSeek, Ollama…) with Codex CLI, App, SDK, and Claude Code（4798 stars，367 forks，许可 MIT）",
+      "primaryUrl": "https://github.com/lidge-jun/opencodex",
+      "publishedAt": "2026-07-26T00:59:27Z",
+      "tags": [
+        "codex",
+        "claude"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "lidge-jun/opencodex",
+          "url": "https://github.com/lidge-jun/opencodex",
+          "publishedAt": "2026-07-26T00:59:27Z",
+          "summary": "Universal provider proxy for OpenAI Codex & Claude Code — use any LLM (Claude, Gemini, Grok, DeepSeek, Ollama…) with Codex CLI, App, SDK, and Claude Code（4798 stars，367 forks，许可 MIT）",
+          "author": "lidge-jun",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 3 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    },
+    {
+      "id": "nvidia-nemoclaw-15aba1d4",
+      "title": "NVIDIA/NemoClaw",
+      "summary": "Run agents like Hermes, LangChain Deep Agents, and OpenClaw more securely inside NVIDIA OpenShell with managed inference（21930 stars，2977 forks，许可 Apache-2.0）",
+      "primaryUrl": "https://github.com/NVIDIA/NemoClaw",
+      "publishedAt": "2026-07-26T01:29:18Z",
+      "tags": [
+        "agent"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "NVIDIA/NemoClaw",
+          "url": "https://github.com/NVIDIA/NemoClaw",
+          "publishedAt": "2026-07-26T01:29:18Z",
+          "summary": "Run agents like Hermes, LangChain Deep Agents, and OpenClaw more securely inside NVIDIA OpenShell with managed inference（21930 stars，2977 forks，许可 Apache-2.0）",
+          "author": "NVIDIA",
           "mediaUrls": []
         }
       ],
@@ -178,41 +205,81 @@
         "total": 9
       },
       "status": "candidate",
-      "projectId": ""
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "insufficient",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 3 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
     },
     {
-      "id": "create-edit-and-star-in-videos-with--6a0f44aa",
-      "title": "Create, edit and star in videos with two Google Vids updates",
-      "summary": "Gemini Omni and personal avatars in Google Vids make video creation easier than ever.",
-      "primaryUrl": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars",
-      "publishedAt": "2026-07-16T16:00:00.000Z",
+      "id": "xuzhougeng-wisp-science-5359e01d",
+      "title": "xuzhougeng/wisp-science",
+      "summary": "Open-source, local-first desktop AI research workbench for scientific computing with Python/R, MCP bioinformatics tools, SSH/WSL/GPU runtimes, and OpenAI/Anthropic models.（438 stars，55 forks，许可 Apache-2.0）",
+      "primaryUrl": "https://github.com/xuzhougeng/wisp-science",
+      "publishedAt": "2026-07-26T01:29:04Z",
       "tags": [
-        "video"
+        "mcp",
+        "model",
+        "open-source"
       ],
       "sources": [
         {
-          "kind": "official",
-          "title": "Create, edit and star in videos with two Google Vids updates",
-          "url": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/",
-          "publishedAt": "2026-07-16T16:00:00.000Z",
-          "summary": "Gemini Omni and personal avatars in Google Vids make video creation easier than ever.",
-          "author": "Google AI Blog",
-          "mediaUrls": [
-            "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/omni-blog-header_OarEe2t.max-600x600.format-webp.webp"
-          ]
+          "kind": "github",
+          "title": "xuzhougeng/wisp-science",
+          "url": "https://github.com/xuzhougeng/wisp-science",
+          "publishedAt": "2026-07-26T01:29:04Z",
+          "summary": "Open-source, local-first desktop AI research workbench for scientific computing with Python/R, MCP bioinformatics tools, SSH/WSL/GPU runtimes, and OpenAI/Anthropic models.（438 stars，55 forks，许可 Apache-2.0）",
+          "author": "xuzhougeng",
+          "mediaUrls": []
         }
       ],
       "score": {
         "firstParty": 2,
-        "recency": 1,
+        "recency": 2,
         "actionability": 2,
         "verifiability": 2,
-        "mediaRichness": 2,
+        "mediaRichness": 0,
         "rightsClarity": 1,
-        "total": 10
+        "total": 9
       },
-      "status": "approved",
-      "projectId": "2026-07-19-create-edit-and-star-in-videos-with-two-google-v"
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "insufficient",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 3 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
     }
   ]
 }

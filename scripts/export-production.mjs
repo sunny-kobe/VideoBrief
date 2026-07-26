@@ -6,6 +6,8 @@ import {
   validateBrowserChecks,
   validateSemanticAcceptanceRecord,
 } from './lib/acceptance-validation.mjs';
+import { productionContentFingerprint } from './lib/production-content-fingerprint.mjs';
+import { assertPreproductionGates } from './lib/production-workflow-contract.mjs';
 
 const briefArg = process.argv.slice(2).find((arg) => arg.startsWith('--brief='));
 const stageArg = process.argv.slice(2).find((arg) => arg.startsWith('--stage='));
@@ -13,6 +15,7 @@ const requestedStage = stageArg?.slice('--stage='.length) ?? 'auto';
 const briefPath = resolve(briefArg?.slice('--brief='.length) ?? 'content/projects/codex-app-explainer/project.json');
 const projectText = readFileSync(briefPath, 'utf8');
 const project = JSON.parse(projectText);
+assertPreproductionGates(project);
 const manifestPath = resolve(project.outputs?.workDir ?? dirname(briefPath), 'render-manifest.json');
 
 function run(script, args) {
@@ -41,7 +44,11 @@ function currentAcceptancePassed() {
   if (!existsSync(manifestPath)) return false;
   const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
   const fingerprint = createHash('sha256').update(projectText).digest('hex');
-  return manifest.projectFingerprint === fingerprint
+  const contentFingerprint = productionContentFingerprint(project);
+  const projectMatches = manifest.productionContentFingerprint
+    ? manifest.productionContentFingerprint === contentFingerprint
+    : manifest.projectFingerprint === fingerprint;
+  return projectMatches
     && manifest.proof?.passed === true
     && validateSemanticAcceptanceRecord(manifest.acceptance?.semantic).passed
     && manifest.acceptance?.browser?.status === 'passed'

@@ -3,12 +3,14 @@
 import {
   Archive,
   Download,
+  Eye,
   ExternalLink,
   Film,
   LoaderCircle,
   WandSparkles,
 } from 'lucide-react';
 import { useState } from 'react';
+import WorkflowProgress from '@/src/components/WorkflowProgress';
 import type {
   RenderJobRecord,
   ShortVideoProject,
@@ -22,6 +24,7 @@ interface FinalVideoWorkspaceProps {
   remotionHref: string;
   renderStatus: WorkbenchRenderStatus;
   renderJob: RenderJobRecord | null;
+  onProjectChange?: (project: ShortVideoProject) => void;
 }
 
 const statusLabel = {
@@ -30,7 +33,13 @@ const statusLabel = {
   },
   rights: { cleared: '素材可使用', review_required: '素材待复核', blocked: '素材禁止使用' },
   publication: { 'draft-unpublished': '未发布', 'ready-for-review': '等待发布确认', published: '已发布' },
-  market: { none: '未验证', collecting: '收集反馈中', validated: '已有验证' },
+  market: {
+    none: '未验证',
+    collecting: '收集反馈中',
+    validated: '验证成立',
+    not_validated: '未验证成立',
+    inconclusive: '证据不足',
+  },
 } as const;
 
 export default function FinalVideoWorkspace({
@@ -40,6 +49,7 @@ export default function FinalVideoWorkspace({
   remotionHref,
   renderStatus,
   renderJob,
+  onProjectChange,
 }: FinalVideoWorkspaceProps) {
   const ready = renderStatus.state === 'ready' && Boolean(renderHref);
   const [preview, setPreview] = useState<'ffmpeg' | 'remotion'>(remotionHref ? 'remotion' : 'ffmpeg');
@@ -81,6 +91,7 @@ export default function FinalVideoWorkspace({
                 {renderingRemotion ? '生成候选中' : '生成 Gate B 候选'}
               </button>
             )}
+            <a className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600" href={`/api/projects/${encodeURIComponent(projectId)}/review-package`} target="_blank" rel="noreferrer" title="打开审片工作包" aria-label="打开审片工作包"><Eye aria-hidden="true" className="h-4 w-4" /></a>
             <a className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600" href={`/short-video?project=${encodeURIComponent(projectId)}`} title="全屏预览" aria-label="全屏预览"><ExternalLink aria-hidden="true" className="h-4 w-4" /></a>
             <a className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600" href={activeHref} download title="下载当前 MP4" aria-label="下载当前 MP4"><Download aria-hidden="true" className="h-4 w-4" /></a>
             {renderStatus.packageReady ? (
@@ -115,6 +126,14 @@ export default function FinalVideoWorkspace({
           <div className="bg-white p-3"><dt className="text-[10px] font-bold text-slate-400">市场</dt><dd className="mt-1 font-extrabold">{statusLabel.market[project.market_status]}</dd></div>
         </dl>
         {renderJob ? <p className="border-t border-slate-200 px-4 py-3 text-xs leading-relaxed text-slate-600">最近任务：{renderJob.state} · {renderJob.stage}{renderJob.error ? ` · ${renderJob.error}` : ''}</p> : null}
+      </details>
+      <details>
+        <summary className="cursor-pointer border-t border-slate-200 px-4 py-3 text-xs font-extrabold text-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600">端到端生产流程</summary>
+        <WorkflowProgress
+          projectId={projectId}
+          projectUpdatedAt={project.production.updatedAt}
+          onProjectChange={onProjectChange}
+        />
       </details>
     </section>
   );

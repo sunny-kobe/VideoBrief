@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-07-26",
+  "date": "2026-07-26",
+  "createdAt": "2026-07-26T01:30:07.099Z",
+  "completedAt": "2026-07-26T01:30:09.110Z",
+  "status": "completed",
+  "zeroCost": true,
+  "errors": [
+    "GitHub release: anthropics/claude-code: 403 rate limit exceeded",
+    "GitHub release: openai/codex: 403 rate limit exceeded",
+    "GitHub release: modelcontextprotocol/servers: 403 rate limit exceeded"
+  ],
+  "candidates": [
+    {
+      "id": "avibe-bot-avibe-bb3117f0",
+      "title": "avibe-bot/avibe",
+      "summary": "The local-first Agent OS — your AI partner lives on your own machine. Drive the official Claude Code, Codex & OpenCode from your browser or any chat app.（485 stars，74 forks，许可 MIT）",
+      "primaryUrl": "https://github.com/avibe-bot/avibe",
+      "publishedAt": "2026-07-26T01:25:33Z",
+      "tags": [
+        "agent",
+        "codex",
+        "claude"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "avibe-bot/avibe",
+          "url": "https://github.com/avibe-bot/avibe",
+          "publishedAt": "2026-07-26T01:25:33Z",
+          "summary": "The local-first Agent OS — your AI partner lives on your own machine. Drive the official Claude Code, Codex & OpenCode from your browser or any chat app.（485 stars，74 forks，许可 MIT）",
+          "author": "avibe-bot",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 3 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    },
+    {
+      "id": "risa-labs-inc-bossconsole-112d3f41",
+      "title": "risa-labs-inc/BossConsole",
+      "summary": "Open-source, multi-platform harness for AI agents — a native, multi-threaded operator's console (JVM, not Electron) to run Claude Code, Codex, Gemini or OpenCode with a real browser, terminal, editor, secrets & 100+ MCP tools. Built for enterprises, science & research.（189 stars，5 forks，许可 Apache-2.0）",
+      "primaryUrl": "https://github.com/risa-labs-inc/BossConsole",
+      "publishedAt": "2026-07-26T01:12:57Z",
+      "tags": [
+        "agent",
+        "mcp",
+        "codex",
+        "claude",
+        "open-source"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "risa-labs-inc/BossConsole",
+          "url": "https://github.com/risa-labs-inc/BossConsole",
+          "publishedAt": "2026-07-26T01:12:57Z",
+          "summary": "Open-source, multi-platform harness for AI agents — a native, multi-threaded operator's console (JVM, not Electron) to run Claude Code, Codex, Gemini or OpenCode with a real browser, terminal, editor, secrets & 100+ MCP tools. Built for enterprises, science & research.（189 stars，5 forks，许可 Apache-2.0）",
+          "author": "risa-labs-inc",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 3 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    },
+    {
+      "id": "lidge-jun-opencodex-c47cbc7e",
+      "title": "lidge-jun/opencodex",
+      "summary": "Universal provider proxy for OpenAI Codex & Claude Code — use any LLM (Claude, Gemini, Grok, DeepSeek, Ollama…) with Codex CLI, App, SDK, and Claude Code（4798 stars，367 forks，许可 MIT）",
+      "primaryUrl": "https://github.com/lidge-jun/opencodex",
+      "publishedAt": "2026-07-26T00:59:27Z",
+      "tags": [
+        "codex",
+        "claude"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "lidge-jun/opencodex",
+          "url": "https://github.com/lidge-jun/opencodex",
+          "publishedAt": "2026-07-26T00:59:27Z",
+          "summary": "Universal provider proxy for OpenAI Codex & Claude Code — use any LLM (Claude, Gemini, Grok, DeepSeek, Ollama…) with Codex CLI, App, SDK, and Claude Code（4798 stars，367 forks，许可 MIT）",
+          "author": "lidge-jun",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 3 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    },
+    {
+      "id": "nvidia-nemoclaw-15aba1d4",
+      "title": "NVIDIA/NemoClaw",
+      "summary": "Run agents like Hermes, LangChain Deep Agents, and OpenClaw more securely inside NVIDIA OpenShell with managed inference（21930 stars，2977 forks，许可 Apache-2.0）",
+      "primaryUrl": "https://github.com/NVIDIA/NemoClaw",
+      "publishedAt": "2026-07-26T01:29:18Z",
+      "tags": [
+        "agent"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "NVIDIA/NemoClaw",
+          "url": "https://github.com/NVIDIA/NemoClaw",
+          "publishedAt": "2026-07-26T01:29:18Z",
+          "summary": "Run agents like Hermes, LangChain Deep Agents, and OpenClaw more securely inside NVIDIA OpenShell with managed inference（21930 stars，2977 forks，许可 Apache-2.0）",
+          "author": "NVIDIA",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 0,
+        "rightsClarity": 1,
+        "total": 9
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "insufficient",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 3 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    },
+    {
+      "id": "xuzhougeng-wisp-science-5359e01d",
+      "title": "xuzhougeng/wisp-science",
+      "summary": "Open-source, local-first desktop AI research workbench for scientific computing with Python/R, MCP bioinformatics tools, SSH/WSL/GPU runtimes, and OpenAI/Anthropic models.（438 stars，55 forks，许可 Apache-2.0）",
+      "primaryUrl": "https://github.com/xuzhougeng/wisp-science",
+      "publishedAt": "2026-07-26T01:29:04Z",
+      "tags": [
+        "mcp",
+        "model",
+        "open-source"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "xuzhougeng/wisp-science",
+          "url": "https://github.com/xuzhougeng/wisp-science",
+          "publishedAt": "2026-07-26T01:29:04Z",
+          "summary": "Open-source, local-first desktop AI research workbench for scientific computing with Python/R, MCP bioinformatics tools, SSH/WSL/GPU runtimes, and OpenAI/Anthropic models.（438 stars，55 forks，许可 Apache-2.0）",
+          "author": "xuzhougeng",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 0,
+        "rightsClarity": 1,
+        "total": 9
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "insufficient",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 3 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    }
+  ]
+}

@@ -14,6 +14,7 @@ import {
 import { ShortVideoProject } from '@/src/shortVideoBrief';
 import { WorkbenchAsset } from '@/src/workbench';
 import { researchReviewSummary } from '@/src/researchReview';
+import { materialInventorySources } from '@/scripts/lib/material-inventory.mjs';
 
 interface WorkbenchSourceManagerProps {
   project: ShortVideoProject;
@@ -109,7 +110,11 @@ export default function WorkbenchSourceManager({
   const selectedSources = selectableVisuals.filter((source) => selectedSourceIds.includes(source.id));
   const selectedVideoCount = selectedSources.filter((source) => source.sourceType === 'video').length;
   const selectedImageCount = selectedSources.filter((source) => source.sourceType === 'image').length;
+  const selectedVisualCount = selectedVideoCount + selectedImageCount;
   const packageApproved = project.materialReview.status === 'approved';
+  const inventoryBySourceId = new Map(
+    materialInventorySources(project).map((source) => [source.id, source]),
+  );
 
   useEffect(() => {
     const availableIds = new Set(selectableVisuals.map((source) => source.id));
@@ -262,13 +267,17 @@ export default function WorkbenchSourceManager({
             </p>
             <p className={`mt-1 text-[11px] leading-relaxed ${packageApproved ? 'text-emerald-800' : 'text-amber-900'}`}>
               已选 {selectedVideoCount} 段视频 · {selectedImageCount} 张图片
-              {selectedVideoCount === 0 ? ' · 缺少视频，暂不能生成脚本或成片' : ' · 图片只作为补充画面'}
+              {selectedVisualCount === 0
+                ? ' · 缺少可用画面，暂不能生成脚本或成片'
+                : selectedVideoCount === 0
+                  ? ' · 将使用原创静态画面完成制作'
+                  : ' · 图片可补充视频无法准确表达的信息'}
             </p>
           </div>
           <button
             className="inline-flex h-9 items-center gap-2 rounded-md bg-slate-950 px-3 text-xs font-extrabold text-white disabled:bg-slate-400"
             type="button"
-            disabled={approving || selectedVideoCount === 0}
+            disabled={approving || selectedVisualCount === 0}
             onClick={() => void handleApproveMaterials()}
           >
             <ShieldCheck aria-hidden="true" className="h-3.5 w-3.5" />
@@ -298,6 +307,7 @@ export default function WorkbenchSourceManager({
           )).length;
           const sourceHref = sourceHrefs[source.id] ?? '';
           const isVisualSource = source.sourceType === 'image' || source.sourceType === 'video';
+          const plannedWindows = inventoryBySourceId.get(source.id)?.plannedWindows ?? [];
           return (
             <Fragment key={source.id}>
               {index === 0 && visualSources.length ? (
@@ -419,6 +429,28 @@ export default function WorkbenchSourceManager({
                             : '查看解析结果'}
                     </button>
                   </div>
+                  {isVisualSource ? (
+                    <div className="mt-4 border-t border-slate-200 pt-3">
+                      <p className="text-[10px] font-extrabold text-slate-500">候选窗口与目标场景</p>
+                      {plannedWindows.length ? (
+                        <ul className="mt-2 divide-y divide-slate-200 border-y border-slate-200">
+                          {plannedWindows.map((window) => (
+                            <li className="grid gap-1 py-2 text-[11px] leading-relaxed sm:grid-cols-[minmax(0,1fr)_auto]" key={`${window.sceneId}:${window.candidateId}`}>
+                              <div className="min-w-0">
+                                <p className="font-extrabold text-slate-800">{window.sceneTitle || window.sceneId}</p>
+                                <p className="text-slate-600">{window.matchReason || window.visualRequirement || '尚未填写匹配理由'}</p>
+                              </div>
+                              <div className="flex flex-wrap items-center gap-2 font-bold text-slate-600 sm:justify-end">
+                                <span>{source.sourceType === 'video' ? `${window.sourceStart.toFixed(2)}s–${window.sourceEnd.toFixed(2)}s` : '静态画面'}</span>
+                                <span>{rightsLabel[window.rightsStatus as keyof typeof rightsLabel] ?? window.rightsStatus}</span>
+                                <span className={window.selected ? 'text-emerald-700' : 'text-slate-400'}>{window.selected ? `已选 · ${window.selectionStatus}` : '备选'}</span>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : <p className="mt-2 text-[11px] text-slate-500">尚未生成与该素材关联的场景候选。</p>}
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </article>
@@ -438,8 +470,8 @@ export default function WorkbenchSourceManager({
         <p className="text-xs font-bold leading-relaxed text-emerald-900">
           {packageApproved
             ? `素材包已锁定；下一步确认 ${review.keyFacts.length} 条关键主张并处理 ${review.unresolvedUncertainties.length} 个高风险问题。`
-            : selectedVideoCount === 0
-              ? '当前没有可用视频。请补充真实操作录屏或命题相关视频后再继续。'
+            : selectedVisualCount === 0
+              ? '当前没有可用画面。请补充真实操作录屏、命题相关视频或原创图片后再继续。'
               : '请先播放预览并确认这批素材，确认后才能进入核验与脚本生产。'}
         </p>
         <button className="inline-flex h-9 items-center gap-2 rounded-md bg-emerald-700 px-3 text-xs font-extrabold text-white disabled:bg-slate-400" type="button" disabled={!packageApproved || importing || approving} onClick={onContinue}>

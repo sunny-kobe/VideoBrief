@@ -115,6 +115,16 @@ export function validateReviewSession({
   return { valid: issues.length === 0, activeSeconds, issues };
 }
 
+export function reviewSessionTargetsArtifact(session, {
+  projectId,
+  projectFingerprint,
+  videoSha256,
+}) {
+  return session?.projectId === projectId
+    && session?.projectFingerprint === projectFingerprint
+    && session?.videoSha256 === videoSha256;
+}
+
 export function validateSemanticAcceptanceRecord(semantic) {
   const issues = [];
   if (semantic?.status !== 'passed') issues.push('Semantic review has not passed.');

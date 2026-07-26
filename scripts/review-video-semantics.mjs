@@ -13,11 +13,13 @@ import ffmpegPath from 'ffmpeg-static';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import {
   intervalCoverage,
+  reviewSessionTargetsArtifact,
   validateEditorialQualityReview,
   validateReviewSession,
   validateSceneReviewNotes,
   validateSemanticReviewRequest,
 } from './lib/acceptance-validation.mjs';
+import { productionContentFingerprint } from './lib/production-content-fingerprint.mjs';
 
 const reviewProcessStartedAt = new Date();
 
@@ -53,10 +55,14 @@ if (!manifest.briefPath || !existsSync(manifest.briefPath)) {
 }
 const projectText = readFileSync(manifest.briefPath, 'utf8');
 const projectFingerprint = createHash('sha256').update(projectText).digest('hex');
-if (projectFingerprint !== manifest.projectFingerprint) {
+const project = JSON.parse(projectText);
+const currentProductionContentFingerprint = productionContentFingerprint(project);
+const projectMatches = manifest.productionContentFingerprint
+  ? currentProductionContentFingerprint === manifest.productionContentFingerprint
+  : projectFingerprint === manifest.projectFingerprint;
+if (!projectMatches) {
   throw new Error('Canonical project changed after render; semantic review cannot approve a stale video.');
 }
-const project = JSON.parse(projectText);
 const timelinePath = manifest.artifacts?.timeline;
 if (!timelinePath || !existsSync(timelinePath)) throw new Error('Production timeline is missing.');
 const timeline = JSON.parse(readFileSync(timelinePath, 'utf8'));
@@ -74,7 +80,11 @@ const reviewSessionPath = resolve(
 if (args.has('start-session')) {
   if (existsSync(reviewSessionPath) && !args.has('restart-session')) {
     const existing = JSON.parse(readFileSync(reviewSessionPath, 'utf8'));
-    if (existing.status === 'active') {
+    if (existing.status === 'active' && reviewSessionTargetsArtifact(existing, {
+      projectId: manifest.projectId,
+      projectFingerprint,
+      videoSha256,
+    })) {
       throw new Error(`An active semantic review session already exists: ${reviewSessionPath}`);
     }
   }

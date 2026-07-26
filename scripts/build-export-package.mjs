@@ -19,6 +19,15 @@ import {
   validateSemanticAcceptanceRecord,
 } from './lib/acceptance-validation.mjs';
 import { buildProductionMetrics } from './lib/production-metrics.mjs';
+import {
+  packageContentFingerprint,
+  productionContentFingerprint,
+} from './lib/production-content-fingerprint.mjs';
+import {
+  assertDeliveryApproved,
+  assertPreproductionGates,
+} from './lib/production-workflow-contract.mjs';
+import { materialInventorySources } from './lib/material-inventory.mjs';
 
 const packageProcessStartedAt = new Date();
 
@@ -57,18 +66,25 @@ const project = JSON.parse(projectText);
 const manifestPath = resolve(project.outputs.workDir, 'render-manifest.json');
 const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
 const projectFingerprint = createHash('sha256').update(projectText).digest('hex');
+const currentProductionContentFingerprint = productionContentFingerprint(project);
+const currentPackageContentFingerprint = packageContentFingerprint(project);
 if (resolve(manifest.briefPath ?? '') !== briefPath) {
   throw new Error('Cannot build export package from a manifest that belongs to another project file.');
 }
-if (manifest.projectFingerprint !== projectFingerprint) {
+const projectMatches = manifest.productionContentFingerprint
+  ? manifest.productionContentFingerprint === currentProductionContentFingerprint
+  : manifest.projectFingerprint === projectFingerprint;
+if (!projectMatches) {
   throw new Error('Cannot build export package from a stale render; the canonical project changed after rendering.');
 }
 if (!manifest.proof?.passed) throw new Error('Cannot build export package before technical proof passes.');
+assertPreproductionGates(project);
 const renderedVideo = resolve(manifest.artifacts.publicRender ?? manifest.artifacts.outputVideo);
 const renderedVideoSha256 = createHash('sha256').update(readFileSync(renderedVideo)).digest('hex');
 if (manifest.acceptance?.videoSha256 !== renderedVideoSha256) {
   throw new Error('Cannot build export package before acceptance is bound to the current video bytes.');
 }
+assertDeliveryApproved(project, renderedVideoSha256);
 const semanticValidation = validateSemanticAcceptanceRecord(manifest.acceptance.semantic);
 if (!semanticValidation.passed) {
   throw new Error(`Cannot build export package before measured semantic review passes:\n- ${semanticValidation.issues.join('\n- ')}`);
@@ -148,22 +164,7 @@ const copyPayload = {
 };
 writeFileSync(platformCopy, `${JSON.stringify(copyPayload, null, 2)}\n`);
 
-const sourcesPayload = project.sources.map((source) => ({
-  id: source.id,
-  label: source.label,
-  sourceType: source.sourceType,
-  originalFileName: source.originalFileName ?? '',
-  originUrl: source.originUrl,
-  assetPath: source.assetPath,
-  verificationStatus: source.verificationStatus,
-  rightsStatus: source.rightsStatus,
-  rightsNote: source.rightsNote,
-  contentHash: source.contentHash ?? source.processing?.inputHash ?? '',
-  reusedFrom: source.reusedFrom ?? null,
-  processingStatus: source.processing?.status ?? 'legacy',
-  facts: source.analysis?.facts ?? [],
-  uncertainties: source.analysis?.uncertainties ?? [],
-}));
+const sourcesPayload = materialInventorySources(project);
 writeFileSync(sourceList, `${JSON.stringify(sourcesPayload, null, 2)}\n`);
 writeFileSync(projectSnapshot, projectText);
 
@@ -211,6 +212,8 @@ const productionMetrics = buildProductionMetrics({
 
 const enhancedManifest = {
   ...manifest,
+  productionContentFingerprint: currentProductionContentFingerprint,
+  packageContentFingerprint: currentPackageContentFingerprint,
   artifacts: {
     ...manifest.artifacts,
     coverImage,
@@ -238,6 +241,8 @@ const exportManifest = {
   schemaVersion: 1,
   projectId: project.id,
   projectFingerprint,
+  productionContentFingerprint: currentProductionContentFingerprint,
+  packageContentFingerprint: currentPackageContentFingerprint,
   createdAt: new Date().toISOString(),
   technicalProof: enhancedManifest.proof,
   semanticAcceptance: enhancedManifest.acceptance.semantic,
@@ -279,9 +284,11 @@ function fileSha256(path) {
 }
 
 const packageReceipt = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   projectId: project.id,
   projectFingerprint: exportManifest.projectFingerprint,
+  productionContentFingerprint: currentProductionContentFingerprint,
+  packageContentFingerprint: currentPackageContentFingerprint,
   renderedAt: enhancedManifest.renderedAt,
   renderManifestPath: manifestPath,
   renderManifestSha256: await fileSha256(manifestPath),
@@ -290,6 +297,9 @@ const packageReceipt = {
   zipPath,
   zipBytes: statSync(zipPath).size,
   zipSha256: await fileSha256(zipPath),
+  deliveryApprovalFingerprint: project.workflow.deliveryApproval.fingerprint,
+  deliveryApprovedAt: project.workflow.deliveryApproval.decidedAt,
+  deliveryApprovedBy: project.workflow.deliveryApproval.decidedBy,
   createdAt: new Date().toISOString(),
 };
 const temporaryReceiptPath = `${exportPackageReceiptPath}.tmp`;

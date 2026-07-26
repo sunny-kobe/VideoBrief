@@ -101,10 +101,11 @@ npm run video:review:semantic -- --manifest=output/videos/<project-id>-work/rend
 ```bash
 npm run dev
 npm run video:review:browser -- --manifest=output/videos/<project-id>-work/render-manifest.json
+# 真人在 advanced 工作台完整审片，并批准绑定当前视频哈希的交付 Gate。
 npm run video:package:production -- --brief=content/projects/<project-id>/project.json
 ```
 
-打包后校验 ZIP 完整性，以及主 MP4、public 副本、包内 `final.mp4` 的 SHA-256。确认包内 project snapshot、source list 和 render manifest 都属于当前版本。
+浏览器脚本通过只证明桌面和移动播放器完整播放，不代表真人认可观看体验。真人应先以 1 倍速完整观看当前成片并明确批准当前视频哈希；Codex 可以完成逐幕语义和编辑质量复核，但不能代签该 Gate。批准后再打包，并校验 ZIP 完整性，以及主 MP4、public 副本、包内 `final.mp4` 的 SHA-256。确认包内 project snapshot、source list 和 render manifest 都属于当前版本。
 
 最后运行：
 

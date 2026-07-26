@@ -2,6 +2,7 @@ import {
   CheckCircle2,
   CircleAlert,
   Download,
+  Eye,
   ExternalLink,
   FileAudio,
   FileJson,
@@ -102,7 +103,13 @@ export default function WorkbenchExportManager({
     }[project.technical_status]],
     ['素材权利', { cleared: '已确认可使用', review_required: '需要复核', blocked: '禁止使用' }[project.rights_status]],
     ['发布状态', { 'draft-unpublished': '未发布草稿', 'ready-for-review': '等待发布确认', published: '已发布' }[project.publication_status]],
-    ['市场验证', { none: '尚未开始', collecting: '正在收集反馈', validated: '已有验证' }[project.market_status]],
+    ['市场验证', {
+      none: '尚未开始',
+      collecting: '正在收集反馈',
+      validated: '验证成立',
+      not_validated: '未验证成立',
+      inconclusive: '证据不足',
+    }[project.market_status]],
   ];
   const jobStateLabel = renderJob ? {
     queued: renderJob.queuePosition ? `排队中（第 ${renderJob.queuePosition} 位）` : '排队中', running: '处理中', cancelling: '取消中', cancelled: '已取消', awaiting_review: '等待内容验收', completed: '已完成', failed: '失败',
@@ -126,6 +133,10 @@ export default function WorkbenchExportManager({
             </button>
           ) : renderStatus.state === 'ready' ? (
             <>
+              <a className="inline-flex h-9 items-center gap-2 rounded-md border border-slate-300 bg-white px-3 text-xs font-extrabold text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600" href={`/api/projects/${encodeURIComponent(projectId)}/review-package`} target="_blank" rel="noreferrer">
+                <Eye aria-hidden="true" className="h-3.5 w-3.5" />
+                审片工作包
+              </a>
               <a className="inline-flex h-9 items-center gap-2 rounded-md border border-slate-300 bg-white px-3 text-xs font-extrabold text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600" href={`/short-video?project=${encodeURIComponent(projectId)}`}>
                 <ExternalLink aria-hidden="true" className="h-3.5 w-3.5" />
                 全屏预览

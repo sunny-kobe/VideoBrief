@@ -32,7 +32,8 @@ import type {
 } from './shortVideoBrief';
 import { readBrief, updateCanonicalProject } from './shortVideoProjectServer';
 import { researchReviewSummary } from './researchReview';
-import { automaticSourceReadiness, materialReviewReadiness } from './productionReadiness';
+import { materialReviewReadiness } from './productionReadiness';
+import { assertPreproductionGates } from '../scripts/lib/production-workflow-contract.mjs';
 
 function referenceFromAi(reference: {
   sourceId: string;
@@ -95,11 +96,7 @@ function assertResearchReady(project: ShortVideoProject) {
 }
 
 function assertAutomaticProductionReady(project: ShortVideoProject) {
-  assertMaterialReviewReady(project);
-  const review = researchReviewSummary(project);
-  const readiness = automaticSourceReadiness(project.sources.map((source) => source.processing.status));
-  if (!readiness.ready) throw new Error(readiness.reason);
-  if (!review.keyFacts.length) throw new Error('没有可用于生成脚本的关键内容。');
+  assertPreproductionGates(project);
 }
 
 function assertMaterialReviewReady(project: ShortVideoProject) {

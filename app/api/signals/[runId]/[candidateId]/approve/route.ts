@@ -8,13 +8,16 @@ interface ApproveRouteProps {
   params: Promise<{ runId: string; candidateId: string }>;
 }
 
-export async function POST(_request: Request, { params }: ApproveRouteProps) {
+export async function POST(request: Request, { params }: ApproveRouteProps) {
   try {
     const { runId, candidateId } = await params;
-    const result = await approveDailySignal(runId, candidateId);
+    const body = await request.json().catch(() => ({})) as { decidedBy?: string; note?: string };
+    const result = await approveDailySignal(runId, candidateId, {
+      decidedBy: body.decidedBy ?? '',
+      note: body.note ?? '',
+    });
     return NextResponse.json(result, { status: 201 });
   } catch (error) {
     return NextResponse.json({ error: error instanceof Error ? error.message : '批准候选失败' }, { status: 422 });
   }
 }
-

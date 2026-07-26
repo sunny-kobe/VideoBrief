@@ -14,6 +14,10 @@
 - 分支：`main`
 - 当前本地提交：`e4f9265 checkpoint: preserve VideoBrief production workbench`
 - 当前分支相对 `origin/main` ahead 3；不要擅自 push。
+- 2026-07-25 新增显式 production workflow：命题、素材、研究、镜头、技术、成片、package、发布和市场状态按顺序展示；`npm run project:workflow -- --project=<project-id>` 只执行来源处理、策划、渲染和打包，遇到人工或操作员 Gate 停止，队列失败不会静默重试。
+- `approve_topic`、`approve_research`、`approve_delivery`、`approve_publication` 和 `decide_market` 拒绝 `ai`、`codex`、`system` 代签。镜头节点允许 `codex_reviewed`，但明确属于操作员复核，不等于真人交付批准。
+- package 现在要求当前研究批准、语义验收、桌面/移动一倍速浏览器验收和绑定视频 SHA-256 的真人交付批准。`productionContentFingerprint` 与 `packageContentFingerprint` 已分离：来源权利元数据变化只使 ZIP 失效，不让已验收视频伪装成内容过期。
+- 旧项目读取时只补 pending workflow 结构，不自动补任何批准；需要按当前 Gate 显式迁移和复核。历史 MP4/ZIP 不因文件仍存在就成为当前交付。
 - Phase 1 自助项目闭环已于 2026-07-11 通过 Gate。
 - Phase 2 多来源理解已于 2026-07-12 通过 Gate；本地 `whisper.cpp` 完成真实音频转录，`gpt-5.6-luna` 完成视频/图片/文本理解。
 - Phase 3 与 Phase 4 已于 2026-07-12 通过 Gate：全新项目 `video-project-1783855221061` 从逐来源事实确认、真实 AI 脚本、明确应用、人工选片、旁白字幕到 proof/ZIP 完整关闭。
@@ -21,7 +25,7 @@
 - 默认工作区已改为只读成片查看器：打开项目只看到真实视频播放器、全屏、MP4/导出包下载和折叠状态；不提供生成、修改或制作详情入口。
 - 五步工作台仅通过 Codex 可直接访问的 `advanced=1` 深链保留，并提供“返回成片”；素材核验、脚本、画面、字幕和导出是内部数据与排错能力，不是用户功能。
 - 新增 `POST /api/projects/<projectId>/produce` 自动编排：只处理未完成来源，生成并应用叙事，自动选择首个候选并生成生产资产；客户端随后复用现有 render + proof。已有完整场景的项目可直接重渲染，不消耗 AI Key。
-- 自动模式允许把未人工确认的关键主张作为本地 AI 草稿依据，但保留来源与不确定项，不会把草稿提升为已确认事实，也不会提升 rights、publication 或 market 状态。
+- 来源理解允许保留 proposed 主张，但当前自动生产不会把未确认关键主张送入正式叙事或越过研究 Gate，也不会提升 rights、publication 或 market 状态。
 - 素材步骤现直接显示图片和视频缩略预览；点击图片打开大图弹窗，点击视频打开原生播放器弹窗，Markdown、文本和音频仍使用各自的内容预览。
 - 高级详情保留 5 步：素材与核验、脚本、画面、字幕、导出。原独立 Research/审核入口已并入“素材与核验”；默认只核验 Brief 相关的关键主张和高风险问题，视觉元数据与补充提取折叠保留。核验页和事实引用均显示真实素材名称，返回素材库后保留同一 `source`，旧 `view=research` 深链继续兼容。
 - `ResearchFact` 现区分 `claim/visual_metadata`、`required/supporting/reference` 和 Brief 相关度；uncertainty 记录风险级别与核验优先级。新来源理解会结合 Creative Brief 分类，每份来源最多保留 3 条 required 主张和 2 条 required 高风险问题；项目级默认关键队列最多 12 条主张、6 条问题。

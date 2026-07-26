@@ -3,6 +3,7 @@ import test from 'node:test';
 
 import {
   intervalCoverage,
+  reviewSessionTargetsArtifact,
   validateBrowserChecks,
   validateEditorialQualityReview,
   validateReviewSession,
@@ -151,6 +152,25 @@ test('review session measures elapsed time and binds it to project and video byt
     projectFingerprint: 'project-sha',
     videoSha256: 'video-sha',
   }).valid, false);
+});
+
+test('an active review session only blocks the exact rendered artifact', () => {
+  const session = {
+    status: 'active',
+    projectId: 'project-01',
+    projectFingerprint: 'project-sha-v1',
+    videoSha256: 'video-sha-v1',
+  };
+  assert.equal(reviewSessionTargetsArtifact(session, {
+    projectId: 'project-01',
+    projectFingerprint: 'project-sha-v1',
+    videoSha256: 'video-sha-v1',
+  }), true);
+  assert.equal(reviewSessionTargetsArtifact(session, {
+    projectId: 'project-01',
+    projectFingerprint: 'project-sha-v2',
+    videoSha256: 'video-sha-v2',
+  }), false);
 });
 
 test('ready semantic acceptance requires a measured review-session record', () => {

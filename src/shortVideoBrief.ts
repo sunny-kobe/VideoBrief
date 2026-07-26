@@ -3,7 +3,7 @@ export type ShortVideoProjectStatus = 'draft' | 'review' | 'ready' | 'published'
 export type TechnicalStatus = 'not_rendered' | 'stale' | 'unverified' | 'passed' | 'failed';
 export type ProjectRightsStatus = 'cleared' | 'review_required' | 'blocked';
 export type PublicationStatus = 'draft-unpublished' | 'ready-for-review' | 'published';
-export type MarketStatus = 'none' | 'collecting' | 'validated';
+export type MarketStatus = 'none' | 'collecting' | 'validated' | 'not_validated' | 'inconclusive';
 
 export type SourceVerificationStatus = 'verified' | 'needs_check' | 'weak';
 
@@ -327,6 +327,66 @@ export interface ProjectMaterialReview {
   reviewedAt: string;
 }
 
+export type WorkflowApprovalStatus = 'pending' | 'approved' | 'rejected';
+
+export interface WorkflowApproval {
+  status: WorkflowApprovalStatus;
+  decidedAt: string;
+  decidedBy: string;
+  note: string;
+  fingerprint: string;
+}
+
+export interface WorkflowHumanDecision {
+  decidedBy: string;
+  note: string;
+}
+
+export interface ProjectWorkflowOrigin {
+  kind: 'manual' | 'daily_signal' | 'legacy';
+  runId: string;
+  candidateId: string;
+  sourceUrl: string;
+  score: number | null;
+  summary: string;
+}
+
+export interface MarketEvidence {
+  id: string;
+  recordedAt: string;
+  source: string;
+  sourceUrl: string;
+  metric: string;
+  value: number;
+  unit: string;
+  periodStart: string;
+  periodEnd: string;
+  note: string;
+}
+
+export interface ProjectWorkflow {
+  schemaVersion: 1;
+  origin: ProjectWorkflowOrigin;
+  topicApproval: WorkflowApproval;
+  researchApproval: WorkflowApproval;
+  deliveryApproval: WorkflowApproval;
+  publication: {
+    approval: WorkflowApproval;
+    platform: string;
+    publishedUrl: string;
+    publishedAt: string;
+    videoSha256: string;
+    packageSha256: string;
+  };
+  market: {
+    decision: 'pending' | 'validated' | 'not_validated' | 'inconclusive';
+    decidedAt: string;
+    decidedBy: string;
+    note: string;
+    evidence: MarketEvidence[];
+  };
+}
+
 export interface ShortVideoProject {
   schemaVersion: 3;
   id: string;
@@ -347,6 +407,7 @@ export interface ShortVideoProject {
   platformCopy: PlatformCopy;
   production: ProjectProductionRecord;
   materialReview: ProjectMaterialReview;
+  workflow: ProjectWorkflow;
   chapters: ProjectChapter[];
   outputs: ShortVideoOutputs;
   render: ShortVideoRenderConfig;
@@ -508,6 +569,8 @@ export interface ShortVideoRenderManifest {
   schemaVersion: 1;
   projectId: string;
   projectFingerprint: string;
+  productionContentFingerprint?: string;
+  packageContentFingerprint?: string;
   renderedAt: string;
   briefPath: string;
   render: {

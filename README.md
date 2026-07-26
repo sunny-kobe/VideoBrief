@@ -146,10 +146,9 @@ Open the candidate list at `http://127.0.0.1:3100/signals`, or run the same loca
 
 ```bash
 npm run signals:scan -- --replace
-npm run signals:approve -- <run-id> <candidate-id>
+npm run signals:approve -- <run-id> <candidate-id> --decided-by=<人工批准者> --note=<至少12字的批准说明>
 npm run signals:enrich -- <run-id> <candidate-id>
-npm run project:produce -- <project-id> "<creative instruction>"
-npm run video:export:production -- --brief=content/projects/<project-id>/project.json
+npm run project:workflow -- --project=<project-id> --instruction="<creative instruction>"
 npm run video:render:remotion-project -- --brief=content/projects/<project-id>/project.json
 ```
 
@@ -167,19 +166,21 @@ The default renders the compatibility fixture. To export another project:
 npm run video:export:production -- --brief=content/projects/<project-id>/project.json
 ```
 
-The first command renders with FFmpeg and runs technical proof, then stops at `awaiting-review`. Start a video-hash-bound review session before inspecting the cut; the completion command derives elapsed review time from that session and rejects caller-reported durations. Record a concrete per-scene semantic review, run desktop/mobile browser acceptance, and only then build the package:
+The first command renders with FFmpeg and runs technical proof, then stops at `awaiting-review`. Start a video-hash-bound review session before inspecting the cut; the completion command derives elapsed review time from that session and rejects caller-reported durations. Record a concrete per-scene semantic review and run desktop/mobile browser acceptance. A real person must then approve the current video hash in the advanced workbench workflow panel before packaging; Codex and system identities are rejected:
 
 Both CLI and browser renders run the same material/scene preflight and lifecycle accounting. The default V3 renderer caches each completed scene by source bytes, selected window, voice bytes and presentation settings, so an interrupted or partially changed project only re-encodes missing or changed scenes; final video concatenation uses stream copy and only the full audio program is re-encoded for loudness normalization.
 
 ```bash
+npm run video:review:prepare -- --manifest=output/videos/<project-id>-work/render-manifest.json
 npm run video:review:semantic -- --manifest=output/videos/<project-id>-work/render-manifest.json --start-session
-# Inspect the video and per-scene start/mid/end frames before completing the session.
+# Open http://127.0.0.1:3000/api/projects/<project-id>/review-package and inspect the full video plus every scene's start/mid/end frames.
 npm run video:review:semantic -- --manifest=output/videos/<project-id>-work/render-manifest.json --decision=passed --reviewer=codex --note="具体逐场景说明" --scene-notes=output/videos/<project-id>-work/semantic-review-notes.json --quality-review=output/videos/<project-id>-work/editorial-quality-review.json --confirm-freezes --confirm-pronunciations
 npm run video:review:browser -- --manifest=output/videos/<project-id>-work/render-manifest.json
+# In /workbench?project=<project-id>&advanced=1, a real person approves the current delivery Gate.
 npm run video:package:production -- --brief=content/projects/<project-id>/project.json
 ```
 
-The editorial review must use all seven checks in `docs/editorial-quality-review.example.json`. Browser acceptance completes sequential non-muted playback at 1x speed in both desktop and mobile viewports. Packaging creates `final.mp4`, SRT/ASS subtitles, cover, platform copy, source list, render manifest, project snapshot, export manifest, ZIP and a version receipt. A stale project, changed video, incomplete acceptance or stale ZIP cannot be downloaded as current.
+The editorial review must use all seven checks in `docs/editorial-quality-review.example.json`. Browser acceptance completes sequential non-muted playback at 1x speed in both desktop and mobile viewports. Packaging creates `final.mp4`, SRT/ASS subtitles, cover, platform copy, source list, render manifest, project snapshot, export manifest, ZIP and a version receipt. Render-content and package-metadata fingerprints are separate: rights/source metadata changes do not force a video re-render, but do invalidate the old ZIP. A stale project, changed video, incomplete acceptance, missing human delivery approval or stale ZIP cannot be downloaded as current.
 
 ## Verification
 

@@ -17,10 +17,15 @@ const scoreLabels = [
   ['rightsClarity', '权利'],
 ] as const;
 
+const coverageLabel = { limited: '来源单一', partial: '来源有缺口', adequate: '来源覆盖充分' } as const;
+const materialLabel = { insufficient: '动态素材不足', uncertain: '素材待确认', promising: '发现动态素材' } as const;
+
 export default function DailySignalsClient({ initialRun }: DailySignalsClientProps) {
   const [run, setRun] = useState(initialRun);
   const [busy, setBusy] = useState('');
   const [error, setError] = useState('');
+  const [decidedBy, setDecidedBy] = useState('');
+  const [decisionNote, setDecisionNote] = useState('');
 
   async function scan() {
     setBusy('scan');
@@ -47,7 +52,11 @@ export default function DailySignalsClient({ initialRun }: DailySignalsClientPro
     setBusy(candidateId);
     setError('');
     try {
-      const response = await fetch(`/api/signals/${encodeURIComponent(run.id)}/${encodeURIComponent(candidateId)}/approve`, { method: 'POST' });
+      const response = await fetch(`/api/signals/${encodeURIComponent(run.id)}/${encodeURIComponent(candidateId)}/approve`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ decidedBy, note: decisionNote }),
+      });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error ?? '批准候选失败');
       setRun(result.run);
@@ -80,6 +89,10 @@ export default function DailySignalsClient({ initialRun }: DailySignalsClientPro
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 py-4 text-xs font-bold text-slate-500">
             <span>{run.date}</span><span>{run.candidates.length} 个候选</span><span>零付费源</span><span className={run.status === 'completed' ? 'text-emerald-700' : 'text-amber-700'}>{run.status === 'completed' ? '扫描完成' : '来源不足'}</span>
           </div>
+          <div className="mb-4 grid gap-2 border-y border-slate-200 bg-white px-4 py-3 sm:grid-cols-[180px_minmax(0,1fr)]">
+            <input className="h-9 rounded-md border border-slate-300 px-3 text-xs" aria-label="命题批准者" placeholder="真实人工批准者" value={decidedBy} onChange={(event) => setDecidedBy(event.target.value)} />
+            <input className="h-9 rounded-md border border-slate-300 px-3 text-xs" aria-label="命题决策说明" placeholder="命题决策说明（至少 12 字）" value={decisionNote} onChange={(event) => setDecisionNote(event.target.value)} />
+          </div>
           {run.errors.length ? (
             <details className="mb-4 border border-amber-200 bg-amber-50 px-4 py-3">
               <summary className="flex cursor-pointer items-center gap-2 text-xs font-extrabold text-amber-900"><ShieldAlert aria-hidden="true" className="h-4 w-4" />来源缺口（{run.errors.length}）</summary>
@@ -95,12 +108,22 @@ export default function DailySignalsClient({ initialRun }: DailySignalsClientPro
                     <h3 className="mt-1 text-base font-extrabold leading-snug">{candidate.title}</h3>
                     <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600">{candidate.summary || '暂无摘要，批准前应查看原始来源。'}</p>
                     <div className="mt-3 flex flex-wrap gap-1.5">{scoreLabels.map(([key, label]) => <span className="border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] font-bold text-slate-600" key={key}>{label} {candidate.score[key]}/2</span>)}</div>
+                    {candidate.preflight ? (
+                      <div className="mt-3 border-l-2 border-amber-400 pl-3">
+                        <div className="flex flex-wrap gap-x-3 gap-y-1 text-[10px] font-extrabold text-slate-700">
+                          <span>{coverageLabel[candidate.preflight.sourceCoverage]}</span>
+                          <span>{materialLabel[candidate.preflight.materialFeasibility]}</span>
+                          <span>{candidate.preflight.directVideoCount} 个直接视频</span>
+                        </div>
+                        {candidate.preflight.risks.length ? <p className="mt-1 text-[10px] leading-relaxed text-amber-800">{candidate.preflight.risks.join('；')}</p> : null}
+                      </div>
+                    ) : null}
                     <a className="mt-3 inline-flex items-center gap-1 text-xs font-extrabold text-slate-700 underline decoration-slate-300 underline-offset-4" href={candidate.primaryUrl} target="_blank" rel="noreferrer">查看一手来源<ExternalLink aria-hidden="true" className="h-3.5 w-3.5" /></a>
                   </div>
                   {candidate.status === 'approved' ? (
                     <a className="inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-md border border-emerald-300 bg-emerald-50 px-3 text-xs font-extrabold text-emerald-800" href={`/workbench?project=${encodeURIComponent(candidate.projectId)}&view=sources`}>进入项目<ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
                   ) : (
-                    <button className="inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-md bg-slate-950 px-3 text-xs font-extrabold text-white disabled:bg-slate-400" type="button" onClick={() => approve(candidate.id)} disabled={Boolean(busy)}>{busy === candidate.id ? <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin" /> : null}{busy === candidate.id ? '建立素材包' : '批准并建项目'}</button>
+                    <button className="inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-md bg-slate-950 px-3 text-xs font-extrabold text-white disabled:bg-slate-400" type="button" onClick={() => approve(candidate.id)} disabled={Boolean(busy) || !decidedBy.trim() || decisionNote.trim().length < 12}>{busy === candidate.id ? <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin" /> : null}{busy === candidate.id ? '建立素材包' : '批准并建项目'}</button>
                   )}
                 </div>
               </article>
@@ -111,4 +134,3 @@ export default function DailySignalsClient({ initialRun }: DailySignalsClientPro
     </div>
   );
 }
-

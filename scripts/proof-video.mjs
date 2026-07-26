@@ -16,6 +16,7 @@ import { verifyNarrationTranscript } from './lib/narration-verification.mjs';
 import { validateRenderPlan } from './lib/render-plan-validation.mjs';
 import { validateRenderedDuration } from './lib/video-duration-contract.mjs';
 import { validateChapterFingerprintManifest } from './lib/chapter-fingerprints.mjs';
+import { productionContentFingerprint } from './lib/production-content-fingerprint.mjs';
 
 const { args } = parseCliArgs(process.argv.slice(2));
 
@@ -145,6 +146,7 @@ function writeProofResult(passed) {
     next = {
       ...next,
       projectFingerprint: createHash('sha256').update(projectText).digest('hex'),
+      productionContentFingerprint: productionContentFingerprint(project),
       statuses: {
         technical_status: project.technical_status,
         rights_status: project.rights_status,
@@ -317,14 +319,18 @@ if (renderPlanPath && existsSync(renderPlanPath) && statSync(renderPlanPath).siz
 }
 
 if (manifest.briefPath && existsSync(manifest.briefPath)) {
-  const fingerprint = createHash('sha256')
-    .update(readFileSync(manifest.briefPath))
-    .digest('hex');
-  if (fingerprint !== manifest.projectFingerprint) {
+  const projectBytes = readFileSync(manifest.briefPath);
+  const fingerprint = createHash('sha256').update(projectBytes).digest('hex');
+  const parsedProject = JSON.parse(projectBytes.toString('utf8'));
+  const contentFingerprint = productionContentFingerprint(parsedProject);
+  const projectMatches = manifest.productionContentFingerprint
+    ? contentFingerprint === manifest.productionContentFingerprint
+    : fingerprint === manifest.projectFingerprint;
+  if (!projectMatches) {
     issues.push('Project file changed after render; the MP4 is stale.');
   } else {
     projectMatchesManifest = true;
-    canonicalProject = JSON.parse(readFileSync(manifest.briefPath, 'utf8'));
+    canonicalProject = parsedProject;
   }
 } else {
   issues.push(`Project file not found: ${manifest.briefPath ?? 'missing path'}.`);

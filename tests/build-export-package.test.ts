@@ -12,8 +12,13 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import test from 'node:test';
 import ffmpegPath from 'ffmpeg-static';
+import type { ShortVideoProject } from '../src/shortVideoBrief';
+import {
+  researchApprovalFingerprint,
+  topicApprovalFingerprint,
+} from '../scripts/lib/production-workflow-contract.mjs';
 
-function fixture(options: { acceptance?: boolean; stale?: boolean } = {}) {
+function fixture(options: { acceptance?: boolean; stale?: boolean; deliveryApproved?: boolean } = {}) {
   assert.ok(ffmpegPath);
   const root = mkdtempSync(join(tmpdir(), 'videobrief-package-script-'));
   const workDir = join(root, 'work');
@@ -35,6 +40,7 @@ function fixture(options: { acceptance?: boolean; stale?: boolean } = {}) {
   ], { stdio: 'ignore' });
   writeFileSync(srtPath, '1\n00:00:00,000 --> 00:00:00,800\n测试\n');
   writeFileSync(assPath, '[Script Info]\nScriptType: v4.00+\n');
+  const videoSha256 = createHash('sha256').update(readFileSync(videoPath)).digest('hex');
 
   const project = {
     schemaVersion: 3,
@@ -49,14 +55,65 @@ function fixture(options: { acceptance?: boolean; stale?: boolean } = {}) {
     render: { width: 320, height: 180 },
     outputs: { workDir, exportDir },
     scenes: [],
-    sources: [],
+    sources: [{
+      id: 'source-01',
+      label: '测试自有画面',
+      sourceType: 'image',
+      materialRole: 'official_demo',
+      assetPath: videoPath,
+      verificationStatus: 'verified',
+      rightsStatus: 'cleared',
+      rightsNote: '测试夹具自有素材',
+      contentHash: 'source-hash',
+      processing: { status: 'completed', stage: 'completed' },
+      analysis: { facts: [], uncertainties: [] },
+    }],
+    research: {
+      transcripts: [],
+      facts: [{
+        id: 'fact-01',
+        statement: '测试夹具只验证打包契约。',
+        sourceReferences: [{ sourceId: 'source-01', locatorType: 'image', note: '测试来源' }],
+        reviewStatus: 'confirmed',
+        kind: 'claim',
+        reviewPriority: 'required',
+      }],
+      uncertainties: [],
+    },
+    materialReview: {
+      status: 'approved',
+      approvedSourceIds: ['source-01'],
+      reviewedAt: 'now',
+    },
     production: {},
     ai: { calls: [] },
+    workflow: {
+      origin: {
+        kind: 'manual', runId: '', candidateId: '', sourceUrl: '', score: null, summary: '',
+      },
+      topicApproval: {
+        status: 'approved', decidedAt: 'now', decidedBy: 'test-user',
+        note: '测试用户明确批准该命题。', fingerprint: '',
+      },
+      researchApproval: {
+        status: 'approved', decidedAt: 'now', decidedBy: 'test-user',
+        note: '测试用户已核对关键事实。', fingerprint: '',
+      },
+      deliveryApproval: {
+        status: options.deliveryApproved === false ? 'pending' : 'approved',
+        decidedAt: options.deliveryApproved === false ? '' : 'now',
+        decidedBy: options.deliveryApproved === false ? '' : 'test-user',
+        note: options.deliveryApproved === false ? '' : '测试人员已完整观看当前视频。',
+        fingerprint: options.deliveryApproved === false ? '' : videoSha256,
+      },
+    },
   };
+  const workflowProject = project as unknown as ShortVideoProject;
+  project.workflow.topicApproval.fingerprint = topicApprovalFingerprint(workflowProject);
+  project.workflow.researchApproval.fingerprint = researchApprovalFingerprint(workflowProject);
   const projectText = `${JSON.stringify(project, null, 2)}\n`;
   writeFileSync(projectPath, projectText);
   const projectFingerprint = createHash('sha256').update(projectText).digest('hex');
-  const videoSha256 = createHash('sha256').update(readFileSync(videoPath)).digest('hex');
   const manifest = {
     schemaVersion: 1,
     projectId: project.id,
@@ -137,6 +194,13 @@ test('build-export-package rejects legacy self-reported semantic review time', (
   assert.match(result.stderr, /review session/);
 });
 
+test('build-export-package rejects acceptance without human delivery approval', () => {
+  const value = fixture({ deliveryApproved: false });
+  const result = run(value.projectPath);
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /真人完整审片 Gate/);
+});
+
 test('build-export-package creates a valid ZIP and version receipt', () => {
   const value = fixture();
   const result = run(value.projectPath);
@@ -148,5 +212,9 @@ test('build-export-package creates a valid ZIP and version receipt', () => {
   const unzip = spawnSync('/usr/bin/unzip', ['-t', zipPath], { encoding: 'utf8' });
   assert.equal(unzip.status, 0, unzip.stderr);
   const receipt = JSON.parse(readFileSync(receiptPath, 'utf8'));
+  assert.equal(receipt.schemaVersion, 2);
+  assert.equal(receipt.deliveryApprovalFingerprint, receipt.videoSha256);
+  assert.equal(receipt.deliveryApprovedAt, 'now');
+  assert.equal(receipt.deliveryApprovedBy, 'test-user');
   assert.equal(receipt.zipBytes, statSync(zipPath).size);
 });

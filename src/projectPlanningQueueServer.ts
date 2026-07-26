@@ -15,11 +15,13 @@ import {
 } from './projectPlanningQueue';
 import { ensureProjectPlanningQueueWorker } from './projectPlanningQueueWorkerClient';
 import { projectPaths, readBrief } from './shortVideoProjectServer';
+import { assertPreproductionGates } from '../scripts/lib/production-workflow-contract.mjs';
 
 const activeStates = new Set(['queued', 'running', 'cancelling']);
 
 export function enqueueProjectPlanning(projectId: string, instruction = '') {
   const project = readBrief(projectId);
+  assertPreproductionGates(project);
   if (!project.sources.length) throw new Error('请先导入至少一份素材。');
   const materialReadiness = materialReviewReadiness(project.materialReview, project.sources);
   if (!materialReadiness.ready) throw new Error(materialReadiness.reason);

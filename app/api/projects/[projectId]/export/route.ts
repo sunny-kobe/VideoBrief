@@ -2,7 +2,8 @@ import { readFileSync, statSync } from 'node:fs';
 import { NextResponse } from 'next/server';
 import {
   projectPaths,
-  projectFingerprint,
+  projectPackageContentFingerprint,
+  projectProductionContentFingerprint,
   readBrief,
   readRenderManifest,
   renderStatus,
@@ -29,11 +30,14 @@ export async function GET(_request: Request, { params }: ExportRouteProps) {
     }
     const packageStatus = exportPackageReadiness({
       projectId,
-      projectFingerprint: projectFingerprint(projectId),
+      projectFingerprint: manifest!.projectFingerprint,
+      productionContentFingerprint: projectProductionContentFingerprint(projectId),
+      packageContentFingerprint: projectPackageContentFingerprint(projectId),
       renderedAt: manifest!.renderedAt,
       renderManifestPath: paths.manifestPath,
       videoPath: paths.publicRenderPath,
       zipPath: paths.exportZipPath,
+      deliveryApproval: project.workflow.deliveryApproval,
       receipt: readExportPackageReceipt(paths.exportPackageReceiptPath),
     });
     if (!packageStatus.ready) {

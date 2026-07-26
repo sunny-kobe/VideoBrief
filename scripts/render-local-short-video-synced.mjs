@@ -36,6 +36,8 @@ import {
   segmentRenderCacheKey,
 } from './lib/segment-render-cache.mjs';
 import { resolveVoiceoverConfig, synthesizeVoiceover } from '../src/voiceoverProvider.mjs';
+import { productionContentFingerprint } from './lib/production-content-fingerprint.mjs';
+import { assertPreproductionGates } from './lib/production-workflow-contract.mjs';
 
 const renderProcessStartedAt = new Date();
 
@@ -46,6 +48,7 @@ const briefPath = resolve(
 );
 const briefText = readFileSync(briefPath, 'utf8');
 const brief = JSON.parse(briefText);
+assertPreproductionGates(brief);
 const outputs = brief.outputs ?? brief;
 const sources = Array.isArray(brief.sources) && brief.sources.length
   ? brief.sources
@@ -74,6 +77,7 @@ const previousManifest = existsSync(manifestPath)
   ? JSON.parse(readFileSync(manifestPath, 'utf8'))
   : null;
 const projectFingerprint = createHash('sha256').update(briefText).digest('hex');
+const currentProductionContentFingerprint = productionContentFingerprint(brief);
 
 const width = Number(brief.render?.width ?? 1080);
 const height = Number(brief.render?.height ?? 1920);
@@ -1051,6 +1055,7 @@ const manifest = {
   renderContractVersion: renderPlan.schemaVersion,
   projectId: brief.id,
   projectFingerprint,
+  productionContentFingerprint: currentProductionContentFingerprint,
   renderProjectFingerprint: projectFingerprint,
   renderedAt: new Date().toISOString(),
   briefPath,

@@ -34,6 +34,19 @@ export interface DailySignalCandidate {
   score: DailySignalScore;
   status: DailySignalStatus;
   projectId: string;
+  preflight?: TopicPreflight;
+}
+
+export interface TopicPreflight {
+  sourceCoverage: 'limited' | 'partial' | 'adequate';
+  materialFeasibility: 'insufficient' | 'uncertain' | 'promising';
+  sourceCount: number;
+  firstPartySourceCount: number;
+  directMediaCount: number;
+  directVideoCount: number;
+  strengths: string[];
+  risks: string[];
+  recommendation: 'manual_review';
 }
 
 export interface DailySignalRun {
@@ -90,6 +103,48 @@ export function scoreSignal(source: DailySignalSource, now = new Date()): DailyS
   };
 }
 
+export function buildTopicPreflight(
+  candidate: Pick<DailySignalCandidate, 'sources' | 'score'>,
+  scanErrors: string[] = [],
+): TopicPreflight {
+  const firstPartySourceCount = candidate.sources.filter((source) => (
+    source.kind === 'official' || source.kind === 'github'
+  )).length;
+  const mediaUrls = [...new Set(candidate.sources.flatMap((source) => source.mediaUrls))];
+  const directVideoCount = mediaUrls.filter((url) => /\.(?:mp4|mov|webm|m4v)(?:$|[?#])/i.test(url)).length;
+  const sourceCoverage = scanErrors.length > 0
+    ? 'partial'
+    : candidate.sources.length >= 2
+      ? 'adequate'
+      : 'limited';
+  const materialFeasibility = directVideoCount > 0
+    ? 'promising'
+    : candidate.score.mediaRichness > 0 || mediaUrls.length > 0
+      ? 'uncertain'
+      : 'insufficient';
+  return {
+    sourceCoverage,
+    materialFeasibility,
+    sourceCount: candidate.sources.length,
+    firstPartySourceCount,
+    directMediaCount: mediaUrls.length,
+    directVideoCount,
+    strengths: [
+      ...(firstPartySourceCount > 0 ? ['存在一手或官方来源'] : []),
+      ...(candidate.score.recency >= 2 ? ['信号发布时间在 48 小时内'] : []),
+      ...(candidate.score.actionability >= 2 ? ['具备可演示的行动或工作流信号'] : []),
+      ...(directVideoCount > 0 ? ['发现可直接下载的视频 URL'] : []),
+    ],
+    risks: [
+      ...(candidate.sources.length < 2 ? ['当前只有单一来源，尚未完成交叉核验'] : []),
+      ...(scanErrors.length > 0 ? [`本轮扫描存在 ${scanErrors.length} 个来源缺口`] : []),
+      ...(directVideoCount === 0 ? ['没有发现可直接下载的动态素材 URL'] : []),
+      ...(candidate.score.rightsClarity < 2 ? ['权利评分只来自来源类型启发式，不能作为清权结论'] : []),
+    ],
+    recommendation: 'manual_review',
+  };
+}
+
 function normalizedUrl(value: string) {
   try {
     const url = new URL(value);
@@ -137,4 +192,3 @@ export function rankSignalSources(
     .sort((left, right) => right.score.total - left.score.total || right.publishedAt.localeCompare(left.publishedAt))
     .slice(0, options.limit ?? 5);
 }
-
