@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "self-owned-explainer-v1",
+  "label": "自营解释型内容",
+  "title": "下一阶段命题调研",
+  "direction": "日常有因：用公开影像和一手资料，讲清日常产品与服务变化背后的规则、成本和利益机制。",
+  "kickoffPromptPath": "content/workflows/self-owned-explainer-v1/kickoff-prompt.zh-CN.md",
+  "playbookPath": "docs/self-owned-explainer-production-playbook.zh-CN.md",
+  "stages": [
+    {
+      "id": "published-review",
+      "label": "发布复盘",
+      "gate": "",
+      "description": "读取三条已发布内容的同口径数据、评论问题和证据缺口，不把发布等同于验证。"
+    },
+    {
+      "id": "audience-research",
+      "label": "受众问题",
+      "gate": "",
+      "description": "以 B站为主核验近期真实问题、相似内容表现与中文同质化。"
+    },
+    {
+      "id": "candidate-pool",
+      "label": "开放候选池",
+      "gate": "",
+      "description": "提出 8-12 个跨场景、可核验、能找到画面且不重复已发布内容的命题。"
+    },
+    {
+      "id": "finalist-review",
+      "label": "三题核验",
+      "gate": "",
+      "description": "为 3 个入围题核验一手资料、动态素材、权利、同质化和叙事可行性。"
+    },
+    {
+      "id": "recommendation",
+      "label": "唯一推荐",
+      "gate": "",
+      "description": "只推荐一个下一题，说明验证目标以及不优先另外两题的原因。"
+    },
+    {
+      "id": "topic-gate",
+      "label": "命题批准",
+      "gate": "Topic Gate",
+      "description": "停在命题批准；生产、渲染和发布必须在后续任务中另行启动。"
+    }
+  ],
+  "samples": [
+    {
+      "projectId": "eu-tethered-caps-explainer-20260805",
+      "topicScore": 38,
+      "topicScoreMax": 40,
+      "role": "首发候选",
+      "learning": "从连体瓶盖理解法规如何进入产品设计，并同时改变生产线和使用体验。"
+    },
+    {
+      "projectId": "parcel-locker-last-mile-explainer-20260806",
+      "topicScore": 37,
+      "topicScoreMax": 40,
+      "role": "方向对照",
+      "learning": "从快递柜理解最后一公里如何重新分配企业等待、路线和消费者取件成本。"
+    }
+  ]
+}

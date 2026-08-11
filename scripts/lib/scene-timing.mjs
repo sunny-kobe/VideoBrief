@@ -5,14 +5,23 @@ export function resolveSceneTiming({
   sourceType,
   sourceStart,
   sourceEnd,
+  mediaPlaybackRate = 1,
   voiceDuration,
   fps = 30,
 }) {
   const normalizedStart = Number(sourceStart ?? 0);
   const normalizedEnd = Number(sourceEnd);
   const normalizedFps = Number(fps);
+  const normalizedPlaybackRate = sourceType === 'video' ? Number(mediaPlaybackRate) : 1;
   if (!Number.isFinite(normalizedFps) || normalizedFps <= 0) {
     throw new Error(`Scene ${sceneId} requires a positive render fps.`);
+  }
+  if (
+    !Number.isFinite(normalizedPlaybackRate)
+    || normalizedPlaybackRate < 0.25
+    || normalizedPlaybackRate > 4
+  ) {
+    throw new Error(`Scene ${sceneId} requires mediaPlaybackRate between 0.25 and 4.`);
   }
   const hasSelectedWindow = Number.isFinite(normalizedEnd) && normalizedEnd > normalizedStart;
   const selectedDuration = hasSelectedWindow ? normalizedEnd - normalizedStart : 0;
@@ -21,7 +30,7 @@ export function resolveSceneTiming({
     throw new Error(`Scene ${sceneId} requires an explicit video sourceStart/sourceEnd window.`);
   }
   const rawDuration = sourceType === 'video'
-    ? selectedDuration
+    ? selectedDuration / normalizedPlaybackRate
     : Math.max(voiceDuration, selectedDuration || voiceDuration);
   const frameCount = sourceType === 'video'
     ? Math.floor(rawDuration * normalizedFps + 1e-6)
@@ -36,9 +45,12 @@ export function resolveSceneTiming({
   return {
     sourceStart: normalizedStart,
     sourceEnd: hasSelectedWindow ? normalizedEnd : normalizedStart,
-    renderSourceEnd: sourceType === 'video' ? normalizedStart + duration : null,
+    renderSourceEnd: sourceType === 'video'
+      ? normalizedStart + duration * normalizedPlaybackRate
+      : null,
     duration,
     frameCount,
     selectedDuration,
+    mediaPlaybackRate: normalizedPlaybackRate,
   };
 }

@@ -1,0 +1,2907 @@
+{
+  "schemaVersion": 3,
+  "id": "2026-07-26-iamcorey-kooky",
+  "title": "iAmCorey/kooky",
+  "format": "video_project",
+  "targetAudience": "中文开发者、独立开发者、产品人和 AI 工作流实践者",
+  "status": "review",
+  "technical_status": "passed",
+  "rights_status": "cleared",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "lifecycle": {
+    "state": "archived",
+    "archivedAt": "2026-08-08T04:42:57.625Z",
+    "archivedBy": "local-user",
+    "archiveReason": "历史项目；保留结构化引用，不在默认列表显示。"
+  },
+  "brief": {
+    "objective": "用约 70 秒中文横版视频解释 Kooky 如何把多 Agent 编程从多个终端窗口变成可监督的工作区，并明确采用边界。",
+    "audience": "中文开发者、独立开发者、产品人和 AI 工作流实践者",
+    "platform": "B站 / YouTube 横屏 / 本地播放器",
+    "aspectRatio": "16:9",
+    "targetDurationSeconds": 70,
+    "tone": "克制、清晰、有判断",
+    "style": "真实动态素材主导，稳定横版构图；原创信息层只解释状态模型、能力和安装边界。",
+    "reference": "https://github.com/iAmCorey/kooky\nhttps://github.com/iAmCorey/kooky/releases/tag/v0.42.0",
+    "coreMessage": "Kooky 的价值不只是把多个 Agent 放进一个终端，而是把运行、等待批准、失败和工作区状态变成可扫描的监督界面；是否值得采用取决于并行 Agent 数量、安全接受度和真实任务验证。",
+    "cta": "先用一个可回滚的真实任务验证状态提醒、会话恢复和 worktree 隔离，再决定是否替换现有终端。",
+    "prohibitedMaterial": "不得把官方功能说明写成 VideoBrief 实测；不得把 GitHub star 当成使用效果；不得弱化 adhoc 签名和 Gatekeeper 风险；不得把 MIT 仓库许可等同于全部画面已清权；不得自动发布"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "每日候选信号卡",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://github.com/iAmCorey/kooky",
+      "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/signal-card-1785056852588.md",
+      "originalFileName": "signal-card.md",
+      "mimeType": "text/markdown",
+      "bytes": 521,
+      "importedAt": "2026-07-26T09:07:32.588Z",
+      "publishedAt": "",
+      "verificationStatus": "needs_check",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 自动生成的原创元数据卡，不复制原文。",
+      "contentHash": "cce7ce14c607d9d9c9ad061630b23890bebcdf85c7a61a86757914d3d85eafd3",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "cce7ce14c607d9d9c9ad061630b23890bebcdf85c7a61a86757914d3d85eafd3",
+        "startedAt": "2026-07-26T09:11:15.406Z",
+        "completedAt": "2026-07-26T09:13:00.000Z",
+        "error": "",
+        "model": "codex-manual-research",
+        "promptVersion": "official-source-review-2026-07-26",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# iAmCorey/kooky\n\n## 候选摘要\nA minimal modern terminal for AI coding experience — Sidebar workspaces; horizontal / vertical split panes; one-click agent launch; per-agent activity readout; live workspace state with one-click Node and branch switching.（592 stars，30 forks，许可 MIT）\n\n## 原始来源\n- [iAmCorey/kooky](https://github.com/iAmCorey/kooky)\n\n## 自动收集说明\n本文件只保存候选元数据、短摘要和原始链接。候选入选不代表事实、版权或市场价值已经确认。",
+        "visualDescription": "",
+        "hierarchicalSummary": "每日扫描生成的候选元数据卡，只能证明候选来源和扫描时快照，不能证明产品效果、权利或市场价值。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-02",
+      "label": "GitHub - iAmCorey/kooky: A minimal modern terminal for AI coding experience — Sidebar workspaces; horizontal / vertical split panes; one-click agent launch; per-agent activity readout; live workspace state with one-click Node and branch switching.",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://github.com/iAmCorey/kooky",
+      "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/primary-source-1785056852612.md",
+      "originalFileName": "primary-source.md",
+      "mimeType": "text/markdown",
+      "bytes": 8617,
+      "importedAt": "2026-07-26T09:07:32.613Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "本地研究摘录，仅用于事实核验；公开导出前复核原始网页使用边界。",
+      "contentHash": "4e9bbf8466080330364a7d37c0f352d707c3a4857dba22bbbe6e29bc1ae10260",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "4e9bbf8466080330364a7d37c0f352d707c3a4857dba22bbbe6e29bc1ae10260",
+        "startedAt": "2026-07-26T09:11:30.000Z",
+        "completedAt": "2026-07-26T09:13:00.000Z",
+        "error": "",
+        "model": "codex-manual-research",
+        "promptVersion": "official-source-review-2026-07-26",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "GitHub 官方仓库页面正文摘录，包含产品定位、核心功能、安装要求、许可证和仓库快照。",
+        "visualDescription": "",
+        "hierarchicalSummary": "一手仓库页面证明 Kooky 是面向 AI coding 的 macOS 终端工作台；详细事实以 source-06 的 README 行号和 source-08 的 Release 快照为准。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-03",
+      "label": "命题相关网页素材 1",
+      "sourceType": "image",
+      "materialRole": "official_demo",
+      "originUrl": "https://repository-images.githubusercontent.com/1232744559/5777c48f-1c54-4767-b40e-8d2417c2fd9f",
+      "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/topic-media-1-1785056855588.png",
+      "originalFileName": "topic-media-1.png",
+      "mimeType": "image/png",
+      "bytes": 604236,
+      "importedAt": "2026-07-26T09:07:35.590Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "自动发现的第三方网页素材，仅用于本地候选成片；发布前必须确认使用权。",
+      "contentHash": "96e7da9b0b55a43cba096fdaf453f2182695b918b7003da8152163c2e2b6fdf9",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "96e7da9b0b55a43cba096fdaf453f2182695b918b7003da8152163c2e2b6fdf9",
+        "startedAt": "2026-07-26T09:11:30.000Z",
+        "completedAt": "2026-07-26T09:13:00.000Z",
+        "error": "",
+        "model": "codex-manual-vision",
+        "promptVersion": "official-source-review-2026-07-26",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "Kooky 深色界面总览：左侧多个 workspace，中间为分屏终端和 Agent 启动菜单，右侧 Agent 面板同时显示 waiting、running、idle 状态。",
+        "hierarchicalSummary": "官方仓库社交预览图，能静态证明产品界面包含 workspace、分屏、Agent 菜单和状态面板，但不能证明交互过程或运行效果。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-04",
+      "label": "命题相关真实素材 6",
+      "sourceType": "image",
+      "materialRole": "official_demo",
+      "originUrl": "https://github.com/iAmCorey/kooky/raw/main/img/screenshot-1.png",
+      "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/discovered-media-6-1785056891139.png",
+      "originalFileName": "discovered-media-6.png",
+      "mimeType": "image/png",
+      "bytes": 250995,
+      "importedAt": "2026-07-26T09:08:11.144Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "从一手页面或 GitHub README 自动发现，仅用于本地候选成片；发布前逐项确认许可和必要引用范围。",
+      "contentHash": "77b6e4d755f4447d71756c13b0f70e4e7e8b0accc760f0ccce248dfb6e122bb2",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "77b6e4d755f4447d71756c13b0f70e4e7e8b0accc760f0ccce248dfb6e122bb2",
+        "startedAt": "2026-07-26T09:11:30.000Z",
+        "completedAt": "2026-07-26T09:13:00.000Z",
+        "error": "",
+        "model": "codex-manual-vision",
+        "promptVersion": "official-source-review-2026-07-26",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "官方 screenshot-1：两个终端 pane、左侧 workspace 列表、Agent 启动菜单和右侧全局 Agent 面板；列表中可见 waiting、running、idle 状态。",
+        "hierarchicalSummary": "适合证明产品的信息架构和多 Agent 可扫描状态，但静态图不能证明状态切换、通知或会话恢复。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-05",
+      "label": "一手来源页面截图 1",
+      "sourceType": "image",
+      "materialRole": "evidence",
+      "originUrl": "https://github.com/iAmCorey/kooky#videobrief-capture-1",
+      "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/source-page-1-1785056904567.png",
+      "originalFileName": "source-page-1.png",
+      "mimeType": "image/png",
+      "bytes": 289761,
+      "importedAt": "2026-07-26T09:08:24.568Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "VideoBrief 对一手来源页面的本地截图，仅用于证据化候选成片；公开发布前复核引用必要性和页面素材权利。",
+      "contentHash": "78bcabe0d8dfefd3ec2bd88fa7b47d37af5b2472afa7bbab10fea26e22335b9f",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "78bcabe0d8dfefd3ec2bd88fa7b47d37af5b2472afa7bbab10fea26e22335b9f",
+        "startedAt": "2026-07-26T09:11:30.000Z",
+        "completedAt": "2026-07-26T09:13:00.000Z",
+        "error": "",
+        "model": "codex-manual-vision",
+        "promptVersion": "official-source-review-2026-07-26",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "GitHub 仓库页面长截图，显示公开仓库、MIT license、v0.42.0 badge、592 stars、30 forks、README 产品截图和功能说明。",
+        "hierarchicalSummary": "页面截图仅作为扫描时仓库状态证据；stars、forks 和下载量会变化，不能作为持久规格或产品效果证据。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-06",
+      "label": "iAmCorey/kooky README",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://raw.githubusercontent.com/iAmCorey/kooky/HEAD/README.md",
+      "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/github-readme-1785056934664.md",
+      "originalFileName": "github-readme.md",
+      "mimeType": "text/markdown",
+      "bytes": 13836,
+      "importedAt": "2026-07-26T09:08:54.669Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "GitHub README 本地研究副本；仓库许可不自动覆盖全部嵌入媒体，发布前逐项复核。",
+      "contentHash": "91a3d000744e1319019fb59b1d5ab013e58d0a269b49597b0694109f40dc4b00",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "91a3d000744e1319019fb59b1d5ab013e58d0a269b49597b0694109f40dc4b00",
+        "startedAt": "2026-07-26T09:11:30.000Z",
+        "completedAt": "2026-07-26T09:13:00.000Z",
+        "error": "",
+        "model": "codex-manual-research",
+        "promptVersion": "official-source-review-2026-07-26",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "官方 README 完整本地副本，包含产品定位、Agent 支持、状态显示、worktree、SSH、通知、本地状态、安装、安全提示和许可证边界。",
+        "visualDescription": "",
+        "hierarchicalSummary": "Kooky 是 macOS 14+ 的本地 AI coding 终端工作台。其主要差异点是同时组织多个 Agent 会话并把工作、等待、失败和工作区状态集中显示；当前公开 DMG 为 adhoc 签名。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-07",
+      "label": "命题相关真实素材 6",
+      "sourceType": "image",
+      "materialRole": "official_demo",
+      "originUrl": "https://github.com/iAmCorey/kooky/raw/main/img/screenshot-2.png",
+      "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/discovered-media-6-1785056940550.png",
+      "originalFileName": "discovered-media-6.png",
+      "mimeType": "image/png",
+      "bytes": 207265,
+      "importedAt": "2026-07-26T09:09:00.551Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "从一手页面或 GitHub README 自动发现，仅用于本地候选成片；发布前逐项确认许可和必要引用范围。",
+      "contentHash": "b8c2c09cdf8ec89c0c0512e49e71f7c4bd09f8b0dce987dd16b7be77b031848b",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "b8c2c09cdf8ec89c0c0512e49e71f7c4bd09f8b0dce987dd16b7be77b031848b",
+        "startedAt": "2026-07-26T09:11:30.000Z",
+        "completedAt": "2026-07-26T09:13:00.000Z",
+        "error": "",
+        "model": "codex-manual-vision",
+        "promptVersion": "official-source-review-2026-07-26",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "官方 screenshot-2：四 pane 分屏界面，左侧紧凑 workspace rail；下方 pane 显示 Claude Code 信息和 waiting 状态，底部状态栏可见环境与分支信息。",
+        "hierarchicalSummary": "适合证明多 pane 布局和状态栏信息密度，仍属于静态宣传截图，不能替代真实动态操作录屏。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-08",
+      "label": "Kooky v0.42.0 官方 Release 研究快照",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://github.com/iAmCorey/kooky/releases/tag/v0.42.0",
+      "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/official-release-v0.42.0-research.md",
+      "originalFileName": "official-release-v0.42.0-research.md",
+      "mimeType": "text/markdown",
+      "bytes": 1903,
+      "importedAt": "2026-07-26T09:10:37.000Z",
+      "publishedAt": "2026-07-26T08:32:58Z",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 根据官方 GitHub API 生成的事实索引，仅供研究引用，不作为成片画面。",
+      "contentHash": "6b82d988706b0dfb50acd9702ff75ae8104abd6ce7d60774f4bc4fc6b961c15a",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "6b82d988706b0dfb50acd9702ff75ae8104abd6ce7d60774f4bc4fc6b961c15a",
+        "startedAt": "2026-07-26T09:10:37.000Z",
+        "completedAt": "2026-07-26T09:13:00.000Z",
+        "error": "",
+        "model": "codex-manual-research",
+        "promptVersion": "official-source-review-2026-07-26",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "v0.42.0 发布时间、Release 说明、DMG 元数据、仓库媒体盘点和证据边界。",
+        "visualDescription": "",
+        "hierarchicalSummary": "v0.42.0 新增 Oh My Pi 与 Reasonix，并修正 Oh My Pi 等待工具批准时的状态显示；仓库没有官方视频文件。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-09",
+      "label": "VideoBrief 自有 Kooky 隔离工作区录屏",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://github.com/iAmCorey/kooky/releases/tag/v0.42.0",
+      "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/kooky-self-recording-clean.mp4",
+      "originalFileName": "kooky-self-recording-clean.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 3877380,
+      "importedAt": "2026-07-27T07:05:56.000Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "由 VideoBrief 操作者在本机独立录制：使用官方 v0.42.0 DMG、原创 Launch Board 临时仓库和隔离 profile；无远程、无真实 Agent、无凭据、无私有仓库。已裁除全部桌面背景，未混入官方截图。用户于 2026-07-27 明确批准仅使用 source-09 作为产品动态画面，并要求保留来源说明、不暗示官方背书、不使用官方静态截图；据此将本来源标记为 cleared。",
+      "contentHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+        "startedAt": "2026-07-27T06:59:28.000Z",
+        "completedAt": "2026-07-27T07:08:19.000Z",
+        "error": "",
+        "model": "codex-manual-capture-review",
+        "promptVersion": "self-recorded-material-audit-2026-07-27",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "录制者：VideoBrief 操作者。录制时间：2026-07-27T14:59:28+08:00。正式文件：96.000 秒，2160x1400，30fps，H.264 yuv420p，无音轨，3,877,380 字节。原始全屏 Take5 为 124.998333 秒、3024x1964、120fps，SHA-256 fbff5bf8c30ad98a6a201a3d8224eaf3e5d3b76f4cc2611a811643ae5c49ecc8；正式文件使用 crop=2160:1400:432:152 并截取 0-96 秒，完整解码通过。演示仓库位于临时目录，无 remote、无凭据、无提交；本地 HTTP 服务仅绑定 127.0.0.1:4173。",
+        "visualDescription": "Kooky 深色窗口的真实双分屏录屏。左侧工作区为原创 Launch Board；两个 pane 分别持续展示本地 Git 审查与本地网页验证，0-96 秒内可见输出追加、滚动、文件检查、HTTP 200、哈希和完成状态。画面已裁至 Kooky 窗口内部，不包含桌面、Telegram、Codex 或其他应用。",
+        "hierarchicalSummary": "96 秒自有动态素材可承担开场、双分屏、并行监督、本地边界、Git 状态、页面验证、哈希检查和人工批准前停留等镜头。它只证明本轮录制中真实可见的 Kooky 工作区与分屏终端，不证明 Agent 状态检测、会话恢复、worktree 隔离或产品效果；这些事实仍需引用 source-06/source-08，并在必要时用原创信息层表达。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [
+          {
+            "id": "source-09-rights-01",
+            "statement": "自有录制权不自动消除画面中 Kooky 产品界面、品牌标识和捆绑第三方图标或字体的公开使用边界。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "file",
+                "note": "正式裁剪录屏及 contact sheet"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "line",
+                "lineStart": 135,
+                "lineEnd": 137,
+                "note": "MIT 与第三方资产许可证边界"
+              }
+            ],
+            "resolution": "保持 review_required；权利 Gate 由用户确认仅作产品评论与演示、保留来源说明、不暗示官方背书。若用户不确认，则不使用该画面并换题或改用不含产品 UI 的必要原创信息层。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          }
+        ],
+        "chapters": [
+          {
+            "id": "source-09-window-01",
+            "sourceId": "source-09",
+            "index": 0,
+            "start": 0,
+            "end": 6,
+            "title": "开场：工作区与双分屏",
+            "summary": "目标场景：Kooky 从多个终端窗口切换到单一可扫描工作区的视觉钩子。",
+            "visualDescription": "Launch Board 工作区和两个 pane 同屏，既有审查输出可见，随后开始追加本轮受控流程。",
+            "frameSamples": [
+              {
+                "second": 0,
+                "reason": "coverage"
+              },
+              {
+                "second": 3,
+                "reason": "scene-change"
+              },
+              {
+                "second": 5,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          },
+          {
+            "id": "source-09-window-02",
+            "sourceId": "source-09",
+            "index": 1,
+            "start": 6,
+            "end": 12,
+            "title": "受控演示边界",
+            "summary": "目标场景：说明本轮只使用本地仓库、无远程、无凭据。",
+            "visualDescription": "左侧出现受控演示说明，右侧开始本地预览检查。",
+            "frameSamples": [
+              {
+                "second": 6,
+                "reason": "coverage"
+              },
+              {
+                "second": 9,
+                "reason": "scene-change"
+              },
+              {
+                "second": 11,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          },
+          {
+            "id": "source-09-window-03",
+            "sourceId": "source-09",
+            "index": 2,
+            "start": 12,
+            "end": 18,
+            "title": "读取项目边界",
+            "summary": "目标场景：展示一个 pane 阅读本地项目，另一个 pane 核对入口文件。",
+            "visualDescription": "README 内容和页面文件统计在两个 pane 中分别更新。",
+            "frameSamples": [
+              {
+                "second": 12,
+                "reason": "coverage"
+              },
+              {
+                "second": 15,
+                "reason": "scene-change"
+              },
+              {
+                "second": 17,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          },
+          {
+            "id": "source-09-window-04",
+            "sourceId": "source-09",
+            "index": 3,
+            "start": 18,
+            "end": 24,
+            "title": "Git 状态与真实请求",
+            "summary": "目标场景：双分屏同时监督代码状态和本地页面请求。",
+            "visualDescription": "左侧 Git 状态更新，右侧出现 127.0.0.1 请求日志和 HTTP 200。",
+            "frameSamples": [
+              {
+                "second": 18,
+                "reason": "coverage"
+              },
+              {
+                "second": 21,
+                "reason": "scene-change"
+              },
+              {
+                "second": 23,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          },
+          {
+            "id": "source-09-window-05",
+            "sourceId": "source-09",
+            "index": 4,
+            "start": 24,
+            "end": 30,
+            "title": "本地审查记录",
+            "summary": "目标场景：展示任务从读取转为写入可追踪的本地审查状态。",
+            "visualDescription": "左侧创建审查记录并更新 Git 状态，右侧继续核对页面与文件。",
+            "frameSamples": [
+              {
+                "second": 24,
+                "reason": "coverage"
+              },
+              {
+                "second": 27,
+                "reason": "scene-change"
+              },
+              {
+                "second": 29,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          },
+          {
+            "id": "source-09-window-06",
+            "sourceId": "source-09",
+            "index": 5,
+            "start": 30,
+            "end": 36,
+            "title": "并行校验推进",
+            "summary": "目标场景：解释多个工作流被放进同一监督界面后可同时扫描。",
+            "visualDescription": "两侧终端分别追加移动端检查与再次请求真实页面的结果。",
+            "frameSamples": [
+              {
+                "second": 30,
+                "reason": "coverage"
+              },
+              {
+                "second": 33,
+                "reason": "scene-change"
+              },
+              {
+                "second": 35,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          },
+          {
+            "id": "source-09-window-07",
+            "sourceId": "source-09",
+            "index": 6,
+            "start": 36,
+            "end": 42,
+            "title": "变更摘要与页面标题",
+            "summary": "目标场景：展示审查关注点在两个 pane 中各自推进。",
+            "visualDescription": "左侧显示变更摘要，右侧读取页面标题并发生可见滚动。",
+            "frameSamples": [
+              {
+                "second": 36,
+                "reason": "coverage"
+              },
+              {
+                "second": 39,
+                "reason": "scene-change"
+              },
+              {
+                "second": 41,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          },
+          {
+            "id": "source-09-window-08",
+            "sourceId": "source-09",
+            "index": 7,
+            "start": 42,
+            "end": 48,
+            "title": "远程边界与样式入口",
+            "summary": "目标场景：强化本地优先和无远程边界，不把画面写成 Agent 效果实测。",
+            "visualDescription": "左侧出现 remote: none，右侧核对 stylesheet 入口。",
+            "frameSamples": [
+              {
+                "second": 42,
+                "reason": "coverage"
+              },
+              {
+                "second": 45,
+                "reason": "scene-change"
+              },
+              {
+                "second": 47,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          },
+          {
+            "id": "source-09-window-09",
+            "sourceId": "source-09",
+            "index": 8,
+            "start": 48,
+            "end": 54,
+            "title": "审查记录与脚本语法",
+            "summary": "目标场景：展示持续发生的本地状态变化可被并排扫描。",
+            "visualDescription": "左侧读取审查记录，右侧运行 node --check 并显示 syntax: passed。",
+            "frameSamples": [
+              {
+                "second": 48,
+                "reason": "coverage"
+              },
+              {
+                "second": 51,
+                "reason": "scene-change"
+              },
+              {
+                "second": 53,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          },
+          {
+            "id": "source-09-window-10",
+            "sourceId": "source-09",
+            "index": 9,
+            "start": 54,
+            "end": 60,
+            "title": "文件树与请求日志",
+            "summary": "目标场景：用不同内容的两个 pane 展示并行工作区，而非复用同一通用窗口。",
+            "visualDescription": "左侧检查文件树，右侧追加最新 HTTP 请求日志。",
+            "frameSamples": [
+              {
+                "second": 54,
+                "reason": "coverage"
+              },
+              {
+                "second": 57,
+                "reason": "scene-change"
+              },
+              {
+                "second": 59,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          },
+          {
+            "id": "source-09-window-11",
+            "sourceId": "source-09",
+            "index": 10,
+            "start": 60,
+            "end": 66,
+            "title": "入口核对与滚动变化",
+            "summary": "目标场景：为监督界面价值提供持续可见的真实终端变化。",
+            "visualDescription": "左侧核对页面入口并滚动，右侧继续保留不同验证上下文。",
+            "frameSamples": [
+              {
+                "second": 60,
+                "reason": "coverage"
+              },
+              {
+                "second": 63,
+                "reason": "scene-change"
+              },
+              {
+                "second": 65,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          },
+          {
+            "id": "source-09-window-12",
+            "sourceId": "source-09",
+            "index": 11,
+            "start": 66,
+            "end": 72,
+            "title": "任务数据与最新请求",
+            "summary": "目标场景：展示工作区中不同验证任务持续推进。",
+            "visualDescription": "左侧读取原创任务数据，右侧出现新的请求状态。",
+            "frameSamples": [
+              {
+                "second": 66,
+                "reason": "coverage"
+              },
+              {
+                "second": 69,
+                "reason": "scene-change"
+              },
+              {
+                "second": 71,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          },
+          {
+            "id": "source-09-window-13",
+            "sourceId": "source-09",
+            "index": 12,
+            "start": 72,
+            "end": 78,
+            "title": "文件哈希与本地端口",
+            "summary": "目标场景：展示可核对的审查输出，不声称它等同于产品效果。",
+            "visualDescription": "一侧计算本地文件哈希，另一侧核对 127.0.0.1:4173 返回 HTTP 200。",
+            "frameSamples": [
+              {
+                "second": 72,
+                "reason": "coverage"
+              },
+              {
+                "second": 75,
+                "reason": "scene-change"
+              },
+              {
+                "second": 77,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          },
+          {
+            "id": "source-09-window-14",
+            "sourceId": "source-09",
+            "index": 13,
+            "start": 78,
+            "end": 84,
+            "title": "最终状态复核",
+            "summary": "目标场景：从过程切向结果，保留人工批准前的停顿。",
+            "visualDescription": "左侧再次读取 Git 状态，右侧完成页面响应检查。",
+            "frameSamples": [
+              {
+                "second": 78,
+                "reason": "coverage"
+              },
+              {
+                "second": 81,
+                "reason": "scene-change"
+              },
+              {
+                "second": 83,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          },
+          {
+            "id": "source-09-window-15",
+            "sourceId": "source-09",
+            "index": 14,
+            "start": 84,
+            "end": 90,
+            "title": "本地验证完成",
+            "summary": "目标场景：为结论和限制段提供完成状态画面。",
+            "visualDescription": "右侧显示页面响应正常并等待人工批准，左侧继续推进最终审查。",
+            "frameSamples": [
+              {
+                "second": 84,
+                "reason": "coverage"
+              },
+              {
+                "second": 87,
+                "reason": "scene-change"
+              },
+              {
+                "second": 89,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          },
+          {
+            "id": "source-09-window-16",
+            "sourceId": "source-09",
+            "index": 15,
+            "start": 90,
+            "end": 96,
+            "title": "等待人工批准",
+            "summary": "目标场景：CTA，强调先用可回滚任务验证，再决定是否迁移。",
+            "visualDescription": "左侧出现本地审查完成并等待人工批准，两个 pane 保留最终上下文。",
+            "frameSamples": [
+              {
+                "second": 90,
+                "reason": "coverage"
+              },
+              {
+                "second": 93,
+                "reason": "scene-change"
+              },
+              {
+                "second": 95,
+                "reason": "coverage"
+              }
+            ],
+            "transcript": [],
+            "facts": [],
+            "uncertainties": [],
+            "processing": {
+              "status": "completed",
+              "inputHash": "ba8218dc1680c5190e99d31badf9fbf92a9924416b404a481dd20d9cab5a107f",
+              "model": "codex-manual-vision",
+              "promptVersion": "self-recorded-material-audit-2026-07-27",
+              "cacheHit": false,
+              "error": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-10",
+      "label": "Kooky 历史回归重制原创横版信息层",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "local://history-regression-remake/2026-07-26-iamcorey-kooky/information-layer-v1",
+      "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/kooky-regression-information-layer-fed66df20c45-1785555017857.mp4",
+      "originalFileName": "kooky-regression-information-layer-fed66df20c45.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 627018,
+      "importedAt": "2026-08-01T03:30:17.858Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 为本轮历史回归重制生成的原创 1920x1080 信息层，仅承担状态分类和采用边界说明。",
+      "contentHash": "fed66df20c455b5eed1c16d0a7ae30ecd49645a6fe69161fb202aa1d61c29dae",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "fed66df20c455b5eed1c16d0a7ae30ecd49645a6fe69161fb202aa1d61c29dae",
+        "startedAt": "2026-08-01T03:30:17.885Z",
+        "completedAt": "2026-08-01T03:30:17.885Z",
+        "error": "",
+        "model": "videobrief-original-information-layer",
+        "promptVersion": "history-regression-kooky-landscape-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "先看谁需要你\n运行 / 等待你 / 失败 / 空闲\n迁移前看两组边界\n会话恢复 / 独立 worktree\nmacOS 14+ / DMG 临时签名",
+        "visualDescription": "两张原创 1920x1080 固定信息层，使用大字呈现状态模型及采用边界。",
+        "hierarchicalSummary": "只承担抽象机制和规格说明；事实仍引用 source-06。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [],
+    "facts": [
+      {
+        "id": "research-fact-01",
+        "statement": "Kooky v0.42.0 于 2026-07-26T08:32:58Z 正式发布，非 prerelease、非 draft。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "line",
+            "lineStart": 3,
+            "lineEnd": 10,
+            "note": "官方仓库与 Release 元数据"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "research-fact-02",
+        "statement": "v0.42.0 新增内置 Agent Oh My Pi 和 Reasonix，并修正 Oh My Pi 等待工具批准时仍显示 working 的状态错误。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "line",
+            "lineStart": 12,
+            "lineEnd": 16,
+            "note": "官方 v0.42.0 Release 说明"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "research-fact-03",
+        "statement": "官方 README 列出 15 个内置 Agent，并称这些 Agent 会话使用各 CLI 的原生 session ID 在 Kooky 重启后恢复。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 29,
+            "lineEnd": 31,
+            "note": "官方内置 Agent 与会话恢复说明"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 96
+      },
+      {
+        "id": "research-fact-04",
+        "statement": "侧边栏状态点区分 running、waiting on you 和 idle；全局 Agent 面板按 waiting、failed、running、idle 排序，但当前工具级状态栏只明确支持 Claude Code、Pi、Oh My Pi 和 Reasonix。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 53,
+            "lineEnd": 61,
+            "note": "官方 Agent 状态与全局面板说明"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "research-fact-05",
+        "statement": "Kooky 支持多窗口、横向或纵向分屏、跨 pane 移动实时会话，以及为 Git 仓库创建独立 worktree 工作区。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 23,
+            "lineEnd": 35,
+            "note": "官方分屏、多窗口与 worktree 说明"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 94
+      },
+      {
+        "id": "research-fact-06",
+        "statement": "官方 README 声明 Kooky 不需要账号、不做遥测、不提供云同步，应用状态保留在本机。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 15,
+            "lineEnd": 15,
+            "note": "官方本地优先声明"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 71,
+            "lineEnd": 71,
+            "note": "官方无账号、遥测和云同步声明"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 88
+      },
+      {
+        "id": "research-fact-07",
+        "statement": "Kooky 仅支持 macOS 14+；官方预编译 DMG 为 adhoc 签名，首次启动会被 Gatekeeper 阻止；源码构建要求 Xcode 26+。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 75,
+            "lineEnd": 117,
+            "note": "官方安装、安全提示和源码构建要求"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "research-fact-08",
+        "statement": "仓库采用 MIT 许可证，但 README 明确说明捆绑的第三方资产保留各自上游许可证。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 135,
+            "lineEnd": 137,
+            "note": "官方许可证与第三方资产边界"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "research-fact-09",
+        "statement": "v0.42.0 官方 DMG 为 8,908,402 字节，GitHub 提供的 SHA-256 为 1bb01688aa70ae4d0d359924a0d46df7c44198fac1fc68f84097b7ed53c77e83。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "line",
+            "lineStart": 18,
+            "lineEnd": 24,
+            "note": "官方 Release 资产元数据"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 82
+      },
+      {
+        "id": "research-fact-10",
+        "statement": "官方仓库提供中文 README，因此本选题的中文价值不应定位为简单翻译，而应提供多 Agent 监督方式、安全取舍和适用边界判断。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 9,
+            "lineEnd": 15,
+            "note": "官方中文 README 入口与产品定位"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 90
+      }
+    ],
+    "uncertainties": [
+      {
+        "id": "research-uncertainty-01",
+        "statement": "本轮研究只核对了官方仓库、Release、README、CHANGELOG、Package.swift、LICENSE 和 NOTICE，尚未在当前机器安装或运行 Kooky，功能效果仍是发布方主张。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "line",
+            "lineStart": 30,
+            "lineEnd": 34,
+            "note": "研究证据边界"
+          }
+        ],
+        "resolution": "后续素材阶段仅在隔离、可回滚环境中进行真实录屏，并逐项验证状态提醒、会话恢复和 worktree 隔离；视频不得提前使用“实测有效”。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "research-uncertainty-02",
+        "statement": "官方 DMG 没有 Apple Developer ID 签名或 notarization，安装说明包含绕过 Gatekeeper 的路径，其中全局关闭 Gatekeeper 会扩大系统风险。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 75,
+            "lineEnd": 113,
+            "note": "官方安装与 Gatekeeper 说明"
+          }
+        ],
+        "resolution": "不执行全局关闭 Gatekeeper；素材阶段优先使用隔离环境、核对官方 SHA-256，并在安装前报告具体安全方案。若无法安全录制则换题或改用明确许可素材。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "research-uncertainty-03",
+        "statement": "“无账号、无遥测、无云同步、状态留在本机”是官方 README 声明，本轮没有完成独立网络流量或源码安全审计。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 15,
+            "lineEnd": 15,
+            "note": "官方隐私声明"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 71,
+            "lineEnd": 71,
+            "note": "官方本地状态说明"
+          }
+        ],
+        "resolution": "成片必须使用“官方称”而不是独立审计结论；录制时不输入真实密钥、私有仓库凭据或敏感内容。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 92
+      },
+      {
+        "id": "research-uncertainty-04",
+        "statement": "仓库只提供 4 张静态截图，没有官方动态视频；当前尚未满足至少 90 秒可用动态画面的素材前置条件。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "line",
+            "lineStart": 26,
+            "lineEnd": 28,
+            "note": "官方仓库媒体盘点"
+          }
+        ],
+        "resolution": "研究批准后优先制作自有动态录屏；必须先确认至少 90 秒可用画面，再进入脚本与镜头阶段。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "research-uncertainty-05",
+        "statement": "MIT 许可证不能自动证明 README 截图、Agent 品牌图标、字体和其他第三方资产均可直接用于公开成片。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 135,
+            "lineEnd": 137,
+            "note": "第三方资产保留上游许可"
+          }
+        ],
+        "resolution": "所有实际使用画面继续保持 review_required；后续优先使用自有录屏，并在权利 Gate 由用户明确确认后才能改为 cleared。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "research-uncertainty-06",
+        "statement": "仓库公开提供 MIT 源码和 Release，但没有独立商业定价页；这不足以证明产品或所有内置 Agent 的未来使用成本为零。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 15,
+            "lineEnd": 17,
+            "note": "开源许可证与下载入口"
+          }
+        ],
+        "resolution": "视频只表述“Kooky 仓库采用 MIT 许可证”，不使用“永久免费”或“所有 Agent 免费”等扩大说法。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 78
+      }
+    ]
+  },
+  "narrative": {
+    "status": "completed",
+    "error": "",
+    "activeVersionId": "narrative-01",
+    "versions": [
+      {
+        "id": "narrative-01",
+        "generatedAt": "2026-07-27T09:43:15.961Z",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "0964f38f769327e9ad94151876fa46f6a8428bebe786b722df4144683ef13ea8",
+        "conclusion": "Kooky 的核心价值，是把多个 Agent 的运行、等待、失败与工作区状态集中成可扫描的监督界面；但它是否适合你，仍取决于并行任务数量、安全接受度和真实任务验证。",
+        "hook": "多个 Agent 同时工作时，真正难的不是启动，而是知道谁在等你、谁失败了、谁还在运行。",
+        "outline": [
+          "从多终端切换的监督成本切入",
+          "展示 Kooky 如何集中呈现 Agent 状态",
+          "说明分屏、会话恢复与 worktree 隔离的官方能力",
+          "用自有录屏区分画面观察与官方功能声明",
+          "明确 macOS、签名和 Gatekeeper 边界",
+          "给出可回滚验证路径，而非直接替换现有终端"
+        ],
+        "voiceoverScript": "多开 Agent 不难，难的是谁真正需要你。库奇把工作区和分屏放进一个界面。重点不是多开，而是少切窗口。自录里，左边查 Git，右边验页面。HTTP 200 出现，结果开始能被核对。左侧 Git 也在变化，两个任务同步推进。价值不在终端数量，而在一眼看见进度。还要看见异常，以及下一步是否需要人工。官方状态点区分运行、等待和空闲。全局面板优先显示等待与失败。它也支持恢复会话和独立 worktree。但这是官方说明，不是本轮完整实测。并行两三个任务，才可能省下切换成本。它要求 macOS 14 以上，DMG 是临时签名。先验证提醒、恢复和隔离，三项都过再迁移。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 23,
+            "lineEnd": 35,
+            "note": "官方核心功能：分屏、多窗口、会话恢复与 worktree"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 53,
+            "lineEnd": 61,
+            "note": "官方 Agent 状态与全局面板说明"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "line",
+            "lineStart": 75,
+            "lineEnd": 117,
+            "note": "官方安装与 Gatekeeper 安全提示"
+          },
+          {
+            "sourceId": "source-09",
+            "locatorType": "time",
+            "start": 0,
+            "end": 96,
+            "note": "VideoBrief 自有隔离工作区动态录屏"
+          }
+        ],
+        "uncertainties": [
+          "本轮素材与研究不能证明 Kooky 的全部功能在当前环境中稳定有效；source-09 仅记录一个隔离演示任务，不能替代完整产品实测。",
+          "官方 README 的无账号、无遥测、无云同步属于发布方声明，尚未完成独立网络流量或源码安全审计。",
+          "adhoc 签名与 Gatekeeper 风险需要在具体 macOS 环境中人工确认；不应通过全局关闭 Gatekeeper 来完成安装。",
+          "仓库采用 MIT 许可证，但第三方 Agent 图标、字体、截图及其他捆绑资产仍需逐项确认公开成片权利。",
+          "官方支持范围和当前工具级状态栏支持项可能随版本变化，发布前应人工复核。"
+        ]
+      }
+    ],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "pendingChapters": [],
+    "generatedAt": "2026-07-27T09:43:15.961Z",
+    "model": "gpt-5.6-luna",
+    "promptVersion": "videobrief-2026-07-11-v1"
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-5.6-luna",
+    "transcriptionModel": "whisper.cpp:large-v3-turbo-q5_0",
+    "promptVersion": "videobrief-2026-07-11-v1",
+    "calls": [
+      {
+        "id": "ai-call-001",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "cce7ce14c607d9d9c9ad061630b23890bebcdf85c7a61a86757914d3d85eafd3",
+        "startedAt": "2026-07-26T09:11:15.406Z",
+        "completedAt": "2026-07-26T09:11:15.415Z",
+        "error": "OPENAI_API_KEY 未配置；未执行 OpenAI API 调用。",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-002",
+        "purpose": "narrative-planning",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "0964f38f769327e9ad94151876fa46f6a8428bebe786b722df4144683ef13ea8",
+        "startedAt": "2026-07-27T09:42:36.495Z",
+        "completedAt": "2026-07-27T09:43:15.962Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-003",
+        "purpose": "candidate-ranking",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "4c9ddb9eda270f5bdd6d4027a1f3f5ba5c4647b71119bd057e6f072a126a1772",
+        "startedAt": "2026-07-27T09:43:15.965Z",
+        "completedAt": "2026-07-27T09:43:31.438Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-004",
+        "purpose": "production-assets",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "479aa88849d9ed98d074cc45fd1d71c4865590f30588fc49a19089893aac1913",
+        "startedAt": "2026-07-27T09:43:31.447Z",
+        "completedAt": "2026-07-27T09:43:40.165Z",
+        "error": "",
+        "cacheHit": false
+      }
+    ]
+  },
+  "editorial": {
+    "claim": "Kooky 值得看的不是“又一个终端”，而是它能否把多 Agent 编程最昂贵的注意力成本，变成可扫描、可介入、可验证的监督动作。",
+    "whyItMatters": "多开 Agent 很容易；真正消耗注意力的是频繁切窗口、漏掉审批、无法快速判断哪个上下文已经产生可核对结果。",
+    "chinaContext": "本视频不复述功能清单，而用自有隔离录屏区分三层证据：画面中真实可见的 Git/HTTP 结果、官方声明的状态与会话能力、尚待真实任务验证的采用价值。",
+    "riskNote": "当前仅支持 macOS 14+，预编译 DMG 为 adhoc 签名；状态提醒、会话恢复和 worktree 隔离未在本轮自录中逐项实测。"
+  },
+  "platformCopy": {
+    "coverTitle": "多开 Agent 后，谁来盯？",
+    "title": "Kooky 真正解决的，不是多开 Agent",
+    "description": "多开 Agent 不难，难的是少切窗口、别漏审批，并快速找到可核对的结果。这条视频用 VideoBrief 自有隔离录屏展示 Kooky 双分屏中的 Git 状态、HTTP 200、文件变化和人工批准前停留；状态提醒、会话恢复与 Git worktree 属于官方能力说明，不冒充本轮实测。当前要求 macOS 14+，预编译 DMG 为 adhoc 签名。建议先用一个可回滚任务逐项验证提醒、恢复和隔离，再决定是否迁移。画面为自有录制的产品评论演示，不代表官方背书；含 AI 配音与字幕。",
+    "hashtags": [
+      "#Kooky",
+      "#多Agent",
+      "#AI编程",
+      "#开发者工具",
+      "#终端工具",
+      "#工作流",
+      "#macOS",
+      "#GitWorktree"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "2026-07-26T09:07:31.109Z",
+    "updatedAt": "2026-08-08T02:50:12.498Z",
+    "researchReviewedAt": "",
+    "firstRenderCompletedAt": "2026-07-27T09:49:40.305Z",
+    "lastRenderCompletedAt": "2026-08-01T04:57:37.638Z",
+    "sourceImportCount": 10,
+    "manualSaveCount": 0,
+    "renderAttemptCount": 25,
+    "renderFailureCount": 7,
+    "lastRenderStartedAt": "2026-08-01T04:57:25.893Z",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "materialReview": {
+    "status": "approved",
+    "approvedSourceIds": [
+      "source-09",
+      "source-10"
+    ],
+    "reviewedAt": "2026-08-01T03:30:17.885Z"
+  },
+  "materialQualityReview": {
+    "schemaVersion": 1,
+    "status": "passed",
+    "reviewedAt": "2026-08-01T03:44:47.936Z",
+    "reviewer": "codex",
+    "reviewScope": "12 幕当前候选；逐幕核对源素材及 16:9 桌面和 390x844 移动计划显示的 start/mid/end，检查语义、窗口、可读性、稳定性和唯一性。",
+    "sceneReviews": [
+      {
+        "sceneId": "scene-01",
+        "sceneFingerprint": "1b1f7d18c36a318b4ae7dd4e36ffd2f108f31613ad4b45ad123bd0e741e1a61c",
+        "candidate": {
+          "sourceId": "source-09",
+          "sourceStart": 0,
+          "sourceEnd": 8
+        },
+        "visibleClaim": "两个并行任务上下文同屏",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "画面建立多任务监督语境，不依赖终端细字。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕以界面结构、双 pane 和动态状态承担信息，不依赖移动端读取终端细字；关键构图在两种视口完整可见。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "固定窗口 0-8 秒完整覆盖本幕，按 1 倍速使用且未循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "mediaMotion 为 none；仅保留源录屏自身的真实操作变化。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该来源窗口与其他动态场景不重叠，只承担当前观点。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白和可见画面语义一致",
+          "窗口完整且不循环",
+          "固定机位无不必要推拉",
+          "桌面与移动目标视口通过"
+        ],
+        "evidence": [
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-01-start-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-01-start-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-01-start-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-01-mid-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-01-mid-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-01-mid-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-01-end-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-01-end-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-01-end-mobile-390x844.png"
+        ]
+      },
+      {
+        "sceneId": "scene-02",
+        "sceneFingerprint": "db99894d68e937f0ef54d333cfdc148432eb26843b0aaf41bcb19ae89eb38dc5",
+        "candidate": {
+          "sourceId": "source-09",
+          "sourceStart": 8,
+          "sourceEnd": 16
+        },
+        "visibleClaim": "侧栏、工作区和双 pane 同屏",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "界面结构直接支持减少切换窗口。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕以界面结构、双 pane 和动态状态承担信息，不依赖移动端读取终端细字；关键构图在两种视口完整可见。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "固定窗口 8-16 秒完整覆盖本幕，按 1 倍速使用且未循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "mediaMotion 为 none；仅保留源录屏自身的真实操作变化。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该来源窗口与其他动态场景不重叠，只承担当前观点。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白和可见画面语义一致",
+          "窗口完整且不循环",
+          "固定机位无不必要推拉",
+          "桌面与移动目标视口通过"
+        ],
+        "evidence": [
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-02-start-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-02-start-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-02-start-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-02-mid-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-02-mid-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-02-mid-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-02-end-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-02-end-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-02-end-mobile-390x844.png"
+        ]
+      },
+      {
+        "sceneId": "scene-03",
+        "sceneFingerprint": "45aa40d7b736abbdb167881a4ba20241519602c05d5333c52e8627f55d0e87c4",
+        "candidate": {
+          "sourceId": "source-09",
+          "sourceStart": 16,
+          "sourceEnd": 24
+        },
+        "visibleClaim": "左侧 Git 检查、右侧本地页面验证",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "两个不同任务在同一时段推进。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕以界面结构、双 pane 和动态状态承担信息，不依赖移动端读取终端细字；关键构图在两种视口完整可见。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "固定窗口 16-24 秒完整覆盖本幕，按 1 倍速使用且未循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "mediaMotion 为 none；仅保留源录屏自身的真实操作变化。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该来源窗口与其他动态场景不重叠，只承担当前观点。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白和可见画面语义一致",
+          "窗口完整且不循环",
+          "固定机位无不必要推拉",
+          "桌面与移动目标视口通过"
+        ],
+        "evidence": [
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-03-start-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-03-start-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-03-start-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-03-mid-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-03-mid-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-03-mid-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-03-end-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-03-end-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-03-end-mobile-390x844.png"
+        ]
+      },
+      {
+        "sceneId": "scene-04",
+        "sceneFingerprint": "103266e3d7695fdb0b404b594f62e5805d06e5f42a40b081954b5e268a228203",
+        "candidate": {
+          "sourceId": "source-09",
+          "sourceStart": 24,
+          "sourceEnd": 32
+        },
+        "visibleClaim": "右侧 HTTP 200 与左侧更新同时可见",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "HTTP 200 是醒目状态，但不扩张为完整验收结论。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [
+            "HTTP 200"
+          ],
+          "reason": "本幕以界面结构、双 pane 和动态状态承担信息，不依赖移动端读取终端细字；关键构图在两种视口完整可见。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "固定窗口 24-32 秒完整覆盖本幕，按 1 倍速使用且未循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "mediaMotion 为 none；仅保留源录屏自身的真实操作变化。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该来源窗口与其他动态场景不重叠，只承担当前观点。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白和可见画面语义一致",
+          "窗口完整且不循环",
+          "固定机位无不必要推拉",
+          "桌面与移动目标视口通过"
+        ],
+        "evidence": [
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-04-start-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-04-start-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-04-start-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-04-mid-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-04-mid-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-04-mid-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-04-end-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-04-end-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-04-end-mobile-390x844.png"
+        ]
+      },
+      {
+        "sceneId": "scene-05",
+        "sceneFingerprint": "55457e48f3c9aa8126a42f36575845a4e1ccb47e082c4fb4ac26e5945322f7da",
+        "candidate": {
+          "sourceId": "source-09",
+          "sourceStart": 32,
+          "sourceEnd": 40
+        },
+        "visibleClaim": "两个 pane 持续输出不同任务进度",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "同屏扫描支持减少切换，不代表任务自动正确。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕以界面结构、双 pane 和动态状态承担信息，不依赖移动端读取终端细字；关键构图在两种视口完整可见。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "固定窗口 32-40 秒完整覆盖本幕，按 1 倍速使用且未循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "mediaMotion 为 none；仅保留源录屏自身的真实操作变化。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该来源窗口与其他动态场景不重叠，只承担当前观点。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白和可见画面语义一致",
+          "窗口完整且不循环",
+          "固定机位无不必要推拉",
+          "桌面与移动目标视口通过"
+        ],
+        "evidence": [
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-05-start-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-05-start-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-05-start-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-05-mid-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-05-mid-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-05-mid-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-05-end-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-05-end-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-05-end-mobile-390x844.png"
+        ]
+      },
+      {
+        "sceneId": "scene-06",
+        "sceneFingerprint": "9077b42a0a221ba2d5a041b0db6c508a303d2f24da131a7c389e3cc7320ff0ef",
+        "candidate": {
+          "sourceId": "source-09",
+          "sourceStart": 40,
+          "sourceEnd": 48
+        },
+        "visibleClaim": "新的终端状态变化持续出现",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "独立窗口承担阻塞发现和人工介入语境。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕以界面结构、双 pane 和动态状态承担信息，不依赖移动端读取终端细字；关键构图在两种视口完整可见。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "固定窗口 40-48 秒完整覆盖本幕，按 1 倍速使用且未循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "mediaMotion 为 none；仅保留源录屏自身的真实操作变化。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该来源窗口与其他动态场景不重叠，只承担当前观点。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白和可见画面语义一致",
+          "窗口完整且不循环",
+          "固定机位无不必要推拉",
+          "桌面与移动目标视口通过"
+        ],
+        "evidence": [
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-06-start-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-06-start-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-06-start-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-06-mid-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-06-mid-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-06-mid-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-06-end-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-06-end-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-06-end-mobile-390x844.png"
+        ]
+      },
+      {
+        "sceneId": "scene-07",
+        "sceneFingerprint": "169006b3d720a6585ec3a960ae6be6dbcbba17bbf1aceb50513d553d63c849a9",
+        "candidate": {
+          "sourceId": "source-09",
+          "sourceStart": 48,
+          "sourceEnd": 56
+        },
+        "visibleClaim": "本地路径、语法检查和请求状态连续出现",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "本幕证明操作留在本地验证链，不要求读取全部细字。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕以界面结构、双 pane 和动态状态承担信息，不依赖移动端读取终端细字；关键构图在两种视口完整可见。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "固定窗口 48-56 秒完整覆盖本幕，按 1 倍速使用且未循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "mediaMotion 为 none；仅保留源录屏自身的真实操作变化。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该来源窗口与其他动态场景不重叠，只承担当前观点。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白和可见画面语义一致",
+          "窗口完整且不循环",
+          "固定机位无不必要推拉",
+          "桌面与移动目标视口通过"
+        ],
+        "evidence": [
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-07-start-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-07-start-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-07-start-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-07-mid-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-07-mid-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-07-mid-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-07-end-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-07-end-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-07-end-mobile-390x844.png"
+        ]
+      },
+      {
+        "sceneId": "scene-08",
+        "sceneFingerprint": "0d727294a936b671b1acfe7d0da1a934fa51b52027233f41a48b80ca610d3dbc",
+        "candidate": {
+          "sourceId": "source-10",
+          "sourceStart": 0,
+          "sourceEnd": 10
+        },
+        "visibleClaim": "运行、等待你、失败、空闲四种状态",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "原创大字层只解释官方状态模型。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [
+            "先看谁需要你",
+            "运行",
+            "等待你",
+            "失败",
+            "空闲"
+          ],
+          "reason": "1920x1080 原创大字信息层在桌面及 390x844 等比缩放播放器中无需暂停即可读取核心中文。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "固定窗口 0-10 秒完整覆盖本幕，按 1 倍速使用且未循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "mediaMotion 为 none；仅保留源录屏自身的真实操作变化。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "本信息层只承担当前抽象机制或边界观点。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白和可见画面语义一致",
+          "窗口完整且不循环",
+          "固定机位无不必要推拉",
+          "桌面与移动目标视口通过"
+        ],
+        "evidence": [
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-08-start-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-08-start-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-08-start-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-08-mid-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-08-mid-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-08-mid-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-08-end-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-08-end-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-08-end-mobile-390x844.png"
+        ]
+      },
+      {
+        "sceneId": "scene-09",
+        "sceneFingerprint": "01519f65cb1e1ac79ae64d9c0a7701dae52a45c529919d725857661f078d25ab",
+        "candidate": {
+          "sourceId": "source-09",
+          "sourceStart": 56,
+          "sourceEnd": 64
+        },
+        "visibleClaim": "两个不同任务内容继续并列",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "独立窗口支持并行用户的条件化采用判断。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕以界面结构、双 pane 和动态状态承担信息，不依赖移动端读取终端细字；关键构图在两种视口完整可见。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "固定窗口 56-64 秒完整覆盖本幕，按 1 倍速使用且未循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "mediaMotion 为 none；仅保留源录屏自身的真实操作变化。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该来源窗口与其他动态场景不重叠，只承担当前观点。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白和可见画面语义一致",
+          "窗口完整且不循环",
+          "固定机位无不必要推拉",
+          "桌面与移动目标视口通过"
+        ],
+        "evidence": [
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-09-start-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-09-start-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-09-start-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-09-mid-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-09-mid-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-09-mid-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-09-end-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-09-end-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-09-end-mobile-390x844.png"
+        ]
+      },
+      {
+        "sceneId": "scene-10",
+        "sceneFingerprint": "ffc009f2861487d9076771290778b421cbad46b33928399b272a7c7b9ac9ef0e",
+        "candidate": {
+          "sourceId": "source-09",
+          "sourceStart": 64,
+          "sourceEnd": 72
+        },
+        "visibleClaim": "本地任务数据与最新请求并列",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "画面观察与官方能力声明在旁白中明确分开。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕以界面结构、双 pane 和动态状态承担信息，不依赖移动端读取终端细字；关键构图在两种视口完整可见。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "固定窗口 64-72 秒完整覆盖本幕，按 1 倍速使用且未循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "mediaMotion 为 none；仅保留源录屏自身的真实操作变化。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该来源窗口与其他动态场景不重叠，只承担当前观点。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白和可见画面语义一致",
+          "窗口完整且不循环",
+          "固定机位无不必要推拉",
+          "桌面与移动目标视口通过"
+        ],
+        "evidence": [
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-10-start-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-10-start-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-10-start-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-10-mid-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-10-mid-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-10-mid-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-10-end-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-10-end-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-10-end-mobile-390x844.png"
+        ]
+      },
+      {
+        "sceneId": "scene-11",
+        "sceneFingerprint": "2e321f747c1ba4663909cf0add14520d74e03c7478c989985119ef58fdc536a8",
+        "candidate": {
+          "sourceId": "source-10",
+          "sourceStart": 10,
+          "sourceEnd": 20
+        },
+        "visibleClaim": "会话恢复、独立 worktree、macOS 14+、DMG 临时签名",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "原创大字层稳定呈现能力与环境边界。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [
+            "迁移前看两组边界",
+            "会话恢复",
+            "独立 worktree",
+            "macOS 14+",
+            "DMG 临时签名"
+          ],
+          "reason": "1920x1080 原创大字信息层在桌面及 390x844 等比缩放播放器中无需暂停即可读取核心中文。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "固定窗口 10-20 秒完整覆盖本幕，按 1 倍速使用且未循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "mediaMotion 为 none；仅保留源录屏自身的真实操作变化。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "本信息层只承担当前抽象机制或边界观点。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白和可见画面语义一致",
+          "窗口完整且不循环",
+          "固定机位无不必要推拉",
+          "桌面与移动目标视口通过"
+        ],
+        "evidence": [
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-11-start-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-11-start-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-11-start-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-11-mid-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-11-mid-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-11-mid-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-11-end-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-11-end-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-11-end-mobile-390x844.png"
+        ]
+      },
+      {
+        "sceneId": "scene-12",
+        "sceneFingerprint": "c39d7cc5bfaf15b8da2116427f3ec2d5d8a8d497ed98ca00934df31b2d589d97",
+        "candidate": {
+          "sourceId": "source-09",
+          "sourceStart": 84,
+          "sourceEnd": 92
+        },
+        "visibleClaim": "最终复核与等待人工批准的本地上下文",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "独立收尾窗口支持先验证再迁移。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕以界面结构、双 pane 和动态状态承担信息，不依赖移动端读取终端细字；关键构图在两种视口完整可见。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "固定窗口 84-92 秒完整覆盖本幕，按 1 倍速使用且未循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "mediaMotion 为 none；仅保留源录屏自身的真实操作变化。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该来源窗口与其他动态场景不重叠，只承担当前观点。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白和可见画面语义一致",
+          "窗口完整且不循环",
+          "固定机位无不必要推拉",
+          "桌面与移动目标视口通过"
+        ],
+        "evidence": [
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-12-start-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-12-start-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-12-start-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-12-mid-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-12-mid-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-12-mid-mobile-390x844.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-12-end-source.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-12-end-desktop.png",
+          "output/history-regression-remake-20260731/kooky/material-evidence/scene-12-end-mobile-390x844.png"
+        ]
+      }
+    ]
+  },
+  "workflow": {
+    "schemaVersion": 1,
+    "origin": {
+      "kind": "daily_signal",
+      "runId": "2026-07-26",
+      "candidateId": "iamcorey-kooky-2f29636a",
+      "sourceUrl": "https://github.com/iAmCorey/kooky",
+      "score": 10,
+      "summary": "A minimal modern terminal for AI coding experience — Sidebar workspaces; horizontal / vertical split panes; one-click agent launch; per-agent activity readout; live workspace state with one-click Node and branch switching.（592 stars，30 forks，许可 MIT）"
+    },
+    "topicApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-01T03:30:17.885Z",
+      "decidedBy": "用户",
+      "note": "用户在历史素材回归重制任务中明确要求保留原命题并统一使用单一 16:9 横版。",
+      "fingerprint": "16555eb9571a444a336042a11ac0001bac1760f688a165f8ef20d46f41d39e2d"
+    },
+    "researchApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-01T03:30:17.885Z",
+      "decidedBy": "用户",
+      "note": "原 Kooky 已批准研究事实未变化；本轮只按用户要求调整横版叙事与素材呈现。",
+      "fingerprint": "9fe15026ad525a26fa7461956164de2937d043b844f183c4e695c18ccbe2f589"
+    },
+    "deliveryApproval": {
+      "status": "rejected",
+      "decidedAt": "2026-08-08T02:50:12.497Z",
+      "decidedBy": "local-user",
+      "note": "",
+      "fingerprint": "4b3cdb4076326a4868c8abe5aba8f55bbc79fbfd3e5e4dcb61a319f679361d83"
+    },
+    "publication": {
+      "approval": {
+        "status": "pending",
+        "decidedAt": "",
+        "decidedBy": "",
+        "note": "",
+        "fingerprint": ""
+      },
+      "platform": "",
+      "publishedUrl": "",
+      "publishedAt": "",
+      "videoSha256": "",
+      "packageSha256": ""
+    },
+    "market": {
+      "decision": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "evidence": []
+    }
+  },
+  "chapters": [
+    {
+      "id": "chapter-01",
+      "title": "从注意力成本到可回滚验证",
+      "summary": "多开 Agent 不难，难的是快速发现真正需要人工介入的任务。自有录屏中，Git 审查和页面验证在两个 pane 内同时推进，并出现 HTTP 200、文件变化、哈希与等待人工批准等可见证据。Kooky 官方还声明状态分类、全局面板、会话恢复和 worktree 隔离，但这些能力不冒充本轮实测。最终判断是：并行任务频繁的用户值得用可回滚任务试验；单 Agent 用户或不接受临时签名风险的人不必迁移。",
+      "order": 0,
+      "sceneIds": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06",
+        "scene-07",
+        "scene-08",
+        "scene-09",
+        "scene-10",
+        "scene-11",
+        "scene-12"
+      ],
+      "sourceReferences": [
+        {
+          "sourceId": "source-06",
+          "locatorType": "line",
+          "lineStart": 53,
+          "lineEnd": 61,
+          "note": "官方说明侧边栏与全局 Agent 状态分类"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "line",
+          "lineStart": 23,
+          "lineEnd": 35,
+          "note": "官方 README 对多窗口、分屏和工作区的说明"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "line",
+          "lineStart": 53,
+          "lineEnd": 61,
+          "note": "官方 Agent 状态与全局面板说明"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "line",
+          "lineStart": 53,
+          "lineEnd": 61,
+          "note": "官方状态点和全局 Agent 面板排序说明"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "line",
+          "lineStart": 23,
+          "lineEnd": 35,
+          "note": "官方 README 对会话恢复、跨 pane 与 worktree 的说明"
+        },
+        {
+          "sourceId": "source-08",
+          "locatorType": "line",
+          "lineStart": 12,
+          "lineEnd": 16,
+          "note": "官方 v0.42.0 Release 说明"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "line",
+          "lineStart": 75,
+          "lineEnd": 117,
+          "note": "官方安装、安全提示和源码构建要求"
+        },
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 0,
+          "end": 96,
+          "note": "VideoBrief 自有隔离工作区录屏；画面观察，不代表对全部功能的独立验证"
+        },
+        {
+          "sourceId": "source-08",
+          "locatorType": "line",
+          "lineStart": 30,
+          "lineEnd": 34,
+          "note": "研究证据边界：尚未完成完整安装运行验证"
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "outputVideo": "output/videos/2026-07-26-iamcorey-kooky-regression-20260731.mp4",
+    "publicRender": "public/renders/2026-07-26-iamcorey-kooky-regression-20260731.mp4",
+    "workDir": "output/videos/2026-07-26-iamcorey-kooky-regression-20260731-work",
+    "exportDir": "output/exports/2026-07-26-iamcorey-kooky-regression-20260731",
+    "coverImage": "output/exports/2026-07-26-iamcorey-kooky-regression-20260731/cover.png",
+    "platformCopy": "output/exports/2026-07-26-iamcorey-kooky-regression-20260731/platform-copy.json",
+    "sourceList": "output/exports/2026-07-26-iamcorey-kooky-regression-20260731/source-list.json",
+    "projectSnapshot": "output/exports/2026-07-26-iamcorey-kooky-regression-20260731/project.snapshot.json"
+  },
+  "renditions": [
+    {
+      "id": "landscape-regression-20260731",
+      "label": "历史回归重制横版",
+      "primary": true,
+      "aspectRatio": "16:9",
+      "width": 1920,
+      "height": 1080,
+      "mediaFit": "cover",
+      "mediaBackground": "solid",
+      "outputVideo": "output/videos/2026-07-26-iamcorey-kooky-regression-20260731.mp4",
+      "publicRender": "public/renders/2026-07-26-iamcorey-kooky-regression-20260731.mp4",
+      "workDir": "output/videos/2026-07-26-iamcorey-kooky-regression-20260731-work"
+    }
+  ],
+  "render": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice": "zh-CN-YunjianNeural",
+    "rate": 194,
+    "voiceEngine": "edge-tts",
+    "voiceModel": "edge-tts-universal",
+    "voiceProfile": "natural-tech-zh-v1",
+    "voiceStyle": "",
+    "voiceGenerationMode": "per-scene",
+    "renderStrategy": "segmented-concat",
+    "pronunciations": [
+      {
+        "term": "Kooky",
+        "guidance": "使用稳定中文近似音，避免被读成 Cookie",
+        "spokenText": "库奇",
+        "asrAliases": [
+          "Kooky",
+          "库奇",
+          "酷奇",
+          "枯齐"
+        ]
+      },
+      {
+        "term": "Oh My Pi",
+        "guidance": "使用稳定中文近似音",
+        "spokenText": "欧麦派",
+        "asrAliases": [
+          "Oh My Pi",
+          "OMP",
+          "欧麦派"
+        ]
+      },
+      {
+        "term": "Reasonix",
+        "guidance": "使用稳定中文近似音",
+        "spokenText": "里森尼克斯",
+        "asrAliases": [
+          "Reasonix",
+          "里森尼克斯"
+        ]
+      },
+      {
+        "term": "worktree",
+        "guidance": "按英文 work tree 自然朗读",
+        "spokenText": "work tree",
+        "asrAliases": [
+          "worktree",
+          "work tree"
+        ]
+      }
+    ],
+    "mediaFit": "cover"
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 0,
+      "sourceEnd": 8,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "mediaMotionAmount": 0.02,
+      "showEditorialOverlay": true,
+      "eyebrow": "真正的瓶颈",
+      "title": "多开以后，谁来盯？",
+      "subtitle": "瓶颈从算力变成注意力",
+      "narration": "多 Agent 并行后，真正变贵的不是算力，而是你盯进度的注意力。",
+      "visualRequirement": "完整展示 Kooky 工作区与双 pane；本幕只建立多任务同屏关系，不依赖终端细字。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 0,
+          "end": 8,
+          "note": "两个任务上下文同屏，并开始出现独立状态变化。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-dynamic-01",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/kooky-self-recording-clean.mp4",
+          "mediaType": "video",
+          "sourceStart": 0,
+          "sourceEnd": 8,
+          "matchReason": "两个任务上下文同屏，并开始出现独立状态变化。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-dynamic-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-01T03:30:17.885Z",
+      "selectionNote": "窗口互不重叠、按 1 倍速播放且不循环；固定构图保留真实状态变化。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-02",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 8,
+      "sourceEnd": 16,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "mediaMotionAmount": 0.02,
+      "showEditorialOverlay": true,
+      "eyebrow": "界面变化",
+      "title": "把多任务收进一个工作区",
+      "subtitle": "工作区、分屏、Agent 入口",
+      "narration": "Kooky 把工作区、分屏和 Agent 入口收进一个终端，减少来回切窗口。",
+      "visualRequirement": "保留侧栏和双 pane 完整构图，以界面结构而非细字承担信息。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 8,
+          "end": 16,
+          "note": "侧栏、工作区与双 pane 关系持续可见。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-dynamic-01",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/kooky-self-recording-clean.mp4",
+          "mediaType": "video",
+          "sourceStart": 8,
+          "sourceEnd": 16,
+          "matchReason": "侧栏、工作区与双 pane 关系持续可见。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-dynamic-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-01T03:30:17.885Z",
+      "selectionNote": "窗口互不重叠、按 1 倍速播放且不循环；固定构图保留真实状态变化。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-03",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 16,
+      "sourceEnd": 24,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "mediaMotionAmount": 0.02,
+      "showEditorialOverlay": true,
+      "eyebrow": "真实任务",
+      "title": "左边查 Git，右边验页面",
+      "subtitle": "两条任务同时推进",
+      "narration": "在一个真实任务里，左边检查 Git，右边验证本地页面，两条线能同时看见。",
+      "visualRequirement": "同屏保留 Git 检查和页面请求两种不同任务，不裁掉任一 pane。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 16,
+          "end": 24,
+          "note": "左右两个 pane 分别显示 Git 与本地页面验证。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-dynamic-01",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/kooky-self-recording-clean.mp4",
+          "mediaType": "video",
+          "sourceStart": 16,
+          "sourceEnd": 24,
+          "matchReason": "左右两个 pane 分别显示 Git 与本地页面验证。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-dynamic-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-01T03:30:17.885Z",
+      "selectionNote": "窗口互不重叠、按 1 倍速播放且不循环；固定构图保留真实状态变化。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-04",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 24,
+      "sourceEnd": 32,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "mediaMotionAmount": 0.02,
+      "showEditorialOverlay": true,
+      "eyebrow": "可核对结果",
+      "title": "HTTP 200 出现",
+      "subtitle": "页面结果可以直接核对",
+      "narration": "右侧出现 HTTP 200，左侧也在更新，结果不必等切回窗口才发现。",
+      "visualRequirement": "固定构图保留右侧醒目的 HTTP 200 与左侧变化；不把一次响应扩大成完整验收。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 24,
+          "end": 32,
+          "note": "HTTP 200 和另一侧输出在同一窗口内可见。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-dynamic-01",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/kooky-self-recording-clean.mp4",
+          "mediaType": "video",
+          "sourceStart": 24,
+          "sourceEnd": 32,
+          "matchReason": "HTTP 200 和另一侧输出在同一窗口内可见。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-dynamic-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-01T03:30:17.885Z",
+      "selectionNote": "窗口互不重叠、按 1 倍速播放且不循环；固定构图保留真实状态变化。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-05",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 32,
+      "sourceEnd": 40,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "mediaMotionAmount": 0.02,
+      "showEditorialOverlay": true,
+      "eyebrow": "监督价值",
+      "title": "同时看见进度",
+      "subtitle": "少切窗口，不等于自动正确",
+      "narration": "它真正省下的是切换成本：你可以同时扫进度，但任务是否正确仍要自己验。",
+      "visualRequirement": "完整保留两个 pane 的持续变化；画面只支持同时扫描，不暗示自动正确。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 32,
+          "end": 40,
+          "note": "两侧输出继续变化，支持同屏监督判断。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-dynamic-01",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/kooky-self-recording-clean.mp4",
+          "mediaType": "video",
+          "sourceStart": 32,
+          "sourceEnd": 40,
+          "matchReason": "两侧输出继续变化，支持同屏监督判断。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-dynamic-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-01T03:30:17.885Z",
+      "selectionNote": "窗口互不重叠、按 1 倍速播放且不循环；固定构图保留真实状态变化。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-06",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 40,
+      "sourceEnd": 48,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "mediaMotionAmount": 0.02,
+      "showEditorialOverlay": true,
+      "eyebrow": "介入时机",
+      "title": "异常要能被看见",
+      "subtitle": "先发现，再决定是否介入",
+      "narration": "多 Agent 工具好不好用，关键不是开了几个，而是阻塞出现时你能不能及时介入。",
+      "visualRequirement": "使用不同于前幕的 40-48 秒窗口，固定构图呈现任务状态变化。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 40,
+          "end": 48,
+          "note": "窗口内发生新的终端状态变化，承担人工介入语境。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-dynamic-01",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/kooky-self-recording-clean.mp4",
+          "mediaType": "video",
+          "sourceStart": 40,
+          "sourceEnd": 48,
+          "matchReason": "窗口内发生新的终端状态变化，承担人工介入语境。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-dynamic-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-01T03:30:17.885Z",
+      "selectionNote": "窗口互不重叠、按 1 倍速播放且不循环；固定构图保留真实状态变化。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-07",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 48,
+      "sourceEnd": 56,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "mediaMotionAmount": 0.02,
+      "showEditorialOverlay": true,
+      "eyebrow": "本地边界",
+      "title": "监督不等于放弃控制",
+      "subtitle": "结果仍回到本地核对",
+      "narration": "这段操作始终停在本地仓库和本地页面，监督界面没有替你跳过验证。",
+      "visualRequirement": "保留本地路径、语法检查与请求状态的整体语境；不要求移动端读取全部细字。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 48,
+          "end": 56,
+          "note": "本地文件、语法检查与请求状态在工作区中连续出现。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-dynamic-01",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/kooky-self-recording-clean.mp4",
+          "mediaType": "video",
+          "sourceStart": 48,
+          "sourceEnd": 56,
+          "matchReason": "本地文件、语法检查与请求状态在工作区中连续出现。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-dynamic-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-01T03:30:17.885Z",
+      "selectionNote": "窗口互不重叠、按 1 倍速播放且不循环；固定构图保留真实状态变化。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-08",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-10",
+      "sourceStart": 0,
+      "sourceEnd": 10,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "mediaMotionAmount": 0.02,
+      "showEditorialOverlay": false,
+      "eyebrow": "官方状态模型",
+      "title": "先看谁需要你",
+      "subtitle": "运行 / 等待你 / 失败 / 空闲",
+      "narration": "官方把状态分成运行、等待你、失败和空闲；真正要优先看的，是需要人工介入的任务。",
+      "visualRequirement": "稳定大字信息层呈现四种状态；关键字在 390x844 横版播放器中无需暂停即可读。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-06",
+          "locatorType": "line",
+          "lineStart": 53,
+          "lineEnd": 61,
+          "note": "官方状态点与全局 Agent 面板排序说明"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-info-01",
+          "sourceId": "source-10",
+          "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/kooky-regression-information-layer-fed66df20c45-1785555017857.mp4",
+          "mediaType": "video",
+          "sourceStart": 0,
+          "sourceEnd": 10,
+          "matchReason": "原创横版信息层用大字稳定呈现本幕抽象机制，不替代一手事实来源。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-info-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-01T03:30:17.885Z",
+      "selectionNote": "1920x1080 固定信息层；无 push-in/pull-out，桌面与移动端按大字信息复核。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-09",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 56,
+      "sourceEnd": 64,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "mediaMotionAmount": 0.02,
+      "showEditorialOverlay": true,
+      "eyebrow": "适用人群",
+      "title": "并行两三个任务再考虑",
+      "subtitle": "单任务用户收益有限",
+      "narration": "如果你经常并行两三个任务，少切窗口才可能省时间；单任务用户未必值得迁移。",
+      "visualRequirement": "使用 56-64 秒独立窗口展示不同任务内容并列，不复用此前窗口。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 56,
+          "end": 64,
+          "note": "两个不同任务保持在同一工作区，支持条件化采用判断。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-dynamic-01",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/kooky-self-recording-clean.mp4",
+          "mediaType": "video",
+          "sourceStart": 56,
+          "sourceEnd": 64,
+          "matchReason": "两个不同任务保持在同一工作区，支持条件化采用判断。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-dynamic-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-01T03:30:17.885Z",
+      "selectionNote": "窗口互不重叠、按 1 倍速播放且不循环；固定构图保留真实状态变化。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-10",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 64,
+      "sourceEnd": 72,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "mediaMotionAmount": 0.02,
+      "showEditorialOverlay": true,
+      "eyebrow": "证据边界",
+      "title": "可见，不等于都测过",
+      "subtitle": "录屏观察与官方声明分开",
+      "narration": "画面能证明分屏和本地检查真实发生，但会话恢复等能力仍属于官方说明。",
+      "visualRequirement": "完整展示新的本地检查窗口；旁白明确区分画面观察与官方能力声明。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 64,
+          "end": 72,
+          "note": "录屏继续显示本地检查，但不包含会话恢复操作。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-dynamic-01",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/kooky-self-recording-clean.mp4",
+          "mediaType": "video",
+          "sourceStart": 64,
+          "sourceEnd": 72,
+          "matchReason": "录屏继续显示本地检查，但不包含会话恢复操作。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-dynamic-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-01T03:30:17.885Z",
+      "selectionNote": "窗口互不重叠、按 1 倍速播放且不循环；固定构图保留真实状态变化。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-11",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-10",
+      "sourceStart": 10,
+      "sourceEnd": 20,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "mediaMotionAmount": 0.02,
+      "showEditorialOverlay": false,
+      "eyebrow": "采用边界",
+      "title": "迁移前看两组边界",
+      "subtitle": "会话恢复 / worktree / macOS 14+ / 临时签名",
+      "narration": "官方还写了会话恢复和独立 worktree；环境要求是 macOS 14 以上，DMG 为临时签名。",
+      "visualRequirement": "稳定横版信息层分两组呈现能力与环境边界；不显示低清 README 整页。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-06",
+          "locatorType": "line",
+          "lineStart": 23,
+          "lineEnd": 35,
+          "note": "官方会话恢复与 worktree 说明"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "line",
+          "lineStart": 75,
+          "lineEnd": 117,
+          "note": "官方系统要求与签名提示"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-info-01",
+          "sourceId": "source-10",
+          "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/kooky-regression-information-layer-fed66df20c45-1785555017857.mp4",
+          "mediaType": "video",
+          "sourceStart": 10,
+          "sourceEnd": 20,
+          "matchReason": "原创横版信息层用大字稳定呈现本幕抽象机制，不替代一手事实来源。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-info-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-01T03:30:17.885Z",
+      "selectionNote": "1920x1080 固定信息层；无 push-in/pull-out，桌面与移动端按大字信息复核。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-12",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 84,
+      "sourceEnd": 92,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "mediaMotionAmount": 0.02,
+      "showEditorialOverlay": true,
+      "eyebrow": "行动建议",
+      "title": "三项都过，再迁移",
+      "subtitle": "提醒 / 恢复 / 隔离",
+      "narration": "先拿一个可回滚的真实任务，逐项验证提醒、恢复和隔离，再决定要不要迁移。",
+      "visualRequirement": "使用 84-92 秒最终复核窗口收尾；固定构图保留两侧上下文和完成状态。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 84,
+          "end": 92,
+          "note": "最终复核与等待人工批准状态直接支持可回滚验证 CTA。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-dynamic-01",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/2026-07-26-iamcorey-kooky/kooky-self-recording-clean.mp4",
+          "mediaType": "video",
+          "sourceStart": 84,
+          "sourceEnd": 92,
+          "matchReason": "最终复核与等待人工批准状态直接支持可回滚验证 CTA。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-dynamic-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-01T03:30:17.885Z",
+      "selectionNote": "窗口互不重叠、按 1 倍速播放且不循环；固定构图保留真实状态变化。",
+      "generatedBy": "ai",
+      "userEdited": true
+    }
+  ]
+}

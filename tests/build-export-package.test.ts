@@ -17,6 +17,8 @@ import {
   researchApprovalFingerprint,
   topicApprovalFingerprint,
 } from '../scripts/lib/production-workflow-contract.mjs';
+import { buildMaterialQualityReview } from '../scripts/lib/material-quality-gate.mjs';
+import { renditionBundleFingerprint } from '../scripts/lib/video-renditions.mjs';
 
 function fixture(options: { acceptance?: boolean; stale?: boolean; deliveryApproved?: boolean } = {}) {
   assert.ok(ffmpegPath);
@@ -41,6 +43,9 @@ function fixture(options: { acceptance?: boolean; stale?: boolean; deliveryAppro
   writeFileSync(srtPath, '1\n00:00:00,000 --> 00:00:00,800\n测试\n');
   writeFileSync(assPath, '[Script Info]\nScriptType: v4.00+\n');
   const videoSha256 = createHash('sha256').update(readFileSync(videoPath)).digest('hex');
+  const deliveryApprovalFingerprint = renditionBundleFingerprint([
+    { id: 'primary', videoSha256 },
+  ]);
 
   const project = {
     schemaVersion: 3,
@@ -53,7 +58,7 @@ function fixture(options: { acceptance?: boolean; stale?: boolean; deliveryAppro
     brief: { objective: 'test', coreMessage: 'test' },
     platformCopy: { coverTitle: '测试封面', title: '测试', description: '', hashtags: [] },
     render: { width: 320, height: 180 },
-    outputs: { workDir, exportDir },
+    outputs: { outputVideo: videoPath, publicRender: videoPath, workDir, exportDir },
     scenes: [],
     sources: [{
       id: 'source-01',
@@ -104,11 +109,16 @@ function fixture(options: { acceptance?: boolean; stale?: boolean; deliveryAppro
         decidedAt: options.deliveryApproved === false ? '' : 'now',
         decidedBy: options.deliveryApproved === false ? '' : 'test-user',
         note: options.deliveryApproved === false ? '' : '测试人员已完整观看当前视频。',
-        fingerprint: options.deliveryApproved === false ? '' : videoSha256,
+        fingerprint: options.deliveryApproved === false ? '' : deliveryApprovalFingerprint,
       },
     },
   };
   const workflowProject = project as unknown as ShortVideoProject;
+  workflowProject.materialQualityReview = buildMaterialQualityReview(workflowProject, {
+    projectId: project.id,
+    reviewScope: '打包契约夹具没有启用场景。',
+    reviews: [],
+  }, 'test-reviewer', 'now');
   project.workflow.topicApproval.fingerprint = topicApprovalFingerprint(workflowProject);
   project.workflow.researchApproval.fingerprint = researchApprovalFingerprint(workflowProject);
   const projectText = `${JSON.stringify(project, null, 2)}\n`;
@@ -159,7 +169,7 @@ function fixture(options: { acceptance?: boolean; stale?: boolean; deliveryAppro
     }),
   };
   writeFileSync(join(workDir, 'render-manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);
-  return { projectPath, exportDir };
+  return { projectPath, exportDir, deliveryApprovalFingerprint };
 }
 
 function run(projectPath: string) {
@@ -213,7 +223,8 @@ test('build-export-package creates a valid ZIP and version receipt', () => {
   assert.equal(unzip.status, 0, unzip.stderr);
   const receipt = JSON.parse(readFileSync(receiptPath, 'utf8'));
   assert.equal(receipt.schemaVersion, 2);
-  assert.equal(receipt.deliveryApprovalFingerprint, receipt.videoSha256);
+  assert.equal(receipt.deliveryApprovalFingerprint, value.deliveryApprovalFingerprint);
+  assert.notEqual(receipt.deliveryApprovalFingerprint, receipt.videoSha256);
   assert.equal(receipt.deliveryApprovedAt, 'now');
   assert.equal(receipt.deliveryApprovedBy, 'test-user');
   assert.equal(receipt.zipBytes, statSync(zipPath).size);

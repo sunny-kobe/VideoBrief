@@ -18,7 +18,39 @@ test('preserves an explicitly selected video window', () => {
     duration: 8,
     frameCount: 240,
     selectedDuration: 8,
+    mediaPlaybackRate: 1,
   });
+});
+
+test('maps a selected source window to a faster frame-aligned output without changing the window', () => {
+  assert.deepEqual(resolveSceneTiming({
+    sceneId: 'dense-demo',
+    sourceType: 'video',
+    sourceStart: 12,
+    sourceEnd: 18,
+    mediaPlaybackRate: 1.2,
+    voiceDuration: 4.8,
+    fps: 30,
+  }), {
+    sourceStart: 12,
+    sourceEnd: 18,
+    renderSourceEnd: 18,
+    duration: 5,
+    frameCount: 150,
+    selectedDuration: 6,
+    mediaPlaybackRate: 1.2,
+  });
+});
+
+test('rejects a media playback rate outside the auditable production range', () => {
+  assert.throws(() => resolveSceneTiming({
+    sceneId: 'too-fast',
+    sourceType: 'video',
+    sourceStart: 0,
+    sourceEnd: 6,
+    mediaPlaybackRate: 5,
+    voiceDuration: 1,
+  }), /mediaPlaybackRate between 0.25 and 4/);
 });
 
 test('rejects a video window that cannot cover the narration', () => {

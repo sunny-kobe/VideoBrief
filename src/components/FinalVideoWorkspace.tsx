@@ -10,7 +10,7 @@ import {
   WandSparkles,
 } from 'lucide-react';
 import { useState } from 'react';
-import WorkflowProgress from '@/src/components/WorkflowProgress';
+import DeliveryReviewPanel from '@/src/components/DeliveryReviewPanel';
 import type {
   RenderJobRecord,
   ShortVideoProject,
@@ -24,7 +24,8 @@ interface FinalVideoWorkspaceProps {
   remotionHref: string;
   renderStatus: WorkbenchRenderStatus;
   renderJob: RenderJobRecord | null;
-  onProjectChange?: (project: ShortVideoProject) => void;
+  showExperimental?: boolean;
+  onProjectChange: (project: ShortVideoProject) => void;
 }
 
 const statusLabel = {
@@ -49,13 +50,14 @@ export default function FinalVideoWorkspace({
   remotionHref,
   renderStatus,
   renderJob,
+  showExperimental = false,
   onProjectChange,
 }: FinalVideoWorkspaceProps) {
   const ready = renderStatus.state === 'ready' && Boolean(renderHref);
-  const [preview, setPreview] = useState<'ffmpeg' | 'remotion'>(remotionHref ? 'remotion' : 'ffmpeg');
+  const [preview, setPreview] = useState<'ffmpeg' | 'remotion'>(showExperimental && remotionHref ? 'remotion' : 'ffmpeg');
   const [renderingRemotion, setRenderingRemotion] = useState(false);
   const [remotionError, setRemotionError] = useState('');
-  const activeHref = preview === 'remotion' && remotionHref ? remotionHref : renderHref;
+  const activeHref = showExperimental && preview === 'remotion' && remotionHref ? remotionHref : renderHref;
 
   async function renderRemotionCandidate() {
     setRenderingRemotion(true);
@@ -80,17 +82,17 @@ export default function FinalVideoWorkspace({
         </div>
         {ready ? (
           <div className="flex flex-wrap items-center justify-end gap-2">
-            {remotionHref ? (
+            {showExperimental && remotionHref ? (
               <div className="inline-flex h-9 rounded-md border border-slate-300 bg-slate-100 p-0.5" aria-label="选择审片版本">
                 <button className={`rounded px-2.5 text-[11px] font-extrabold ${preview === 'ffmpeg' ? 'bg-white text-slate-950 shadow-sm' : 'text-slate-500'}`} type="button" onClick={() => setPreview('ffmpeg')}>正式成片</button>
                 <button className={`rounded px-2.5 text-[11px] font-extrabold ${preview === 'remotion' ? 'bg-white text-slate-950 shadow-sm' : 'text-slate-500'}`} type="button" onClick={() => setPreview('remotion')}>Remotion 候选</button>
               </div>
-            ) : (
+            ) : showExperimental ? (
               <button className="inline-flex h-9 items-center gap-2 rounded-md border border-slate-300 bg-white px-3 text-xs font-extrabold text-slate-700 hover:bg-slate-50 disabled:opacity-50" type="button" disabled={renderingRemotion} onClick={renderRemotionCandidate}>
                 {renderingRemotion ? <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin" /> : <WandSparkles aria-hidden="true" className="h-4 w-4" />}
                 {renderingRemotion ? '生成候选中' : '生成 Gate B 候选'}
               </button>
-            )}
+            ) : null}
             <a className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600" href={`/api/projects/${encodeURIComponent(projectId)}/review-package`} target="_blank" rel="noreferrer" title="打开审片工作包" aria-label="打开审片工作包"><Eye aria-hidden="true" className="h-4 w-4" /></a>
             <a className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600" href={`/short-video?project=${encodeURIComponent(projectId)}`} title="全屏预览" aria-label="全屏预览"><ExternalLink aria-hidden="true" className="h-4 w-4" /></a>
             <a className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600" href={activeHref} download title="下载当前 MP4" aria-label="下载当前 MP4"><Download aria-hidden="true" className="h-4 w-4" /></a>
@@ -104,6 +106,14 @@ export default function FinalVideoWorkspace({
       </div>
 
       {remotionError ? <p className="border-b border-rose-200 bg-rose-50 px-4 py-3 text-xs font-bold text-rose-800" role="alert">{remotionError}</p> : null}
+
+      {ready ? (
+        <DeliveryReviewPanel
+          projectId={projectId}
+          projectUpdatedAt={project.production.updatedAt}
+          onProjectChange={onProjectChange}
+        />
+      ) : null}
 
       <div className="flex min-h-[420px] items-center justify-center bg-slate-950 p-3 lg:min-h-[calc(100dvh-220px)]">
         {ready ? (
@@ -126,14 +136,6 @@ export default function FinalVideoWorkspace({
           <div className="bg-white p-3"><dt className="text-[10px] font-bold text-slate-400">市场</dt><dd className="mt-1 font-extrabold">{statusLabel.market[project.market_status]}</dd></div>
         </dl>
         {renderJob ? <p className="border-t border-slate-200 px-4 py-3 text-xs leading-relaxed text-slate-600">最近任务：{renderJob.state} · {renderJob.stage}{renderJob.error ? ` · ${renderJob.error}` : ''}</p> : null}
-      </details>
-      <details>
-        <summary className="cursor-pointer border-t border-slate-200 px-4 py-3 text-xs font-extrabold text-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600">端到端生产流程</summary>
-        <WorkflowProgress
-          projectId={projectId}
-          projectUpdatedAt={project.production.updatedAt}
-          onProjectChange={onProjectChange}
-        />
       </details>
     </section>
   );

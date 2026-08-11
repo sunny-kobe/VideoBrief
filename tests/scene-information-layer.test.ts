@@ -45,3 +45,12 @@ test('routes common production scenes to a matching information structure', () =
     visualRequirement: '停在 draft-unpublished 和 market_status: none，并提示人工确认',
   }), 'statuses');
 });
+
+test('routes AI model scenes to point-specific information structures', () => {
+  assert.equal(sceneInformationVisualKind({ title: '新旗舰，但不是全系最强' }), 'positioning');
+  assert.equal(sceneInformationVisualKind({ title: '为复杂 Agent 工作而生', subtitle: '验证工作，持续迭代' }), 'iteration');
+  assert.equal(sceneInformationVisualKind({ title: '1M 上下文，128K 输出' }), 'specifications');
+  assert.equal(sceneInformationVisualKind({ title: '同价优于 Opus 4.8？', subtitle: '这是官方评测' }), 'benchmark');
+  assert.equal(sceneInformationVisualKind({ title: '更快，也更贵', subtitle: 'Fast mode 约 2.5 倍速度' }), 'tradeoffs');
+  assert.equal(sceneInformationVisualKind({ title: '先 A/B，再迁移', subtitle: '看成功率、耗时和总成本' }), 'decision');
+});

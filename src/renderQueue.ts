@@ -91,6 +91,20 @@ export function listRenderQueueJobs(path = DEFAULT_RENDER_QUEUE_PATH) {
   return withQueuePositions(parseQueue(path).jobs);
 }
 
+export function removeRenderQueueJobsForProject(
+  path: string,
+  projectId: string,
+  options: QueueOptions = {},
+) {
+  const now = options.now ?? (() => new Date());
+  return withQueueLock(path, (state) => {
+    const removed = state.jobs.filter((job) => job.projectId === projectId);
+    state.jobs = state.jobs.filter((job) => job.projectId !== projectId);
+    if (removed.length > 0) persist(path, state, now);
+    return removed;
+  });
+}
+
 export function renderQueueWorker(
   path = DEFAULT_RENDER_QUEUE_PATH,
   options: Pick<QueueOptions, 'isProcessAlive'> = {},

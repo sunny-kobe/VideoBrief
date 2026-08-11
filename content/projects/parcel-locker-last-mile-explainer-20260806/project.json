@@ -1,0 +1,1656 @@
+{
+  "schemaVersion": 3,
+  "id": "parcel-locker-last-mile-explainer-20260806",
+  "title": "为什么包裹越来越常被送进柜子，而不是送到家门",
+  "format": "video_project",
+  "targetAudience": "对日常服务变化和世界运行机制好奇的普通中文观众",
+  "status": "review",
+  "technical_status": "passed",
+  "rights_status": "review_required",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "lifecycle": {
+    "state": "active",
+    "archivedAt": "",
+    "archivedBy": "",
+    "archiveReason": ""
+  },
+  "brief": {
+    "objective": "用约 85-105 秒讲清快递柜怎样重组最后一公里、企业效率与消费者取件成本如何重新分配，以及成本和减排为何是有条件的结论",
+    "audience": "对日常服务变化和世界运行机制好奇的普通中文观众",
+    "platform": "抖音首发，兼容 B站、YouTube 与 TikTok 扩展",
+    "aspectRatio": "16:9",
+    "targetDurationSeconds": 88,
+    "tone": "清晰、克制、有好奇心，不替运营商放大成本或减排宣传",
+    "style": "公开动态素材、一手资料、独立研究与原创中文信息层结合的解释型短片",
+    "reference": "从一次送一百个门牌与一次送一个柜点的对比出发，解释线路、失败投递和取件成本",
+    "coreMessage": "快递柜把逐门交付改成批量投递点，可能减少失败投递并提高线路密度，但省下的路程、成本和排放并不会自动发生，它取决于柜网位置、满柜率和消费者怎样去取件",
+    "cta": "下次取快递时，看看这段最后一公里到底是谁在走",
+    "prohibitedMaterial": "不得宣称快递柜必然降低成本或碳排；不得把 InPost、DHL 的宣传口径写成独立事实；不得用操作视频证明路线或环境效果；不得把欧洲柜网数据推广为中国现状"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "InPost 2025 年报核验摘录",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://inpost.eu/sites/default/files/2026-03/InPost_Group_IAR_2025_0.pdf",
+      "assetPath": "public/project-assets/parcel-locker-last-mile-explainer-20260806/inpost-2025-report-excerpt-1785981723818.md",
+      "originalFileName": "inpost-2025-report-excerpt.md",
+      "mimeType": "text/markdown",
+      "bytes": 1213,
+      "importedAt": "2026-08-06T02:02:03.818Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "企业一手年报核验摘录；网络规模可作为来源声明，成本与减排表述不视为独立事实。",
+      "contentHash": "a5cf33d140306bd4b8daa81dcaa4100349985361873976a09a0a15fa4ddf8832",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "a5cf33d140306bd4b8daa81dcaa4100349985361873976a09a0a15fa4ddf8832",
+        "startedAt": "2026-08-06T02:05:00.000Z",
+        "completedAt": "2026-08-06T02:05:00.000Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "parcel-locker-research-20260806-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "InPost 2025 年报称，集团年末有 94,500 个 out-of-home 交付点，其中 65% 是 lockers；年末有 61,196 个 APM locations，同比增长 30%。企业同时宣称 lockers 具有成本效率和扩展性。",
+        "visualDescription": "企业年报核验摘录，不作为成片画面。",
+        "hierarchicalSummary": "可证明 InPost 柜网规模和扩张；成本、便利与减排属于企业声明。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-inpost-network-scale",
+            "statement": "InPost 在 2025 年报中称，年末共有 94,500 个 OOH 交付点和 61,196 个 APM locations。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "InPost Group Integrated Annual Report 2025"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "reference",
+            "briefRelevance": 55
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "uncertainty-inpost-benefits",
+            "statement": "InPost 对成本效率、便利和可持续性的表述属于企业声明，不能作为独立效果评估。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "企业年报证据边界"
+              }
+            ],
+            "resolution": "成片不引用企业成本或减排数字，只把柜网规模作为服务形态存在的证据。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 90
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-02",
+      "label": "DHL 最后一公里定义核验摘录",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://www.dhl.com/discover/en-global/logistics-advice/import-export-advice/last-mile-solutions",
+      "assetPath": "public/project-assets/parcel-locker-last-mile-explainer-20260806/dhl-last-mile-excerpt-1785981723845.md",
+      "originalFileName": "dhl-last-mile-excerpt.md",
+      "mimeType": "text/markdown",
+      "bytes": 1113,
+      "importedAt": "2026-08-06T02:02:03.846Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "物流运营商官方解释；只支撑概念与服务形态，不单独支撑成本或减排。",
+      "contentHash": "5b770bc67e5e40d879316a41ad5ba0fefb48164917b0641116546100c40b9411",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "5b770bc67e5e40d879316a41ad5ba0fefb48164917b0641116546100c40b9411",
+        "startedAt": "2026-08-06T02:05:00.000Z",
+        "completedAt": "2026-08-06T02:05:00.000Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "parcel-locker-research-20260806-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "DHL 将 last-mile delivery 定义为从本地配送中心到最终消费者的最后一段，并把 parcel locker 列为地址投递之外的交付方式。",
+        "visualDescription": "物流运营商官方解释摘录，不作为成片画面。",
+        "hierarchicalSummary": "支撑最后一公里定义和柜子作为交付点的服务形态，不支撑成本或减排结论。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-dhl-last-mile-definition",
+            "statement": "DHL 将最后一公里定义为从本地配送中心到最终消费者的最后一段，并明确列出 parcel locker 这种交付方式。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "file",
+                "note": "DHL What Is Last Mile Delivery"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-03",
+      "label": "ERGP 邮政网络报告核验摘录",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://ec.europa.eu/docsroom/documents/53358/attachments/7/translations/en/renditions/native",
+      "assetPath": "public/project-assets/parcel-locker-last-mile-explainer-20260806/ergp-report-excerpt-1785981723854.md",
+      "originalFileName": "ergp-report-excerpt.md",
+      "mimeType": "text/markdown",
+      "bytes": 1184,
+      "importedAt": "2026-08-06T02:02:03.854Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "欧洲邮政监管机构报告摘录；支撑有条件的监管判断，不提供通用减排数字。",
+      "contentHash": "2a9f4a4c6a8cd5a6c128c6ffbc082901bd1c2e8869d72f76beb5fcc1ef19f188",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "2a9f4a4c6a8cd5a6c128c6ffbc082901bd1c2e8869d72f76beb5fcc1ef19f188",
+        "startedAt": "2026-08-06T02:05:00.000Z",
+        "completedAt": "2026-08-06T02:05:00.000Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "parcel-locker-research-20260806-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "ERGP 报告记录 Arcep 的评论：共享 parcel lockers 可合并最后一公里交付，并可能对环境可持续性产生正面影响；报告同时保留不同监管机构的条件和意见差异。",
+        "visualDescription": "欧洲邮政监管报告核验摘录，不作为成片画面。",
+        "hierarchicalSummary": "监管层把集中交付点视为潜在环境方案，但没有通用减排数字。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-ergp-potential-effect",
+            "statement": "ERGP 报告记录监管机构意见：共享快递柜和 out-of-home 交付可能对最后一公里环境可持续性产生正面影响。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "file",
+                "note": "ERGP report section on last-mile sustainability"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-04",
+      "label": "Urban Freight Lab 快递柜现场研究核验摘录",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://urbanfreightlab.com/publications/do-parcel-lockers-reduce-delivery-times-evidence-from-the-field",
+      "assetPath": "public/project-assets/parcel-locker-last-mile-explainer-20260806/urban-freight-field-study-excerpt-1785981723862.md",
+      "originalFileName": "urban-freight-field-study-excerpt.md",
+      "mimeType": "text/markdown",
+      "bytes": 1412,
+      "importedAt": "2026-08-06T02:02:03.862Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "独立现场对照研究摘录；只推广到论文明确测量的楼内时间和路边停留边界。",
+      "contentHash": "031dbf58008a72ac4cda1701441031ffea7368aa60d12f2250e15b7eab4f2d6d",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "031dbf58008a72ac4cda1701441031ffea7368aa60d12f2250e15b7eab4f2d6d",
+        "startedAt": "2026-08-06T02:05:00.000Z",
+        "completedAt": "2026-08-06T02:05:00.000Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "parcel-locker-research-20260806-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "西雅图市中心住宅楼现场对照研究显示，设置 common-carrier parcel locker 后，快递员在楼内停留时间显著下降；车辆路边停留只有小幅、统计上不显著的下降。",
+        "visualDescription": "独立现场研究核验摘录，不作为成片画面。",
+        "hierarchicalSummary": "实证支持楼内交付时间下降；不支持整条路线、成本或碳排必然下降。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-field-inbuilding-time",
+            "statement": "西雅图住宅楼现场对照研究发现，设置快递柜后快递员在楼内停留时间显著下降。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "file",
+                "note": "Transportation Research Part E 172 (2023) 103070 abstract and results"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "fact-field-curb-dwell",
+            "statement": "同一研究发现，配送车辆路边停留时间只有小幅下降，且统计上不显著。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "file",
+                "note": "Transportation Research Part E 172 (2023) 103070 abstract and results"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "uncertainty-field-generalization",
+            "statement": "一个住宅楼案例不能推广为所有城市路线、成本或碳排都会下降。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "file",
+                "note": "研究设计与外推边界"
+              }
+            ],
+            "resolution": "旁白只陈述楼内时间和路边停留结果，并明确整条路线仍需具体条件。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-05",
+      "label": "Frontiers 快递柜系统综述核验摘录",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://www.frontiersin.org/journals/future-transportation/articles/10.3389/ffutr.2025.1654621/full",
+      "assetPath": "public/project-assets/parcel-locker-last-mile-explainer-20260806/frontiers-review-excerpt-1785981723869.md",
+      "originalFileName": "frontiers-review-excerpt.md",
+      "mimeType": "text/markdown",
+      "bytes": 1222,
+      "importedAt": "2026-08-06T02:02:03.869Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "开放获取系统综述摘录；支撑密度、可达性、网络设计和消费者出行等条件。",
+      "contentHash": "c9895b69ad5201ee63ec029e7782de9952808dea7be7ce503614d146eff81256",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "c9895b69ad5201ee63ec029e7782de9952808dea7be7ce503614d146eff81256",
+        "startedAt": "2026-08-06T02:05:00.000Z",
+        "completedAt": "2026-08-06T02:05:00.000Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "parcel-locker-research-20260806-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "系统综述认为，out-of-home delivery 在高密度城市中可能提高成功交付率、降低成本和排放，但效果高度依赖消费者偏好、可达性和网络设计，也可能受设施利用不足和消费者额外出行影响。",
+        "visualDescription": "开放获取系统综述核验摘录，不作为成片画面。",
+        "hierarchicalSummary": "支撑快递柜收益的条件性：密度、可达性、网络设计和消费者取件方式。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-review-context-dependent",
+            "statement": "系统综述认为快递柜的运营和环境效果高度依赖城市密度、可达性、网络设计、设施利用率和消费者取件行为。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "file",
+                "note": "Frontiers 2025 systematic literature review"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "uncertainty-universal-carbon",
+            "statement": "现有研究不能支持快递柜在任意地区、任意取件方式下必然降低成本或碳排。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "file",
+                "note": "综述记录的条件和争议"
+              }
+            ],
+            "resolution": "成片以柜距、满柜率、是否顺路和取件交通方式限定结论，不给通用减排数字。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-06",
+      "label": "InPost UK：Lockers Explained",
+      "sourceType": "video",
+      "materialRole": "official_demo",
+      "originUrl": "https://www.youtube.com/watch?v=i0yD42qcDgw",
+      "assetPath": "public/project-assets/parcel-locker-last-mile-explainer-20260806/inpost-lockers-explained-1785981723878.mp4",
+      "originalFileName": "inpost-lockers-explained.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 7635748,
+      "importedAt": "2026-08-06T02:02:03.882Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "InPost 企业公开视频，公开可访问但未标明可复用许可；仅用于本地样片，发布前必须清权或替换。",
+      "contentHash": "449dd6b150941f237e8615d89b02a211a4eb17fc38d51efe46abb134426d50ab",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "449dd6b150941f237e8615d89b02a211a4eb17fc38d51efe46abb134426d50ab",
+        "startedAt": "2026-08-06T02:05:00.000Z",
+        "completedAt": "2026-08-06T02:05:00.000Z",
+        "error": "",
+        "model": "manual-frame-review",
+        "promptVersion": "parcel-locker-research-20260806-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "1920x1080/25fps InPost 企业公开视频；0-10 秒为寄件与生活情境，10-18 秒为通知、到柜，18-28 秒为扫码开柜取件，28-40 秒为退货和关柜。",
+        "hierarchicalSummary": "可承担到柜、扫码、开柜、取件、退货等操作与日常情境；不能证明线路、成本或减排。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-inpost-video-windows",
+            "statement": "已核验四个不重叠窗口，覆盖寄件情境、通知到柜、扫码取件和退货关柜。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 0,
+                "end": 40,
+                "note": "start/mid/end 代表帧人工复核"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "supporting",
+            "briefRelevance": 9
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-07",
+      "label": "DHL Packstation 操作演示",
+      "sourceType": "video",
+      "materialRole": "official_demo",
+      "originUrl": "https://www.youtube.com/watch?v=VcWQS7Sn4dQ",
+      "assetPath": "public/project-assets/parcel-locker-last-mile-explainer-20260806/dhl-packstation-1785981723902.mp4",
+      "originalFileName": "dhl-packstation.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 31878199,
+      "importedAt": "2026-08-06T02:02:03.917Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "DHL 企业公开视频，公开可访问但未标明可复用许可；仅用于本地样片，发布前必须清权或替换。",
+      "contentHash": "ab35976dfc1cf6c4bee4d34fabb8b7d522b4b60a0d4248a20fe4786e84ee7eb6",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "ab35976dfc1cf6c4bee4d34fabb8b7d522b4b60a0d4248a20fe4786e84ee7eb6",
+        "startedAt": "2026-08-06T02:05:00.000Z",
+        "completedAt": "2026-08-06T02:05:00.000Z",
+        "error": "",
+        "model": "manual-frame-review",
+        "promptVersion": "parcel-locker-research-20260806-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "1920x1080/25fps DHL 企业公开视频；205-217、225-237、274-286 与 325-337 秒分别展示柜机、二维码、到柜、格口选择、投递与扫码操作。",
+        "hierarchicalSummary": "可承担柜机服务形态和具体操作；主持人口播与品牌文案不能代替独立事实证据。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-dhl-video-windows",
+            "statement": "已核验四个不重叠窗口，覆盖柜机、扫码、到柜、格口选择和包裹投递。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "time",
+                "start": 205,
+                "end": 337,
+                "note": "四个独立窗口 start/mid/end 人工复核"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "supporting",
+            "briefRelevance": 9
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [],
+    "facts": [
+      {
+        "id": "fact-inpost-network-scale",
+        "statement": "InPost 在 2025 年报中称，年末共有 94,500 个 OOH 交付点和 61,196 个 APM locations。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "InPost Group Integrated Annual Report 2025"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "reference",
+        "briefRelevance": 55
+      },
+      {
+        "id": "fact-dhl-last-mile-definition",
+        "statement": "DHL 将最后一公里定义为从本地配送中心到最终消费者的最后一段，并明确列出 parcel locker 这种交付方式。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "DHL What Is Last Mile Delivery"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-ergp-potential-effect",
+        "statement": "ERGP 报告记录监管机构意见：共享快递柜和 out-of-home 交付可能对最后一公里环境可持续性产生正面影响。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "file",
+            "note": "ERGP report section on last-mile sustainability"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 8
+      },
+      {
+        "id": "fact-field-inbuilding-time",
+        "statement": "西雅图住宅楼现场对照研究发现，设置快递柜后快递员在楼内停留时间显著下降。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "file",
+            "note": "Transportation Research Part E 172 (2023) 103070 abstract and results"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-field-curb-dwell",
+        "statement": "同一研究发现，配送车辆路边停留时间只有小幅下降，且统计上不显著。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "file",
+            "note": "Transportation Research Part E 172 (2023) 103070 abstract and results"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-review-context-dependent",
+        "statement": "系统综述认为快递柜的运营和环境效果高度依赖城市密度、可达性、网络设计、设施利用率和消费者取件行为。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "file",
+            "note": "Frontiers 2025 systematic literature review"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-inpost-video-windows",
+        "statement": "已核验四个不重叠窗口，覆盖寄件情境、通知到柜、扫码取件和退货关柜。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 0,
+            "end": 40,
+            "note": "start/mid/end 代表帧人工复核"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "supporting",
+        "briefRelevance": 9
+      },
+      {
+        "id": "fact-dhl-video-windows",
+        "statement": "已核验四个不重叠窗口，覆盖柜机、扫码、到柜、格口选择和包裹投递。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "time",
+            "start": 205,
+            "end": 337,
+            "note": "四个独立窗口 start/mid/end 人工复核"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "supporting",
+        "briefRelevance": 9
+      }
+    ],
+    "uncertainties": [
+      {
+        "id": "uncertainty-inpost-benefits",
+        "statement": "InPost 对成本效率、便利和可持续性的表述属于企业声明，不能作为独立效果评估。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "企业年报证据边界"
+          }
+        ],
+        "resolution": "成片不引用企业成本或减排数字，只把柜网规模作为服务形态存在的证据。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 90
+      },
+      {
+        "id": "uncertainty-field-generalization",
+        "statement": "一个住宅楼案例不能推广为所有城市路线、成本或碳排都会下降。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "file",
+            "note": "研究设计与外推边界"
+          }
+        ],
+        "resolution": "旁白只陈述楼内时间和路边停留结果，并明确整条路线仍需具体条件。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "uncertainty-universal-carbon",
+        "statement": "现有研究不能支持快递柜在任意地区、任意取件方式下必然降低成本或碳排。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "file",
+            "note": "综述记录的条件和争议"
+          }
+        ],
+        "resolution": "成片以柜距、满柜率、是否顺路和取件交通方式限定结论，不给通用减排数字。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      }
+    ]
+  },
+  "narrative": {
+    "status": "completed",
+    "error": "",
+    "activeVersionId": "narrative-v1",
+    "versions": [
+      {
+        "id": "narrative-v1",
+        "generatedAt": "2026-08-06T02:05:00.000Z",
+        "model": "codex-editorial",
+        "promptVersion": "original-chinese-explainer-20260806-v1",
+        "inputHash": "human-approved-topic-and-research-gate",
+        "conclusion": "快递柜首先减少逐门交接动作，但整条路线和环境收益取决于柜网与消费者行为。",
+        "hook": "送一百个门牌，和送一个柜子，快递公司会选哪个？",
+        "outline": [
+          "提出门址与柜点对比",
+          "解释最后一公里",
+          "拆解交付动作重新分配",
+          "用现场研究验证并限制结论",
+          "给出柜距、满柜和取件方式条件"
+        ],
+        "voiceoverScript": "送一百个门牌，和送一个柜子，快递公司会选哪个？包裹为什么越来越常进柜？包裹从本地网点到你手里的最后一段，叫最后一公里。干线一次拉很多件，末端却分散到每个地址。上门要找楼、停车、进门、等人、交接。人不在，还可能再来。柜子把这些门牌，改成一个固定交付点。快递员连续开格口、放入多件包裹；你收到通知后，再按自己的时间扫码取件。企业省等待，你接手最后一段路。西雅图一栋住宅楼的现场对照研究发现，装柜后，快递员在楼内停留时间显著下降。但同一项研究里，车辆在路边只小幅缩短，而且统计上不显著。省了楼内动作，不等于整条路线更短。减排也有条件：柜子要离日常路线近，不能常满；你最好步行、骑车或顺路取件。专门开车去，可能把省下的路走回来。所以柜子不是让最后一公里消失，而是重新分配。谁真正受益，要看快递员少走多少，以及你多走多少。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "最后一公里定义"
+          },
+          {
+            "sourceId": "source-04",
+            "locatorType": "file",
+            "note": "现场研究结果"
+          },
+          {
+            "sourceId": "source-05",
+            "locatorType": "file",
+            "note": "条件性与争议"
+          }
+        ],
+        "uncertainties": [
+          "没有把运营商成本或减排宣传写成独立事实",
+          "没有把西雅图单楼案例推广为全部城市路线",
+          "没有使用未公开的中国柜网运营数字"
+        ]
+      }
+    ],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "pendingChapters": [],
+    "generatedAt": "2026-08-06T02:05:00.000Z",
+    "model": "codex-editorial",
+    "promptVersion": "original-chinese-explainer-20260806-v1"
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-5.6",
+    "transcriptionModel": "whisper.cpp:large-v3-turbo-q5_0",
+    "promptVersion": "videobrief-2026-07-11-v1",
+    "calls": []
+  },
+  "editorial": {
+    "claim": "快递柜把逐门交付改成批量投递点，但省下的路程、成本和排放取决于柜网与消费者取件条件。",
+    "whyItMatters": "一次普通取件背后，是企业效率、失败投递和消费者时间如何重新分配。",
+    "chinaContext": "不使用未公开的中国柜网运营数据，不把欧洲企业与研究结果直接推广为中国现状。",
+    "riskNote": "InPost、DHL 视频未获复用许可；运营商收益声明与独立现场研究严格分开。"
+  },
+  "platformCopy": {
+    "coverTitle": "快递为什么更爱送进柜子",
+    "title": "送 100 个门牌，和送 1 个柜子，快递公司会选哪个？",
+    "description": "快递柜省下了哪些动作，又把哪段路交给了你？一项现场研究给出了比宣传更克制的答案。",
+    "hashtags": [
+      "快递柜",
+      "最后一公里",
+      "物流",
+      "日常系统"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "2026-08-06T02:02:03.816Z",
+    "updatedAt": "2026-08-07T07:07:49.194Z",
+    "researchReviewedAt": "2026-08-06T02:05:00.000Z",
+    "firstRenderCompletedAt": "2026-08-06T02:13:34.025Z",
+    "lastRenderCompletedAt": "2026-08-06T02:23:09.443Z",
+    "sourceImportCount": 7,
+    "manualSaveCount": 0,
+    "renderAttemptCount": 2,
+    "renderFailureCount": 0,
+    "lastRenderStartedAt": "2026-08-06T02:22:08.603Z",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "materialReview": {
+    "status": "approved",
+    "approvedSourceIds": [
+      "source-06",
+      "source-07"
+    ],
+    "reviewedAt": "2026-08-06T02:05:00.000Z"
+  },
+  "materialQualityReview": {
+    "schemaVersion": 1,
+    "status": "passed",
+    "reviewedAt": "2026-08-06T02:11:15.659Z",
+    "reviewer": "codex",
+    "reviewScope": "8 个启用场景；逐幕核对 1920x1080 原素材 start/mid/end、窗口完整性、画面角色、桌面与 390x844 移动视口缩放后的主体可辨性。两份动态来源均为企业公开视频、权利 review_required，仅用于本地样片；未使用 AI 生成或合成画面。",
+    "sceneReviews": [
+      {
+        "sceneId": "scene-01",
+        "sceneFingerprint": "aa7d502cb06baf253d27495f93e90a5bae3ea31b456cc01b34884d9d84b8e9c0",
+        "candidate": {
+          "sourceId": "source-06",
+          "sourceStart": 10,
+          "sourceEnd": 18
+        },
+        "visibleClaim": "收件人查看手机、到达柜机并开始开柜操作。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "真实操作建立快递柜问题情境；100 个门址与 1 个柜点的机制对比由原创中文标题承担，画面不冒充线路证据。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "人物、手机和柜机为大主体；不要求读取原片英文叠字。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "8 秒窗口连续覆盖通知、走近柜机和开始操作，没有循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原片人物与开柜动作具有情境必要性，未增加推拉。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "10-18 秒只承担开头问题情境，与其他窗口不重叠。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "问题对象直接可见",
+          "机制对比由原创信息层承担",
+          "窗口独立"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-01-start.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-01-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-01-end.png"
+        ]
+      },
+      {
+        "sceneId": "scene-02",
+        "sceneFingerprint": "da8a3fba5858d05cc76cf709fd5e9af676896ddc1a1f2b7f241b393869cfde68",
+        "candidate": {
+          "sourceId": "source-06",
+          "sourceStart": 18,
+          "sourceEnd": 28
+        },
+        "visibleClaim": "用户在固定柜点扫码、开门并完成取件。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "固定柜点和取件动作直接展示最后一公里的一种终点形态；定义本身由 DHL 官方解释支撑。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "扫码、柜门和包裹动作清晰，不依赖手机或柜机细字。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "10 秒窗口覆盖到柜、扫码、开门和取件，没有跨入下一段退货情节。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原始操作镜头稳定，未增加额外运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "18-28 秒只承担固定交付点操作，与相邻窗口不重叠。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "操作完整",
+          "主体清晰",
+          "与概念来源分工明确"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-02-start.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-02-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-02-end.png"
+        ]
+      },
+      {
+        "sceneId": "scene-03",
+        "sceneFingerprint": "73a87bb00d9ed9d333f68af8e2237c410db935d5d004ed1a58c828ec80cc8c19",
+        "candidate": {
+          "sourceId": "source-07",
+          "sourceStart": 205,
+          "sourceEnd": 217
+        },
+        "visibleClaim": "DHL 柜机、手机与可随时使用的服务情境。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "画面展示固定柜点及异步交接情境；找楼、停车、进门、等人的动作拆解属于原创机制说明，不由品牌画面证明。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "黄色柜机和手机为大主体；德文日历或界面细字不承担信息。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "12 秒窗口从服务时间示意进入柜机与手机操作，转场完整。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原片转场用于建立柜机服务形态，没有额外推拉。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "205-217 秒只承担逐门交付与固定柜点对比情境。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "固定交付点可见",
+          "不依赖德文细字",
+          "不冒充失败率证据"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-03-start.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-03-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-03-end.png"
+        ]
+      },
+      {
+        "sceneId": "scene-04",
+        "sceneFingerprint": "d087318a9a150dfbad6a28ba077ed66a3f13bf034847541da87119f73506c3f4",
+        "candidate": {
+          "sourceId": "source-07",
+          "sourceStart": 225,
+          "sourceEnd": 237
+        },
+        "visibleClaim": "二维码进入柜机流程，用户到柜并把包裹放入格口。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "扫码、到柜和放入格口直接展示投递动作与收件人自取可以分时完成。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "二维码、人物、包裹和格口均可辨；不要求读取取件码或德文。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "12 秒窗口覆盖二维码、到柜和放件，动作完整且无循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原始操作动作必要，未增加镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "225-237 秒只承担交付与取件分时机制。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "动作直接",
+          "窗口完整",
+          "不依赖界面细字"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-04-start.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-04-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-04-end.png"
+        ]
+      },
+      {
+        "sceneId": "scene-05",
+        "sceneFingerprint": "e257f90fe8d3696c638025634b55ccb13cddfe4b438f7e6048a1bf9704171aab",
+        "candidate": {
+          "sourceId": "source-07",
+          "sourceStart": 274,
+          "sourceEnd": 286
+        },
+        "visibleClaim": "用户到柜、选择格口并将包裹放入柜门。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "操作画面说明楼内逐户交接可被柜点动作替代；显著下降的统计结论只由独立现场研究支撑。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "人物、柜机和放件动作清晰；格口尺寸德文不承担研究结论。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "12 秒窗口从到柜进入选择格口并完成放件，没有循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "操作运动有叙事必要性，未增加推拉。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "274-286 秒只承担现场研究的机制背景，与其他 DHL 窗口分离。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "操作与研究机制相关",
+          "统计结论另有独立来源",
+          "窗口独立"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-05-start.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-05-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-05-end.png"
+        ]
+      },
+      {
+        "sceneId": "scene-06",
+        "sceneFingerprint": "1ef7204344ff556d5952cf0c931ddf3597752ddc37da51fa91c901556cd33311",
+        "candidate": {
+          "sourceId": "source-07",
+          "sourceStart": 325,
+          "sourceEnd": 337
+        },
+        "visibleClaim": "用户到柜、扫码并拿取或处理包裹。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "画面只承担柜点操作背景；路边停留小幅且统计不显著的结论由同一独立研究和原创标题承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "人物、手机、柜门和包裹为大主体；二维码内容不需要读取。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "12 秒窗口连续覆盖到柜、扫码和包裹动作，未复用前一窗口。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原片动作稳定，未增加额外运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "325-337 秒只承担研究边界场景，与其他窗口不重叠。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "研究边界明确",
+          "画面不冒充统计证据",
+          "窗口独立"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-06-start.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-06-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-06-end.png"
+        ]
+      },
+      {
+        "sceneId": "scene-07",
+        "sceneFingerprint": "0db35b557b64c8c3760a1bc0c21a49137aea233b836479cde1f158d00e8c2340",
+        "candidate": {
+          "sourceId": "source-06",
+          "sourceStart": 28,
+          "sourceEnd": 40
+        },
+        "visibleClaim": "不同用户完成退货、关柜和移动中的手机操作。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "真实用户动作承担取件与退货情境；柜距、满柜率、是否顺路和交通方式由系统综述、监管报告和原创信息层承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "人物、包裹、手机和柜机可辨，不读取原片广告字或二维码。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "12 秒窗口覆盖退货、关柜和用户移动，末端品牌近景只作来源内转场，不循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原片人物和柜门动作有情境价值，未增加运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "28-40 秒只承担环境条件与消费者行为情境。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "条件由独立研究承担",
+          "品牌画面不证明减排",
+          "窗口不重叠"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-07-start.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-07-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-07-end.png"
+        ]
+      },
+      {
+        "sceneId": "scene-08",
+        "sceneFingerprint": "36d2028427e353da85eb3adfdd0a12ccab0d0ca9db55747edb0104a6267a13de",
+        "candidate": {
+          "sourceId": "source-06",
+          "sourceStart": 0,
+          "sourceEnd": 10
+        },
+        "visibleClaim": "寄件人打包、路上行人和收件人查看手机的日常情境。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "寄件与收件情境支持路程在参与者之间流动的收束；分配结论由前述事实、推断和原创标题共同承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "人物和包裹为大主体，不依赖英文字幕或手机细字。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "10 秒窗口连续覆盖打包、出行和查看通知，未与 10-18 秒窗口重叠。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原片蒙太奇用于收束多方参与者，未增加推拉。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "0-10 秒只承担结尾分配情境，与其他 InPost 窗口不重叠。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "日常情境相关",
+          "结论不由广告画面单独证明",
+          "窗口独立"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-08-start.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-08-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/parcel-locker-scene-review/scene-08-end.png"
+        ]
+      }
+    ]
+  },
+  "workflow": {
+    "schemaVersion": 1,
+    "origin": {
+      "kind": "manual",
+      "runId": "",
+      "candidateId": "",
+      "sourceUrl": "https://urbanfreightlab.com/publications/do-parcel-lockers-reduce-delivery-times-evidence-from-the-field",
+      "score": 37,
+      "summary": "新内容主线第二条普通受众样片"
+    },
+    "topicApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-05T11:20:00.000Z",
+      "decidedBy": "用户",
+      "note": "用户批准继续制作快递柜命题，并沿用默认 16:9、1920x1080、30fps 正式画幅。",
+      "fingerprint": "aad7dcc0c347908977809bf0cc9714574822b66f53f278a355c48cdbeacb85fc"
+    },
+    "researchApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-05T11:20:00.000Z",
+      "decidedBy": "用户",
+      "note": "用户批准 Topic Gate 报告后继续本题；正式制作保留企业声明、独立研究和权利缺口边界。",
+      "fingerprint": "5e729f09cdb79af2663f01093c913dfd9fd9e9e0728832bc3014422fc64d287a"
+    },
+    "deliveryApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-07T07:07:49.193Z",
+      "decidedBy": "local-user",
+      "note": "",
+      "fingerprint": "88edcb0bb2c892eacfb02e114cccb7a29f4f2e1438580fa63495de1cabec8325"
+    },
+    "publication": {
+      "approval": {
+        "status": "pending",
+        "decidedAt": "",
+        "decidedBy": "",
+        "note": "",
+        "fingerprint": ""
+      },
+      "platform": "",
+      "publishedUrl": "",
+      "publishedAt": "",
+      "videoSha256": "",
+      "packageSha256": ""
+    },
+    "market": {
+      "decision": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "evidence": []
+    }
+  },
+  "chapters": [
+    {
+      "id": "chapter-01",
+      "title": "为什么包裹越来越常被送进柜子",
+      "summary": "从一个柜点替代多个门址，讲到最后一公里、批量投递、现场实证和消费者取件条件。",
+      "order": 0,
+      "sceneIds": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06",
+        "scene-07",
+        "scene-08"
+      ],
+      "sourceReferences": [
+        {
+          "sourceId": "source-02",
+          "locatorType": "file",
+          "note": "最后一公里定义"
+        },
+        {
+          "sourceId": "source-04",
+          "locatorType": "file",
+          "note": "现场对照研究"
+        },
+        {
+          "sourceId": "source-05",
+          "locatorType": "file",
+          "note": "效果条件系统综述"
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "outputVideo": "output/videos/parcel-locker-last-mile-explainer-20260806.mp4",
+    "publicRender": "public/renders/parcel-locker-last-mile-explainer-20260806.mp4",
+    "workDir": "output/videos/parcel-locker-last-mile-explainer-20260806-work",
+    "exportDir": "output/exports/parcel-locker-last-mile-explainer-20260806",
+    "coverImage": "output/exports/parcel-locker-last-mile-explainer-20260806/cover.png",
+    "platformCopy": "output/exports/parcel-locker-last-mile-explainer-20260806/platform-copy.json",
+    "sourceList": "output/exports/parcel-locker-last-mile-explainer-20260806/source-list.json",
+    "projectSnapshot": "output/exports/parcel-locker-last-mile-explainer-20260806/project.snapshot.json"
+  },
+  "render": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice": "zh-CN-YunxiNeural",
+    "rate": 194,
+    "voiceEngine": "edge-tts",
+    "voiceModel": "edge-tts-universal",
+    "voiceProfile": "natural-tech-zh-v1",
+    "voiceStyle": "像真实的中文知识内容创作者一样讲述。\n声音克制、自然，有轻微交流感，不要新闻播音腔或广告腔。\n使用中等语速，在转折和结论前自然停顿。\n重点词只做轻微强调，不要夸张表演。\n必须准确朗读原文，不要增加、删减或改写内容。",
+    "voiceGenerationMode": "per-scene",
+    "renderStrategy": "segmented-concat",
+    "pronunciations": [],
+    "mediaFit": "contain"
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-06",
+      "sourceStart": 10,
+      "sourceEnd": 18,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "一个柜点，替代多少门牌",
+      "title": "100 个门址 / 1 个柜点",
+      "subtitle": "包裹为什么越来越常进柜？",
+      "narration": "送一百个门牌，和送一个柜子，快递公司会选哪个？包裹为什么越来越常进柜？",
+      "visualRequirement": "通知后到柜并开始操作，作为问题情境；原创标题承担 100 个门址与 1 个柜点的模型对比，不把画面当路线证据。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-06",
+          "locatorType": "time",
+          "start": 10,
+          "end": 18,
+          "note": "InPost UK：Lockers Explained 已核验窗口"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-01",
+          "sourceId": "source-06",
+          "assetPath": "public/project-assets/parcel-locker-last-mile-explainer-20260806/inpost-lockers-explained-1785981723878.mp4",
+          "mediaType": "video",
+          "sourceStart": 10,
+          "sourceEnd": 18,
+          "matchReason": "通知后到柜并开始操作，作为问题情境；原创标题承担 100 个门址与 1 个柜点的模型对比，不把画面当路线证据。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-06T02:05:00.000Z",
+      "selectionNote": "已人工检查 start/mid/end；窗口不循环、不重叠，品牌画面只承担操作或情境角色。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-02",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-06",
+      "sourceStart": 18,
+      "sourceEnd": 28,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "干线有规模，末端没有",
+      "title": "最难的是最后一公里",
+      "subtitle": "本地网点 → 分散门址",
+      "narration": "包裹从本地网点到你手里的最后一段，叫最后一公里。干线一次拉很多件，末端却分散到每个地址。",
+      "visualRequirement": "扫码、开柜和取件展示固定交付点；最后一公里定义由 DHL 官方解释支撑。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-06",
+          "locatorType": "time",
+          "start": 18,
+          "end": 28,
+          "note": "InPost UK：Lockers Explained 已核验窗口"
+        },
+        {
+          "sourceId": "source-02",
+          "locatorType": "file",
+          "note": "DHL 最后一公里定义核验摘录 事实或证据边界"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-02",
+          "sourceId": "source-06",
+          "assetPath": "public/project-assets/parcel-locker-last-mile-explainer-20260806/inpost-lockers-explained-1785981723878.mp4",
+          "mediaType": "video",
+          "sourceStart": 18,
+          "sourceEnd": 28,
+          "matchReason": "扫码、开柜和取件展示固定交付点；最后一公里定义由 DHL 官方解释支撑。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-02",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-06T02:05:00.000Z",
+      "selectionNote": "已人工检查 start/mid/end；窗口不循环、不重叠，品牌画面只承担操作或情境角色。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-03",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-07",
+      "sourceStart": 205,
+      "sourceEnd": 217,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "逐门动作无法批量完成",
+      "title": "上门交付很碎",
+      "subtitle": "找楼 · 停车 · 进门 · 等人 · 交接",
+      "narration": "上门要找楼、停车、进门、等人、交接。人不在，还可能再来。柜子把这些门牌，改成一个固定交付点。",
+      "visualRequirement": "柜机和手机操作作为集中交付的相关画面；逐门动作列表是机制拆解，不宣称具体失败率。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-07",
+          "locatorType": "time",
+          "start": 205,
+          "end": 217,
+          "note": "DHL Packstation 操作演示 已核验窗口"
+        },
+        {
+          "sourceId": "source-02",
+          "locatorType": "file",
+          "note": "DHL 最后一公里定义核验摘录 事实或证据边界"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-03",
+          "sourceId": "source-07",
+          "assetPath": "public/project-assets/parcel-locker-last-mile-explainer-20260806/dhl-packstation-1785981723902.mp4",
+          "mediaType": "video",
+          "sourceStart": 205,
+          "sourceEnd": 217,
+          "matchReason": "柜机和手机操作作为集中交付的相关画面；逐门动作列表是机制拆解，不宣称具体失败率。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-03",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-06T02:05:00.000Z",
+      "selectionNote": "已人工检查 start/mid/end；窗口不循环、不重叠，品牌画面只承担操作或情境角色。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-04",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-07",
+      "sourceStart": 225,
+      "sourceEnd": 237,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "交付点改变，路程归属也改变",
+      "title": "企业省等待，你接手路程",
+      "subtitle": "批量投递 / 按时自取",
+      "narration": "快递员连续开格口、放入多件包裹；你收到通知后，再按自己的时间扫码取件。企业省等待，你接手最后一段路。",
+      "visualRequirement": "二维码、到柜和放入包裹的完整操作，直接展示交付与取件动作怎样分开。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-07",
+          "locatorType": "time",
+          "start": 225,
+          "end": 237,
+          "note": "DHL Packstation 操作演示 已核验窗口"
+        },
+        {
+          "sourceId": "source-05",
+          "locatorType": "file",
+          "note": "Frontiers 快递柜系统综述核验摘录 事实或证据边界"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-04",
+          "sourceId": "source-07",
+          "assetPath": "public/project-assets/parcel-locker-last-mile-explainer-20260806/dhl-packstation-1785981723902.mp4",
+          "mediaType": "video",
+          "sourceStart": 225,
+          "sourceEnd": 237,
+          "matchReason": "二维码、到柜和放入包裹的完整操作，直接展示交付与取件动作怎样分开。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-04",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-06T02:05:00.000Z",
+      "selectionNote": "已人工检查 start/mid/end；窗口不循环、不重叠，品牌画面只承担操作或情境角色。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-05",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-07",
+      "sourceStart": 274,
+      "sourceEnd": 286,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "独立现场研究：西雅图住宅楼",
+      "title": "楼内时间显著下降",
+      "subtitle": "快递员少走楼道、少等交接",
+      "narration": "西雅图一栋住宅楼的现场对照研究发现，装柜后，快递员在楼内停留时间显著下降。",
+      "visualRequirement": "到柜、选择格口和放入包裹作为操作背景；显著下降结论只由独立现场研究支撑。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-07",
+          "locatorType": "time",
+          "start": 274,
+          "end": 286,
+          "note": "DHL Packstation 操作演示 已核验窗口"
+        },
+        {
+          "sourceId": "source-04",
+          "locatorType": "file",
+          "note": "Urban Freight Lab 快递柜现场研究核验摘录 事实或证据边界"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-05",
+          "sourceId": "source-07",
+          "assetPath": "public/project-assets/parcel-locker-last-mile-explainer-20260806/dhl-packstation-1785981723902.mp4",
+          "mediaType": "video",
+          "sourceStart": 274,
+          "sourceEnd": 286,
+          "matchReason": "到柜、选择格口和放入包裹作为操作背景；显著下降结论只由独立现场研究支撑。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-05",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-06T02:05:00.000Z",
+      "selectionNote": "已人工检查 start/mid/end；窗口不循环、不重叠，品牌画面只承担操作或情境角色。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-06",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-07",
+      "sourceStart": 325,
+      "sourceEnd": 337,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "同一研究的另一项结果",
+      "title": "路边停留变化不显著",
+      "subtitle": "省楼内动作 ≠ 整条路线变短",
+      "narration": "但同一项研究里，车辆在路边只小幅缩短，而且统计上不显著。省了楼内动作，不等于整条路线更短。",
+      "visualRequirement": "扫码、柜门和包裹操作只作机制相关画面；原创标题明确独立研究的负向边界。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-07",
+          "locatorType": "time",
+          "start": 325,
+          "end": 337,
+          "note": "DHL Packstation 操作演示 已核验窗口"
+        },
+        {
+          "sourceId": "source-04",
+          "locatorType": "file",
+          "note": "Urban Freight Lab 快递柜现场研究核验摘录 事实或证据边界"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-06",
+          "sourceId": "source-07",
+          "assetPath": "public/project-assets/parcel-locker-last-mile-explainer-20260806/dhl-packstation-1785981723902.mp4",
+          "mediaType": "video",
+          "sourceStart": 325,
+          "sourceEnd": 337,
+          "matchReason": "扫码、柜门和包裹操作只作机制相关画面；原创标题明确独立研究的负向边界。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-06",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-06T02:05:00.000Z",
+      "selectionNote": "已人工检查 start/mid/end；窗口不循环、不重叠，品牌画面只承担操作或情境角色。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-07",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-06",
+      "sourceStart": 28,
+      "sourceEnd": 40,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "环境收益不是自动发生",
+      "title": "减排取决于四个条件",
+      "subtitle": "柜距 · 满柜率 · 是否顺路 · 取件方式",
+      "narration": "减排也有条件：柜子要离日常路线近，不能常满；你最好步行、骑车或顺路取件。专门开车去，可能把省下的路走回来。",
+      "visualRequirement": "退货、关柜和用户移动作为相关情境；四个条件由系统综述和监管报告承担，不把品牌视频当环境证据。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-06",
+          "locatorType": "time",
+          "start": 28,
+          "end": 40,
+          "note": "InPost UK：Lockers Explained 已核验窗口"
+        },
+        {
+          "sourceId": "source-03",
+          "locatorType": "file",
+          "note": "ERGP 邮政网络报告核验摘录 事实或证据边界"
+        },
+        {
+          "sourceId": "source-05",
+          "locatorType": "file",
+          "note": "Frontiers 快递柜系统综述核验摘录 事实或证据边界"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-07",
+          "sourceId": "source-06",
+          "assetPath": "public/project-assets/parcel-locker-last-mile-explainer-20260806/inpost-lockers-explained-1785981723878.mp4",
+          "mediaType": "video",
+          "sourceStart": 28,
+          "sourceEnd": 40,
+          "matchReason": "退货、关柜和用户移动作为相关情境；四个条件由系统综述和监管报告承担，不把品牌视频当环境证据。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-07",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-06T02:05:00.000Z",
+      "selectionNote": "已人工检查 start/mid/end；窗口不循环、不重叠，品牌画面只承担操作或情境角色。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-08",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-06",
+      "sourceStart": 0,
+      "sourceEnd": 10,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "最后一公里没有消失",
+      "title": "不是少走，而是重新分配",
+      "subtitle": "快递员少走多少 / 你多走多少",
+      "narration": "所以柜子不是让最后一公里消失，而是重新分配。谁真正受益，要看快递员少走多少，以及你多走多少。",
+      "visualRequirement": "寄件人与收件人日常情境用于收束；原创标题承担利益与路程重新分配的结论。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-06",
+          "locatorType": "time",
+          "start": 0,
+          "end": 10,
+          "note": "InPost UK：Lockers Explained 已核验窗口"
+        },
+        {
+          "sourceId": "source-04",
+          "locatorType": "file",
+          "note": "Urban Freight Lab 快递柜现场研究核验摘录 事实或证据边界"
+        },
+        {
+          "sourceId": "source-05",
+          "locatorType": "file",
+          "note": "Frontiers 快递柜系统综述核验摘录 事实或证据边界"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-08",
+          "sourceId": "source-06",
+          "assetPath": "public/project-assets/parcel-locker-last-mile-explainer-20260806/inpost-lockers-explained-1785981723878.mp4",
+          "mediaType": "video",
+          "sourceStart": 0,
+          "sourceEnd": 10,
+          "matchReason": "寄件人与收件人日常情境用于收束；原创标题承担利益与路程重新分配的结论。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-08",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-06T02:05:00.000Z",
+      "selectionNote": "已人工检查 start/mid/end；窗口不循环、不重叠，品牌画面只承担操作或情境角色。",
+      "generatedBy": "user",
+      "userEdited": true
+    }
+  ]
+}

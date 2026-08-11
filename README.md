@@ -20,8 +20,10 @@ It is also not a transcript-first summarizer, a video reposting tool or an auton
 ## Product Documents
 
 - Canonical product workflow and roadmap: [`docs/video-production-workflow-and-roadmap.zh-CN.md`](docs/video-production-workflow-and-roadmap.zh-CN.md)
+- Self-owned explainer research and audience-sample playbook: [`docs/self-owned-explainer-production-playbook.zh-CN.md`](docs/self-owned-explainer-production-playbook.zh-CN.md)
 - Next-session execution handoff: [`docs/video-production-workflow-execution-handoff.zh-CN.md`](docs/video-production-workflow-execution-handoff.zh-CN.md)
 - Current FFmpeg render and proof contract: [`docs/video-render-pipeline.zh-CN.md`](docs/video-render-pipeline.zh-CN.md)
+- Online dynamic material compact-cut workflow: [`docs/online-dynamic-material-cut-workflow.zh-CN.md`](docs/online-dynamic-material-cut-workflow.zh-CN.md)
 - First content-template history: [`docs/overseas-ai-content-remix-roadmap.zh-CN.md`](docs/overseas-ai-content-remix-roadmap.zh-CN.md)
 
 ## Current State
@@ -31,6 +33,8 @@ Phases 1-4 passed their capability gates by 2026-07-12: self-serve project creat
 The app now supports:
 
 - a project list and empty-project creation flow;
+- a searchable project home that derives its display stage from the canonical project, workflow, render manifest and three persistent queues, with URL-restorable filters and sorting;
+- backward-compatible project archive/restore metadata plus a verified deletion plan that moves project-owned files to `output/project-trash/` and refuses active jobs or structured references;
 - a daily signal page that scans free public sources, scores candidate topics, persists approvals and creates a canonical project only after explicit approval;
 - source-native enrichment that collects first-party text, README content, topical media and browser screenshots while preserving `review_required` rights states;
 - a canonical v3 project schema with Creative Brief, mixed-source analysis, narrative versions, scene candidates, AI call records and separated technical, rights, publication, and market states;
@@ -130,6 +134,14 @@ Open the project list:
 
 ```text
 http://127.0.0.1:3100
+```
+
+The default list hides archived projects. Archive and restore do not change the production or package fingerprints. Deletion is not a filename search: the server plans only canonical project paths, rendition outputs, declared manifest/review evidence and exact project directories under an allowlist. Shared caches, models and voice caches remain outside that boundary.
+
+The self-owned explainer workflow, reusable kickoff prompt and current audience samples are aggregated at:
+
+```text
+http://127.0.0.1:3100/showcase
 ```
 
 Give Codex the Creative Brief and local material, then open the project to watch the generated result. When the result needs another version, describe the change to Codex; the web app does not expose generation or editing controls. The internal five-step production view is addressable only through `advanced=1` for debugging.

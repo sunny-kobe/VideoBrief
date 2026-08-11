@@ -9,6 +9,10 @@ import {
   packageContentFingerprint,
 } from '../scripts/lib/production-content-fingerprint.mjs';
 import {
+  renditionBundleFingerprint,
+  resolveProjectRenditions,
+} from '../scripts/lib/video-renditions.mjs';
+import {
   applyProductionWorkflowAction,
   nextProductionWorkflowAutomaticAction,
   productionWorkflowSnapshot,
@@ -71,15 +75,34 @@ function upgradeLegacyArtifactFingerprints(projectId: string) {
 export function workflowRuntimeEvidence(projectId: string): WorkflowRuntimeEvidence {
   const project = readBrief(projectId);
   const paths = projectPaths(project);
-  const manifest = readRenderManifest(paths.manifestPath);
-  const status = renderStatus(manifest, projectId);
-  const videoPath = manifest?.artifacts.publicRender ?? manifest?.artifacts.outputVideo ?? '';
+  const renditionEvidence = resolveProjectRenditions(project).map((rendition) => {
+    const renditionPaths = projectPaths(project, rendition.id);
+    const manifest = readRenderManifest(renditionPaths.manifestPath);
+    const status = renderStatus(manifest, projectId);
+    const videoPath = manifest?.artifacts.publicRender ?? manifest?.artifacts.outputVideo ?? '';
+    return {
+      id: rendition.id,
+      status,
+      videoSha256: videoPath && existsSync(videoPath) ? fileSha256(videoPath) : '',
+    };
+  });
+  const primaryStatus = renditionEvidence.find((item) => (
+    resolveProjectRenditions(project).find((rendition) => rendition.id === item.id)?.primary
+  ))?.status ?? renditionEvidence[0]?.status;
+  const renderState = renditionEvidence.every((item) => item.status.state === 'ready')
+    ? 'ready'
+    : renditionEvidence.find((item) => item.status.state === 'review_failed')?.status.state
+      ?? renditionEvidence.find((item) => item.status.state === 'awaiting_semantic')?.status.state
+      ?? renditionEvidence.find((item) => item.status.state === 'awaiting_browser')?.status.state
+      ?? renditionEvidence.find((item) => item.status.state === 'unverified')?.status.state
+      ?? renditionEvidence.find((item) => item.status.state === 'stale')?.status.state
+      ?? 'missing';
   return {
-    renderState: status.state,
-    acceptancePassed: status.state === 'ready',
-    packageReady: status.packageReady === true,
-    videoSha256: videoPath && existsSync(videoPath) ? fileSha256(videoPath) : '',
-    packageSha256: status.packageReady && existsSync(paths.exportZipPath) ? fileSha256(paths.exportZipPath) : '',
+    renderState,
+    acceptancePassed: renderState === 'ready',
+    packageReady: primaryStatus?.packageReady === true,
+    videoSha256: renditionBundleFingerprint(renditionEvidence),
+    packageSha256: primaryStatus?.packageReady && existsSync(paths.exportZipPath) ? fileSha256(paths.exportZipPath) : '',
   };
 }
 

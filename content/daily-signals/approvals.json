@@ -108,5 +108,60 @@
       "status": "approved",
       "projectId": "2026-07-19-sylphxai-pdf-reader-mcp"
     }
+  },
+  {
+    "runId": "2026-07-26",
+    "candidate": {
+      "id": "iamcorey-kooky-2f29636a",
+      "title": "iAmCorey/kooky",
+      "summary": "A minimal modern terminal for AI coding experience — Sidebar workspaces; horizontal / vertical split panes; one-click agent launch; per-agent activity readout; live workspace state with one-click Node and branch switching.（592 stars，30 forks，许可 MIT）",
+      "primaryUrl": "https://github.com/iAmCorey/kooky",
+      "publishedAt": "2026-07-26T08:31:21Z",
+      "tags": [
+        "agent"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "iAmCorey/kooky",
+          "url": "https://github.com/iAmCorey/kooky",
+          "publishedAt": "2026-07-26T08:31:21Z",
+          "summary": "A minimal modern terminal for AI coding experience — Sidebar workspaces; horizontal / vertical split panes; one-click agent launch; per-agent activity readout; live workspace state with one-click Node and branch switching.（592 stars，30 forks，许可 MIT）",
+          "author": "iAmCorey",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "approved",
+      "projectId": "2026-07-26-iamcorey-kooky",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 3 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    }
   }
 ]

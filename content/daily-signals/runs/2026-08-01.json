@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-08-01",
+  "date": "2026-08-01",
+  "createdAt": "2026-08-01T06:48:37.045Z",
+  "completedAt": "2026-08-01T06:48:38.773Z",
+  "status": "completed",
+  "zeroCost": true,
+  "errors": [
+    "GitHub release: anthropics/claude-code: 403 rate limit exceeded",
+    "GitHub release: openai/codex: 403 rate limit exceeded",
+    "GitHub release: modelcontextprotocol/servers: 403 rate limit exceeded",
+    "RSS: Google AI Blog: fetch failed"
+  ],
+  "candidates": [
+    {
+      "id": "lidge-jun-opencodex-c47cbc7e",
+      "title": "lidge-jun/opencodex",
+      "summary": "Universal provider proxy for OpenAI Codex & Claude Code — use any LLM (Claude, Gemini, Grok, DeepSeek, Ollama…) with Codex CLI, App, SDK, and Claude Code（6294 stars，499 forks，许可 MIT）",
+      "primaryUrl": "https://github.com/lidge-jun/opencodex",
+      "publishedAt": "2026-08-01T06:45:59Z",
+      "tags": [
+        "codex",
+        "claude"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "lidge-jun/opencodex",
+          "url": "https://github.com/lidge-jun/opencodex",
+          "publishedAt": "2026-08-01T06:45:59Z",
+          "summary": "Universal provider proxy for OpenAI Codex & Claude Code — use any LLM (Claude, Gemini, Grok, DeepSeek, Ollama…) with Codex CLI, App, SDK, and Claude Code（6294 stars，499 forks，许可 MIT）",
+          "author": "lidge-jun",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 4 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    },
+    {
+      "id": "asklokesh-loki-mode-01661731",
+      "title": "asklokesh/loki-mode",
+      "summary": "Multi-agent autonomous SDLC framework. Spec to deployed app. PRD, GitHub issue, OpenAPI/JSON/YAML, or one-line brief. 5 AI providers, 8 quality gates.（1028 stars，200 forks，许可 NOASSERTION）",
+      "primaryUrl": "https://github.com/asklokesh/loki-mode",
+      "publishedAt": "2026-08-01T06:45:48Z",
+      "tags": [
+        "agent",
+        "github"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "asklokesh/loki-mode",
+          "url": "https://github.com/asklokesh/loki-mode",
+          "publishedAt": "2026-08-01T06:45:48Z",
+          "summary": "Multi-agent autonomous SDLC framework. Spec to deployed app. PRD, GitHub issue, OpenAPI/JSON/YAML, or one-line brief. 5 AI providers, 8 quality gates.（1028 stars，200 forks，许可 NOASSERTION）",
+          "author": "asklokesh",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 4 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    },
+    {
+      "id": "apache-texera-ff1a584b",
+      "title": "apache/texera",
+      "summary": "Human-AI Collaborative Data Science Using Visual Workflows（263 stars，174 forks，许可 Apache-2.0）",
+      "primaryUrl": "https://github.com/apache/texera",
+      "publishedAt": "2026-08-01T06:40:13Z",
+      "tags": [
+        "workflow"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "apache/texera",
+          "url": "https://github.com/apache/texera",
+          "publishedAt": "2026-08-01T06:40:13Z",
+          "summary": "Human-AI Collaborative Data Science Using Visual Workflows（263 stars，174 forks，许可 Apache-2.0）",
+          "author": "apache",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 4 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    },
+    {
+      "id": "cowork-os-cowork-os-2e5233e5",
+      "title": "CoWork-OS/CoWork-OS",
+      "summary": "Local-first personal agentic OS and everything app for coding, knowledge work, web design, automations, and artifacts.（412 stars，65 forks，许可 MIT）",
+      "primaryUrl": "https://github.com/CoWork-OS/CoWork-OS",
+      "publishedAt": "2026-08-01T06:07:35Z",
+      "tags": [
+        "agent"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "CoWork-OS/CoWork-OS",
+          "url": "https://github.com/CoWork-OS/CoWork-OS",
+          "publishedAt": "2026-08-01T06:07:35Z",
+          "summary": "Local-first personal agentic OS and everything app for coding, knowledge work, web design, automations, and artifacts.（412 stars，65 forks，许可 MIT）",
+          "author": "CoWork-OS",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 4 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    },
+    {
+      "id": "repoprompt-repoprompt-ce-ea7a5ad1",
+      "title": "repoprompt/repoprompt-ce",
+      "summary": "Community edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.（845 stars，113 forks，许可 Apache-2.0）",
+      "primaryUrl": "https://github.com/repoprompt/repoprompt-ce",
+      "publishedAt": "2026-08-01T05:05:54Z",
+      "tags": [
+        "agent",
+        "mcp"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "repoprompt/repoprompt-ce",
+          "url": "https://github.com/repoprompt/repoprompt-ce",
+          "publishedAt": "2026-08-01T05:05:54Z",
+          "summary": "Community edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.（845 stars，113 forks，许可 Apache-2.0）",
+          "author": "repoprompt",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "partial",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "本轮扫描存在 4 个来源缺口",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    }
+  ]
+}

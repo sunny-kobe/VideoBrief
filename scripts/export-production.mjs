@@ -8,15 +8,21 @@ import {
 } from './lib/acceptance-validation.mjs';
 import { productionContentFingerprint } from './lib/production-content-fingerprint.mjs';
 import { assertPreproductionGates } from './lib/production-workflow-contract.mjs';
+import { resolveProjectRendition, resolveProjectRenditions } from './lib/video-renditions.mjs';
 
 const briefArg = process.argv.slice(2).find((arg) => arg.startsWith('--brief='));
 const stageArg = process.argv.slice(2).find((arg) => arg.startsWith('--stage='));
 const requestedStage = stageArg?.slice('--stage='.length) ?? 'auto';
+const renditionArg = process.argv.slice(2).find((arg) => arg.startsWith('--rendition='));
+const requestedRenditionId = renditionArg?.slice('--rendition='.length) ?? '';
 const briefPath = resolve(briefArg?.slice('--brief='.length) ?? 'content/projects/codex-app-explainer/project.json');
 const projectText = readFileSync(briefPath, 'utf8');
 const project = JSON.parse(projectText);
 assertPreproductionGates(project);
-const manifestPath = resolve(project.outputs?.workDir ?? dirname(briefPath), 'render-manifest.json');
+const renditions = requestedRenditionId
+  ? [resolveProjectRendition(project, requestedRenditionId)]
+  : resolveProjectRenditions(project);
+const manifestPaths = renditions.map((rendition) => resolve(rendition.workDir ?? dirname(briefPath), 'render-manifest.json'));
 
 function run(script, args) {
   const result = spawnSync(process.execPath, [script, ...args], { stdio: 'inherit', cwd: process.cwd() });
@@ -41,21 +47,23 @@ function recordRenderLifecycle(action, message = '') {
 }
 
 function currentAcceptancePassed() {
-  if (!existsSync(manifestPath)) return false;
-  const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
   const fingerprint = createHash('sha256').update(projectText).digest('hex');
   const contentFingerprint = productionContentFingerprint(project);
-  const projectMatches = manifest.productionContentFingerprint
-    ? manifest.productionContentFingerprint === contentFingerprint
-    : manifest.projectFingerprint === fingerprint;
-  return projectMatches
-    && manifest.proof?.passed === true
-    && validateSemanticAcceptanceRecord(manifest.acceptance?.semantic).passed
-    && manifest.acceptance?.browser?.status === 'passed'
-    && validateBrowserChecks(
-      manifest.acceptance?.browser?.checks ?? [],
-      Number(manifest.render?.duration),
-    ).passed;
+  return manifestPaths.every((manifestPath) => {
+    if (!existsSync(manifestPath)) return false;
+    const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+    const projectMatches = manifest.productionContentFingerprint
+      ? manifest.productionContentFingerprint === contentFingerprint
+      : manifest.projectFingerprint === fingerprint;
+    return projectMatches
+      && manifest.proof?.passed === true
+      && validateSemanticAcceptanceRecord(manifest.acceptance?.semantic).passed
+      && manifest.acceptance?.browser?.status === 'passed'
+      && validateBrowserChecks(
+        manifest.acceptance?.browser?.checks ?? [],
+        Number(manifest.render?.duration),
+      ).passed;
+  });
 }
 
 if (requestedStage === 'package') {
@@ -73,9 +81,16 @@ if (requestedStage === 'auto' && currentAcceptancePassed()) {
 console.log('[videobrief-stage] rendering');
 recordRenderLifecycle('start');
 try {
-  run('scripts/render-local-short-video-synced.mjs', [`--brief=${briefPath}`]);
-  console.log('[videobrief-stage] proof');
-  run('scripts/proof-video.mjs', [`--manifest=${manifestPath}`]);
+  for (const [index, rendition] of renditions.entries()) {
+    const manifestPath = manifestPaths[index];
+    console.log(`[videobrief-rendition] ${rendition.id} ${rendition.width}x${rendition.height}`);
+    run('scripts/render-local-short-video-synced.mjs', [
+      `--brief=${briefPath}`,
+      `--rendition=${rendition.id}`,
+    ]);
+    console.log(`[videobrief-stage] proof ${rendition.id}`);
+    run('scripts/proof-video.mjs', [`--manifest=${manifestPath}`]);
+  }
   console.log('[videobrief-stage] awaiting-review');
 } catch (error) {
   const message = error instanceof Error ? error.message : String(error);

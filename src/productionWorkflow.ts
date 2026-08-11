@@ -13,6 +13,7 @@ import {
   topicApprovalFingerprint,
 } from '../scripts/lib/production-workflow-contract.mjs';
 import { sceneSelectionReadiness } from './productionReadiness';
+import { materialQualityGateReadiness } from '../scripts/lib/material-quality-gate.mjs';
 
 export interface WorkflowRuntimeEvidence {
   renderState: 'missing' | 'stale' | 'unverified' | 'awaiting_semantic' | 'awaiting_browser' | 'review_failed' | 'ready';
@@ -25,6 +26,11 @@ export interface WorkflowRuntimeEvidence {
 const humanDecisionFields = {
   decidedBy: z.string().trim().min(1).max(120),
   note: z.string().trim().min(1).max(2_000),
+};
+
+const deliveryDecisionFields = {
+  decidedBy: z.string().trim().min(1).max(120),
+  note: z.string().trim().max(2_000).default(''),
 };
 
 const marketEvidenceSchema = z.object({
@@ -43,8 +49,8 @@ export const ProductionWorkflowActionSchema = z.discriminatedUnion('type', [
   z.object({ type: z.literal('reject_topic'), ...humanDecisionFields }).strict(),
   z.object({ type: z.literal('approve_research'), ...humanDecisionFields }).strict(),
   z.object({ type: z.literal('reject_research'), ...humanDecisionFields }).strict(),
-  z.object({ type: z.literal('approve_delivery'), ...humanDecisionFields }).strict(),
-  z.object({ type: z.literal('reject_delivery'), ...humanDecisionFields }).strict(),
+  z.object({ type: z.literal('approve_delivery'), ...deliveryDecisionFields }).strict(),
+  z.object({ type: z.literal('reject_delivery'), ...deliveryDecisionFields }).strict(),
   z.object({
     type: z.literal('approve_publication'),
     ...humanDecisionFields,
@@ -96,8 +102,15 @@ export function researchGateReadiness(project: ShortVideoProject) {
   return researchGateReadinessContract(project);
 }
 
-function decision(status: 'approved' | 'rejected', decidedBy: string, note: string, fingerprint: string, now: string) {
-  const human = normalizeHumanWorkflowDecision(decidedBy, note);
+function decision(
+  status: 'approved' | 'rejected',
+  decidedBy: string,
+  note: string,
+  fingerprint: string,
+  now: string,
+  noteRequired = true,
+) {
+  const human = normalizeHumanWorkflowDecision(decidedBy, note, { noteRequired });
   return {
     status,
     decidedAt: now,
@@ -154,16 +167,25 @@ export function applyProductionWorkflowAction(
   if (!approvalIsCurrent(project.workflow.researchApproval, research.fingerprint)) {
     throw new Error('关键事实或研究输入尚未通过当前版本的人工 Gate。');
   }
+  const material = materialGateReadiness(project);
+  if (!material.ready) {
+    throw new Error(`素材与权利边界 Gate 未通过：${material.issues.join('；')}`);
+  }
 
   if (action.type === 'approve_delivery') {
+    const shots = sceneSelectionReadiness(project.scenes, project.materialReview.approvedSourceIds);
+    const materialQuality = materialQualityGateReadiness(project);
+    if (!project.scenes.some((scene) => scene.enabled) || !shots.ready || !materialQuality.ready) {
+      throw new Error(`镜头语义与素材质量 Gate 未通过：${shots.reason || materialQuality.issues.join('；') || '没有启用的成片场景。'}`);
+    }
     if (!runtime.acceptancePassed || runtime.renderState !== 'ready' || !runtime.videoSha256) {
       throw new Error('成片尚未完成技术、语义和桌面/移动浏览器验收。');
     }
-    next.workflow.deliveryApproval = decision('approved', action.decidedBy, action.note, runtime.videoSha256, now);
+    next.workflow.deliveryApproval = decision('approved', action.decidedBy, action.note, runtime.videoSha256, now, false);
     return next;
   }
   if (action.type === 'reject_delivery') {
-    next.workflow.deliveryApproval = decision('rejected', action.decidedBy, action.note, runtime.videoSha256, now);
+    next.workflow.deliveryApproval = decision('rejected', action.decidedBy, action.note, runtime.videoSha256, now, false);
     return next;
   }
 
@@ -265,29 +287,41 @@ export function productionWorkflowSnapshot(
   const researchApproved = approvalIsCurrent(project.workflow.researchApproval, research.fingerprint);
   const narrativeReady = Boolean(project.narrative.activeVersionId && project.scenes.length > 0);
   const shotReadiness = sceneSelectionReadiness(project.scenes, project.materialReview.approvedSourceIds);
-  const shotsReady = project.scenes.some((scene) => scene.enabled) && shotReadiness.ready;
+  const materialQuality = materialQualityGateReadiness(project);
+  const shotsReady = project.scenes.some((scene) => scene.enabled)
+    && shotReadiness.ready
+    && materialQuality.ready;
   const technicalReady = project.technical_status === 'passed'
     && !['missing', 'stale', 'unverified'].includes(runtime.renderState);
   const deliveryApproved = approvalIsCurrent(project.workflow.deliveryApproval, runtime.videoSha256);
+  const deliveryRejected = project.workflow.deliveryApproval.status === 'rejected'
+    && project.workflow.deliveryApproval.fingerprint === runtime.videoSha256;
   const publicationBinding = `${runtime.videoSha256}:${runtime.packageSha256}`;
   const publicationApproved = approvalIsCurrent(project.workflow.publication.approval, publicationBinding);
   const publicationReady = deliveryApproved && runtime.packageReady;
   const publicationBlockedByRights = publicationReady && project.rights_status !== 'cleared';
+  const deliveryPrerequisitesReady = topicApproved
+    && researchApproved
+    && materialsApproved
+    && narrativeReady
+    && shotsReady
+    && technicalReady;
+  const acceptanceReady = deliveryPrerequisitesReady && runtime.acceptancePassed;
 
   const stages: WorkflowStage[] = [
     { id: 'topic', label: '最终命题', status: topicApproved ? 'approved' : 'waiting', message: topicApproved ? '命题已由用户明确批准。' : '等待用户批准最终命题。', responsibility: 'human_gate' },
-    { id: 'materials', label: '素材与权利边界', status: project.rights_status === 'blocked' ? 'blocked' : materialsApproved ? 'approved' : 'waiting', message: materialsApproved ? '素材包已复核，权利状态单独保留。' : material.issues.join('；') || '等待 Codex 或用户确认可用于本轮制作的素材包。', responsibility: 'operator_review' },
     { id: 'research', label: '关键事实与风险', status: researchApproved ? 'approved' : research.ready ? 'ready' : 'waiting', message: researchApproved ? '当前研究版本已获人工批准。' : research.issues.join('；') || '等待人工确认研究结论。', responsibility: 'human_gate' },
-    { id: 'narrative', label: '叙事与脚本', status: narrativeReady ? 'completed' : researchApproved ? 'ready' : 'waiting', message: narrativeReady ? 'canonical project 已有生效叙事和场景。' : '等待自动生成或应用叙事。', responsibility: 'automatic' },
-    { id: 'shots', label: '镜头语义绑定', status: shotsReady ? 'approved' : narrativeReady ? 'ready' : 'waiting', message: shotsReady ? '所有启用场景均绑定已复核候选。' : shotReadiness.reason || '等待 Codex 或用户逐幕复核候选。', responsibility: 'operator_review' },
+    { id: 'materials', label: '素材与权利边界', status: project.rights_status === 'blocked' ? 'blocked' : materialsApproved ? 'approved' : 'waiting', message: materialsApproved ? '素材包已复核，权利状态单独保留。' : material.issues.join('；') || '等待 Codex 或用户确认可用于本轮制作的素材包。', responsibility: 'operator_review' },
+    { id: 'narrative', label: '叙事与脚本', status: narrativeReady ? 'completed' : researchApproved && materialsApproved ? 'ready' : 'waiting', message: narrativeReady ? 'canonical project 已有生效叙事和场景。' : researchApproved && materialsApproved ? '等待自动生成或应用叙事。' : '等待研究与素材 Gate。', responsibility: 'automatic' },
+    { id: 'shots', label: '镜头语义与素材质量', status: shotsReady ? 'approved' : narrativeReady ? 'ready' : 'waiting', message: shotsReady ? '所有启用场景均绑定当前候选并通过素材质量 Gate。' : shotReadiness.reason || materialQuality.issues.join('；') || '等待 Codex 或用户逐幕复核候选。', responsibility: 'operator_review' },
     { id: 'technical', label: '渲染与技术验收', status: technicalReady ? 'completed' : shotsReady ? 'ready' : 'waiting', message: technicalReady ? '当前生产内容通过 technical proof。' : '等待 FFmpeg 渲染和技术 proof。', responsibility: 'automatic' },
-    { id: 'acceptance', label: '成片验收', status: deliveryApproved ? 'approved' : runtime.acceptancePassed ? 'ready' : runtime.renderState === 'review_failed' ? 'blocked' : 'waiting', message: deliveryApproved ? '当前视频字节已获真人交付批准。' : runtime.acceptancePassed ? '自动验收完成，等待真人一倍速审片。' : '等待语义、编辑质量和浏览器验收。', responsibility: 'human_gate' },
+    { id: 'acceptance', label: '成片验收', status: deliveryApproved ? 'approved' : deliveryRejected ? 'blocked' : acceptanceReady ? 'ready' : runtime.renderState === 'review_failed' ? 'blocked' : 'waiting', message: deliveryApproved ? '当前视频字节已获真人交付批准。' : deliveryRejected ? project.workflow.deliveryApproval.note || '当前成片已被退回，需要修改后重新审片。' : acceptanceReady ? '自动验收完成，等待真人一倍速审片。' : runtime.acceptancePassed ? '自动验收已完成，但仍需先完成前置生产 Gate。' : '等待语义、编辑质量和浏览器验收。', responsibility: 'human_gate' },
     { id: 'package', label: 'Production package', status: runtime.packageReady ? 'completed' : deliveryApproved ? 'ready' : 'waiting', message: runtime.packageReady ? '当前版本 ZIP 与收据有效。' : deliveryApproved ? '等待生成当前版本的完整导出包。' : '等待真人批准当前成片后再打包。', responsibility: 'automatic' },
     { id: 'publication', label: '发布', status: project.publication_status === 'published' ? 'completed' : publicationApproved ? 'approved' : publicationBlockedByRights ? 'blocked' : publicationReady ? 'ready' : 'waiting', message: project.publication_status === 'published' ? '真实发布 URL 已记录。' : publicationApproved ? '已批准人工发布，等待记录真实 URL。' : publicationBlockedByRights ? `rights_status=${project.rights_status}，不能批准发布。` : '发布不会自动执行。', responsibility: 'human_gate' },
     { id: 'market', label: '市场反馈', status: project.workflow.market.decision !== 'pending' ? 'completed' : project.workflow.market.evidence.length > 0 ? 'ready' : project.publication_status === 'published' ? 'waiting' : 'waiting', message: project.workflow.market.decision !== 'pending' ? `人工结论：${project.workflow.market.decision}` : project.workflow.market.evidence.length > 0 ? '已有真实证据，等待人工形成结论。' : '发布后才能收集真实市场证据。', responsibility: 'human_gate' },
   ];
   const next = stages.find((stage) => !['approved', 'completed'].includes(stage.status)) ?? null;
-  return { stages, next, research, runtime, automaticAction: nextProductionWorkflowAutomaticAction(project, runtime) };
+  return { stages, next, research, materialQuality, runtime, automaticAction: nextProductionWorkflowAutomaticAction(project, runtime) };
 }
 
 export function nextProductionWorkflowAutomaticAction(
@@ -302,14 +336,14 @@ export function nextProductionWorkflowAutomaticAction(
   if (project.sources.some((source) => ['idle', 'pending', 'running'].includes(source.processing.status))) {
     return 'process_sources';
   }
-  if (!materialGateReadiness(project).ready) return null;
-
   const research = researchGateReadiness(project);
   if (!approvalIsCurrent(project.workflow.researchApproval, research.fingerprint)) return null;
+  if (!materialGateReadiness(project).ready) return null;
   if (!project.narrative.activeVersionId || project.scenes.length === 0) return 'plan_project';
 
   const shots = sceneSelectionReadiness(project.scenes, project.materialReview.approvedSourceIds);
   if (!shots.ready) return null;
+  if (!materialQualityGateReadiness(project).ready) return null;
   const technicalReady = project.technical_status === 'passed'
     && !['missing', 'stale', 'unverified'].includes(runtime.renderState);
   if (!technicalReady) return 'render';

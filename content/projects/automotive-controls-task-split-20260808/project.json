@@ -1,0 +1,2380 @@
+{
+  "schemaVersion": 3,
+  "id": "automotive-controls-task-split-20260808",
+  "title": "同获五星，为什么实体按键仍让一辆车少丢分",
+  "format": "video_project",
+  "targetAudience": "对汽车产品变化和日常交互好奇的普通中文观众",
+  "status": "review",
+  "technical_status": "passed",
+  "rights_status": "review_required",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "lifecycle": {
+    "state": "active",
+    "archivedAt": "",
+    "archivedBy": "",
+    "archiveReason": ""
+  },
+  "brief": {
+    "objective": "用约 100-120 秒讲清 Euro NCAP 2026 如何按驾驶任务重新划分实体入口、触控和菜单的职责，并用 BMW iX3 与 ZEEKR 7GT 的同日结果解释为什么大屏不会消失、时间紧迫的控制却正在回到可盲操作入口",
+    "audience": "对汽车产品变化和日常交互好奇的普通中文观众",
+    "platform": "抖音首发，兼容 B站、YouTube 与 TikTok 扩展",
+    "aspectRatio": "16:9",
+    "targetDurationSeconds": 110,
+    "tone": "清晰、克制、有好奇心，不制造触屏禁令或安全恐慌",
+    "style": "公开动态素材、一手规则与原创中文信息层结合的解释型短片",
+    "reference": "从同日两款五星车型的通用控制得分差异切入，解释驾驶任务分工",
+    "coreMessage": "Euro NCAP 2026 没有禁止汽车触屏；它要求方向灯、挡位、双闪、e-Call 和喇叭等时间紧迫操作使用可凭触感找到的直接实体输入，而屏幕仍承担信息、导航和可升级功能。",
+    "cta": "下一次试车，不只看屏幕多大，试试常用操作要不要低头、点几步、能不能凭触感找到。",
+    "prohibitedMaterial": "不得说欧洲禁止触屏；不得说没有实体按键就不能获五星或不能上市；不得把省成本写成已证实主因；不得把 BMW 或 ZEEKR 单项表现扩大成整车不安全；不得把相关驾驶画面当事故因果证据。"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "Euro NCAP 2026：General Vehicle Controls 评分条款摘录",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://www.euroncap.com/media/88372/euro-ncap-2026-sa-assessment-protocol-v10.pdf",
+      "assetPath": "public/project-assets/automotive-controls-task-split-20260808/euroncap-2026-general-vehicle-controls-excerpt-1786178025557.md",
+      "originalFileName": "euroncap-2026-general-vehicle-controls-excerpt.md",
+      "mimeType": "text/markdown",
+      "bytes": 1390,
+      "importedAt": "2026-08-08T08:33:45.558Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "Euro NCAP 官方协议的人工核验摘录，仅作事实研究与内部引用；不以原页截图进入成片。",
+      "contentHash": "849f2f6c78eae713ad662d216ac52d89273f5533b21c69ec4e925b5bc1fe1dbe",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "849f2f6c78eae713ad662d216ac52d89273f5533b21c69ec4e925b5bc1fe1dbe",
+        "startedAt": "2026-08-08T08:40:33.157Z",
+        "completedAt": "2026-08-08T08:40:33.157Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "automotive-controls-20260808-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "Euro NCAP 2026 Driver Engagement Protocol 将 Direct physical input 定义为带机械运动、主要凭触感定位并提供触觉反馈的输入。General Vehicle Controls 表格要求方向灯、挡位、双闪、e-Call、喇叭使用直接实体输入；其他任务按情况允许直接触控、菜单或语音。",
+        "visualDescription": "官方协议人工核验摘录，仅作研究，不进入成片。",
+        "hierarchicalSummary": "规则事实：五项直接实体输入及其定义；边界：不是触屏禁令或上市法规。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-five-direct-inputs",
+            "statement": "Euro NCAP 2026 General Vehicle Controls 要求方向灯、挡位、双闪、e-Call 和喇叭使用 Direct physical input。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "协议表格五项要求"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "fact-direct-physical-definition",
+            "statement": "协议把 Direct physical input 定义为带机械运动、主要凭触感定位并在操作后提供触觉反馈的输入。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "Direct physical input 定义"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "fact-other-inputs-allowed",
+            "statement": "协议对雨刷、灯光、驾驶辅助、音频、电话、导航、空调、车窗和座椅等任务采用不同要求，部分允许 direct touch、menu-based input 或语音输入。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "其他任务输入方式"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "uncertainty-not-touchscreen-ban",
+            "statement": "该协议影响 Euro NCAP 安全评分，不等于欧盟禁止触屏或车辆没有这些入口就不能销售。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "一手来源证据边界"
+              }
+            ],
+            "resolution": "成片明确称其为消费者安全评级，并删除禁止销售或上市的表述。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "uncertainty-no-cost-cause",
+            "statement": "协议不能证明车企采用触屏的主要原因是降低成本。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "一手来源证据边界"
+              }
+            ],
+            "resolution": "成片不讨论或断言省成本动机。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-02",
+      "label": "Euro NCAP：BMW iX3 与 ZEEKR 7GT 2026 结果摘录",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://www.euroncap.com/press-media/a-new-benchmark-for-vehicle-safety-bmw-and-zeekr-secure-five-stars-under-euro-ncap-s-new-tests/",
+      "assetPath": "public/project-assets/automotive-controls-task-split-20260808/euroncap-bmw-zeekr-2026-results-excerpt-1786178025573.md",
+      "originalFileName": "euroncap-bmw-zeekr-2026-results-excerpt.md",
+      "mimeType": "text/markdown",
+      "bytes": 1208,
+      "importedAt": "2026-08-08T08:33:45.573Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "Euro NCAP 官方新闻稿与结果页的人工核验摘录，仅作事实研究；不把评分差异扩大为整车安全结论。",
+      "contentHash": "624ee0a3b493e4e1cc977bed5f81e8a94ed5b8540afe59924f46439f9d53cbb0",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "624ee0a3b493e4e1cc977bed5f81e8a94ed5b8540afe59924f46439f9d53cbb0",
+        "startedAt": "2026-08-08T08:40:33.157Z",
+        "completedAt": "2026-08-08T08:40:33.157Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "automotive-controls-20260808-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "Euro NCAP 2026 官方结果称 BMW iX3 与 ZEEKR 7GT 均获五星；BMW iX3 的专用实体控制受到正面评价；ZEEKR 7GT 因较多功能位于中控触屏而在 General Vehicle Controls 失分。",
+        "visualDescription": "官方新闻稿与结果页人工核验摘录，仅作事实研究。",
+        "hierarchicalSummary": "车型结果事实：同为五星但通用车辆控制评价不同；边界：单项差异不是整车不安全。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-both-five-stars",
+            "statement": "BMW iX3 与 ZEEKR 7GT 都在 Euro NCAP 2026 新协议下获得五星。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "file",
+                "note": "官方新闻稿结果"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "fact-bmw-physical-praise",
+            "statement": "Euro NCAP 对 BMW iX3 为常用功能提供专用实体控制作出正面评价。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "file",
+                "note": "BMW iX3 General Vehicle Controls 评价"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "fact-zeekr-screen-points",
+            "statement": "Euro NCAP 指出 ZEEKR 7GT 把较多功能放在中控触屏中，因此在 General Vehicle Controls 部分失分。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "file",
+                "note": "ZEEKR 7GT General Vehicle Controls 评价"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "uncertainty-stars-not-equal-details",
+            "statement": "两车同为五星不能说明每个评分细项相同，也不能把 ZEEKR 的单项失分写成整车不安全。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "file",
+                "note": "一手来源证据边界"
+              }
+            ],
+            "resolution": "成片把五星解释为综合结果，并把控制评价限定在对应细项。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "uncertainty-no-universal-superiority",
+            "statement": "这组结果不能证明所有实体按键设计都优于所有触屏设计。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "file",
+                "note": "一手来源证据边界"
+              }
+            ],
+            "resolution": "结论限定为按任务分工，不做介质的绝对优劣判断。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-03",
+      "label": "Volkswagen ID. Polo 官方内饰：屏幕与实体控制并存",
+      "sourceType": "video",
+      "materialRole": "official_demo",
+      "originUrl": "https://www.youtube.com/watch?v=zfxWW6aFmk4",
+      "assetPath": "public/project-assets/automotive-controls-task-split-20260808/vw-id-polo-interior-clean-1786178025578.mp4",
+      "originalFileName": "vw-id-polo-interior-clean.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 11553402,
+      "importedAt": "2026-08-08T08:33:45.583Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "Volkswagen 官方公开视频的 0-22 秒连续可解码衍生片段，1920x1080；只展示座舱形态和操作入口，不证明 Euro NCAP 评分。YouTube 默认许可，发布前须清权或替换。",
+      "contentHash": "8467da7d512b7c381a2173c8e95dd93c294494ca46d30f90211f32b6de25bd6d",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "8467da7d512b7c381a2173c8e95dd93c294494ca46d30f90211f32b6de25bd6d",
+        "startedAt": "2026-08-08T08:40:33.157Z",
+        "completedAt": "2026-08-08T08:40:33.157Z",
+        "error": "",
+        "model": "manual-frame-review",
+        "promptVersion": "automotive-controls-20260808-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "1920x1080/25fps；0-22 秒连续可完整解码。4-15 秒展示方向盘、仪表与中控屏并存，15-22 秒展示方向盘实体按键特写。",
+        "hierarchicalSummary": "真实产品形态与触觉入口示意；不承担 Euro NCAP 评分事实。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-vw-visual-windows",
+            "statement": "4-15 秒可见方向盘、仪表与中控屏共存；15-22 秒可见方向盘实体按键特写。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "time",
+                "start": 4,
+                "end": 22,
+                "note": "1080p 衍生素材逐帧完整解码并经联系表人工复核"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "supporting",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-04",
+      "label": "Euro NCAP 2026 新测试总览：规则与驾驶语境",
+      "sourceType": "video",
+      "materialRole": "official_demo",
+      "originUrl": "https://www.youtube.com/watch?v=36EO4Scjvqo",
+      "assetPath": "public/project-assets/automotive-controls-task-split-20260808/euroncap-2026-overview-clean-1786178025588.mp4",
+      "originalFileName": "euroncap-2026-overview-clean.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 9558171,
+      "importedAt": "2026-08-08T08:33:45.592Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "Euro NCAP 官方公开视频的 0-16.5 秒连续可解码衍生片段，1920x1080；用于新规语境与安全测试画面。默认许可，发布前须清权或替换。",
+      "contentHash": "64eff8f2a615f9ebb388a04ad1f97502fdf584dadd5ae809638eb0c3973d98b0",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "64eff8f2a615f9ebb388a04ad1f97502fdf584dadd5ae809638eb0c3973d98b0",
+        "startedAt": "2026-08-08T08:40:33.157Z",
+        "completedAt": "2026-08-08T08:40:33.157Z",
+        "error": "",
+        "model": "manual-frame-review",
+        "promptVersion": "automotive-controls-20260808-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "1920x1080/25fps；0-16.2 秒连续可完整解码，从 2026 标题卡进入碰撞测试和驾驶语境。",
+        "hierarchicalSummary": "Euro NCAP 2026 规则语境；碰撞画面不作为触屏事故因果证据。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-overview-visual-window",
+            "statement": "0-16.2 秒从 Euro NCAP 2026 标题卡进入安全测试与驾驶语境。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "time",
+                "start": 0,
+                "end": 16.2,
+                "note": "1080p 衍生素材逐帧完整解码并经联系表人工复核"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "supporting",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "uncertainty-overview-no-causality",
+            "statement": "总览中的碰撞画面不能证明触屏导致事故。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "file",
+                "note": "一手来源证据边界"
+              }
+            ],
+            "resolution": "画面只承担安全评级语境，旁白不建立事故因果。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-05",
+      "label": "Euro NCAP BMW iX3 2026 官方测试视频",
+      "sourceType": "video",
+      "materialRole": "official_demo",
+      "originUrl": "https://www.youtube.com/watch?v=O8uCoAm_Khs",
+      "assetPath": "public/project-assets/automotive-controls-task-split-20260808/bmw-ix3-2026-test-clean-1786178025598.mp4",
+      "originalFileName": "bmw-ix3-2026-test-clean.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 16780350,
+      "importedAt": "2026-08-08T08:33:45.608Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "Euro NCAP 官方测试视频的 0-42 秒连续可解码衍生片段，1920x1080；用于车型结果锚点和测试过程，不单独证明实体按键评价。默认许可，发布前须清权或替换。",
+      "contentHash": "856041520c4e5641dc0a8ab69d3f1264bea3ceec5992eacc0637743e24fbcafa",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "856041520c4e5641dc0a8ab69d3f1264bea3ceec5992eacc0637743e24fbcafa",
+        "startedAt": "2026-08-08T08:40:33.157Z",
+        "completedAt": "2026-08-08T08:40:33.157Z",
+        "error": "",
+        "model": "manual-frame-review",
+        "promptVersion": "automotive-controls-20260808-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "1920x1080/25fps；0-42 秒连续可完整解码，包含 BMW iX3 车型评分卡与多种主动安全测试。",
+        "hierarchicalSummary": "车型与测试过程语境；实体控制评价由 source-02 一手文本承担。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-bmw-visual-windows",
+            "statement": "0-34.5 秒可见 BMW iX3 车型、评分概览与多种主动安全测试。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "time",
+                "start": 0,
+                "end": 34.5,
+                "note": "1080p 衍生素材逐帧完整解码并经联系表人工复核"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "supporting",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-06",
+      "label": "Euro NCAP ZEEKR 7GT 2026 官方测试视频",
+      "sourceType": "video",
+      "materialRole": "official_demo",
+      "originUrl": "https://www.youtube.com/watch?v=xlQUoxQr-l4",
+      "assetPath": "public/project-assets/automotive-controls-task-split-20260808/zeekr-7gt-2026-test-clean-1786178025613.mp4",
+      "originalFileName": "zeekr-7gt-2026-test-clean.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 12255297,
+      "importedAt": "2026-08-08T08:33:45.619Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "Euro NCAP 官方测试视频的 0-36 秒连续可解码衍生片段，1920x1080；用于车型结果锚点和测试过程，不单独证明屏幕化控制失分。默认许可，发布前须清权或替换。",
+      "contentHash": "c710476f19152279787df31429b56dfc5a702cbd73ec7d796303eea9a8ff7692",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "c710476f19152279787df31429b56dfc5a702cbd73ec7d796303eea9a8ff7692",
+        "startedAt": "2026-08-08T08:40:33.157Z",
+        "completedAt": "2026-08-08T08:40:33.157Z",
+        "error": "",
+        "model": "manual-frame-review",
+        "promptVersion": "automotive-controls-20260808-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "1920x1080/25fps；0-36 秒连续可完整解码，包含 ZEEKR 7GT 车型评分卡、仪表画中画与多种主动安全测试。",
+        "hierarchicalSummary": "车型与测试过程语境；中控屏失分评价由 source-02 一手文本承担。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-zeekr-visual-windows",
+            "statement": "0-34.5 秒可见 ZEEKR 7GT 车型、评分概览、仪表画中画与多种主动安全测试。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 0,
+                "end": 34.5,
+                "note": "1080p 衍生素材逐帧完整解码并经联系表人工复核"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "supporting",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-07",
+      "label": "原创信息层：五项直接实体输入",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original-information-layer/automotive-controls-five-inputs",
+      "assetPath": "public/project-assets/automotive-controls-task-split-20260808/five-direct-physical-inputs-1786178172719.png",
+      "originalFileName": "five-direct-physical-inputs.png",
+      "mimeType": "image/png",
+      "bytes": 106109,
+      "importedAt": "2026-08-08T08:36:12.720Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 为当前命题制作的 1920x1080 原创信息层；只解释协议清单，事实由 Euro NCAP 协议来源承担。",
+      "contentHash": "11d9a1bcd44c99b3332dd9958f56a79db17ca0cb2e4ec758132db1ce8fb7b33a",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "11d9a1bcd44c99b3332dd9958f56a79db17ca0cb2e4ec758132db1ce8fb7b33a",
+        "startedAt": "2026-08-08T08:40:33.157Z",
+        "completedAt": "2026-08-08T08:40:33.157Z",
+        "error": "",
+        "model": "manual-frame-review",
+        "promptVersion": "automotive-controls-20260808-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "五项操作，必须有直接实体输入：方向灯、挡位、双闪、e-Call、喇叭。",
+        "visualDescription": "1920x1080 原创五列信息层；大字号列出五项协议要求。",
+        "hierarchicalSummary": "原创视觉说明，不单独承担外部事实证明。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [
+          {
+            "id": "uncertainty-source-07-visual-aid",
+            "statement": "该图片是原创信息层，只能帮助解释协议清单。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "file",
+                "note": "一手来源证据边界"
+              }
+            ],
+            "resolution": "事实继续引用 source-01；图片不冒充协议原页。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-08",
+      "label": "原创信息层：按任务划分控制入口",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original-information-layer/automotive-controls-task-split",
+      "assetPath": "public/project-assets/automotive-controls-task-split-20260808/task-based-control-split-1786178172731.png",
+      "originalFileName": "task-based-control-split.png",
+      "mimeType": "image/png",
+      "bytes": 132073,
+      "importedAt": "2026-08-08T08:36:12.731Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 为当前命题制作的 1920x1080 原创机制图；不冒充真实车载界面，不单独证明外部事实。",
+      "contentHash": "c50b4a168caadc2921ead0c59c2eedfe9a27e78d6d6a53644d6a4a10cea84246",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "c50b4a168caadc2921ead0c59c2eedfe9a27e78d6d6a53644d6a4a10cea84246",
+        "startedAt": "2026-08-08T08:40:33.157Z",
+        "completedAt": "2026-08-08T08:40:33.157Z",
+        "error": "",
+        "model": "manual-frame-review",
+        "promptVersion": "automotive-controls-20260808-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "时间紧、要盲操作：直接实体入口。信息多、设置复杂：屏幕继续承载。",
+        "visualDescription": "1920x1080 原创两栏机制图；红色表示时间紧操作，蓝色表示信息与复杂设置。",
+        "hierarchicalSummary": "原创机制解释，不冒充任何真实车载界面。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [
+          {
+            "id": "uncertainty-source-08-visual-aid",
+            "statement": "该图片是原创机制图，只能解释任务分工。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "file",
+                "note": "一手来源证据边界"
+              }
+            ],
+            "resolution": "事实继续引用 source-01；图片不单独证明外部结论。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-09",
+      "label": "原创信息层 V2：五项直接实体输入",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original-information-layer/automotive-controls-five-inputs-v2",
+      "assetPath": "public/project-assets/automotive-controls-task-split-20260808/five-direct-physical-inputs-v2-1786178555033.png",
+      "originalFileName": "five-direct-physical-inputs-v2.png",
+      "mimeType": "image/png",
+      "bytes": 113510,
+      "importedAt": "2026-08-08T08:42:35.035Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 为当前命题制作的 1920x1080 原创信息层 V2；已针对 390x844 等比缩放放大关键标签，只解释协议清单。",
+      "contentHash": "6b6311ab74a77c52f67d0656bfac03421b3c8111c901ab569a9815fc2169e6bf",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "6b6311ab74a77c52f67d0656bfac03421b3c8111c901ab569a9815fc2169e6bf",
+        "startedAt": "2026-08-08T08:42:59.084Z",
+        "completedAt": "2026-08-08T08:42:59.084Z",
+        "error": "",
+        "model": "manual-viewport-review",
+        "promptVersion": "automotive-controls-info-layer-v2",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "五项操作，必须有直接实体输入：方向灯、挡位、双闪、e-Call、喇叭。",
+        "visualDescription": "1920x1080 原创五列信息层 V2；关键标签放大后在 390x844 播放器等比缩放仍可辨。",
+        "hierarchicalSummary": "原创视觉说明，不单独承担外部事实证明。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [
+          {
+            "id": "source-09-uncertainty-visual-aid",
+            "statement": "该图片是原创信息层，只能帮助解释已核验事实。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "本地原创 16:9 信息层"
+              }
+            ],
+            "resolution": "事实继续引用 source-01；图片不冒充协议或真实车载界面。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-10",
+      "label": "原创信息层 V2：按任务划分控制入口",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original-information-layer/automotive-controls-task-split-v2",
+      "assetPath": "public/project-assets/automotive-controls-task-split-20260808/task-based-control-split-v2-1786178555045.png",
+      "originalFileName": "task-based-control-split-v2.png",
+      "mimeType": "image/png",
+      "bytes": 136588,
+      "importedAt": "2026-08-08T08:42:35.046Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 为当前命题制作的 1920x1080 原创机制图 V2；已针对 390x844 等比缩放精简文字，不冒充真实车载界面。",
+      "contentHash": "426db990893c8bff5b2203e53fdb52f906caefed3b1f8dc13ec35e274e6d5547",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "426db990893c8bff5b2203e53fdb52f906caefed3b1f8dc13ec35e274e6d5547",
+        "startedAt": "2026-08-08T08:42:59.084Z",
+        "completedAt": "2026-08-08T08:42:59.084Z",
+        "error": "",
+        "model": "manual-viewport-review",
+        "promptVersion": "automotive-controls-info-layer-v2",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "时间紧、要盲操作：实体入口。信息多、设置复杂：屏幕菜单。",
+        "visualDescription": "1920x1080 原创两栏机制图 V2；核心职责词在 390x844 播放器等比缩放仍可辨。",
+        "hierarchicalSummary": "原创视觉说明，不单独承担外部事实证明。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [
+          {
+            "id": "source-10-uncertainty-visual-aid",
+            "statement": "该图片是原创信息层，只能帮助解释已核验事实。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "note": "本地原创 16:9 信息层"
+              }
+            ],
+            "resolution": "事实继续引用 source-01；图片不冒充协议或真实车载界面。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-11",
+      "label": "Volkswagen ID. Polo 官方内饰 9.5 秒静帧",
+      "sourceType": "image",
+      "materialRole": "official_demo",
+      "originUrl": "https://www.youtube.com/watch?v=zfxWW6aFmk4#t=9.5",
+      "assetPath": "public/project-assets/automotive-controls-task-split-20260808/vw-screen-and-controls-still-1786179573851.png",
+      "originalFileName": "vw-screen-and-controls-still.png",
+      "mimeType": "image/png",
+      "bytes": 898454,
+      "importedAt": "2026-08-08T08:59:33.854Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "从已导入 Volkswagen 官方公开视频 9.5 秒抽取的 1920x1080 静帧；只展示方向盘实体控制、仪表与中控屏并存。沿用原视频默认许可边界，发布前须清权或替换。",
+      "contentHash": "8abe7a6b2be9b0194f5aa09cca82df8ed0450f865b52f98d7e2bccccd04899a7",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "8abe7a6b2be9b0194f5aa09cca82df8ed0450f865b52f98d7e2bccccd04899a7",
+        "startedAt": "2026-08-08T09:00:01.738Z",
+        "completedAt": "2026-08-08T09:00:01.738Z",
+        "error": "",
+        "model": "manual-frame-review",
+        "promptVersion": "automotive-controls-vw-still-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "Volkswagen ID. Polo 官方内饰视频 9.5 秒 1920x1080 静帧；方向盘实体控制、数字仪表、中控导航屏和下方空调实体条同时可见。",
+        "hierarchicalSummary": "屏幕与实体控制并存的产品形态直接示意；不承担 Euro NCAP 评分事实。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-vw-still-coexistence",
+            "statement": "该静帧同时可见方向盘实体按键、数字仪表、中控导航屏和下方实体控制条。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-11",
+                "locatorType": "image",
+                "note": "Volkswagen 官方视频 9.5 秒静帧"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "supporting",
+            "briefRelevance": 9
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [],
+    "facts": [
+      {
+        "id": "fact-five-direct-inputs",
+        "statement": "Euro NCAP 2026 General Vehicle Controls 要求方向灯、挡位、双闪、e-Call 和喇叭使用 Direct physical input。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "协议表格五项要求"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-direct-physical-definition",
+        "statement": "协议把 Direct physical input 定义为带机械运动、主要凭触感定位并在操作后提供触觉反馈的输入。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "Direct physical input 定义"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-other-inputs-allowed",
+        "statement": "协议对雨刷、灯光、驾驶辅助、音频、电话、导航、空调、车窗和座椅等任务采用不同要求，部分允许 direct touch、menu-based input 或语音输入。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "其他任务输入方式"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-both-five-stars",
+        "statement": "BMW iX3 与 ZEEKR 7GT 都在 Euro NCAP 2026 新协议下获得五星。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "官方新闻稿结果"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-bmw-physical-praise",
+        "statement": "Euro NCAP 对 BMW iX3 为常用功能提供专用实体控制作出正面评价。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "BMW iX3 General Vehicle Controls 评价"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-zeekr-screen-points",
+        "statement": "Euro NCAP 指出 ZEEKR 7GT 把较多功能放在中控触屏中，因此在 General Vehicle Controls 部分失分。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "ZEEKR 7GT General Vehicle Controls 评价"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-vw-visual-windows",
+        "statement": "4-15 秒可见方向盘、仪表与中控屏共存；15-22 秒可见方向盘实体按键特写。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "time",
+            "start": 4,
+            "end": 22,
+            "note": "1080p 衍生素材逐帧完整解码并经联系表人工复核"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "supporting",
+        "briefRelevance": 8
+      },
+      {
+        "id": "fact-overview-visual-window",
+        "statement": "0-16.2 秒从 Euro NCAP 2026 标题卡进入安全测试与驾驶语境。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "time",
+            "start": 0,
+            "end": 16.2,
+            "note": "1080p 衍生素材逐帧完整解码并经联系表人工复核"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "supporting",
+        "briefRelevance": 8
+      },
+      {
+        "id": "fact-bmw-visual-windows",
+        "statement": "0-34.5 秒可见 BMW iX3 车型、评分概览与多种主动安全测试。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "time",
+            "start": 0,
+            "end": 34.5,
+            "note": "1080p 衍生素材逐帧完整解码并经联系表人工复核"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "supporting",
+        "briefRelevance": 8
+      },
+      {
+        "id": "fact-zeekr-visual-windows",
+        "statement": "0-34.5 秒可见 ZEEKR 7GT 车型、评分概览、仪表画中画与多种主动安全测试。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 0,
+            "end": 34.5,
+            "note": "1080p 衍生素材逐帧完整解码并经联系表人工复核"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "supporting",
+        "briefRelevance": 8
+      }
+    ],
+    "uncertainties": [
+      {
+        "id": "uncertainty-not-touchscreen-ban",
+        "statement": "该协议影响 Euro NCAP 安全评分，不等于欧盟禁止触屏或车辆没有这些入口就不能销售。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "一手来源证据边界"
+          }
+        ],
+        "resolution": "成片明确称其为消费者安全评级，并删除禁止销售或上市的表述。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "uncertainty-no-cost-cause",
+        "statement": "协议不能证明车企采用触屏的主要原因是降低成本。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "一手来源证据边界"
+          }
+        ],
+        "resolution": "成片不讨论或断言省成本动机。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "uncertainty-stars-not-equal-details",
+        "statement": "两车同为五星不能说明每个评分细项相同，也不能把 ZEEKR 的单项失分写成整车不安全。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "一手来源证据边界"
+          }
+        ],
+        "resolution": "成片把五星解释为综合结果，并把控制评价限定在对应细项。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "uncertainty-no-universal-superiority",
+        "statement": "这组结果不能证明所有实体按键设计都优于所有触屏设计。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "一手来源证据边界"
+          }
+        ],
+        "resolution": "结论限定为按任务分工，不做介质的绝对优劣判断。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "uncertainty-overview-no-causality",
+        "statement": "总览中的碰撞画面不能证明触屏导致事故。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "file",
+            "note": "一手来源证据边界"
+          }
+        ],
+        "resolution": "画面只承担安全评级语境，旁白不建立事故因果。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 10
+      },
+      {
+        "id": "uncertainty-source-07-visual-aid",
+        "statement": "该图片是原创信息层，只能帮助解释协议清单。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "file",
+            "note": "一手来源证据边界"
+          }
+        ],
+        "resolution": "事实继续引用 source-01；图片不冒充协议原页。",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      },
+      {
+        "id": "uncertainty-source-08-visual-aid",
+        "statement": "该图片是原创机制图，只能解释任务分工。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "file",
+            "note": "一手来源证据边界"
+          }
+        ],
+        "resolution": "事实继续引用 source-01；图片不单独证明外部结论。",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      }
+    ]
+  },
+  "narrative": {
+    "status": "completed",
+    "error": "",
+    "activeVersionId": "narrative-v1",
+    "versions": [
+      {
+        "id": "narrative-v1",
+        "generatedAt": "2026-08-08T08:40:33.157Z",
+        "model": "codex-editorial",
+        "promptVersion": "original-chinese-explainer-20260808-v1",
+        "inputHash": "topic-gate-approved-primary-sources-reviewed",
+        "conclusion": "Euro NCAP 2026 不是禁止触屏，而是按驾驶任务重新划分直接实体输入、触控和菜单的职责。",
+        "hook": "同一天都拿到五星，为什么一辆车的实体按键被表扬，另一辆却因把功能塞进屏幕丢分？",
+        "outline": [
+          "用 BMW iX3 与 ZEEKR 7GT 同日五星建立矛盾",
+          "澄清 Euro NCAP 评级不是触屏禁令或上市法规",
+          "列出五项必须使用直接实体输入的操作",
+          "解释按任务分工，而不是按怀旧与否分工",
+          "用两车官方结果解释五星与单项差异可以同时成立",
+          "给普通观众一个试车时可执行的检查方法"
+        ],
+        "voiceoverScript": "同一天，BMW iX3 和 ZEEKR 7GT 都拿到 Euro NCAP 五星。可官方新闻稿却专门表扬前者的实体控制，又指出后者因为更多功能藏在中控屏里丢了分。这不矛盾吗？先纠正最流行的说法：Euro NCAP 没有禁止触屏。它是消费者安全评级，不是决定汽车能不能上市的法规。二零二六年规则只把五项操作写得非常具体：方向灯、挡位、双闪、e-Call 和喇叭，要有直接实体输入。它没有要求所有功能都回到按钮。导航、媒体和车辆设置，仍然可以留在屏幕里。时间紧的操作，要能凭触感找到。Euro NCAP 说，BMW iX3 给常用功能保留了专用实体控制。ZEEKR 7GT 同样是五星，但官方指出，更多功能位于中央触屏，使它在通用车辆控制一项失分。所以，五星是整套安全表现的综合结果；控制入口只是其中一部分。两车同为五星，并不代表每个细项相同。真正发生的不是大屏消失，而是职责重排：屏幕负责信息和复杂设置，实体入口负责时间紧、需要盲操作的动作。下次试车，别只看屏幕多大。试试双闪、挡位和常用控制，要低头几次、点几步，能不能凭触感找到。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "控制输入协议与证据边界"
+          },
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "BMW 与 ZEEKR 官方结果和评价"
+          }
+        ],
+        "uncertainties": [
+          "Euro NCAP 是消费者安全评级机构，不是欧盟立法机关；成片不把评分要求说成上市法规。",
+          "BMW 与 ZEEKR 的控制评价属于 Euro NCAP 官方测试结论，不扩大为整车安全因果。",
+          "没有把省成本写成触屏化的已证实主因，也没有声称所有实体按键都优于所有触屏设计。"
+        ]
+      }
+    ],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "pendingChapters": [],
+    "generatedAt": "2026-08-08T08:40:33.157Z",
+    "model": "codex-editorial",
+    "promptVersion": "original-chinese-explainer-20260808-v1"
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-5.6",
+    "transcriptionModel": "whisper.cpp:large-v3-turbo-q5_0",
+    "promptVersion": "videobrief-2026-07-11-v1",
+    "calls": []
+  },
+  "editorial": {
+    "claim": "Euro NCAP 2026 没有禁止汽车触屏；它要求方向灯、挡位、双闪、e-Call 和喇叭等时间紧迫操作使用可凭触感找到的直接实体输入，而屏幕仍承担信息、导航和可升级功能。",
+    "whyItMatters": "普通观众每天都会遇到把功能塞进屏幕的产品；这个案例提供了一个判断入口设计是否合理的具体方法。",
+    "chinaContext": "不把 Euro NCAP 规则误写成欧盟上市禁令；中文观众可以把五项操作和任务分工用于理解自己的试车体验。",
+    "riskNote": "四条官方公开视频没有商业复用许可，成片仅用于本地样片；发布前必须清权或替换。车型单项差异不能扩大为整车不安全。"
+  },
+  "platformCopy": {
+    "coverTitle": "五星也会因触屏丢分？",
+    "title": "欧洲真的要禁止汽车触屏吗？两款五星车给出了答案",
+    "description": "Euro NCAP 2026 没有禁止大屏，它在重新划分哪些操作必须能凭触感找到。",
+    "hashtags": [
+      "汽车触屏",
+      "实体按键",
+      "EuroNCAP",
+      "产品设计"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "2026-08-08T08:27:11.378Z",
+    "updatedAt": "2026-08-08T09:37:34.439Z",
+    "researchReviewedAt": "",
+    "firstRenderCompletedAt": "2026-08-08T09:04:20.969Z",
+    "lastRenderCompletedAt": "2026-08-08T09:19:39.359Z",
+    "sourceImportCount": 11,
+    "manualSaveCount": 0,
+    "renderAttemptCount": 5,
+    "renderFailureCount": 1,
+    "lastRenderStartedAt": "2026-08-08T09:19:17.679Z",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "materialReview": {
+    "status": "approved",
+    "approvedSourceIds": [
+      "source-03",
+      "source-04",
+      "source-05",
+      "source-06",
+      "source-09",
+      "source-10",
+      "source-11"
+    ],
+    "reviewedAt": "2026-08-08T09:00:01.741Z"
+  },
+  "materialQualityReview": {
+    "schemaVersion": 1,
+    "status": "passed",
+    "reviewedAt": "2026-08-08T09:19:10.704Z",
+    "reviewer": "codex",
+    "reviewScope": "11 个启用场景：按首版 TTS 时长收紧后，重新检查 8 个互不重叠的 1080p 官方动态窗口、1 张官方视频 1080p 静帧、2 张 1920x1080 原创信息层的 start/mid/end 与 390x844 移动中点。真实公开视频均为 review_required；原创信息层 cleared；未使用 AI 生成或合成画面。",
+    "sceneReviews": [
+      {
+        "sceneId": "scene-01",
+        "sceneFingerprint": "6e549a63a039a04caffa69628e7d75ed7e53426c3103a46f73b7c20ac8b1b156",
+        "candidate": {
+          "sourceId": "source-05",
+          "sourceStart": 1.5,
+          "sourceEnd": 8.5
+        },
+        "visibleClaim": "BMW iX3 车型、五星与分项评分依次出现。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "车型与五星结果直接可见，和旁白第一句一致。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕不依赖源画面细字；桌面和 390x844 移动中点证据里车型、屏幕、按键或测试主体均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "start/mid/end 均已人工核对，窗口覆盖所需状态且旁白实测或字数容量不超过窗口；无循环、重叠或改速。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "运动来自原始官方视频，承担车型、测试或按键推进语境；未添加额外镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前窗口或静帧只承担本幕观点；同一视频的其他场景使用互不重叠窗口。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白与画面角色一致",
+          "候选窗口当前且不可变",
+          "桌面与移动主体可辨",
+          "事实来源与画面来源分工明确",
+          "权利边界已记录"
+        ],
+        "evidence": [
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-01-start.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-01-mid.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-01-end.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-01-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-02",
+        "sceneFingerprint": "8680d25b9c4b80529bed616ee8c9eadef6ae03b8989d38db5cf9b730c1b88863",
+        "candidate": {
+          "sourceId": "source-06",
+          "sourceStart": 1.5,
+          "sourceEnd": 11
+        },
+        "visibleClaim": "ZEEKR 7GT 车型、五星与分项评分后进入动态测试。",
+        "evidenceRole": "source-establishing",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "车型与五星直接可见；实体控制评价由 source-02 一手文本承担，画面只建立官方测试语境。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕不依赖源画面细字；桌面和 390x844 移动中点证据里车型、屏幕、按键或测试主体均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "start/mid/end 均已人工核对，窗口覆盖所需状态且旁白实测或字数容量不超过窗口；无循环、重叠或改速。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "运动来自原始官方视频，承担车型、测试或按键推进语境；未添加额外镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前窗口或静帧只承担本幕观点；同一视频的其他场景使用互不重叠窗口。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白与画面角色一致",
+          "候选窗口当前且不可变",
+          "桌面与移动主体可辨",
+          "事实来源与画面来源分工明确",
+          "权利边界已记录"
+        ],
+        "evidence": [
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-02-start.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-02-mid.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-02-end.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-02-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-03",
+        "sceneFingerprint": "086d9f8c7530830368764438f70a21631ff2fa903c3c84b8427278f80d07ea28",
+        "candidate": {
+          "sourceId": "source-04",
+          "sourceStart": 0.5,
+          "sourceEnd": 13.5
+        },
+        "visibleClaim": "Euro NCAP 2026 标题进入安全测试和驾驶语境。",
+        "evidenceRole": "source-establishing",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "官方 2026 总览直接建立评级语境；不是触屏禁令的边界由 source-01 文本承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕不依赖源画面细字；桌面和 390x844 移动中点证据里车型、屏幕、按键或测试主体均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "start/mid/end 均已人工核对，窗口覆盖所需状态且旁白实测或字数容量不超过窗口；无循环、重叠或改速。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "运动来自原始官方视频，承担车型、测试或按键推进语境；未添加额外镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前窗口或静帧只承担本幕观点；同一视频的其他场景使用互不重叠窗口。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白与画面角色一致",
+          "候选窗口当前且不可变",
+          "桌面与移动主体可辨",
+          "事实来源与画面来源分工明确",
+          "权利边界已记录"
+        ],
+        "evidence": [
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-03-start.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-03-mid.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-03-end.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-03-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-04",
+        "sceneFingerprint": "23400885b78644412d4ef34e0351fd91702f3cb2a1f7690a325d2c0314f33ae0",
+        "candidate": {
+          "sourceId": "source-09",
+          "sourceStart": 0,
+          "sourceEnd": 11
+        },
+        "visibleClaim": "原创信息层列出方向灯、挡位、双闪、e-Call 和喇叭五项直接实体输入。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "五项中文标签与协议清单逐项一致，画面和旁白完全同点。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [
+            "五项操作",
+            "方向灯",
+            "挡位",
+            "双闪",
+            "e-Call",
+            "喇叭"
+          ],
+          "reason": "1920x1080 原图与 390x844 等比缩放中，核心标题和关键标签无需放大即可读；次要英文仅作内部来源提示。"
+        },
+        "temporalCompleteness": {
+          "status": "not-applicable",
+          "reason": "静态图在整幕稳定显示，不伪造运动或状态变化。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "保持静态，不添加推拉运动，优先保证信息和产品结构可读。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前窗口或静帧只承担本幕观点；同一视频的其他场景使用互不重叠窗口。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白与画面角色一致",
+          "候选窗口当前且不可变",
+          "桌面与移动主体可辨",
+          "事实来源与画面来源分工明确",
+          "权利边界已记录"
+        ],
+        "evidence": [
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-04-start.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-04-mid.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-04-end.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-04-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-05",
+        "sceneFingerprint": "4aac98645609bc63d62fa8bd950064f5004ce04763e1c4337f3e917de0fe27d9",
+        "candidate": {
+          "sourceId": "source-11",
+          "sourceStart": 0,
+          "sourceEnd": 8
+        },
+        "visibleClaim": "同一座舱同时可见方向盘实体按键、数字仪表、中控导航屏和下方控制条。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "方向盘实体控制、仪表和导航屏在同一画面清楚共存，直接支持屏幕不会消失。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕不依赖源画面细字；桌面和 390x844 移动中点证据里车型、屏幕、按键或测试主体均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "not-applicable",
+          "reason": "静态图在整幕稳定显示，不伪造运动或状态变化。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "保持静态，不添加推拉运动，优先保证信息和产品结构可读。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前窗口或静帧只承担本幕观点；同一视频的其他场景使用互不重叠窗口。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白与画面角色一致",
+          "候选窗口当前且不可变",
+          "桌面与移动主体可辨",
+          "事实来源与画面来源分工明确",
+          "权利边界已记录"
+        ],
+        "evidence": [
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-05-start.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-05-mid.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-05-end.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-05-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-06",
+        "sceneFingerprint": "2d33d9aee0ac8c26fdefbfc0f925e48bbab5ef148a0c21217d24ec5e1b0b01d8",
+        "candidate": {
+          "sourceId": "source-03",
+          "sourceStart": 18.5,
+          "sourceEnd": 22
+        },
+        "visibleClaim": "镜头从完整座舱推进到方向盘实体按键特写。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "方向盘实体按键由远到近清晰出现，直接支持凭触感找到的入口形态。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕不依赖源画面细字；桌面和 390x844 移动中点证据里车型、屏幕、按键或测试主体均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "start/mid/end 均已人工核对，窗口覆盖所需状态且旁白实测或字数容量不超过窗口；无循环、重叠或改速。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "运动来自原始官方视频，承担车型、测试或按键推进语境；未添加额外镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前窗口或静帧只承担本幕观点；同一视频的其他场景使用互不重叠窗口。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白与画面角色一致",
+          "候选窗口当前且不可变",
+          "桌面与移动主体可辨",
+          "事实来源与画面来源分工明确",
+          "权利边界已记录"
+        ],
+        "evidence": [
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-06-start.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-06-mid.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-06-end.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-06-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-07",
+        "sceneFingerprint": "b8e3a774d6cdd4e2077b8a795b121354b23ec822da69eba62ef67af0fec2ff0f",
+        "candidate": {
+          "sourceId": "source-05",
+          "sourceStart": 9.5,
+          "sourceEnd": 17.5
+        },
+        "visibleClaim": "BMW iX3 分项评分转入连续主动安全测试。",
+        "evidenceRole": "source-establishing",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "官方 BMW 测试语境明确；专用实体控制评价由 source-02 一手文本承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕不依赖源画面细字；桌面和 390x844 移动中点证据里车型、屏幕、按键或测试主体均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "start/mid/end 均已人工核对，窗口覆盖所需状态且旁白实测或字数容量不超过窗口；无循环、重叠或改速。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "运动来自原始官方视频，承担车型、测试或按键推进语境；未添加额外镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前窗口或静帧只承担本幕观点；同一视频的其他场景使用互不重叠窗口。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白与画面角色一致",
+          "候选窗口当前且不可变",
+          "桌面与移动主体可辨",
+          "事实来源与画面来源分工明确",
+          "权利边界已记录"
+        ],
+        "evidence": [
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-07-start.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-07-mid.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-07-end.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-07-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-08",
+        "sceneFingerprint": "925158a8c862e313bacdbddb249359642b9f882d2163343a83f9fb024fe2a633",
+        "candidate": {
+          "sourceId": "source-06",
+          "sourceStart": 12,
+          "sourceEnd": 21.5
+        },
+        "visibleClaim": "ZEEKR 7GT 仪表画中画与动态安全测试连续出现。",
+        "evidenceRole": "source-establishing",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "官方 ZEEKR 测试与仪表语境明确；中控屏失分评价由 source-02 一手文本承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕不依赖源画面细字；桌面和 390x844 移动中点证据里车型、屏幕、按键或测试主体均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "start/mid/end 均已人工核对，窗口覆盖所需状态且旁白实测或字数容量不超过窗口；无循环、重叠或改速。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "运动来自原始官方视频，承担车型、测试或按键推进语境；未添加额外镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前窗口或静帧只承担本幕观点；同一视频的其他场景使用互不重叠窗口。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白与画面角色一致",
+          "候选窗口当前且不可变",
+          "桌面与移动主体可辨",
+          "事实来源与画面来源分工明确",
+          "权利边界已记录"
+        ],
+        "evidence": [
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-08-start.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-08-mid.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-08-end.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-08-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-09",
+        "sceneFingerprint": "717f1b700e3d188fc7c75f950546e79b6b309634c7f3c4aa76399aeff864bc5c",
+        "candidate": {
+          "sourceId": "source-05",
+          "sourceStart": 22,
+          "sourceEnd": 32.5
+        },
+        "visibleClaim": "BMW iX3 展示与前幕不同的多种动态测试状态。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "多个测试状态适合作为综合评级的相关背景，不冒充评分公式。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕不依赖源画面细字；桌面和 390x844 移动中点证据里车型、屏幕、按键或测试主体均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "start/mid/end 均已人工核对，窗口覆盖所需状态且旁白实测或字数容量不超过窗口；无循环、重叠或改速。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "运动来自原始官方视频，承担车型、测试或按键推进语境；未添加额外镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前窗口或静帧只承担本幕观点；同一视频的其他场景使用互不重叠窗口。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白与画面角色一致",
+          "候选窗口当前且不可变",
+          "桌面与移动主体可辨",
+          "事实来源与画面来源分工明确",
+          "权利边界已记录"
+        ],
+        "evidence": [
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-09-start.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-09-mid.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-09-end.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-09-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-10",
+        "sceneFingerprint": "d48ff9f5fd6e11b14f84e13252054a4de1f306a0d240df9930f7f399319dcb88",
+        "candidate": {
+          "sourceId": "source-10",
+          "sourceStart": 0,
+          "sourceEnd": 11.5
+        },
+        "visibleClaim": "原创机制图并列实体入口与屏幕菜单两类任务职责。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "两栏机制图直接表达时间紧操作与复杂信息的职责分工。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [
+            "职责分工",
+            "实体入口",
+            "屏幕菜单"
+          ],
+          "reason": "1920x1080 原图与 390x844 等比缩放中，核心标题和关键标签无需放大即可读；次要英文仅作内部来源提示。"
+        },
+        "temporalCompleteness": {
+          "status": "not-applicable",
+          "reason": "静态图在整幕稳定显示，不伪造运动或状态变化。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "保持静态，不添加推拉运动，优先保证信息和产品结构可读。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前窗口或静帧只承担本幕观点；同一视频的其他场景使用互不重叠窗口。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白与画面角色一致",
+          "候选窗口当前且不可变",
+          "桌面与移动主体可辨",
+          "事实来源与画面来源分工明确",
+          "权利边界已记录"
+        ],
+        "evidence": [
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-10-start.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-10-mid.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-10-end.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-10-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-11",
+        "sceneFingerprint": "d6f48198ff13723744a0eb2088cb955e5387a2fc571f2d7a7cb4d12fc761fefb",
+        "candidate": {
+          "sourceId": "source-06",
+          "sourceStart": 25.5,
+          "sourceEnd": 36
+        },
+        "visibleClaim": "ZEEKR 7GT 后续动态测试和驾驶视角用于试车 CTA。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "真实驾驶测试语境支撑试车检查 CTA，不把画面当事故因果证据。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕不依赖源画面细字；桌面和 390x844 移动中点证据里车型、屏幕、按键或测试主体均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "start/mid/end 均已人工核对，窗口覆盖所需状态且旁白实测或字数容量不超过窗口；无循环、重叠或改速。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "运动来自原始官方视频，承担车型、测试或按键推进语境；未添加额外镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前窗口或静帧只承担本幕观点；同一视频的其他场景使用互不重叠窗口。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白与画面角色一致",
+          "候选窗口当前且不可变",
+          "桌面与移动主体可辨",
+          "事实来源与画面来源分工明确",
+          "权利边界已记录"
+        ],
+        "evidence": [
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-11-start.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-11-mid.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-11-end.png",
+          "output/videos/automotive-controls-task-split-20260808-work/material-quality-evidence/scene-11-mobile-mid.png"
+        ]
+      }
+    ]
+  },
+  "workflow": {
+    "schemaVersion": 1,
+    "origin": {
+      "kind": "manual",
+      "runId": "",
+      "candidateId": "",
+      "sourceUrl": "https://www.euroncap.com/press-media/a-new-benchmark-for-vehicle-safety-bmw-and-zeekr-secure-five-stars-under-euro-ncap-s-new-tests/",
+      "score": 34,
+      "summary": "2026-08-07 Topic Gate 调研与 2026-08-08 抖音/TikTok 同质化复核后的首条受众样片"
+    },
+    "topicApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-08T08:27:11.378Z",
+      "decidedBy": "用户",
+      "note": "用户批准精确命题与 16:9 / 1920x1080 / 30fps 单横版画幅，允许进入正式生产。",
+      "fingerprint": "d9082856124b73d02ee5e326136a8120251f23191a9fa527fadede14a27fc9d7"
+    },
+    "researchApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-08T08:41:04.140Z",
+      "decidedBy": "用户",
+      "note": "用户批准该命题进入正式制作；研究事实沿用 Topic Gate 已披露的一手来源与证据边界，权利和交付仍单独待审。",
+      "fingerprint": "2ec102af50691143d488ed27b95bffce333fc49e25577a83fd26a53240eaa36e"
+    },
+    "deliveryApproval": {
+      "status": "rejected",
+      "decidedAt": "2026-08-08T09:37:34.439Z",
+      "decidedBy": "用户",
+      "note": "命题不好看，看不懂，没啥吸引人。",
+      "fingerprint": "87cdf7af86d6120e8e58fb9081f0ebb4af1476c4499bf27e57d6c5ad228ab0a1"
+    },
+    "publication": {
+      "approval": {
+        "status": "pending",
+        "decidedAt": "",
+        "decidedBy": "",
+        "note": "",
+        "fingerprint": ""
+      },
+      "platform": "",
+      "publishedUrl": "",
+      "publishedAt": "",
+      "videoSha256": "",
+      "packageSha256": ""
+    },
+    "market": {
+      "decision": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "evidence": []
+    }
+  },
+  "chapters": [
+    {
+      "id": "chapter-01",
+      "title": "同获五星，为什么实体按键仍让一辆车少丢分",
+      "summary": "从两车同日五星的差异切入，解释 Euro NCAP 2026 按任务划分控制入口。",
+      "order": 0,
+      "sceneIds": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06",
+        "scene-07",
+        "scene-08",
+        "scene-09",
+        "scene-10",
+        "scene-11"
+      ],
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "2026 General Vehicle Controls 协议"
+        },
+        {
+          "sourceId": "source-02",
+          "locatorType": "file",
+          "note": "两车官方结果"
+        }
+      ],
+      "objective": "用约 100-120 秒讲清 Euro NCAP 2026 如何按驾驶任务重新划分实体入口、触控和菜单的职责，并用 BMW iX3 与 ZEEKR 7GT 的同日结果解释为什么大屏不会消失、时间紧迫的控制却正在回到可盲操作入口",
+      "targetDurationSeconds": 110,
+      "evidenceUnitIds": [
+        "fact-five-direct-inputs",
+        "fact-direct-physical-definition",
+        "fact-other-inputs-allowed",
+        "fact-both-five-stars",
+        "fact-bmw-physical-praise",
+        "fact-zeekr-screen-points"
+      ],
+      "script": "同一天，BMW iX3 和 ZEEKR 7GT 都拿到 Euro NCAP 五星。可官方新闻稿却专门表扬前者的实体控制，又指出后者因为更多功能藏在中控屏里丢了分。这不矛盾吗？先纠正最流行的说法：Euro NCAP 没有禁止触屏。它是消费者安全评级，不是决定汽车能不能上市的法规。二零二六年规则只把五项操作写得非常具体：方向灯、挡位、双闪、e-Call 和喇叭，要有直接实体输入。它没有要求所有功能都回到按钮。导航、媒体和车辆设置，仍然可以留在屏幕里。时间紧的操作，要能凭触感找到。Euro NCAP 说，BMW iX3 给常用功能保留了专用实体控制。ZEEKR 7GT 同样是五星，但官方指出，更多功能位于中央触屏，使它在通用车辆控制一项失分。所以，五星是整套安全表现的综合结果；控制入口只是其中一部分。两车同为五星，并不代表每个细项相同。真正发生的不是大屏消失，而是职责重排：屏幕负责信息和复杂设置，实体入口负责时间紧、需要盲操作的动作。下次试车，别只看屏幕多大。试试双闪、挡位和常用控制，要低头几次、点几步，能不能凭触感找到。",
+      "generatedAt": "2026-08-08T08:40:33.157Z",
+      "model": "codex-editorial",
+      "promptVersion": "original-chinese-explainer-20260808-v1",
+      "inputHash": "topic-gate-approved-primary-sources-reviewed",
+      "cacheHit": false
+    }
+  ],
+  "outputs": {
+    "outputVideo": "output/videos/automotive-controls-task-split-20260808.mp4",
+    "publicRender": "public/renders/automotive-controls-task-split-20260808.mp4",
+    "workDir": "output/videos/automotive-controls-task-split-20260808-work",
+    "exportDir": "output/exports/automotive-controls-task-split-20260808",
+    "coverImage": "output/exports/automotive-controls-task-split-20260808/cover.png",
+    "platformCopy": "output/exports/automotive-controls-task-split-20260808/platform-copy.json",
+    "sourceList": "output/exports/automotive-controls-task-split-20260808/source-list.json",
+    "projectSnapshot": "output/exports/automotive-controls-task-split-20260808/project.snapshot.json"
+  },
+  "render": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice": "zh-CN-YunxiNeural",
+    "rate": 194,
+    "voiceEngine": "edge-tts",
+    "voiceModel": "edge-tts-universal",
+    "voiceProfile": "natural-tech-zh-v1",
+    "voiceStyle": "像真实的中文科技内容创作者一样讲述。\n声音克制、自然，有轻微交流感，不要新闻播音腔或广告腔。\n使用中等语速，在转折和结论前自然停顿。\n重点词只做轻微强调，不要夸张表演。\n必须准确朗读原文，不要增加、删减或改写内容。",
+    "voiceGenerationMode": "per-scene",
+    "renderStrategy": "segmented-concat",
+    "pronunciations": [
+      {
+        "term": "Euro NCAP",
+        "guidance": "读作 Euro N cap",
+        "spokenText": "Euro N cap",
+        "asrAliases": [
+          "Euro NCAP",
+          "euro n cap"
+        ]
+      },
+      {
+        "term": "ZEEKR",
+        "guidance": "读作 极氪",
+        "spokenText": "极氪",
+        "asrAliases": [
+          "ZEEKR",
+          "极氪"
+        ]
+      },
+      {
+        "term": "e-Call",
+        "guidance": "读作 e call",
+        "spokenText": "e call",
+        "asrAliases": [
+          "e-Call",
+          "e call"
+        ]
+      }
+    ],
+    "mediaFit": "contain"
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-05",
+      "sourceStart": 1.5,
+      "sourceEnd": 8.5,
+      "mediaFit": "contain",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "同日结果 / BMW iX3",
+      "title": "先看一个矛盾",
+      "subtitle": "BMW iX3：2026 新协议五星",
+      "narration": "同一天，BMW iX3 和 ZEEKR 7GT 都拿到 Euro NCAP 五星。",
+      "visualRequirement": "使用 BMW iX3 官方测试视频的车型与五星结果开场；画面只锚定车型和结果。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-02",
+          "locatorType": "file",
+          "note": "两车均获五星的官方结果摘录"
+        },
+        {
+          "sourceId": "source-05",
+          "locatorType": "time",
+          "start": 1.5,
+          "end": 8.5,
+          "note": "BMW iX3 车型与评分卡"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-01-selected",
+          "sourceId": "source-05",
+          "assetPath": "public/project-assets/automotive-controls-task-split-20260808/bmw-ix3-2026-test-clean-1786178025598.mp4",
+          "mediaType": "video",
+          "sourceStart": 1.5,
+          "sourceEnd": 8.5,
+          "matchReason": "1.5-8.5 秒从 BMW iX3 车型入画进入五星与分项评分，避开片头空白。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-01-selected",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-08T09:05:58.976Z",
+      "selectionNote": "按首版真实 TTS 时长收紧当前窗口，保留语音后短暂停顿；start/mid/end 语义仍完整，无循环、改速或重叠。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-02",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-06",
+      "sourceStart": 1.5,
+      "sourceEnd": 11,
+      "mediaFit": "contain",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "同日结果 / ZEEKR 7GT",
+      "title": "同是五星，评价却不同",
+      "subtitle": "一辆被表扬，一辆在控制项失分",
+      "narration": "可官方新闻稿表扬前者的实体控制，却说后者把更多功能藏进中控屏，因此丢分。这不矛盾吗？",
+      "visualRequirement": "使用 ZEEKR 7GT 官方测试视频的车型与五星结果完成两车对照；具体控制评价由一手文本承担。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-02",
+          "locatorType": "file",
+          "note": "BMW 与 ZEEKR 通用车辆控制评价"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "time",
+          "start": 1.5,
+          "end": 11,
+          "note": "ZEEKR 7GT 车型与评分卡"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-02-selected",
+          "sourceId": "source-06",
+          "assetPath": "public/project-assets/automotive-controls-task-split-20260808/zeekr-7gt-2026-test-clean-1786178025613.mp4",
+          "mediaType": "video",
+          "sourceStart": 1.5,
+          "sourceEnd": 11,
+          "matchReason": "1.5-11 秒从 ZEEKR 7GT 车型入画进入五星与分项评分，和上一幕形成直接对照。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-02-selected",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-08T09:05:58.976Z",
+      "selectionNote": "按首版真实 TTS 时长收紧当前窗口，保留语音后短暂停顿；start/mid/end 语义仍完整，无循环、改速或重叠。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-03",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-04",
+      "sourceStart": 0.5,
+      "sourceEnd": 13.5,
+      "mediaFit": "contain",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "先纠正一个误读",
+      "title": "Euro NCAP 没有禁止触屏",
+      "subtitle": "它影响安全评分，不决定车辆能否上市",
+      "narration": "先纠正最流行的说法：Euro NCAP 没有禁止触屏。它是消费者安全评级，不是决定汽车能不能上市的法规。",
+      "visualRequirement": "Euro NCAP 2026 官方总览从标题进入安全测试和驾驶语境；不把碰撞画面解释为触屏导致事故。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "Euro NCAP 机构与协议边界"
+        },
+        {
+          "sourceId": "source-04",
+          "locatorType": "time",
+          "start": 0.5,
+          "end": 13.5,
+          "note": "2026 新测试总览开场"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-03-selected",
+          "sourceId": "source-04",
+          "assetPath": "public/project-assets/automotive-controls-task-split-20260808/euroncap-2026-overview-clean-1786178025588.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.5,
+          "sourceEnd": 13.5,
+          "matchReason": "0.5-13.5 秒从 2026 标题进入测试与驾驶语境，避开最初暗场。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-03-selected",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-08T09:05:58.976Z",
+      "selectionNote": "按首版真实 TTS 时长收紧当前窗口，保留语音后短暂停顿；start/mid/end 语义仍完整，无循环、改速或重叠。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-04",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 0,
+      "sourceEnd": 11,
+      "mediaFit": "contain",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "协议写得很具体",
+      "title": "五项操作必须有实体入口",
+      "subtitle": "方向灯、挡位、双闪、e-Call、喇叭",
+      "narration": "二零二六年规则点名了五项操作：方向灯、挡位、双闪、e-Call 和喇叭，要有直接实体输入。",
+      "visualRequirement": "原创信息层用大字号列出五项操作；事实继续由 Euro NCAP 协议摘录承担。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "General Vehicle Controls 五项 Direct physical input"
+        },
+        {
+          "sourceId": "source-09",
+          "locatorType": "image",
+          "note": "1920x1080 V2 原创五项清单"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-04-selected-v2",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/automotive-controls-task-split-20260808/five-direct-physical-inputs-v2-1786178555033.png",
+          "mediaType": "image",
+          "sourceStart": 0,
+          "sourceEnd": 11,
+          "matchReason": "原创信息层与协议五项清单逐项一致，大字号适合桌面与 390x844 手机等比缩放。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-04-selected-v2",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-08T09:05:58.976Z",
+      "selectionNote": "按首版真实 TTS 时长收紧当前窗口，保留语音后短暂停顿；start/mid/end 语义仍完整，无循环、改速或重叠。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-05",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-11",
+      "sourceStart": 0,
+      "sourceEnd": 8,
+      "mediaFit": "contain",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "大屏不会消失",
+      "title": "不是所有功能都回到按钮",
+      "subtitle": "屏幕仍承担信息、导航和复杂设置",
+      "narration": "它没有要求所有功能都回到按钮。导航、媒体和车辆设置，仍然可以留在屏幕里。",
+      "visualRequirement": "VW 官方内饰在同一座舱中展示方向盘实体控制、仪表和中控屏并存；只说明形态与职责可以共存。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "协议对其他任务允许直接触控、菜单或语音输入"
+        },
+        {
+          "sourceId": "source-11",
+          "locatorType": "image",
+          "note": "Volkswagen 官方视频 9.5 秒座舱静帧"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-05-selected-still",
+          "sourceId": "source-11",
+          "assetPath": "public/project-assets/automotive-controls-task-split-20260808/vw-screen-and-controls-still-1786179573851.png",
+          "mediaType": "image",
+          "sourceStart": 0,
+          "sourceEnd": 8,
+          "matchReason": "9.5 秒官方视频静帧在同一画面清楚展示方向盘实体控制、数字仪表与中控导航屏，直接支持屏幕和实体入口并存。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-05-selected-still",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-08T09:05:58.976Z",
+      "selectionNote": "按首版真实 TTS 时长收紧当前窗口，保留语音后短暂停顿；start/mid/end 语义仍完整，无循环、改速或重叠。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-06",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-03",
+      "sourceStart": 18.5,
+      "sourceEnd": 22,
+      "mediaFit": "contain",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "分界线是任务",
+      "title": "时间紧，就要少低头",
+      "subtitle": "关键操作需要凭触感找到",
+      "narration": "时间紧的操作，要能凭触感找到。",
+      "visualRequirement": "VW 官方内饰连续特写方向盘实体按键，承担触觉定位的产品形态示意；不证明任何事故因果。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "Direct physical input 的机械运动、触觉定位和反馈定义"
+        },
+        {
+          "sourceId": "source-03",
+          "locatorType": "time",
+          "start": 18.5,
+          "end": 22,
+          "note": "方向盘实体按键特写"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-06-selected",
+          "sourceId": "source-03",
+          "assetPath": "public/project-assets/automotive-controls-task-split-20260808/vw-id-polo-interior-clean-1786178025578.mp4",
+          "mediaType": "video",
+          "sourceStart": 18.5,
+          "sourceEnd": 22,
+          "matchReason": "18.5-22 秒从完整座舱推进到方向盘实体按键特写，主体逐步收紧，不与其他 VW 窗口重叠。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-06-selected",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-08T09:05:58.976Z",
+      "selectionNote": "按首版真实 TTS 时长收紧当前窗口，保留语音后短暂停顿；start/mid/end 语义仍完整，无循环、改速或重叠。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-07",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-05",
+      "sourceStart": 9.5,
+      "sourceEnd": 17.5,
+      "mediaFit": "contain",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "官方评价 / BMW iX3",
+      "title": "专用实体控制得到表扬",
+      "subtitle": "这是 General Vehicle Controls 的具体评价",
+      "narration": "Euro NCAP 说，BMW iX3 给常用功能留了实体入口。",
+      "visualRequirement": "BMW 官方测试过程作为车型结果语境，评价文字由 Euro NCAP 一手结果页支撑；测试画面不冒充按钮实拍。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-02",
+          "locatorType": "file",
+          "note": "BMW iX3 专用实体控制的正面评价"
+        },
+        {
+          "sourceId": "source-05",
+          "locatorType": "time",
+          "start": 9.5,
+          "end": 17.5,
+          "note": "BMW iX3 官方安全测试过程"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-07-selected",
+          "sourceId": "source-05",
+          "assetPath": "public/project-assets/automotive-controls-task-split-20260808/bmw-ix3-2026-test-clean-1786178025598.mp4",
+          "mediaType": "video",
+          "sourceStart": 9.5,
+          "sourceEnd": 17.5,
+          "matchReason": "9.5-17.5 秒为 BMW 评分转入连续主动安全测试的独立窗口，只承担车型与测试语境。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-07-selected",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-08T09:05:58.976Z",
+      "selectionNote": "按首版真实 TTS 时长收紧当前窗口，保留语音后短暂停顿；start/mid/end 语义仍完整，无循环、改速或重叠。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-08",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-06",
+      "sourceStart": 12,
+      "sourceEnd": 21.5,
+      "mediaFit": "contain",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "官方评价 / ZEEKR 7GT",
+      "title": "更多功能进入中控屏",
+      "subtitle": "因此在通用车辆控制一项失分",
+      "narration": "ZEEKR 7GT 同样是五星，但官方指出，更多功能位于中央触屏，使它在通用车辆控制一项失分。",
+      "visualRequirement": "ZEEKR 官方测试过程和仪表画中画作为车型语境；屏幕化控制失分由 Euro NCAP 一手文本证明。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-02",
+          "locatorType": "file",
+          "note": "ZEEKR 7GT 因较多功能位于中控屏而在该项失分"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "time",
+          "start": 12,
+          "end": 21.5,
+          "note": "ZEEKR 7GT 官方测试与仪表画面"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-08-selected",
+          "sourceId": "source-06",
+          "assetPath": "public/project-assets/automotive-controls-task-split-20260808/zeekr-7gt-2026-test-clean-1786178025613.mp4",
+          "mediaType": "video",
+          "sourceStart": 12,
+          "sourceEnd": 21.5,
+          "matchReason": "12-21.5 秒为 ZEEKR 评分、仪表画中画和动态测试的连续独立窗口。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-08-selected",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-08T09:05:58.976Z",
+      "selectionNote": "按首版真实 TTS 时长收紧当前窗口，保留语音后短暂停顿；start/mid/end 语义仍完整，无循环、改速或重叠。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-09",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-05",
+      "sourceStart": 22,
+      "sourceEnd": 32.5,
+      "mediaFit": "contain",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "为什么并不矛盾",
+      "title": "五星是综合结果",
+      "subtitle": "同为五星，不等于每个细项相同",
+      "narration": "所以，五星是整套安全表现的综合结果；控制入口只是其中一部分。两车同为五星，并不代表每个细项相同。",
+      "visualRequirement": "BMW 官方测试继续展示多项主动安全测试，说明整车评级包含多类表现；不声称此窗口就是五星计算公式。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-02",
+          "locatorType": "file",
+          "note": "两车同为五星与控制项评价差异"
+        },
+        {
+          "sourceId": "source-05",
+          "locatorType": "time",
+          "start": 22,
+          "end": 32.5,
+          "note": "BMW iX3 不同测试场景"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-09-selected",
+          "sourceId": "source-05",
+          "assetPath": "public/project-assets/automotive-controls-task-split-20260808/bmw-ix3-2026-test-clean-1786178025598.mp4",
+          "mediaType": "video",
+          "sourceStart": 22,
+          "sourceEnd": 32.5,
+          "matchReason": "22-32.5 秒展示 BMW 与前幕不同的多项动态测试状态，作为综合评级相关语境。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-09-selected",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-08T09:05:58.976Z",
+      "selectionNote": "按首版真实 TTS 时长收紧当前窗口，保留语音后短暂停顿；start/mid/end 语义仍完整，无循环、改速或重叠。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-10",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-10",
+      "sourceStart": 0,
+      "sourceEnd": 11.5,
+      "mediaFit": "contain",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "真正的变化",
+      "title": "职责重排，而不是屏幕消失",
+      "subtitle": "实体入口管时间紧，屏幕管信息多",
+      "narration": "真正发生的不是大屏消失，而是职责重排：屏幕负责信息和复杂设置，实体入口则用于时间紧的盲操作。",
+      "visualRequirement": "原创机制图并列两类任务，用红色标记时间紧操作、蓝色标记信息和复杂设置；只作解释，不冒充真实车载界面。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "不同任务允许不同输入方式的协议结构"
+        },
+        {
+          "sourceId": "source-10",
+          "locatorType": "image",
+          "note": "1920x1080 V2 原创任务分工机制图"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-10-selected-v2",
+          "sourceId": "source-10",
+          "assetPath": "public/project-assets/automotive-controls-task-split-20260808/task-based-control-split-v2-1786178555045.png",
+          "mediaType": "image",
+          "sourceStart": 0,
+          "sourceEnd": 11.5,
+          "matchReason": "原创机制图把协议中的任务差异转为普通观众可理解的两栏对照，字号适合目标视口。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-10-selected-v2",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-08T09:05:58.976Z",
+      "selectionNote": "按首版真实 TTS 时长收紧当前窗口，保留语音后短暂停顿；start/mid/end 语义仍完整，无循环、改速或重叠。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-11",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-06",
+      "sourceStart": 25.5,
+      "sourceEnd": 36,
+      "mediaFit": "contain",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "下次试车怎么判断",
+      "title": "别只看屏幕多大",
+      "subtitle": "低头几次、点几步、能否凭触感找到",
+      "narration": "下次试车，别只看屏幕多大。试试双闪、挡位和常用控制，要低头几次、点几步，能不能凭触感找到。",
+      "visualRequirement": "ZEEKR 官方动态测试作为驾驶语境收束，CTA 明确是观众自己的试车检查，不把测试画面当作因果证据。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "Direct physical input 与不同任务输入方式的依据"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "time",
+          "start": 25.5,
+          "end": 36,
+          "note": "ZEEKR 7GT 官方测试驾驶语境"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-11-selected",
+          "sourceId": "source-06",
+          "assetPath": "public/project-assets/automotive-controls-task-split-20260808/zeekr-7gt-2026-test-clean-1786178025613.mp4",
+          "mediaType": "video",
+          "sourceStart": 25.5,
+          "sourceEnd": 36,
+          "matchReason": "25.5-36 秒展示 ZEEKR 后续动态测试和驾驶视角，承接普通观众试车 CTA。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-11-selected",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-08T09:05:58.976Z",
+      "selectionNote": "按首版真实 TTS 时长收紧当前窗口，保留语音后短暂停顿；start/mid/end 语义仍完整，无循环、改速或重叠。",
+      "generatedBy": "ai",
+      "userEdited": true
+    }
+  ]
+}

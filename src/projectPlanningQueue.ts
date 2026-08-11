@@ -88,6 +88,20 @@ export function listProjectPlanningJobs(path = DEFAULT_PROJECT_PLANNING_QUEUE_PA
   return withQueuePositions(parseQueue(path).jobs);
 }
 
+export function removeProjectPlanningJobsForProject(
+  path: string,
+  projectId: string,
+  options: QueueOptions = {},
+) {
+  const now = options.now ?? (() => new Date());
+  return withQueueLock(path, (state) => {
+    const removed = state.jobs.filter((job) => job.projectId === projectId);
+    state.jobs = state.jobs.filter((job) => job.projectId !== projectId);
+    if (removed.length > 0) persist(path, state, now);
+    return removed;
+  });
+}
+
 export function projectPlanningQueueWorker(
   path = DEFAULT_PROJECT_PLANNING_QUEUE_PATH,
   options: Pick<QueueOptions, 'isProcessAlive'> = {},

@@ -22,6 +22,7 @@
     "video:render:remotion-project": "node scripts/render-remotion-project.mjs",
     "video:review:prepare": "node scripts/build-review-work-package.mjs",
     "video:review:semantic": "node scripts/review-video-semantics.mjs",
+    "video:review:materials": "node scripts/review-material-quality.mjs",
     "video:review:browser": "node scripts/verify-video-browser.mjs",
     "video:package:production": "node scripts/build-export-package.mjs",
     "video:source:information-layer": "tsx scripts/generate-scene-information-layer.ts",

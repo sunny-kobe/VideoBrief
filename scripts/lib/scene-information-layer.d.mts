@@ -5,7 +5,8 @@ export interface SceneInformationLayerPlanItem {
   subtitle: string;
   narration: string;
   visualRequirement: string;
-  visualKind: 'brief' | 'evidence' | 'approval' | 'proof' | 'statuses' | 'flow';
+  visualKind: 'positioning' | 'iteration' | 'specifications' | 'benchmark' | 'tradeoffs' | 'decision'
+    | 'brief' | 'evidence' | 'approval' | 'proof' | 'statuses' | 'flow';
   sourceStart: number;
   sourceEnd: number;
   matchReason: string;

@@ -152,6 +152,10 @@ export function validateRenderPlan(plan, manifest) {
       scene.sourceId !== rendered.sourceId
       || !sameNumber(scene.sourceStart, rendered.sourceStart)
       || !sameNumber(scene.sourceEnd, rendered.sourceEnd)
+      || !sameNumber(scene.mediaPlaybackRate ?? 1, rendered.mediaPlaybackRate ?? 1)
+      || (scene.mediaMotion ?? 'none') !== (rendered.mediaMotion ?? 'none')
+      || !sameNumber(scene.mediaMotionAmount ?? 0, rendered.mediaMotionAmount ?? 0)
+      || (scene.mediaBackground ?? 'solid') !== (rendered.mediaBackground ?? 'solid')
       || !sameNumber(scene.outputStart, rendered.start)
       || !sameNumber(scene.outputEnd, rendered.end)
     ) {

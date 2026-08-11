@@ -9,6 +9,12 @@
   "rights_status": "review_required",
   "publication_status": "draft-unpublished",
   "market_status": "none",
+  "lifecycle": {
+    "state": "archived",
+    "archivedAt": "2026-08-08T04:42:57.573Z",
+    "archivedBy": "local-user",
+    "archiveReason": "历史项目；保留结构化引用，不在默认列表显示。"
+  },
   "brief": {
     "objective": "用一手来源和真实画面，在 40-60 秒内解释“repoprompt/repoprompt-ce”为什么值得中文 AI 实践者关注。",
     "audience": "中文开发者、独立开发者、产品人和 AI 工作流实践者",
@@ -55,6 +61,7 @@
       "analysis": {
         "extractedText": "# repoprompt/repoprompt-ce\n\n## 候选摘要\nCommunity edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.（817 stars，101 forks，许可 Apache-2.0）\n\n## 原始来源\n- [repoprompt/repoprompt-ce](https://github.com/repoprompt/repoprompt-ce)\n\n## 自动收集说明\n本文件只保存候选元数据、短摘要和原始链接。候选入选不代表事实、版权或市场价值已经确认。",
         "visualDescription": "",
+        "hierarchicalSummary": "",
         "transcript": [],
         "facts": [
           {
@@ -144,7 +151,8 @@
             "reviewPriority": "supporting",
             "briefRelevance": 78
           }
-        ]
+        ],
+        "chapters": []
       }
     },
     {
@@ -179,6 +187,7 @@
       "analysis": {
         "extractedText": "# GitHub - repoprompt/repoprompt-ce: Community edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.\n\nCommunity edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI. - repoprompt/repoprompt-ce\n\nRepoPrompt CE A free, open-source native macOS app and agent orchestrator for context engineering. RepoPrompt CE helps coding agents understand your codebase before they act. It assembles focused, reviewable context from files, CodeMaps, repository structure, and Git diffs, then hands that context to AI tools and CLI agents. RepoPrompt CE also builds an agent harness around its bundled MCP server. Connect MCP-compatible clients and CLI agents to search repositories, inspect files, curate context, run agent sessions, and orchestrate work through a shared native macOS interface. Get Started Choose one of these setup paths. You do not need to open Xcode. Install with Homebrew For the signed and notarized public app, use the dedicated RepoPrompt CE Homebrew tap: brew tap repoprompt/repoprompt-ce brew install --cask repoprompt-ce This installs /Applications/RepoPrompt CE.app from the repoprompt/homebrew-repoprompt-ce tap. The cask consumes the promoted public updater ZIP from repoprompt/repoprompt-ce-updates; it does not build from source. Source-build paths remain below for contributors and local development. Build and launch locally For development and quick evaluation, double-click Launch RepoPrompt CE.command in Finder. The launcher requires Python 3, builds RepoPrompt CE through the coordinated developer daemon, opens the debug app, and keeps a small terminal window available for rebuild, status, and stop controls. It does not provide an uncoordinated no-Python fallback because lifecycle actions validate the exact debug executable path. The debug launcher uses an available Apple Development: signing identity. If your Mac does not have one, run the same debug app from Terminal with explicit ad-hoc signing: ALLOW_ADHOC_SIGNING=1 ./conductor app relaunch Ad-hoc debug builds use in-memory secure storage, so saved API keys and secure permission changes do not persist across launches. For persistent debug Keychain storage, pass a stable Apple Development identity explicitly: SIGN_IDENTITY=\"Apple Development: Your Name (TEAMID)\" ./conductor app relaunch For a stable locally signed app under /Applications, use the local production installer below. Its self-signed identity is separate from the debug launcher's Apple Development signing path. Note: If you use the debug app to modify RepoPrompt CE itself, validation flows that launch the app or run live smoke checks may rebuild and relaunch it. Expect the debug app to restart while those checks run. Key Action r Rebuild and relaunch s Show app status x Stop the app q Close the launcher without stopping the app Install a local production build For a release-mode app under /Applications, install Python 3 and double-click Install RepoPrompt CE Local Production.command in Finder. The Finder launcher uses the coordinated developer daemon. The installer builds RepoPrompt CE from source and replaces any existing /Applications/RepoPrompt CE.app using a dedicated self-signed certificate trusted only on your Mac. macOS may ask you to approve the certificate. The resulting app is local-only. It is not notarized and should not be copied to another Mac or redistributed. Source-build requirements macOS 26 or later Xcode 26, or matching Command Line Tools with the macOS 26 SDK Develop in Xcode Generate and open the disposable contributor workspace with: make xcode In Xcode 26.3, use RepoPrompt CE App for the packaged debug app, RepoPrompt CE MCP for the coordinated MCP executable, and RepoPrompt CE Tests for tests. The test scheme delegates to conductor because RepoPromptMCP is an executable-only SwiftPM target. Xcode also exposes the native RepoPrompt and repoprompt-mcp product schemes. See docs/architecture/xcode-workspace.md for generation, validation, cleanup, and workflow boundaries. Release packaging is unchanged and does not use the generated workspace. Features Context engineering: Build dense, reviewable prompts with the files and repository details an AI model actually needs. Codebase orientation: Combine file trees, selected file contents, line slices, CodeMaps, and Git diffs. Context Builder: Let an agent explore the repository, identify relevant files, and curate context within a token budget. Long-running MCP calls expose request-scoped progress when the client supplies a progress token. Agent orchestration: Run and coordinate CLI-backed coding agents from the native macOS app. See docs/worktrees.md for app-managed worktrees and .worktreeinclude local file copying. MCP server and CLI integration: Connect external MCP-compatible tools and CLI agents to RepoPrompt CE's repository context and agent harness. Multi-root workspaces: Work across related repositories, packages, and documentation folders in one workspace. Reviewable handoffs: Inspect and refine selected context before sending it to another model or agent. About the Community Edition RepoPrompt CE is the free, open-source community edition of RepoPrompt. It is a native macOS workspace for context engineering, agent orchestration, and local development. Maintainers track release signing, Sparkle metadata, dependency pins, and third-party notices in docs/open-source-readiness.md. Contributor Documentation AGENTS.md: coordinated builds, tests, launches, live MCP checks, source placement, and contribution preflight CONTRIBUTING.md: contribution policy and pull request steps docs/architecture/source-layout.md: source ownership and placement rules docs/architecture/provider-plugins.md: Agent Mode provider architecture docs/architecture/xcode-workspace.md: generated Xcode developer workflow and boundaries docs/releasing.md: release-candidate and publishing workflows docs/open-source-readiness.md: public readiness inventory License RepoPrompt CE is licensed under Apache-2.0.\n",
         "visualDescription": "",
+        "hierarchicalSummary": "",
         "transcript": [],
         "facts": [
           {
@@ -387,7 +396,8 @@
             "reviewPriority": "supporting",
             "briefRelevance": 72
           }
-        ]
+        ],
+        "chapters": []
       }
     },
     {
@@ -422,6 +432,7 @@
       "analysis": {
         "extractedText": "repoprompt/\nrepoprompt-ce\nCommunity edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.\n29 Contributors\n103 Issues\n817 Stars\n101 Forks",
         "visualDescription": "一张 1200x600 的浅色项目介绍图。左上至中部以大号深色文字显示“repoprompt/”和加粗的“repoprompt-ce”，下方是多行灰色英文项目描述。描述下方横向排列 Contributors、Issues、Stars、Forks 四项统计及对应图标，右上有带浅米色背景的项目图标，右下有 GitHub 图标。底部有红橙色、深灰色和绿色等横向色带。",
+        "hierarchicalSummary": "",
         "transcript": [],
         "facts": [
           {
@@ -561,7 +572,8 @@
             "reviewPriority": "supporting",
             "briefRelevance": 85
           }
-        ]
+        ],
+        "chapters": []
       }
     },
     {
@@ -596,6 +608,7 @@
       "analysis": {
         "extractedText": "# RepoPrompt CE\n\n[![CI](https://github.com/repoprompt/repoprompt-ce/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/repoprompt/repoprompt-ce/actions/workflows/ci.yml?query=branch%3Amain)\n[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)\n![Platform: macOS 26+](https://img.shields.io/badge/platform-macOS%2026%2B-black)\n\n**A free, open-source native macOS app and agent orchestrator for context engineering.**\n\nRepoPrompt CE helps coding agents understand your codebase before they act. It\nassembles focused, reviewable context from files, CodeMaps, repository\nstructure, and Git diffs, then hands that context to AI tools and CLI agents.\n\nRepoPrompt CE also builds an agent harness around its bundled MCP server.\nConnect MCP-compatible clients and CLI agents to search repositories, inspect\nfiles, curate context, run agent sessions, and orchestrate work through a shared\nnative macOS interface.\n\n## Get Started\n\nChoose one of these setup paths. You do not need to open Xcode.\n\n### Install with Homebrew\n\nFor the signed and notarized public app, use the dedicated RepoPrompt CE\nHomebrew tap:\n\n```bash\nbrew tap repoprompt/repoprompt-ce\nbrew install --cask repoprompt-ce\n```\n\nThis installs `/Applications/RepoPrompt CE.app` from the\n[`repoprompt/homebrew-repoprompt-ce`](https://github.com/repoprompt/homebrew-repoprompt-ce)\ntap. The cask consumes the promoted public updater ZIP from\n[`repoprompt/repoprompt-ce-updates`](https://github.com/repoprompt/repoprompt-ce-updates);\nit does not build from source. Source-build paths remain below for contributors\nand local development.\n\n### Build and launch locally\n\nFor development and quick evaluation, double-click\n[`Launch RepoPrompt CE.command`](Launch%20RepoPrompt%20CE.command) in Finder.\n\nThe launcher requires Python 3, builds RepoPrompt CE through the coordinated\ndeveloper daemon, opens the debug app, and keeps a small terminal window\navailable for rebuild, status, and stop controls. It does not provide an\nuncoordinated no-Python fallback because lifecycle actions validate the exact\ndebug executable path.\n\nThe debug launcher uses an available `Apple Development:` signing identity. If\nyour Mac does not have one, run the same debug app from Terminal with explicit\nad-hoc signing:\n\n```bash\nALLOW_ADHOC_SIGNING=1 ./conductor app relaunch\n```\n\nAd-hoc debug builds use in-memory secure storage, so saved API keys and secure\npermission changes do not persist across launches. For persistent debug\nKeychain storage, pass a stable Apple Development identity explicitly:\n\n```bash\nSIGN_IDENTITY=\"Apple Development: Your Name (TEAMID)\" ./conductor app relaunch\n```\n\nFor a stable locally signed app under `/Applications`, use the local production\ninstaller below. Its self-signed identity is separate from the debug launcher's\nApple Development signing path.\n\n> **Note:** If you use the debug app to modify RepoPrompt CE itself, validation\n> flows that launch the app or run live smoke checks may rebuild and relaunch it.\n> Expect the debug app to restart while those checks run.\n\n| Key | Action                                      |\n| --- | ------------------------------------------- |\n| `r` | Rebuild and relaunch                        |\n| `s` | Show app status                             |\n| `x` | Stop the app                                |\n| `q` | Close the launcher without stopping the app |\n\n### Install a local production build\n\nFor a release-mode app under `/Applications`, install Python 3 and double-click\n[`Install RepoPrompt CE Local Production.command`](Install%20RepoPrompt%20CE%20Local%20Production.command)\nin Finder. The Finder launcher uses the coordinated developer daemon.\n\nThe installer builds RepoPrompt CE from source and replaces any existing\n`/Applications/RepoPrompt CE.app` using a dedicated self-signed certificate\ntrusted only on your Mac. macOS may ask you to approve the certificate.\n\nThe resulting app is local-only. It is not notarized and should not be copied to\nanother Mac or redistributed.\n\n### Source-build requirements\n\n- macOS 26 or later\n- Xcode 26, or matching Command Line Tools with the macOS 26 SDK\n\n### Develop in Xcode\n\nGenerate and open the disposable contributor workspace with:\n\n```bash\nmake xcode\n```\n\nIn Xcode 26.3, use `RepoPrompt CE App` for the packaged debug app,\n`RepoPrompt CE MCP` for the coordinated MCP executable, and `RepoPrompt CE\nTests` for tests. The test scheme delegates to conductor because\n`RepoPromptMCP` is an executable-only SwiftPM target. Xcode also exposes the\nnative `RepoPrompt` and `repoprompt-mcp` product schemes.\n\nSee [`docs/architecture/xcode-workspace.md`](docs/architecture/xcode-workspace.md)\nfor generation, validation, cleanup, and workflow boundaries. Release packaging\nis unchanged and does not use the generated workspace.\n\n## Features\n\n- **Context engineering**: Build dense, reviewable prompts with the files and\n  repository details an AI model actually needs.\n- **Codebase orientation**: Combine file trees, selected file contents, line\n  slices, CodeMaps, and Git diffs.\n- **Context Builder**: Let an agent explore the repository, identify relevant\n  files, and curate context within a token budget. Long-running MCP calls expose\n  [request-scoped progress](docs/mcp-progress.md) when the client supplies a\n  progress token.\n- **Agent orchestration**: Run and coordinate CLI-backed coding agents from the\n  native macOS app. See [`docs/worktrees.md`](docs/worktrees.md) for app-managed\n  worktrees and `.worktreeinclude` local file copying.\n- **MCP server and CLI integration**: Connect external MCP-compatible tools and\n  CLI agents to RepoPrompt CE's repository context and agent harness.\n- **Multi-root workspaces**: Work across related repositories, packages, and\n  documentation folders in one workspace.\n- **Reviewable handoffs**: Inspect and refine selected context before sending it\n  to another model or agent.\n\n## About the Community Edition\n\nRepoPrompt CE is the free, open-source community edition of RepoPrompt. It is a\nnative macOS workspace for context engineering, agent orchestration, and local\ndevelopment.\n\nMaintainers track release signing, Sparkle metadata, dependency pins, and\nthird-party notices in\n[`docs/open-source-readiness.md`](docs/open-source-readiness.md).\n\n## Contributor Documentation\n\n- [`AGENTS.md`](AGENTS.md): coordinated builds, tests, launches, live MCP\n  checks, source placement, and contribution preflight\n- [`CONTRIBUTING.md`](CONTRIBUTING.md): contribution policy and pull request\n  steps\n- [`docs/architecture/source-layout.md`](docs/architecture/source-layout.md):\n  source ownership and placement rules\n- [`docs/architecture/provider-plugins.md`](docs/architecture/provider-plugins.md):\n  Agent Mode provider architecture\n- [`docs/architecture/xcode-workspace.md`](docs/architecture/xcode-workspace.md):\n  generated Xcode developer workflow and boundaries\n- [`docs/releasing.md`](docs/releasing.md): release-candidate and publishing\n  workflows\n- [`docs/open-source-readiness.md`](docs/open-source-readiness.md): public\n  readiness inventory\n\n## License\n\nRepoPrompt CE is licensed under [Apache-2.0](LICENSE).\n",
         "visualDescription": "",
+        "hierarchicalSummary": "",
         "transcript": [],
         "facts": [
           {
@@ -809,7 +822,8 @@
             "reviewPriority": "supporting",
             "briefRelevance": 86
           }
-        ]
+        ],
+        "chapters": []
       }
     },
     {
@@ -844,6 +858,7 @@
       "analysis": {
         "extractedText": "GitHub 仓库页面可见文字：\n- repoprompt / repoprompt-ce\n- Public\n- Notifications\n- Fork 101\n- Star 817\n- Code\n- Issues 103\n- Pull requests 66\n- Actions\n- Projects\n- Security and quality\n- Insights\n- main\n- 228 Branches\n- 29 Tags\n- 997 Commits\n- About\n- Community edition of RepoPrompt: a native macOS context engineering app for AI coding agents, with an MCP CLI.\n- repoprompt.com\n- macos\n- swift\n- mcp\n- developer-tools\n- ai-agents\n- prompt-engineering\n- coding-agents\n- model-context-protocol\n- context-engineering\n- Readme\n- Apache-2.0 license\n- Contributing\n- Security policy\n- Activity\n- Custom properties\n- 817 stars\n- 7 watching\n- 101 forks\n- Releases 25\n- RepoPrompt CE 1.0.29\n- Latest\n- Packages\n- No packages published\n- Contributors 29\n- + 15 contributors\n- Languages: Swift 85.9%, C 9.1%, Python 4.2%, Shell 0.7%, C++ 0.1%, Makefile 0.0%\n- RepoPrompt CE\n- CI passing\n- License Apache 2.0\n- platform macOS 26+\n- A free, open-source native macOS app and agent orchestrator for context engineering.\n- RepoPrompt CE helps coding agents understand your codebase before they act. It assembles focused, reviewable context from files, CodeMaps, repository structure, and Git diffs, then hands that context to AI tools and CLI agents.",
         "visualDescription": "一张约 9:16 的纵向 GitHub 页面截图。顶部是深色 GitHub 全局导航栏；主体显示公开仓库 repoprompt/repoprompt-ce 的代码页。左侧为分支、标签、提交数和文件列表，右侧为 About、项目标签、许可证、stars/forks、release、贡献者和语言统计。底部开始显示 README，标题为 RepoPrompt CE，并可见 CI、Apache 2.0、macOS 26+ 徽章及项目简介。",
+        "hierarchicalSummary": "",
         "transcript": [],
         "facts": [
           {
@@ -1043,7 +1058,8 @@
             "reviewPriority": "supporting",
             "briefRelevance": 82
           }
-        ]
+        ],
+        "chapters": []
       }
     },
     {
@@ -1078,6 +1094,7 @@
       "analysis": {
         "extractedText": "README\nContributing\nApache-2.0 license\nSecurity\nRepoPrompt CE\nCI passing\nLicense Apache 2.0\nplatform macOS 26+\nA free, open-source native macOS app and agent orchestrator for context engineering.\nRepoPrompt CE helps coding agents understand your codebase before they act. It assembles focused, reviewable context from files, CodeMaps, repository structure, and Git diffs, then hands that context to AI tools and CLI agents.\nRepoPrompt CE also builds an agent harness around its bundled MCP server. Connect MCP-compatible clients and CLI agents to search repositories, inspect files, curate context, run agent sessions, and orchestrate work through a shared native macOS interface.\nGet Started\nChoose one of these setup paths. You do not need to open Xcode.\nInstall with Homebrew\nFor the signed and notarized public app, use the dedicated RepoPrompt CE Homebrew tap:\nbrew tap repoprompt/repoprompt-ce\nbrew install --cask repoprompt-ce\nThis installs /Applications/RepoPrompt CE.app from the repoprompt/homebrew-repoprompt-ce tap. The cask consumes the promoted public updater ZIP from repoprompt/repoprompt-ce-updates; it does not build from source. Source-build paths remain below for contributors and local development.\nBuild and launch locally\nFor development and quick evaluation, double-click Launch RepoPrompt CE.command in Finder.\nThe launcher requires Python 3, builds RepoPrompt CE through the coordinated developer daemon, opens the debug app, and keeps a small terminal window available for rebuild, status, and stop controls. It does not provide an uncoordinated no-Python fallback because lifecycle actions validate the exact debug executable path.\nThe debug launcher uses an available Apple Development signing identity. If your Mac does not have one, run the same debug app from Terminal with explicit ad-hoc signing:\nALLOW_ADHOC_SIGNING=1 ./conductor app relaunch\nAd-hoc debug builds use in-memory secure storage, so saved API keys and secure permission changes do not persist across launches. For persistent debug Keychain storage, pass a stable Apple Development identity explicitly:\nSIGN_IDENTITY=\"Apple Development: Your Name (TEAMID)\" ./conductor app relaunch\nFor a stable locally signed app under /Applications, use the local production installer below. Its self-signed identity is separate from the debug launcher's Apple Development signing path.\nNote: If you use the debug app to modify RepoPrompt CE itself, validation flows that launch the app or run live smoke checks may rebuild and relaunch it. Expect the debug app to restart while those checks run.\nKey Action\nr Rebuild and relaunch\ns Show app status",
         "visualDescription": "竖向 GitHub 页面截图，顶部可见仓库文件列表的下半部分，下面是 RepoPrompt CE 的 README 内容。README 标题旁有 CI passing、Apache 2.0 和 macOS 26+ 徽章。正文先介绍产品定位和代码库上下文整理能力，再介绍内置 MCP server、MCP-compatible clients、CLI agents 及共享原生 macOS 界面。下半部分显示 Get Started、Homebrew 安装命令、本地构建启动说明、Python 3 和签名相关说明，以及底部的快捷键操作表。整体为白色背景、深色文字、浅灰分隔线，代码使用浅灰代码块呈现。",
+        "hierarchicalSummary": "",
         "transcript": [],
         "facts": [
           {
@@ -1247,7 +1264,8 @@
             "reviewPriority": "required",
             "briefRelevance": 95
           }
-        ]
+        ],
+        "chapters": []
       }
     },
     {
@@ -1282,6 +1300,7 @@
       "analysis": {
         "extractedText": "README\nContributing\nApache-2.0 license\nSecurity\n\n[上方内容被截断] developer daemon, opens the debug app, and keeps a small terminal window available for rebuild, status, and stop controls. It does not provide an uncoordinated no-Python fallback because lifecycle actions validate the exact debug executable path.\n\nThe debug launcher uses an available Apple Development signing identity. If your Mac does not have one, run the same debug app from Terminal with explicit ad-hoc signing:\n\nALLOW_ADHOC_SIGNING=1 ./conductor app relaunch\n\nAd-hoc debug builds use in-memory secure storage, so saved API keys and secure permission changes do not persist across launches. For persistent debug Keychain storage, pass a stable Apple Development identity explicitly:\n\nSIGN_IDENTITY=\"Apple Development: Your Name (TEAMID)\" ./conductor app r[内容被截断]\n\nFor a stable locally signed app under /Applications, use the local production installer below. Its self-signed identity is separate from the debug launcher's Apple Development signing path.\n\nNote: If you use the debug app to modify RepoPrompt CE itself, validation flows that launch the app or run live smoke checks may rebuild and relaunch it. Expect the debug app to restart while those checks run.\n\nKey | Action\nr | Rebuild and relaunch\ns | Show app status\nx | Stop the app\nq | Close the launcher without stopping the app\n\nInstall a local production build\n\nFor a release-mode app under /Applications, install Python 3 and double-click Install RepoPrompt CE Local Production.command in Finder. The Finder launcher uses the coordinated developer daemon.\n\nThe installer builds RepoPrompt CE from source and replaces any existing /Applications/RepoPrompt CE.app using a dedicated self-signed certificate trusted only on your Mac. macOS may ask you to approve the certificate.\n\nThe resulting app is local-only. It is not notarized and should not be copied to another Mac or redistributed.\n\nSource-build requirements\n• macOS 26 or later\n• Xcode 26, or matching Command Line Tools with the macOS 26 SDK\n\nDevelop in Xcode\n\nGenerate and open the disposable contributor workspace with:\n\nmake xcode\n\nIn Xcode 26.3, use RepoPrompt CE App for the packaged debug app, RepoPrompt CE MCP for the coordinated MCP executable, and RepoPrompt CE Tests for tests. The test scheme delegates to conductor because RepoPromptMCP is an executable-only SwiftPM target. Xcode also exposes the native RepoPrompt and repoprompt-mcp product schemes.\n\nSee docs/architecture/xcode-workspace.md for generation, validation, cleanup, and workflow boundaries. Release packaging is unchanged and does not use the generated workspace.\n\nFeatures\n• Context engineering: Build dense, reviewable prompts with the files and repository details an AI model actually needs.\n• Codebase orientation: Combine file trees, selected file contents, line slices, CodeMaps, and Git diffs.\n• Context Builder: Let an agent explore the repository, identify relevant files, and curate context within a token budget. Long-running MCP calls expose request-scoped progress when the client supplies a progress token.\n• Agent orchestration: Run and coordinate CLI-backed coding agents from the native macOS app. See docs/worktrees.md for app-managed worktrees and .worktreeinclude local file copying.\n• MCP server and CLI integration: Connect external MCP-compatible tools and CLI [内容在底部被截断]",
         "visualDescription": "1080x2048 的纵向 GitHub README 截图，白色页面背景，内容集中在左侧约三分之二宽度，右侧大面积留白。顶部有 README 导航栏。正文包含黑色段落文字、粗体小节标题、浅灰色等宽字体代码块、复制图标、浅灰色 Note 提示框、Key/Action 表格，以及 Features 项目符号列表。可见内容从调试 launcher 和代码签名说明开始，延伸到本地 production build、source-build requirements、Xcode 开发和 Features；顶部起始段落和底部 MCP/CLI 条目均不完整。",
+        "hierarchicalSummary": "",
         "transcript": [],
         "facts": [
           {
@@ -1466,7 +1485,8 @@
             "reviewPriority": "supporting",
             "briefRelevance": 75
           }
-        ]
+        ],
+        "chapters": []
       }
     },
     {
@@ -1501,9 +1521,11 @@
       "analysis": {
         "extractedText": "",
         "visualDescription": "1280x720 RepoPrompt CE 官方 GitHub 仓库页面长录屏，按仓库总览、README 定位、上下文输入、Features、MCP/CLI、License 和验证 CTA 分段停留。",
+        "hierarchicalSummary": "",
         "transcript": [],
         "facts": [],
-        "uncertainties": []
+        "uncertainties": [],
+        "chapters": []
       }
     }
   ],
@@ -2792,6 +2814,7 @@
     ],
     "pendingDraft": null,
     "pendingScenes": [],
+    "pendingChapters": [],
     "generatedAt": "2026-07-19T05:41:34.482Z",
     "model": "gpt-5.6-luna",
     "promptVersion": "videobrief-2026-07-11-v1"
@@ -3013,6 +3036,76 @@
     ],
     "reviewedAt": "2026-07-22T03:10:00.000Z"
   },
+  "workflow": {
+    "schemaVersion": 1,
+    "origin": {
+      "kind": "legacy",
+      "runId": "",
+      "candidateId": "",
+      "sourceUrl": "",
+      "score": null,
+      "summary": ""
+    },
+    "topicApproval": {
+      "status": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "fingerprint": ""
+    },
+    "researchApproval": {
+      "status": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "fingerprint": ""
+    },
+    "deliveryApproval": {
+      "status": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "fingerprint": ""
+    },
+    "publication": {
+      "approval": {
+        "status": "pending",
+        "decidedAt": "",
+        "decidedBy": "",
+        "note": "",
+        "fingerprint": ""
+      },
+      "platform": "",
+      "publishedUrl": "",
+      "publishedAt": "",
+      "videoSha256": "",
+      "packageSha256": ""
+    },
+    "market": {
+      "decision": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "evidence": []
+    }
+  },
+  "chapters": [
+    {
+      "id": "chapter-01",
+      "title": "repoprompt/repoprompt-ce",
+      "summary": "",
+      "order": 0,
+      "sceneIds": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06"
+      ],
+      "sourceReferences": []
+    }
+  ],
   "outputs": {
     "outputVideo": "output/videos/2026-07-19-repoprompt-repoprompt-ce.mp4",
     "publicRender": "public/renders/2026-07-19-repoprompt-repoprompt-ce.mp4",
@@ -3059,6 +3152,7 @@
   "scenes": [
     {
       "id": "scene-01",
+      "chapterId": "chapter-01",
       "enabled": true,
       "sourceId": "source-08",
       "sourceStart": 15.4,
@@ -3097,6 +3191,7 @@
     },
     {
       "id": "scene-02",
+      "chapterId": "chapter-01",
       "enabled": true,
       "sourceId": "source-08",
       "sourceStart": 7.336,
@@ -3142,6 +3237,7 @@
     },
     {
       "id": "scene-03",
+      "chapterId": "chapter-01",
       "enabled": true,
       "sourceId": "source-08",
       "sourceStart": 25.1,
@@ -3189,6 +3285,7 @@
     },
     {
       "id": "scene-04",
+      "chapterId": "chapter-01",
       "enabled": true,
       "sourceId": "source-08",
       "sourceStart": 45.337,
@@ -3227,6 +3324,7 @@
     },
     {
       "id": "scene-05",
+      "chapterId": "chapter-01",
       "enabled": true,
       "sourceId": "source-08",
       "sourceStart": 54.4,
@@ -3282,6 +3380,7 @@
     },
     {
       "id": "scene-06",
+      "chapterId": "chapter-01",
       "enabled": true,
       "sourceId": "source-08",
       "sourceStart": 2.8,

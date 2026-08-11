@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 
-export const SEGMENT_RENDERER_VERSION = 'videobrief-segment-v4';
+export const SEGMENT_RENDERER_VERSION = 'videobrief-segment-v9';
 
 function stableValue(value) {
   if (Array.isArray(value)) return value.map(stableValue);

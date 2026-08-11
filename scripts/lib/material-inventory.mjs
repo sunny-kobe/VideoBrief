@@ -41,6 +41,7 @@ export function buildMaterialInventory(project) {
     schemaVersion: 1,
     projectId: project.id,
     materialReview: project.materialReview,
+    materialQualityReview: project.materialQualityReview ?? null,
     sources: materialInventorySources(project),
   };
 }

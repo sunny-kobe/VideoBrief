@@ -38,6 +38,10 @@ import {
 import { resolveVoiceoverConfig, synthesizeVoiceover } from '../src/voiceoverProvider.mjs';
 import { productionContentFingerprint } from './lib/production-content-fingerprint.mjs';
 import { assertPreproductionGates } from './lib/production-workflow-contract.mjs';
+import { resolveMediaFraming } from './lib/media-framing.mjs';
+import { resolveMediaMotion } from './lib/media-motion.mjs';
+import { resolveProjectRendition } from './lib/video-renditions.mjs';
+import { wrapText } from './lib/text-wrapping.mjs';
 
 const renderProcessStartedAt = new Date();
 
@@ -49,7 +53,13 @@ const briefPath = resolve(
 const briefText = readFileSync(briefPath, 'utf8');
 const brief = JSON.parse(briefText);
 assertPreproductionGates(brief);
-const outputs = brief.outputs ?? brief;
+const rendition = resolveProjectRendition(brief, args.get('rendition') ?? '');
+const outputs = {
+  ...(brief.outputs ?? brief),
+  outputVideo: rendition.outputVideo,
+  publicRender: rendition.publicRender,
+  workDir: rendition.workDir,
+};
 const sources = Array.isArray(brief.sources) && brief.sources.length
   ? brief.sources
   : [
@@ -79,9 +89,14 @@ const previousManifest = existsSync(manifestPath)
 const projectFingerprint = createHash('sha256').update(briefText).digest('hex');
 const currentProductionContentFingerprint = productionContentFingerprint(brief);
 
-const width = Number(brief.render?.width ?? 1080);
-const height = Number(brief.render?.height ?? 1920);
+const width = rendition.width;
+const height = rendition.height;
 const fps = Number(brief.render?.fps ?? 30);
+const configuredSubtitleBottom = Number(brief.render?.subtitleBottom);
+const defaultSubtitleBottom = width > height ? 120 : width === height ? 70 : 116;
+const subtitleBottom = Number.isFinite(configuredSubtitleBottom)
+  ? Math.max(40, Math.min(Math.round(height * 0.45), Math.round(configuredSubtitleBottom)))
+  : defaultSubtitleBottom;
 const voiceRenderConfig = {
   ...(brief.render ?? {}),
   ...(process.env.VOICEOVER_VOICE ? { voice: process.env.VOICEOVER_VOICE } : {}),
@@ -89,7 +104,8 @@ const voiceRenderConfig = {
 };
 const voiceConfig = resolveVoiceoverConfig(voiceRenderConfig);
 const { voice, rate } = voiceConfig;
-const mediaFit = brief.render?.mediaFit === 'cover' ? 'cover' : 'contain';
+const mediaFit = rendition.mediaFit;
+const mediaBackground = rendition.mediaBackground;
 const voiceGenerationMode = ['batch', 'per-scene'].includes(brief.render?.voiceGenerationMode)
   ? brief.render.voiceGenerationMode
   : 'auto';
@@ -178,6 +194,7 @@ function prepareVoiceSegment(scene, index, rawPath, voiceArtifact) {
     sourceType: source?.sourceType,
     sourceStart: scene.sourceStart,
     sourceEnd: scene.sourceEnd,
+    mediaPlaybackRate: scene.mediaPlaybackRate,
     voiceDuration,
     fps,
   });
@@ -236,6 +253,7 @@ function prepareVoiceSegment(scene, index, rawPath, voiceArtifact) {
     speechDuration,
     duration,
     frameCount: timing.frameCount,
+    mediaPlaybackRate: timing.mediaPlaybackRate,
   };
 }
 
@@ -378,37 +396,6 @@ function srtTime(seconds) {
   return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')},${String(ms).padStart(3, '0')}`;
 }
 
-function characterWidth(character) {
-  return /^[\x00-\x7F]$/.test(character) ? 0.55 : 1;
-}
-
-function wrapText(text, maxWidth) {
-  const lines = [];
-  for (const paragraph of String(text).split(/\r?\n/)) {
-    let line = '';
-    let width = 0;
-    for (const character of Array.from(paragraph)) {
-      const nextWidth = characterWidth(character);
-      const cannotStartLine = /^[，。！？；：、,.!?;:)）\]】]$/.test(character);
-      if (line && width + nextWidth > maxWidth && cannotStartLine) {
-        line += character;
-        width += nextWidth;
-        continue;
-      }
-      if (line && width + nextWidth > maxWidth) {
-        lines.push(line.trimEnd());
-        line = character.trimStart();
-        width = line ? nextWidth : 0;
-      } else {
-        line += character;
-        width += nextWidth;
-      }
-    }
-    lines.push(line);
-  }
-  return lines;
-}
-
 function assText(text, maxWidth) {
   return wrapText(text, maxWidth)
     .map((line) => line.replaceAll('\\', '\\\\').replaceAll('{', '\\{').replaceAll('}', '\\}'))
@@ -454,23 +441,28 @@ function buildSrt(scenes) {
 function buildAss(scenes) {
   const horizontal = width > height;
   const square = width === height;
-  const eyebrowFontSize = horizontal ? 30 : square ? 32 : 34;
-  const titleFontSize = horizontal ? 52 : square ? 54 : 58;
-  const subtitleFontSize = horizontal ? 36 : square ? 38 : 42;
+  const eyebrowFontSize = horizontal ? 36 : square ? 32 : 34;
+  const titleFontSize = horizontal ? 64 : square ? 54 : 58;
+  const deckFontSize = horizontal ? 44 : square ? 32 : 38;
+  const subtitleFontSize = horizontal ? 68 : square ? 38 : 42;
   const sideMargin = horizontal ? 72 : 78;
   const titleTop = horizontal ? 18 : square ? 96 : 126;
-  const subtitleBottom = horizontal ? 50 : square ? 70 : 116;
-  const titleWidth = horizontal ? 30 : square ? 22 : 15;
-  const subtitleWidth = horizontal ? 42 : square ? 30 : 21;
+  const titleWidth = horizontal ? 24 : square ? 22 : 15;
+  const deckWidth = horizontal ? 30 : square ? 28 : 20;
+  const subtitleWidth = horizontal ? 24 : square ? 30 : 21;
   const dialogue = scenes.flatMap((scene) => {
     const start = assTime(scene.start);
     const end = assTime(scene.end);
     const editorialOverlay = scene.showEditorialOverlay === false ? [] : [
       `Dialogue: 0,${start},${end},Eyebrow,,0,0,0,,${assText(scene.eyebrow, titleWidth)}`,
       `Dialogue: 0,${start},${end},Title,,0,0,0,,${assText(scene.title, titleWidth)}`,
+      `Dialogue: 0,${start},${end},Deck,,0,0,0,,${assText(scene.subtitle, deckWidth)}`,
     ];
+    const sceneSubtitleBottom = Number.isFinite(Number(scene.subtitleBottom))
+      ? Math.max(40, Math.min(Math.round(height * 0.45), Math.round(Number(scene.subtitleBottom))))
+      : subtitleBottom;
     const subtitleDialogue = scene.subtitleCues.map((cue) => (
-      `Dialogue: 0,${assTime(scene.start + cue.start)},${assTime(scene.start + cue.end)},Subtitle,,0,0,0,,${assText(cue.text, subtitleWidth)}`
+      `Dialogue: 0,${assTime(scene.start + cue.start)},${assTime(scene.start + cue.end)},Subtitle,,0,0,${sceneSubtitleBottom},,${assText(cue.text, subtitleWidth)}`
     ));
     return [
       ...editorialOverlay,
@@ -490,6 +482,7 @@ function buildAss(scenes) {
     'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding',
     `Style: Eyebrow,Hiragino Sans GB,${eyebrowFontSize},&H00E5FFF7,&H000000FF,&H96000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,1,7,${sideMargin},${sideMargin},${titleTop},1`,
     `Style: Title,Hiragino Sans GB,${titleFontSize},&H00FFFFFF,&H000000FF,&HB0000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,1,7,${sideMargin},${sideMargin},${titleTop + eyebrowFontSize + 18},1`,
+    `Style: Deck,Hiragino Sans GB,${deckFontSize},&H00D8DEE9,&H000000FF,&HB0000000,&H00000000,0,0,0,0,100,100,0,0,1,2,0,7,${sideMargin},${sideMargin},${titleTop + eyebrowFontSize + titleFontSize + 42},1`,
     `Style: Subtitle,Hiragino Sans GB,${subtitleFontSize},&H00FFFFFF,&H000000FF,&HD0000000,&HAA000000,-1,0,0,0,100,100,0,0,3,2,0,2,${sideMargin},${sideMargin},${subtitleBottom},1`,
     '',
     '[Events]',
@@ -526,46 +519,77 @@ function buildVoiceover(scenes) {
   );
 }
 
+function buildSceneVisualFilters({
+  inputLabel,
+  baseFilters,
+  framing,
+  motion,
+  frameCount,
+  outputLabel,
+  tag,
+}) {
+  const commonTail = [
+    ...(motion.filter ? [motion.filter] : []),
+    `fps=${fps}`,
+    `trim=end_frame=${frameCount}`,
+    'setpts=PTS-STARTPTS',
+    'setsar=1',
+    'format=yuv420p',
+  ];
+  const base = baseFilters.length > 0 ? baseFilters : ['null'];
+  if (framing.background !== 'blurred-fill') {
+    return [
+      `${inputLabel}${[...base, framing.filter, ...commonTail].join(',')}[${outputLabel}]`,
+    ];
+  }
+
+  const backgroundInput = `${tag}bg`;
+  const foregroundInput = `${tag}fg`;
+  const backgroundReady = `${tag}bgready`;
+  const foregroundReady = `${tag}fgready`;
+  return [
+    `${inputLabel}${[...base, 'split=2'].join(',')}[${backgroundInput}][${foregroundInput}]`,
+    `[${backgroundInput}]${framing.backgroundFilter}[${backgroundReady}]`,
+    `[${foregroundInput}]${framing.foregroundFilter}[${foregroundReady}]`,
+    `[${backgroundReady}][${foregroundReady}]${[framing.overlayFilter, ...commonTail].join(',')}[${outputLabel}]`,
+  ];
+}
+
 async function buildMonolithicVideoRenderPlan(scenes) {
-  const topBand = width > height ? Math.round(height * 0.12) : 0;
-  const bottomBand = width > height ? Math.round(height * 0.18) : 0;
-  const mediaHeight = height - topBand - bottomBand;
-  const fit = mediaFit === 'cover'
-    ? `scale=${width}:${height}:force_original_aspect_ratio=increase,crop=${width}:${height}`
-    : width > height
-      ? `scale=${width}:${mediaHeight}:force_original_aspect_ratio=decrease,pad=${width}:${height}:(ow-iw)/2:(oh+${topBand}-${bottomBand}-ih)/2:color=0x080b10`
-      : `scale=${width}:${height}:force_original_aspect_ratio=decrease,pad=${width}:${height}:(ow-iw)/2:(oh-ih)/2:color=0x080b10`;
   const branches = planVideoInputBranches(scenes, sourceIndexById);
-  const trims = scenes.map((scene, index) => {
+  const trims = scenes.flatMap((scene, index) => {
     const sourceIndex = sourceIndexById.get(scene.sourceId);
     if (sourceIndex == null) throw new Error(`Unknown sourceId ${scene.sourceId} in ${scene.id}.`);
     const source = sourceInputs[sourceIndex];
-    if (source.sourceType === 'image') {
-      return [
-        `[${branches.sceneInputLabels[index]}]${fit}`,
-        `fps=${fps}`,
-        `trim=end_frame=${scene.frameCount}`,
-        'setpts=PTS-STARTPTS',
-        'setsar=1',
-        `format=yuv420p[v${index}]`,
-      ].join(',');
-    }
-    return [
-      `[${branches.sceneInputLabels[index]}]trim=start=${scene.sourceStart}:end=${scene.sourceEnd}`,
-      'setpts=PTS-STARTPTS',
-      fit,
-      `fps=${fps}`,
-      `trim=end_frame=${scene.frameCount}`,
-      'setpts=PTS-STARTPTS',
-      'setsar=1',
-      `format=yuv420p[v${index}]`,
-    ].join(',');
+    const framing = resolveMediaFraming({
+      scene,
+      projectFit: mediaFit,
+      projectBackground: mediaBackground,
+      width,
+      height,
+    });
+    const motion = resolveMediaMotion({ scene, width, height, fps, frameCount: scene.frameCount });
+    const baseFilters = source.sourceType === 'image'
+      ? []
+      : [
+          `trim=start=${scene.sourceStart}:end=${scene.sourceEnd}`,
+          `setpts=(PTS-STARTPTS)/${scene.mediaPlaybackRate}`,
+        ];
+    return buildSceneVisualFilters({
+      inputLabel: `[${branches.sceneInputLabels[index]}]`,
+      baseFilters,
+      framing,
+      motion,
+      frameCount: scene.frameCount,
+      outputLabel: `v${index}`,
+      tag: `scene${index}`,
+    });
   });
 
   const concatInputs = scenes.map((_, index) => `[v${index}]`).join('');
   const subtitles = `subtitles='${filterPath(subtitlePath)}':fontsdir='${filterPath('/System/Library/Fonts')}'`;
 
-  const concatFilter = `${concatInputs}concat=n=${scenes.length}:v=1:a=0,drawbox=x=0:y=${Math.round(height * (width > height ? 0.82 : 0.802))}:w=${width}:h=${Math.round(height * (width > height ? 0.18 : 0.198))}:color=black@0.82:t=fill,${subtitles},format=yuv420p[vout]`;
+  const concatFilter = `${concatInputs}concat=n=${scenes.length}:v=1:a=0,${subtitles},format=yuv420p[vout]`;
   const filterComplex = [
     ...branches.filters,
     ...trims,
@@ -624,24 +648,42 @@ async function buildMonolithicVideoRenderPlan(scenes) {
   return {
     schemaVersion: 2,
     projectId: brief.id,
+    rendition,
     projectFingerprint,
     briefPath,
     generatedAt: new Date().toISOString(),
     expectedDuration,
-    render: { width, height, fps, mediaFit },
+    render: { width, height, fps, mediaFit, mediaBackground },
     inputs,
-    scenes: scenes.map((scene, index) => ({
-      index,
-      id: scene.id,
-      sourceId: scene.sourceId,
-      sourceStart: scene.sourceStart,
-      sourceEnd: scene.sourceEnd,
-      renderSourceEnd: scene.renderSourceEnd,
-      frameCount: scene.frameCount,
-      outputStart: scene.start,
-      outputEnd: scene.end,
-      inputLabel: branches.sceneInputLabels[index],
-    })),
+    scenes: scenes.map((scene, index) => {
+      const framing = resolveMediaFraming({
+        scene,
+        projectFit: mediaFit,
+        projectBackground: mediaBackground,
+        width,
+        height,
+      });
+      const motion = resolveMediaMotion({ scene, width, height, fps, frameCount: scene.frameCount });
+      return {
+        index,
+        id: scene.id,
+        sourceId: scene.sourceId,
+        sourceStart: scene.sourceStart,
+        sourceEnd: scene.sourceEnd,
+        renderSourceEnd: scene.renderSourceEnd,
+        frameCount: scene.frameCount,
+        mediaPlaybackRate: scene.mediaPlaybackRate,
+        mediaMotion: motion.mode,
+        mediaMotionAmount: motion.amount,
+        mediaFit: framing.fit,
+        mediaBackground: framing.background,
+        mediaFocalX: framing.focalX,
+        mediaFocalY: framing.focalY,
+        outputStart: scene.start,
+        outputEnd: scene.end,
+        inputLabel: branches.sceneInputLabels[index],
+      };
+    }),
     graph: {
       sourceFilters: branches.filters,
       sceneFilters: trims,
@@ -679,14 +721,6 @@ function atomicWriteJson(path, value) {
 }
 
 async function renderSegmentedVideo(scenes) {
-  const topBand = width > height ? Math.round(height * 0.12) : 0;
-  const bottomBand = width > height ? Math.round(height * 0.18) : 0;
-  const mediaHeight = height - topBand - bottomBand;
-  const fit = mediaFit === 'cover'
-    ? `scale=${width}:${height}:force_original_aspect_ratio=increase,crop=${width}:${height}`
-    : width > height
-      ? `scale=${width}:${mediaHeight}:force_original_aspect_ratio=decrease,pad=${width}:${height}:(ow-iw)/2:(oh+${topBand}-${bottomBand}-ih)/2:color=0x080b10`
-      : `scale=${width}:${height}:force_original_aspect_ratio=decrease,pad=${width}:${height}:(ow-iw)/2:(oh-ih)/2:color=0x080b10`;
   const sourceRecords = await Promise.all(sourceInputs.map(async (source, index) => ({
     inputIndex: index,
     sourceId: source.id,
@@ -706,6 +740,14 @@ async function renderSegmentedVideo(scenes) {
     const source = sourceInputs.find((item) => item.id === scene.sourceId);
     const sourceRecord = sourceRecordById.get(scene.sourceId);
     if (!source || !sourceRecord) throw new Error(`Unknown sourceId ${scene.sourceId} in ${scene.id}.`);
+    const framing = resolveMediaFraming({
+      scene,
+      projectFit: mediaFit,
+      projectBackground: mediaBackground,
+      width,
+      height,
+    });
+    const motion = resolveMediaMotion({ scene, width, height, fps, frameCount: scene.frameCount });
 
     const safeSceneId = String(scene.id).replace(/[^a-zA-Z0-9_-]/g, '_');
     const localSubtitlePath = resolve(videoSegmentWorkDir, `${String(index + 1).padStart(3, '0')}-${safeSceneId}.ass`);
@@ -718,6 +760,27 @@ async function renderSegmentedVideo(scenes) {
     }]));
 
     const audioSha256 = fileSha256(scene.paddedPath);
+    const subtitles = `subtitles='${filterPath(localSubtitlePath)}':fontsdir='${filterPath('/System/Library/Fonts')}'`;
+    const baseFilters = source.sourceType === 'image'
+      ? []
+      : [
+          `trim=start=${scene.sourceStart}:end=${scene.sourceEnd}`,
+          `setpts=(PTS-STARTPTS)/${scene.mediaPlaybackRate}`,
+        ];
+    const visualFilters = buildSceneVisualFilters({
+      inputLabel: '[0:v]',
+      baseFilters,
+      framing,
+      motion,
+      frameCount: scene.frameCount,
+      outputLabel: 'vscene',
+      tag: `segment${index}`,
+    });
+    const filterComplex = [
+      ...visualFilters,
+      `[vscene]${subtitles},format=yuv420p[vout]`,
+      `[1:a]atrim=0:${scene.duration.toFixed(3)},asetpts=PTS-STARTPTS,aresample=48000[aout]`,
+    ].join(';');
     const descriptor = {
       ...(process.env.VIDEOBRIEF_SEGMENT_CACHE_SALT
         ? { cacheSalt: process.env.VIDEOBRIEF_SEGMENT_CACHE_SALT }
@@ -728,9 +791,20 @@ async function renderSegmentedVideo(scenes) {
         start: scene.sourceStart,
         end: scene.sourceEnd,
         renderEnd: scene.renderSourceEnd,
+        playbackRate: scene.mediaPlaybackRate,
       },
       audioSha256,
-      render: { width, height, fps, fit: mediaFit },
+      render: {
+        width,
+        height,
+        fps,
+        fit: framing.fit,
+        background: framing.background,
+        focalX: framing.focalX,
+        focalY: framing.focalY,
+        motion: motion.mode,
+        motionAmount: motion.amount,
+      },
       presentation: {
         eyebrow: scene.eyebrow,
         title: scene.title,
@@ -739,18 +813,12 @@ async function renderSegmentedVideo(scenes) {
       },
       duration: scene.duration,
       frameCount: scene.frameCount,
+      filterComplexSha256: createHash('sha256').update(filterComplex).digest('hex'),
+      subtitleSha256: fileSha256(localSubtitlePath),
     };
     const cacheKey = segmentRenderCacheKey(descriptor);
     const segmentPath = resolve(videoSegmentCacheDir, `${cacheKey}.mp4`);
     const metadataPath = resolve(videoSegmentCacheDir, `${cacheKey}.json`);
-    const subtitles = `subtitles='${filterPath(localSubtitlePath)}':fontsdir='${filterPath('/System/Library/Fonts')}'`;
-    const videoPrefix = source.sourceType === 'image'
-      ? `[0:v]${fit},fps=${fps},trim=end_frame=${scene.frameCount},setpts=PTS-STARTPTS`
-      : `[0:v]trim=start=${scene.sourceStart}:end=${scene.sourceEnd},setpts=PTS-STARTPTS,${fit},fps=${fps},trim=end_frame=${scene.frameCount},setpts=PTS-STARTPTS`;
-    const filterComplex = [
-      `${videoPrefix},setsar=1,format=yuv420p,drawbox=x=0:y=${Math.round(height * (width > height ? 0.82 : 0.802))}:w=${width}:h=${Math.round(height * (width > height ? 0.18 : 0.198))}:color=black@0.82:t=fill,${subtitles},format=yuv420p[vout]`,
-      `[1:a]atrim=0:${scene.duration.toFixed(3)},asetpts=PTS-STARTPTS,aresample=48000[aout]`,
-    ].join(';');
     const temporarySegmentPath = `${segmentPath}.tmp-${process.pid}-${index}.mp4`;
     const commandArgs = [
       '-y',
@@ -815,6 +883,13 @@ async function renderSegmentedVideo(scenes) {
       sourceEnd: scene.sourceEnd,
       renderSourceEnd: scene.renderSourceEnd,
       frameCount: scene.frameCount,
+      mediaPlaybackRate: scene.mediaPlaybackRate,
+      mediaMotion: motion.mode,
+      mediaMotionAmount: motion.amount,
+      mediaFit: framing.fit,
+      mediaBackground: framing.background,
+      mediaFocalX: framing.focalX,
+      mediaFocalY: framing.focalY,
       outputStart: scene.start,
       outputEnd: scene.end,
       cacheKey,
@@ -857,11 +932,12 @@ async function renderSegmentedVideo(scenes) {
     strategy: 'segmented-concat',
     rendererVersion: SEGMENT_RENDERER_VERSION,
     projectId: brief.id,
+    rendition,
     projectFingerprint,
     briefPath,
     generatedAt: new Date().toISOString(),
     expectedDuration: scenes.at(-1).end,
-    render: { width, height, fps, mediaFit },
+    render: { width, height, fps, mediaFit, mediaBackground },
     inputs: sourceRecords,
     scenes: segmentPlans,
     concat: {
@@ -929,7 +1005,9 @@ for (const scene of sceneSpecs) {
 const plannedDurationSeconds = Number(brief.brief?.targetDurationSeconds) || sceneSpecs.reduce(
   (total, scene) => total + Math.max(
     1,
-    Number(scene.duration) || Number(scene.sourceEnd) - Number(scene.sourceStart) || 0,
+    Number(scene.duration)
+      || (Number(scene.sourceEnd) - Number(scene.sourceStart)) / Number(scene.mediaPlaybackRate ?? 1)
+      || 0,
   ),
   0,
 );
@@ -1006,7 +1084,7 @@ writeFileSync(renderPlanPath, `${JSON.stringify(renderPlan, null, 2)}\n`);
 const chapterFingerprints = buildChapterFingerprints({
   project: brief,
   renderPlan,
-  renderSettings: { width, height, fps, mediaFit, renderStrategy },
+  renderSettings: { width, height, fps, mediaFit, mediaBackground, renderStrategy, subtitleBottom },
   voiceSettings: {
     engine: voiceConfig.engine,
     model: voiceConfig.model,
@@ -1054,6 +1132,7 @@ const manifest = {
   schemaVersion: 1,
   renderContractVersion: renderPlan.schemaVersion,
   projectId: brief.id,
+  rendition,
   projectFingerprint,
   productionContentFingerprint: currentProductionContentFingerprint,
   renderProjectFingerprint: projectFingerprint,
@@ -1075,6 +1154,8 @@ const manifest = {
     renderStrategy,
     pronunciations: voiceConfig.pronunciations,
     mediaFit,
+    mediaBackground,
+    subtitleBottom,
     durationContract,
   },
   voiceover: {
@@ -1110,6 +1191,16 @@ const manifest = {
     sourceEnd: scene.sourceEnd,
     renderSourceEnd: scene.renderSourceEnd,
     frameCount: scene.frameCount,
+    mediaPlaybackRate: scene.mediaPlaybackRate,
+    mediaMotion: resolveMediaMotion({ scene, width, height, fps, frameCount: scene.frameCount }).mode,
+    mediaMotionAmount: resolveMediaMotion({ scene, width, height, fps, frameCount: scene.frameCount }).amount,
+    mediaFit: resolveMediaFraming({ scene, projectFit: mediaFit, projectBackground: mediaBackground, width, height }).fit,
+    mediaBackground: resolveMediaFraming({ scene, projectFit: mediaFit, projectBackground: mediaBackground, width, height }).background,
+    mediaFocalX: resolveMediaFraming({ scene, projectFit: mediaFit, projectBackground: mediaBackground, width, height }).focalX,
+    mediaFocalY: resolveMediaFraming({ scene, projectFit: mediaFit, projectBackground: mediaBackground, width, height }).focalY,
+    subtitleBottom: Number.isFinite(Number(scene.subtitleBottom))
+      ? Math.round(Number(scene.subtitleBottom))
+      : subtitleBottom,
     showEditorialOverlay: scene.showEditorialOverlay !== false,
     ...(renderStrategy === 'segmented-concat'
       ? {
@@ -1161,3 +1252,7 @@ console.log(
     2,
   ),
 );
+
+// Edge TTS can retain an idle HTTPS socket after all artifacts are finalized.
+// This CLI is a render subprocess, so completion must not wait on provider handles.
+process.exit(0);

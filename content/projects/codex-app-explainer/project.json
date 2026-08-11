@@ -1,110 +1,356 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 3,
   "id": "codex-app-explainer",
   "title": "OpenAI Codex app：AI 编程开始变成任务台",
   "format": "single_signal",
   "targetAudience": "中文 AI 实践者 / 开发者 / 独立开发者",
   "status": "draft",
+  "technical_status": "passed",
+  "rights_status": "review_required",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "lifecycle": {
+    "state": "archived",
+    "archivedAt": "2026-08-08T04:42:57.648Z",
+    "archivedBy": "local-user",
+    "archiveReason": "历史项目；保留结构化引用，不在默认列表显示。"
+  },
+  "brief": {
+    "objective": "",
+    "audience": "中文 AI 实践者 / 开发者 / 独立开发者",
+    "platform": "landscape-video",
+    "aspectRatio": "9:16",
+    "targetDurationSeconds": 45,
+    "tone": "",
+    "style": "",
+    "reference": "",
+    "coreMessage": "OpenAI Codex app 把 coding agent 从聊天入口扩展成可发起、追踪和检查任务的工作台。",
+    "cta": "",
+    "prohibitedMaterial": ""
+  },
   "sources": [
     {
       "id": "openai-codex-official",
       "label": "OpenAI Codex 官方原片",
       "sourceType": "official",
+      "materialRole": "research",
       "originUrl": "https://www.youtube.com/watch?v=HFM3se4lNiw",
       "assetPath": "public/source-clips/openai-codex-app-vertical-30fps.mp4",
+      "originalFileName": "",
+      "mimeType": "",
+      "bytes": 0,
+      "importedAt": "",
       "publishedAt": "",
       "verificationStatus": "verified",
       "rightsStatus": "review_required",
-      "rightsNote": "仅使用解释所需的官方短片段；正式发布前复核平台规则、引用比例和 AIGC 标识。"
+      "rightsNote": "仅使用解释所需的官方短片段；正式发布前复核平台规则、引用比例和 AIGC 标识。",
+      "contentHash": "",
+      "reusedFrom": null,
+      "processing": {
+        "status": "idle",
+        "stage": "idle",
+        "attempts": 0,
+        "inputHash": "",
+        "startedAt": "",
+        "completedAt": "",
+        "error": "",
+        "model": "",
+        "promptVersion": "",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "",
+        "hierarchicalSummary": "",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
     }
   ],
+  "research": {
+    "transcripts": [],
+    "facts": [],
+    "uncertainties": []
+  },
+  "narrative": {
+    "status": "idle",
+    "error": "",
+    "activeVersionId": "",
+    "versions": [],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "pendingChapters": [],
+    "generatedAt": "",
+    "model": "",
+    "promptVersion": ""
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-5.6",
+    "transcriptionModel": "whisper.cpp:large-v3-turbo-q5_0",
+    "promptVersion": "videobrief-2026-07-11-v1",
+    "calls": []
+  },
   "editorial": {
     "claim": "OpenAI Codex app 把 coding agent 从聊天入口扩展成可发起、追踪和检查任务的工作台。",
     "whyItMatters": "关键变化不是多一个聊天框，而是 AI 编程开始围绕完整任务和结果交付组织。",
     "chinaContext": "中文开发者应重点验证它能否稳定接住真实项目里的小任务，而不是只看发布演示。",
     "riskNote": "当前结论基于官方演示，不能等同于真实项目中的稳定性验证。"
   },
+  "platformCopy": {
+    "coverTitle": "",
+    "title": "",
+    "description": "",
+    "hashtags": []
+  },
+  "production": {
+    "trackingStartedAt": "",
+    "updatedAt": "2026-07-12T05:18:09.139Z",
+    "researchReviewedAt": "",
+    "firstRenderCompletedAt": "2026-07-12T05:18:09.139Z",
+    "lastRenderCompletedAt": "2026-07-12T05:18:09.139Z",
+    "sourceImportCount": 1,
+    "manualSaveCount": 0,
+    "renderAttemptCount": 0,
+    "renderFailureCount": 0,
+    "lastRenderStartedAt": "",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "materialReview": {
+    "status": "pending",
+    "approvedSourceIds": [],
+    "reviewedAt": ""
+  },
+  "workflow": {
+    "schemaVersion": 1,
+    "origin": {
+      "kind": "legacy",
+      "runId": "",
+      "candidateId": "",
+      "sourceUrl": "",
+      "score": null,
+      "summary": ""
+    },
+    "topicApproval": {
+      "status": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "fingerprint": ""
+    },
+    "researchApproval": {
+      "status": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "fingerprint": ""
+    },
+    "deliveryApproval": {
+      "status": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "fingerprint": ""
+    },
+    "publication": {
+      "approval": {
+        "status": "pending",
+        "decidedAt": "",
+        "decidedBy": "",
+        "note": "",
+        "fingerprint": ""
+      },
+      "platform": "",
+      "publishedUrl": "",
+      "publishedAt": "",
+      "videoSha256": "",
+      "packageSha256": ""
+    },
+    "market": {
+      "decision": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "evidence": []
+    }
+  },
+  "chapters": [
+    {
+      "id": "chapter-01",
+      "title": "OpenAI Codex app：AI 编程开始变成任务台",
+      "summary": "",
+      "order": 0,
+      "sceneIds": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06"
+      ],
+      "sourceReferences": []
+    }
+  ],
   "outputs": {
     "outputVideo": "output/videos/codex-app-explainer.mp4",
     "publicRender": "public/renders/codex-app-explainer.mp4",
-    "workDir": "output/videos/codex-app-explainer-work"
+    "workDir": "output/videos/codex-app-explainer-work",
+    "exportDir": "output/exports/codex-app-explainer",
+    "coverImage": "output/exports/codex-app-explainer/cover.png",
+    "platformCopy": "output/exports/codex-app-explainer/platform-copy.json",
+    "sourceList": "output/exports/codex-app-explainer/source-list.json",
+    "projectSnapshot": "output/exports/codex-app-explainer/project.snapshot.json"
   },
   "render": {
     "width": 1080,
     "height": 1920,
     "fps": 30,
     "voice": "Eddy (中文（中国大陆）)",
-    "rate": 205
+    "rate": 205,
+    "voiceEngine": "macos-say",
+    "voiceModel": "macos-say",
+    "voiceProfile": "default",
+    "voiceStyle": "",
+    "voiceGenerationMode": "auto",
+    "renderStrategy": "segmented-concat",
+    "pronunciations": [],
+    "mediaFit": "contain"
   },
   "scenes": [
     {
       "id": "scene-01",
+      "chapterId": "chapter-01",
       "enabled": true,
       "sourceId": "openai-codex-official",
       "sourceStart": 0,
       "sourceEnd": 6.45,
+      "showEditorialOverlay": true,
       "eyebrow": "OPENAI / CODEX APP",
       "title": "AI 编程，不只是聊天框了",
-      "subtitle": "OpenAI 这个 Codex app，重点不是又多了一个聊天框，而是把 AI 编程变成任务台。"
+      "subtitle": "OpenAI 这个 Codex app，重点不是又多了一个聊天框，而是把 AI 编程变成任务台。",
+      "narration": "OpenAI 这个 Codex app，重点不是又多了一个聊天框，而是把 AI 编程变成任务台。",
+      "visualRequirement": "",
+      "sourceReferences": [],
+      "candidates": [],
+      "selectedCandidateId": "",
+      "selectionStatus": "unselected",
+      "selectionReviewedAt": "",
+      "selectionNote": "",
+      "generatedBy": "user",
+      "userEdited": false
     },
     {
       "id": "scene-02",
+      "chapterId": "chapter-01",
       "enabled": true,
       "sourceId": "openai-codex-official",
       "sourceStart": 66,
       "sourceEnd": 70.39,
+      "showEditorialOverlay": true,
       "eyebrow": "MOBILE WORKFLOW",
       "title": "任务可以在手机上继续追踪",
-      "subtitle": "你可以在手机上发起和追踪任务，不一定一直守着 IDE。"
+      "subtitle": "你可以在手机上发起和追踪任务，不一定一直守着 IDE。",
+      "narration": "你可以在手机上发起和追踪任务，不一定一直守着 IDE。",
+      "visualRequirement": "",
+      "sourceReferences": [],
+      "candidates": [],
+      "selectedCandidateId": "",
+      "selectionStatus": "unselected",
+      "selectionReviewedAt": "",
+      "selectionNote": "",
+      "generatedBy": "user",
+      "userEdited": false
     },
     {
       "id": "scene-03",
+      "chapterId": "chapter-01",
       "enabled": true,
       "sourceId": "openai-codex-official",
       "sourceStart": 109,
       "sourceEnd": 113.75,
+      "showEditorialOverlay": true,
       "eyebrow": "TASK DASHBOARD",
       "title": "关键变化：进度可见",
-      "subtitle": "更关键的是，任务进度、结果和失败原因开始变得可检查。"
+      "subtitle": "更关键的是，任务进度、结果和失败原因开始变得可检查。",
+      "narration": "更关键的是，任务进度、结果和失败原因开始变得可检查。",
+      "visualRequirement": "",
+      "sourceReferences": [],
+      "candidates": [],
+      "selectedCandidateId": "",
+      "selectionStatus": "unselected",
+      "selectionReviewedAt": "",
+      "selectionNote": "",
+      "generatedBy": "user",
+      "userEdited": false
     },
     {
       "id": "scene-04",
+      "chapterId": "chapter-01",
       "enabled": true,
       "sourceId": "openai-codex-official",
       "sourceStart": 159,
       "sourceEnd": 165.08,
+      "showEditorialOverlay": true,
       "eyebrow": "CODE AGENT",
       "title": "它瞄准的是交付任务",
-      "subtitle": "它瞄准的不是写几行代码，而是修 bug、查代码、生成改动这种完整开发任务。"
+      "subtitle": "它瞄准的不是写几行代码，而是修 bug、查代码、生成改动这种完整开发任务。",
+      "narration": "它瞄准的不是写几行代码，而是修 bug、查代码、生成改动这种完整开发任务。",
+      "visualRequirement": "",
+      "sourceReferences": [],
+      "candidates": [],
+      "selectedCandidateId": "",
+      "selectionStatus": "unselected",
+      "selectionReviewedAt": "",
+      "selectionNote": "",
+      "generatedBy": "user",
+      "userEdited": false
     },
     {
       "id": "scene-05",
+      "chapterId": "chapter-01",
       "enabled": true,
       "sourceId": "openai-codex-official",
       "sourceStart": 190,
       "sourceEnd": 192.57,
+      "showEditorialOverlay": true,
       "eyebrow": "MY TAKE",
       "title": "先别只看发布会",
-      "subtitle": "所以我觉得，别只看发布会。"
+      "subtitle": "所以我觉得，别只看发布会。",
+      "narration": "所以我觉得，别只看发布会。",
+      "visualRequirement": "",
+      "sourceReferences": [],
+      "candidates": [],
+      "selectedCandidateId": "",
+      "selectionStatus": "unselected",
+      "selectionReviewedAt": "",
+      "selectionNote": "",
+      "generatedBy": "user",
+      "userEdited": false
     },
     {
       "id": "scene-06",
+      "chapterId": "chapter-01",
       "enabled": true,
       "sourceId": "openai-codex-official",
       "sourceStart": 231,
       "sourceEnd": 235.82,
+      "showEditorialOverlay": true,
       "eyebrow": "VALIDATION",
       "title": "要拿真实项目小任务去测",
-      "subtitle": "真正要验证的是，它能不能稳定接住你真实项目里的小任务。"
+      "subtitle": "真正要验证的是，它能不能稳定接住你真实项目里的小任务。",
+      "narration": "真正要验证的是，它能不能稳定接住你真实项目里的小任务。",
+      "visualRequirement": "",
+      "sourceReferences": [],
+      "candidates": [],
+      "selectedCandidateId": "",
+      "selectionStatus": "unselected",
+      "selectionReviewedAt": "",
+      "selectionNote": "",
+      "generatedBy": "user",
+      "userEdited": false
     }
-  ],
-  "technical_status": "passed",
-  "rights_status": "review_required",
-  "publication_status": "draft-unpublished",
-  "market_status": "none",
-  "production": {
-    "updatedAt": "2026-07-12T05:18:09.139Z",
-    "firstRenderCompletedAt": "2026-07-12T05:18:09.139Z",
-    "lastRenderCompletedAt": "2026-07-12T05:18:09.139Z"
-  }
+  ]
 }

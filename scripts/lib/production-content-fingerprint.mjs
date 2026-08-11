@@ -5,6 +5,7 @@ const NON_PACKAGE_FIELDS = new Set([
   'technical_status',
   'publication_status',
   'market_status',
+  'lifecycle',
   'production',
   'workflow',
 ]);
@@ -53,6 +54,7 @@ export function productionContent(project) {
     sources: Array.isArray(project?.sources) ? project.sources.map(renderSource) : [],
     chapters: project?.chapters ?? [],
     outputs: project?.outputs,
+    renditions: project?.renditions ?? [],
     render: project?.render,
     scenes: Array.isArray(project?.scenes) ? project.scenes.map(renderScene) : [],
   };

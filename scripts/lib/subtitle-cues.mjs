@@ -52,10 +52,30 @@ export function planSubtitleCues({ phrases, speechDuration, silences = [] }) {
   }
   boundaries.push(duration);
 
-  return normalizedPhrases.map((text, index) => ({
+  const cues = normalizedPhrases.map((text, index) => ({
     start: Number(boundaries[index].toFixed(3)),
     end: Number(boundaries[index + 1].toFixed(3)),
     text,
     alignment: usedSilenceIndexes.size > 0 ? 'silence-assisted' : 'character-weighted',
   }));
+  const minimumCueDuration = 0.75;
+  const merged = [];
+  for (const cue of cues) {
+    if (cue.end - cue.start < minimumCueDuration && merged.length > 0) {
+      const previous = merged.at(-1);
+      const separator = /\p{Script=Han}$/u.test(previous.text) && /^[A-Za-z0-9]/.test(cue.text)
+        ? ' '
+        : '';
+      previous.text = `${previous.text}${separator}${cue.text}`;
+      previous.end = cue.end;
+    } else {
+      merged.push({ ...cue });
+    }
+  }
+  if (merged.length > 1 && merged[0].end - merged[0].start < minimumCueDuration) {
+    const first = merged.shift();
+    merged[0].start = first.start;
+    merged[0].text = `${first.text}${merged[0].text}`;
+  }
+  return merged;
 }

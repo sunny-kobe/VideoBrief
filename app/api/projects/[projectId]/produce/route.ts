@@ -8,7 +8,6 @@ import { prepareProjectSourcesForAutomaticProduction } from '@/src/sourceProcess
 import { readBrief } from '@/src/shortVideoProjectServer';
 import {
   approvalIsCurrent,
-  materialGateReadiness,
   preproductionGateReadiness,
   topicApprovalFingerprint,
 } from '@/scripts/lib/production-workflow-contract.mjs';
@@ -29,8 +28,6 @@ export async function POST(request: Request, { params }: ProduceRouteProps) {
     if (!approvalIsCurrent(project.workflow.topicApproval, topicApprovalFingerprint(project))) {
       throw new Error('最终命题尚未通过当前版本的人工 Gate。');
     }
-    const material = materialGateReadiness(project);
-    if (!material.ready) throw new Error(material.issues.join('；'));
     const preparation = prepareProjectSourcesForAutomaticProduction(projectId);
     if (preparation.state === 'processing_sources') {
       return NextResponse.json(preparation, { status: 202 });
@@ -39,8 +36,12 @@ export async function POST(request: Request, { params }: ProduceRouteProps) {
     const current = readBrief(projectId);
     const gates = preproductionGateReadiness(current);
     if (!gates.ready) {
+      const researchApproved = approvalIsCurrent(
+        current.workflow.researchApproval,
+        gates.research.fingerprint,
+      );
       return NextResponse.json({
-        state: 'awaiting_research',
+        state: researchApproved ? 'awaiting_materials' : 'awaiting_research',
         project: current,
         issues: gates.issues,
       });

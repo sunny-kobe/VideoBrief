@@ -347,6 +347,20 @@ export default function ProductionWorkbenchClient({
         duration: current.duration,
         renderedAt: current.renderedAt,
       }));
+    } else {
+      setCurrentRenderStatus((current) => current.state !== 'ready' ? current : ({
+        ...current,
+        label: project.workflow.deliveryApproval.status === 'approved'
+          ? '成片已批准，导出包待生成'
+          : project.workflow.deliveryApproval.status === 'rejected'
+            ? '成片已退回修改'
+            : '自动验收通过，等待真人审片',
+        message: project.workflow.deliveryApproval.status === 'approved'
+          ? '真人已批准当前视频字节，完整 ZIP 尚未绑定当前版本。'
+          : project.workflow.deliveryApproval.status === 'rejected'
+            ? project.workflow.deliveryApproval.note || '当前成片需要修改后重新审片。'
+            : current.message,
+      }));
     }
     if (!project.scenes.some((scene) => scene.id === activeSceneId)) {
       setActiveSceneId(project.scenes[0]?.id ?? '');
@@ -931,7 +945,7 @@ export default function ProductionWorkbenchClient({
       }
       setSaveState('saved');
       setStatusText('技术渲染已完成，正在刷新内容验收状态…');
-      window.location.href = `/workbench?project=${encodeURIComponent(projectId)}&view=export&scene=${encodeURIComponent(activeSceneId)}&refresh=${Date.now()}`;
+      window.location.href = `/workbench?project=${encodeURIComponent(projectId)}&advanced=1&view=export&scene=${encodeURIComponent(activeSceneId)}&refresh=${Date.now()}`;
     } catch (error) {
       setSaveState('error');
       setStatusText(error instanceof Error ? error.message : '渲染失败');
@@ -1010,7 +1024,7 @@ export default function ProductionWorkbenchClient({
       });
       if (!payload.source) throw new Error('素材导入结果缺少来源记录。');
       setStatusText('素材已导入，正在刷新项目…');
-      window.location.href = `/workbench?project=${encodeURIComponent(projectId)}&view=sources&refresh=${Date.now()}`;
+      window.location.href = `/workbench?project=${encodeURIComponent(projectId)}&advanced=1&view=sources&refresh=${Date.now()}`;
     } catch (error) {
       setSaveState('error');
       setStatusText(error instanceof Error ? error.message : '素材导入失败');
@@ -1096,6 +1110,7 @@ export default function ProductionWorkbenchClient({
       remotionHref={remotionHref}
       renderStatus={visibleRenderStatus}
       renderJob={currentRenderJob}
+      showExperimental={initialAdvanced}
       onProjectChange={acceptServerProject}
     />
   ) : view === 'research' ? (
@@ -1207,7 +1222,7 @@ export default function ProductionWorkbenchClient({
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="text-[11px] font-extrabold text-emerald-700">视频项目</span>
-                  <span className="text-[11px] font-bold text-slate-400">{projectStatusLabel[draftProject.status]}</span>
+                  {advancedMode ? <span className="text-[11px] font-bold text-slate-400">{projectStatusLabel[draftProject.status]}</span> : null}
                 </div>
                 <h1 className="truncate text-base font-extrabold text-slate-950 sm:text-lg">{draftProject.title}</h1>
               </div>

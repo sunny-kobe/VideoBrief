@@ -109,7 +109,6 @@ export function exportPackageReadiness(
   }
   if (
     !approval.fingerprint
-    || receipt.videoSha256 !== approval.fingerprint
     || receipt.deliveryApprovalFingerprint !== approval.fingerprint
     || receipt.deliveryApprovedAt !== approval.decidedAt
     || receipt.deliveryApprovedBy !== approval.decidedBy

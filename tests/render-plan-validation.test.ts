@@ -33,7 +33,8 @@ function fixture() {
     artifacts: { outputVideo: '/tmp/output.mp4' },
     scenes: [{
       id: 'scene-01', sourceId: 'source-01', sourceStart: 2, sourceEnd: 5,
-      renderSourceEnd: 5, frameCount: 90, start: 0, end: 3,
+      renderSourceEnd: 5, frameCount: 90, mediaPlaybackRate: 1,
+      mediaMotion: 'none', mediaMotionAmount: 0, mediaBackground: 'solid', start: 0, end: 3,
     }],
   };
   const plan = {
@@ -60,6 +61,10 @@ function fixture() {
       sourceEnd: 5,
       renderSourceEnd: 5,
       frameCount: 90,
+      mediaPlaybackRate: 1,
+      mediaMotion: 'none',
+      mediaMotionAmount: 0,
+      mediaBackground: 'solid',
       outputStart: 0,
       outputEnd: 3,
     }],
@@ -160,6 +165,31 @@ test('rejects a scene without an auditable frame count', () => {
   delete (manifest.scenes[0] as Partial<typeof manifest.scenes[0]>).frameCount;
   assert.deepEqual(validateRenderPlan(plan, manifest), [
     'Render plan scene scene-01 has no positive integer frameCount.',
+  ]);
+});
+
+test('rejects playback-rate drift between the plan and manifest', () => {
+  const { manifest, plan } = fixture();
+  plan.scenes[0].mediaPlaybackRate = 1.2;
+  assert.deepEqual(validateRenderPlan(plan, manifest), [
+    'Render plan scene scene-01 does not match the manifest timeline.',
+  ]);
+});
+
+test('rejects media-motion drift between the plan and manifest', () => {
+  const { manifest, plan } = fixture();
+  plan.scenes[0].mediaMotion = 'push-in';
+  plan.scenes[0].mediaMotionAmount = 0.08;
+  assert.deepEqual(validateRenderPlan(plan, manifest), [
+    'Render plan scene scene-01 does not match the manifest timeline.',
+  ]);
+});
+
+test('rejects media-background drift between the plan and manifest', () => {
+  const { manifest, plan } = fixture();
+  plan.scenes[0].mediaBackground = 'blurred-fill';
+  assert.deepEqual(validateRenderPlan(plan, manifest), [
+    'Render plan scene scene-01 does not match the manifest timeline.',
   ]);
 });
 

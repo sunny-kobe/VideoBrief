@@ -39,6 +39,14 @@ test('new projects stay at the topic Gate without an explicit human decision', (
     assert.deepEqual(project.workflow.topicApproval, {
       status: 'pending', decidedAt: '', decidedBy: '', note: '', fingerprint: '',
     });
+    assert.deepEqual(project.materialQualityReview, {
+      schemaVersion: 1,
+      status: 'pending',
+      reviewedAt: '',
+      reviewer: '',
+      reviewScope: '所有启用场景的已选候选，覆盖桌面与移动目标视口。',
+      sceneReviews: [],
+    });
   });
 });
 

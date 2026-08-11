@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { materialQualityGateReadiness } from './material-quality-gate.mjs';
 
 export const MINIMUM_WORKFLOW_DECISION_NOTE_LENGTH = 12;
 
@@ -15,18 +16,44 @@ export function topicApprovalFingerprint(project) {
   });
 }
 
+function researchEvidenceSources(project) {
+  const sources = project.sources ?? [];
+  const explicitResearchSources = sources.filter((source) => source.materialRole === 'research');
+  if (explicitResearchSources.length > 0) return explicitResearchSources;
+
+  const referencedIds = new Set([
+    ...(project.research?.transcripts ?? []).map((segment) => segment.sourceId),
+    ...(project.research?.facts ?? []).flatMap((fact) => (
+      fact.kind === 'claim' ? (fact.sourceReferences ?? []).map((reference) => reference.sourceId) : []
+    )),
+    ...(project.research?.uncertainties ?? []).flatMap((item) => (
+      (item.sourceReferences ?? []).map((reference) => reference.sourceId)
+    )),
+  ]);
+  return sources.filter((source) => referencedIds.has(source.id));
+}
+
 export function researchApprovalFingerprint(project) {
+  const sources = researchEvidenceSources(project);
+  const sourceIds = new Set(sources.map((source) => source.id));
   return hash({
     brief: project.brief,
-    approvedSourceIds: project.materialReview?.approvedSourceIds ?? [],
-    sources: (project.sources ?? []).map((source) => ({
+    sources: sources.map((source) => ({
       id: source.id,
       contentHash: source.contentHash,
       processingStatus: source.processing?.status,
       facts: source.analysis?.facts ?? [],
       uncertainties: source.analysis?.uncertainties ?? [],
     })),
-    research: project.research,
+    research: {
+      transcripts: (project.research?.transcripts ?? []).filter((segment) => sourceIds.has(segment.sourceId)),
+      facts: (project.research?.facts ?? []).filter((fact) => (
+        (fact.sourceReferences ?? []).some((reference) => sourceIds.has(reference.sourceId))
+      )),
+      uncertainties: (project.research?.uncertainties ?? []).filter((item) => (
+        (item.sourceReferences ?? []).some((reference) => sourceIds.has(reference.sourceId))
+      )),
+    },
   });
 }
 
@@ -34,13 +61,13 @@ export function approvalIsCurrent(approval, fingerprint) {
   return approval?.status === 'approved' && approval.fingerprint === fingerprint;
 }
 
-export function normalizeHumanWorkflowDecision(decidedBy, note) {
+export function normalizeHumanWorkflowDecision(decidedBy, note, options = {}) {
   const actor = String(decidedBy ?? '').trim();
   const normalizedNote = String(note ?? '').trim();
   if (!actor || ['ai', 'codex', 'system'].includes(actor.toLowerCase())) {
     throw new Error('该 Gate 必须记录真实人工批准者，不能由 AI 或系统代签。');
   }
-  if (normalizedNote.length < MINIMUM_WORKFLOW_DECISION_NOTE_LENGTH) {
+  if (options.noteRequired !== false && normalizedNote.length < MINIMUM_WORKFLOW_DECISION_NOTE_LENGTH) {
     throw new Error(`人工决策说明至少需要 ${MINIMUM_WORKFLOW_DECISION_NOTE_LENGTH} 个字符。`);
   }
   return { actor, note: normalizedNote };
@@ -75,10 +102,7 @@ export function materialGateReadiness(project) {
 
 export function researchGateReadiness(project) {
   const issues = [];
-  const material = materialGateReadiness(project);
-  issues.push(...material.issues);
-
-  const sources = project.sources ?? [];
+  const sources = researchEvidenceSources(project);
   if (!sources.some((source) => source.processing?.status === 'completed')) {
     issues.push('没有来源完成内容理解。');
   }
@@ -124,7 +148,11 @@ export function preproductionGateReadiness(project) {
   if (!approvalIsCurrent(project.workflow?.researchApproval, research.fingerprint)) {
     issues.push('关键事实与研究结论尚未通过当前版本的人工 Gate。');
   }
-  return { ready: issues.length === 0, issues, topicFingerprint, research };
+  const material = materialGateReadiness(project);
+  issues.push(...material.issues);
+  const materialQuality = materialQualityGateReadiness(project);
+  issues.push(...materialQuality.issues);
+  return { ready: issues.length === 0, issues, topicFingerprint, research, material, materialQuality };
 }
 
 export function assertPreproductionGates(project) {

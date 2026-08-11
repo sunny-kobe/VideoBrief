@@ -32,7 +32,7 @@ function fixture() {
     zipPath,
     zipBytes: 11,
     zipSha256: fileSha256(zipPath),
-    deliveryApprovalFingerprint: fileSha256(videoPath),
+    deliveryApprovalFingerprint: 'rendition-bundle-fingerprint',
     deliveryApprovedAt: 'approved-now',
     deliveryApprovedBy: 'test-user',
     createdAt: 'now',
@@ -48,7 +48,7 @@ function check(value: ReturnType<typeof fixture>) {
     renderedAt: 'now',
     deliveryApproval: {
       status: 'approved',
-      fingerprint: value.receipt.videoSha256,
+      fingerprint: value.receipt.deliveryApprovalFingerprint,
       decidedAt: 'approved-now',
       decidedBy: 'test-user',
     },
@@ -77,7 +77,7 @@ test('accepts metadata-only project changes when production content is unchanged
     renderedAt: 'now',
     deliveryApproval: {
       status: 'approved',
-      fingerprint: value.receipt.videoSha256,
+      fingerprint: value.receipt.deliveryApprovalFingerprint,
       decidedAt: 'approved-now',
       decidedBy: 'test-user',
     },
@@ -94,7 +94,7 @@ test('rejects a package after rights or source-list metadata changes', () => {
     renderedAt: 'now',
     deliveryApproval: {
       status: 'approved',
-      fingerprint: value.receipt.videoSha256,
+      fingerprint: value.receipt.deliveryApprovalFingerprint,
       decidedAt: 'approved-now',
       decidedBy: 'test-user',
     },
@@ -135,7 +135,7 @@ test('rejects a package after delivery approval changes', () => {
     renderedAt: 'now',
     deliveryApproval: {
       status: 'approved',
-      fingerprint: value.receipt.videoSha256,
+      fingerprint: value.receipt.deliveryApprovalFingerprint,
       decidedAt: 'approved-later',
       decidedBy: 'another-user',
     },

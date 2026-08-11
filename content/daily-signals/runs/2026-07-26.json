@@ -2,35 +2,34 @@
   "schemaVersion": 1,
   "id": "2026-07-26",
   "date": "2026-07-26",
-  "createdAt": "2026-07-26T01:30:07.099Z",
-  "completedAt": "2026-07-26T01:30:09.110Z",
+  "createdAt": "2026-07-26T08:44:26.204Z",
+  "completedAt": "2026-07-26T08:44:29.200Z",
   "status": "completed",
   "zeroCost": true,
   "errors": [
-    "GitHub release: anthropics/claude-code: 403 rate limit exceeded",
     "GitHub release: openai/codex: 403 rate limit exceeded",
+    "GitHub release: anthropics/claude-code: 403 rate limit exceeded",
     "GitHub release: modelcontextprotocol/servers: 403 rate limit exceeded"
   ],
   "candidates": [
     {
-      "id": "avibe-bot-avibe-bb3117f0",
-      "title": "avibe-bot/avibe",
-      "summary": "The local-first Agent OS — your AI partner lives on your own machine. Drive the official Claude Code, Codex & OpenCode from your browser or any chat app.（485 stars，74 forks，许可 MIT）",
-      "primaryUrl": "https://github.com/avibe-bot/avibe",
-      "publishedAt": "2026-07-26T01:25:33Z",
+      "id": "narumiruna-pi-extensions-ec847127",
+      "title": "narumiruna/pi-extensions",
+      "summary": "A TypeScript monorepo of Pi Coding Agent extensions for automation, planning, language tooling, browser control, web research, Git workflows, and configuration sync.（227 stars，31 forks，许可 MIT）",
+      "primaryUrl": "https://github.com/narumiruna/pi-extensions",
+      "publishedAt": "2026-07-26T08:41:28Z",
       "tags": [
         "agent",
-        "codex",
-        "claude"
+        "workflow"
       ],
       "sources": [
         {
           "kind": "github",
-          "title": "avibe-bot/avibe",
-          "url": "https://github.com/avibe-bot/avibe",
-          "publishedAt": "2026-07-26T01:25:33Z",
-          "summary": "The local-first Agent OS — your AI partner lives on your own machine. Drive the official Claude Code, Codex & OpenCode from your browser or any chat app.（485 stars，74 forks，许可 MIT）",
-          "author": "avibe-bot",
+          "title": "narumiruna/pi-extensions",
+          "url": "https://github.com/narumiruna/pi-extensions",
+          "publishedAt": "2026-07-26T08:41:28Z",
+          "summary": "A TypeScript monorepo of Pi Coding Agent extensions for automation, planning, language tooling, browser control, web research, Git workflows, and configuration sync.（227 stars，31 forks，许可 MIT）",
+          "author": "narumiruna",
           "mediaUrls": []
         }
       ],
@@ -67,26 +66,23 @@
       }
     },
     {
-      "id": "risa-labs-inc-bossconsole-112d3f41",
-      "title": "risa-labs-inc/BossConsole",
-      "summary": "Open-source, multi-platform harness for AI agents — a native, multi-threaded operator's console (JVM, not Electron) to run Claude Code, Codex, Gemini or OpenCode with a real browser, terminal, editor, secrets & 100+ MCP tools. Built for enterprises, science & research.（189 stars，5 forks，许可 Apache-2.0）",
-      "primaryUrl": "https://github.com/risa-labs-inc/BossConsole",
-      "publishedAt": "2026-07-26T01:12:57Z",
+      "id": "osmantic-ods-e12e7a32",
+      "title": "Osmantic/ODS",
+      "summary": "Turn your PC, Mac, or Linux box into an AI server.  LLM inference, chat UI, voice, agents, workflows, RAG, and image generation.（3692 stars，535 forks，许可 Apache-2.0）",
+      "primaryUrl": "https://github.com/Osmantic/ODS",
+      "publishedAt": "2026-07-26T08:39:39Z",
       "tags": [
         "agent",
-        "mcp",
-        "codex",
-        "claude",
-        "open-source"
+        "workflow"
       ],
       "sources": [
         {
           "kind": "github",
-          "title": "risa-labs-inc/BossConsole",
-          "url": "https://github.com/risa-labs-inc/BossConsole",
-          "publishedAt": "2026-07-26T01:12:57Z",
-          "summary": "Open-source, multi-platform harness for AI agents — a native, multi-threaded operator's console (JVM, not Electron) to run Claude Code, Codex, Gemini or OpenCode with a real browser, terminal, editor, secrets & 100+ MCP tools. Built for enterprises, science & research.（189 stars，5 forks，许可 Apache-2.0）",
-          "author": "risa-labs-inc",
+          "title": "Osmantic/ODS",
+          "url": "https://github.com/Osmantic/ODS",
+          "publishedAt": "2026-07-26T08:39:39Z",
+          "summary": "Turn your PC, Mac, or Linux box into an AI server.  LLM inference, chat UI, voice, agents, workflows, RAG, and image generation.（3692 stars，535 forks，许可 Apache-2.0）",
+          "author": "Osmantic",
           "mediaUrls": []
         }
       ],
@@ -125,9 +121,9 @@
     {
       "id": "lidge-jun-opencodex-c47cbc7e",
       "title": "lidge-jun/opencodex",
-      "summary": "Universal provider proxy for OpenAI Codex & Claude Code — use any LLM (Claude, Gemini, Grok, DeepSeek, Ollama…) with Codex CLI, App, SDK, and Claude Code（4798 stars，367 forks，许可 MIT）",
+      "summary": "Universal provider proxy for OpenAI Codex & Claude Code — use any LLM (Claude, Gemini, Grok, DeepSeek, Ollama…) with Codex CLI, App, SDK, and Claude Code（4866 stars，372 forks，许可 MIT）",
       "primaryUrl": "https://github.com/lidge-jun/opencodex",
-      "publishedAt": "2026-07-26T00:59:27Z",
+      "publishedAt": "2026-07-26T08:31:58Z",
       "tags": [
         "codex",
         "claude"
@@ -137,8 +133,8 @@
           "kind": "github",
           "title": "lidge-jun/opencodex",
           "url": "https://github.com/lidge-jun/opencodex",
-          "publishedAt": "2026-07-26T00:59:27Z",
-          "summary": "Universal provider proxy for OpenAI Codex & Claude Code — use any LLM (Claude, Gemini, Grok, DeepSeek, Ollama…) with Codex CLI, App, SDK, and Claude Code（4798 stars，367 forks，许可 MIT）",
+          "publishedAt": "2026-07-26T08:31:58Z",
+          "summary": "Universal provider proxy for OpenAI Codex & Claude Code — use any LLM (Claude, Gemini, Grok, DeepSeek, Ollama…) with Codex CLI, App, SDK, and Claude Code（4866 stars，372 forks，许可 MIT）",
           "author": "lidge-jun",
           "mediaUrls": []
         }
@@ -176,22 +172,22 @@
       }
     },
     {
-      "id": "nvidia-nemoclaw-15aba1d4",
-      "title": "NVIDIA/NemoClaw",
-      "summary": "Run agents like Hermes, LangChain Deep Agents, and OpenClaw more securely inside NVIDIA OpenShell with managed inference（21930 stars，2977 forks，许可 Apache-2.0）",
-      "primaryUrl": "https://github.com/NVIDIA/NemoClaw",
-      "publishedAt": "2026-07-26T01:29:18Z",
+      "id": "iamcorey-kooky-2f29636a",
+      "title": "iAmCorey/kooky",
+      "summary": "A minimal modern terminal for AI coding experience — Sidebar workspaces; horizontal / vertical split panes; one-click agent launch; per-agent activity readout; live workspace state with one-click Node and branch switching.（592 stars，30 forks，许可 MIT）",
+      "primaryUrl": "https://github.com/iAmCorey/kooky",
+      "publishedAt": "2026-07-26T08:31:21Z",
       "tags": [
         "agent"
       ],
       "sources": [
         {
           "kind": "github",
-          "title": "NVIDIA/NemoClaw",
-          "url": "https://github.com/NVIDIA/NemoClaw",
-          "publishedAt": "2026-07-26T01:29:18Z",
-          "summary": "Run agents like Hermes, LangChain Deep Agents, and OpenClaw more securely inside NVIDIA OpenShell with managed inference（21930 stars，2977 forks，许可 Apache-2.0）",
-          "author": "NVIDIA",
+          "title": "iAmCorey/kooky",
+          "url": "https://github.com/iAmCorey/kooky",
+          "publishedAt": "2026-07-26T08:31:21Z",
+          "summary": "A minimal modern terminal for AI coding experience — Sidebar workspaces; horizontal / vertical split panes; one-click agent launch; per-agent activity readout; live workspace state with one-click Node and branch switching.（592 stars，30 forks，许可 MIT）",
+          "author": "iAmCorey",
           "mediaUrls": []
         }
       ],
@@ -200,15 +196,15 @@
         "recency": 2,
         "actionability": 2,
         "verifiability": 2,
-        "mediaRichness": 0,
+        "mediaRichness": 1,
         "rightsClarity": 1,
-        "total": 9
+        "total": 10
       },
-      "status": "candidate",
-      "projectId": "",
+      "status": "approved",
+      "projectId": "2026-07-26-iamcorey-kooky",
       "preflight": {
         "sourceCoverage": "partial",
-        "materialFeasibility": "insufficient",
+        "materialFeasibility": "uncertain",
         "sourceCount": 1,
         "firstPartySourceCount": 1,
         "directMediaCount": 0,
@@ -228,24 +224,23 @@
       }
     },
     {
-      "id": "xuzhougeng-wisp-science-5359e01d",
-      "title": "xuzhougeng/wisp-science",
-      "summary": "Open-source, local-first desktop AI research workbench for scientific computing with Python/R, MCP bioinformatics tools, SSH/WSL/GPU runtimes, and OpenAI/Anthropic models.（438 stars，55 forks，许可 Apache-2.0）",
-      "primaryUrl": "https://github.com/xuzhougeng/wisp-science",
-      "publishedAt": "2026-07-26T01:29:04Z",
+      "id": "leancoderkavy-premiere-pro-mcp-e4435afc",
+      "title": "leancoderkavy/premiere-pro-mcp",
+      "summary": "Adobe Premiere Pro MCP server with 269 AI video editing tools for timeline automation, effects, media management, and export.（142 stars，25 forks，许可 MIT）",
+      "primaryUrl": "https://github.com/leancoderkavy/premiere-pro-mcp",
+      "publishedAt": "2026-07-26T08:19:29Z",
       "tags": [
         "mcp",
-        "model",
-        "open-source"
+        "video"
       ],
       "sources": [
         {
           "kind": "github",
-          "title": "xuzhougeng/wisp-science",
-          "url": "https://github.com/xuzhougeng/wisp-science",
-          "publishedAt": "2026-07-26T01:29:04Z",
-          "summary": "Open-source, local-first desktop AI research workbench for scientific computing with Python/R, MCP bioinformatics tools, SSH/WSL/GPU runtimes, and OpenAI/Anthropic models.（438 stars，55 forks，许可 Apache-2.0）",
-          "author": "xuzhougeng",
+          "title": "leancoderkavy/premiere-pro-mcp",
+          "url": "https://github.com/leancoderkavy/premiere-pro-mcp",
+          "publishedAt": "2026-07-26T08:19:29Z",
+          "summary": "Adobe Premiere Pro MCP server with 269 AI video editing tools for timeline automation, effects, media management, and export.（142 stars，25 forks，许可 MIT）",
+          "author": "leancoderkavy",
           "mediaUrls": []
         }
       ],
@@ -254,15 +249,15 @@
         "recency": 2,
         "actionability": 2,
         "verifiability": 2,
-        "mediaRichness": 0,
+        "mediaRichness": 1,
         "rightsClarity": 1,
-        "total": 9
+        "total": 10
       },
       "status": "candidate",
       "projectId": "",
       "preflight": {
         "sourceCoverage": "partial",
-        "materialFeasibility": "insufficient",
+        "materialFeasibility": "uncertain",
         "sourceCount": 1,
         "firstPartySourceCount": 1,
         "directMediaCount": 0,

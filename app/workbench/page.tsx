@@ -110,7 +110,7 @@ export default async function WorkbenchPage({ searchParams }: WorkbenchPageProps
       renderJob={readRenderJob(paths.renderJobPath)}
       initialView={initialView}
       initialSourceId={initialSourceId}
-      initialAdvanced={params.advanced === '1' || Boolean(params.view)}
+      initialAdvanced={params.advanced === '1'}
       initialPrototype={params.prototype === 'clip-candidates' ? 'clip-candidates' : null}
       initialCandidateVariant={params.candidateLayout === 'compare' ? 'compare' : 'ranked'}
       aiAvailable={readAiConfig().apiKeyAvailable}

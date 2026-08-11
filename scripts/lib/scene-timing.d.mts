@@ -3,6 +3,7 @@ export interface SceneTimingInput {
   sourceType?: string;
   sourceStart?: number;
   sourceEnd?: number;
+  mediaPlaybackRate?: number;
   voiceDuration: number;
   fps?: number;
 }
@@ -14,6 +15,7 @@ export interface SceneTimingResult {
   duration: number;
   frameCount: number;
   selectedDuration: number;
+  mediaPlaybackRate: number;
 }
 
 export function resolveSceneTiming(input: SceneTimingInput): SceneTimingResult;

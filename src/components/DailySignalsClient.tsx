@@ -60,7 +60,7 @@ export default function DailySignalsClient({ initialRun }: DailySignalsClientPro
       const result = await response.json();
       if (!response.ok) throw new Error(result.error ?? '批准候选失败');
       setRun(result.run);
-      window.location.href = `/workbench?project=${encodeURIComponent(result.projectId)}&view=sources`;
+      window.location.href = `/workbench?project=${encodeURIComponent(result.projectId)}&advanced=1&view=sources`;
     } catch (nextError) {
       setError(nextError instanceof Error ? nextError.message : '批准候选失败');
       setBusy('');
@@ -121,7 +121,7 @@ export default function DailySignalsClient({ initialRun }: DailySignalsClientPro
                     <a className="mt-3 inline-flex items-center gap-1 text-xs font-extrabold text-slate-700 underline decoration-slate-300 underline-offset-4" href={candidate.primaryUrl} target="_blank" rel="noreferrer">查看一手来源<ExternalLink aria-hidden="true" className="h-3.5 w-3.5" /></a>
                   </div>
                   {candidate.status === 'approved' ? (
-                    <a className="inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-md border border-emerald-300 bg-emerald-50 px-3 text-xs font-extrabold text-emerald-800" href={`/workbench?project=${encodeURIComponent(candidate.projectId)}&view=sources`}>进入项目<ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
+                    <a className="inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-md border border-emerald-300 bg-emerald-50 px-3 text-xs font-extrabold text-emerald-800" href={`/workbench?project=${encodeURIComponent(candidate.projectId)}&advanced=1&view=sources`}>进入项目<ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
                   ) : (
                     <button className="inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-md bg-slate-950 px-3 text-xs font-extrabold text-white disabled:bg-slate-400" type="button" onClick={() => approve(candidate.id)} disabled={Boolean(busy) || !decidedBy.trim() || decisionNote.trim().length < 12}>{busy === candidate.id ? <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin" /> : null}{busy === candidate.id ? '建立素材包' : '批准并建项目'}</button>
                   )}

@@ -35,14 +35,17 @@ if (manifest.acceptance.videoSha256 !== videoSha256) {
 }
 
 const baseUrl = String(args.get('base-url') ?? 'http://127.0.0.1:3100').replace(/\/$/, '');
-const url = `${baseUrl}/short-video?project=${encodeURIComponent(manifest.projectId)}&acceptance=1`;
+const renditionQuery = manifest.rendition?.id
+  ? `&rendition=${encodeURIComponent(manifest.rendition.id)}`
+  : '';
+const url = `${baseUrl}/short-video?project=${encodeURIComponent(manifest.projectId)}&acceptance=1${renditionQuery}`;
 const chromePath = String(
   args.get('chrome') ?? '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
 );
 if (!existsSync(chromePath)) throw new Error(`Google Chrome not found: ${chromePath}`);
 const screenshotBase = resolve(
   args.get('screenshot')
-    ?? `output/playwright/${manifest.projectId}-browser-acceptance.png`,
+    ?? `output/playwright/${manifest.projectId}-${manifest.rendition?.id ?? 'primary'}-browser-acceptance.png`,
 );
 mkdirSync(dirname(screenshotBase), { recursive: true });
 

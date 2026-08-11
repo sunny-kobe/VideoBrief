@@ -47,3 +47,19 @@ test('subtitle cues merge one or two character wrap leftovers into adjacent cues
   assert.equal(cues.at(-1)?.end, 12.72);
   assert.ok(cues.every((cue) => Array.from(cue.text.replace(/\s/g, '')).length > 2));
 });
+
+test('subtitle cues merge a technical term that would flash for less than 750ms', () => {
+  const cues = planSubtitleCues({
+    phrases: ['官方还写了会话恢复和独立', 'worktree；', '环境要求是 macOS 14 以上，', 'DMG 为临时签名。'],
+    speechDuration: 7.41,
+    silences: [
+      { start: 3.03, end: 3.23 },
+      { start: 3.35, end: 3.566 },
+      { start: 5.6, end: 5.85 },
+    ],
+  });
+
+  assert.equal(cues.map((cue) => cue.text).join(''), '官方还写了会话恢复和独立 worktree；环境要求是 macOS 14 以上，DMG 为临时签名。');
+  assert.ok(cues.every((cue) => cue.end - cue.start >= 0.75));
+  assert.ok(cues.some((cue) => cue.text.includes('独立 worktree；')));
+});

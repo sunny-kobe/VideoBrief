@@ -9,8 +9,15 @@ import {
   researchGateReadiness,
   type WorkflowRuntimeEvidence,
 } from '../src/productionWorkflow';
-import { normalizeBrief } from '../src/shortVideoProjectServer';
-import { topicApprovalFingerprint } from '../scripts/lib/production-workflow-contract.mjs';
+import { aggregateProjectRightsStatus, normalizeBrief } from '../src/shortVideoProjectServer';
+import {
+  approvalIsCurrent,
+  assertPreproductionGates,
+  preproductionGateReadiness,
+  researchApprovalFingerprint,
+  topicApprovalFingerprint,
+} from '../scripts/lib/production-workflow-contract.mjs';
+import { buildMaterialQualityReview } from '../scripts/lib/material-quality-gate.mjs';
 
 const readyRuntime: WorkflowRuntimeEvidence = {
   renderState: 'ready',
@@ -80,6 +87,27 @@ function fixture() {
       market: { decision: 'pending', decidedAt: '', decidedBy: '', note: '', evidence: [] },
     },
   } as unknown as Parameters<typeof normalizeBrief>[0]);
+  project.materialQualityReview = buildMaterialQualityReview(project, {
+    projectId: project.id,
+    reviewScope: '测试场景 start/mid/end 与桌面、移动视口。',
+    reviews: [{
+      sceneId: 'scene-01',
+      candidate: { sourceId: 'source-01', sourceStart: 0, sourceEnd: 3 },
+      visibleClaim: '测试素材直接显示关键事实。',
+      evidenceRole: 'operation-demo',
+      narrationMatch: { score: 3, reason: '画面与测试旁白一致。' },
+      readability: {
+        desktop: 'passed', mobile: 'passed', criticalText: ['关键事实'], reason: '测试视口可读。',
+      },
+      temporalCompleteness: { status: 'passed', reason: '测试窗口完整。' },
+      stability: { status: 'stable', motionNecessary: false, reason: '固定测试镜头。' },
+      uniqueness: { status: 'unique', reason: '仅承担当前测试观点。' },
+      platformWatermark: { status: 'absent', marks: [], reason: '测试自有素材无平台或账号水印。' },
+      decision: 'accept',
+      decisionReasons: ['测试素材 Gate 通过'],
+      evidence: ['scene-01-start.png', 'scene-01-mid.png', 'scene-01-end.png'],
+    }],
+  }, 'codex', '2026-07-24T00:30:00.000Z');
   project.workflow.topicApproval.fingerprint = topicApprovalFingerprint(project);
   return project;
 }
@@ -113,6 +141,63 @@ test('research approval requires at least one confirmed key fact', () => {
   }), /至少需要一条已确认/);
 });
 
+test('research approval precedes material approval and survives later visual sources', () => {
+  const researchOnly = fixture();
+  researchOnly.materialReview = { status: 'pending', approvedSourceIds: [], reviewedAt: '' };
+
+  assert.equal(researchGateReadiness(researchOnly).ready, true);
+  assert.equal(productionWorkflowSnapshot(researchOnly, readyRuntime).next?.id, 'research');
+
+  const approved = approveResearch(researchOnly);
+  assert.equal(productionWorkflowSnapshot(approved, readyRuntime).next?.id, 'materials');
+  assert.equal(preproductionGateReadiness(approved).ready, false);
+  assert.match(preproductionGateReadiness(approved).issues.join('；'), /素材包尚未明确批准/);
+
+  const withMaterials = structuredClone(approved);
+  withMaterials.sources.push({
+    ...withMaterials.sources[0],
+    id: 'source-02',
+    label: '后续加入的自有动态录屏',
+    materialRole: 'official_demo',
+    contentHash: 'visual-source-sha',
+    analysis: {
+      ...withMaterials.sources[0].analysis,
+      facts: [{
+        id: 'visual-fact-01', statement: '画面包含状态变化', sourceReferences: [{ sourceId: 'source-02', locatorType: 'time', start: 0, end: 3, note: '动态画面' }],
+        reviewStatus: 'confirmed', kind: 'visual_metadata', reviewPriority: 'supporting', briefRelevance: 70,
+      }],
+    },
+  });
+  withMaterials.materialReview = {
+    status: 'approved',
+    approvedSourceIds: ['source-02'],
+    reviewedAt: '2026-07-24T01:30:00.000Z',
+  };
+
+  assert.equal(
+    approvalIsCurrent(withMaterials.workflow.researchApproval, researchApprovalFingerprint(withMaterials)),
+    true,
+  );
+  assert.equal(preproductionGateReadiness(withMaterials).ready, true);
+});
+
+test('production preflight rejects a failed material-quality Gate before rendering', () => {
+  const project = approveResearch();
+  project.materialQualityReview = {
+    schemaVersion: 1,
+    status: 'failed',
+    reviewedAt: '2026-07-24T01:30:00.000Z',
+    reviewer: 'codex',
+    reviewScope: '逐幕 start/mid/end 与目标视口复核。',
+    sceneReviews: [],
+  };
+
+  assert.throws(
+    () => assertPreproductionGates(project),
+    /素材质量 Gate 当前状态为 failed/,
+  );
+});
+
 test('normalization preserves an explicitly approved image-only material package', () => {
   const input = fixture();
   input.sources[0].sourceType = 'image';
@@ -124,11 +209,91 @@ test('normalization preserves an explicitly approved image-only material package
   assert.deepEqual(project.materialReview.approvedSourceIds, ['source-01']);
 });
 
+test('normalization clamps scene playback rate to the supported production range', () => {
+  const input = fixture();
+  input.scenes[0].mediaPlaybackRate = 9;
+  assert.equal(normalizeBrief(input).scenes[0].mediaPlaybackRate, 4);
+  input.scenes[0].mediaPlaybackRate = 0.1;
+  assert.equal(normalizeBrief(input).scenes[0].mediaPlaybackRate, 0.25);
+});
+
+test('project rights follow the approved material package instead of unused imports', () => {
+  const project = fixture();
+  project.sources.push({
+    ...project.sources[0],
+    id: 'source-unused',
+    rightsStatus: 'review_required',
+    materialRole: 'research',
+  });
+
+  assert.equal(
+    aggregateProjectRightsStatus(project.sources, project.materialReview),
+    'cleared',
+  );
+  assert.equal(
+    aggregateProjectRightsStatus(project.sources, { status: 'pending', approvedSourceIds: [], reviewedAt: '' }),
+    'review_required',
+  );
+  assert.equal(
+    aggregateProjectRightsStatus(project.sources, {
+      status: 'approved', approvedSourceIds: ['source-missing'], reviewedAt: 'now',
+    }),
+    'review_required',
+  );
+});
+
 test('workflow action parser rejects unknown or extra input fields', () => {
   assert.throws(() => parseProductionWorkflowAction({
     type: 'approve_topic', decidedBy: 'test-user', note: '测试用户确认当前命题可以继续。', elevated: true,
   }), /参数无效/);
   assert.throws(() => parseProductionWorkflowAction({ type: 'delete_project' }), /参数无效/);
+});
+
+test('delivery decisions allow an omitted review note while other Gates still require one', () => {
+  const action = parseProductionWorkflowAction({
+    type: 'approve_delivery', decidedBy: 'local-user',
+  });
+  if (action.type !== 'approve_delivery') assert.fail('expected approve_delivery action');
+  assert.equal(action.note, '');
+  const project = applyProductionWorkflowAction(approveResearch(), readyRuntime, action);
+  assert.equal(project.workflow.deliveryApproval.status, 'approved');
+  assert.equal(project.workflow.deliveryApproval.note, '');
+  assert.throws(() => applyProductionWorkflowAction(fixture(), readyRuntime, {
+    type: 'approve_research', decidedBy: 'test-user', note: '',
+  }), /至少需要/);
+});
+
+test('delivery rejection remains bound to the current video and blocks packaging after refresh', () => {
+  const runtimeWithoutPackage = { ...readyRuntime, packageReady: false, packageSha256: '' };
+  const project = applyProductionWorkflowAction(approveResearch(), runtimeWithoutPackage, {
+    type: 'reject_delivery',
+    decidedBy: 'test-user',
+    note: '命题不好看，看不懂，没啥吸引人。',
+  });
+  const snapshot = productionWorkflowSnapshot(project, runtimeWithoutPackage);
+  const acceptance = snapshot.stages.find((stage) => stage.id === 'acceptance');
+  const packaging = snapshot.stages.find((stage) => stage.id === 'package');
+
+  assert.equal(acceptance?.status, 'blocked');
+  assert.equal(acceptance?.message, '命题不好看，看不懂，没啥吸引人。');
+  assert.equal(packaging?.status, 'waiting');
+  assert.equal(snapshot.next?.id, 'acceptance');
+});
+
+test('automatic acceptance cannot expose Delivery Gate before prior production Gates pass', () => {
+  const pending = fixture();
+  pending.workflow.topicApproval = {
+    status: 'pending', decidedAt: '', decidedBy: '', note: '', fingerprint: '',
+  };
+  const snapshot = productionWorkflowSnapshot(pending, readyRuntime);
+  assert.equal(snapshot.next?.id, 'topic');
+  assert.equal(snapshot.stages.find((stage) => stage.id === 'acceptance')?.status, 'waiting');
+
+  const missingQuality = approveResearch();
+  missingQuality.materialQualityReview = undefined;
+  assert.throws(() => applyProductionWorkflowAction(missingQuality, readyRuntime, {
+    type: 'approve_delivery', decidedBy: 'local-user', note: '',
+  }), /镜头语义与素材质量 Gate/);
 });
 
 test('topic approval is invalidated when the creative brief changes', () => {

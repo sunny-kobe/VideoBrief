@@ -33,7 +33,33 @@ function escapeHtml(value: unknown) {
     .replaceAll("'", '&#039;');
 }
 
-function visualMarkup(kind: string) {
+function visualMarkup(item: { visualKind: string }) {
+  const { visualKind: kind } = item;
+  if (kind === 'positioning') {
+    return `<div class="positioning"><div><span>广泛能力</span><b>Fable 5</b></div><div class="active"><span>复杂 Agent 编程</span><b>Opus 5</b></div><p>专业选择，不等于“全系最强”</p></div>`;
+  }
+  if (kind === 'iteration') {
+    return `<div class="iteration">${[['01', '复杂任务'], ['02', '验证工作'], ['03', '持续迭代']].map(([index, label]) => `<div><span>${index}</span><b>${label}</b></div>`).join('<i>→</i>')}</div>`;
+  }
+  if (kind === 'specifications') {
+    return `<div class="metric-grid">${[
+      ['API ID', 'claude-opus-5'], ['CONTEXT', '1M tokens'],
+      ['MAX OUTPUT', '128K tokens'], ['PRICE / 1M', '$5 in · $25 out'],
+    ].map(([label, value]) => `<div><span>${label}</span><b>${value}</b></div>`).join('')}</div>`;
+  }
+  if (kind === 'benchmark') {
+    return `<div class="benchmark"><div class="compare"><section><span>OPUS 5</span><b>官方评测更高</b></section><i>VS</i><section><span>OPUS 4.8</span><b>基础价格相同</b></section></div><p>ANTHROPIC CLAIM · 非独立实测</p></div>`;
+  }
+  if (kind === 'tradeoffs') {
+    return `<div class="tradeoff-grid">${[
+      ['SPEED', '约 2.5×', '官方称'], ['PRICE', '2×', 'Fast mode'], ['SECURITY', '< Mythos 5', '进攻性任务'],
+    ].map(([label, value, note]) => `<div><span>${label}</span><b>${value}</b><em>${note}</em></div>`).join('')}</div>`;
+  }
+  if (kind === 'decision') {
+    return `<div class="decision"><div class="decision-grid">${[
+      ['01', '真实复杂任务'], ['02', '成功率'], ['03', '耗时'], ['04', '总成本'],
+    ].map(([index, label]) => `<div><span>${index}</span><b>${label}</b></div>`).join('')}</div><p>A/B TEST <i>→</i> 再决定迁移</p></div>`;
+  }
   if (kind === 'brief') {
     return `<div class="brief-grid">${[
       ['目标', '明确要解决的问题'], ['受众', '确认谁需要这条内容'],
@@ -99,10 +125,10 @@ try {
       *{box-sizing:border-box}body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#0b0d10;color:#f6f7f9;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;letter-spacing:0}
       main{height:100%;display:grid;grid-template-rows:auto auto 1fr auto;padding:92px 76px 70px;position:relative}.top{display:flex;justify-content:space-between;align-items:center;color:#8f9aa7;font-size:24px}.brand{font-weight:800;color:#20c997}.index{font-variant-numeric:tabular-nums}
       h1{font-size:${titleSize}px;line-height:1.14;margin:90px 0 18px;max-width:930px}.subtitle{font-size:38px;line-height:1.45;color:#b8c0cb;max-width:920px}.visual{margin-top:72px;border:1px solid #323840;background:#12161b;min-height:780px;padding:42px;display:flex;align-items:center;overflow:hidden}
-      .brief-grid,.evidence-grid,.proof-grid,.status-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;width:100%}.brief-grid>div,.evidence-grid>div,.proof-grid>div,.status-grid>div{min-height:270px;border:1px solid #39414b;padding:32px;display:flex;flex-direction:column;justify-content:space-between}.brief-grid span,.evidence-grid span,.proof-grid span{color:#20c997;font-size:22px}.brief-grid b,.evidence-grid b,.proof-grid b{font-size:34px;line-height:1.35}.brief-grid i{height:14px;background:#2c333c;width:78%}.evidence-grid em,.proof-grid em{font-style:normal;color:#20c997;font-size:20px}.evidence-grid .active{border-color:#20c997;background:#15221e}
+      .brief-grid,.evidence-grid,.proof-grid,.status-grid,.metric-grid,.decision-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;width:100%}.brief-grid>div,.evidence-grid>div,.proof-grid>div,.status-grid>div,.metric-grid>div,.decision-grid>div{min-height:270px;border:1px solid #39414b;padding:32px;display:flex;flex-direction:column;justify-content:space-between}.brief-grid span,.evidence-grid span,.proof-grid span,.metric-grid span,.decision-grid span{color:#20c997;font-size:22px}.brief-grid b,.evidence-grid b,.proof-grid b,.metric-grid b,.decision-grid b{font-size:34px;line-height:1.35}.brief-grid i{height:14px;background:#2c333c;width:78%}.evidence-grid em,.proof-grid em{font-style:normal;color:#20c997;font-size:20px}.evidence-grid .active{border-color:#20c997;background:#15221e}.metric-grid b{overflow-wrap:anywhere}.decision,.benchmark,.positioning{width:100%;display:flex;flex-direction:column;gap:32px}.decision>p,.benchmark>p,.positioning>p{margin:0;border:1px solid #20c997;background:#15221e;padding:26px 30px;color:#20c997;font-size:25px;font-weight:800;text-align:center}.decision>p i{font-style:normal;color:#87919d;margin:0 16px}.positioning>div{border:1px solid #39414b;padding:36px;display:flex;justify-content:space-between;align-items:center}.positioning>div span{color:#9ca7b3;font-size:24px}.positioning>div b{font-size:42px}.positioning>.active{border-color:#20c997;background:#15221e}.iteration{width:100%;display:flex;align-items:center;justify-content:center;gap:18px}.iteration>div{width:240px;height:260px;border:1px solid #39414b;padding:30px;display:flex;flex-direction:column;justify-content:space-between}.iteration span{color:#20c997}.iteration b{font-size:32px}.iteration i{font-style:normal;color:#66717d;font-size:32px}.compare{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px}.compare section{height:360px;border:1px solid #39414b;padding:34px;display:flex;flex-direction:column;justify-content:space-between}.compare section:first-child{border-color:#20c997;background:#15221e}.compare span{color:#20c997;font-size:22px}.compare b{font-size:36px;line-height:1.35}.compare>i{font-style:normal;color:#8f9aa7;font-weight:800}.tradeoff-grid{width:100%;display:grid;grid-template-columns:1fr;gap:22px}.tradeoff-grid>div{min-height:180px;border:1px solid #39414b;padding:30px;display:grid;grid-template-columns:160px 1fr 190px;align-items:center}.tradeoff-grid span{color:#20c997;font-size:22px}.tradeoff-grid b{font-size:42px}.tradeoff-grid em{font-style:normal;color:#9ca7b3;text-align:right;font-size:22px}
       .approval-flow{display:flex;align-items:center;justify-content:center;gap:15px;width:100%;flex-wrap:wrap}.approval-flow>div{width:252px;height:220px;border:1px solid #39414b;padding:28px;display:flex;flex-direction:column;justify-content:space-between}.approval-flow>i{font-style:normal;color:#66717d;font-size:34px}.approval-flow span{color:#20c997}.approval-flow b{font-size:30px}.approval-flow em{font-style:normal;color:#9ca7b3}.approval-flow .execute{border-color:#20c997;background:#15221e}
       .status-grid b{font-size:21px;color:#9ca7b3}.status-grid span{font-size:30px;color:#20c997;overflow-wrap:anywhere}.footer{margin-top:58px;border-top:1px solid #30363e;padding-top:28px;display:flex;justify-content:space-between;color:#8f9aa7;font-size:22px}.progress{position:absolute;left:0;right:0;bottom:0;height:12px;background:#20252b}.progress i{display:block;height:100%;width:${((item.index + 1) / plan.length * 100).toFixed(3)}%;background:#20c997}
-    </style></head><body><main><div class="top"><span class="brand">VideoBrief · ORIGINAL INFO LAYER</span><span class="index">SCENE ${String(item.index + 1).padStart(2, '0')} / ${String(plan.length).padStart(2, '0')}</span></div><div><h1>${escapeHtml(item.title)}</h1><div class="subtitle">${escapeHtml(item.subtitle)}</div></div><div class="visual">${visualMarkup(item.visualKind)}</div><div class="footer"><span>仅作视觉说明，不作为事实证据</span><span>LOCAL · CLEARED</span></div><div class="progress"><i></i></div></main></body></html>`);
+    </style></head><body><main><div class="top"><span class="brand">VideoBrief · ORIGINAL INFO LAYER</span><span class="index">SCENE ${String(item.index + 1).padStart(2, '0')} / ${String(plan.length).padStart(2, '0')}</span></div><div><h1>${escapeHtml(item.title)}</h1><div class="subtitle">${escapeHtml(item.subtitle)}</div></div><div class="visual">${visualMarkup(item)}</div><div class="footer"><span>仅作视觉说明，不作为事实证据</span><span>LOCAL · CLEARED</span></div><div class="progress"><i></i></div></main></body></html>`);
     await page.screenshot({ path: cardPath });
     cards.push({ ...item, cardPath });
   }
@@ -168,7 +194,9 @@ if (apply) {
   appliedSourceId = visualSource.id;
   updateCanonicalProject(projectId, (canonical) => ({
     ...canonical,
-    sources: canonical.sources.map((source) => source.id === visualSource!.id ? {
+    sources: canonical.sources
+      .filter((source) => source.originUrl !== originUrl || source.id === visualSource!.id)
+      .map((source) => source.id === visualSource!.id ? {
       ...source,
       processing: {
         ...source.processing,
@@ -200,7 +228,7 @@ if (apply) {
         }],
         chapters: [],
       },
-    } : source),
+      } : source),
   }));
   approveProjectMaterials(projectId, [visualSource.id]);
   current = readBrief(projectId);

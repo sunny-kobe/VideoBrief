@@ -1,0 +1,1406 @@
+{
+  "schemaVersion": 3,
+  "id": "eu-tethered-caps-explainer-20260805",
+  "title": "为什么欧盟饮料瓶盖拧开后还连着瓶身",
+  "format": "video_project",
+  "targetAudience": "对日常产品变化和世界运行机制好奇的普通中文观众",
+  "status": "review",
+  "technical_status": "passed",
+  "rights_status": "review_required",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "brief": {
+    "objective": "用约 75-90 秒讲清欧盟连体瓶盖为何出现、法规怎样进入产品设计，以及它给回收链、生产线和消费者带来的影响",
+    "audience": "对日常产品变化和世界运行机制好奇的普通中文观众",
+    "platform": "抖音首发，兼容 B站、YouTube 与 TikTok 扩展",
+    "aspectRatio": "16:9",
+    "targetDurationSeconds": 84,
+    "tone": "清晰、克制、有好奇心，不夸张环保成效",
+    "style": "公开动态素材、一手资料与原创中文信息层结合的解释型短片",
+    "reference": "从一个看得见的日常异常出发，逐层追到法规、工程和使用影响",
+    "coreMessage": "欧盟连体瓶盖不是品牌集体把设计做坏了，而是一条针对易丢失小塑料件的产品规则；它改变了瓶盖结构和包装生产，也把更难丢失与更不顺手同时交给消费者",
+    "cta": "下次遇到一个突然变样的日常产品，先问问是哪条规则改变了它",
+    "prohibitedMaterial": "不得宣称连体瓶盖已经提高实际回收率；不得把欧盟规则说成全球统一规则；不得让企业宣传片单独证明环保效果；不得用 AI 画面冒充真实瓶盖、产线或海滩记录"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "EUR-Lex：Directive (EU) 2019/904 连体瓶盖条款",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://eur-lex.europa.eu/eli/dir/2019/904/oj/eng",
+      "assetPath": "public/project-assets/eu-tethered-caps-explainer-20260805/eu-directive-2019-904-excerpt-1785918885179.md",
+      "originalFileName": "eu-directive-2019-904-excerpt.md",
+      "mimeType": "text/markdown",
+      "bytes": 927,
+      "importedAt": "2026-08-05T08:34:45.181Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "欧盟法律文本的核验摘录，仅作事实研究；不以页面截图进入成片。",
+      "contentHash": "99a887f03e6bda6fa57d89ed9e82f6c7024a7b60d20ce6e45c35ea3f3d02abe6",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "99a887f03e6bda6fa57d89ed9e82f6c7024a7b60d20ce6e45c35ea3f3d02abe6",
+        "startedAt": "2026-08-05T08:40:00.000Z",
+        "completedAt": "2026-08-05T08:41:00.000Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "topic-gate-20260805-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "Directive (EU) 2019/904 Article 6(1) 要求 Part C 所列、使用塑料盖的一次性塑料产品，只有在预期使用阶段盖子仍与容器相连时才可投放市场。Article 17 要求成员国从 2024-07-03 起适用相关措施。Part C 涵盖容量不超过 3 升的一次性塑料饮料容器。",
+        "visualDescription": "法律文本研究摘录，不作为成片视觉素材。",
+        "hierarchicalSummary": "法律事实：适用对象、连盖要求和 2024-07-03 适用日期；边界：不能证明实际回收率变化。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-law-attached",
+            "statement": "Directive (EU) 2019/904 Article 6(1) 要求 Part C 范围内、使用塑料盖的一次性塑料饮料容器在预期使用阶段保持盖子与容器相连。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "Article 6(1) 与 Annex Part C 核验摘录"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "fact-law-date",
+            "statement": "成员国应从 2024-07-03 起适用为遵守 Article 6(1) 所需的措施。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "Article 17 适用日期核验摘录"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "uncertainty-law-outcome",
+            "statement": "法律文本不能证明规则实施后实际回收率已经提高。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "法律文本证据边界"
+              }
+            ],
+            "resolution": "旁白只陈述规则、日期和适用范围，不宣称实际回收成效。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-02",
+      "label": "欧盟环境总司：一次性塑料与瓶盖解释",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://environment.ec.europa.eu/news/5-things-you-should-know-about-single-use-plastics-2025-07-01_en",
+      "assetPath": "public/project-assets/eu-tethered-caps-explainer-20260805/ec-single-use-plastics-excerpt-1785918885207.md",
+      "originalFileName": "ec-single-use-plastics-excerpt.md",
+      "mimeType": "text/markdown",
+      "bytes": 1007,
+      "importedAt": "2026-08-05T08:34:45.207Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "欧盟委员会官方解释的核验摘录，仅作事实研究；官方解释与独立成效评估分开。",
+      "contentHash": "d7000a7f170a80577fba75ecd36125b1d622c00957ee8d517f99c16d0dc4b494",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "d7000a7f170a80577fba75ecd36125b1d622c00957ee8d517f99c16d0dc4b494",
+        "startedAt": "2026-08-05T08:41:00.000Z",
+        "completedAt": "2026-08-05T08:42:00.000Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "topic-gate-20260805-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "欧盟环境总司页面称，塑料瓶盖和盖子在自然环境中的发现频率是瓶子的 2-3 倍，并将连盖要求解释为增加瓶盖随瓶进入回收流程机会的产品措施。",
+        "visualDescription": "欧盟委员会官方解释页面的研究摘录，不作为成片视觉素材。",
+        "hierarchicalSummary": "来源声明：政策理由与 2-3 倍出现频率；边界：属于欧盟机构解释，不是本项目独立复现的成效研究。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-ec-cap-frequency",
+            "statement": "欧盟环境总司称，塑料瓶盖和盖子在自然环境中的发现频率是瓶子的 2-3 倍。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "file",
+                "note": "European Commission DG Environment 官方解释"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 9
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "uncertainty-ec-outcome",
+            "statement": "“提高随瓶进入回收流程的机会”是欧盟委员会的政策解释，不等于实际回收率已提高。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "file",
+                "note": "官方解释与独立成效评估的边界"
+              }
+            ],
+            "resolution": "旁白以“欧盟机构称”归因，并在结尾明确实际成效仍需实施数据。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-03",
+      "label": "Sidel：连体瓶盖结构、产线与实验室",
+      "sourceType": "video",
+      "materialRole": "official_demo",
+      "originUrl": "https://www.youtube.com/watch?v=5SrxyB1z_Vo",
+      "assetPath": "public/project-assets/eu-tethered-caps-explainer-20260805/sidel-packaging-alternatives-1785918885219.mp4",
+      "originalFileName": "sidel-packaging-alternatives.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 21996989,
+      "importedAt": "2026-08-05T08:34:45.229Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "Sidel 企业公开视频，公开可访问但未标明可复用许可；仅用于本地受众样片，发布前必须清权或替换。",
+      "contentHash": "357d7483f8ad192370726800095e5e611b271a192b046ad9323605ebc3cbf526",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "357d7483f8ad192370726800095e5e611b271a192b046ad9323605ebc3cbf526",
+        "startedAt": "2026-08-05T08:42:00.000Z",
+        "completedAt": "2026-08-05T08:44:00.000Z",
+        "error": "",
+        "model": "manual-frame-review",
+        "promptVersion": "material-window-20260805-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "1920x1080/25fps 企业公开视频；103-113 秒为生产控制台与高速包装线，138.5-150.2 秒为瓶颈 CAD、实验与结构设计画面。",
+        "hierarchicalSummary": "可承担生产适配和结构工程示意；企业演示不能单独证明政策成效。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-source-03-windows",
+            "statement": "103-113 秒可见高速包装线，138.5-150.2 秒可见瓶颈 CAD 与结构工程画面。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "time",
+                "start": 103,
+                "end": 150.2,
+                "note": "start/mid/end 人工代表帧复核"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "supporting",
+            "briefRelevance": 9
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-04",
+      "label": "Sidel：消费者开瓶、饮用与合盖",
+      "sourceType": "video",
+      "materialRole": "official_demo",
+      "originUrl": "https://www.youtube.com/watch?v=x1RdWfzvJAE",
+      "assetPath": "public/project-assets/eu-tethered-caps-explainer-20260805/sidel-consumer-acceptance-1785918885239.mp4",
+      "originalFileName": "sidel-consumer-acceptance.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 9111400,
+      "importedAt": "2026-08-05T08:34:45.243Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "Sidel 企业公开视频，公开可访问但未标明可复用许可；仅用于本地受众样片，发布前必须清权或替换。",
+      "contentHash": "5d9bee6ec63a92441993bdc3a41ecdd79fdcfbc9e189c3ae6855da0675b8530d",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "5d9bee6ec63a92441993bdc3a41ecdd79fdcfbc9e189c3ae6855da0675b8530d",
+        "startedAt": "2026-08-05T08:44:00.000Z",
+        "completedAt": "2026-08-05T08:45:00.000Z",
+        "error": "",
+        "model": "manual-frame-review",
+        "promptVersion": "material-window-20260805-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "1920x1080/25fps 企业公开视频；12-22 秒与 22-33.7 秒为多位消费者在室内、车内和运动场景开瓶、饮用、合盖的连续蒙太奇。",
+        "hierarchicalSummary": "可承担使用情境与消费者影响的相关画面；快速转场不作为特定行为结果的直接证据。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-source-04-windows",
+            "statement": "12-33.7 秒可见不同消费者开瓶、饮用与合盖的使用情境。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "time",
+                "start": 12,
+                "end": 33.7,
+                "note": "逐秒联系表与代表帧人工复核"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "supporting",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-05",
+      "label": "SACMI：多种连体瓶盖开合与倒水动作",
+      "sourceType": "video",
+      "materialRole": "official_demo",
+      "originUrl": "https://www.youtube.com/watch?v=_cpfdhKLW3A",
+      "assetPath": "public/project-assets/eu-tethered-caps-explainer-20260805/sacmi-eight-tethered-cap-solutions-1785918885255.mp4",
+      "originalFileName": "sacmi-eight-tethered-cap-solutions.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 29171470,
+      "importedAt": "2026-08-05T08:34:45.269Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "SACMI 企业公开视频，公开可访问但未标明可复用许可；仅用于本地受众样片，发布前必须清权或替换。",
+      "contentHash": "f4218c7c8eeea7cf39924089633817a773e65f83e3a9fc8f430d8edf6c0a30cc",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "f4218c7c8eeea7cf39924089633817a773e65f83e3a9fc8f430d8edf6c0a30cc",
+        "startedAt": "2026-08-05T08:45:00.000Z",
+        "completedAt": "2026-08-05T08:47:00.000Z",
+        "error": "",
+        "model": "manual-frame-review",
+        "promptVersion": "material-window-20260805-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "1920x1080/25fps 企业公开视频；10-20、40-50、56-70、140-150 与 154-164 秒分别展示多种连体瓶盖开合、锁定和倒水动作。",
+        "hierarchicalSummary": "可直接展示连盖结构怎样开、怎样保持连接和怎样倒水；不承担法规或环保成效证明。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-source-05-windows",
+            "statement": "已核验的五个不重复窗口展示白、蓝、红色连体瓶盖的开合、锁定与倒水动作。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "time",
+                "start": 10,
+                "end": 164,
+                "note": "五个独立窗口的 start/mid/end 人工代表帧复核"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "supporting",
+            "briefRelevance": 10
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [],
+    "facts": [
+      {
+        "id": "fact-law-attached",
+        "statement": "Directive (EU) 2019/904 Article 6(1) 要求 Part C 范围内、使用塑料盖的一次性塑料饮料容器在预期使用阶段保持盖子与容器相连。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "Article 6(1) 与 Annex Part C 核验摘录"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-law-date",
+        "statement": "成员国应从 2024-07-03 起适用为遵守 Article 6(1) 所需的措施。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "Article 17 适用日期核验摘录"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-ec-cap-frequency",
+        "statement": "欧盟环境总司称，塑料瓶盖和盖子在自然环境中的发现频率是瓶子的 2-3 倍。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "European Commission DG Environment 官方解释"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 9
+      }
+    ],
+    "uncertainties": [
+      {
+        "id": "uncertainty-outcome-evidence",
+        "statement": "现有一手资料能证明规则及官方政策理由，不能证明实施后实际回收率已经提高。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "法律文本证据边界"
+          },
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "官方解释与独立成效评估边界"
+          }
+        ],
+        "resolution": "成片明确说实际环境成效仍需实施数据，不使用“已经提高回收率”等结论。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      }
+    ]
+  },
+  "narrative": {
+    "status": "completed",
+    "error": "",
+    "activeVersionId": "narrative-v1",
+    "versions": [
+      {
+        "id": "narrative-v1",
+        "generatedAt": "2026-08-05T08:55:00.000Z",
+        "model": "codex-editorial",
+        "promptVersion": "original-chinese-explainer-20260805-v1",
+        "inputHash": "manual-topic-gate-approved",
+        "conclusion": "连体瓶盖体现的是监管把易丢失塑料件的问题写进产品设计，但实际环境成效仍需实施数据验证。",
+        "hook": "这不是瓶盖坏了。",
+        "outline": [
+          "从反常使用体验提出问题",
+          "给出法规、日期与适用要求",
+          "解释政策针对的小塑料件问题",
+          "展示结构与产线怎样适配",
+          "保留消费者摩擦与成效不确定性"
+        ],
+        "voiceoverScript": "这不是瓶盖坏了。你在欧洲拧开饮料瓶，它常会卡在瓶口旁边，怎么甩都不掉。原因是一条产品规则。从二零二四年七月三日起，欧盟要求特定一次性塑料饮料容器在正常使用时，塑料盖必须留在瓶身上。政策盯上的，是很容易单独丢失的小塑料件。欧盟机构称，自然环境里的塑料盖，出现频率是瓶子的两到三倍。规则没有规定唯一外形，只规定使用时不能分家。于是瓶盖和瓶颈之间，多了一段能翻开、卡住、再合回去的连接结构。这也不是只换一个盖子。瓶胚、瓶颈、旋盖设备和高速灌装线，都要跟着重新匹配。所以你会看到不同方案：有的翻到一侧，有的锁在后方。法规规定结果，企业自己解决手感和制造。对消费者，它更难随手丢掉，却也可能碰到脸、挡住倒水。这两件事可以同时成立。别急着说回收率已经提高。法律证明规则，成效还要看数据。这只瓶盖，是监管把垃圾问题写进产品设计。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "法规、日期与适用范围"
+          },
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "政策理由与 2-3 倍来源声明"
+          }
+        ],
+        "uncertainties": [
+          "没有将官方政策解释写成已经发生的实际回收成效",
+          "企业公开视频仅用于结构、产线与使用情境展示"
+        ]
+      }
+    ],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "pendingChapters": [],
+    "generatedAt": "2026-08-05T08:55:00.000Z",
+    "model": "codex-editorial",
+    "promptVersion": "original-chinese-explainer-20260805-v1"
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-5.6",
+    "transcriptionModel": "whisper.cpp:large-v3-turbo-q5_0",
+    "promptVersion": "videobrief-2026-07-11-v1",
+    "calls": [
+      {
+        "id": "call-gemini-tts-probe-20260805",
+        "purpose": "production-assets",
+        "status": "failed",
+        "model": "gemini-3.1-flash-tts-preview",
+        "promptVersion": "natural-tech-zh-v1",
+        "inputHash": "pre-render-duration-probe",
+        "startedAt": "2026-08-05T08:49:00.000Z",
+        "completedAt": "2026-08-05T08:51:00.000Z",
+        "error": "429 RESOURCE_EXHAUSTED：Gemini TTS 当前免费额度上限；正式项目改用仓库支持的 edge-tts，未静默回退。",
+        "cacheHit": false
+      }
+    ]
+  },
+  "editorial": {
+    "claim": "欧盟连体瓶盖不是品牌集体把设计做坏了，而是一条针对易丢失小塑料件的产品规则；它改变了瓶盖结构和包装生产，也把更难丢失与更不顺手同时交给消费者",
+    "whyItMatters": "一个小到让人烦躁的产品变化，展示了公共规则怎样穿过设计、制造和日常使用。",
+    "chinaContext": "不把欧盟要求说成全球统一规则；中文观众通过熟悉的瓶盖理解欧盟产品监管机制。",
+    "riskNote": "第三方企业视频未获复用许可，只能作为本地样片；政策理由不等于实际环境成效。"
+  },
+  "platformCopy": {
+    "coverTitle": "瓶盖为什么不让你拧下来",
+    "title": "欧洲饮料瓶盖为什么突然拧不下来了？",
+    "description": "从一个别扭的瓶盖，追到欧盟法规、包装工程和仍待验证的环境成效。",
+    "hashtags": [
+      "连体瓶盖",
+      "欧盟",
+      "产品设计",
+      "日常系统"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "2026-08-05T08:28:24.585Z",
+    "updatedAt": "2026-08-05T11:09:43.595Z",
+    "researchReviewedAt": "2026-08-05T08:58:00.000Z",
+    "firstRenderCompletedAt": "2026-08-05T10:54:24.560Z",
+    "lastRenderCompletedAt": "2026-08-05T11:09:43.595Z",
+    "sourceImportCount": 5,
+    "manualSaveCount": 0,
+    "renderAttemptCount": 4,
+    "renderFailureCount": 0,
+    "lastRenderStartedAt": "2026-08-05T11:08:46.034Z",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "materialReview": {
+    "status": "approved",
+    "approvedSourceIds": [
+      "source-03",
+      "source-04",
+      "source-05"
+    ],
+    "reviewedAt": "2026-08-05T08:58:00.000Z"
+  },
+  "materialQualityReview": {
+    "schemaVersion": 1,
+    "status": "passed",
+    "reviewedAt": "2026-08-05T11:00:29.876Z",
+    "reviewer": "codex",
+    "reviewScope": "8 个启用场景；逐幕核对 1920x1080 原素材 start/mid/end、窗口完整性、画面角色、桌面与 390x844 移动视口缩放后的主体可辨性。全部为真实企业公开视频，未使用 AI 生成或合成画面；三份动态来源均为 review_required，仅限本地样片。",
+    "sceneReviews": [
+      {
+        "sceneId": "scene-01",
+        "sceneFingerprint": "3b0b97a6119ef354a9bc5bc4c04d56b7432711cab5af059c3bd6811c6e914f7a",
+        "candidate": {
+          "sourceId": "source-05",
+          "sourceStart": 10,
+          "sourceEnd": 20
+        },
+        "visibleClaim": "白色瓶盖被拧开、保持连接并完成倒水。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "画面直接证明瓶盖不是脱落，而是通过连接结构留在瓶颈上。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "瓶盖、瓶颈和连接动作均为大主体；本幕不依赖企业画面细字。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "10 秒窗口完整覆盖开盖、锁定和倒水，没有循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "动作来自原始演示，未增加推拉或重复运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "窗口只承担开头反常体验，未用于其他观点。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "直接展示命题",
+          "动作完整",
+          "主体清晰",
+          "权利边界已记录"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-01-start.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-01-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-01-end.png"
+        ]
+      },
+      {
+        "sceneId": "scene-02",
+        "sceneFingerprint": "e05245827dc19cf774d085739e0829361c0f3b00c9304cf8e74964e5b4d41dec",
+        "candidate": {
+          "sourceId": "source-05",
+          "sourceStart": 56,
+          "sourceEnd": 70
+        },
+        "visibleClaim": "蓝色瓶盖在正常开合和倒水过程中始终与瓶身连接。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "画面对应法规要求的产品状态；法规、日期和范围由 EUR-Lex 文本单独支撑。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "大比例瓶盖与连接环可辨，不要求读取企业参数。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "14 秒窗口避开前置标题卡，覆盖开盖、锁定、倒水和回正。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原始手部操作与倒水动作有叙事必要性，未添加镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "蓝色结构窗口只承担法规进入产品状态的说明。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "窗口无标题卡",
+          "状态完整",
+          "与法律证据分工明确"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-02-start.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-02-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-02-end.png"
+        ]
+      },
+      {
+        "sceneId": "scene-03",
+        "sceneFingerprint": "ecc001de95bae60212c2a9b6cc40f431a8caeda6e63e95690a188267697dd3ba",
+        "candidate": {
+          "sourceId": "source-05",
+          "sourceStart": 40,
+          "sourceEnd": 50
+        },
+        "visibleClaim": "红色瓶盖保持连接并完成倒水。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "这是与易丢失小塑料件相反的连盖使用情境；2-3 倍来源声明由欧盟委员会页面支撑，画面不承担统计证明。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "相关画面的瓶盖与倒水动作可辨，不依赖参数细字。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "10 秒窗口从已开启状态进入完整倒水，没有标题卡或循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原始倒水动作与语义相关，未添加运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "40-50 秒未与其他场景窗口重叠，且明确标为相关背景。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "来源声明已归因",
+          "画面不冒充统计证据",
+          "窗口独立"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-03-start.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-03-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-03-end.png"
+        ]
+      },
+      {
+        "sceneId": "scene-04",
+        "sceneFingerprint": "f6083f7a6cc0b969fbc70e3af8a8cb63ee38d185ec31915231b57b35eb7b675c",
+        "candidate": {
+          "sourceId": "source-03",
+          "sourceStart": 138.5,
+          "sourceEnd": 150.2
+        },
+        "visibleClaim": "瓶颈截面、CAD 绘制和结构设计把连盖要求转化为工程几何。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "瓶颈放大图和 CAD 直接承担结构机制示意，不依赖讲者口播。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕只要求识别瓶颈轮廓、连接位置和设计动作，不读取 CAD 面板细字。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "11.7 秒窗口连续展示瓶颈图、CAD 与设计笔，前后均避开讲者。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原片切换用于展示工程步骤，未额外推拉。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该窗口只承担结构工程，不与生产线场景复用。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "工程语义直接",
+          "不依赖细字",
+          "窗口边界干净"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-04-start.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-04-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-04-end.png"
+        ]
+      },
+      {
+        "sceneId": "scene-05",
+        "sceneFingerprint": "b7ac9ee7cf3df20b0681d3353b7aa17bf1628bbc58b968e34b17f43c69bc72ab",
+        "candidate": {
+          "sourceId": "source-03",
+          "sourceStart": 103,
+          "sourceEnd": 113
+        },
+        "visibleClaim": "人员进入生产环境、操作控制台，并出现高速包装线。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "画面从生产人员、控制系统到高速线体，能承载产品变化进入制造系统的观点。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "旁白不依赖控制台细字，只依赖设备、人员和高速线体可见。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "10 秒窗口完整形成生产环境到线体的视觉递进。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原始生产线运动体现制造状态，未添加推拉。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该窗口只承担产线适配，不复用 CAD 或瓶盖操作画面。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "制造链语义完整",
+          "不依赖企业口号",
+          "窗口独立"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-05-start.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-05-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-05-end.png"
+        ]
+      },
+      {
+        "sceneId": "scene-06",
+        "sceneFingerprint": "31a3a4cc009f12182ca7e1b0738cb737a1daf92843dcafe0e15f223c1571ace8",
+        "candidate": {
+          "sourceId": "source-05",
+          "sourceStart": 140,
+          "sourceEnd": 150
+        },
+        "visibleClaim": "红色 hold-open 结构翻到一侧并保持开启完成倒水。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "该设计与前文白色、蓝色结构形成可见差异，支持“同一要求、多种方案”。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "红色盖体位置与倒水动作清晰，不依赖英文参数。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "10 秒窗口从开启状态到倒水结束，未循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原始操作动作必要，未添加镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "hold-open 方案只承担多解法观点。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "结构差异可见",
+          "动作完整",
+          "窗口独立"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-06-start.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-06-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-06-end.png"
+        ]
+      },
+      {
+        "sceneId": "scene-07",
+        "sceneFingerprint": "c52b6a99c9d8d28faee52ae872a89ecb75b9af39e80fa5441572149daa93c60a",
+        "candidate": {
+          "sourceId": "source-05",
+          "sourceStart": 154,
+          "sourceEnd": 164
+        },
+        "visibleClaim": "红色 lock-back 结构被扭开、锁到瓶颈后侧并完成倒水。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "画面能展示瓶盖与脸部或倒水路径可能发生空间干扰的结构条件；旁白用“可能”限定，不把单个演示当成普遍体验调查。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "瓶盖相对瓶口的位置为大主体，移动缩放后仍可辨。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "10 秒窗口避开标题卡，覆盖扭开、锁定和倒水。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原始操作动作必要，未添加镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "lock-back 窗口只承担使用权衡，不与 hold-open 窗口重叠。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "使用摩擦有条件限定",
+          "窗口无标题卡",
+          "不夸大单一演示"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-07-start.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-07-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-07-end.png"
+        ]
+      },
+      {
+        "sceneId": "scene-08",
+        "sceneFingerprint": "0203db9e144d5f0e386d31a9d10f52e9f7da2e588a510e6cfb72d3748a27b037",
+        "candidate": {
+          "sourceId": "source-04",
+          "sourceStart": 22,
+          "sourceEnd": 33.7
+        },
+        "visibleClaim": "不同消费者继续开瓶、饮用和合盖，产品规则进入日常使用。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "消费者蒙太奇只承担日常情境与收束；回收成效边界由旁白、原创标题和一手资料明确，画面不冒充环境记录。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "人物和瓶盖动作可辨；本幕不依赖企业画面文字。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "11.7 秒窗口连续覆盖多种使用情境，并在工厂画面和标题卡前结束。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原片蒙太奇用于收束不同场景，未添加推拉。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "22-34 秒没有与其他场景重叠，只承担日常情境收束。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "相关画面角色明确",
+          "不冒充成效证据",
+          "窗口不重叠"
+        ],
+        "evidence": [
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-08-start.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-08-mid.png",
+          "output/research/new-content-mainline-20260804/evidence/eu-caps-scene-review/scene-08-end.png"
+        ]
+      }
+    ]
+  },
+  "workflow": {
+    "schemaVersion": 1,
+    "origin": {
+      "kind": "manual",
+      "runId": "",
+      "candidateId": "",
+      "sourceUrl": "https://eur-lex.europa.eu/eli/dir/2019/904/oj/eng",
+      "score": null,
+      "summary": "新内容主线首条普通受众样片"
+    },
+    "topicApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-05T08:28:24.585Z",
+      "decidedBy": "用户",
+      "note": "用户于 2026-08-05 明确批准欧盟连体瓶盖命题，并接受报告推荐的 16:9 / 1920x1080 / 30fps 正式画幅。",
+      "fingerprint": "039f2fb413456d631b11cd70da23035b44c38b3852d6ac55e90cc93f0e4db787"
+    },
+    "researchApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-05T08:28:24.585Z",
+      "decidedBy": "用户",
+      "note": "用户批准 Topic Gate 报告时，已一并接受报告中披露的 EUR-Lex 法规事实、欧盟委员会来源声明及本地样片素材权利边界；该批准不代表发布清权。",
+      "fingerprint": "88567e56f750e1167cf3be3ce24473fbbfac6da049e054b656ce2a8780509ef3"
+    },
+    "deliveryApproval": {
+      "status": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "fingerprint": ""
+    },
+    "publication": {
+      "approval": {
+        "status": "pending",
+        "decidedAt": "",
+        "decidedBy": "",
+        "note": "",
+        "fingerprint": ""
+      },
+      "platform": "",
+      "publishedUrl": "",
+      "publishedAt": "",
+      "videoSha256": "",
+      "packageSha256": ""
+    },
+    "market": {
+      "decision": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "evidence": []
+    }
+  },
+  "chapters": [
+    {
+      "id": "chapter-01",
+      "title": "为什么欧盟饮料瓶盖拧开后还连着瓶身",
+      "summary": "从使用异常追到法规、政策理由、结构工程、产线适配和消费者权衡。",
+      "order": 0,
+      "sceneIds": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06",
+        "scene-07",
+        "scene-08"
+      ],
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "法规要求、适用范围与日期"
+        },
+        {
+          "sourceId": "source-02",
+          "locatorType": "file",
+          "note": "政策理由与证据边界"
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "outputVideo": "output/videos/eu-tethered-caps-explainer-20260805.mp4",
+    "publicRender": "public/renders/eu-tethered-caps-explainer-20260805.mp4",
+    "workDir": "output/videos/eu-tethered-caps-explainer-20260805-work",
+    "exportDir": "output/exports/eu-tethered-caps-explainer-20260805",
+    "coverImage": "output/exports/eu-tethered-caps-explainer-20260805/cover.png",
+    "platformCopy": "output/exports/eu-tethered-caps-explainer-20260805/platform-copy.json",
+    "sourceList": "output/exports/eu-tethered-caps-explainer-20260805/source-list.json",
+    "projectSnapshot": "output/exports/eu-tethered-caps-explainer-20260805/project.snapshot.json"
+  },
+  "render": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice": "zh-CN-YunxiNeural",
+    "rate": 194,
+    "voiceEngine": "edge-tts",
+    "voiceModel": "edge-tts-universal",
+    "voiceProfile": "natural-tech-zh-v1",
+    "voiceStyle": "像真实的中文知识内容创作者一样讲述。\n声音克制、自然，有轻微交流感，不要新闻播音腔或广告腔。\n使用中等语速，在转折和结论前自然停顿。\n重点词只做轻微强调，不要夸张表演。\n必须准确朗读原文，不要增加、删减或改写内容。",
+    "voiceGenerationMode": "per-scene",
+    "renderStrategy": "segmented-concat",
+    "pronunciations": [],
+    "mediaFit": "contain"
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-05",
+      "sourceStart": 10,
+      "sourceEnd": 20,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "一个让人别扭的产品变化",
+      "title": "这不是瓶盖坏了",
+      "subtitle": "它为什么拧开后还连着瓶身？",
+      "narration": "这不是瓶盖坏了。你在欧洲拧开饮料瓶，它常会卡在瓶口旁边，怎么甩都不掉。",
+      "visualRequirement": "白色连体瓶盖被完整拧开并留在瓶颈上，直接建立反常体验；固定机位，不循环。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-05",
+          "locatorType": "time",
+          "start": 10,
+          "end": 20,
+          "note": "SACMI 白色连体瓶盖开合演示"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-01",
+          "sourceId": "source-05",
+          "assetPath": "public/project-assets/eu-tethered-caps-explainer-20260805/sacmi-eight-tethered-cap-solutions-1785918885255.mp4",
+          "mediaType": "video",
+          "sourceStart": 10,
+          "sourceEnd": 20,
+          "matchReason": "完整展示瓶盖拧开后仍连接，是开头问题的直接可见证据。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-05T08:58:00.000Z",
+      "selectionNote": "已检查 start/mid/end，动作完整、无标题卡穿越；权利仍为 review_required。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-02",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-05",
+      "sourceStart": 56,
+      "sourceEnd": 70,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "法规进入产品",
+      "title": "2024 年 7 月 3 日起",
+      "subtitle": "特定饮料容器的塑料盖在使用时必须保持连接",
+      "narration": "原因是一条产品规则。从二零二四年七月三日起，欧盟要求特定一次性塑料饮料容器在正常使用时，塑料盖必须留在瓶身上。",
+      "visualRequirement": "蓝色连体瓶盖完成开盖、锁定和倒水，展示“使用时保持连接”的产品状态；法规事实由 source-01 支撑。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "Directive (EU) 2019/904 Article 6(1)、Article 17 与 Part C"
+        },
+        {
+          "sourceId": "source-05",
+          "locatorType": "time",
+          "start": 56,
+          "end": 70,
+          "note": "蓝色连体瓶盖使用状态演示，不单独证明法律事实"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-02",
+          "sourceId": "source-05",
+          "assetPath": "public/project-assets/eu-tethered-caps-explainer-20260805/sacmi-eight-tethered-cap-solutions-1785918885255.mp4",
+          "mediaType": "video",
+          "sourceStart": 56,
+          "sourceEnd": 70,
+          "matchReason": "完整展示盖子在开、锁和倒水阶段仍与瓶身相连，语义对应法规规定的产品状态。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-02",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-05T08:58:00.000Z",
+      "selectionNote": "56-70 秒避开前置标题卡，并以 14 秒窗口覆盖配音和尾部余量，不循环。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-03",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-05",
+      "sourceStart": 40,
+      "sourceEnd": 50,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "政策理由",
+      "title": "小盖子更容易单独丢失",
+      "subtitle": "欧盟机构称：自然环境中的出现频率是瓶子的 2–3 倍",
+      "narration": "政策盯上的，是很容易单独丢失的小塑料件。欧盟机构称，自然环境里的塑料盖，出现频率是瓶子的两到三倍。",
+      "visualRequirement": "红色连体瓶盖保持连接并完成倒水，作为易丢失小塑料件问题的语义相关画面；2-3 倍来源声明由 source-02 支撑。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-02",
+          "locatorType": "file",
+          "note": "European Commission DG Environment 的 2-3 倍来源声明"
+        },
+        {
+          "sourceId": "source-05",
+          "locatorType": "time",
+          "start": 40,
+          "end": 50,
+          "note": "瓶盖保持连接并倒水的相关画面，非环境统计证据"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-03",
+          "sourceId": "source-05",
+          "assetPath": "public/project-assets/eu-tethered-caps-explainer-20260805/sacmi-eight-tethered-cap-solutions-1785918885255.mp4",
+          "mediaType": "video",
+          "sourceStart": 40,
+          "sourceEnd": 50,
+          "matchReason": "展示瓶盖保持连接并倒水，与“易单独丢失的小塑料件”形成语义对照，但不冒充统计证据。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-03",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-05T08:58:00.000Z",
+      "selectionNote": "窗口从真实动作起步且无标题卡；画面角色明确为相关情境，不证明 2-3 倍统计。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-04",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-03",
+      "sourceStart": 138.5,
+      "sourceEnd": 150.2,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "结构怎么变",
+      "title": "法规规定结果，工程决定做法",
+      "subtitle": "连接、翻开、卡住，再合回去",
+      "narration": "规则没有规定唯一外形，只规定使用时不能分家。于是瓶盖和瓶颈之间，多了一段能翻开、卡住、再合回去的连接结构。",
+      "visualRequirement": "瓶颈 CAD、结构讲解与实验画面承担工程机制示意；不展示不可读细字，不启用额外推拉。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "法律规定保持连接，没有指定单一瓶盖外形"
+        },
+        {
+          "sourceId": "source-03",
+          "locatorType": "time",
+          "start": 138.5,
+          "end": 150.2,
+          "note": "瓶颈 CAD 与工程设计画面"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-04",
+          "sourceId": "source-03",
+          "assetPath": "public/project-assets/eu-tethered-caps-explainer-20260805/sidel-packaging-alternatives-1785918885219.mp4",
+          "mediaType": "video",
+          "sourceStart": 138.5,
+          "sourceEnd": 150.2,
+          "matchReason": "CAD 与瓶颈近景能承担“规则转化为结构工程”的机制示意。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-04",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-05T08:58:00.000Z",
+      "selectionNote": "138.5-150.2 秒连续保留瓶颈图、CAD 与结构设计画面，前后均避开讲者。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-05",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-03",
+      "sourceStart": 103,
+      "sourceEnd": 113,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "制造端的连锁反应",
+      "title": "不只是换一个盖子",
+      "subtitle": "瓶颈、旋盖设备和灌装线都要匹配",
+      "narration": "这也不是只换一个盖子。瓶胚、瓶颈、旋盖设备和高速灌装线，都要跟着重新匹配。",
+      "visualRequirement": "控制台与高速包装线展示产品规则进入生产系统后的工程适配；不把企业宣传口号当成事实。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-03",
+          "locatorType": "time",
+          "start": 103,
+          "end": 113,
+          "note": "生产控制台与高速包装线"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-05",
+          "sourceId": "source-03",
+          "assetPath": "public/project-assets/eu-tethered-caps-explainer-20260805/sidel-packaging-alternatives-1785918885219.mp4",
+          "mediaType": "video",
+          "sourceStart": 103,
+          "sourceEnd": 113,
+          "matchReason": "连续展示控制台和高速线体，能承载包装生产适配观点。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-05",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-05T08:58:00.000Z",
+      "selectionNote": "窗口未跨越标题卡，且与结构 CAD 窗口用途不同。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-06",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-05",
+      "sourceStart": 140,
+      "sourceEnd": 150,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "同一要求，多种方案",
+      "title": "企业自己解决手感和制造",
+      "subtitle": "翻到一侧，或锁在后方",
+      "narration": "所以你会看到不同方案：有的翻到一侧，有的锁在后方。法规规定结果，企业自己解决手感和制造。",
+      "visualRequirement": "红色 hold-open 结构完成倒水动作，与前两幕不同设计形成对照；不循环。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-05",
+          "locatorType": "time",
+          "start": 140,
+          "end": 150,
+          "note": "红色 hold-open 连体瓶盖方案"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-06",
+          "sourceId": "source-05",
+          "assetPath": "public/project-assets/eu-tethered-caps-explainer-20260805/sacmi-eight-tethered-cap-solutions-1785918885255.mp4",
+          "mediaType": "video",
+          "sourceStart": 140,
+          "sourceEnd": 150,
+          "matchReason": "第三种可见结构与前文形成方案差异，直接支持“同一结果、多种工程解法”。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-06",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-05T08:58:00.000Z",
+      "selectionNote": "窗口独立承担多方案观点，没有复用前面的开盖窗口。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-07",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-05",
+      "sourceStart": 154,
+      "sourceEnd": 164,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "收益和摩擦同时存在",
+      "title": "更难丢，也可能更碍事",
+      "subtitle": "产品规则把权衡交给每一次使用",
+      "narration": "对消费者，它更难随手丢掉，却也可能碰到脸、挡住倒水。这两件事可以同时成立。",
+      "visualRequirement": "红色 lock-back 结构被打开并倒水，展示盖子位置与使用动作的真实空间关系；只支持可能的使用摩擦，不宣称普遍结果。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-05",
+          "locatorType": "time",
+          "start": 154,
+          "end": 164,
+          "note": "红色 lock-back 开盖与倒水动作"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-07",
+          "sourceId": "source-05",
+          "assetPath": "public/project-assets/eu-tethered-caps-explainer-20260805/sacmi-eight-tethered-cap-solutions-1785918885255.mp4",
+          "mediaType": "video",
+          "sourceStart": 154,
+          "sourceEnd": 164,
+          "matchReason": "近景展示瓶盖相对瓶口的位置，可解释潜在使用摩擦和不易分离的双重效果。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-07",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-05T08:58:00.000Z",
+      "selectionNote": "154-164 秒避开前置标题卡；旁白使用“可能”限定，不把单一演示夸大为全部消费者结果。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-08",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-04",
+      "sourceStart": 22,
+      "sourceEnd": 33.7,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "证据边界",
+      "title": "规则存在，不等于成效已被证明",
+      "subtitle": "真实环境效果还要看实施数据",
+      "narration": "别急着说回收率已经提高。法律证明规则，成效还要看数据。这只瓶盖，是监管把垃圾问题写进产品设计。",
+      "visualRequirement": "不同消费者继续使用连体瓶盖的情境画面，配合原创标题明确证据边界；画面不冒充回收成效记录。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "法律文本只证明规则存在"
+        },
+        {
+          "sourceId": "source-02",
+          "locatorType": "file",
+          "note": "官方政策理由不等于独立成效评估"
+        },
+        {
+          "sourceId": "source-04",
+          "locatorType": "time",
+          "start": 22,
+          "end": 33.7,
+          "note": "消费者使用情境，不作为环境成效证据"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-08",
+          "sourceId": "source-04",
+          "assetPath": "public/project-assets/eu-tethered-caps-explainer-20260805/sidel-consumer-acceptance-1785918885239.mp4",
+          "mediaType": "video",
+          "sourceStart": 22,
+          "sourceEnd": 33.7,
+          "matchReason": "不同于 scene-03 的后续消费者蒙太奇，用于收束产品规则如何进入日常使用；不承担环境结果证明。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-08",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-05T08:58:00.000Z",
+      "selectionNote": "22-33.7 秒保持消费者使用蒙太奇，并在切到工厂设备前结束；结论由旁白与原创标题表达。",
+      "generatedBy": "user",
+      "userEdited": true
+    }
+  ]
+}

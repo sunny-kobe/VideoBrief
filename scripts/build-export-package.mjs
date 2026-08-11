@@ -28,6 +28,10 @@ import {
   assertPreproductionGates,
 } from './lib/production-workflow-contract.mjs';
 import { materialInventorySources } from './lib/material-inventory.mjs';
+import {
+  renditionBundleFingerprint,
+  resolveProjectRenditions,
+} from './lib/video-renditions.mjs';
 
 const packageProcessStartedAt = new Date();
 
@@ -84,7 +88,42 @@ const renderedVideoSha256 = createHash('sha256').update(readFileSync(renderedVid
 if (manifest.acceptance?.videoSha256 !== renderedVideoSha256) {
   throw new Error('Cannot build export package before acceptance is bound to the current video bytes.');
 }
-assertDeliveryApproved(project, renderedVideoSha256);
+const renditionEvidence = resolveProjectRenditions(project).map((rendition) => {
+  const renditionManifestPath = resolve(rendition.workDir, 'render-manifest.json');
+  if (!existsSync(renditionManifestPath)) {
+    throw new Error(`Cannot build export package because rendition ${rendition.id} has no render manifest.`);
+  }
+  const renditionManifest = JSON.parse(readFileSync(renditionManifestPath, 'utf8'));
+  const renditionVideo = resolve(
+    renditionManifest.artifacts?.publicRender ?? renditionManifest.artifacts?.outputVideo ?? '',
+  );
+  if (!renditionVideo || !existsSync(renditionVideo) || statSync(renditionVideo).size === 0) {
+    throw new Error(`Cannot build export package because rendition ${rendition.id} has no rendered video.`);
+  }
+  const videoSha256 = createHash('sha256').update(readFileSync(renditionVideo)).digest('hex');
+  if (renditionManifest.acceptance?.videoSha256 !== videoSha256) {
+    throw new Error(`Cannot build export package because rendition ${rendition.id} acceptance is stale.`);
+  }
+  const renditionSemantic = validateSemanticAcceptanceRecord(renditionManifest.acceptance?.semantic);
+  if (!renditionManifest.proof?.passed) {
+    throw new Error(`Cannot build export package because rendition ${rendition.id} technical proof is incomplete.`);
+  }
+  if (!renditionSemantic.passed) {
+    throw new Error(
+      `Cannot build export package because rendition ${rendition.id} semantic acceptance is incomplete:\n- ${renditionSemantic.issues.join('\n- ')}`,
+    );
+  }
+  const renditionBrowser = validateBrowserChecks(
+    renditionManifest.acceptance?.browser?.checks ?? [],
+    Number(renditionManifest.render?.duration),
+  );
+  if (renditionManifest.acceptance?.browser?.status !== 'passed' || !renditionBrowser.passed) {
+    throw new Error(`Cannot build export package because rendition ${rendition.id} browser acceptance is incomplete.`);
+  }
+  return { id: rendition.id, videoSha256 };
+});
+const deliveryApprovalFingerprint = renditionBundleFingerprint(renditionEvidence);
+assertDeliveryApproved(project, deliveryApprovalFingerprint);
 const semanticValidation = validateSemanticAcceptanceRecord(manifest.acceptance.semantic);
 if (!semanticValidation.passed) {
   throw new Error(`Cannot build export package before measured semantic review passes:\n- ${semanticValidation.issues.join('\n- ')}`);
@@ -297,7 +336,7 @@ const packageReceipt = {
   zipPath,
   zipBytes: statSync(zipPath).size,
   zipSha256: await fileSha256(zipPath),
-  deliveryApprovalFingerprint: project.workflow.deliveryApproval.fingerprint,
+  deliveryApprovalFingerprint,
   deliveryApprovedAt: project.workflow.deliveryApproval.decidedAt,
   deliveryApprovedBy: project.workflow.deliveryApproval.decidedBy,
   createdAt: new Date().toISOString(),

@@ -18,6 +18,7 @@ import {
   NarrativeVersion,
   ProductionTimeline,
   ProjectMaterialReview,
+  ProjectMaterialQualityReview,
   ProjectWorkflow,
   ProjectWorkflowOrigin,
   ProjectChapter,
@@ -64,6 +65,7 @@ import {
   normalizeHumanWorkflowDecision,
   topicApprovalFingerprint,
 } from '../scripts/lib/production-workflow-contract.mjs';
+import { resolveProjectRendition, resolveProjectRenditions } from '../scripts/lib/video-renditions.mjs';
 
 export const briefPath = resolve(DEFAULT_BRIEF_PATH);
 export const projectsRoot = resolve('content/projects');
@@ -518,6 +520,80 @@ function normalizeCandidate(
   };
 }
 
+function normalizeMaterialQualityReview(
+  value?: Partial<ProjectMaterialQualityReview>,
+): ProjectMaterialQualityReview | undefined {
+  if (!value) return undefined;
+  const statuses = ['pending', 'passed', 'failed'];
+  return {
+    schemaVersion: 1,
+    status: statuses.includes(value.status ?? '') ? value.status! : 'pending',
+    reviewedAt: textValue(value.reviewedAt),
+    reviewer: textValue(value.reviewer),
+    reviewScope: textValue(value.reviewScope),
+    sceneReviews: Array.isArray(value.sceneReviews)
+      ? value.sceneReviews.map((review) => ({
+          sceneId: textValue(review.sceneId),
+          sceneFingerprint: textValue(review.sceneFingerprint),
+          candidate: {
+            sourceId: textValue(review.candidate?.sourceId),
+            sourceStart: Math.max(0, numberValue(review.candidate?.sourceStart, 0)),
+            sourceEnd: Math.max(0, numberValue(review.candidate?.sourceEnd, 0)),
+          },
+          visibleClaim: textValue(review.visibleClaim),
+          evidenceRole: ['primary-evidence', 'operation-demo', 'source-establishing', 'transition', 'background'].includes(review.evidenceRole ?? '')
+            ? review.evidenceRole!
+            : 'primary-evidence',
+          narrationMatch: {
+            score: Math.max(0, Math.min(3, numberValue(review.narrationMatch?.score, 0))),
+            reason: textValue(review.narrationMatch?.reason),
+          },
+          readability: {
+            desktop: ['passed', 'failed', 'not-applicable'].includes(review.readability?.desktop ?? '')
+              ? review.readability!.desktop
+              : 'failed',
+            mobile: ['passed', 'failed', 'not-applicable'].includes(review.readability?.mobile ?? '')
+              ? review.readability!.mobile
+              : 'failed',
+            criticalText: stringArray(review.readability?.criticalText),
+            reason: textValue(review.readability?.reason),
+          },
+          temporalCompleteness: {
+            status: ['passed', 'failed', 'not-applicable'].includes(review.temporalCompleteness?.status ?? '')
+              ? review.temporalCompleteness!.status
+              : 'failed',
+            reason: textValue(review.temporalCompleteness?.reason),
+          },
+          stability: {
+            status: ['stable', 'minor-motion', 'unstable'].includes(review.stability?.status ?? '')
+              ? review.stability!.status
+              : 'unstable',
+            motionNecessary: review.stability?.motionNecessary === true,
+            reason: textValue(review.stability?.reason),
+          },
+          uniqueness: {
+            status: ['unique', 'duplicate', 'background-reuse'].includes(review.uniqueness?.status ?? '')
+              ? review.uniqueness!.status
+              : 'duplicate',
+            reason: textValue(review.uniqueness?.reason),
+          },
+          platformWatermark: {
+            status: ['absent', 'present', 'not-applicable', 'not-reviewed'].includes(review.platformWatermark?.status ?? '')
+              ? review.platformWatermark!.status
+              : 'not-reviewed',
+            marks: stringArray(review.platformWatermark?.marks),
+            reason: textValue(review.platformWatermark?.reason),
+          },
+          decision: ['accept', 'reject', 'needs-review'].includes(review.decision ?? '')
+            ? review.decision!
+            : 'needs-review',
+          decisionReasons: stringArray(review.decisionReasons),
+          evidence: stringArray(review.evidence),
+        }))
+      : [],
+  };
+}
+
 function normalizeScene(
   scene: Partial<ShortVideoProjectScene>,
   index: number,
@@ -541,6 +617,11 @@ function normalizeScene(
   ].includes(scene.selectionStatus ?? '')
     ? scene.selectionStatus!
     : inferredSelectionStatus;
+  const mediaFocalX = Number(scene.mediaFocalX);
+  const mediaFocalY = Number(scene.mediaFocalY);
+  const mediaPlaybackRate = Number(scene.mediaPlaybackRate);
+  const mediaMotionAmount = Number(scene.mediaMotionAmount);
+  const subtitleBottom = Number(scene.subtitleBottom);
 
   return {
     id: textValue(scene.id) || `scene-${String(index + 1).padStart(2, '0')}`,
@@ -549,6 +630,21 @@ function normalizeScene(
     sourceId: textValue(scene.sourceId) || defaultSourceId,
     sourceStart,
     sourceEnd,
+    ...(['contain', 'cover'].includes(scene.mediaFit ?? '') ? { mediaFit: scene.mediaFit! } : {}),
+    ...(Number.isFinite(mediaFocalX) ? { mediaFocalX: Math.max(0, Math.min(1, mediaFocalX)) } : {}),
+    ...(Number.isFinite(mediaFocalY) ? { mediaFocalY: Math.max(0, Math.min(1, mediaFocalY)) } : {}),
+    ...(Number.isFinite(mediaPlaybackRate)
+      ? { mediaPlaybackRate: Math.max(0.25, Math.min(4, mediaPlaybackRate)) }
+      : {}),
+    ...(['none', 'push-in', 'pull-out'].includes(scene.mediaMotion ?? '')
+      ? { mediaMotion: scene.mediaMotion! }
+      : {}),
+    ...(Number.isFinite(mediaMotionAmount)
+      ? { mediaMotionAmount: Math.max(0.02, Math.min(0.12, mediaMotionAmount)) }
+      : {}),
+    ...(Number.isFinite(subtitleBottom) && subtitleBottom > 0
+      ? { subtitleBottom }
+      : {}),
     showEditorialOverlay: scene.showEditorialOverlay !== false,
     eyebrow: textValue(scene.eyebrow),
     title: textValue(scene.title),
@@ -719,6 +815,11 @@ export function normalizeBrief(input: LegacyProjectInput): ShortVideoProject {
   const researchTranscripts = Array.isArray(input.research?.transcripts)
     ? normalizeAnalysis({ transcript: input.research.transcripts }).transcript
     : sources.flatMap((source) => source.analysis.transcript);
+  const fallbackRenderWidth = numberValue(input.render?.width, 1920);
+  const fallbackRenderHeight = numberValue(input.render?.height, 1080);
+  const fallbackAspectRatio: CreativeBrief['aspectRatio'] = fallbackRenderWidth === fallbackRenderHeight
+    ? '1:1'
+    : fallbackRenderWidth > fallbackRenderHeight ? '16:9' : '9:16';
 
   return {
     schemaVersion: 3,
@@ -746,13 +847,19 @@ export function normalizeBrief(input: LegacyProjectInput): ShortVideoProject {
     market_status: ['none', 'collecting', 'validated', 'not_validated', 'inconclusive'].includes(input.market_status ?? '')
       ? input.market_status!
       : 'none',
+    lifecycle: {
+      state: input.lifecycle?.state === 'archived' ? 'archived' : 'active',
+      archivedAt: input.lifecycle?.state === 'archived' ? textValue(input.lifecycle.archivedAt) : '',
+      archivedBy: input.lifecycle?.state === 'archived' ? textValue(input.lifecycle.archivedBy) : '',
+      archiveReason: input.lifecycle?.state === 'archived' ? textValue(input.lifecycle.archiveReason) : '',
+    },
     brief: {
       objective: textValue(input.brief?.objective),
       audience: textValue(input.brief?.audience) || textValue(input.targetAudience),
-      platform: textValue(input.brief?.platform) || 'vertical-short-video',
+      platform: textValue(input.brief?.platform) || 'landscape-video',
       aspectRatio: ['9:16', '16:9', '1:1'].includes(input.brief?.aspectRatio ?? '')
         ? input.brief!.aspectRatio!
-        : '9:16',
+        : fallbackAspectRatio,
       targetDurationSeconds: Math.max(3, numberValue(input.brief?.targetDurationSeconds, 45)),
       tone: textValue(input.brief?.tone),
       style: textValue(input.brief?.style),
@@ -790,6 +897,7 @@ export function normalizeBrief(input: LegacyProjectInput): ShortVideoProject {
     },
     production: normalizeProduction(input.production, sources),
     materialReview: normalizeMaterialReview(input.materialReview, sources),
+    materialQualityReview: normalizeMaterialQualityReview(input.materialQualityReview),
     workflow: normalizeWorkflow(input.workflow),
     chapters,
     outputs: {
@@ -816,9 +924,12 @@ export function normalizeBrief(input: LegacyProjectInput): ShortVideoProject {
       projectSnapshot:
         textValue(input.outputs?.projectSnapshot) || `output/exports/${projectId}/project.snapshot.json`,
     },
+    ...(Array.isArray(input.renditions) && input.renditions.length > 0
+      ? { renditions: resolveProjectRenditions(input) }
+      : {}),
     render: {
-      width: numberValue(input.render?.width, 1080),
-      height: numberValue(input.render?.height, 1920),
+      width: fallbackRenderWidth,
+      height: fallbackRenderHeight,
       fps: numberValue(input.render?.fps, 30),
       voice: textValue(input.render?.voice) || 'zh-CN-YunxiNeural',
       rate: numberValue(input.render?.rate, 198),
@@ -858,6 +969,9 @@ export function normalizeBrief(input: LegacyProjectInput): ShortVideoProject {
           })
         : [],
       mediaFit: input.render?.mediaFit === 'cover' ? 'cover' : 'contain',
+      subtitleBottom: numberValue(input.render?.subtitleBottom, 0) > 0
+        ? numberValue(input.render?.subtitleBottom, 0)
+        : undefined,
     },
     scenes: scenesWithChapters,
   };
@@ -879,9 +993,24 @@ export function projectPackageContentFingerprint(projectId = DEFAULT_PROJECT_ID)
   return packageContentFingerprint(readBrief(projectId));
 }
 
-function aggregateRightsStatus(sources: ShortVideoSource[]) {
-  if (sources.some((source) => source.rightsStatus === 'blocked')) return 'blocked' as const;
-  if (sources.length > 0 && sources.every((source) => source.rightsStatus === 'cleared')) return 'cleared' as const;
+export function aggregateProjectRightsStatus(
+  sources: ShortVideoSource[],
+  materialReview?: ProjectMaterialReview,
+) {
+  const approvedIds = materialReview?.status === 'approved'
+    ? [...new Set(materialReview.approvedSourceIds)]
+    : [];
+  const scopedSources = approvedIds.length > 0
+    ? approvedIds.flatMap((sourceId) => {
+      const source = sources.find((item) => item.id === sourceId);
+      return source ? [source] : [];
+    })
+    : sources;
+  if (approvedIds.length > 0 && scopedSources.length !== approvedIds.length) return 'review_required' as const;
+  if (scopedSources.some((source) => source.rightsStatus === 'blocked')) return 'blocked' as const;
+  if (scopedSources.length > 0 && scopedSources.every((source) => source.rightsStatus === 'cleared')) {
+    return 'cleared' as const;
+  }
   return 'review_required' as const;
 }
 
@@ -942,7 +1071,7 @@ export function updateCanonicalProject(
   if (options.markRenderStale !== false && current.technical_status !== 'not_rendered') {
     next.technical_status = 'stale';
   }
-  next.rights_status = aggregateRightsStatus(next.sources);
+  next.rights_status = aggregateProjectRightsStatus(next.sources, next.materialReview);
   next.production.updatedAt = new Date().toISOString();
   return writeProjectFile(projectId, next);
 }
@@ -987,7 +1116,7 @@ export function writeBrief(
     next.production.researchReviewedAt = new Date().toISOString();
   }
   next = invalidatePendingNarrative(current, next);
-  next.rights_status = aggregateRightsStatus(next.sources);
+  next.rights_status = aggregateProjectRightsStatus(next.sources, next.materialReview);
   return writeProjectFile(projectId, next);
 }
 
@@ -1006,7 +1135,7 @@ export function createProject(input: CreateProjectInput) {
   }
   const aspectRatio = ['9:16', '16:9', '1:1'].includes(briefInput.aspectRatio ?? '')
     ? briefInput.aspectRatio
-    : '9:16';
+    : '16:9';
   const renderSize = aspectRatio === '16:9'
     ? { width: 1920, height: 1080 }
     : aspectRatio === '1:1'
@@ -1045,6 +1174,14 @@ export function createProject(input: CreateProjectInput) {
       status: 'pending',
       approvedSourceIds: [],
       reviewedAt: '',
+    },
+    materialQualityReview: {
+      schemaVersion: 1,
+      status: 'pending',
+      reviewedAt: '',
+      reviewer: '',
+      reviewScope: '所有启用场景的已选候选，覆盖桌面与移动目标视口。',
+      sceneReviews: [],
     },
     workflow: {
       schemaVersion: 1,
@@ -1238,7 +1375,7 @@ export function registerProjectSourceFile(
   const next: ShortVideoProject = {
     ...project,
     technical_status: project.technical_status === 'not_rendered' ? 'not_rendered' : 'stale',
-    rights_status: aggregateRightsStatus([...project.sources, source]),
+    rights_status: aggregateProjectRightsStatus([...project.sources, source]),
     production: {
       ...project.production,
       updatedAt: new Date().toISOString(),
@@ -1338,8 +1475,9 @@ export function publicHref(path: string) {
   return `/${path.replace(/^public\//, '')}`;
 }
 
-export function projectPaths(project: ShortVideoProject) {
-  const workDir = resolve(project.outputs.workDir);
+export function projectPaths(project: ShortVideoProject, renditionId = '') {
+  const rendition = resolveProjectRendition(project, renditionId);
+  const workDir = resolve(rendition.workDir);
   const sources = project.sources.map((source) => ({
     ...source,
     path: resolve(source.assetPath),
@@ -1352,9 +1490,10 @@ export function projectPaths(project: ShortVideoProject) {
     sources,
     sourceVideoPath: primarySource?.path ?? '',
     sourceVideoHref: primarySource?.href ?? '',
-    outputVideoPath: resolve(project.outputs.outputVideo),
-    publicRenderPath: resolve(project.outputs.publicRender),
-    publicRenderHref: publicHref(project.outputs.publicRender) ?? '',
+    rendition,
+    outputVideoPath: resolve(rendition.outputVideo),
+    publicRenderPath: resolve(rendition.publicRender),
+    publicRenderHref: publicHref(rendition.publicRender) ?? '',
     exportDir: resolve(project.outputs.exportDir),
     exportZipPath: resolve(`${project.outputs.exportDir}.zip`),
     coverImagePath: resolve(project.outputs.coverImage),

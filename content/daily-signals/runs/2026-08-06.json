@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-08-06",
+  "date": "2026-08-06",
+  "createdAt": "2026-08-06T03:26:01.572Z",
+  "completedAt": "2026-08-06T03:26:06.026Z",
+  "status": "completed",
+  "zeroCost": true,
+  "errors": [],
+  "candidates": [
+    {
+      "id": "anthropics-claude-code-v2-1-223-cc413b5d",
+      "title": "anthropics/claude-code v2.1.223",
+      "summary": "## What's changed - Added owner wildcard entries (`\"owner/*\"`) to the `strictKnownMarketplaces` and `blockedMarketplaces` managed settings for allowing or blocking all marketplace repos under a GitHub org - Added a warning when workflow agents, forked skills, slash commands, or resumed background agents' requested subagent model is restricted and the parent model runs instead - Added a `/teleport` hint in cloud sessions showing how to continue locally with `claude --teleport <session id>` - Fixed a Bash permission bypass where a crafted command could hide parts of itself from permission checks - Fixed permission prompts so commands padded with tabs or invisible Unicode can no longer hide part of the command from the approval dialog - Fixed workflow scripts being able to use dynamic `import()` to run code outside the workflow sandbox - Fixed a permission gap where an agent definition's `bypassPermissions` mode ignored the org bypass-permissions disable policy - Fixed resuming a session after a mid-session `/cd` coming back empty - Fixed gateway model discovery hiding Claude models registered under provider-prefixed IDs such as `vertex_ai/claude-*` or `bedrock/anthropic.claude-*` - F",
+      "primaryUrl": "https://github.com/anthropics/claude-code/releases/tag/v2.1.223",
+      "publishedAt": "2026-08-06T00:52:37Z",
+      "tags": [
+        "agent",
+        "claude",
+        "github",
+        "workflow",
+        "model"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "anthropics/claude-code v2.1.223",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.223",
+          "publishedAt": "2026-08-06T00:52:37Z",
+          "summary": "## What's changed - Added owner wildcard entries (`\"owner/*\"`) to the `strictKnownMarketplaces` and `blockedMarketplaces` managed settings for allowing or blocking all marketplace repos under a GitHub org - Added a warning when workflow agents, forked skills, slash commands, or resumed background agents' requested subagent model is restricted and the parent model runs instead - Added a `/teleport` hint in cloud sessions showing how to continue locally with `claude --teleport <session id>` - Fixed a Bash permission bypass where a crafted command could hide parts of itself from permission checks - Fixed permission prompts so commands padded with tabs or invisible Unicode can no longer hide part of the command from the approval dialog - Fixed workflow scripts being able to use dynamic `import()` to run code outside the workflow sandbox - Fixed a permission gap where an agent definition's `bypassPermissions` mode ignored the org bypass-permissions disable policy - Fixed resuming a session after a mid-session `/cd` coming back empty - Fixed gateway model discovery hiding Claude models registered under provider-prefixed IDs such as `vertex_ai/claude-*` or `bedrock/anthropic.claude-*` - F",
+          "author": "ashwin-ant",
+          "mediaUrls": [
+            "https://avatars.githubusercontent.com/u/178951676?v=4"
+          ]
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 2,
+        "rightsClarity": 1,
+        "total": 11
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "limited",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 1,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    },
+    {
+      "id": "openai-codex-0-146-1-e2bff897",
+      "title": "openai/codex 0.146.1",
+      "summary": "## Bug Fixes - Apply safer automatic-review defaults for cyber-capable models and explain permission changes in the terminal interface. (#37057) ## Changelog Full Changelog: https://github.com/openai/codex/compare/rust-v0.146.0...rust-v0.146.1 - #37057 [0.146] Backport safer cyber-model auto-review defaults @anp-oai",
+      "primaryUrl": "https://github.com/openai/codex/releases/tag/rust-v0.146.1",
+      "publishedAt": "2026-08-05T15:55:06Z",
+      "tags": [
+        "codex",
+        "github",
+        "model"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "openai/codex 0.146.1",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.1",
+          "publishedAt": "2026-08-05T15:55:06Z",
+          "summary": "## Bug Fixes - Apply safer automatic-review defaults for cyber-capable models and explain permission changes in the terminal interface. (#37057) ## Changelog Full Changelog: https://github.com/openai/codex/compare/rust-v0.146.0...rust-v0.146.1 - #37057 [0.146] Backport safer cyber-model auto-review defaults @anp-oai",
+          "author": "github-actions[bot]",
+          "mediaUrls": [
+            "https://avatars.githubusercontent.com/in/15368?v=4"
+          ]
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 2,
+        "rightsClarity": 1,
+        "total": 11
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "limited",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 1,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    },
+    {
+      "id": "the-latest-ai-news-we-announced-in-j-58ba351a",
+      "title": "The latest AI news we announced in July 2026",
+      "summary": "Here are Google’s latest AI updates from July 2026",
+      "primaryUrl": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-july-2026",
+      "publishedAt": "2026-08-04T13:00:00.000Z",
+      "tags": [],
+      "sources": [
+        {
+          "kind": "official",
+          "title": "The latest AI news we announced in July 2026",
+          "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-july-2026/",
+          "publishedAt": "2026-08-04T13:00:00.000Z",
+          "summary": "Here are Google’s latest AI updates from July 2026",
+          "author": "Google AI Blog",
+          "mediaUrls": [
+            "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/July_AI_Recap_still.max-600x600.format-webp.webp"
+          ]
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 2,
+        "rightsClarity": 1,
+        "total": 11
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "limited",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 1,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    },
+    {
+      "id": "risa-labs-inc-bossconsole-112d3f41",
+      "title": "risa-labs-inc/BossConsole",
+      "summary": "Open-source, multi-platform harness for AI agents — a native, multi-threaded operator's console (JVM, not Electron) to run Claude Code, Codex, Gemini or OpenCode with a real browser, terminal, editor, secrets & 100+ MCP tools. Built for enterprises, science & research.（215 stars，7 forks，许可 Apache-2.0）",
+      "primaryUrl": "https://github.com/risa-labs-inc/BossConsole",
+      "publishedAt": "2026-08-06T03:25:23Z",
+      "tags": [
+        "agent",
+        "mcp",
+        "codex",
+        "claude",
+        "open-source"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "risa-labs-inc/BossConsole",
+          "url": "https://github.com/risa-labs-inc/BossConsole",
+          "publishedAt": "2026-08-06T03:25:23Z",
+          "summary": "Open-source, multi-platform harness for AI agents — a native, multi-threaded operator's console (JVM, not Electron) to run Claude Code, Codex, Gemini or OpenCode with a real browser, terminal, editor, secrets & 100+ MCP tools. Built for enterprises, science & research.（215 stars，7 forks，许可 Apache-2.0）",
+          "author": "risa-labs-inc",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "limited",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    },
+    {
+      "id": "cobusgreyling-loop-engineering-f465bd98",
+      "title": "cobusgreyling/loop-engineering",
+      "summary": "Practical patterns, starters & CLI tools for loop engineering with AI coding agents. Design systems that prompt and orchestrate agents (inspired by Addy Osmani and Boris Cherny). Includes loop-audit, loop-init, loop-cost.（9903 stars，1339 forks，许可 MIT）",
+      "primaryUrl": "https://github.com/cobusgreyling/loop-engineering",
+      "publishedAt": "2026-08-06T03:24:29Z",
+      "tags": [
+        "agent"
+      ],
+      "sources": [
+        {
+          "kind": "github",
+          "title": "cobusgreyling/loop-engineering",
+          "url": "https://github.com/cobusgreyling/loop-engineering",
+          "publishedAt": "2026-08-06T03:24:29Z",
+          "summary": "Practical patterns, starters & CLI tools for loop engineering with AI coding agents. Design systems that prompt and orchestrate agents (inspired by Addy Osmani and Boris Cherny). Includes loop-audit, loop-init, loop-cost.（9903 stars，1339 forks，许可 MIT）",
+          "author": "cobusgreyling",
+          "mediaUrls": []
+        }
+      ],
+      "score": {
+        "firstParty": 2,
+        "recency": 2,
+        "actionability": 2,
+        "verifiability": 2,
+        "mediaRichness": 1,
+        "rightsClarity": 1,
+        "total": 10
+      },
+      "status": "candidate",
+      "projectId": "",
+      "preflight": {
+        "sourceCoverage": "limited",
+        "materialFeasibility": "uncertain",
+        "sourceCount": 1,
+        "firstPartySourceCount": 1,
+        "directMediaCount": 0,
+        "directVideoCount": 0,
+        "strengths": [
+          "存在一手或官方来源",
+          "信号发布时间在 48 小时内",
+          "具备可演示的行动或工作流信号"
+        ],
+        "risks": [
+          "当前只有单一来源，尚未完成交叉核验",
+          "没有发现可直接下载的动态素材 URL",
+          "权利评分只来自来源类型启发式，不能作为清权结论"
+        ],
+        "recommendation": "manual_review"
+      }
+    }
+  ]
+}

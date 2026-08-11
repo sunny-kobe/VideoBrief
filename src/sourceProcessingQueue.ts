@@ -107,6 +107,20 @@ export function listSourceProcessingJobs(path = DEFAULT_SOURCE_PROCESSING_QUEUE_
   return withQueuePositions(parseQueue(path).jobs);
 }
 
+export function removeSourceProcessingJobsForProject(
+  path: string,
+  projectId: string,
+  options: QueueOptions = {},
+) {
+  const now = options.now ?? (() => new Date());
+  return withQueueLock(path, (state) => {
+    const removed = state.jobs.filter((job) => job.projectId === projectId);
+    state.jobs = state.jobs.filter((job) => job.projectId !== projectId);
+    if (removed.length > 0) persist(path, state, now);
+    return removed;
+  });
+}
+
 export function sourceProcessingQueueWorker(
   path = DEFAULT_SOURCE_PROCESSING_QUEUE_PATH,
   options: Pick<QueueOptions, 'isProcessAlive'> = {},

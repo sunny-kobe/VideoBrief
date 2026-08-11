@@ -42,6 +42,22 @@ test('publication and workflow metadata do not invalidate production content', (
   assert.equal(after, before);
 });
 
+test('project lifecycle does not invalidate video or package content', () => {
+  const renderBefore = productionContentFingerprint(project);
+  const packageBefore = packageContentFingerprint(project);
+  const archived = {
+    ...project,
+    lifecycle: {
+      state: 'archived',
+      archivedAt: '2026-08-06T08:00:00.000Z',
+      archivedBy: 'local-user',
+      archiveReason: '本轮暂不继续',
+    },
+  };
+  assert.equal(productionContentFingerprint(archived), renderBefore);
+  assert.equal(packageContentFingerprint(archived), packageBefore);
+});
+
 test('creative or source changes invalidate production content', () => {
   const before = productionContentFingerprint(project);
   assert.notEqual(

@@ -5,6 +5,13 @@ export type ProjectRightsStatus = 'cleared' | 'review_required' | 'blocked';
 export type PublicationStatus = 'draft-unpublished' | 'ready-for-review' | 'published';
 export type MarketStatus = 'none' | 'collecting' | 'validated' | 'not_validated' | 'inconclusive';
 
+export interface ProjectLifecycle {
+  state: 'active' | 'archived';
+  archivedAt: string;
+  archivedBy: string;
+  archiveReason: string;
+}
+
 export type SourceVerificationStatus = 'verified' | 'needs_check' | 'weak';
 
 export type SourceRightsStatus = 'cleared' | 'review_required' | 'blocked';
@@ -180,6 +187,8 @@ export interface ShortVideoRenderConfig {
     asrAliases?: string[];
   }>;
   mediaFit: 'contain' | 'cover';
+  mediaBackground?: 'solid' | 'blurred-fill';
+  subtitleBottom?: number;
 }
 
 export interface ShortVideoOutputs {
@@ -191,6 +200,20 @@ export interface ShortVideoOutputs {
   platformCopy: string;
   sourceList: string;
   projectSnapshot: string;
+}
+
+export interface ShortVideoRendition {
+  id: string;
+  label: string;
+  primary: boolean;
+  aspectRatio: '9:16' | '16:9' | '1:1';
+  width: number;
+  height: number;
+  mediaFit: 'contain' | 'cover';
+  mediaBackground: 'solid' | 'blurred-fill';
+  outputVideo: string;
+  publicRender: string;
+  workDir: string;
 }
 
 export interface SceneCandidate {
@@ -211,6 +234,13 @@ export interface ShortVideoProjectScene {
   sourceId: string;
   sourceStart: number;
   sourceEnd: number;
+  mediaFit?: 'contain' | 'cover';
+  mediaFocalX?: number;
+  mediaFocalY?: number;
+  mediaPlaybackRate?: number;
+  mediaMotion?: 'none' | 'push-in' | 'pull-out';
+  mediaMotionAmount?: number;
+  subtitleBottom?: number;
   showEditorialOverlay?: boolean;
   eyebrow: string;
   title: string;
@@ -327,6 +357,48 @@ export interface ProjectMaterialReview {
   reviewedAt: string;
 }
 
+export type MaterialQualityEvidenceRole =
+  | 'primary-evidence'
+  | 'operation-demo'
+  | 'source-establishing'
+  | 'transition'
+  | 'background';
+
+export interface SceneMaterialQualityReview {
+  sceneId: string;
+  sceneFingerprint: string;
+  candidate: { sourceId: string; sourceStart: number; sourceEnd: number };
+  visibleClaim: string;
+  evidenceRole: MaterialQualityEvidenceRole;
+  narrationMatch: { score: number; reason: string };
+  readability: {
+    desktop: 'passed' | 'failed' | 'not-applicable';
+    mobile: 'passed' | 'failed' | 'not-applicable';
+    criticalText: string[];
+    reason: string;
+  };
+  temporalCompleteness: { status: 'passed' | 'failed' | 'not-applicable'; reason: string };
+  stability: { status: 'stable' | 'minor-motion' | 'unstable'; motionNecessary: boolean; reason: string };
+  uniqueness: { status: 'unique' | 'duplicate' | 'background-reuse'; reason: string };
+  platformWatermark?: {
+    status: 'absent' | 'present' | 'not-applicable' | 'not-reviewed';
+    marks: string[];
+    reason: string;
+  };
+  decision: 'accept' | 'reject' | 'needs-review';
+  decisionReasons: string[];
+  evidence: string[];
+}
+
+export interface ProjectMaterialQualityReview {
+  schemaVersion: 1;
+  status: 'pending' | 'passed' | 'failed';
+  reviewedAt: string;
+  reviewer: string;
+  reviewScope: string;
+  sceneReviews: SceneMaterialQualityReview[];
+}
+
 export type WorkflowApprovalStatus = 'pending' | 'approved' | 'rejected';
 
 export interface WorkflowApproval {
@@ -398,6 +470,7 @@ export interface ShortVideoProject {
   rights_status: ProjectRightsStatus;
   publication_status: PublicationStatus;
   market_status: MarketStatus;
+  lifecycle?: ProjectLifecycle;
   brief: CreativeBrief;
   sources: ShortVideoSource[];
   research: ProjectResearch;
@@ -407,9 +480,11 @@ export interface ShortVideoProject {
   platformCopy: PlatformCopy;
   production: ProjectProductionRecord;
   materialReview: ProjectMaterialReview;
+  materialQualityReview?: ProjectMaterialQualityReview;
   workflow: ProjectWorkflow;
   chapters: ProjectChapter[];
   outputs: ShortVideoOutputs;
+  renditions?: ShortVideoRendition[];
   render: ShortVideoRenderConfig;
   scenes: ShortVideoProjectScene[];
 }
@@ -594,6 +669,8 @@ export interface ShortVideoRenderManifest {
       asrAliases?: string[];
     }>;
     mediaFit?: 'contain' | 'cover';
+    mediaBackground?: 'solid' | 'blurred-fill';
+    subtitleBottom?: number;
   };
   voiceover?: {
     engine: 'edge-tts' | 'gemini-tts' | 'macos-say';
@@ -636,6 +713,9 @@ export interface ShortVideoRenderManifest {
     sourceEnd: number;
     renderSourceEnd?: number | null;
     frameCount?: number;
+    mediaPlaybackRate?: number;
+    mediaMotion?: 'none' | 'push-in' | 'pull-out';
+    mediaMotionAmount?: number;
     segmentCacheKey?: string;
     segmentCacheHit?: boolean;
     segmentPath?: string;

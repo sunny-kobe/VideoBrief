@@ -1,0 +1,2442 @@
+{
+  "schemaVersion": 3,
+  "id": "mobile-number-reassignment-explainer-20260809",
+  "title": "刚办的新手机号，为什么还绑着别人的 App？",
+  "format": "video_project",
+  "targetAudience": "刚换手机号、准备停用旧号，或遇到陌生提醒和注册冲突的普通中文观众",
+  "status": "review",
+  "technical_status": "passed",
+  "rights_status": "review_required",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "lifecycle": {
+    "state": "active",
+    "archivedAt": "",
+    "archivedBy": "",
+    "archiveReason": ""
+  },
+  "brief": {
+    "objective": "用约 100 到 120 秒讲清手机号二次放号后为什么会残留旧 App 绑定，以及新旧用户分别应该怎样处理",
+    "audience": "刚换手机号、准备停用旧号，或遇到陌生提醒和注册冲突的普通中文观众",
+    "platform": "B站首发，单横版",
+    "aspectRatio": "16:9",
+    "targetDurationSeconds": 115,
+    "tone": "直白、克制、实用，不渲染隐私恐慌",
+    "style": "真实人物、手机操作、官方功能演示和公开案例为主体，只用一幕原创机制图解释三套记录",
+    "reference": "前三秒直接用真实手机注册与账号关系画面呈现“新号码仍有旧绑定”，随后以真实动态素材拆开原因和处理路径",
+    "coreMessage": "手机号会被运营商回收后重新放出，但号码分配、实名登记和各个 App 账号绑定是三套不同记录，所以旧绑定不会自动全部消失，新旧用户都需要主动查询和清理",
+    "cta": "先查，再焕新，最后联系仍未处理的具体 App",
+    "prohibitedMaterial": "不得展示真实手机号、验证码、身份信息或前任用户内容；不得演示登录旧账号；不得把一证通查说成自动解绑；不得把历史覆盖数量写成永久现状"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "中国移动安徽公司：二次号码焕新服务说明",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://www.10086.cn/aboutus/news/pannounce/ah/index_551_555_detail_53009.html",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/china-mobile-second-number-refresh-1786268108969.md",
+      "originalFileName": "china-mobile-second-number-refresh.md",
+      "mimeType": "text/markdown",
+      "bytes": 761,
+      "importedAt": "2026-08-09T09:35:08.970Z",
+      "publishedAt": "2025-06-27",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "官方网页人工核验摘录，仅作事实研究与引用，不以网页截图进入成片。",
+      "contentHash": "0fa97f531ec39bff0bd0515e0c7830eff98fd6b5c77e918e49dc651c3cee17d4",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "0fa97f531ec39bff0bd0515e0c7830eff98fd6b5c77e918e49dc651c3cee17d4",
+        "startedAt": "2026-08-09T09:35:08.967Z",
+        "completedAt": "2026-08-09T09:35:08.967Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "mobile-number-reassignment-20260809-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# 中国移动安徽公司：二次号码焕新服务核验摘录\n\n查询时间：2026-08-09 11:20（Asia/Shanghai）\n来源主体：中国移动通信集团安徽有限公司\n发布日期：2025-06-27\n链接：https://www.10086.cn/aboutus/news/pannounce/ah/index_551_555_detail_53009.html\n\n页面将“二次号码”定义为“回收重新启用的号码”。页面说明中国移动 App 提供“二次号码焕新”服务，支持解除号码与常用互联网应用服务的历史绑定关系，并可申请清除历史标记信息。\n\n能证明：号码可以回收后重新启用；运营商已提供处理历史绑定的协同服务。\n不能证明：所有地区入口完全一致；所有 App 均已接入；一次申请保证全网全部解绑。\n",
+        "visualDescription": "官方网页核验摘录，不作为成片画面。",
+        "hierarchicalSummary": "中国移动安徽公司：二次号码焕新服务说明",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-reused-number-definition",
+            "statement": "“二次号码”是回收后重新启用的手机号码。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "中国移动安徽公司公开说明"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "fact-refresh-service",
+            "statement": "中国移动公开说明其 App 提供“二次号码焕新”，支持解除与常用互联网应用的历史绑定，并申请清除历史标记。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "中国移动安徽公司公开说明"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "uncertainty-not-all-apps",
+            "statement": "公开来源不能证明所有 App 均已接入，或一次申请可保证全网全部解绑。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "中国移动页面只称常用互联网应用"
+              }
+            ],
+            "resolution": "成片明确写出“覆盖主流应用，不等于全网所有账号清零”。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "uncertainty-three-systems-model",
+            "statement": "“三套系统”是根据运营商分配、实名记录和 App 绑定由不同主体分别维护所作的分析模型，不是来源原句。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "运营商侧号码与焕新服务"
+              },
+              {
+                "sourceId": "source-03",
+                "locatorType": "file",
+                "note": "App 侧查询与企业后续处理"
+              }
+            ],
+            "resolution": "项目内部标记为分析推断；旁白只用它解释为何需要跨企业查询和解绑，不把它冒充法规条文。",
+            "riskLevel": "medium",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-02",
+      "label": "工信部：2025 年第二季度电信服务质量通告",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://wap.miit.gov.cn/jgsj/xgj/fwjd/art/2025/art_2aa1f485144644f5945fd8da37276625.html",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/miit-2025-q2-service-quality-1786268108989.md",
+      "originalFileName": "miit-2025-q2-service-quality.md",
+      "mimeType": "text/markdown",
+      "bytes": 860,
+      "importedAt": "2026-08-09T09:35:08.989Z",
+      "publishedAt": "2025-07-30",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "官方网页人工核验摘录，仅作事实研究与引用，不以网页截图进入成片。",
+      "contentHash": "c12941d7a1d6557473d80a68b70e726474e995cffee716f1cd851abbb343dfda",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "c12941d7a1d6557473d80a68b70e726474e995cffee716f1cd851abbb343dfda",
+        "startedAt": "2026-08-09T09:35:08.967Z",
+        "completedAt": "2026-08-09T09:35:08.967Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "mobile-number-reassignment-20260809-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# 工信部：2025 年第二季度电信服务质量通告核验摘录\n\n查询时间：2026-08-09 11:31（Asia/Shanghai）\n来源主体：中华人民共和国工业和信息化部\n成文日期：2025-07-29\n发布日期：2025-07-30\n链接：https://wap.miit.gov.cn/jgsj/xgj/fwjd/art/2025/art_2aa1f485144644f5945fd8da37276625.html\n\n通告称，工信部推广“二次号码焕新”服务，深入推进一键解绑历史互联网应用账号工作；截至 2025 年第二季度，当时已覆盖 220 款主流应用，解绑申请超 1.5 亿次，累计服务用户超 290 万人。\n\n能证明：服务由监管部门推动，运营商与互联网应用之间存在协同解绑机制；2025 年第二季度已有明确覆盖和使用规模。\n不能证明：2026-08 当前覆盖数仍为 220；所有解绑请求都成功；已覆盖全部互联网应用。\n",
+        "visualDescription": "官方网页核验摘录，不作为成片画面。",
+        "hierarchicalSummary": "工信部：2025 年第二季度电信服务质量通告",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-refresh-scale-2025q2",
+            "statement": "工信部 2025 年第二季度通告称，当时“二次号码焕新”已覆盖 220 款主流应用，解绑申请超 1.5 亿次，累计服务用户超 290 万人。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "file",
+                "note": "工信部 2025 年第二季度通告"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 10
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "uncertainty-current-coverage",
+            "statement": "2025 年第二季度的 220 款覆盖数不是 2026-08 当前覆盖名单。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "file",
+                "note": "通告的统计期边界"
+              }
+            ],
+            "resolution": "旁白明确说“二零二五年二季度，当时已覆盖”，不把数量写成当前永久事实。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-03",
+      "label": "工信部信息转载：一证通查互联网账号查询说明",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://gxj.gz.gov.cn/hd/cjwt/gxdt/content/post_10024930.html",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/miit-one-card-check-1786268108993.md",
+      "originalFileName": "miit-one-card-check.md",
+      "mimeType": "text/markdown",
+      "bytes": 774,
+      "importedAt": "2026-08-09T09:35:08.993Z",
+      "publishedAt": "2024-12-12",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "官方网页人工核验摘录，仅作事实研究与引用，不以网页截图进入成片。",
+      "contentHash": "da1a0549b7380c755b1d331738fe41cede17e667b46929b62b6221a672560a44",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "da1a0549b7380c755b1d331738fe41cede17e667b46929b62b6221a672560a44",
+        "startedAt": "2026-08-09T09:35:08.967Z",
+        "completedAt": "2026-08-09T09:35:08.967Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "mobile-number-reassignment-20260809-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# 一证通查互联网账号查询服务核验摘录\n\n查询时间：2026-08-09 11:25（Asia/Shanghai）\n来源主体：广州市工业和信息化局转载工业和信息化部信息\n发布日期：2024-12-12\n链接：https://gxj.gz.gov.cn/hd/cjwt/gxdt/content/post_10024930.html\n\n页面说明，“一证通查”可查询本人名下手机号码关联的互联网账号，结果通过短信发送。如对结果有异议，应联系对应电信企业或互联网企业查询明细，并办理注销、解绑等操作。\n\n能证明：查询服务与后续注销、解绑是不同步骤；争议明细仍需由对应企业处理。\n不能证明：2026-08 当前覆盖名单与 2024-12 相同；查询结果会自动完成解绑；未接入 App 的关联也能被查到。\n",
+        "visualDescription": "官方网页核验摘录，不作为成片画面。",
+        "hierarchicalSummary": "工信部信息转载：一证通查互联网账号查询说明",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-one-card-query",
+            "statement": "“一证通查”可查询本人名下手机号码关联的已接入互联网账号，结果通过短信返回。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "file",
+                "note": "工信部信息转载页面"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "fact-one-card-followup",
+            "statement": "对“一证通查”结果有异议时，仍需联系对应电信企业或互联网企业查询明细，并办理注销、解绑。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "file",
+                "note": "工信部信息转载页面"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "uncertainty-three-systems-model",
+            "statement": "“三套系统”是根据运营商分配、实名记录和 App 绑定由不同主体分别维护所作的分析模型，不是来源原句。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "运营商侧号码与焕新服务"
+              },
+              {
+                "sourceId": "source-03",
+                "locatorType": "file",
+                "note": "App 侧查询与企业后续处理"
+              }
+            ],
+            "resolution": "项目内部标记为分析推断；旁白只用它解释为何需要跨企业查询和解绑，不把它冒充法规条文。",
+            "riskLevel": "medium",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-04",
+      "label": "原创信息层：卡是新的，号码不一定",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original-information-layer/mobile-number-reassignment-explainer-20260809/scene-01",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/scene-01-1786268109129.png",
+      "originalFileName": "scene-01.png",
+      "mimeType": "image/png",
+      "bytes": 125542,
+      "importedAt": "2026-08-09T09:35:09.130Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 根据已核验事实生成的 1920x1080 原创程序化信息层；不包含真实个人信息，不作为事实来源。",
+      "contentHash": "c19cf182d8baa3b4e99640046d40f8ca61735ba3a7a2c947d98ac3f61970ad0b",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "c19cf182d8baa3b4e99640046d40f8ca61735ba3a7a2c947d98ac3f61970ad0b",
+        "startedAt": "2026-08-09T09:35:08.967Z",
+        "completedAt": "2026-08-09T09:37:14.712Z",
+        "error": "",
+        "model": "videobrief-original-information-layer",
+        "promptVersion": "mobile-number-reassignment-visual-20260809-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "卡是新的，号码不一定\n刚办的新手机号，为什么还绑着别人的 App？",
+        "visualDescription": "1920x1080 原创程序化信息层，不含真实个人数据；画面只作机制和步骤说明。",
+        "hierarchicalSummary": "逐幕唯一视觉来源，不承担一手事实证明。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-04-visual",
+            "statement": "原创信息层“卡是新的，号码不一定”的 1920x1080 原图、哈希与权利记录已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "本地程序化生成的原创信息层"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-05",
+      "label": "原创信息层：新办，不等于第一次启用",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original-information-layer/mobile-number-reassignment-explainer-20260809/scene-02",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/scene-02-1786268109148.png",
+      "originalFileName": "scene-02.png",
+      "mimeType": "image/png",
+      "bytes": 100861,
+      "importedAt": "2026-08-09T09:35:09.149Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 根据已核验事实生成的 1920x1080 原创程序化信息层；不包含真实个人信息，不作为事实来源。",
+      "contentHash": "352650f0e234f88a3bfb55041c93cb8d6d5abf043a926dc0c408f73a11d5c8db",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "352650f0e234f88a3bfb55041c93cb8d6d5abf043a926dc0c408f73a11d5c8db",
+        "startedAt": "2026-08-09T09:35:08.967Z",
+        "completedAt": "2026-08-09T09:35:08.967Z",
+        "error": "",
+        "model": "videobrief-original-information-layer",
+        "promptVersion": "mobile-number-reassignment-visual-20260809-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "新办，不等于第一次启用\n号码回收后，可以重新放给下一位用户",
+        "visualDescription": "1920x1080 原创程序化信息层，不含真实个人数据；画面只作机制和步骤说明。",
+        "hierarchicalSummary": "逐幕唯一视觉来源，不承担一手事实证明。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-05-visual",
+            "statement": "原创信息层“新办，不等于第一次启用”的 1920x1080 原图、哈希与权利记录已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "image",
+                "note": "本地程序化生成的原创信息层"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-06",
+      "label": "原创信息层：一个号码，出现在三套记录里",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original-information-layer/mobile-number-reassignment-explainer-20260809/scene-03",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/scene-03-1786268109218.png",
+      "originalFileName": "scene-03.png",
+      "mimeType": "image/png",
+      "bytes": 121498,
+      "importedAt": "2026-08-09T09:35:09.218Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 根据已核验事实生成的 1920x1080 原创程序化信息层；不包含真实个人信息，不作为事实来源。",
+      "contentHash": "704371b3069aa7df4826c81e63606d37c2a7fd415c1b7d809551d355b9ebdca9",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "704371b3069aa7df4826c81e63606d37c2a7fd415c1b7d809551d355b9ebdca9",
+        "startedAt": "2026-08-09T09:35:08.967Z",
+        "completedAt": "2026-08-09T09:35:08.967Z",
+        "error": "",
+        "model": "videobrief-original-information-layer",
+        "promptVersion": "mobile-number-reassignment-visual-20260809-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "一个号码，出现在三套记录里\n号码分配、实名登记、App 绑定不是同一张表",
+        "visualDescription": "1920x1080 原创程序化信息层，不含真实个人数据；画面只作机制和步骤说明。",
+        "hierarchicalSummary": "逐幕唯一视觉来源，不承担一手事实证明。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-06-visual",
+            "statement": "原创信息层“一个号码，出现在三套记录里”的 1920x1080 原图、哈希与权利记录已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "image",
+                "note": "本地程序化生成的原创信息层"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-07",
+      "label": "原创信息层：运营商换了人，App 未必收到消息",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original-information-layer/mobile-number-reassignment-explainer-20260809/scene-04",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/scene-04-1786268109282.png",
+      "originalFileName": "scene-04.png",
+      "mimeType": "image/png",
+      "bytes": 110131,
+      "importedAt": "2026-08-09T09:35:09.282Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 根据已核验事实生成的 1920x1080 原创程序化信息层；不包含真实个人信息，不作为事实来源。",
+      "contentHash": "397fab47add76239b763990ed8f09dfa536cfab0ffeb8d3adcd5c48f84ac90f6",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "397fab47add76239b763990ed8f09dfa536cfab0ffeb8d3adcd5c48f84ac90f6",
+        "startedAt": "2026-08-09T09:35:08.967Z",
+        "completedAt": "2026-08-09T09:35:08.967Z",
+        "error": "",
+        "model": "videobrief-original-information-layer",
+        "promptVersion": "mobile-number-reassignment-visual-20260809-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "运营商换了人，App 未必收到消息\n没有统一的“全网重置键”",
+        "visualDescription": "1920x1080 原创程序化信息层，不含真实个人数据；画面只作机制和步骤说明。",
+        "hierarchicalSummary": "逐幕唯一视觉来源，不承担一手事实证明。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-07-visual",
+            "statement": "原创信息层“运营商换了人，App 未必收到消息”的 1920x1080 原图、哈希与权利记录已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "image",
+                "note": "本地程序化生成的原创信息层"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-08",
+      "label": "原创信息层：旧绑定不是一个人的麻烦",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original-information-layer/mobile-number-reassignment-explainer-20260809/scene-05",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/scene-05-1786268109303.png",
+      "originalFileName": "scene-05.png",
+      "mimeType": "image/png",
+      "bytes": 104046,
+      "importedAt": "2026-08-09T09:35:09.303Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 根据已核验事实生成的 1920x1080 原创程序化信息层；不包含真实个人信息，不作为事实来源。",
+      "contentHash": "a7af17195e06abb321156dc68502330ddf7c8c22c59f2122415a4a064f31bffa",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "a7af17195e06abb321156dc68502330ddf7c8c22c59f2122415a4a064f31bffa",
+        "startedAt": "2026-08-09T09:35:08.967Z",
+        "completedAt": "2026-08-09T09:35:08.967Z",
+        "error": "",
+        "model": "videobrief-original-information-layer",
+        "promptVersion": "mobile-number-reassignment-visual-20260809-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "旧绑定不是一个人的麻烦\n新用户、旧用户和平台都要处理残留关系",
+        "visualDescription": "1920x1080 原创程序化信息层，不含真实个人数据；画面只作机制和步骤说明。",
+        "hierarchicalSummary": "逐幕唯一视觉来源，不承担一手事实证明。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-08-visual",
+            "statement": "原创信息层“旧绑定不是一个人的麻烦”的 1920x1080 原图、哈希与权利记录已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "image",
+                "note": "本地程序化生成的原创信息层"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-09",
+      "label": "原创信息层：二次号码焕新：批量处理历史绑定",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original-information-layer/mobile-number-reassignment-explainer-20260809/scene-06",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/scene-06-1786268109322.png",
+      "originalFileName": "scene-06.png",
+      "mimeType": "image/png",
+      "bytes": 108336,
+      "importedAt": "2026-08-09T09:35:09.322Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 根据已核验事实生成的 1920x1080 原创程序化信息层；不包含真实个人信息，不作为事实来源。",
+      "contentHash": "61d46666f4680377d942332329fbcfc025bc5f99dc431dd51968dbba8ee128d0",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "61d46666f4680377d942332329fbcfc025bc5f99dc431dd51968dbba8ee128d0",
+        "startedAt": "2026-08-09T09:35:08.967Z",
+        "completedAt": "2026-08-09T09:35:08.967Z",
+        "error": "",
+        "model": "videobrief-original-information-layer",
+        "promptVersion": "mobile-number-reassignment-visual-20260809-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "二次号码焕新：批量处理历史绑定\n能覆盖主流应用，但不等于清空全网",
+        "visualDescription": "1920x1080 原创程序化信息层，不含真实个人数据；画面只作机制和步骤说明。",
+        "hierarchicalSummary": "逐幕唯一视觉来源，不承担一手事实证明。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-09-visual",
+            "statement": "原创信息层“二次号码焕新：批量处理历史绑定”的 1920x1080 原图、哈希与权利记录已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "image",
+                "note": "本地程序化生成的原创信息层"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-10",
+      "label": "原创信息层：一证通查：先看当前关联了什么",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original-information-layer/mobile-number-reassignment-explainer-20260809/scene-07",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/scene-07-1786268109342.png",
+      "originalFileName": "scene-07.png",
+      "mimeType": "image/png",
+      "bytes": 111863,
+      "importedAt": "2026-08-09T09:35:09.343Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 根据已核验事实生成的 1920x1080 原创程序化信息层；不包含真实个人信息，不作为事实来源。",
+      "contentHash": "6f9457d723d1290875234dec9868345d8808cc9429b1c35e6ceb63766a14fcd8",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "6f9457d723d1290875234dec9868345d8808cc9429b1c35e6ceb63766a14fcd8",
+        "startedAt": "2026-08-09T09:35:08.967Z",
+        "completedAt": "2026-08-09T09:35:08.967Z",
+        "error": "",
+        "model": "videobrief-original-information-layer",
+        "promptVersion": "mobile-number-reassignment-visual-20260809-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "一证通查：先看当前关联了什么\n查询结果不是自动解绑结果",
+        "visualDescription": "1920x1080 原创程序化信息层，不含真实个人数据；画面只作机制和步骤说明。",
+        "hierarchicalSummary": "逐幕唯一视觉来源，不承担一手事实证明。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-10-visual",
+            "statement": "原创信息层“一证通查：先看当前关联了什么”的 1920x1080 原图、哈希与权利记录已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "note": "本地程序化生成的原创信息层"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-11",
+      "label": "原创信息层：先查，再焕新，最后逐个处理",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original-information-layer/mobile-number-reassignment-explainer-20260809/scene-08",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/scene-08-1786268109406.png",
+      "originalFileName": "scene-08.png",
+      "mimeType": "image/png",
+      "bytes": 111549,
+      "importedAt": "2026-08-09T09:35:09.406Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 根据已核验事实生成的 1920x1080 原创程序化信息层；不包含真实个人信息，不作为事实来源。",
+      "contentHash": "bcd8c689f4fa838dd856db781aa384bd9f02b99e11f647cea5cbbb8b8f723207",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "bcd8c689f4fa838dd856db781aa384bd9f02b99e11f647cea5cbbb8b8f723207",
+        "startedAt": "2026-08-09T09:35:08.967Z",
+        "completedAt": "2026-08-09T09:35:08.967Z",
+        "error": "",
+        "model": "videobrief-original-information-layer",
+        "promptVersion": "mobile-number-reassignment-visual-20260809-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "先查，再焕新，最后逐个处理\n不要尝试进入前任用户的账号",
+        "visualDescription": "1920x1080 原创程序化信息层，不含真实个人数据；画面只作机制和步骤说明。",
+        "hierarchicalSummary": "逐幕唯一视觉来源，不承担一手事实证明。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-11-visual",
+            "statement": "原创信息层“先查，再焕新，最后逐个处理”的 1920x1080 原图、哈希与权利记录已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-11",
+                "locatorType": "image",
+                "note": "本地程序化生成的原创信息层"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-12",
+      "label": "原创信息层：先换绑，再销号",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original-information-layer/mobile-number-reassignment-explainer-20260809/scene-09",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/scene-09-1786268109473.png",
+      "originalFileName": "scene-09.png",
+      "mimeType": "image/png",
+      "bytes": 113444,
+      "importedAt": "2026-08-09T09:35:09.474Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 根据已核验事实生成的 1920x1080 原创程序化信息层；不包含真实个人信息，不作为事实来源。",
+      "contentHash": "04ba19bd229a4b55f4a2a3181af49be46521dc6838ae879f422ad93d600ddcf0",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "04ba19bd229a4b55f4a2a3181af49be46521dc6838ae879f422ad93d600ddcf0",
+        "startedAt": "2026-08-09T09:35:08.967Z",
+        "completedAt": "2026-08-09T09:35:08.967Z",
+        "error": "",
+        "model": "videobrief-original-information-layer",
+        "promptVersion": "mobile-number-reassignment-visual-20260809-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "先换绑，再销号\n把关键账号迁走，别把回收号码留作找回入口",
+        "visualDescription": "1920x1080 原创程序化信息层，不含真实个人数据；画面只作机制和步骤说明。",
+        "hierarchicalSummary": "逐幕唯一视觉来源，不承担一手事实证明。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-12-visual",
+            "statement": "原创信息层“先换绑，再销号”的 1920x1080 原图、哈希与权利记录已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-12",
+                "locatorType": "image",
+                "note": "本地程序化生成的原创信息层"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-13",
+      "label": "原创信息层：卡新，不代表号码没有历史",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original-information-layer/mobile-number-reassignment-explainer-20260809/scene-10",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/scene-10-1786268109534.png",
+      "originalFileName": "scene-10.png",
+      "mimeType": "image/png",
+      "bytes": 100667,
+      "importedAt": "2026-08-09T09:35:09.534Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 根据已核验事实生成的 1920x1080 原创程序化信息层；不包含真实个人信息，不作为事实来源。",
+      "contentHash": "7e33651a22ad7053b37ae48ae86f5df6609044f4491eb8cfe24f8231318c3d3e",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "7e33651a22ad7053b37ae48ae86f5df6609044f4491eb8cfe24f8231318c3d3e",
+        "startedAt": "2026-08-09T09:35:08.967Z",
+        "completedAt": "2026-08-09T09:35:08.967Z",
+        "error": "",
+        "model": "videobrief-original-information-layer",
+        "promptVersion": "mobile-number-reassignment-visual-20260809-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "卡新，不代表号码没有历史\n三套系统不会自动同时清零",
+        "visualDescription": "1920x1080 原创程序化信息层，不含真实个人数据；画面只作机制和步骤说明。",
+        "hierarchicalSummary": "逐幕唯一视觉来源，不承担一手事实证明。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-13-visual",
+            "statement": "原创信息层“卡新，不代表号码没有历史”的 1920x1080 原图、哈希与权利记录已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-13",
+                "locatorType": "image",
+                "note": "本地程序化生成的原创信息层"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-14",
+      "label": "我不是卡神啊：二次放号案例与机制解释",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.bilibili.com/video/BV1hA4m1F723",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/bv1ha4m1f723-1786279779000.mp4",
+      "originalFileName": "BV1hA4m1F723.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 22196894,
+      "importedAt": "2026-08-09T12:49:39.012Z",
+      "publishedAt": "2024-04-09T00:00:00.000Z",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "B站公开可访问视频，发布者为我不是卡神啊；仅用于本地重混样片和短引用候选。公开可访问不等于已获复用许可，正式发布前必须单独完成权利判断。",
+      "contentHash": "307b35b271ff32fc7d6555031afd1e634f5637293752628481225d06aa7a8a08",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "307b35b271ff32fc7d6555031afd1e634f5637293752628481225d06aa7a8a08",
+        "startedAt": "2026-08-09T12:49:38.990Z",
+        "completedAt": "2026-08-09T12:49:38.990Z",
+        "error": "",
+        "model": "manual-public-video-review",
+        "promptVersion": "mobile-number-reassignment-dynamic-v2",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "我不是卡神啊：二次放号案例与机制解释\n发布者：我不是卡神啊\n原始页面：https://www.bilibili.com/video/BV1hA4m1F723",
+        "visualDescription": "真人出镜、新闻案例截图、手机号输入与账号风险示意；只承担真实问题情境和机制说明，不作为官方事实来源。",
+        "hierarchicalSummary": "我不是卡神啊公开动态素材；只按项目记录的画面角色使用。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "visual-bv1ha4m1f723",
+            "statement": "我不是卡神啊公开视频“我不是卡神啊：二次放号案例与机制解释”已核验可访问，本地候选文件仅用于画面选窗与审片。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-14",
+                "locatorType": "file",
+                "note": "公开动态素材的本地审片副本"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 9
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-15",
+      "label": "中移科协：二次放号时代如何保护个人信息",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.bilibili.com/video/BV1XNJwzxEUD",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/bv1xnjwzxeud-1786279779036.mp4",
+      "originalFileName": "BV1XNJwzxEUD.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 15310746,
+      "importedAt": "2026-08-09T12:49:39.043Z",
+      "publishedAt": "2025-05-17T00:00:00.000Z",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "B站公开可访问视频，发布者为中移科协；仅用于本地重混样片和短引用候选。公开可访问不等于已获复用许可，正式发布前必须单独完成权利判断。",
+      "contentHash": "a8fe7aae0ae4aa502d938988a246c13d14fd343d653e2c951ffd9768a7190a93",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "a8fe7aae0ae4aa502d938988a246c13d14fd343d653e2c951ffd9768a7190a93",
+        "startedAt": "2026-08-09T12:49:38.990Z",
+        "completedAt": "2026-08-09T12:49:38.990Z",
+        "error": "",
+        "model": "manual-public-video-review",
+        "promptVersion": "mobile-number-reassignment-dynamic-v2",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "中移科协：二次放号时代如何保护个人信息\n发布者：中移科协\n原始页面：https://www.bilibili.com/video/BV1XNJwzxEUD",
+        "visualDescription": "旧用户与新用户关系、SIM 卡、App 绑定、官方工具和手机使用的动态解释画面；来源声明不替代工信部与运营商一手资料。",
+        "hierarchicalSummary": "中移科协公开动态素材；只按项目记录的画面角色使用。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "visual-bv1xnjwzxeud",
+            "statement": "中移科协公开视频“中移科协：二次放号时代如何保护个人信息”已核验可访问，本地候选文件仅用于画面选窗与审片。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-15",
+                "locatorType": "file",
+                "note": "公开动态素材的本地审片副本"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 9
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-16",
+      "label": "中国移动：二次号码焕新操作指引",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.bilibili.com/video/BV16C53zXEgS",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/bv16c53zxegs-1786279779049.mp4",
+      "originalFileName": "BV16C53zXEgS.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 1011044,
+      "importedAt": "2026-08-09T12:49:39.050Z",
+      "publishedAt": "2025-05-09T00:00:00.000Z",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "B站公开可访问视频，发布者为中国移动；仅用于本地重混样片和短引用候选。公开可访问不等于已获复用许可，正式发布前必须单独完成权利判断。",
+      "contentHash": "74d6f3488d394b722b2fb971732ffddbd8d56c6d922f7fc2220fc70ad41c422e",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "74d6f3488d394b722b2fb971732ffddbd8d56c6d922f7fc2220fc70ad41c422e",
+        "startedAt": "2026-08-09T12:49:38.990Z",
+        "completedAt": "2026-08-09T12:49:38.990Z",
+        "error": "",
+        "model": "manual-public-video-review",
+        "promptVersion": "mobile-number-reassignment-dynamic-v2",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "中国移动：二次号码焕新操作指引\n发布者：中国移动\n原始页面：https://www.bilibili.com/video/BV16C53zXEgS",
+        "visualDescription": "中国移动 App 中进入二次号服务平台、选择应用、核验身份、提交申请和查看进度的竖版操作演示。",
+        "hierarchicalSummary": "中国移动公开动态素材；只按项目记录的画面角色使用。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "visual-bv16c53zxegs",
+            "statement": "中国移动公开视频“中国移动：二次号码焕新操作指引”已核验可访问，本地候选文件仅用于画面选窗与审片。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-16",
+                "locatorType": "file",
+                "note": "公开动态素材的本地审片副本"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 9
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-17",
+      "label": "人民中科研究院：互联网账号一证通查说明",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.bilibili.com/video/BV1Ag411f7zo",
+      "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/bv1ag411f7zo-1786279779057.mp4",
+      "originalFileName": "BV1Ag411f7zo.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 7752936,
+      "importedAt": "2026-08-09T12:49:39.061Z",
+      "publishedAt": "2022-07-26T00:00:00.000Z",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "B站公开可访问视频，发布者为人民中科研究院；仅用于本地重混样片和短引用候选。公开可访问不等于已获复用许可，正式发布前必须单独完成权利判断。",
+      "contentHash": "712d47e3263629a3d11099644c2922243a0d39d9d838a2de58c763f57bd5bf33",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "712d47e3263629a3d11099644c2922243a0d39d9d838a2de58c763f57bd5bf33",
+        "startedAt": "2026-08-09T12:49:38.990Z",
+        "completedAt": "2026-08-09T12:49:38.990Z",
+        "error": "",
+        "model": "manual-public-video-review",
+        "promptVersion": "mobile-number-reassignment-dynamic-v2",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "人民中科研究院：互联网账号一证通查说明\n发布者：人民中科研究院\n原始页面：https://www.bilibili.com/video/BV1Ag411f7zo",
+        "visualDescription": "一证通查标题、查询入口、短信结果、后续联系企业处理和风险说明的动态视频。",
+        "hierarchicalSummary": "人民中科研究院公开动态素材；只按项目记录的画面角色使用。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "visual-bv1ag411f7zo",
+            "statement": "人民中科研究院公开视频“人民中科研究院：互联网账号一证通查说明”已核验可访问，本地候选文件仅用于画面选窗与审片。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-17",
+                "locatorType": "file",
+                "note": "公开动态素材的本地审片副本"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 9
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [],
+    "facts": [
+      {
+        "id": "fact-reused-number-definition",
+        "statement": "“二次号码”是回收后重新启用的手机号码。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "中国移动安徽公司公开说明"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-refresh-service",
+        "statement": "中国移动公开说明其 App 提供“二次号码焕新”，支持解除与常用互联网应用的历史绑定，并申请清除历史标记。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "中国移动安徽公司公开说明"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-refresh-scale-2025q2",
+        "statement": "工信部 2025 年第二季度通告称，当时“二次号码焕新”已覆盖 220 款主流应用，解绑申请超 1.5 亿次，累计服务用户超 290 万人。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "工信部 2025 年第二季度通告"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-one-card-query",
+        "statement": "“一证通查”可查询本人名下手机号码关联的已接入互联网账号，结果通过短信返回。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "file",
+            "note": "工信部信息转载页面"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-one-card-followup",
+        "statement": "对“一证通查”结果有异议时，仍需联系对应电信企业或互联网企业查询明细，并办理注销、解绑。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "file",
+            "note": "工信部信息转载页面"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "visual-bv1ha4m1f723",
+        "statement": "我不是卡神啊公开视频“我不是卡神啊：二次放号案例与机制解释”已核验可访问，本地候选文件仅用于画面选窗与审片。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-14",
+            "locatorType": "file",
+            "note": "公开动态素材的本地审片副本"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 9
+      },
+      {
+        "id": "visual-bv1xnjwzxeud",
+        "statement": "中移科协公开视频“中移科协：二次放号时代如何保护个人信息”已核验可访问，本地候选文件仅用于画面选窗与审片。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-15",
+            "locatorType": "file",
+            "note": "公开动态素材的本地审片副本"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 9
+      },
+      {
+        "id": "visual-bv16c53zxegs",
+        "statement": "中国移动公开视频“中国移动：二次号码焕新操作指引”已核验可访问，本地候选文件仅用于画面选窗与审片。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-16",
+            "locatorType": "file",
+            "note": "公开动态素材的本地审片副本"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 9
+      },
+      {
+        "id": "visual-bv1ag411f7zo",
+        "statement": "人民中科研究院公开视频“人民中科研究院：互联网账号一证通查说明”已核验可访问，本地候选文件仅用于画面选窗与审片。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-17",
+            "locatorType": "file",
+            "note": "公开动态素材的本地审片副本"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 9
+      }
+    ],
+    "uncertainties": [
+      {
+        "id": "uncertainty-current-coverage",
+        "statement": "2025 年第二季度的 220 款覆盖数不是 2026-08 当前覆盖名单。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "通告的统计期边界"
+          }
+        ],
+        "resolution": "旁白明确说“二零二五年二季度，当时已覆盖”，不把数量写成当前永久事实。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "uncertainty-not-all-apps",
+        "statement": "公开来源不能证明所有 App 均已接入，或一次申请可保证全网全部解绑。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "中国移动页面只称常用互联网应用"
+          }
+        ],
+        "resolution": "成片明确写出“覆盖主流应用，不等于全网所有账号清零”。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "uncertainty-three-systems-model",
+        "statement": "“三套系统”是根据运营商分配、实名记录和 App 绑定由不同主体分别维护所作的分析模型，不是来源原句。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "运营商侧号码与焕新服务"
+          },
+          {
+            "sourceId": "source-03",
+            "locatorType": "file",
+            "note": "App 侧查询与企业后续处理"
+          }
+        ],
+        "resolution": "项目内部标记为分析推断；旁白只用它解释为何需要跨企业查询和解绑，不把它冒充法规条文。",
+        "riskLevel": "medium",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      }
+    ]
+  },
+  "narrative": {
+    "status": "completed",
+    "error": "",
+    "activeVersionId": "narrative-v2-dynamic-materials",
+    "versions": [
+      {
+        "id": "narrative-v1",
+        "generatedAt": "2026-08-09T09:35:08.967Z",
+        "model": "codex-editorial",
+        "promptVersion": "mobile-number-reassignment-20260809-v1",
+        "inputHash": "2410964f221b2261886e19ba7f52c01360bb435fcf8b909e494e962dc3e4676c",
+        "conclusion": "卡可以是新的，号码却可能有历史；先查、再焕新、最后处理未覆盖的具体 App。",
+        "hook": "刚办的新手机号，为什么还绑着别人的 App？",
+        "outline": [
+          "新号码旧绑定",
+          "号码循环",
+          "三套系统",
+          "不同步机制",
+          "两项官方工具",
+          "新旧用户动作"
+        ],
+        "voiceoverScript": "你刚办了一张新手机卡，某些 App 却提示这个号码已经绑定过账号，短信里甚至出现陌生称呼。不是卡不新，而是手机号可以被重新放出，旧绑定却不会跟着自动全部清空。运营商会把停用、销号后的号码回收，在满足内部流程后重新放给下一位用户。中国移动把这类号码直接称为“回收重新启用的号码”。所以你拿到的是一张新卡，但号码本身可能已经被别人用过。要看懂旧绑定，先拆开三套记录：运营商管理号码当前分给谁，电信实名记录当前用户是谁，各个 App 又单独保存这个号码连着哪个账号。它们属于不同主体，也不是同一个数据库。运营商完成回收和重新分配，只能改变自己掌握的号码关系。某个 App 如果没有收到并处理解绑请求，数据库里仍可能保留“这个号码对应旧账号”的记录。这里没有一个能瞬间改写全网的主开关。于是成本被分散了。新用户可能注册受阻或收到旧提醒；旧用户可能仍把不再控制的号码留作账号找回入口；App 和运营商还要分别核验身份、处理申诉，并协同清理历史关系。为处理这个问题，工信部推动了“二次号码焕新”。运营商官方入口可以识别二次号码，并向已经接入的互联网应用提交历史账号解绑或历史标记清理申请。二零二五年二季度，工信部通告当时已覆盖二百二十款主流应用。但覆盖主流应用，不等于全网所有账号都能一次清零。另一项工具叫“一证通查”。它可以查询本人名下手机号码关联了哪些已接入的互联网账号，结果通过短信返回。页面同时写得很清楚：如果对结果有异议，还要联系对应电信企业或互联网企业查询明细，再办理注销或解绑。查询到，不等于已经自动解绑。如果你刚拿到一个二次号码，顺序很简单：先用一证通查看当前可见关联，再从运营商官方入口提交二次号码焕新；仍有注册冲突、旧通知或历史标记，就联系具体 App 处理。只处理号码关系，不要尝试进入前任用户的账号。如果你准备停用旧号码，动作应该反过来做在销号之前：趁旧号还能正常接收验证码，先把支付、社交、购物、邮箱、云盘和工作服务逐个换绑，确认关键找回方式已经迁走，再办理销号。所以真正的机制不是“运营商把旧账号送给了你”，而是卡、号码实名和 App 账号分属三套系统。卡可以是新的，号码却可能有历史。先查，再焕新，最后处理没有被覆盖的具体 App。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "当前命题事实来源"
+          },
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "当前命题事实来源"
+          },
+          {
+            "sourceId": "source-03",
+            "locatorType": "file",
+            "note": "当前命题事实来源"
+          }
+        ],
+        "uncertainties": [
+          "2025 年第二季度的 220 款覆盖数不是 2026-08 当前覆盖名单。",
+          "公开来源不能证明所有 App 均已接入，或一次申请可保证全网全部解绑。",
+          "“三套系统”是根据运营商分配、实名记录和 App 绑定由不同主体分别维护所作的分析模型，不是来源原句。"
+        ]
+      },
+      {
+        "id": "narrative-v2-dynamic-materials",
+        "generatedAt": "2026-08-09T12:49:38.990Z",
+        "model": "codex-editorial",
+        "promptVersion": "mobile-number-reassignment-dynamic-v2",
+        "inputHash": "e0e38546995a396dacf26c4ff444b61034806c6c1d072a00ec2fe11be719c10c",
+        "conclusion": "卡可以是新的，号码却可能有历史；先查、再焕新、最后处理未覆盖的具体 App。",
+        "hook": "刚办的新手机号，为什么还绑着别人的 App？",
+        "outline": [
+          "新号码旧绑定",
+          "号码回收",
+          "三套记录",
+          "风险成本",
+          "二次号码焕新",
+          "一证通查",
+          "新旧用户动作"
+        ],
+        "voiceoverScript": "刚办的新手机号，App 却提示已经绑定过账号，短信里还有陌生称呼。卡是新的，但号码可能不是第一次被使用。手机号不是永久只属于一个人。用户销号后，运营商会回收号码，再分配给下一位用户，这就是二次放号。问题在于三套记录不同步：运营商管号码分给谁，实名系统记当前用户，各个 App 又各自保存账号绑定。换了号主，不等于所有 App 同时清空。于是新用户可能注册受阻，旧用户则可能把已经失去控制的号码留作找回入口。运营商和平台还要分别核验、申诉和解绑。中国移动的二次号码焕新，会向已经接入的应用提交历史绑定清理申请。工信部二零二五年二季度通告称，当时覆盖二百二十款主流应用；这不等于全网一键清零。一证通查做的是查询：告诉你本人号码关联了哪些已接入账号。对结果有异议，仍要联系对应运营商或互联网企业办理注销、解绑。新用户先做一证通查，再从运营商官方入口提交二次号码焕新；仍有注册冲突，就找具体 App。不要尝试进入前任账号。准备停用旧号的人，应该在销号前把支付、社交、邮箱、云盘和工作服务逐个换绑。记住：卡可以是新的，号码却可能有历史。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "二次号码定义和运营商服务"
+          },
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "工信部 2025 年第二季度通告"
+          },
+          {
+            "sourceId": "source-03",
+            "locatorType": "file",
+            "note": "一证通查能力和处理边界"
+          }
+        ],
+        "uncertainties": [
+          "2025 年第二季度的 220 款覆盖数不是 2026-08 当前覆盖名单。",
+          "公开来源不能证明所有 App 均已接入，或一次申请可保证全网全部解绑。",
+          "“三套系统”是根据运营商分配、实名记录和 App 绑定由不同主体分别维护所作的分析模型，不是来源原句。"
+        ]
+      }
+    ],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "pendingChapters": [],
+    "generatedAt": "2026-08-09T12:49:38.990Z",
+    "model": "codex-editorial",
+    "promptVersion": "mobile-number-reassignment-dynamic-v2"
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-5.6",
+    "transcriptionModel": "whisper.cpp:large-v3-turbo-q5_0",
+    "promptVersion": "videobrief-2026-07-11-v1",
+    "calls": []
+  },
+  "editorial": {
+    "claim": "手机号会被回收再放出，但号码分配、实名登记和 App 账号绑定不会自动同时清零。",
+    "whyItMatters": "它解释了为什么新用户会遇到旧绑定，也给出查询、协同解绑和逐个平台处理的正确顺序。",
+    "chinaContext": "只讲中国公开可用的运营商“二次号码焕新”和工信部“一证通查”能力；入口与覆盖范围以当前运营商和平台实际页面为准。",
+    "riskNote": "三套系统是分析模型；覆盖数限定为 2025 年第二季度统计，不展示真实手机号、验证码或账号内容。"
+  },
+  "platformCopy": {
+    "coverTitle": "新手机号\n怎么还有旧绑定？",
+    "title": "刚办的新手机号，为什么还绑着别人的 App？",
+    "description": "新办的手机卡，为什么某些 App 还提示这个号码绑定过账号？这条视频用公开动态素材拆开号码回收、实名登记和 App 绑定三套记录，也说明“二次号码焕新”与“一证通查”分别能做什么、不能做什么。\n\n主要事实来源：中国移动安徽公司公开说明、工业和信息化部 2025 年第二季度电信服务质量通告、工信部“一证通查”说明。\n\n制作说明：本视频使用合成中文旁白、公开动态素材和一幕原创机制信息层；公开可访问不等于已获复用许可，发布前需完成权利审查。",
+    "hashtags": [
+      "手机号",
+      "二次放号",
+      "账号安全",
+      "一证通查",
+      "日常有因"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "2026-08-09T09:35:08.968Z",
+    "updatedAt": "2026-08-10T08:53:36.252Z",
+    "researchReviewedAt": "",
+    "firstRenderCompletedAt": "2026-08-09T09:43:01.192Z",
+    "lastRenderCompletedAt": "2026-08-09T13:10:02.479Z",
+    "sourceImportCount": 17,
+    "manualSaveCount": 0,
+    "renderAttemptCount": 4,
+    "renderFailureCount": 1,
+    "lastRenderStartedAt": "2026-08-09T13:09:20.409Z",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "materialReview": {
+    "status": "approved",
+    "approvedSourceIds": [
+      "source-06",
+      "source-14",
+      "source-15",
+      "source-16",
+      "source-17"
+    ],
+    "reviewedAt": "2026-08-09T12:51:46.000Z"
+  },
+  "materialQualityReview": {
+    "schemaVersion": 1,
+    "status": "failed",
+    "reviewedAt": "2026-08-09T13:48:42.000Z",
+    "reviewer": "Codex 逐幕素材复核（水印回归复核）",
+    "reviewScope": "8 个启用场景：除原有语义、清晰度和隐私复核外，补充检查计划使用完整窗口内的平台角标、账号角标和来源水印。7 幕 B站视频均有可见平台或账号水印，全部判退；scene-03 为原创信息图，水印检查不适用。",
+    "sceneReviews": [
+      {
+        "sceneId": "scene-01",
+        "sceneFingerprint": "ec47875cc7107e8b964ee188f4e5c5636c01b314177a4577bf5fcc612751f105",
+        "candidate": {
+          "sourceId": "source-15",
+          "sourceStart": 91,
+          "sourceEnd": 102
+        },
+        "visibleClaim": "真实手机注册动作转入旧用户、新用户与多个 App 的账号关系动画，建立新号码仍可能触发旧绑定的情境。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "手机注册、新旧用户和 App 关系与开头问题直接一致；资金与隐私风险仅作为可能性呈现。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [
+            "新用户",
+            "老用户",
+            "App 账号关系"
+          ],
+          "reason": "桌面和 390x844 等比缩放后，手机输入动作、两位用户和 App 图标仍可辨；原片底部栏目字不承担核心事实。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "11 秒窗口覆盖手机注册和新旧用户账号关系，保留完整状态并避免无声拖尾。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "画面运动来自原始解释视频的状态推进，没有额外镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该窗口只用于开头建立新号码遇到旧绑定的问题。"
+        },
+        "platformWatermark": {
+          "status": "present",
+          "marks": [
+            "bilibili 平台角标",
+            "来源账号角标"
+          ],
+          "reason": "计划使用窗口内可见 B站平台或来源账号水印；不得通过裁切、遮挡、模糊或覆盖规避。"
+        },
+        "decision": "reject",
+        "decisionReasons": [
+          "带平台或账号水印，不得进入正式成片",
+          "开头问题可立即理解",
+          "无可识别手机号或账号",
+          "事实仍由一手资料承担"
+        ],
+        "evidence": [
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-01-start.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-01-mid.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-01-end.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-01-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-02",
+        "sceneFingerprint": "7303713bcf76589c5791cda23c56223e3561fe6df74d2b523bd702abd70321de",
+        "candidate": {
+          "sourceId": "source-15",
+          "sourceStart": 46,
+          "sourceEnd": 57
+        },
+        "visibleClaim": "营业场景和成叠 SIM 卡说明号码资源会在运营商侧流转。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "营业场景、SIM 卡和旧用户关系动画支持号码回收再分配的机制解释。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [
+            "营业厅",
+            "SIM 卡"
+          ],
+          "reason": "关键物体在桌面与移动缩放后可辨；已避开原片未经本项目一手来源确认的具体等待天数。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "11 秒窗口从营业情境推进到 SIM 卡流转，覆盖号码资源被重新使用的画面角色。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "使用原片自然剪辑，不添加推拉或循环。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "只承担号码回收与重新分配的解释。"
+        },
+        "platformWatermark": {
+          "status": "present",
+          "marks": [
+            "bilibili 平台角标",
+            "来源账号角标"
+          ],
+          "reason": "计划使用窗口内可见 B站平台或来源账号水印；不得通过裁切、遮挡、模糊或覆盖规避。"
+        },
+        "decision": "reject",
+        "decisionReasons": [
+          "带平台或账号水印，不得进入正式成片",
+          "避开无一手支撑的具体时限",
+          "动态状态完整",
+          "不把第三方视频当事实来源"
+        ],
+        "evidence": [
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-02-start.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-02-mid.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-02-end.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-02-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-03",
+        "sceneFingerprint": "b3572a3c3430b80006e69ccc90c462574b6c7399360c98e02aa2ad5cc3edf7d1",
+        "candidate": {
+          "sourceId": "source-06",
+          "sourceStart": 0,
+          "sourceEnd": 14
+        },
+        "visibleClaim": "原创三栏图分开号码分配、手机号实名和 App 账号绑定三套记录。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "唯一原创机制图逐项对应旁白中的三套记录，不冒充真实后台页面。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [
+            "运营商号码池",
+            "手机号实名",
+            "App 账号绑定"
+          ],
+          "reason": "1920x1080 原图清晰；390x844 播放器中标题和三栏大标签可直接辨认，次要小字不承担独立事实。"
+        },
+        "temporalCompleteness": {
+          "status": "not-applicable",
+          "reason": "静态机制图在整幕保持不变，不循环、不伪造状态变化。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "保持 mediaMotion=none 以保证关系图可读。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "全片唯一原创机制图，只解释三套记录不同步。"
+        },
+        "platformWatermark": {
+          "status": "not-applicable",
+          "marks": [],
+          "reason": "原创信息图，不含第三方平台、账号或下载工具水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "抽象机制需要原创信息层",
+          "移动端核心标签可读",
+          "没有替代真实素材主体"
+        ],
+        "evidence": [
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-03-start.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-03-mid.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-03-end.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-03-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-04",
+        "sceneFingerprint": "dfd9bd075946fcf3ca065680a32d83b7547b6f52038adb0e7b317f68538a89b4",
+        "candidate": {
+          "sourceId": "source-14",
+          "sourceStart": 185,
+          "sourceEnd": 198
+        },
+        "visibleClaim": "人物使用手机和账号操作画面说明旧绑定可能给新旧用户带来申诉、找回和隐私处理成本。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "画面只建立风险与处理成本情境，不展示或放大具体个案金额；核心事实仍由官方资料支撑。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "人物、手机和账号操作主体在桌面与移动缩放后可辨；来源字幕不承担本片核心事实。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "13 秒窗口从人物接听电话推进到手机账号操作，避开此前醒目的个案金额。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原片内部从人物切到手机操作，未添加无意义运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "只用于风险成本段，不与其他机制或工具镜头重复。"
+        },
+        "platformWatermark": {
+          "status": "present",
+          "marks": [
+            "bilibili 平台角标",
+            "来源账号角标"
+          ],
+          "reason": "计划使用窗口内可见 B站平台或来源账号水印；不得通过裁切、遮挡、模糊或覆盖规避。"
+        },
+        "decision": "reject",
+        "decisionReasons": [
+          "带平台或账号水印，不得进入正式成片",
+          "明确限制为情境素材",
+          "避开醒目的个案金额",
+          "无未脱敏个人数据"
+        ],
+        "evidence": [
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v3/scene-04-start.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v3/scene-04-mid.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v3/scene-04-end.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v3/scene-04-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-05",
+        "sceneFingerprint": "b5322f35ea68323669c46b0e33f728a2fb15dc2bc0c01007fdff2d8d7d54456f",
+        "candidate": {
+          "sourceId": "source-16",
+          "sourceStart": 6,
+          "sourceEnd": 22
+        },
+        "visibleClaim": "中国移动官方操作演示依次展示二次号服务平台、应用选择、号码输入与身份核验入口。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "官方 App 操作直接支持焕新是提交清理申请的说明；220 款统计只由工信部一手通告承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [
+            "二次号服务平台",
+            "号码一键解绑",
+            "确认"
+          ],
+          "reason": "竖版素材使用 16:9 中央局部裁切而非缩小居中，核心按钮在桌面和 390x844 播放器均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "16 秒覆盖进入平台、选择应用和输入号码；未把后续处理说成即时完成。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原始官方操作推进稳定，mediaMotion=none。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该窗口只解释提交焕新申请，与后续进度查询窗口不重叠。"
+        },
+        "platformWatermark": {
+          "status": "present",
+          "marks": [
+            "bilibili 平台角标",
+            "来源账号角标"
+          ],
+          "reason": "计划使用窗口内可见 B站平台或来源账号水印；不得通过裁切、遮挡、模糊或覆盖规避。"
+        },
+        "decision": "reject",
+        "decisionReasons": [
+          "带平台或账号水印，不得进入正式成片",
+          "官方真实操作可读",
+          "统计来源分工明确",
+          "号码已遮罩且无验证码"
+        ],
+        "evidence": [
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-05-start.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-05-mid.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-05-end.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-05-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-06",
+        "sceneFingerprint": "9f19156decccaf56e6b1a1951e61d665429b56ae3d89522c9e6336b927b10dd5",
+        "candidate": {
+          "sourceId": "source-17",
+          "sourceStart": 64,
+          "sourceEnd": 78
+        },
+        "visibleClaim": "一证通查公开视频展示查询短信结果、解绑与明细说明以及联系企业处理的步骤。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "查询入口和后续说明直接支持“一证通查负责查询、异议仍需联系企业处理”的边界。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [
+            "查询结果",
+            "解绑与明细查询说明",
+            "联系企业"
+          ],
+          "reason": "短信结果和后续处理高亮在桌面与移动缩放后可辨；窗口不再展示历史接入数量。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "14 秒覆盖查询结果、异议说明和联系企业处理，状态连续。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原片演示运动服务于步骤说明，没有额外推拉。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "只解释一证通查，与运营商焕新工具分开。"
+        },
+        "platformWatermark": {
+          "status": "present",
+          "marks": [
+            "bilibili 平台角标",
+            "来源账号角标"
+          ],
+          "reason": "计划使用窗口内可见 B站平台或来源账号水印；不得通过裁切、遮挡、模糊或覆盖规避。"
+        },
+        "decision": "reject",
+        "decisionReasons": [
+          "带平台或账号水印，不得进入正式成片",
+          "查询与解绑边界清楚",
+          "不沿用过时支持数量",
+          "真实操作角色明确"
+        ],
+        "evidence": [
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-06-start.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-06-mid.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-06-end.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-06-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-07",
+        "sceneFingerprint": "687a9fcb3b0dfb935b5398b58fc840d490511c39a6c2924e42c47617478cd860",
+        "candidate": {
+          "sourceId": "source-16",
+          "sourceStart": 44,
+          "sourceEnd": 50
+        },
+        "visibleClaim": "中国移动官方操作演示展示解绑进度查询入口、局部号码输入和验证码获取按钮。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "进度查询入口对应新用户提交焕新后的处理路径；具体 App 冲突和不得进入前任账号的边界由旁白说明。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [
+            "二次号服务平台",
+            "解绑进度查询",
+            "查询"
+          ],
+          "reason": "16:9 中央局部裁切保留核心操作；窗口在验证码输入前结束，桌面与移动均能看清主要按钮。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "6 秒真实窗口以 0.5 倍速覆盖 12 秒旁白，连续展示进度查询输入过程；不循环、不展示处理结果。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "原始操作连续，mediaMotion=none；0.5 倍速只用于让 UI 操作覆盖旁白，不改变操作顺序或状态。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "与 scene-05 使用同一来源但窗口不重叠，分别承担申请与查询两个不同步骤。"
+        },
+        "platformWatermark": {
+          "status": "present",
+          "marks": [
+            "bilibili 平台角标",
+            "来源账号角标"
+          ],
+          "reason": "计划使用窗口内可见 B站平台或来源账号水印；不得通过裁切、遮挡、模糊或覆盖规避。"
+        },
+        "decision": "reject",
+        "decisionReasons": [
+          "带平台或账号水印，不得进入正式成片",
+          "避开历史接入数量和完整申请单号",
+          "只显示局部号码且不显示验证码内容",
+          "不重复 scene-05 窗口"
+        ],
+        "evidence": [
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v5/scene-07-start.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v5/scene-07-mid.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v5/scene-07-end.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v5/scene-07-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-08",
+        "sceneFingerprint": "13032696386cee6892688d9306d27d9a414662a5aa7f805a3750df4ce2cea973",
+        "candidate": {
+          "sourceId": "source-15",
+          "sourceStart": 217,
+          "sourceEnd": 232
+        },
+        "visibleClaim": "不同年龄用户使用手机的真实情境提示旧号停用前逐项换绑。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "真实用户使用手机为行动建议提供日常情境，不被当作完成换绑的事实记录。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "人物、手机和清理图标在桌面与移动缩放后清楚；原片底部字幕不承担本片事实。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "15 秒完整覆盖老年与年轻用户使用手机，在无关办公楼镜头前结束。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "真实人物动作自然，未添加程序化镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "只作为旧号用户行动收束，不复用前面的工具操作画面。"
+        },
+        "platformWatermark": {
+          "status": "present",
+          "marks": [
+            "bilibili 平台角标",
+            "来源账号角标"
+          ],
+          "reason": "计划使用窗口内可见 B站平台或来源账号水印；不得通过裁切、遮挡、模糊或覆盖规避。"
+        },
+        "decision": "reject",
+        "decisionReasons": [
+          "带平台或账号水印，不得进入正式成片",
+          "结尾回到真实用户",
+          "不暗示画面人物已完成换绑",
+          "没有可识别个人数据"
+        ],
+        "evidence": [
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-08-start.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-08-mid.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-08-end.png",
+          "output/videos/mobile-number-reassignment-explainer-20260809-work/material-quality-evidence-v2/scene-08-mobile-mid.png"
+        ]
+      }
+    ]
+  },
+  "workflow": {
+    "schemaVersion": 1,
+    "origin": {
+      "kind": "manual",
+      "runId": "",
+      "candidateId": "",
+      "sourceUrl": "https://wap.miit.gov.cn/jgsj/xgj/fwjd/art/2025/art_2aa1f485144644f5945fd8da37276625.html",
+      "score": 36,
+      "summary": "日常有因下一阶段三题中第一条；用户已明确批准三个命题按顺序进入制作。"
+    },
+    "topicApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-09T12:52:07.879Z",
+      "decidedBy": "用户（2026-08-09 重制反馈）",
+      "note": "用户保留手机号二次放号命题，明确要求恢复此前真实素材主导的制作方式；本次仅重制画面结构并收紧时长。",
+      "fingerprint": "30a95b8af6f1487dbc07320dd1b8cc636fb0c2eacc3dabf7787c2d889c3f18f4"
+    },
+    "researchApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-09T12:52:07.892Z",
+      "decidedBy": "用户（2026-08-09 重制反馈）",
+      "note": "命题事实边界未改变，继续使用已批准的一手资料；新增公开视频只承担画面与情境，不替代事实来源。",
+      "fingerprint": "3bcd29eb3dbc069d91f1f4156189260efa215a9e46fd354d716ce3b142f7c5dc"
+    },
+    "deliveryApproval": {
+      "status": "rejected",
+      "decidedAt": "2026-08-10T08:53:36.251Z",
+      "decidedBy": "local-user",
+      "note": "成片使用了带 B站平台水印和来源账号角标的素材，不符合无水印要求。当前命题只有找到无水印、权利可判断的替代素材才允许重做；否则退回 Topic Gate 淘汰。",
+      "fingerprint": "c4d1c78ebb1b9b0dbd7d229eb7ee4626256ef6dd4ec29c52b43cc8597ecd5326"
+    },
+    "publication": {
+      "approval": {
+        "status": "pending",
+        "decidedAt": "",
+        "decidedBy": "",
+        "note": "",
+        "fingerprint": ""
+      },
+      "platform": "",
+      "publishedUrl": "",
+      "publishedAt": "",
+      "videoSha256": "",
+      "packageSha256": ""
+    },
+    "market": {
+      "decision": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "evidence": []
+    }
+  },
+  "chapters": [
+    {
+      "id": "chapter-01",
+      "title": "为什么新手机号仍有旧绑定，以及怎样处理",
+      "summary": "以真实动态素材解释号码回收、记录不同步、两项官方工具和新旧用户动作。",
+      "order": 0,
+      "sceneIds": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06",
+        "scene-07",
+        "scene-08"
+      ],
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "一手或官方转载资料"
+        },
+        {
+          "sourceId": "source-02",
+          "locatorType": "file",
+          "note": "一手或官方转载资料"
+        },
+        {
+          "sourceId": "source-03",
+          "locatorType": "file",
+          "note": "一手或官方转载资料"
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "outputVideo": "output/videos/mobile-number-reassignment-explainer-20260809.mp4",
+    "publicRender": "public/renders/mobile-number-reassignment-explainer-20260809.mp4",
+    "workDir": "output/videos/mobile-number-reassignment-explainer-20260809-work",
+    "exportDir": "output/exports/mobile-number-reassignment-explainer-20260809",
+    "coverImage": "output/exports/mobile-number-reassignment-explainer-20260809/cover.png",
+    "platformCopy": "output/exports/mobile-number-reassignment-explainer-20260809/platform-copy.json",
+    "sourceList": "output/exports/mobile-number-reassignment-explainer-20260809/source-list.json",
+    "projectSnapshot": "output/exports/mobile-number-reassignment-explainer-20260809/project.snapshot.json"
+  },
+  "render": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice": "zh-CN-YunxiNeural",
+    "rate": 194,
+    "voiceEngine": "edge-tts",
+    "voiceModel": "edge-tts-universal",
+    "voiceProfile": "natural-tech-zh-v1",
+    "voiceStyle": "像真实的中文科技内容创作者一样讲述。声音克制、自然，有轻微交流感，不要新闻播音腔或广告腔。转折和结论前自然停顿，必须准确朗读原文。",
+    "voiceGenerationMode": "per-scene",
+    "renderStrategy": "segmented-concat",
+    "pronunciations": [
+      {
+        "term": "一证通查",
+        "guidance": "读作“一证通查”",
+        "asrAliases": [
+          "一正通查"
+        ]
+      },
+      {
+        "term": "二次号码焕新",
+        "guidance": "读作“二次号码焕新”",
+        "asrAliases": [
+          "二次号码换新"
+        ]
+      },
+      {
+        "term": "销号",
+        "guidance": "读作“销号”",
+        "asrAliases": [
+          "消耗"
+        ]
+      }
+    ],
+    "mediaFit": "cover",
+    "subtitleBottom": 230
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-15",
+      "sourceStart": 91,
+      "sourceEnd": 102,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "刚办的新号码，App 却认识别人",
+      "title": "卡是新的，号码可能有历史",
+      "subtitle": "旧绑定不会跟着新卡自动清空",
+      "narration": "刚办的新手机号，App 却提示已经绑定过账号，短信里还有陌生称呼。卡是新的，但号码可能不是第一次被使用。",
+      "visualRequirement": "旧用户、新用户、App 账号关系和真实手机注册画面建立“新号码仍遇到旧账号”的情境，不展示可识别号码或账号信息。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-15",
+          "locatorType": "time",
+          "start": 91,
+          "end": 102,
+          "note": "新旧用户、App 关系和手机注册情境"
+        },
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "二次号码定义和运营商服务"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-01-dynamic-v2",
+          "sourceId": "source-15",
+          "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/bv1xnjwzxeud-1786279779036.mp4",
+          "mediaType": "video",
+          "sourceStart": 91,
+          "sourceEnd": 102,
+          "matchReason": "旧用户、新用户、App 账号关系和真实手机注册画面建立“新号码仍遇到旧账号”的情境，不展示可识别号码或账号信息。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-01-dynamic-v2",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-09T12:49:38.990Z",
+      "selectionNote": "候选来自已打开核验的公开动态页面或唯一必要的原创机制图；最终仍需逐幕 start/mid/end 和目标视口 Material Gate。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-02",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-15",
+      "sourceStart": 46,
+      "sourceEnd": 57,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "号码会被重新分配",
+      "title": "销号之后，号码回到号码池",
+      "subtitle": "下一位用户可能拿到它",
+      "narration": "手机号不是永久只属于一个人。用户销号后，运营商会回收号码，再分配给下一位用户，这就是二次放号。",
+      "visualRequirement": "中移科协视频中的旧用户、新用户、SIM 卡与 App 关系动画，承担号码重新分配的动态解释。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-15",
+          "locatorType": "time",
+          "start": 46,
+          "end": 57,
+          "note": "营业场景与 SIM 卡流转画面"
+        },
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "回收重新启用号码的官方定义"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-02-dynamic-v2",
+          "sourceId": "source-15",
+          "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/bv1xnjwzxeud-1786279779036.mp4",
+          "mediaType": "video",
+          "sourceStart": 46,
+          "sourceEnd": 57,
+          "matchReason": "中移科协视频中的旧用户、新用户、SIM 卡与 App 关系动画，承担号码重新分配的动态解释。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-02-dynamic-v2",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-09T12:49:38.990Z",
+      "selectionNote": "候选来自已打开核验的公开动态页面或唯一必要的原创机制图；最终仍需逐幕 start/mid/end 和目标视口 Material Gate。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-03",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-06",
+      "sourceStart": 0,
+      "sourceEnd": 14,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "subtitleBottom": 110,
+      "showEditorialOverlay": false,
+      "eyebrow": "真正的错位在这里",
+      "title": "一个号码，三套记录",
+      "subtitle": "号码分配、实名登记、App 绑定",
+      "narration": "问题在于三套记录不同步：运营商管号码分给谁，实名系统记当前用户，各个 App 又各自保存账号绑定。换了号主，不等于所有 App 同时清空。",
+      "visualRequirement": "唯一保留的原创三栏信息层，用于解释三个不同主体维护的记录；只承担分析模型，不冒充官方系统截图。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "运营商侧号码与焕新服务"
+        },
+        {
+          "sourceId": "source-03",
+          "locatorType": "file",
+          "note": "App 侧查询与企业后续处理"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-03-dynamic-v2",
+          "sourceId": "source-06",
+          "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/scene-03-1786268109218.png",
+          "mediaType": "image",
+          "sourceStart": 0,
+          "sourceEnd": 14,
+          "matchReason": "唯一保留的原创三栏信息层，用于解释三个不同主体维护的记录；只承担分析模型，不冒充官方系统截图。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-03-dynamic-v2",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-09T12:49:38.990Z",
+      "selectionNote": "候选来自已打开核验的公开动态页面或唯一必要的原创机制图；最终仍需逐幕 start/mid/end 和目标视口 Material Gate。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-04",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-14",
+      "sourceStart": 185,
+      "sourceEnd": 198,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "成本落在新旧用户和平台身上",
+      "title": "一个旧绑定，三方都要处理",
+      "subtitle": "注册受阻、找回风险、申诉核验",
+      "narration": "于是新用户可能注册受阻，旧用户则可能把已经失去控制的号码留作找回入口。运营商和平台还要分别核验、申诉和解绑。",
+      "visualRequirement": "公开案例截图和真实人物使用手机的镜头说明新旧用户可能承担的处理成本；不把个案损失泛化为必然结果。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-14",
+          "locatorType": "time",
+          "start": 185,
+          "end": 198,
+          "note": "人物使用手机与账号操作的风险情境"
+        },
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "号码回收与协同解绑"
+        },
+        {
+          "sourceId": "source-03",
+          "locatorType": "file",
+          "note": "互联网企业分别处理账号关联"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-04-dynamic-v2",
+          "sourceId": "source-14",
+          "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/bv1ha4m1f723-1786279779000.mp4",
+          "mediaType": "video",
+          "sourceStart": 185,
+          "sourceEnd": 198,
+          "matchReason": "真实人物使用手机和账号操作镜头说明新旧用户可能承担的处理成本；避开醒目的个案金额，不把个案损失泛化为必然结果。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-04-dynamic-v2",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-09T12:49:38.990Z",
+      "selectionNote": "候选来自已打开核验的公开动态页面或唯一必要的原创机制图；最终仍需逐幕 start/mid/end 和目标视口 Material Gate。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-05",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-16",
+      "sourceStart": 6,
+      "sourceEnd": 22,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "subtitleBottom": 120,
+      "showEditorialOverlay": false,
+      "eyebrow": "官方工具一",
+      "title": "二次号码焕新：提交清理申请",
+      "subtitle": "覆盖已接入应用，不等于全网清零",
+      "narration": "中国移动的二次号码焕新，会向已经接入的应用提交历史绑定清理申请。工信部二零二五年二季度通告称，当时覆盖二百二十款主流应用；这不等于全网一键清零。",
+      "visualRequirement": "中国移动官方 App 操作视频展示进入二次号服务平台、选择应用和开始申请；关键统计由工信部通告承担。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-16",
+          "locatorType": "time",
+          "start": 6,
+          "end": 22,
+          "note": "中国移动 App 二次号码焕新操作指引"
+        },
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "中国移动二次号码焕新服务说明"
+        },
+        {
+          "sourceId": "source-02",
+          "locatorType": "file",
+          "note": "工信部 2025 年第二季度覆盖统计"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-05-dynamic-v2",
+          "sourceId": "source-16",
+          "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/bv16c53zxegs-1786279779049.mp4",
+          "mediaType": "video",
+          "sourceStart": 6,
+          "sourceEnd": 22,
+          "matchReason": "中国移动官方 App 操作视频展示进入二次号服务平台、选择应用和开始申请；关键统计由工信部通告承担。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-05-dynamic-v2",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-09T12:49:38.990Z",
+      "selectionNote": "候选来自已打开核验的公开动态页面或唯一必要的原创机制图；最终仍需逐幕 start/mid/end 和目标视口 Material Gate。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-06",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-17",
+      "sourceStart": 64,
+      "sourceEnd": 78,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "官方工具二",
+      "title": "一证通查：先查关联，再分别处理",
+      "subtitle": "查询结果不是自动解绑结果",
+      "narration": "一证通查做的是查询：告诉你本人号码关联了哪些已接入账号。对结果有异议，仍要联系对应运营商或互联网企业办理注销、解绑。",
+      "visualRequirement": "一证通查说明视频中的手机查询和短信结果画面，明确查询后仍需联系企业处理。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-17",
+          "locatorType": "time",
+          "start": 64,
+          "end": 78,
+          "note": "一证通查短信结果与后续企业处理说明"
+        },
+        {
+          "sourceId": "source-03",
+          "locatorType": "file",
+          "note": "一证通查能力与后续企业处理步骤"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-06-dynamic-v2",
+          "sourceId": "source-17",
+          "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/bv1ag411f7zo-1786279779057.mp4",
+          "mediaType": "video",
+          "sourceStart": 64,
+          "sourceEnd": 78,
+          "matchReason": "一证通查说明视频中的手机查询和短信结果画面，明确查询后仍需联系企业处理。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-06-dynamic-v2",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-09T12:49:38.990Z",
+      "selectionNote": "候选来自已打开核验的公开动态页面或唯一必要的原创机制图；最终仍需逐幕 start/mid/end 和目标视口 Material Gate。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-07",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-16",
+      "sourceStart": 44,
+      "sourceEnd": 50,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 0.5,
+      "mediaMotion": "none",
+      "subtitleBottom": 120,
+      "showEditorialOverlay": false,
+      "eyebrow": "刚拿到二次号码",
+      "title": "先查，再焕新，最后找具体 App",
+      "subtitle": "只处理号码关系，不进入前任账号",
+      "narration": "新用户先做一证通查，再从运营商官方入口提交二次号码焕新；仍有注册冲突，就找具体 App。不要尝试进入前任账号。",
+      "visualRequirement": "中国移动官方操作视频继续展示身份核验、提交申请和查询进度，作为新用户处理路径示意。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-16",
+          "locatorType": "time",
+          "start": 44,
+          "end": 50,
+          "note": "返回服务平台并查看解绑进度；0.5 倍速展示 UI 操作，不循环、不伪造处理状态"
+        },
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "二次号码焕新入口与能力"
+        },
+        {
+          "sourceId": "source-03",
+          "locatorType": "file",
+          "note": "查询与企业处理边界"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-07-dynamic-v2",
+          "sourceId": "source-16",
+          "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/bv16c53zxegs-1786279779049.mp4",
+          "mediaType": "video",
+          "sourceStart": 44,
+          "sourceEnd": 50,
+          "matchReason": "中国移动官方操作视频展示返回服务平台并进入解绑进度查询；窗口避开历史接入数量、完整申请单号和验证码，以 0.5 倍速展示连续 UI 操作。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-07-dynamic-v2",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-09T12:49:38.990Z",
+      "selectionNote": "候选来自已打开核验的公开动态页面或唯一必要的原创机制图；最终仍需逐幕 start/mid/end 和目标视口 Material Gate。",
+      "generatedBy": "user",
+      "userEdited": true
+    },
+    {
+      "id": "scene-08",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-15",
+      "sourceStart": 217,
+      "sourceEnd": 232,
+      "mediaFit": "cover",
+      "mediaFocalX": 0.5,
+      "mediaFocalY": 0.5,
+      "mediaPlaybackRate": 1,
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "准备停用旧号码",
+      "title": "先换绑，再销号",
+      "subtitle": "卡新，不代表号码没有历史",
+      "narration": "准备停用旧号的人，应该在销号前把支付、社交、邮箱、云盘和工作服务逐个换绑。记住：卡可以是新的，号码却可能有历史。",
+      "visualRequirement": "中移科协视频中的不同年龄用户使用手机镜头完成行动收束；画面只承担日常使用情境，不展示具体个人数据。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-15",
+          "locatorType": "time",
+          "start": 217,
+          "end": 232,
+          "note": "不同年龄用户使用手机的日常情境"
+        },
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "二次号码焕新服务"
+        },
+        {
+          "sourceId": "source-03",
+          "locatorType": "file",
+          "note": "查询与后续解绑边界"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-08-dynamic-v2",
+          "sourceId": "source-15",
+          "assetPath": "public/project-assets/mobile-number-reassignment-explainer-20260809/bv1xnjwzxeud-1786279779036.mp4",
+          "mediaType": "video",
+          "sourceStart": 217,
+          "sourceEnd": 232,
+          "matchReason": "中移科协视频中的不同年龄用户使用手机镜头完成行动收束；画面只承担日常使用情境，不展示具体个人数据。",
+          "rightsStatus": "review_required"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-08-dynamic-v2",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-09T12:49:38.990Z",
+      "selectionNote": "候选来自已打开核验的公开动态页面或唯一必要的原创机制图；最终仍需逐幕 start/mid/end 和目标视口 Material Gate。",
+      "generatedBy": "user",
+      "userEdited": true
+    }
+  ]
+}

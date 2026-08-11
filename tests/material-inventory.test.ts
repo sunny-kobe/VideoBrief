@@ -7,6 +7,9 @@ test('material inventory keeps preview metadata and every candidate-to-scene rel
   const project = {
     id: 'inventory-fixture',
     materialReview: { status: 'approved', approvedSourceIds: ['source-01'], reviewedAt: 'now' },
+    materialQualityReview: {
+      schemaVersion: 1, status: 'failed', reviewedAt: 'now', reviewer: 'codex', reviewScope: '逐幕复核', sceneReviews: [],
+    },
     sources: [{
       id: 'source-01', label: '自有操作录屏', sourceType: 'video', materialRole: 'official_demo',
       originalFileName: 'demo.mp4', originUrl: 'https://example.com/demo', assetPath: 'public/demo.mp4',
@@ -24,6 +27,7 @@ test('material inventory keeps preview metadata and every candidate-to-scene rel
   } as never;
 
   const inventory = buildMaterialInventory(project);
+  assert.equal(inventory.materialQualityReview?.status, 'failed');
   assert.equal(inventory.sources[0].assetPath, 'public/demo.mp4');
   assert.equal(inventory.sources[0].plannedWindows.length, 2);
   assert.deepEqual(inventory.sources[0].plannedWindows.map((window) => ({

@@ -38,5 +38,6 @@ export function buildMaterialInventory(project: ShortVideoProject): {
   schemaVersion: 1;
   projectId: string;
   materialReview: ShortVideoProject['materialReview'];
+  materialQualityReview: ShortVideoProject['materialQualityReview'] | null;
   sources: MaterialInventorySource[];
 };

@@ -25,7 +25,7 @@ export default function NewProjectForm() {
         objective: String(formData.get('objective') ?? ''),
         audience: String(formData.get('audience') ?? ''),
         platform: String(formData.get('platform') ?? ''),
-        aspectRatio: String(formData.get('aspectRatio') ?? '9:16'),
+        aspectRatio: String(formData.get('aspectRatio') ?? '16:9'),
         targetDurationSeconds: Number(formData.get('targetDurationSeconds') ?? 45),
         tone: String(formData.get('tone') ?? ''),
         style: String(formData.get('style') ?? ''),
@@ -43,7 +43,7 @@ export default function NewProjectForm() {
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error ?? '项目创建失败');
-      window.location.href = `/workbench?project=${encodeURIComponent(result.project.id)}&view=sources`;
+      window.location.href = `/workbench?project=${encodeURIComponent(result.project.id)}&advanced=1&view=sources`;
     } catch (nextError) {
       setError(nextError instanceof Error ? nextError.message : '项目创建失败');
       setSubmitting(false);
@@ -79,8 +79,8 @@ export default function NewProjectForm() {
           <details className="border-t border-slate-200">
             <summary className="cursor-pointer px-5 py-4 text-sm font-extrabold text-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600">可选：输出和内容限制</summary>
             <div className="grid gap-4 border-t border-slate-200 bg-slate-50 p-5 sm:grid-cols-2">
-              <label className="block"><span className="text-xs font-bold text-slate-600">发布场景</span><input className={fieldClass} name="platform" defaultValue="竖屏短视频" /></label>
-              <label className="block"><span className="text-xs font-bold text-slate-600">画幅</span><select className={fieldClass} name="aspectRatio" defaultValue="9:16"><option value="9:16">竖屏 9:16</option><option value="16:9">横屏 16:9</option><option value="1:1">方形 1:1</option></select></label>
+              <label className="block"><span className="text-xs font-bold text-slate-600">发布场景</span><input className={fieldClass} name="platform" defaultValue="横版视频" /></label>
+              <label className="block"><span className="text-xs font-bold text-slate-600">画幅</span><select className={fieldClass} name="aspectRatio" defaultValue="16:9"><option value="16:9">横屏 16:9</option><option value="9:16">竖屏 9:16</option><option value="1:1">方形 1:1</option></select></label>
               <label className="block"><span className="text-xs font-bold text-slate-600">目标时长（秒）</span><input className={fieldClass} name="targetDurationSeconds" type="number" inputMode="numeric" min="3" max="900" defaultValue="45" /></label>
               <label className="block"><span className="text-xs font-bold text-slate-600">表达语气</span><input className={fieldClass} name="tone" placeholder="例如：清晰、克制…" /></label>
               <label className="block sm:col-span-2"><span className="text-xs font-bold text-slate-600">视觉风格</span><input className={fieldClass} name="style" placeholder="例如：真实录屏、简洁字幕…" /></label>

@@ -26,7 +26,7 @@ function fixture() {
         { id: 'scene-02', cacheKey: 'cache-02', segmentSha256: 'segment-02', frameCount: 300, descriptor: { source: { sha256: 'source-02' }, audioSha256: 'audio-02', duration: 10 } },
       ],
     },
-    renderSettings: { width: 1920, height: 1080, fps: 30 },
+    renderSettings: { width: 1920, height: 1080, fps: 30, mediaBackground: 'solid' },
     voiceSettings: { engine: 'gemini-tts', voice: 'Charon', pronunciations: [] },
   };
 }
