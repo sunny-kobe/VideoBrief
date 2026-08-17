@@ -2,6 +2,12 @@ import { spawn } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
+try {
+  process.loadEnvFile(resolve('.env.local'));
+} catch {
+  // The regular environment may already contain the required server-only values.
+}
+
 import { signalProcessTree } from '../src/renderProcessRegistry';
 import {
   acquireSourceProcessingQueueWorker,

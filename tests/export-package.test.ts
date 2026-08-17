@@ -15,9 +15,11 @@ function fixture() {
   const root = mkdtempSync(join(tmpdir(), 'videobrief-export-package-'));
   const renderManifestPath = join(root, 'render-manifest.json');
   const videoPath = join(root, 'current.mp4');
+  const coverPath = join(root, 'cover.png');
   const zipPath = join(root, 'current.zip');
   writeFileSync(renderManifestPath, '{"renderedAt":"now"}\n');
   writeFileSync(videoPath, 'current-video');
+  writeFileSync(coverPath, 'current-cover');
   writeFileSync(zipPath, 'current-zip');
   const receipt: ExportPackageReceipt = {
     schemaVersion: 2,
@@ -29,6 +31,8 @@ function fixture() {
     renderManifestSha256: fileSha256(renderManifestPath),
     videoPath,
     videoSha256: fileSha256(videoPath),
+    coverPath,
+    coverSha256: fileSha256(coverPath),
     zipPath,
     zipBytes: 11,
     zipSha256: fileSha256(zipPath),
@@ -37,7 +41,7 @@ function fixture() {
     deliveryApprovedBy: 'test-user',
     createdAt: 'now',
   };
-  return { renderManifestPath, videoPath, zipPath, receipt };
+  return { renderManifestPath, videoPath, coverPath, zipPath, receipt };
 }
 
 function check(value: ReturnType<typeof fixture>) {
@@ -112,6 +116,12 @@ test('rejects a package after the current render manifest changes', () => {
   const value = fixture();
   writeFileSync(value.renderManifestPath, '{"renderedAt":"later"}\n');
   assert.match(check(value).reason, /渲染清单已过期/);
+});
+
+test('rejects a package after the reviewed cover bytes change', () => {
+  const value = fixture();
+  writeFileSync(value.coverPath, 'changed-cover');
+  assert.match(check(value).reason, /正式封面已变化/);
 });
 
 test('rejects a package without current human delivery approval', () => {

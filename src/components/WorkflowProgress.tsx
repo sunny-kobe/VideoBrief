@@ -43,7 +43,7 @@ interface WorkflowResponse {
 interface WorkflowProgressProps {
   projectId: string;
   projectUpdatedAt?: string;
-  onProjectChange?: (project: ShortVideoProject) => void;
+  onProjectChange?: (project: ShortVideoProject, runtime?: WorkflowRuntimeEvidence) => void;
 }
 
 const automaticLabels: Record<ProductionWorkflowAutomaticAction, string> = {
@@ -76,8 +76,9 @@ export default function WorkflowProgress({
   const [decidedBy, setDecidedBy] = useState('');
   const [note, setNote] = useState('');
   const [platform, setPlatform] = useState('');
-  const [publishedUrl, setPublishedUrl] = useState('');
-  const [publishedAt, setPublishedAt] = useState('');
+  const [selectedTargetId, setSelectedTargetId] = useState('');
+  const [scheduledAt, setScheduledAt] = useState('');
+  const [publicationAccount, setPublicationAccount] = useState('daily-cause');
   const [metricSource, setMetricSource] = useState('');
   const [metricSourceUrl, setMetricSourceUrl] = useState('');
   const [metric, setMetric] = useState('');
@@ -93,7 +94,7 @@ export default function WorkflowProgress({
     const next = await response.json() as WorkflowResponse & { error?: string };
     if (!response.ok) throw new Error(next.error ?? '流程状态读取失败');
     setPayload(next);
-    onProjectChangeRef.current?.(next.project);
+    onProjectChangeRef.current?.(next.project, next.workflow.runtime);
     return next;
   }, [projectId, projectUpdatedAt]);
 
@@ -129,7 +130,7 @@ export default function WorkflowProgress({
       if (!response.ok) throw new Error(next.error ?? `${label}失败`);
       if (next.project && next.workflow) {
         setPayload(next);
-        onProjectChangeRef.current?.(next.project);
+        onProjectChangeRef.current?.(next.project, next.workflow.runtime);
       } else {
         await load();
       }
@@ -156,7 +157,11 @@ export default function WorkflowProgress({
   const automaticAction = payload?.workflow.automaticAction ?? null;
   const activity = payload?.workflow.activity ?? null;
   const workflowFailure = payload?.workflow.failure ?? null;
-  const publicationApproved = payload?.workflow.stages.find((stage) => stage.id === 'publication')?.status === 'approved';
+  const publicationTargets = payload?.project.workflow.publicationTargets ?? [];
+  const activeTargetId = selectedTargetId || publicationTargets[0]?.id || '';
+  const activeTarget = publicationTargets.find((target) => target.id === activeTargetId) ?? null;
+  const canAddPublicationTarget = Boolean(payload?.workflow.runtime.packageReady)
+    && payload?.project.rights_status === 'cleared';
   const hasMarketEvidence = Boolean(payload?.project.workflow.market.evidence.length);
   const decisionReady = decidedBy.trim().length > 0 && note.trim().length >= 12;
 
@@ -215,17 +220,28 @@ export default function WorkflowProgress({
           </div>
         </div> : null}
 
-        {nextStage?.id === 'publication' && !publicationApproved ? <div className="grid gap-2 sm:grid-cols-[160px_180px_minmax(0,1fr)_auto]">
-          <input className="h-9 rounded-md border border-slate-300 px-3 text-xs" aria-label="发布平台" placeholder="发布平台" value={platform} onChange={(event) => setPlatform(event.target.value)} />
+        {canAddPublicationTarget ? <div className="grid gap-2 sm:grid-cols-[160px_180px_minmax(0,1fr)_auto]">
+          <input className="h-9 rounded-md border border-slate-300 px-3 text-xs" list="publication-platforms" aria-label="发布平台" placeholder="新增发布平台" value={platform} onChange={(event) => setPlatform(event.target.value)} />
+          <datalist id="publication-platforms"><option value="B站" /><option value="视频号" /><option value="小红书" /><option value="抖音" /><option value="YouTube" /></datalist>
           <input className="h-9 rounded-md border border-slate-300 px-3 text-xs" aria-label="发布批准者" placeholder="人工批准者" value={decidedBy} onChange={(event) => setDecidedBy(event.target.value)} />
           <input className="h-9 rounded-md border border-slate-300 px-3 text-xs" aria-label="发布决策说明" placeholder="发布决策说明（至少 12 字）" value={note} onChange={(event) => setNote(event.target.value)} />
-          <button className="inline-flex h-9 items-center gap-1.5 rounded-md bg-emerald-700 px-3 text-xs font-extrabold text-white disabled:bg-slate-400" type="button" disabled={Boolean(busy) || !decisionReady || !platform.trim() || payload?.project.rights_status !== 'cleared'} onClick={() => void submitAction({ type: 'approve_publication', decidedBy, note, platform }, '批准人工发布')}><Check aria-hidden="true" className="h-3.5 w-3.5" />批准发布</button>
+          <button className="inline-flex h-9 items-center gap-1.5 rounded-md bg-emerald-700 px-3 text-xs font-extrabold text-white disabled:bg-slate-400" type="button" disabled={Boolean(busy) || !decisionReady || !platform.trim()} onClick={() => void submitAction({ type: 'approve_publication', decidedBy, note, platform }, `批准 ${platform || '平台'} 发布`)}><Check aria-hidden="true" className="h-3.5 w-3.5" />新增目标</button>
         </div> : null}
 
-        {nextStage?.id === 'publication' && publicationApproved ? <div className="grid gap-2 sm:grid-cols-[minmax(0,1fr)_220px_auto]">
-          <input className="h-9 rounded-md border border-slate-300 px-3 text-xs" type="url" aria-label="真实发布 URL" placeholder="真实发布 URL" value={publishedUrl} onChange={(event) => setPublishedUrl(event.target.value)} />
-          <input className="h-9 rounded-md border border-slate-300 px-3 text-xs" type="datetime-local" aria-label="发布时间" value={publishedAt} onChange={(event) => setPublishedAt(event.target.value)} />
-          <button className="inline-flex h-9 items-center gap-1.5 rounded-md bg-slate-950 px-3 text-xs font-extrabold text-white disabled:bg-slate-400" type="button" disabled={Boolean(busy) || !publishedUrl.trim() || !publishedAt} onClick={() => void submitAction({ type: 'record_publication', publishedUrl, publishedAt: new Date(publishedAt).toISOString() }, '记录真实发布')}><Plus aria-hidden="true" className="h-3.5 w-3.5" />记录发布</button>
+        {publicationTargets.length > 0 ? <div className="border-t border-slate-200 pt-3">
+          <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-600">
+            {publicationTargets.map((target) => <span className="font-bold" key={target.id}>{target.platform} · {{ pending: '待重新批准', approved: '已批准', uploading: '程序上传中', submitted: '已程序投稿', scheduled: '已排期', published: '已发布', failed: '上传失败', rejected: '已退回' }[target.status]}</span>)}
+          </div>
+          <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            <select className="h-9 rounded-md border border-slate-300 bg-white px-3 text-xs" aria-label="发布目标" value={activeTargetId} onChange={(event) => setSelectedTargetId(event.target.value)}>{publicationTargets.map((target) => <option key={target.id} value={target.id}>{target.platform}</option>)}</select>
+            <input className="h-9 rounded-md border border-slate-300 px-3 text-xs" aria-label="发布账号" placeholder="发布账号" value={publicationAccount} onChange={(event) => setPublicationAccount(event.target.value)} />
+            <input className="h-9 rounded-md border border-slate-300 px-3 text-xs" type="datetime-local" aria-label="定时发布时间" value={scheduledAt} onChange={(event) => setScheduledAt(event.target.value)} />
+            <button className="inline-flex h-9 items-center gap-1.5 rounded-md border border-slate-300 bg-white px-3 text-xs font-extrabold text-slate-700 disabled:opacity-40" type="button" disabled={Boolean(busy) || !activeTarget || !publicationAccount.trim()} onClick={() => void post(`/api/projects/${encodeURIComponent(projectId)}/publication`, { action: 'check', targetId: activeTargetId, accountName: publicationAccount }, `检查 ${activeTarget?.platform ?? '平台'} 登录态`)}><RefreshCw aria-hidden="true" className="h-3.5 w-3.5" />检查登录</button>
+            <button className="inline-flex h-9 items-center gap-1.5 rounded-md border border-slate-300 bg-white px-3 text-xs font-extrabold text-slate-700 disabled:opacity-40" type="button" disabled={Boolean(busy) || !activeTarget || !publicationAccount.trim()} onClick={() => void post(`/api/projects/${encodeURIComponent(projectId)}/publication`, { action: 'login', targetId: activeTargetId, accountName: publicationAccount }, `启动 ${activeTarget?.platform ?? '平台'} 程序登录`)}><UserRound aria-hidden="true" className="h-3.5 w-3.5" />程序登录</button>
+            <button className="inline-flex h-9 items-center gap-1.5 rounded-md bg-slate-950 px-3 text-xs font-extrabold text-white disabled:bg-slate-400" type="button" disabled={Boolean(busy) || !activeTarget || !publicationAccount.trim() || ['pending', 'uploading', 'published', 'rejected'].includes(activeTarget.status)} onClick={() => void post(`/api/projects/${encodeURIComponent(projectId)}/publication`, { action: 'publish', targetId: activeTargetId, accountName: publicationAccount, schedule: scheduledAt ? new Date(scheduledAt).toISOString() : '' }, scheduledAt ? `程序排期 ${activeTarget?.platform ?? '平台'}` : `程序发布 ${activeTarget?.platform ?? '平台'}`)}><Play aria-hidden="true" className="h-3.5 w-3.5" />{scheduledAt ? '程序排期' : '程序发布'}</button>
+            <button className="inline-flex h-9 items-center gap-1.5 rounded-md border border-rose-300 bg-white px-3 text-xs font-extrabold text-rose-700 disabled:opacity-40" type="button" disabled={Boolean(busy) || !activeTarget || activeTarget.status === 'published' || !decisionReady} onClick={() => void submitAction({ type: 'reject_publication', targetId: activeTargetId, decidedBy, note }, `退回 ${activeTarget?.platform ?? '平台'} 发布`)}><X aria-hidden="true" className="h-3.5 w-3.5" />退回</button>
+          </div>
+          {activeTarget?.lastError ? <p className="mt-2 border-l-2 border-rose-500 bg-rose-50 px-3 py-2 text-xs font-bold text-rose-800">{activeTarget.lastError}</p> : null}
         </div> : null}
 
         {nextStage?.id === 'market' ? <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-[160px_minmax(0,1fr)_140px_100px_100px_auto]">

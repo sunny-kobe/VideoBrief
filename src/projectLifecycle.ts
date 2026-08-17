@@ -71,6 +71,9 @@ function rejectedApproval(project: ShortVideoProject) {
     ['研究 Gate', project.workflow.researchApproval],
     ['Delivery Gate', project.workflow.deliveryApproval],
     ['发布 Gate', project.workflow.publication.approval],
+    ...(project.workflow.publicationTargets ?? []).map(
+      (target) => [`${target.platform} 发布 Gate`, target.approval] as [string, WorkflowApproval],
+    ),
   ];
   return approvals.find(([, approval]) => approval.status === 'rejected') ?? null;
 }

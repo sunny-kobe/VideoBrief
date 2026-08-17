@@ -331,6 +331,7 @@ export interface ProjectAiState {
 
 export interface PlatformCopy {
   coverTitle: string;
+  coverAssetPath?: string;
   title: string;
   description: string;
   hashtags: string[];
@@ -414,6 +415,67 @@ export interface WorkflowHumanDecision {
   note: string;
 }
 
+export type PublicationTargetStatus =
+  | 'pending'
+  | 'approved'
+  | 'uploading'
+  | 'submitted'
+  | 'scheduled'
+  | 'published'
+  | 'failed'
+  | 'rejected';
+
+export interface PublicationCopySnapshot {
+  title: string;
+  description: string;
+  hashtags: string[];
+  generatedByAi: boolean;
+  effectiveTitle: string;
+  effectiveDescription: string;
+  capturedAt: string;
+  source: string;
+}
+
+export interface PublicationMetricSnapshot {
+  observedAt: string;
+  source: string;
+  viewCount: number | null;
+  likeCount: number | null;
+  commentCount: number | null;
+  shareCount: number | null;
+  favoriteCount: number | null;
+  coinCount: number | null;
+  danmakuCount: number | null;
+  followerGain: number | null;
+  completionRate: number | null;
+  averageWatchSeconds: number | null;
+  twoSecondBounceRate: number | null;
+  note: string;
+}
+
+export interface PublicationTarget {
+  id: string;
+  platform: string;
+  status: PublicationTargetStatus;
+  approval: WorkflowApproval;
+  scheduledAt: string;
+  submittedAt: string;
+  submissionUrl: string;
+  publishedUrl: string;
+  publishedAt: string;
+  externalId: string;
+  videoSha256: string;
+  packageSha256: string;
+  publisher: string;
+  accountName: string;
+  lastRunId: string;
+  lastRunAt: string;
+  lastError: string;
+  note: string;
+  copySnapshot: PublicationCopySnapshot | null;
+  metricSnapshots: PublicationMetricSnapshot[];
+}
+
 export interface ProjectWorkflowOrigin {
   kind: 'manual' | 'daily_signal' | 'legacy';
   runId: string;
@@ -450,6 +512,7 @@ export interface ProjectWorkflow {
     videoSha256: string;
     packageSha256: string;
   };
+  publicationTargets?: PublicationTarget[];
   market: {
     decision: 'pending' | 'validated' | 'not_validated' | 'inconclusive';
     decidedAt: string;
@@ -516,6 +579,14 @@ export interface RenderManifestProof {
     truePeakDbtp: number | null;
     blackSegments: Array<{ start: number; end: number; duration: number }>;
     freezeIntervals: Array<{ start: number; end: number; duration: number }>;
+    narrationTailGaps?: Array<{
+      sceneId: string;
+      duration: number;
+      speechDuration: number;
+      tailSeconds: number;
+      maximumTailSeconds: number;
+      passed: boolean;
+    }>;
     warnings: string[];
   };
   narration?: {

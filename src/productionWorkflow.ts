@@ -1,5 +1,6 @@
 import type {
   MarketEvidence,
+  PublicationTarget,
   ShortVideoProject,
   WorkflowApproval,
 } from './shortVideoBrief';
@@ -55,12 +56,48 @@ export const ProductionWorkflowActionSchema = z.discriminatedUnion('type', [
     type: z.literal('approve_publication'),
     ...humanDecisionFields,
     platform: z.string().trim().min(1).max(120),
+    targetId: z.string().trim().min(1).max(120).optional(),
   }).strict(),
-  z.object({ type: z.literal('reject_publication'), ...humanDecisionFields }).strict(),
+  z.object({
+    type: z.literal('reject_publication'),
+    ...humanDecisionFields,
+    targetId: z.string().trim().min(1).max(120).optional(),
+  }).strict(),
+  z.object({
+    type: z.literal('schedule_publication'),
+    targetId: z.string().trim().min(1).max(120),
+    scheduledAt: z.string().trim().min(1).max(64),
+    submittedAt: z.string().trim().max(64).optional(),
+    submissionUrl: z.string().trim().max(2_048).optional(),
+    externalId: z.string().trim().max(200).optional(),
+    note: z.string().trim().max(2_000).optional(),
+  }).strict(),
+  z.object({
+    type: z.literal('start_publication_upload'),
+    targetId: z.string().trim().min(1).max(120),
+    publisher: z.string().trim().min(1).max(120),
+    accountName: z.string().trim().min(1).max(120),
+    runId: z.string().trim().min(1).max(160),
+  }).strict(),
+  z.object({
+    type: z.literal('record_publication_submission'),
+    targetId: z.string().trim().min(1).max(120),
+    runId: z.string().trim().min(1).max(160),
+    scheduledAt: z.string().trim().max(64).optional(),
+    note: z.string().trim().max(2_000).optional(),
+  }).strict(),
+  z.object({
+    type: z.literal('record_publication_failure'),
+    targetId: z.string().trim().min(1).max(120),
+    runId: z.string().trim().min(1).max(160),
+    error: z.string().trim().min(1).max(2_000),
+  }).strict(),
   z.object({
     type: z.literal('record_publication'),
+    targetId: z.string().trim().min(1).max(120).optional(),
     publishedUrl: z.string().trim().min(1).max(2_048),
     publishedAt: z.string().trim().min(1).max(64),
+    externalId: z.string().trim().max(200).optional(),
   }).strict(),
   z.object({ type: z.literal('record_market_evidence'), evidence: marketEvidenceSchema }).strict(),
   z.object({
@@ -127,6 +164,72 @@ function validPublicationUrl(value: string) {
   } catch {
     return false;
   }
+}
+
+function targetIdFor(platform: string, requestedId: string | undefined, targets: PublicationTarget[]) {
+  if (requestedId?.trim()) return requestedId.trim();
+  const existing = targets.find((target) => target.platform === platform);
+  if (existing) return existing.id;
+  const knownIds: Record<string, string> = {
+    'b站': 'bilibili', bilibili: 'bilibili',
+    '视频号': 'wechat-channels', '微信视频号': 'wechat-channels',
+    '小红书': 'xiaohongshu', xiaohongshu: 'xiaohongshu',
+    '抖音': 'douyin', douyin: 'douyin',
+    youtube: 'youtube', 'YouTube': 'youtube',
+  };
+  const known = knownIds[platform] ?? knownIds[platform.toLowerCase()];
+  if (known) return known;
+  const slug = platform.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  return slug || `platform-${String(targets.length + 1).padStart(2, '0')}`;
+}
+
+function emptyPublicationTarget(
+  id: string,
+  platform: string,
+  approval: WorkflowApproval,
+  runtime: WorkflowRuntimeEvidence,
+): PublicationTarget {
+  return {
+    id,
+    platform,
+    status: 'approved',
+    approval,
+    scheduledAt: '',
+    submittedAt: '',
+    submissionUrl: '',
+    publishedUrl: '',
+    publishedAt: '',
+    externalId: '',
+    videoSha256: runtime.videoSha256,
+    packageSha256: runtime.packageSha256,
+    publisher: '',
+    accountName: '',
+    lastRunId: '',
+    lastRunAt: '',
+    lastError: '',
+    note: '',
+    copySnapshot: null,
+    metricSnapshots: [],
+  };
+}
+
+function currentTarget(
+  project: ShortVideoProject,
+  runtime: WorkflowRuntimeEvidence,
+  targetId: string,
+) {
+  const binding = `${runtime.videoSha256}:${runtime.packageSha256}`;
+  const target = (project.workflow.publicationTargets ?? []).find((item) => item.id === targetId);
+  if (!target || !approvalIsCurrent(target.approval, binding)) {
+    throw new Error('当前平台目标尚未获得与 production package 绑定的人工发布批准。');
+  }
+  return target;
+}
+
+function hasPublishedTarget(project: ShortVideoProject) {
+  return (project.workflow.publicationTargets ?? []).some(
+    (target) => target.status === 'published' && Boolean(target.publishedUrl),
+  ) || Boolean(project.workflow.publication.publishedUrl);
 }
 
 export function applyProductionWorkflowAction(
@@ -198,38 +301,164 @@ export function applyProductionWorkflowAction(
     if (!runtime.packageReady || !runtime.packageSha256) throw new Error('当前版本的 production package 尚未生成或已过期。');
     if (!action.platform.trim()) throw new Error('必须记录目标发布平台。');
     const binding = `${runtime.videoSha256}:${runtime.packageSha256}`;
-    next.workflow.publication.approval = decision('approved', action.decidedBy, action.note, binding, now);
-    next.workflow.publication.platform = action.platform.trim();
-    next.workflow.publication.videoSha256 = runtime.videoSha256;
-    next.workflow.publication.packageSha256 = runtime.packageSha256;
-    next.publication_status = 'ready-for-review';
+    const approval = decision('approved', action.decidedBy, action.note, binding, now);
+    const targets = next.workflow.publicationTargets ?? (next.workflow.publicationTargets = []);
+    const targetId = targetIdFor(action.platform.trim(), action.targetId, targets);
+    const targetIndex = targets.findIndex((target) => target.id === targetId);
+    const target = emptyPublicationTarget(targetId, action.platform.trim(), approval, runtime);
+    if (targetIndex >= 0) targets[targetIndex] = target;
+    else targets.push(target);
+    const mirrorLegacy = !next.workflow.publication.platform
+      || next.workflow.publication.platform === action.platform.trim()
+      || targetId === 'primary';
+    if (mirrorLegacy) {
+      next.workflow.publication.approval = approval;
+      next.workflow.publication.platform = action.platform.trim();
+      next.workflow.publication.videoSha256 = runtime.videoSha256;
+      next.workflow.publication.packageSha256 = runtime.packageSha256;
+    }
+    if (next.publication_status !== 'published') next.publication_status = 'ready-for-review';
     return next;
   }
   if (action.type === 'reject_publication') {
-    next.workflow.publication.approval = decision(
+    const approval = decision(
       'rejected', action.decidedBy, action.note, `${runtime.videoSha256}:${runtime.packageSha256}`, now,
     );
-    next.publication_status = 'draft-unpublished';
+    const targets = next.workflow.publicationTargets ?? (next.workflow.publicationTargets = []);
+    const target = action.targetId ? targets.find((item) => item.id === action.targetId) : null;
+    if (action.targetId && !target) {
+      throw new Error('找不到要退回的发布平台目标。');
+    }
+    if (target) {
+      if (target.status === 'published') {
+        throw new Error('已发布的平台目标不能退回；如发生下架，应另行记录平台事实。');
+      }
+      target.status = 'rejected';
+      target.approval = approval;
+      target.note = action.note;
+      if (target.platform === next.workflow.publication.platform || target.id === 'primary') {
+        next.workflow.publication.approval = approval;
+      }
+    } else {
+      next.workflow.publication.approval = approval;
+    }
+    if (!targets.some((item) => ['approved', 'scheduled', 'published'].includes(item.status))) {
+      next.publication_status = 'draft-unpublished';
+    }
     return next;
   }
 
-  const publicationBinding = `${runtime.videoSha256}:${runtime.packageSha256}`;
-  if (!approvalIsCurrent(project.workflow.publication.approval, publicationBinding)) {
-    throw new Error('当前 production package 尚未获得人工发布批准。');
+  if (action.type === 'schedule_publication') {
+    const target = currentTarget(project, runtime, action.targetId);
+    if (!['approved', 'scheduled'].includes(target.status)) {
+      throw new Error('只有已批准或已排期的平台目标可以记录排期。');
+    }
+    const scheduledTime = Date.parse(action.scheduledAt);
+    if (!Number.isFinite(scheduledTime)) throw new Error('定时发布时间无效。');
+    if (scheduledTime <= Date.parse(now)) throw new Error('定时发布时间必须晚于当前时间。');
+    if (action.submittedAt && !Number.isFinite(Date.parse(action.submittedAt))) {
+      throw new Error('投稿提交时间无效。');
+    }
+    if (action.submissionUrl && !validPublicationUrl(action.submissionUrl)) {
+      throw new Error('投稿记录 URL 无效。');
+    }
+    const nextTarget = (next.workflow.publicationTargets ?? []).find((item) => item.id === target.id)!;
+    nextTarget.status = 'scheduled';
+    nextTarget.scheduledAt = new Date(scheduledTime).toISOString();
+    nextTarget.submittedAt = action.submittedAt ? new Date(action.submittedAt).toISOString() : now;
+    nextTarget.submissionUrl = action.submissionUrl ?? '';
+    nextTarget.externalId = action.externalId ?? '';
+    nextTarget.note = action.note ?? '';
+    if (next.publication_status !== 'published') next.publication_status = 'ready-for-review';
+    return next;
+  }
+
+  if (action.type === 'start_publication_upload') {
+    const target = currentTarget(project, runtime, action.targetId);
+    if (!['approved', 'submitted', 'scheduled', 'failed'].includes(target.status)) {
+      throw new Error('当前平台目标不能开始程序化上传。');
+    }
+    const nextTarget = (next.workflow.publicationTargets ?? []).find((item) => item.id === target.id)!;
+    nextTarget.status = 'uploading';
+    nextTarget.publisher = action.publisher;
+    nextTarget.accountName = action.accountName;
+    nextTarget.lastRunId = action.runId;
+    nextTarget.lastRunAt = now;
+    nextTarget.lastError = '';
+    nextTarget.note = '程序化上传正在执行。';
+    return next;
+  }
+
+  if (action.type === 'record_publication_submission') {
+    const target = currentTarget(project, runtime, action.targetId);
+    if (target.status !== 'uploading' || target.lastRunId !== action.runId) {
+      throw new Error('程序化上传回执与当前运行不匹配。');
+    }
+    const nextTarget = (next.workflow.publicationTargets ?? []).find((item) => item.id === target.id)!;
+    const scheduledTime = action.scheduledAt ? Date.parse(action.scheduledAt) : NaN;
+    if (action.scheduledAt && !Number.isFinite(scheduledTime)) throw new Error('定时发布时间无效。');
+    nextTarget.status = action.scheduledAt ? 'scheduled' : 'submitted';
+    nextTarget.scheduledAt = action.scheduledAt ? new Date(scheduledTime).toISOString() : '';
+    nextTarget.submittedAt = now;
+    nextTarget.lastRunAt = now;
+    nextTarget.lastError = '';
+    nextTarget.note = action.note || (action.scheduledAt
+      ? '程序已向平台提交定时发布。'
+      : '程序已提交上传，等待平台生成可核验的公开发布记录。');
+    if (next.publication_status !== 'published') next.publication_status = 'ready-for-review';
+    return next;
+  }
+
+  if (action.type === 'record_publication_failure') {
+    const target = currentTarget(project, runtime, action.targetId);
+    if (target.lastRunId && target.lastRunId !== action.runId) {
+      throw new Error('程序化上传失败回执与当前运行不匹配。');
+    }
+    const nextTarget = (next.workflow.publicationTargets ?? []).find((item) => item.id === target.id)!;
+    nextTarget.status = 'failed';
+    nextTarget.lastRunId = action.runId;
+    nextTarget.lastRunAt = now;
+    nextTarget.lastError = action.error;
+    nextTarget.note = '程序化上传失败，可在修复登录态或平台错误后重试。';
+    return next;
   }
 
   if (action.type === 'record_publication') {
     if (!validPublicationUrl(action.publishedUrl)) throw new Error('必须记录真实的 http(s) 发布 URL。');
-    if (!Number.isFinite(Date.parse(action.publishedAt))) throw new Error('发布时间无效。');
-    next.workflow.publication.publishedUrl = action.publishedUrl;
-    next.workflow.publication.publishedAt = action.publishedAt;
+    const publishedTime = Date.parse(action.publishedAt);
+    if (!Number.isFinite(publishedTime)) throw new Error('发布时间无效。');
+    if (publishedTime > Date.parse(now)) throw new Error('真实发布时间不能晚于当前时间；未来排期请记录为 scheduled。');
+    const publicationBinding = `${runtime.videoSha256}:${runtime.packageSha256}`;
+    const targetId = action.targetId
+      ?? (project.workflow.publicationTargets ?? []).find(
+        (target) => target.platform === project.workflow.publication.platform,
+      )?.id;
+    if (targetId) {
+      const target = currentTarget(project, runtime, targetId);
+      const nextTarget = (next.workflow.publicationTargets ?? []).find((item) => item.id === target.id)!;
+      nextTarget.status = 'published';
+      nextTarget.scheduledAt = '';
+      nextTarget.publishedUrl = action.publishedUrl;
+      nextTarget.publishedAt = new Date(publishedTime).toISOString();
+      nextTarget.externalId = action.externalId || nextTarget.externalId;
+      if (target.platform === next.workflow.publication.platform || target.id === 'primary') {
+        next.workflow.publication.publishedUrl = action.publishedUrl;
+        next.workflow.publication.publishedAt = new Date(publishedTime).toISOString();
+      }
+    } else {
+      if (!approvalIsCurrent(project.workflow.publication.approval, publicationBinding)) {
+        throw new Error('当前 production package 尚未获得人工发布批准。');
+      }
+      next.workflow.publication.publishedUrl = action.publishedUrl;
+      next.workflow.publication.publishedAt = new Date(publishedTime).toISOString();
+    }
     next.publication_status = 'published';
     next.status = 'published';
     next.market_status = 'collecting';
     return next;
   }
 
-  if (project.publication_status !== 'published' || !project.workflow.publication.publishedUrl) {
+  if (project.publication_status !== 'published' || !hasPublishedTarget(project)) {
     throw new Error('只有记录真实发布 URL 后才能收集市场反馈。');
   }
 
@@ -297,7 +526,16 @@ export function productionWorkflowSnapshot(
   const deliveryRejected = project.workflow.deliveryApproval.status === 'rejected'
     && project.workflow.deliveryApproval.fingerprint === runtime.videoSha256;
   const publicationBinding = `${runtime.videoSha256}:${runtime.packageSha256}`;
-  const publicationApproved = approvalIsCurrent(project.workflow.publication.approval, publicationBinding);
+  const publicationTargets = project.workflow.publicationTargets ?? [];
+  const currentPublicationTargets = publicationTargets.filter(
+    (target) => approvalIsCurrent(target.approval, publicationBinding),
+  );
+  const publicationApproved = approvalIsCurrent(project.workflow.publication.approval, publicationBinding)
+    || currentPublicationTargets.some((target) => (
+      ['approved', 'uploading', 'submitted', 'scheduled', 'published', 'failed'].includes(target.status)
+    ));
+  const scheduledTargetCount = currentPublicationTargets.filter((target) => target.status === 'scheduled').length;
+  const publishedTargetCount = publicationTargets.filter((target) => target.status === 'published').length;
   const publicationReady = deliveryApproved && runtime.packageReady;
   const publicationBlockedByRights = publicationReady && project.rights_status !== 'cleared';
   const deliveryPrerequisitesReady = topicApproved
@@ -317,7 +555,7 @@ export function productionWorkflowSnapshot(
     { id: 'technical', label: '渲染与技术验收', status: technicalReady ? 'completed' : shotsReady ? 'ready' : 'waiting', message: technicalReady ? '当前生产内容通过 technical proof。' : '等待 FFmpeg 渲染和技术 proof。', responsibility: 'automatic' },
     { id: 'acceptance', label: '成片验收', status: deliveryApproved ? 'approved' : deliveryRejected ? 'blocked' : acceptanceReady ? 'ready' : runtime.renderState === 'review_failed' ? 'blocked' : 'waiting', message: deliveryApproved ? '当前视频字节已获真人交付批准。' : deliveryRejected ? project.workflow.deliveryApproval.note || '当前成片已被退回，需要修改后重新审片。' : acceptanceReady ? '自动验收完成，等待真人一倍速审片。' : runtime.acceptancePassed ? '自动验收已完成，但仍需先完成前置生产 Gate。' : '等待语义、编辑质量和浏览器验收。', responsibility: 'human_gate' },
     { id: 'package', label: 'Production package', status: runtime.packageReady ? 'completed' : deliveryApproved ? 'ready' : 'waiting', message: runtime.packageReady ? '当前版本 ZIP 与收据有效。' : deliveryApproved ? '等待生成当前版本的完整导出包。' : '等待真人批准当前成片后再打包。', responsibility: 'automatic' },
-    { id: 'publication', label: '发布', status: project.publication_status === 'published' ? 'completed' : publicationApproved ? 'approved' : publicationBlockedByRights ? 'blocked' : publicationReady ? 'ready' : 'waiting', message: project.publication_status === 'published' ? '真实发布 URL 已记录。' : publicationApproved ? '已批准人工发布，等待记录真实 URL。' : publicationBlockedByRights ? `rights_status=${project.rights_status}，不能批准发布。` : '发布不会自动执行。', responsibility: 'human_gate' },
+    { id: 'publication', label: '发布', status: project.publication_status === 'published' ? 'completed' : publicationApproved ? 'approved' : publicationBlockedByRights ? 'blocked' : publicationReady ? 'ready' : 'waiting', message: project.publication_status === 'published' ? `已记录 ${Math.max(1, publishedTargetCount)} 个平台的真实发布 URL。` : scheduledTargetCount > 0 ? `已有 ${scheduledTargetCount} 个平台由程序提交并等待定时发布。` : publicationApproved ? `已批准 ${Math.max(1, currentPublicationTargets.length)} 个平台目标，等待程序上传或平台回执。` : publicationBlockedByRights ? `rights_status=${project.rights_status}，不能批准发布。` : '等待人工批准平台目标；批准后由程序上传。', responsibility: 'human_gate' },
     { id: 'market', label: '市场反馈', status: project.workflow.market.decision !== 'pending' ? 'completed' : project.workflow.market.evidence.length > 0 ? 'ready' : project.publication_status === 'published' ? 'waiting' : 'waiting', message: project.workflow.market.decision !== 'pending' ? `人工结论：${project.workflow.market.decision}` : project.workflow.market.evidence.length > 0 ? '已有真实证据，等待人工形成结论。' : '发布后才能收集真实市场证据。', responsibility: 'human_gate' },
   ];
   const next = stages.find((stage) => !['approved', 'completed'].includes(stage.status)) ?? null;

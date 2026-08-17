@@ -36,6 +36,7 @@ export async function GET(_request: Request, { params }: ExportRouteProps) {
       renderedAt: manifest!.renderedAt,
       renderManifestPath: paths.manifestPath,
       videoPath: paths.publicRenderPath,
+      coverPath: paths.coverImagePath,
       zipPath: paths.exportZipPath,
       deliveryApproval: project.workflow.deliveryApproval,
       receipt: readExportPackageReceipt(paths.exportPackageReceiptPath),

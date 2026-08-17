@@ -4,11 +4,11 @@
   "title": "有 3C 也可能被拦？充电宝登机的三道门",
   "format": "video_project",
   "targetAudience": "坐飞机会携带充电宝、对日常规则和成本分配好奇的普通中文观众",
-  "status": "review",
+  "status": "published",
   "technical_status": "passed",
   "rights_status": "cleared",
-  "publication_status": "draft-unpublished",
-  "market_status": "none",
+  "publication_status": "published",
+  "market_status": "collecting",
   "lifecycle": {
     "state": "active",
     "archivedAt": "",
@@ -20,9 +20,9 @@
     "audience": "坐飞机会携带充电宝、对日常规则和成本分配好奇的普通中文观众",
     "platform": "B站首发，兼容横版视频平台",
     "aspectRatio": "16:9",
-    "targetDurationSeconds": 116,
+    "targetDurationSeconds": 135,
     "tone": "清晰、克制、实用，不制造安检焦虑",
-    "style": "许可明确的机场实拍、充电宝照片与原创中文信息层结合的解释型短片",
+    "style": "许可明确且原生无平台水印的机场与出行动态实拍主导，配两幕必要静态信息层",
     "reference": "从“有 3C 为什么仍被拦”的反常体验出发，拆成三层判断和一套出发前自查",
     "coreMessage": "3C 是境内航班充电宝查验的第一道门，不是登机通行证；召回状态、额定能量和携带方式仍会独立改变结果",
     "cta": "出发前依次检查 3C、召回、Wh 和携带方式",
@@ -795,6 +795,446 @@
         "uncertainties": [],
         "chapters": []
       }
+    },
+    {
+      "id": "source-13",
+      "label": "机场自动步道动态实拍",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://commons.wikimedia.org/wiki/File:Airport_moving_walkway.webm",
+      "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/commons-airport-moving-walkway.webm",
+      "originalFileName": "Airport_moving_walkway.webm",
+      "mimeType": "video/webm",
+      "bytes": 11266115,
+      "importedAt": "2026-08-11T03:20:00.000Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "作者 Life-Of-Vids，CC0 1.0；原始视频 1920x1080、20.035 秒、29.97fps。仅作机场出行情境，完整计划窗口原生无平台或账号水印。",
+      "contentHash": "4351fe6d4bd6b9291632c621a13269fd76a5185cec6c33472e3862debc59dd27",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "4351fe6d4bd6b9291632c621a13269fd76a5185cec6c33472e3862debc59dd27",
+        "startedAt": "2026-08-11T03:20:00.000Z",
+        "completedAt": "2026-08-11T03:20:00.000Z",
+        "error": "",
+        "model": "manual-rights-and-start-mid-end-review",
+        "promptVersion": "power-bank-airport-dynamic-recut-20260811-v2",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "低机位机场自动步道持续向前运动。 作者 Life-Of-Vids，CC0 1.0；原始视频 1920x1080、20.035 秒、29.97fps。仅作机场出行情境，完整计划窗口原生无平台或账号水印。",
+        "hierarchicalSummary": "低机位机场自动步道持续向前运动。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-13-visual",
+            "statement": "机场自动步道动态实拍 的原始视频、媒体参数、SHA-256、许可与无平台水印状态已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-13",
+                "locatorType": "file",
+                "note": "原始文件与 start/mid/end 联系表"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-14",
+      "label": "机场值机入口与旅客行李动态实拍",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://coverr.co/videos/airport-check-in-gu3dun1so7",
+      "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/coverr-airport-check-in.mp4",
+      "originalFileName": "coverr-airport-check-in-6995-1080p.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 9230996,
+      "importedAt": "2026-08-11T03:20:00.000Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Coverr License；可免费用于商业和非商业项目，无需另行许可或署名。原始视频 1920x1080、16.440 秒、25fps；完整计划窗口原生无平台或账号水印。",
+      "contentHash": "7383d34c19fc015ce4d3217922f75d6b253b957fb1df41dfd6ce2244dad9c3f6",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "7383d34c19fc015ce4d3217922f75d6b253b957fb1df41dfd6ce2244dad9c3f6",
+        "startedAt": "2026-08-11T03:20:00.000Z",
+        "completedAt": "2026-08-11T03:20:00.000Z",
+        "error": "",
+        "model": "manual-rights-and-start-mid-end-review",
+        "promptVersion": "power-bank-airport-dynamic-recut-20260811-v2",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "旅客携带行李进入机场值机区域。 Coverr License；可免费用于商业和非商业项目，无需另行许可或署名。原始视频 1920x1080、16.440 秒、25fps；完整计划窗口原生无平台或账号水印。",
+        "hierarchicalSummary": "旅客携带行李进入机场值机区域。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-14-visual",
+            "statement": "机场值机入口与旅客行李动态实拍 的原始视频、媒体参数、SHA-256、许可与无平台水印状态已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-14",
+                "locatorType": "file",
+                "note": "原始文件与 start/mid/end 联系表"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-15",
+      "label": "机场旅客从包中取出手机动态实拍",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://coverr.co/videos/woman-taking-phone-out-of-purse-xmxmnuwswm",
+      "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/coverr-phone-from-purse.mp4",
+      "originalFileName": "coverr-woman-taking-phone-out-of-purse-9091-1080p.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 8591793,
+      "importedAt": "2026-08-11T03:20:00.000Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Coverr License；可免费用于商业和非商业项目，无需另行许可或署名。原始视频 1920x1080、15.125 秒、24fps；完整计划窗口原生无平台或账号水印。",
+      "contentHash": "ed69f9d32eb55e97c0c3424685a88049eb6fb15e365fdb706e8268f1668ed018",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "ed69f9d32eb55e97c0c3424685a88049eb6fb15e365fdb706e8268f1668ed018",
+        "startedAt": "2026-08-11T03:20:00.000Z",
+        "completedAt": "2026-08-11T03:20:00.000Z",
+        "error": "",
+        "model": "manual-rights-and-start-mid-end-review",
+        "promptVersion": "power-bank-airport-dynamic-recut-20260811-v2",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "候机旅客从随身包中取出手机并查看。 Coverr License；可免费用于商业和非商业项目，无需另行许可或署名。原始视频 1920x1080、15.125 秒、24fps；完整计划窗口原生无平台或账号水印。",
+        "hierarchicalSummary": "候机旅客从随身包中取出手机并查看。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-15-visual",
+            "statement": "机场旅客从包中取出手机动态实拍 的原始视频、媒体参数、SHA-256、许可与无平台水印状态已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-15",
+                "locatorType": "file",
+                "note": "原始文件与 start/mid/end 联系表"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-16",
+      "label": "机场旅客用手机查询动态实拍",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://coverr.co/videos/man-using-phone-at-airport-gqufqfxmoa",
+      "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/coverr-man-phone-airport.mp4",
+      "originalFileName": "coverr-man-using-phone-at-airport-2719-1080p.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 8195769,
+      "importedAt": "2026-08-11T03:20:00.000Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Coverr License；可免费用于商业和非商业项目，无需另行许可或署名。原始视频 1920x1080、14.625 秒、24fps；完整计划窗口原生无平台或账号水印。",
+      "contentHash": "341befe2f6e307c7f646169a9ad7c3c0a5f02df44ca8fe0504115eaea89b6769",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "341befe2f6e307c7f646169a9ad7c3c0a5f02df44ca8fe0504115eaea89b6769",
+        "startedAt": "2026-08-11T03:20:00.000Z",
+        "completedAt": "2026-08-11T03:20:00.000Z",
+        "error": "",
+        "model": "manual-rights-and-start-mid-end-review",
+        "promptVersion": "power-bank-airport-dynamic-recut-20260811-v2",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "旅客在机场行李转盘旁持续操作手机。 Coverr License；可免费用于商业和非商业项目，无需另行许可或署名。原始视频 1920x1080、14.625 秒、24fps；完整计划窗口原生无平台或账号水印。",
+        "hierarchicalSummary": "旅客在机场行李转盘旁持续操作手机。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-16-visual",
+            "statement": "机场旅客用手机查询动态实拍 的原始视频、媒体参数、SHA-256、许可与无平台水印状态已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-16",
+                "locatorType": "file",
+                "note": "原始文件与 start/mid/end 联系表"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-17",
+      "label": "机场托运行李转盘动态实拍",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://coverr.co/videos/baggage-claim-ifbljbv03l",
+      "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/coverr-baggage-claim.mp4",
+      "originalFileName": "coverr-baggage-claim-1603-1080p.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 8498061,
+      "importedAt": "2026-08-11T03:20:00.000Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Coverr License；可免费用于商业和非商业项目，无需另行许可或署名。原始视频 1920x1080、14.933 秒、30fps；完整计划窗口原生无平台或账号水印。",
+      "contentHash": "2c88ce2a9bf8e138bf21b8b3f13b07217b8a9e2ec7f51be4c6844ec07e3d656a",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "2c88ce2a9bf8e138bf21b8b3f13b07217b8a9e2ec7f51be4c6844ec07e3d656a",
+        "startedAt": "2026-08-11T03:20:00.000Z",
+        "completedAt": "2026-08-11T03:20:00.000Z",
+        "error": "",
+        "model": "manual-rights-and-start-mid-end-review",
+        "promptVersion": "power-bank-airport-dynamic-recut-20260811-v2",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "机场行李转盘持续运转，建立托运行李情境。 Coverr License；可免费用于商业和非商业项目，无需另行许可或署名。原始视频 1920x1080、14.933 秒、30fps；完整计划窗口原生无平台或账号水印。",
+        "hierarchicalSummary": "机场行李转盘持续运转，建立托运行李情境。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-17-visual",
+            "statement": "机场托运行李转盘动态实拍 的原始视频、媒体参数、SHA-256、许可与无平台水印状态已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-17",
+                "locatorType": "file",
+                "note": "原始文件与 start/mid/end 联系表"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-18",
+      "label": "旅客重新整理并合上行李箱动态实拍",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://coverr.co/videos/a-man-zipping-his-suitcase-4197",
+      "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/coverr-zipping-suitcase.mp4",
+      "originalFileName": "coverr-a-man-zipping-his-suitcase-4197-1080p.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 9325449,
+      "importedAt": "2026-08-11T03:20:00.000Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Coverr License；可免费用于商业和非商业项目，无需另行许可或署名。原始视频 1920x1080、16.558 秒、23.976fps；完整计划窗口原生无平台或账号水印。",
+      "contentHash": "e107f8c8cbaaefcd065aab7761090a5661e9c04bf3d367dfe05e7a8f65e36aca",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "e107f8c8cbaaefcd065aab7761090a5661e9c04bf3d367dfe05e7a8f65e36aca",
+        "startedAt": "2026-08-11T03:20:00.000Z",
+        "completedAt": "2026-08-11T03:20:00.000Z",
+        "error": "",
+        "model": "manual-rights-and-start-mid-end-review",
+        "promptVersion": "power-bank-airport-dynamic-recut-20260811-v2",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "旅客整理衣物并合上行李箱，承担重新安排物品的过程示意。 Coverr License；可免费用于商业和非商业项目，无需另行许可或署名。原始视频 1920x1080、16.558 秒、23.976fps；完整计划窗口原生无平台或账号水印。",
+        "hierarchicalSummary": "旅客整理衣物并合上行李箱，承担重新安排物品的过程示意。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-18-visual",
+            "statement": "旅客重新整理并合上行李箱动态实拍 的原始视频、媒体参数、SHA-256、许可与无平台水印状态已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-18",
+                "locatorType": "file",
+                "note": "原始文件与 start/mid/end 联系表"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-19",
+      "label": "机场旅客拉行李继续出行动画实拍",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://coverr.co/videos/walking-with-suitcase-kyqmocayto",
+      "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/coverr-walking-suitcase.mp4",
+      "originalFileName": "coverr-walking-with-suitcase-4717-1080p.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 7467837,
+      "importedAt": "2026-08-11T03:20:00.000Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Coverr License；可免费用于商业和非商业项目，无需另行许可或署名。原始视频 1920x1080、13.583 秒、24fps；完整计划窗口原生无平台或账号水印。",
+      "contentHash": "8cf01aa73a50e522b72d51550b8ca7ebe7d9bc4197e0059e2b6d6e1f050c8e5d",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "8cf01aa73a50e522b72d51550b8ca7ebe7d9bc4197e0059e2b6d6e1f050c8e5d",
+        "startedAt": "2026-08-11T03:20:00.000Z",
+        "completedAt": "2026-08-11T03:20:00.000Z",
+        "error": "",
+        "model": "manual-rights-and-start-mid-end-review",
+        "promptVersion": "power-bank-airport-dynamic-recut-20260811-v2",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "机场旅客从座位起身并拉着行李离开。 Coverr License；可免费用于商业和非商业项目，无需另行许可或署名。原始视频 1920x1080、13.583 秒、24fps；完整计划窗口原生无平台或账号水印。",
+        "hierarchicalSummary": "机场旅客从座位起身并拉着行李离开。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-19-visual",
+            "statement": "机场旅客拉行李继续出行动画实拍 的原始视频、媒体参数、SHA-256、许可与无平台水印状态已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-19",
+                "locatorType": "file",
+                "note": "原始文件与 start/mid/end 联系表"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-20",
+      "label": "客舱旅客系安全带动态实拍",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://coverr.co/videos/fastening-seat-belt-on-airplane-7278",
+      "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/coverr-fastening-seatbelt.mp4",
+      "originalFileName": "coverr-fastening-seat-belt-on-airplane-7278-1080p.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 7544747,
+      "importedAt": "2026-08-11T03:20:00.000Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Coverr License；可免费用于商业和非商业项目，无需另行许可或署名。原始视频 1920x1080、13.250 秒、24fps；完整计划窗口原生无平台或账号水印。",
+      "contentHash": "1e0f9c74a37674a3a9b67189a328a10f0af1e267226ea2360878990be2ccc7c1",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "1e0f9c74a37674a3a9b67189a328a10f0af1e267226ea2360878990be2ccc7c1",
+        "startedAt": "2026-08-11T03:20:00.000Z",
+        "completedAt": "2026-08-11T03:20:00.000Z",
+        "error": "",
+        "model": "manual-rights-and-start-mid-end-review",
+        "promptVersion": "power-bank-airport-dynamic-recut-20260811-v2",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "客舱内旅客完成系安全带动作，承担登机后的情境收束。 Coverr License；可免费用于商业和非商业项目，无需另行许可或署名。原始视频 1920x1080、13.250 秒、24fps；完整计划窗口原生无平台或账号水印。",
+        "hierarchicalSummary": "客舱内旅客完成系安全带动作，承担登机后的情境收束。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-20-visual",
+            "statement": "客舱旅客系安全带动态实拍 的原始视频、媒体参数、SHA-256、许可与无平台水印状态已核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-20",
+                "locatorType": "file",
+                "note": "原始文件与 start/mid/end 联系表"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 8
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
     }
   ],
   "research": {
@@ -1092,7 +1532,7 @@
   "narrative": {
     "status": "completed",
     "error": "",
-    "activeVersionId": "narrative-v1",
+    "activeVersionId": "narrative-v2-dynamic-recut",
     "versions": [
       {
         "id": "narrative-v1",
@@ -1127,14 +1567,48 @@
           "境内航班边界保持明确",
           "机场与航司可能存在额外现场流程"
         ]
+      },
+      {
+        "id": "narrative-v2-dynamic-recut",
+        "generatedAt": "2026-08-11T03:20:00.000Z",
+        "model": "codex-editorial",
+        "promptVersion": "original-chinese-explainer-dynamic-recut-20260811-v2",
+        "inputHash": "rights-cleared-dynamic-window-recut-81-percent",
+        "conclusion": "3C 重要，但召回、Wh 与携带方式仍要独立检查。",
+        "hook": "有 3C 的充电宝，为什么还会被拦？",
+        "outline": [
+          "反常问题",
+          "三道判断",
+          "召回覆盖",
+          "Wh 与携带",
+          "三方成本",
+          "四步自查"
+        ],
+        "voiceoverScript": "你的充电宝明明印着 3C，到了机场却仍可能被拦。因为 3C 不是登机通行证，安检其实在做三次不同的判断。第一层看标识。自二零二五年六月二十八日起，境内航班禁止携带没有 3C 标识，或者标识不清晰的充电宝。看清 3C，只是通过第一关。它说明外壳标识可以识别，却不等于今天一定能带上飞机。还要核对召回和额定能量，最后确认携带方式。第二层看召回。出发前要按外壳型号和批次，查询召回状态。即使 3C 还在，只要命中被召回的型号或批次，境内航班同样禁止携带。第三层才看额定能量。不要只盯一万毫安时。民航规则看的是瓦时：电压乘以安时。标签没写瓦时，也必须能用其他参数算出来。携带方式也要单独判断。充电宝只能随身或放进手提行李，不能托运；飞行中也不能拿它给设备充电，有开关的还要保持关闭。不超过一百瓦时，无需航司批准；超过一百但不超过一百六十瓦时，要航司批准，而且每人最多两个；超过一百六十瓦时，不能带。这套规则把成本分给了三方：旅客要查型号和批次，来不及时还要寄送、暂存或自弃；厂家承担召回和认证风险；机场增加查验、解释与处置空间。民航局还要求机场设置自弃和暂存区，并完善充电设施。也就是说，规则不只是把风险挡在登机口，还要处理被挡下以后，旅客怎样继续出行。所以出发前按顺序检查：3C 清不清楚，型号批次有没有召回，瓦时是否合规，最后确认随身携带。3C 很重要，但它只是第一道门。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "2025 年新规"
+          },
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "携带规则"
+          }
+        ],
+        "uncertainties": [
+          "境内航班边界保持明确",
+          "机场与航司可能存在额外现场流程"
+        ]
       }
     ],
     "pendingDraft": null,
     "pendingScenes": [],
     "pendingChapters": [],
-    "generatedAt": "2026-08-09T02:41:59.324Z",
+    "generatedAt": "2026-08-11T03:20:00.000Z",
     "model": "codex-editorial",
-    "promptVersion": "original-chinese-explainer-20260809-v1"
+    "promptVersion": "original-chinese-explainer-dynamic-recut-20260811-v2"
   },
   "ai": {
     "provider": "openai",
@@ -1147,12 +1621,13 @@
     "claim": "3C 是充电宝登机查验的第一道门，不是充分条件；召回、Wh 与携带方式会独立改变结果。",
     "whyItMatters": "它把一次安检争议拆成产品认证、持续召回、航空危险品和机场服务四个相互连接的机制。",
     "chinaContext": "只解释中国境内航班公开规则，不推断国际航班或单个机场的额外执行细节。",
-    "riskNote": "中国机场实拍采用 CC BY-SA 4.0；发布描述必须保留作者、许可链接和相同方式共享声明。"
+    "riskNote": "Coverr 动态素材按 Coverr License 使用；机场自动步道为 Life-Of-Vids CC0；充电宝照片为 Full Moon Technology CC BY-SA 4.0。动态画面均为情境或操作示意，不冒充中国机场规则执行记录。"
   },
   "platformCopy": {
     "coverTitle": "有 3C 也会被拦？",
+    "coverAssetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/cover-official.png",
     "title": "有3C也可能被拦？充电宝登机其实要过三道检查",
-    "description": "你的充电宝明明印着 3C，为什么到了机场仍可能被拦？这条视频按顺序拆开标识、召回、额定能量和携带方式，也解释旅客、厂家和机场分别承担什么成本。\n\n规则范围：中国境内航班；具体出行前请查询航司与机场最新要求。\n\n主要事实来源：中国民用航空局 2025-06-26 通知及现行充电宝携带公告。\n画面署名：Shwangtianyuan（CC BY-SA 4.0）；Full Moon Technology（CC BY-SA 4.0）；CAPTAIN RAJU（CC0）。许可：https://creativecommons.org/licenses/by-sa/4.0/ 。本视频改编内容按 CC BY-SA 4.0 分享。\n\n制作说明：本视频使用合成旁白；画面为许可实拍与原创信息层，未使用 AI 生成画面。",
+    "description": "充电宝明明有 3C，为什么到了机场仍可能被拦？\n\n登机安检看的不只是一枚标识，还包括召回状态、额定能量和携带方式。这条视频按顺序讲清三道检查，以及出发前该确认什么。\n\n规则范围：中国境内航班；出发前请以航司和机场最新要求为准。\n\n素材鸣谢：Full Moon Technology《Power Bank 2600mAh》（经剪辑，CC BY-SA 4.0）：https://commons.wikimedia.org/wiki/File:Power_Bank_2600mAh_de_Full_Moon.jpg；许可：https://creativecommons.org/licenses/by-sa/4.0/ 。",
     "hashtags": [
       "充电宝",
       "3C认证",
@@ -1163,359 +1638,375 @@
   },
   "production": {
     "trackingStartedAt": "2026-08-09T02:41:59.246Z",
-    "updatedAt": "2026-08-09T02:53:45.766Z",
+    "updatedAt": "2026-08-16T15:23:38.968Z",
     "researchReviewedAt": "",
     "firstRenderCompletedAt": "2026-08-09T02:47:04.152Z",
-    "lastRenderCompletedAt": "2026-08-09T02:53:45.766Z",
-    "sourceImportCount": 12,
+    "lastRenderCompletedAt": "2026-08-11T03:30:33.420Z",
+    "sourceImportCount": 20,
     "manualSaveCount": 0,
-    "renderAttemptCount": 3,
+    "renderAttemptCount": 5,
     "renderFailureCount": 0,
-    "lastRenderStartedAt": "2026-08-09T02:53:20.161Z",
+    "lastRenderStartedAt": "2026-08-11T03:29:57.236Z",
     "lastRenderError": "",
     "reusedSourceIds": []
   },
   "materialReview": {
     "status": "approved",
     "approvedSourceIds": [
-      "source-03",
-      "source-07",
-      "source-08",
-      "source-09",
+      "source-13",
+      "source-14",
+      "source-15",
+      "source-16",
       "source-06",
-      "source-10",
+      "source-17",
       "source-11",
-      "source-04",
-      "source-05",
-      "source-12"
+      "source-18",
+      "source-19",
+      "source-20"
     ],
-    "reviewedAt": "2026-08-09T02:41:59.325Z"
+    "reviewedAt": "2026-08-11T03:20:00.000Z"
   },
   "materialQualityReview": {
     "schemaVersion": 1,
     "status": "passed",
-    "reviewedAt": "2026-08-09T02:53:19.984Z",
+    "reviewedAt": "2026-08-11T03:29:29.166Z",
     "reviewer": "Codex 逐幕人工复核",
-    "reviewScope": "10 个启用场景的已选静态候选；人工核对原图、1920x1080 start/mid/end 和 390x844 移动播放器中点证据。",
+    "reviewScope": "10 个启用场景的不可变候选窗口；逐幕核对 source start/mid/end、1920x1080 源帧和 390x219 移动播放器等比缩放证据，并逐幕确认平台水印状态。",
     "sceneReviews": [
       {
         "sceneId": "scene-01",
-        "sceneFingerprint": "bfa0ef4564feb73f903258b5fcfd9bc03711f73fa21c659dc442190a2afcc414",
+        "sceneFingerprint": "8efa66ca3b4a813a126bf5db47505eff1a0fdc7e538885685465b1845682a31c",
         "candidate": {
-          "sourceId": "source-03",
-          "sourceStart": 0,
-          "sourceEnd": 13.5
+          "sourceId": "source-13",
+          "sourceStart": 0.5,
+          "sourceEnd": 14
         },
-        "visibleClaim": "2026 年中国机场充电宝安检提示牌与真实安检区同框。",
-        "evidenceRole": "source-establishing",
+        "visibleClaim": "机场自动步道持续向前运行，建立旅客进入机场的动态情境。",
+        "evidenceRole": "primary-evidence",
         "narrationMatch": {
           "score": 2,
-          "reason": "实拍直接建立境内机场查验语境；完整规则继续由民航局文本承担。"
+          "reason": "机场动态情境承接开场问题；具体充电宝规则由民航局来源、标题和字幕承担。"
         },
         "readability": {
           "desktop": "passed",
           "mobile": "passed",
           "criticalText": [],
-          "reason": "当前场景不依赖源图细字；桌面与移动证据中主体和情境可直接辨认。"
+          "reason": "当前源画面不依赖细字；桌面与移动证据中主体动作可直接辨认。"
         },
         "temporalCompleteness": {
-          "status": "not-applicable",
-          "reason": "静态图在整幕稳定显示，start/mid/end 相同属于预期，不循环或伪造状态变化。"
+          "status": "passed",
+          "reason": "完整窗口中自动步道持续运行，开始、中点和结束均有真实位移。"
         },
         "stability": {
           "status": "stable",
-          "motionNecessary": false,
-          "reason": "保持静态，不添加推拉运动，优先保证信息层和实拍主体可读。"
+          "motionNecessary": true,
+          "reason": "画面运动来自真实连续动作，不添加程序化推拉。"
         },
         "uniqueness": {
           "status": "unique",
-          "reason": "该图片只用于当前场景和当前叙事角色，没有用同一通用画面解释其他观点。"
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色，没有复用解释其他观点。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "逐帧检查计划窗口 start/mid/end，未见平台角标、账号角标、下载标记或其他来源水印。"
         },
         "decision": "accept",
         "decisionReasons": [
-          "旁白与画面角色一致",
+          "旁白、标题、visualRequirement 和候选角色一致",
           "候选绑定当前 sourceId/sourceStart/sourceEnd",
-          "桌面与移动主体可辨",
+          "完整窗口不循环、不拉伸、不改速",
           "事实来源和视觉来源分工明确",
-          "权利状态与署名义务已记录"
+          "权利状态与水印复核已记录"
         ],
         "evidence": [
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-01-start.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-01-mid.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-01-end.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-01-mobile-mid.png"
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-01-start.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-01-mid.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-01-end.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-01-mobile-mid.png"
         ]
       },
       {
         "sceneId": "scene-02",
-        "sceneFingerprint": "e4ef0387f921ff6575b395ca5632ef0ec60f6da5debafabb261351ab8c21a781",
+        "sceneFingerprint": "510f6f4ca655c9b5458512471674e71570eafce0e1859659ee8f4c228d404389",
         "candidate": {
-          "sourceId": "source-07",
-          "sourceStart": 0,
-          "sourceEnd": 13
+          "sourceId": "source-14",
+          "sourceStart": 0.5,
+          "sourceEnd": 13.5
         },
-        "visibleClaim": "原创信息层并列 3C 标识、召回状态和额定能量三次判断。",
+        "visibleClaim": "多名旅客携带行李进入机场值机区域。",
         "evidenceRole": "primary-evidence",
-        "narrationMatch": {
-          "score": 3,
-          "reason": "画面把第一层标识查验放入完整三层结构，与旁白同点。"
-        },
-        "readability": {
-          "desktop": "passed",
-          "mobile": "passed",
-          "criticalText": [
-            "安检在做三次判断",
-            "3C 标识",
-            "召回状态",
-            "额定能量"
-          ],
-          "reason": "1920x1080 原图和 390x844 播放器等比缩放证据中，标题与关键标签无需暂停或放大即可读。"
-        },
-        "temporalCompleteness": {
-          "status": "not-applicable",
-          "reason": "静态图在整幕稳定显示，start/mid/end 相同属于预期，不循环或伪造状态变化。"
-        },
-        "stability": {
-          "status": "stable",
-          "motionNecessary": false,
-          "reason": "保持静态，不添加推拉运动，优先保证信息层和实拍主体可读。"
-        },
-        "uniqueness": {
-          "status": "unique",
-          "reason": "该图片只用于当前场景和当前叙事角色，没有用同一通用画面解释其他观点。"
-        },
-        "decision": "accept",
-        "decisionReasons": [
-          "旁白与画面角色一致",
-          "候选绑定当前 sourceId/sourceStart/sourceEnd",
-          "桌面与移动主体可辨",
-          "事实来源和视觉来源分工明确",
-          "权利状态与署名义务已记录"
-        ],
-        "evidence": [
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-02-start.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-02-mid.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-02-end.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-02-mobile-mid.png"
-        ]
-      },
-      {
-        "sceneId": "scene-03",
-        "sceneFingerprint": "2f4d52cda465616c1a0098bbe71f4c1464aa4957e7a5ce7ab9fd1913fd4b2b8e",
-        "candidate": {
-          "sourceId": "source-08",
-          "sourceStart": 0,
-          "sourceEnd": 12.5
-        },
-        "visibleClaim": "原创对照层分开“标识可识别”和“今天能否登机”。",
-        "evidenceRole": "primary-evidence",
-        "narrationMatch": {
-          "score": 3,
-          "reason": "两栏对照直接解释 3C 不是登机充分条件。"
-        },
-        "readability": {
-          "desktop": "passed",
-          "mobile": "passed",
-          "criticalText": [
-            "3C 只回答一部分问题",
-            "标识是否可识别",
-            "今天能否登机"
-          ],
-          "reason": "1920x1080 原图和 390x844 播放器等比缩放证据中，标题与关键标签无需暂停或放大即可读。"
-        },
-        "temporalCompleteness": {
-          "status": "not-applicable",
-          "reason": "静态图在整幕稳定显示，start/mid/end 相同属于预期，不循环或伪造状态变化。"
-        },
-        "stability": {
-          "status": "stable",
-          "motionNecessary": false,
-          "reason": "保持静态，不添加推拉运动，优先保证信息层和实拍主体可读。"
-        },
-        "uniqueness": {
-          "status": "unique",
-          "reason": "该图片只用于当前场景和当前叙事角色，没有用同一通用画面解释其他观点。"
-        },
-        "decision": "accept",
-        "decisionReasons": [
-          "旁白与画面角色一致",
-          "候选绑定当前 sourceId/sourceStart/sourceEnd",
-          "桌面与移动主体可辨",
-          "事实来源和视觉来源分工明确",
-          "权利状态与署名义务已记录"
-        ],
-        "evidence": [
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-03-start.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-03-mid.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-03-end.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-03-mobile-mid.png"
-        ]
-      },
-      {
-        "sceneId": "scene-04",
-        "sceneFingerprint": "03b78262e3b50cf860147ba9090e921016230348f5fe09188e957a5f9bcd4a26",
-        "candidate": {
-          "sourceId": "source-09",
-          "sourceStart": 0,
-          "sourceEnd": 14.5
-        },
-        "visibleClaim": "原创机制图表现 CCC 标识仍在，但召回型号或批次仍禁止携带。",
-        "evidenceRole": "primary-evidence",
-        "narrationMatch": {
-          "score": 3,
-          "reason": "标识与召回状态的覆盖关系和旁白完全一致。"
-        },
-        "readability": {
-          "desktop": "passed",
-          "mobile": "passed",
-          "criticalText": [
-            "CCC",
-            "召回型号 / 批次",
-            "禁止携带"
-          ],
-          "reason": "1920x1080 原图和 390x844 播放器等比缩放证据中，标题与关键标签无需暂停或放大即可读。"
-        },
-        "temporalCompleteness": {
-          "status": "not-applicable",
-          "reason": "静态图在整幕稳定显示，start/mid/end 相同属于预期，不循环或伪造状态变化。"
-        },
-        "stability": {
-          "status": "stable",
-          "motionNecessary": false,
-          "reason": "保持静态，不添加推拉运动，优先保证信息层和实拍主体可读。"
-        },
-        "uniqueness": {
-          "status": "unique",
-          "reason": "该图片只用于当前场景和当前叙事角色，没有用同一通用画面解释其他观点。"
-        },
-        "decision": "accept",
-        "decisionReasons": [
-          "旁白与画面角色一致",
-          "候选绑定当前 sourceId/sourceStart/sourceEnd",
-          "桌面与移动主体可辨",
-          "事实来源和视觉来源分工明确",
-          "权利状态与署名义务已记录"
-        ],
-        "evidence": [
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-04-start.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-04-mid.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-04-end.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-04-mobile-mid.png"
-        ]
-      },
-      {
-        "sceneId": "scene-05",
-        "sceneFingerprint": "5740579e5192ce1bf6e93150ee5520f7681b1444de095dd867ce8768c6111684",
-        "candidate": {
-          "sourceId": "source-06",
-          "sourceStart": 0,
-          "sourceEnd": 14
-        },
-        "visibleClaim": "真实充电宝给手机供电的产品情境。",
-        "evidenceRole": "operation-demo",
         "narrationMatch": {
           "score": 2,
-          "reason": "真实产品画面承担充电宝与参数标签情境；Wh 公式由旁白、字幕和后一幕信息层承担。"
+          "reason": "画面直接建立境内航班出发与行李查验语境，不冒充中国机场规则执行记录。"
         },
         "readability": {
           "desktop": "passed",
           "mobile": "passed",
           "criticalText": [],
-          "reason": "当前场景不依赖源图细字；桌面与移动证据中主体和情境可直接辨认。"
+          "reason": "当前源画面不依赖细字；桌面与移动证据中主体动作可直接辨认。"
         },
         "temporalCompleteness": {
-          "status": "not-applicable",
-          "reason": "静态图在整幕稳定显示，start/mid/end 相同属于预期，不循环或伪造状态变化。"
+          "status": "passed",
+          "reason": "完整窗口持续出现旅客和行李移动，没有循环或停帧。"
         },
         "stability": {
           "status": "stable",
-          "motionNecessary": false,
-          "reason": "保持静态，不添加推拉运动，优先保证信息层和实拍主体可读。"
+          "motionNecessary": true,
+          "reason": "画面运动来自真实连续动作，不添加程序化推拉。"
         },
         "uniqueness": {
           "status": "unique",
-          "reason": "该图片只用于当前场景和当前叙事角色，没有用同一通用画面解释其他观点。"
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色，没有复用解释其他观点。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "逐帧检查计划窗口 start/mid/end，未见平台角标、账号角标、下载标记或其他来源水印。"
         },
         "decision": "accept",
         "decisionReasons": [
-          "旁白与画面角色一致",
+          "旁白、标题、visualRequirement 和候选角色一致",
           "候选绑定当前 sourceId/sourceStart/sourceEnd",
-          "桌面与移动主体可辨",
+          "完整窗口不循环、不拉伸、不改速",
           "事实来源和视觉来源分工明确",
-          "权利状态与署名义务已记录"
+          "权利状态与水印复核已记录"
         ],
         "evidence": [
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-05-start.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-05-mid.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-05-end.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-05-mobile-mid.png"
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-02-start.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-02-mid.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-02-end.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-02-mobile-mid.png"
         ]
       },
       {
-        "sceneId": "scene-06",
-        "sceneFingerprint": "f4552eee69d756899b1016502e53f7568a0bda8949637b988e910bbb7a2a9eab",
+        "sceneId": "scene-03",
+        "sceneFingerprint": "e583b0f8884a36e3f03b4af29c1bdf886f574baa710294b88870a37ef67fe493",
         "candidate": {
-          "sourceId": "source-10",
-          "sourceStart": 0,
-          "sourceEnd": 14
+          "sourceId": "source-15",
+          "sourceStart": 0.5,
+          "sourceEnd": 13
         },
-        "visibleClaim": "原创对照层显示随身或手提行李可携带、托运行李禁止。",
-        "evidenceRole": "primary-evidence",
+        "visibleClaim": "候机旅客从随身包中取出手机并继续查看。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "只承担取出电子设备并继续核对信息的动作示意；项目明确记录设备是手机，不冒充充电宝。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "当前源画面不依赖细字；桌面与移动证据中主体动作可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "完整覆盖手伸入包内、取出手机、开始查看的动作结果。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "画面运动来自真实连续动作，不添加程序化推拉。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色，没有复用解释其他观点。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "逐帧检查计划窗口 start/mid/end，未见平台角标、账号角标、下载标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白、标题、visualRequirement 和候选角色一致",
+          "候选绑定当前 sourceId/sourceStart/sourceEnd",
+          "完整窗口不循环、不拉伸、不改速",
+          "事实来源和视觉来源分工明确",
+          "权利状态与水印复核已记录"
+        ],
+        "evidence": [
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-03-start.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-03-mid.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-03-end.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-03-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-04",
+        "sceneFingerprint": "da1af9e926b905ded8409124ffbbf9925a195cb1e84505b4602188d0afa6351c",
+        "candidate": {
+          "sourceId": "source-16",
+          "sourceStart": 0.1,
+          "sourceEnd": 14.6
+        },
+        "visibleClaim": "机场旅客持续操作手机完成多步查询。",
+        "evidenceRole": "operation-demo",
         "narrationMatch": {
           "score": 3,
-          "reason": "随身与托运的二分判断直接支持当前旁白。"
+          "reason": "持续查询动作直接对应出发前按型号和批次核对召回范围；屏幕内容不作为事实证据。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "当前源画面不依赖细字；桌面与移动证据中主体动作可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "start/mid/end 均保持可见操作，连续窗口没有循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "画面运动来自真实连续动作，不添加程序化推拉。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色，没有复用解释其他观点。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "逐帧检查计划窗口 start/mid/end，未见平台角标、账号角标、下载标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白、标题、visualRequirement 和候选角色一致",
+          "候选绑定当前 sourceId/sourceStart/sourceEnd",
+          "完整窗口不循环、不拉伸、不改速",
+          "事实来源和视觉来源分工明确",
+          "权利状态与水印复核已记录"
+        ],
+        "evidence": [
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-04-start.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-04-mid.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-04-end.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-04-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-05",
+        "sceneFingerprint": "f8c205ab68ace2458d176eda27d8534c7ae27a29feea3463c4112911eefc8174",
+        "candidate": {
+          "sourceId": "source-06",
+          "sourceStart": 0,
+          "sourceEnd": 12.5
+        },
+        "visibleClaim": "真实充电宝连接手机，明确计算公式所对应的产品对象。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "产品实拍承担对象识别；Wh 公式由大字号副标题和字幕承担，事实由民航局来源证明。"
         },
         "readability": {
           "desktop": "passed",
           "mobile": "passed",
           "criticalText": [
-            "随身可以，托运不行",
-            "随身 / 手提行李",
-            "托运行李"
+            "Wh = V × Ah",
+            "mAh ÷ 1000 = Ah"
           ],
-          "reason": "1920x1080 原图和 390x844 播放器等比缩放证据中，标题与关键标签无需暂停或放大即可读。"
+          "reason": "源图只承担产品对象；公式由项目大字号副标题与字幕承载，桌面和移动端在渲染后继续复核。"
         },
         "temporalCompleteness": {
           "status": "not-applicable",
-          "reason": "静态图在整幕稳定显示，start/mid/end 相同属于预期，不循环或伪造状态变化。"
+          "reason": "静态实拍稳定显示，start/mid/end 相同属于预期。"
         },
         "stability": {
           "status": "stable",
           "motionNecessary": false,
-          "reason": "保持静态，不添加推拉运动，优先保证信息层和实拍主体可读。"
+          "reason": "静态信息保持稳定，不添加推拉运动。"
         },
         "uniqueness": {
           "status": "unique",
-          "reason": "该图片只用于当前场景和当前叙事角色，没有用同一通用画面解释其他观点。"
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色，没有复用解释其他观点。"
+        },
+        "platformWatermark": {
+          "status": "not-applicable",
+          "marks": [],
+          "reason": "静态素材为许可实拍或 VideoBrief 原创信息层，不存在平台视频水印。"
         },
         "decision": "accept",
         "decisionReasons": [
-          "旁白与画面角色一致",
+          "旁白、标题、visualRequirement 和候选角色一致",
           "候选绑定当前 sourceId/sourceStart/sourceEnd",
-          "桌面与移动主体可辨",
+          "完整窗口不循环、不拉伸、不改速",
           "事实来源和视觉来源分工明确",
-          "权利状态与署名义务已记录"
+          "权利状态与水印复核已记录"
         ],
         "evidence": [
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-06-start.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-06-mid.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-06-end.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-06-mobile-mid.png"
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-05-start.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-05-mid.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-05-end.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-05-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-06",
+        "sceneFingerprint": "3f72dfaa568302dd20e580d62dfa9497214ab7916a3437698c53d96481ca7886",
+        "candidate": {
+          "sourceId": "source-17",
+          "sourceStart": 0.5,
+          "sourceEnd": 14.5
+        },
+        "visibleClaim": "机场托运行李转盘持续运转。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "真实托运行李情境与不能托运的携带方式判断直接相关；不声称画面中的行李含充电宝。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "当前源画面不依赖细字；桌面与移动证据中主体动作可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "完整窗口内转盘连续移动，没有循环或停帧。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "画面运动来自真实连续动作，不添加程序化推拉。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色，没有复用解释其他观点。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "逐帧检查计划窗口 start/mid/end，未见平台角标、账号角标、下载标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白、标题、visualRequirement 和候选角色一致",
+          "候选绑定当前 sourceId/sourceStart/sourceEnd",
+          "完整窗口不循环、不拉伸、不改速",
+          "事实来源和视觉来源分工明确",
+          "权利状态与水印复核已记录"
+        ],
+        "evidence": [
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-06-start.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-06-mid.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-06-end.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-06-mobile-mid.png"
         ]
       },
       {
         "sceneId": "scene-07",
-        "sceneFingerprint": "f60675e716a2a668fff3e196ced94c5af30b071f3231efd7dfd0f3145968f208",
+        "sceneFingerprint": "63a47359704559366313eb0fcf934fc0f1def2570ea6b5aac15a908e24c88dcf",
         "candidate": {
           "sourceId": "source-11",
           "sourceStart": 0,
-          "sourceEnd": 14.5
+          "sourceEnd": 12.5
         },
-        "visibleClaim": "原创信息层列出 Wh 公式、100Wh 和 160Wh 三档门槛。",
+        "visibleClaim": "原创信息层同时显示 Wh 公式、100Wh 和 160Wh 三档门槛。",
         "evidenceRole": "primary-evidence",
         "narrationMatch": {
           "score": 3,
-          "reason": "公式和三档阈值逐项对应旁白，没有增加规则外结论。"
+          "reason": "大字号数值、批准条件和禁止条件与旁白逐项一致。"
         },
         "readability": {
           "desktop": "passed",
@@ -1526,184 +2017,198 @@
             "100-160Wh",
             "> 160Wh"
           ],
-          "reason": "1920x1080 原图和 390x844 播放器等比缩放证据中，标题与关键标签无需暂停或放大即可读。"
+          "reason": "1920x1080 源图及 390x219 等比缩放证据中，三档阈值无需暂停或放大即可辨认。"
         },
         "temporalCompleteness": {
           "status": "not-applicable",
-          "reason": "静态图在整幕稳定显示，start/mid/end 相同属于预期，不循环或伪造状态变化。"
+          "reason": "静态信息层稳定显示，start/mid/end 相同属于预期。"
         },
         "stability": {
           "status": "stable",
           "motionNecessary": false,
-          "reason": "保持静态，不添加推拉运动，优先保证信息层和实拍主体可读。"
+          "reason": "静态信息保持稳定，不添加推拉运动。"
         },
         "uniqueness": {
           "status": "unique",
-          "reason": "该图片只用于当前场景和当前叙事角色，没有用同一通用画面解释其他观点。"
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色，没有复用解释其他观点。"
+        },
+        "platformWatermark": {
+          "status": "not-applicable",
+          "marks": [],
+          "reason": "静态素材为许可实拍或 VideoBrief 原创信息层，不存在平台视频水印。"
         },
         "decision": "accept",
         "decisionReasons": [
-          "旁白与画面角色一致",
+          "旁白、标题、visualRequirement 和候选角色一致",
           "候选绑定当前 sourceId/sourceStart/sourceEnd",
-          "桌面与移动主体可辨",
+          "完整窗口不循环、不拉伸、不改速",
           "事实来源和视觉来源分工明确",
-          "权利状态与署名义务已记录"
+          "权利状态与水印复核已记录"
         ],
         "evidence": [
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-07-start.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-07-mid.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-07-end.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-07-mobile-mid.png"
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-07-start.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-07-mid.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-07-end.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-07-mobile-mid.png"
         ]
       },
       {
         "sceneId": "scene-08",
-        "sceneFingerprint": "04032679ca696339101bbd990ed04c05e0cf4ee369fbcf5b2089bd8c0757538f",
+        "sceneFingerprint": "c7c2134a6d2d797fca6e392f490eeecc389a6a07ce3e55a6a6ee505a77622a8c",
         "candidate": {
-          "sourceId": "source-04",
-          "sourceStart": 0,
-          "sourceEnd": 15.5
+          "sourceId": "source-18",
+          "sourceStart": 0.5,
+          "sourceEnd": 16
         },
-        "visibleClaim": "上海虹桥机场限制物品寄送区与处置提示实拍。",
-        "evidenceRole": "source-establishing",
+        "visibleClaim": "旅客重新整理衣物并合上行李箱。",
+        "evidenceRole": "operation-demo",
         "narrationMatch": {
           "score": 2,
-          "reason": "实拍直接支持被拦物品需要后续处置的情境；三方成本分配明确标为规则义务与流程推断。"
+          "reason": "可见的整理和合箱动作表现旅客承担额外操作与时间成本；不冒充机场处置。"
         },
         "readability": {
           "desktop": "passed",
           "mobile": "passed",
           "criticalText": [],
-          "reason": "当前场景不依赖源图细字；桌面与移动证据中主体和情境可直接辨认。"
+          "reason": "当前源画面不依赖细字；桌面与移动证据中主体动作可直接辨认。"
         },
         "temporalCompleteness": {
-          "status": "not-applicable",
-          "reason": "静态图在整幕稳定显示，start/mid/end 相同属于预期，不循环或伪造状态变化。"
+          "status": "passed",
+          "reason": "完整覆盖整理、合箱到拉链闭合的连续过程。"
         },
         "stability": {
           "status": "stable",
-          "motionNecessary": false,
-          "reason": "保持静态，不添加推拉运动，优先保证信息层和实拍主体可读。"
+          "motionNecessary": true,
+          "reason": "画面运动来自真实连续动作，不添加程序化推拉。"
         },
         "uniqueness": {
           "status": "unique",
-          "reason": "该图片只用于当前场景和当前叙事角色，没有用同一通用画面解释其他观点。"
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色，没有复用解释其他观点。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "逐帧检查计划窗口 start/mid/end，未见平台角标、账号角标、下载标记或其他来源水印。"
         },
         "decision": "accept",
         "decisionReasons": [
-          "旁白与画面角色一致",
+          "旁白、标题、visualRequirement 和候选角色一致",
           "候选绑定当前 sourceId/sourceStart/sourceEnd",
-          "桌面与移动主体可辨",
+          "完整窗口不循环、不拉伸、不改速",
           "事实来源和视觉来源分工明确",
-          "权利状态与署名义务已记录"
+          "权利状态与水印复核已记录"
         ],
         "evidence": [
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-08-start.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-08-mid.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-08-end.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-08-mobile-mid.png"
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-08-start.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-08-mid.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-08-end.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-08-mobile-mid.png"
         ]
       },
       {
         "sceneId": "scene-09",
-        "sceneFingerprint": "84e97cce2c2dfbc506c6586feb4ce0038b64de13a12cf28dd98652ebe8d4c45f",
+        "sceneFingerprint": "af6cd3487cfa30be6aa67037573d428c3c2ee127e32b7b7669c7e078aca11c40",
         "candidate": {
-          "sourceId": "source-05",
-          "sourceStart": 0,
-          "sourceEnd": 13.5
+          "sourceId": "source-19",
+          "sourceStart": 0.05,
+          "sourceEnd": 13.55
         },
-        "visibleClaim": "都柏林机场充电设施实拍，作为机场服务设施情境示意。",
-        "evidenceRole": "background",
+        "visibleClaim": "机场旅客从座位起身，拉着行李离开画面。",
+        "evidenceRole": "primary-evidence",
         "narrationMatch": {
           "score": 2,
-          "reason": "画面不冒充中国机场执行证据；中国机场义务仍由民航局通知承担。"
+          "reason": "从等待到带行李离开的完整动作对应处置后继续出行；中国机场义务由民航局通知证明。"
         },
         "readability": {
           "desktop": "passed",
           "mobile": "passed",
           "criticalText": [],
-          "reason": "当前场景不依赖源图细字；桌面与移动证据中主体和情境可直接辨认。"
+          "reason": "当前源画面不依赖细字；桌面与移动证据中主体动作可直接辨认。"
         },
         "temporalCompleteness": {
-          "status": "not-applicable",
-          "reason": "静态图在整幕稳定显示，start/mid/end 相同属于预期，不循环或伪造状态变化。"
+          "status": "passed",
+          "reason": "完整覆盖起身、拉箱、离开和空座结果，结尾空画面是动作完成状态。"
         },
         "stability": {
           "status": "stable",
-          "motionNecessary": false,
-          "reason": "保持静态，不添加推拉运动，优先保证信息层和实拍主体可读。"
+          "motionNecessary": true,
+          "reason": "画面运动来自真实连续动作，不添加程序化推拉。"
         },
         "uniqueness": {
           "status": "unique",
-          "reason": "该图片只用于当前场景和当前叙事角色，没有用同一通用画面解释其他观点。"
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色，没有复用解释其他观点。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "逐帧检查计划窗口 start/mid/end，未见平台角标、账号角标、下载标记或其他来源水印。"
         },
         "decision": "accept",
         "decisionReasons": [
-          "旁白与画面角色一致",
+          "旁白、标题、visualRequirement 和候选角色一致",
           "候选绑定当前 sourceId/sourceStart/sourceEnd",
-          "桌面与移动主体可辨",
+          "完整窗口不循环、不拉伸、不改速",
           "事实来源和视觉来源分工明确",
-          "权利状态与署名义务已记录"
+          "权利状态与水印复核已记录"
         ],
         "evidence": [
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-09-start.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-09-mid.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-09-end.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-09-mobile-mid.png"
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-09-start.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-09-mid.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-09-end.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-09-mobile-mid.png"
         ]
       },
       {
         "sceneId": "scene-10",
-        "sceneFingerprint": "15c04edc12cd974321e458cfc3db504a9292d1a127ce0d7df5051afa796cec6d",
+        "sceneFingerprint": "1c2df453968c81fd0f0e4a4ae52f4fb9af43f3eef77b43b29a22979e167c39c5",
         "candidate": {
-          "sourceId": "source-12",
+          "sourceId": "source-20",
           "sourceStart": 0,
-          "sourceEnd": 13.5
+          "sourceEnd": 13.2
         },
-        "visibleClaim": "原创清单依次列出 3C、召回、Wh 与随身携带四项自查。",
+        "visibleClaim": "客舱旅客拿起、扣合并调整安全带。",
         "evidenceRole": "primary-evidence",
         "narrationMatch": {
-          "score": 3,
-          "reason": "四步顺序完整收束全片，和旁白行动建议一致。"
+          "score": 2,
+          "reason": "明确的登机后动作作为四项自查的结果收束；四项内容由标题、副标题和字幕承担。"
         },
         "readability": {
           "desktop": "passed",
           "mobile": "passed",
-          "criticalText": [
-            "按顺序过四项",
-            "3C",
-            "召回",
-            "Wh",
-            "携带"
-          ],
-          "reason": "1920x1080 原图和 390x844 播放器等比缩放证据中，标题与关键标签无需暂停或放大即可读。"
+          "criticalText": [],
+          "reason": "当前源画面不依赖细字；桌面与移动证据中主体动作可直接辨认。"
         },
         "temporalCompleteness": {
-          "status": "not-applicable",
-          "reason": "静态图在整幕稳定显示，start/mid/end 相同属于预期，不循环或伪造状态变化。"
+          "status": "passed",
+          "reason": "完整覆盖拿起安全带、扣合和最终固定状态。"
         },
         "stability": {
           "status": "stable",
-          "motionNecessary": false,
-          "reason": "保持静态，不添加推拉运动，优先保证信息层和实拍主体可读。"
+          "motionNecessary": true,
+          "reason": "画面运动来自真实连续动作，不添加程序化推拉。"
         },
         "uniqueness": {
           "status": "unique",
-          "reason": "该图片只用于当前场景和当前叙事角色，没有用同一通用画面解释其他观点。"
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色，没有复用解释其他观点。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "逐帧检查计划窗口 start/mid/end，未见平台角标、账号角标、下载标记或其他来源水印。"
         },
         "decision": "accept",
         "decisionReasons": [
-          "旁白与画面角色一致",
+          "旁白、标题、visualRequirement 和候选角色一致",
           "候选绑定当前 sourceId/sourceStart/sourceEnd",
-          "桌面与移动主体可辨",
+          "完整窗口不循环、不拉伸、不改速",
           "事实来源和视觉来源分工明确",
-          "权利状态与署名义务已记录"
+          "权利状态与水印复核已记录"
         ],
         "evidence": [
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-10-start.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-10-mid.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-10-end.png",
-          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence/scene-10-mobile-mid.png"
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-10-start.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-10-mid.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-10-end.png",
+          "output/videos/power-bank-airport-screening-explainer-20260809-work/material-quality-evidence-v2/scene-10-mobile-mid.png"
         ]
       }
     ]
@@ -1723,36 +2228,530 @@
       "decidedAt": "2026-08-09T02:41:59.246Z",
       "decidedBy": "用户（本轮提示授权）",
       "note": "用户明确授权唯一推荐达到 34/40 且无权利、关键事实或素材阻断时直接进入生产。",
-      "fingerprint": "66bf9eae8144b1afb2a845ce7c2715c7e53d6831f6e19c3c2c3d6f500e0fb75b"
+      "fingerprint": "0e639f7c5fad27ba90b98e3a3ae557f0ce5d8fcff84a3ef3a0cc6ca433aa651f"
     },
     "researchApproval": {
       "status": "approved",
       "decidedAt": "2026-08-09T02:41:59.324Z",
       "decidedBy": "用户（本轮提示授权）",
       "note": "用户授权达标题目连续进入生产；关键事实均由民航局一手资料确认，覆盖缺口单列，不作为负面证据。",
-      "fingerprint": "62f3453a6693f95890ac2413a24a5a3ba689df8c77af7ca17690ed90a0cf265e"
+      "fingerprint": "a8ddc97a60f004ac2a95c04912fa7f099a9e498bca7003516233b36add49f194"
     },
     "deliveryApproval": {
-      "status": "pending",
-      "decidedAt": "",
-      "decidedBy": "",
-      "note": "",
-      "fingerprint": ""
+      "status": "approved",
+      "decidedAt": "2026-08-11T04:08:13.053Z",
+      "decidedBy": "用户（本轮明确授权）",
+      "note": "用户在最终交付后明确回复‘对的，发布吧’，批准当前已完成技术、语义、编辑、浏览器及完整播放验收的视频束。",
+      "fingerprint": "0f41b594aff531960c7af72cd65561a820e8b3be499305ac183c64dbfed2949d"
     },
     "publication": {
       "approval": {
-        "status": "pending",
-        "decidedAt": "",
-        "decidedBy": "",
-        "note": "",
-        "fingerprint": ""
+        "status": "approved",
+        "decidedAt": "2026-08-11T04:22:23.398Z",
+        "decidedBy": "用户（本轮明确授权）",
+        "note": "用户明确回复‘对的，发布吧’，批准使用当前正式封面、成片与 production package 发布到 B 站。",
+        "fingerprint": "0f41b594aff531960c7af72cd65561a820e8b3be499305ac183c64dbfed2949d:42f5cbc17ff17724c44876cb63269d0d40485d6ff45c353e8b29b068a197fc43"
       },
-      "platform": "",
-      "publishedUrl": "",
-      "publishedAt": "",
-      "videoSha256": "",
-      "packageSha256": ""
+      "platform": "B站",
+      "publishedUrl": "https://www.bilibili.com/video/BV1iJuv6UEL7/",
+      "publishedAt": "2026-08-11T12:29:36+08:00",
+      "videoSha256": "0f41b594aff531960c7af72cd65561a820e8b3be499305ac183c64dbfed2949d",
+      "packageSha256": "42f5cbc17ff17724c44876cb63269d0d40485d6ff45c353e8b29b068a197fc43"
     },
+    "publicationTargets": [
+      {
+        "id": "primary",
+        "platform": "B站",
+        "status": "published",
+        "approval": {
+          "status": "approved",
+          "decidedAt": "2026-08-11T04:22:23.398Z",
+          "decidedBy": "用户（本轮明确授权）",
+          "note": "用户明确回复‘对的，发布吧’，批准使用当前正式封面、成片与 production package 发布到 B 站。",
+          "fingerprint": "0f41b594aff531960c7af72cd65561a820e8b3be499305ac183c64dbfed2949d:42f5cbc17ff17724c44876cb63269d0d40485d6ff45c353e8b29b068a197fc43"
+        },
+        "scheduledAt": "",
+        "submittedAt": "",
+        "submissionUrl": "",
+        "publishedUrl": "https://www.bilibili.com/video/BV1iJuv6UEL7/",
+        "publishedAt": "2026-08-11T12:29:36+08:00",
+        "externalId": "BV1iJuv6UEL7",
+        "videoSha256": "0f41b594aff531960c7af72cd65561a820e8b3be499305ac183c64dbfed2949d",
+        "packageSha256": "42f5cbc17ff17724c44876cb63269d0d40485d6ff45c353e8b29b068a197fc43",
+        "publisher": "",
+        "accountName": "daily-cause",
+        "lastRunId": "",
+        "lastRunAt": "2026-08-16T15:23:38.965Z",
+        "lastError": "",
+        "note": "2026-08-16T15:23:38.965Z 已通过程序化编辑页更新并回读平台说明。",
+        "copySnapshot": {
+          "title": "有3C也可能被拦？充电宝登机其实要过三道检查",
+          "description": "你的充电宝明明印着 3C，为什么到了机场仍可能被拦？这条视频按顺序拆开标识、召回、额定能量和携带方式，也解释旅客、厂家和机场分别承担什么成本。\n\n规则范围：中国境内航班；具体出行前请查询航司与机场最新要求。\n\n主要事实来源：中国民用航空局 2025-06-26 通知及现行充电宝携带公告。\n画面：Coverr License 免费素材；Life-Of-Vids《Airport moving walkway》（CC0）；Full Moon Technology《Power Bank 2600mAh》（CC BY-SA 4.0）。许可：https://coverr.co/license 、https://creativecommons.org/publicdomain/zero/1.0/ 、https://creativecommons.org/licenses/by-sa/4.0/ 。涉及 CC BY-SA 的改编按同一许可分享。\n\n制作说明：本视频使用合成旁白；未使用 AI 生成画面。",
+          "hashtags": [
+            "充电宝",
+            "3C认证",
+            "机场安检",
+            "民航规则",
+            "日常有因"
+          ],
+          "generatedByAi": true,
+          "effectiveTitle": "有3C也可能被拦？充电宝登机其实要过三道检查",
+          "effectiveDescription": "充电宝明明有 3C，为什么到了机场仍可能被拦？\n\n登机安检看的不只是一枚标识，还包括召回状态、额定能量和携带方式。这条视频按顺序讲清三道检查，以及出发前该确认什么。\n\n规则范围：中国境内航班；出发前请以航司和机场最新要求为准。\n\n素材鸣谢：Full Moon Technology《Power Bank 2600mAh》（经剪辑，CC BY-SA 4.0）：https://commons.wikimedia.org/wiki/File:Power_Bank_2600mAh_de_Full_Moon.jpg；许可：https://creativecommons.org/licenses/by-sa/4.0/ 。",
+          "capturedAt": "2026-08-16T15:23:38.965Z",
+          "source": "平台已发布作品编辑页回读"
+        },
+        "metricSnapshots": [
+          {
+            "observedAt": "2026-08-16T10:18:55.328Z",
+            "source": "https://api.bilibili.com/x/web-interface/view?bvid=BV1iJuv6UEL7",
+            "viewCount": 196,
+            "likeCount": 1,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 1,
+            "coinCount": 0,
+            "danmakuCount": 0,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          },
+          {
+            "observedAt": "2026-08-16T10:23:10.869Z",
+            "source": "https://api.bilibili.com/x/web-interface/view?bvid=BV1iJuv6UEL7",
+            "viewCount": 196,
+            "likeCount": 1,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 1,
+            "coinCount": 0,
+            "danmakuCount": 0,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          },
+          {
+            "observedAt": "2026-08-16T10:24:00.896Z",
+            "source": "https://api.bilibili.com/x/web-interface/view?bvid=BV1iJuv6UEL7",
+            "viewCount": 196,
+            "likeCount": 1,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 1,
+            "coinCount": 0,
+            "danmakuCount": 0,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          }
+        ]
+      },
+      {
+        "id": "wechat-channels",
+        "platform": "视频号",
+        "status": "submitted",
+        "approval": {
+          "status": "approved",
+          "decidedAt": "2026-08-16T04:13:54.054Z",
+          "decidedBy": "user",
+          "note": "用户明确要求将此前已在B站发布的视频逐渐扩展到其他平台，本轮先选择两条既有成片并按顺序通过程序发布到视频号。",
+          "fingerprint": "0f41b594aff531960c7af72cd65561a820e8b3be499305ac183c64dbfed2949d:42f5cbc17ff17724c44876cb63269d0d40485d6ff45c353e8b29b068a197fc43"
+        },
+        "scheduledAt": "",
+        "submittedAt": "2026-08-16T08:28:32.250Z",
+        "submissionUrl": "",
+        "publishedUrl": "",
+        "publishedAt": "",
+        "externalId": "export/UzFfBgAAxJeCMBkGEW_nk8zT4DCaOUes4RMCDd1igTz1b0qj_A",
+        "videoSha256": "0f41b594aff531960c7af72cd65561a820e8b3be499305ac183c64dbfed2949d",
+        "packageSha256": "42f5cbc17ff17724c44876cb63269d0d40485d6ff45c353e8b29b068a197fc43",
+        "publisher": "playwright-programmatic-manager",
+        "accountName": "daily-cause",
+        "lastRunId": "2026-08-16T08-27-46Z-reschedule-tencent",
+        "lastRunAt": "2026-08-16T08:28:32.250Z",
+        "lastError": "",
+        "note": "视频号助手后台“视频 (2)”列表确认已发表：2026-08-16 16:28，接口 status=1 且已有播放数据；平台未提供稳定匿名 Web 公开 URL，按契约暂保留 submitted。",
+        "copySnapshot": {
+          "title": "有3C也可能被拦？充电宝登机其实要过三道检查",
+          "description": "你的充电宝明明印着 3C，为什么到了机场仍可能被拦？这条视频按顺序拆开标识、召回、额定能量和携带方式，也解释旅客、厂家和机场分别承担什么成本。\n\n规则范围：中国境内航班；具体出行前请查询航司与机场最新要求。\n\n主要事实来源：中国民用航空局 2025-06-26 通知及现行充电宝携带公告。\n画面：Coverr License 免费素材；Life-Of-Vids《Airport moving walkway》（CC0）；Full Moon Technology《Power Bank 2600mAh》（CC BY-SA 4.0）。许可：https://coverr.co/license 、https://creativecommons.org/publicdomain/zero/1.0/ 、https://creativecommons.org/licenses/by-sa/4.0/ 。涉及 CC BY-SA 的改编按同一许可分享。\n\n制作说明：本视频使用合成旁白；未使用 AI 生成画面。",
+          "hashtags": [
+            "充电宝",
+            "3C认证",
+            "机场安检",
+            "民航规则",
+            "日常有因"
+          ],
+          "generatedByAi": true,
+          "effectiveTitle": "有3C也可能被拦？充电宝登机其实要过三道检查",
+          "effectiveDescription": "有3C也可能被拦？充电宝登机其实要过三道检查\n#充电宝 #3C认证 #机场安检 #民航规则 #日常有因 \n你的充电宝明明印着 3C，为什么到了机场仍可能被拦？这条视频按顺序拆开标识、召回、额定能量和携带方式，也解释旅客、厂家和机场分别承担什么成本。\n\n规则范围：中国境内航班；具体出行前请查询航司与机场最新要求。\n\n主要事实来源：中国民用航空局 2025-06-26 通知及现行充电宝携带公告。\n画面：Coverr License 免费素材；Life-Of-Vids《Airport moving walkway》（CC0）；Full Moon Technology《Power Bank 2600mAh》（CC BY-SA 4.0）。许可：https://coverr.co/license 、https://creativecommons.org/publicdomain/zero/1.0/ 、https://creativecommons.org/licenses/by-sa/4.0/ 。涉及 CC BY-SA 的改编按同一许可分享。\n\n制作说明：本视频使用合成旁白；未使用 AI 生成画面。\n",
+          "capturedAt": "2026-08-16T08:28:32.250Z",
+          "source": "output/exports/power-bank-airport-screening-explainer-20260809/platform-copy.json"
+        },
+        "metricSnapshots": [
+          {
+            "observedAt": "2026-08-16T10:18:55.328Z",
+            "source": "视频号助手内容管理接口",
+            "viewCount": 100,
+            "likeCount": 0,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": 0,
+            "completionRate": 3,
+            "averageWatchSeconds": 10.68,
+            "twoSecondBounceRate": 52.83018867924528,
+            "note": "视频号后台 status=1，作品已发表；平台未提供稳定匿名 Web 公开 URL。"
+          },
+          {
+            "observedAt": "2026-08-16T10:20:43.101Z",
+            "source": "视频号助手内容管理接口",
+            "viewCount": 106,
+            "likeCount": 0,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": 0,
+            "completionRate": 2.941176470588235,
+            "averageWatchSeconds": 10.647058823529411,
+            "twoSecondBounceRate": 52.293577981651374,
+            "note": "视频号后台 status=1，作品已发表；平台未提供稳定匿名 Web 公开 URL。"
+          },
+          {
+            "observedAt": "2026-08-16T10:23:10.869Z",
+            "source": "视频号助手内容管理接口",
+            "viewCount": 114,
+            "likeCount": 0,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": 0,
+            "completionRate": 2.631578947368421,
+            "averageWatchSeconds": 11.017543859649123,
+            "twoSecondBounceRate": 48.760330578512395,
+            "note": "视频号后台 status=1，作品已发表；平台未提供稳定匿名 Web 公开 URL。"
+          },
+          {
+            "observedAt": "2026-08-16T10:24:00.896Z",
+            "source": "视频号助手内容管理接口",
+            "viewCount": 115,
+            "likeCount": 0,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": 0,
+            "completionRate": 2.631578947368421,
+            "averageWatchSeconds": 11.271929824561404,
+            "twoSecondBounceRate": 48.760330578512395,
+            "note": "视频号后台 status=1，作品已发表；平台未提供稳定匿名 Web 公开 URL。"
+          }
+        ]
+      },
+      {
+        "id": "douyin",
+        "platform": "抖音",
+        "status": "published",
+        "approval": {
+          "status": "approved",
+          "decidedAt": "2026-08-16T04:48:03.451Z",
+          "decidedBy": "user",
+          "note": "用户明确要求将这两条既有成片发布到全部已接入平台；本目标按平台独立保留 AIGC、权利和投稿状态。",
+          "fingerprint": "0f41b594aff531960c7af72cd65561a820e8b3be499305ac183c64dbfed2949d:42f5cbc17ff17724c44876cb63269d0d40485d6ff45c353e8b29b068a197fc43"
+        },
+        "scheduledAt": "",
+        "submittedAt": "2026-08-16T04:52:10.708Z",
+        "submissionUrl": "",
+        "publishedUrl": "https://www.douyin.com/video/7674487743828807000",
+        "publishedAt": "2026-08-16T06:55:00.000Z",
+        "externalId": "7674487743828807000",
+        "videoSha256": "0f41b594aff531960c7af72cd65561a820e8b3be499305ac183c64dbfed2949d",
+        "packageSha256": "42f5cbc17ff17724c44876cb63269d0d40485d6ff45c353e8b29b068a197fc43",
+        "publisher": "social-auto-upload",
+        "accountName": "daily-cause",
+        "lastRunId": "2026-08-16T04-51-28-173Z-d59a1a5f",
+        "lastRunAt": "2026-08-16T04:52:10.708Z",
+        "lastError": "",
+        "note": "程序已核验抖音创作者中心：作品于 2026-08-16 14:55 发布；公开页返回 HTTP 200，未执行重复上传。",
+        "copySnapshot": {
+          "title": "有3C也可能被拦？充电宝登机其实要过三道检查",
+          "description": "你的充电宝明明印着 3C，为什么到了机场仍可能被拦？这条视频按顺序拆开标识、召回、额定能量和携带方式，也解释旅客、厂家和机场分别承担什么成本。\n\n规则范围：中国境内航班；具体出行前请查询航司与机场最新要求。\n\n主要事实来源：中国民用航空局 2025-06-26 通知及现行充电宝携带公告。\n画面：Coverr License 免费素材；Life-Of-Vids《Airport moving walkway》（CC0）；Full Moon Technology《Power Bank 2600mAh》（CC BY-SA 4.0）。许可：https://coverr.co/license 、https://creativecommons.org/publicdomain/zero/1.0/ 、https://creativecommons.org/licenses/by-sa/4.0/ 。涉及 CC BY-SA 的改编按同一许可分享。\n\n制作说明：本视频使用合成旁白；未使用 AI 生成画面。",
+          "hashtags": [
+            "充电宝",
+            "3C认证",
+            "机场安检",
+            "民航规则",
+            "日常有因"
+          ],
+          "generatedByAi": true,
+          "effectiveTitle": "有3C也可能被拦？充电宝登机其实要过三道检查",
+          "effectiveDescription": "有3C也可能被拦？充电宝登机其实要过三道检查 #充电宝  #3C认证  #机场安检  #民航规则  #日常有因",
+          "capturedAt": "2026-08-16T04:52:10.708Z",
+          "source": "output/exports/power-bank-airport-screening-explainer-20260809/platform-copy.json"
+        },
+        "metricSnapshots": [
+          {
+            "observedAt": "2026-08-16T10:18:55.328Z",
+            "source": "抖音创作者中心作品列表",
+            "viewCount": 164,
+            "likeCount": 2,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          },
+          {
+            "observedAt": "2026-08-16T10:23:10.869Z",
+            "source": "抖音创作者中心作品列表",
+            "viewCount": 164,
+            "likeCount": 2,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          },
+          {
+            "observedAt": "2026-08-16T10:24:00.896Z",
+            "source": "抖音创作者中心作品列表",
+            "viewCount": 164,
+            "likeCount": 2,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          }
+        ]
+      },
+      {
+        "id": "xiaohongshu",
+        "platform": "小红书",
+        "status": "published",
+        "approval": {
+          "status": "approved",
+          "decidedAt": "2026-08-16T04:48:03.846Z",
+          "decidedBy": "user",
+          "note": "用户明确要求将这两条既有成片发布到全部已接入平台；本目标按平台独立保留 AIGC、权利和投稿状态。",
+          "fingerprint": "0f41b594aff531960c7af72cd65561a820e8b3be499305ac183c64dbfed2949d:42f5cbc17ff17724c44876cb63269d0d40485d6ff45c353e8b29b068a197fc43"
+        },
+        "scheduledAt": "",
+        "submittedAt": "2026-08-16T08:34:24.588Z",
+        "submissionUrl": "",
+        "publishedUrl": "https://www.xiaohongshu.com/explore/6a81428b0000000033034638?xsec_token=GBaZjrncx3tpZ53llyIqF_sWjwaIi4u6fFefAAJHBZs_8%3D&xsec_source=pc_creator_mng",
+        "publishedAt": "2026-08-16T08:33:00.000Z",
+        "externalId": "6a81428b0000000033034638",
+        "videoSha256": "0f41b594aff531960c7af72cd65561a820e8b3be499305ac183c64dbfed2949d",
+        "packageSha256": "42f5cbc17ff17724c44876cb63269d0d40485d6ff45c353e8b29b068a197fc43",
+        "publisher": "playwright-programmatic-manager",
+        "accountName": "daily-cause",
+        "lastRunId": "2026-08-16T08-33-00Z-reschedule-xiaohongshu",
+        "lastRunAt": "2026-08-16T08:34:24.588Z",
+        "lastError": "",
+        "note": "小红书创作后台“已发布”，发布时间 2026-08-16 16:33，并已有播放数据；Web 分享页受当前代理 IP 风控。",
+        "copySnapshot": {
+          "title": "有3C也可能被拦？充电宝登机其实要过三道检查",
+          "description": "你的充电宝明明印着 3C，为什么到了机场仍可能被拦？这条视频按顺序拆开标识、召回、额定能量和携带方式，也解释旅客、厂家和机场分别承担什么成本。\n\n规则范围：中国境内航班；具体出行前请查询航司与机场最新要求。\n\n主要事实来源：中国民用航空局 2025-06-26 通知及现行充电宝携带公告。\n画面：Coverr License 免费素材；Life-Of-Vids《Airport moving walkway》（CC0）；Full Moon Technology《Power Bank 2600mAh》（CC BY-SA 4.0）。许可：https://coverr.co/license 、https://creativecommons.org/publicdomain/zero/1.0/ 、https://creativecommons.org/licenses/by-sa/4.0/ 。涉及 CC BY-SA 的改编按同一许可分享。\n\n制作说明：本视频使用合成旁白；未使用 AI 生成画面。",
+          "hashtags": [
+            "充电宝",
+            "3C认证",
+            "机场安检",
+            "民航规则",
+            "日常有因"
+          ],
+          "generatedByAi": true,
+          "effectiveTitle": "有3C也可能被拦？充电宝登机其实要过三道",
+          "effectiveDescription": "有3C也可能被拦？充电宝登机其实要过三道",
+          "capturedAt": "2026-08-16T08:34:24.588Z",
+          "source": "output/exports/power-bank-airport-screening-explainer-20260809/platform-copy.json"
+        },
+        "metricSnapshots": [
+          {
+            "observedAt": "2026-08-16T10:18:55.328Z",
+            "source": "小红书创作服务平台笔记管理",
+            "viewCount": 170,
+            "likeCount": 6,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 3,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          },
+          {
+            "observedAt": "2026-08-16T10:20:43.101Z",
+            "source": "小红书创作服务平台笔记管理",
+            "viewCount": 172,
+            "likeCount": 6,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 3,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          },
+          {
+            "observedAt": "2026-08-16T10:23:10.869Z",
+            "source": "小红书创作服务平台笔记管理",
+            "viewCount": 173,
+            "likeCount": 6,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 3,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          },
+          {
+            "observedAt": "2026-08-16T10:24:00.896Z",
+            "source": "小红书创作服务平台笔记管理",
+            "viewCount": 174,
+            "likeCount": 6,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 3,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          }
+        ]
+      },
+      {
+        "id": "youtube",
+        "platform": "YouTube",
+        "status": "published",
+        "approval": {
+          "status": "approved",
+          "decidedAt": "2026-08-16T04:48:04.268Z",
+          "decidedBy": "user",
+          "note": "用户明确要求将这两条既有成片发布到全部已接入平台；本目标按平台独立保留 AIGC、权利和投稿状态。",
+          "fingerprint": "0f41b594aff531960c7af72cd65561a820e8b3be499305ac183c64dbfed2949d:42f5cbc17ff17724c44876cb63269d0d40485d6ff45c353e8b29b068a197fc43"
+        },
+        "scheduledAt": "",
+        "submittedAt": "2026-08-16T09:01:00.843Z",
+        "submissionUrl": "",
+        "publishedUrl": "https://youtu.be/HnuiGMxUO9M",
+        "publishedAt": "2026-08-16T09:00:58.000Z",
+        "externalId": "HnuiGMxUO9M",
+        "videoSha256": "0f41b594aff531960c7af72cd65561a820e8b3be499305ac183c64dbfed2949d",
+        "packageSha256": "42f5cbc17ff17724c44876cb63269d0d40485d6ff45c353e8b29b068a197fc43",
+        "publisher": "social-auto-upload",
+        "accountName": "daily-cause",
+        "lastRunId": "2026-08-16T08-59-39-649Z-2663c83b",
+        "lastRunAt": "2026-08-16T14:58:55.575Z",
+        "lastError": "",
+        "note": "程序化上传器明确返回 public 发布成功；公开页 HTTP 200。\n2026-08-16T14:58:55.575Z 已通过程序化编辑页更新并回读平台说明。",
+        "copySnapshot": {
+          "title": "有3C也可能被拦？充电宝登机其实要过三道检查",
+          "description": "你的充电宝明明印着 3C，为什么到了机场仍可能被拦？这条视频按顺序拆开标识、召回、额定能量和携带方式，也解释旅客、厂家和机场分别承担什么成本。\n\n规则范围：中国境内航班；具体出行前请查询航司与机场最新要求。\n\n主要事实来源：中国民用航空局 2025-06-26 通知及现行充电宝携带公告。\n画面：Coverr License 免费素材；Life-Of-Vids《Airport moving walkway》（CC0）；Full Moon Technology《Power Bank 2600mAh》（CC BY-SA 4.0）。许可：https://coverr.co/license 、https://creativecommons.org/publicdomain/zero/1.0/ 、https://creativecommons.org/licenses/by-sa/4.0/ 。涉及 CC BY-SA 的改编按同一许可分享。\n\n制作说明：本视频使用合成旁白；未使用 AI 生成画面。",
+          "hashtags": [
+            "充电宝",
+            "3C认证",
+            "机场安检",
+            "民航规则",
+            "日常有因"
+          ],
+          "generatedByAi": true,
+          "effectiveTitle": "有3C也可能被拦？充电宝登机其实要过三道检查",
+          "effectiveDescription": "充电宝明明有 3C，为什么到了机场仍可能被拦？\n\n登机安检看的不只是一枚标识，还包括召回状态、额定能量和携带方式。这条视频按顺序讲清三道检查，以及出发前该确认什么。\n\n规则范围：中国境内航班；出发前请以航司和机场最新要求为准。\n\n素材鸣谢：Full Moon Technology《Power Bank 2600mAh》（经剪辑，CC BY-SA 4.0）：https://commons.wikimedia.org/wiki/File:Power_Bank_2600mAh_de_Full_Moon.jpg；许可：https://creativecommons.org/licenses/by-sa/4.0/ 。",
+          "capturedAt": "2026-08-16T14:58:55.575Z",
+          "source": "平台已发布作品编辑页回读"
+        },
+        "metricSnapshots": [
+          {
+            "observedAt": "2026-08-16T10:18:55.328Z",
+            "source": "YouTube Studio 内容列表",
+            "viewCount": 0,
+            "likeCount": null,
+            "commentCount": 0,
+            "shareCount": null,
+            "favoriteCount": null,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": "YouTube Studio 内容列表不提供点赞数；null 表示本次未取得，不代表 0。"
+          },
+          {
+            "observedAt": "2026-08-16T10:23:10.869Z",
+            "source": "YouTube Studio 内容列表",
+            "viewCount": 0,
+            "likeCount": null,
+            "commentCount": 0,
+            "shareCount": null,
+            "favoriteCount": null,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": "YouTube Studio 内容列表不提供点赞数；null 表示本次未取得，不代表 0。"
+          },
+          {
+            "observedAt": "2026-08-16T10:24:00.896Z",
+            "source": "YouTube Studio 内容列表",
+            "viewCount": 0,
+            "likeCount": null,
+            "commentCount": 0,
+            "shareCount": null,
+            "favoriteCount": null,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": "YouTube Studio 内容列表不提供点赞数；null 表示本次未取得，不代表 0。"
+          }
+        ]
+      }
+    ],
     "market": {
       "decision": "pending",
       "decidedAt": "",
@@ -1823,9 +2822,9 @@
       "id": "scene-01",
       "chapterId": "chapter-01",
       "enabled": true,
-      "sourceId": "source-03",
-      "sourceStart": 0,
-      "sourceEnd": 13.5,
+      "sourceId": "source-13",
+      "sourceStart": 0.5,
+      "sourceEnd": 14,
       "mediaFit": "cover",
       "mediaMotion": "none",
       "showEditorialOverlay": true,
@@ -1833,7 +2832,7 @@
       "title": "有 3C，为什么还会被拦？",
       "subtitle": "3C、召回、Wh 和携带方式是四个问题",
       "narration": "你的充电宝明明印着 3C，到了机场却仍可能被拦。因为 3C 不是登机通行证，安检其实在做三次不同的判断。",
-      "visualRequirement": "2026 年中国机场充电宝查验提示实拍作为开场；画面只建立真实安检语境，不单独证明全部规则。",
+      "visualRequirement": "CC0 机场自动步道持续向前运动，作为抵达机场的真实出行情境；不冒充中国机场现场，也不单独证明充电宝规则。",
       "sourceReferences": [
         {
           "sourceId": "source-01",
@@ -1848,38 +2847,38 @@
       ],
       "candidates": [
         {
-          "id": "candidate-scene-01-selected",
-          "sourceId": "source-03",
-          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/swa-power-bank-notice-1786243319268.jpg",
-          "mediaType": "image",
-          "sourceStart": 0,
-          "sourceEnd": 13.5,
-          "matchReason": "2026 年中国机场充电宝查验提示实拍作为开场；画面只建立真实安检语境，不单独证明全部规则。",
+          "id": "candidate-scene-01-dynamic-recut",
+          "sourceId": "source-13",
+          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/commons-airport-moving-walkway.webm",
+          "mediaType": "video",
+          "sourceStart": 0.5,
+          "sourceEnd": 14,
+          "matchReason": "连续动态机场情境承接开场反常问题；规则事实仍由民航局一手资料支撑。",
           "rightsStatus": "cleared"
         }
       ],
-      "selectedCandidateId": "candidate-scene-01-selected",
+      "selectedCandidateId": "candidate-scene-01-dynamic-recut",
       "selectionStatus": "codex_reviewed",
-      "selectionReviewedAt": "2026-08-09T02:41:59.324Z",
-      "selectionNote": "静态来源在整幕稳定显示；不循环、不改速，旁白事实另由 sourceReferences 中的一手资料承担。",
+      "selectionReviewedAt": "2026-08-11T03:20:00.000Z",
+      "selectionNote": "13.5 秒连续窗口，不循环、不改速；start/mid/end 均为自动步道向前运动，原生无平台水印。",
       "generatedBy": "ai",
-      "userEdited": false
+      "userEdited": true
     },
     {
       "id": "scene-02",
       "chapterId": "chapter-01",
       "enabled": true,
-      "sourceId": "source-07",
-      "sourceStart": 0,
-      "sourceEnd": 13,
-      "mediaFit": "contain",
+      "sourceId": "source-14",
+      "sourceStart": 0.5,
+      "sourceEnd": 13.5,
+      "mediaFit": "cover",
       "mediaMotion": "none",
       "showEditorialOverlay": true,
       "eyebrow": "不是一张通行证",
       "title": "安检在做三次判断",
       "subtitle": "安检在做三次判断",
       "narration": "第一层看标识。自二零二五年六月二十八日起，境内航班禁止携带没有 3C 标识，或者标识不清晰的充电宝。",
-      "visualRequirement": "原创信息层列出标识、召回、额定能量三层判断；当前旁白聚焦第一层。",
+      "visualRequirement": "旅客携带行李进入机场值机区域，承担境内航班出发和现场查验的真实情境；不把海外机场画面当作中国规则执行记录。",
       "sourceReferences": [
         {
           "sourceId": "source-01",
@@ -1889,38 +2888,38 @@
       ],
       "candidates": [
         {
-          "id": "candidate-scene-02-selected",
-          "sourceId": "source-07",
-          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/three-checks-1786243319295.png",
-          "mediaType": "image",
-          "sourceStart": 0,
-          "sourceEnd": 13,
-          "matchReason": "原创信息层列出标识、召回、额定能量三层判断；当前旁白聚焦第一层。",
+          "id": "candidate-scene-02-dynamic-recut",
+          "sourceId": "source-14",
+          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/coverr-airport-check-in.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.5,
+          "sourceEnd": 13.5,
+          "matchReason": "旅客与行李持续移动，直接建立规则开始影响出行的场景；具体门槛由标题、字幕和民航局来源承担。",
           "rightsStatus": "cleared"
         }
       ],
-      "selectedCandidateId": "candidate-scene-02-selected",
+      "selectedCandidateId": "candidate-scene-02-dynamic-recut",
       "selectionStatus": "codex_reviewed",
-      "selectionReviewedAt": "2026-08-09T02:41:59.324Z",
-      "selectionNote": "静态来源在整幕稳定显示；不循环、不改速，旁白事实另由 sourceReferences 中的一手资料承担。",
+      "selectionReviewedAt": "2026-08-11T03:20:00.000Z",
+      "selectionNote": "13 秒连续窗口，不循环、不改速；start/mid/end 均有旅客和行李移动，原生无平台水印。",
       "generatedBy": "ai",
-      "userEdited": false
+      "userEdited": true
     },
     {
       "id": "scene-03",
       "chapterId": "chapter-01",
       "enabled": true,
-      "sourceId": "source-08",
-      "sourceStart": 0,
-      "sourceEnd": 12.5,
-      "mediaFit": "contain",
+      "sourceId": "source-15",
+      "sourceStart": 0.5,
+      "sourceEnd": 13,
+      "mediaFit": "cover",
       "mediaMotion": "none",
       "showEditorialOverlay": true,
       "eyebrow": "第一道门",
       "title": "3C 只回答一部分问题",
       "subtitle": "3C 只回答一部分问题",
-      "narration": "这层先检查标识能不能识别。但它只回答外壳上的标识是否清楚，不回答今天还能不能带上飞机。",
-      "visualRequirement": "原创对照信息层将“标识可识别”和“能否登机”分开，明确这是规则条件并列得到的解释。",
+      "narration": "看清 3C，只是通过第一关。它说明外壳标识可以识别，却不等于今天一定能带上飞机。还要核对召回和额定能量，最后确认携带方式。",
+      "visualRequirement": "候机旅客从随身包中取出手机并查看，承担出发前取出电子设备、继续核对信息的动作示意；画面不冒充充电宝实物或安检处置记录。",
       "sourceReferences": [
         {
           "sourceId": "source-01",
@@ -1935,38 +2934,38 @@
       ],
       "candidates": [
         {
-          "id": "candidate-scene-03-selected",
-          "sourceId": "source-08",
-          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/ccc-boundary-1786243319298.png",
-          "mediaType": "image",
-          "sourceStart": 0,
-          "sourceEnd": 12.5,
-          "matchReason": "原创对照信息层将“标识可识别”和“能否登机”分开，明确这是规则条件并列得到的解释。",
+          "id": "candidate-scene-03-dynamic-recut",
+          "sourceId": "source-15",
+          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/coverr-phone-from-purse.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.5,
+          "sourceEnd": 13,
+          "matchReason": "连续取出并查看设备的动作，与“看清外壳标识后仍需继续核对”同点；事实继续由民航局来源承担。",
           "rightsStatus": "cleared"
         }
       ],
-      "selectedCandidateId": "candidate-scene-03-selected",
+      "selectedCandidateId": "candidate-scene-03-dynamic-recut",
       "selectionStatus": "codex_reviewed",
-      "selectionReviewedAt": "2026-08-09T02:41:59.324Z",
-      "selectionNote": "静态来源在整幕稳定显示；不循环、不改速，旁白事实另由 sourceReferences 中的一手资料承担。",
+      "selectionReviewedAt": "2026-08-11T03:20:00.000Z",
+      "selectionNote": "12.5 秒连续窗口，不循环、不改速；完整窗口无平台水印，设备明确是手机，因此仅登记为核对动作示意。",
       "generatedBy": "ai",
-      "userEdited": false
+      "userEdited": true
     },
     {
       "id": "scene-04",
       "chapterId": "chapter-01",
       "enabled": true,
-      "sourceId": "source-09",
-      "sourceStart": 0,
-      "sourceEnd": 14.5,
-      "mediaFit": "contain",
+      "sourceId": "source-16",
+      "sourceStart": 0.1,
+      "sourceEnd": 14.6,
+      "mediaFit": "cover",
       "mediaMotion": "none",
       "showEditorialOverlay": true,
       "eyebrow": "第二道门",
       "title": "召回会覆盖旧标识",
       "subtitle": "召回会覆盖旧标识",
-      "narration": "第二层看召回。即使外壳上的 3C 还在，只要型号或批次已经被召回，民航局的新规同样禁止携带。召回状态会覆盖你手里那个旧标识。",
-      "visualRequirement": "原创机制图明确表现“外壳标识仍在”和“型号批次召回”是两件事。",
+      "narration": "第二层看召回。出发前要按外壳型号和批次，查询召回状态。即使 3C 还在，只要命中被召回的型号或批次，境内航班同样禁止携带。",
+      "visualRequirement": "机场旅客持续操作手机，承担按型号和批次查询召回范围的操作示意；屏幕内容不作为召回事实证据。",
       "sourceReferences": [
         {
           "sourceId": "source-01",
@@ -1976,22 +2975,22 @@
       ],
       "candidates": [
         {
-          "id": "candidate-scene-04-selected",
-          "sourceId": "source-09",
-          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/recall-overrides-1786243319303.png",
-          "mediaType": "image",
-          "sourceStart": 0,
-          "sourceEnd": 14.5,
-          "matchReason": "原创机制图明确表现“外壳标识仍在”和“型号批次召回”是两件事。",
+          "id": "candidate-scene-04-dynamic-recut",
+          "sourceId": "source-16",
+          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/coverr-man-phone-airport.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.1,
+          "sourceEnd": 14.6,
+          "matchReason": "可见动作是持续手机查询，与出发前核对型号、批次和召回状态一致；民航局通知负责证明规则。",
           "rightsStatus": "cleared"
         }
       ],
-      "selectedCandidateId": "candidate-scene-04-selected",
+      "selectedCandidateId": "candidate-scene-04-dynamic-recut",
       "selectionStatus": "codex_reviewed",
-      "selectionReviewedAt": "2026-08-09T02:41:59.324Z",
-      "selectionNote": "静态来源在整幕稳定显示；不循环、不改速，旁白事实另由 sourceReferences 中的一手资料承担。",
+      "selectionReviewedAt": "2026-08-11T03:20:00.000Z",
+      "selectionNote": "14.5 秒连续窗口，不循环、不改速；start/mid/end 均保持查询动作，原生无平台水印。",
       "generatedBy": "ai",
-      "userEdited": false
+      "userEdited": true
     },
     {
       "id": "scene-05",
@@ -1999,15 +2998,15 @@
       "enabled": true,
       "sourceId": "source-06",
       "sourceStart": 0,
-      "sourceEnd": 14,
+      "sourceEnd": 12.5,
       "mediaFit": "cover",
       "mediaMotion": "none",
       "showEditorialOverlay": true,
       "eyebrow": "第三道门",
       "title": "不要只盯着多少毫安时",
-      "subtitle": "不要只盯着多少毫安时",
+      "subtitle": "Wh = V × Ah；mAh ÷ 1000 = Ah",
       "narration": "第三层才看额定能量。不要只盯一万毫安时。民航规则看的是瓦时：电压乘以安时。标签没写瓦时，也必须能用其他参数算出来。",
-      "visualRequirement": "许可明确的真实充电宝照片承担产品和参数标签情境；公式由字幕与标题表达，事实引用民航局规则。",
+      "visualRequirement": "许可明确的充电宝实拍承担产品对象识别；Wh = V × Ah 和 mAh 换算由大字号副标题与字幕表达，事实引用民航局规则。",
       "sourceReferences": [
         {
           "sourceId": "source-02",
@@ -2017,38 +3016,38 @@
       ],
       "candidates": [
         {
-          "id": "candidate-scene-05-selected",
+          "id": "candidate-scene-05-dynamic-recut",
           "sourceId": "source-06",
           "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/power-bank-product-1786243319290.jpg",
           "mediaType": "image",
           "sourceStart": 0,
-          "sourceEnd": 14,
-          "matchReason": "许可明确的真实充电宝照片承担产品和参数标签情境；公式由字幕与标题表达，事实引用民航局规则。",
+          "sourceEnd": 12.5,
+          "matchReason": "精确公式不适合用通用动态 B-roll 代替；保留一幕稳定产品实拍，确保观众识别计算对象。",
           "rightsStatus": "cleared"
         }
       ],
-      "selectedCandidateId": "candidate-scene-05-selected",
+      "selectedCandidateId": "candidate-scene-05-dynamic-recut",
       "selectionStatus": "codex_reviewed",
-      "selectionReviewedAt": "2026-08-09T02:41:59.324Z",
-      "selectionNote": "静态来源在整幕稳定显示；不循环、不改速，旁白事实另由 sourceReferences 中的一手资料承担。",
+      "selectionReviewedAt": "2026-08-11T03:20:00.000Z",
+      "selectionNote": "必要静态幕之一；12.5 秒稳定展示，不添加推拉，水印不适用。",
       "generatedBy": "ai",
-      "userEdited": false
+      "userEdited": true
     },
     {
       "id": "scene-06",
       "chapterId": "chapter-01",
       "enabled": true,
-      "sourceId": "source-10",
-      "sourceStart": 0,
-      "sourceEnd": 14,
-      "mediaFit": "contain",
+      "sourceId": "source-17",
+      "sourceStart": 0.5,
+      "sourceEnd": 14.5,
+      "mediaFit": "cover",
       "mediaMotion": "none",
       "showEditorialOverlay": true,
       "eyebrow": "携带方式单独判断",
       "title": "随身可以，托运不行",
       "subtitle": "随身可以，托运不行",
       "narration": "携带方式也要单独判断。充电宝只能随身或放进手提行李，不能托运；飞行中也不能拿它给设备充电，有开关的还要保持关闭。",
-      "visualRequirement": "原创行李对照层直接展示随身与托运的规则差异，不使用事故画面制造恐慌。",
+      "visualRequirement": "机场行李转盘持续运转，明确建立托运行李情境；画面不声称其中含有充电宝，禁止托运事实由民航局公告证明。",
       "sourceReferences": [
         {
           "sourceId": "source-02",
@@ -2058,22 +3057,22 @@
       ],
       "candidates": [
         {
-          "id": "candidate-scene-06-selected",
-          "sourceId": "source-10",
-          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/carry-on-only-1786243319307.png",
-          "mediaType": "image",
-          "sourceStart": 0,
-          "sourceEnd": 14,
-          "matchReason": "原创行李对照层直接展示随身与托运的规则差异，不使用事故画面制造恐慌。",
+          "id": "candidate-scene-06-dynamic-recut",
+          "sourceId": "source-17",
+          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/coverr-baggage-claim.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.5,
+          "sourceEnd": 14.5,
+          "matchReason": "真实托运行李流程与“只能随身、不能托运”的携带方式判断直接相关，窗口持续运动且不承担未显示的物品事实。",
           "rightsStatus": "cleared"
         }
       ],
-      "selectedCandidateId": "candidate-scene-06-selected",
+      "selectedCandidateId": "candidate-scene-06-dynamic-recut",
       "selectionStatus": "codex_reviewed",
-      "selectionReviewedAt": "2026-08-09T02:41:59.324Z",
-      "selectionNote": "静态来源在整幕稳定显示；不循环、不改速，旁白事实另由 sourceReferences 中的一手资料承担。",
+      "selectionReviewedAt": "2026-08-11T03:20:00.000Z",
+      "selectionNote": "14 秒连续窗口，不循环、不改速；start/mid/end 均为行李转盘运转，原生无平台水印。",
       "generatedBy": "ai",
-      "userEdited": false
+      "userEdited": true
     },
     {
       "id": "scene-07",
@@ -2081,7 +3080,7 @@
       "enabled": true,
       "sourceId": "source-11",
       "sourceStart": 0,
-      "sourceEnd": 14.5,
+      "sourceEnd": 12.5,
       "mediaFit": "contain",
       "mediaMotion": "none",
       "showEditorialOverlay": true,
@@ -2089,7 +3088,7 @@
       "title": "一百和一百六十瓦时",
       "subtitle": "一百和一百六十瓦时",
       "narration": "不超过一百瓦时，无需航司批准；超过一百但不超过一百六十瓦时，要航司批准，而且每人最多两个；超过一百六十瓦时，不能带。",
-      "visualRequirement": "原创大字号阈值信息层逐项呈现 100Wh 与 160Wh 门槛。",
+      "visualRequirement": "原创大字号信息层同时呈现 100Wh、100-160Wh 和超过 160Wh 三档门槛；稳定显示以保证桌面和移动端可读。",
       "sourceReferences": [
         {
           "sourceId": "source-02",
@@ -2099,30 +3098,30 @@
       ],
       "candidates": [
         {
-          "id": "candidate-scene-07-selected",
+          "id": "candidate-scene-07-dynamic-recut",
           "sourceId": "source-11",
           "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/wh-thresholds-1786243319311.png",
           "mediaType": "image",
           "sourceStart": 0,
-          "sourceEnd": 14.5,
-          "matchReason": "原创大字号阈值信息层逐项呈现 100Wh 与 160Wh 门槛。",
+          "sourceEnd": 12.5,
+          "matchReason": "精确数值与批准条件必须直接可读，通用动态素材无法可靠承载；保留一幕原创稳定信息层。",
           "rightsStatus": "cleared"
         }
       ],
-      "selectedCandidateId": "candidate-scene-07-selected",
+      "selectedCandidateId": "candidate-scene-07-dynamic-recut",
       "selectionStatus": "codex_reviewed",
-      "selectionReviewedAt": "2026-08-09T02:41:59.324Z",
-      "selectionNote": "静态来源在整幕稳定显示；不循环、不改速，旁白事实另由 sourceReferences 中的一手资料承担。",
+      "selectionReviewedAt": "2026-08-11T03:20:00.000Z",
+      "selectionNote": "必要静态幕之二；12.5 秒稳定展示，不添加推拉，平台水印不适用。",
       "generatedBy": "ai",
-      "userEdited": false
+      "userEdited": true
     },
     {
       "id": "scene-08",
       "chapterId": "chapter-01",
       "enabled": true,
-      "sourceId": "source-04",
-      "sourceStart": 0,
-      "sourceEnd": 15.5,
+      "sourceId": "source-18",
+      "sourceStart": 0.5,
+      "sourceEnd": 16,
       "mediaFit": "cover",
       "mediaMotion": "none",
       "showEditorialOverlay": true,
@@ -2130,7 +3129,7 @@
       "title": "被拦下的充电宝去哪儿？",
       "subtitle": "被拦下的充电宝去哪儿？",
       "narration": "这套规则把成本分给了三方：旅客要查型号和批次，来不及时还要寄送、暂存或自弃；厂家承担召回和认证风险；机场增加查验、解释与处置空间。",
-      "visualRequirement": "上海虹桥机场限制物品寄送区实拍只证明寄送处置情境；三方成本分配由规则义务和可见流程推断并明确标注。",
+      "visualRequirement": "旅客重新整理并合上行李箱，承担规则变化给旅客增加查询、改装和处置步骤的过程示意；不冒充机场现场处置。",
       "sourceReferences": [
         {
           "sourceId": "source-01",
@@ -2140,30 +3139,30 @@
       ],
       "candidates": [
         {
-          "id": "candidate-scene-08-selected",
-          "sourceId": "source-04",
-          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/sha-restricted-items-delivery-1786243319274.jpg",
-          "mediaType": "image",
-          "sourceStart": 0,
-          "sourceEnd": 15.5,
-          "matchReason": "上海虹桥机场限制物品寄送区实拍只证明寄送处置情境；三方成本分配由规则义务和可见流程推断并明确标注。",
+          "id": "candidate-scene-08-dynamic-recut",
+          "sourceId": "source-18",
+          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/coverr-zipping-suitcase.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.5,
+          "sourceEnd": 16,
+          "matchReason": "连续整理行李的动作可见地表现旅客承担的额外时间与操作成本；厂家和机场成本仍由旁白与一手规则说明。",
           "rightsStatus": "cleared"
         }
       ],
-      "selectedCandidateId": "candidate-scene-08-selected",
+      "selectedCandidateId": "candidate-scene-08-dynamic-recut",
       "selectionStatus": "codex_reviewed",
-      "selectionReviewedAt": "2026-08-09T02:41:59.324Z",
-      "selectionNote": "静态来源在整幕稳定显示；不循环、不改速，旁白事实另由 sourceReferences 中的一手资料承担。",
+      "selectionReviewedAt": "2026-08-11T03:20:00.000Z",
+      "selectionNote": "15.5 秒连续窗口，不循环、不改速；start/mid/end 完整覆盖整理到合箱的过程，原生无平台水印。",
       "generatedBy": "ai",
-      "userEdited": false
+      "userEdited": true
     },
     {
       "id": "scene-09",
       "chapterId": "chapter-01",
       "enabled": true,
-      "sourceId": "source-05",
-      "sourceStart": 0,
-      "sourceEnd": 13.5,
+      "sourceId": "source-19",
+      "sourceStart": 0.05,
+      "sourceEnd": 13.55,
       "mediaFit": "cover",
       "mediaMotion": "none",
       "showEditorialOverlay": true,
@@ -2171,7 +3170,7 @@
       "title": "不能只说“不许带”",
       "subtitle": "不能只说“不许带”",
       "narration": "民航局还要求机场设置自弃和暂存区，并完善充电设施。也就是说，规则不只是把风险挡在登机口，还要处理被挡下以后，旅客怎样继续出行。",
-      "visualRequirement": "都柏林机场 CC0 充电设施仅作跨机场设施情境示意；中国机场义务仍由民航局通知证明。",
+      "visualRequirement": "机场旅客从座位起身并拉着行李继续前行，承担规则处置后仍要让旅客继续出行的服务目标示意；不冒充中国机场具体设施。",
       "sourceReferences": [
         {
           "sourceId": "source-01",
@@ -2181,38 +3180,38 @@
       ],
       "candidates": [
         {
-          "id": "candidate-scene-09-selected",
-          "sourceId": "source-05",
-          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dublin-power-bank-station-1786243319282.jpg",
-          "mediaType": "image",
-          "sourceStart": 0,
-          "sourceEnd": 13.5,
-          "matchReason": "都柏林机场 CC0 充电设施仅作跨机场设施情境示意；中国机场义务仍由民航局通知证明。",
+          "id": "candidate-scene-09-dynamic-recut",
+          "sourceId": "source-19",
+          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/coverr-walking-suitcase.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.05,
+          "sourceEnd": 13.55,
+          "matchReason": "完整动作从等待到带行李离开，与“被挡下以后怎样继续出行”同点；机场义务由民航局通知证明。",
           "rightsStatus": "cleared"
         }
       ],
-      "selectedCandidateId": "candidate-scene-09-selected",
+      "selectedCandidateId": "candidate-scene-09-dynamic-recut",
       "selectionStatus": "codex_reviewed",
-      "selectionReviewedAt": "2026-08-09T02:41:59.324Z",
-      "selectionNote": "静态来源在整幕稳定显示；不循环、不改速，旁白事实另由 sourceReferences 中的一手资料承担。",
+      "selectionReviewedAt": "2026-08-11T03:20:00.000Z",
+      "selectionNote": "13.5 秒连续窗口，不循环、不改速；start/mid/end 覆盖起身、拉箱、离开，原生无平台水印。",
       "generatedBy": "ai",
-      "userEdited": false
+      "userEdited": true
     },
     {
       "id": "scene-10",
       "chapterId": "chapter-01",
       "enabled": true,
-      "sourceId": "source-12",
+      "sourceId": "source-20",
       "sourceStart": 0,
-      "sourceEnd": 13.5,
-      "mediaFit": "contain",
+      "sourceEnd": 13.2,
+      "mediaFit": "cover",
       "mediaMotion": "none",
       "showEditorialOverlay": true,
       "eyebrow": "出发前 30 秒自查",
       "title": "按顺序过四项",
-      "subtitle": "按顺序过四项",
+      "subtitle": "3C · 召回 · Wh · 随身携带",
       "narration": "所以出发前按顺序检查：3C 清不清楚，型号批次有没有召回，瓦时是否合规，最后确认随身携带。3C 很重要，但它只是第一道门。",
-      "visualRequirement": "原创清单将全片结论压缩为四步行动，不新增事实。",
+      "visualRequirement": "客舱内旅客完成系安全带动作，作为通过查验并登机后的真实收束情境；四项自查由标题、副标题和字幕承担。",
       "sourceReferences": [
         {
           "sourceId": "source-01",
@@ -2227,22 +3226,22 @@
       ],
       "candidates": [
         {
-          "id": "candidate-scene-10-selected",
-          "sourceId": "source-12",
-          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/final-checklist-1786243319315.png",
-          "mediaType": "image",
+          "id": "candidate-scene-10-dynamic-recut",
+          "sourceId": "source-20",
+          "assetPath": "public/project-assets/power-bank-airport-screening-explainer-20260809/dynamic-candidates/coverr-fastening-seatbelt.mp4",
+          "mediaType": "video",
           "sourceStart": 0,
-          "sourceEnd": 13.5,
-          "matchReason": "原创清单将全片结论压缩为四步行动，不新增事实。",
+          "sourceEnd": 13.2,
+          "matchReason": "连续客舱动作给出明确出行终点，与出发前四项检查形成闭环；画面不单独证明中国充电宝规则。",
           "rightsStatus": "cleared"
         }
       ],
-      "selectedCandidateId": "candidate-scene-10-selected",
+      "selectedCandidateId": "candidate-scene-10-dynamic-recut",
       "selectionStatus": "codex_reviewed",
-      "selectionReviewedAt": "2026-08-09T02:41:59.324Z",
-      "selectionNote": "静态来源在整幕稳定显示；不循环、不改速，旁白事实另由 sourceReferences 中的一手资料承担。",
+      "selectionReviewedAt": "2026-08-11T03:20:00.000Z",
+      "selectionNote": "13.2 秒连续窗口，不循环、不改速；start/mid/end 覆盖拿起、扣合并调整安全带，原生无平台水印。",
       "generatedBy": "ai",
-      "userEdited": false
+      "userEdited": true
     }
   ]
 }

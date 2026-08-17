@@ -43,6 +43,7 @@ import {
 } from '@/src/workbench';
 import { researchReviewSummary } from '@/src/researchReview';
 import WorkflowProgress from '@/src/components/WorkflowProgress';
+import type { WorkflowRuntimeEvidence } from '@/src/productionWorkflow';
 
 export type { WorkbenchAsset } from '@/src/workbench';
 
@@ -322,7 +323,7 @@ export default function ProductionWorkbenchClient({
     }));
   }
 
-  function acceptServerProject(project: ShortVideoProject) {
+  function acceptServerProject(project: ShortVideoProject, runtime?: WorkflowRuntimeEvidence) {
     setDraftProject(project);
     setPersistedProject(project);
     if (project.technical_status === 'not_rendered') {
@@ -350,12 +351,16 @@ export default function ProductionWorkbenchClient({
     } else {
       setCurrentRenderStatus((current) => current.state !== 'ready' ? current : ({
         ...current,
-        label: project.workflow.deliveryApproval.status === 'approved'
+        label: runtime?.packageReady
+          ? current.label
+          : project.workflow.deliveryApproval.status === 'approved'
           ? '成片已批准，导出包待生成'
           : project.workflow.deliveryApproval.status === 'rejected'
             ? '成片已退回修改'
             : '自动验收通过，等待真人审片',
-        message: project.workflow.deliveryApproval.status === 'approved'
+        message: runtime?.packageReady
+          ? current.message
+          : project.workflow.deliveryApproval.status === 'approved'
           ? '真人已批准当前视频字节，完整 ZIP 尚未绑定当前版本。'
           : project.workflow.deliveryApproval.status === 'rejected'
             ? project.workflow.deliveryApproval.note || '当前成片需要修改后重新审片。'

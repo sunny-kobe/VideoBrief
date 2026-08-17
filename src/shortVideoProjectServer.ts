@@ -17,6 +17,9 @@ import {
   DEFAULT_PROJECT_ID,
   NarrativeVersion,
   ProductionTimeline,
+  PublicationCopySnapshot,
+  PublicationMetricSnapshot,
+  PublicationTarget,
   ProjectMaterialReview,
   ProjectMaterialQualityReview,
   ProjectWorkflow,
@@ -447,6 +450,85 @@ function normalizeWorkflowApproval(value: Partial<WorkflowApproval> | undefined)
   };
 }
 
+function normalizePublicationTarget(
+  value: Partial<PublicationTarget>,
+  index: number,
+): PublicationTarget {
+  const approval = normalizeWorkflowApproval(value.approval);
+  const publishedAt = textValue(value.publishedAt);
+  const scheduledAt = textValue(value.scheduledAt);
+  const status = [
+    'pending', 'approved', 'uploading', 'submitted', 'scheduled', 'published', 'failed', 'rejected',
+  ].includes(value.status ?? '')
+    ? value.status!
+    : publishedAt
+      ? 'published'
+      : scheduledAt
+        ? 'scheduled'
+        : approval.status === 'rejected'
+          ? 'rejected'
+          : approval.status === 'approved'
+            ? 'approved'
+            : 'pending';
+  const copySnapshotValue = value.copySnapshot as Partial<PublicationCopySnapshot> | null | undefined;
+  const copySnapshot = copySnapshotValue && typeof copySnapshotValue === 'object'
+    ? {
+        title: textValue(copySnapshotValue.title),
+        description: textValue(copySnapshotValue.description),
+        hashtags: stringArray(copySnapshotValue.hashtags),
+        generatedByAi: copySnapshotValue.generatedByAi === true,
+        effectiveTitle: textValue(copySnapshotValue.effectiveTitle),
+        effectiveDescription: textValue(copySnapshotValue.effectiveDescription),
+        capturedAt: textValue(copySnapshotValue.capturedAt),
+        source: textValue(copySnapshotValue.source),
+      }
+    : null;
+  const metricSnapshots = Array.isArray(value.metricSnapshots)
+    ? value.metricSnapshots.map((snapshot) => {
+        const item = snapshot as Partial<PublicationMetricSnapshot>;
+        const optionalMetric = (metric: unknown) => Number.isFinite(metric) ? Number(metric) : null;
+        return {
+          observedAt: textValue(item.observedAt),
+          source: textValue(item.source),
+          viewCount: optionalMetric(item.viewCount),
+          likeCount: optionalMetric(item.likeCount),
+          commentCount: optionalMetric(item.commentCount),
+          shareCount: optionalMetric(item.shareCount),
+          favoriteCount: optionalMetric(item.favoriteCount),
+          coinCount: optionalMetric(item.coinCount),
+          danmakuCount: optionalMetric(item.danmakuCount),
+          followerGain: optionalMetric(item.followerGain),
+          completionRate: optionalMetric(item.completionRate),
+          averageWatchSeconds: optionalMetric(item.averageWatchSeconds),
+          twoSecondBounceRate: optionalMetric(item.twoSecondBounceRate),
+          note: textValue(item.note),
+        };
+      })
+    : [];
+  return {
+    id: textValue(value.id) || `publication-target-${String(index + 1).padStart(3, '0')}`,
+    platform: textValue(value.platform),
+    status,
+    approval,
+    scheduledAt: status === 'scheduled' || status === 'published' ? scheduledAt : '',
+    submittedAt: textValue(value.submittedAt),
+    submissionUrl: textValue(value.submissionUrl),
+    publishedUrl: status === 'published' ? textValue(value.publishedUrl) : '',
+    publishedAt: status === 'published' ? publishedAt : '',
+    externalId: textValue(value.externalId),
+    videoSha256: textValue(value.videoSha256),
+    packageSha256: textValue(value.packageSha256),
+    publisher: textValue(value.publisher),
+    accountName: textValue(value.accountName),
+    lastRunId: textValue(value.lastRunId),
+    lastRunAt: textValue(value.lastRunAt),
+    lastError: textValue(value.lastError),
+    note: textValue(value.note),
+    copySnapshot,
+    metricSnapshots,
+  };
+}
+
 function normalizeWorkflow(value: Partial<ProjectWorkflow> | undefined): ProjectWorkflow {
   const originKind = ['manual', 'daily_signal', 'legacy'].includes(value?.origin?.kind ?? '')
     ? value!.origin!.kind!
@@ -454,6 +536,38 @@ function normalizeWorkflow(value: Partial<ProjectWorkflow> | undefined): Project
   const marketDecision = ['pending', 'validated', 'not_validated', 'inconclusive'].includes(
     value?.market?.decision ?? '',
   ) ? value!.market!.decision! : 'pending';
+  const publication = {
+    approval: normalizeWorkflowApproval(value?.publication?.approval),
+    platform: textValue(value?.publication?.platform),
+    publishedUrl: textValue(value?.publication?.publishedUrl),
+    publishedAt: textValue(value?.publication?.publishedAt),
+    videoSha256: textValue(value?.publication?.videoSha256),
+    packageSha256: textValue(value?.publication?.packageSha256),
+  };
+  const publicationTargets = Array.isArray(value?.publicationTargets)
+    ? value.publicationTargets.map(normalizePublicationTarget)
+    : [];
+  if (
+    publicationTargets.length === 0
+    && (publication.platform || publication.publishedUrl || publication.approval.status !== 'pending')
+  ) {
+    publicationTargets.push(normalizePublicationTarget({
+      id: 'primary',
+      platform: publication.platform,
+      status: publication.publishedUrl
+        ? 'published'
+        : publication.approval.status === 'rejected'
+          ? 'rejected'
+          : publication.approval.status === 'approved'
+            ? 'approved'
+            : 'pending',
+      approval: publication.approval,
+      publishedUrl: publication.publishedUrl,
+      publishedAt: publication.publishedAt,
+      videoSha256: publication.videoSha256,
+      packageSha256: publication.packageSha256,
+    }, 0));
+  }
   return {
     schemaVersion: 1,
     origin: {
@@ -467,14 +581,8 @@ function normalizeWorkflow(value: Partial<ProjectWorkflow> | undefined): Project
     topicApproval: normalizeWorkflowApproval(value?.topicApproval),
     researchApproval: normalizeWorkflowApproval(value?.researchApproval),
     deliveryApproval: normalizeWorkflowApproval(value?.deliveryApproval),
-    publication: {
-      approval: normalizeWorkflowApproval(value?.publication?.approval),
-      platform: textValue(value?.publication?.platform),
-      publishedUrl: textValue(value?.publication?.publishedUrl),
-      publishedAt: textValue(value?.publication?.publishedAt),
-      videoSha256: textValue(value?.publication?.videoSha256),
-      packageSha256: textValue(value?.publication?.packageSha256),
-    },
+    publication,
+    publicationTargets,
     market: {
       decision: marketDecision,
       decidedAt: marketDecision === 'pending' ? '' : textValue(value?.market?.decidedAt),
@@ -891,6 +999,9 @@ export function normalizeBrief(input: LegacyProjectInput): ShortVideoProject {
     },
     platformCopy: {
       coverTitle: textValue(input.platformCopy?.coverTitle),
+      ...(textValue(input.platformCopy?.coverAssetPath)
+        ? { coverAssetPath: textValue(input.platformCopy?.coverAssetPath) }
+        : {}),
       title: textValue(input.platformCopy?.title),
       description: textValue(input.platformCopy?.description),
       hashtags: stringArray(input.platformCopy?.hashtags),
@@ -1206,6 +1317,7 @@ export function createProject(input: CreateProjectInput) {
         approval: { status: 'pending', decidedAt: '', decidedBy: '', note: '', fingerprint: '' },
         platform: '', publishedUrl: '', publishedAt: '', videoSha256: '', packageSha256: '',
       },
+      publicationTargets: [],
       market: { decision: 'pending', decidedAt: '', decidedBy: '', note: '', evidence: [] },
     },
     brief: { ...briefInput, objective, audience, coreMessage, aspectRatio } as CreativeBrief,
@@ -1638,6 +1750,7 @@ export function renderStatus(
     renderedAt: manifest.renderedAt,
     renderManifestPath: paths.manifestPath,
     videoPath,
+    coverPath: paths.coverImagePath,
     zipPath: paths.exportZipPath,
     deliveryApproval: project.workflow.deliveryApproval,
     receipt: readExportPackageReceipt(paths.exportPackageReceiptPath),

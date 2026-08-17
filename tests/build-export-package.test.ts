@@ -20,7 +20,12 @@ import {
 import { buildMaterialQualityReview } from '../scripts/lib/material-quality-gate.mjs';
 import { renditionBundleFingerprint } from '../scripts/lib/video-renditions.mjs';
 
-function fixture(options: { acceptance?: boolean; stale?: boolean; deliveryApproved?: boolean } = {}) {
+function fixture(options: {
+  acceptance?: boolean;
+  stale?: boolean;
+  deliveryApproved?: boolean;
+  voiceEngine?: string;
+} = {}) {
   assert.ok(ffmpegPath);
   const root = mkdtempSync(join(tmpdir(), 'videobrief-package-script-'));
   const workDir = join(root, 'work');
@@ -57,7 +62,7 @@ function fixture(options: { acceptance?: boolean; stale?: boolean; deliveryAppro
     market_status: 'none',
     brief: { objective: 'test', coreMessage: 'test' },
     platformCopy: { coverTitle: '测试封面', title: '测试', description: '', hashtags: [] },
-    render: { width: 320, height: 180 },
+    render: { width: 320, height: 180, voiceEngine: options.voiceEngine ?? '' },
     outputs: { outputVideo: videoPath, publicRender: videoPath, workDir, exportDir },
     scenes: [],
     sources: [{
@@ -228,4 +233,12 @@ test('build-export-package creates a valid ZIP and version receipt', () => {
   assert.equal(receipt.deliveryApprovedAt, 'now');
   assert.equal(receipt.deliveryApprovedBy, 'test-user');
   assert.equal(receipt.zipBytes, statSync(zipPath).size);
+});
+
+test('build-export-package marks synthetic narration as AI generated', () => {
+  const value = fixture({ voiceEngine: 'gemini-tts' });
+  const result = run(value.projectPath);
+  assert.equal(result.status, 0, result.stderr);
+  const platformCopy = JSON.parse(readFileSync(join(value.exportDir, 'platform-copy.json'), 'utf8'));
+  assert.equal(platformCopy.generatedByAi, true);
 });

@@ -13,6 +13,8 @@ export interface ExportPackageReceipt {
   renderManifestSha256: string;
   videoPath: string;
   videoSha256: string;
+  coverPath?: string;
+  coverSha256?: string;
   zipPath: string;
   zipBytes: number;
   zipSha256: string;
@@ -37,6 +39,7 @@ export interface ExportPackageReadinessInput {
   renderedAt: string;
   renderManifestPath: string;
   videoPath: string;
+  coverPath: string;
   zipPath: string;
   deliveryApproval: ExportPackageDeliveryApproval | null;
   receipt: ExportPackageReceipt | null;
@@ -63,6 +66,8 @@ export function readExportPackageReceipt(path: string): ExportPackageReceipt | n
       || typeof value.renderManifestSha256 !== 'string'
       || typeof value.videoPath !== 'string'
       || typeof value.videoSha256 !== 'string'
+      || (value.coverPath !== undefined && typeof value.coverPath !== 'string')
+      || (value.coverSha256 !== undefined && typeof value.coverSha256 !== 'string')
       || typeof value.zipPath !== 'string'
       || typeof value.zipBytes !== 'number'
       || typeof value.zipSha256 !== 'string'
@@ -119,6 +124,7 @@ export function exportPackageReadiness(
   const expectedPaths = [
     [receipt.renderManifestPath, input.renderManifestPath],
     [receipt.videoPath, input.videoPath],
+    ...(receipt.coverPath ? [[receipt.coverPath, input.coverPath]] : []),
     [receipt.zipPath, input.zipPath],
   ];
   if (expectedPaths.some(([recorded, current]) => resolve(recorded) !== resolve(current))) {
@@ -127,6 +133,7 @@ export function exportPackageReadiness(
   if (
     !existsSync(input.renderManifestPath)
     || !existsSync(input.videoPath)
+    || !existsSync(input.coverPath)
     || !existsSync(input.zipPath)
   ) {
     return { ready: false, reason: '导出包产物缺失，请重新渲染并打包。' };
@@ -139,6 +146,9 @@ export function exportPackageReadiness(
   }
   if (fileSha256(input.videoPath) !== receipt.videoSha256) {
     return { ready: false, reason: '导出包对应的成片已变化，请重新渲染并打包。' };
+  }
+  if (receipt.coverSha256 && fileSha256(input.coverPath) !== receipt.coverSha256) {
+    return { ready: false, reason: '导出包对应的正式封面已变化，请重新审查并打包。' };
   }
   if (fileSha256(input.zipPath) !== receipt.zipSha256) {
     return { ready: false, reason: '导出 ZIP 内容与当前版本收据不一致，请重新渲染并打包。' };

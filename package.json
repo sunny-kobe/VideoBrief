@@ -15,6 +15,8 @@
     "signals:enrich": "tsx scripts/enrich-daily-signal.ts",
     "project:produce": "tsx scripts/produce-project.ts",
     "project:workflow": "tsx scripts/run-production-workflow.ts",
+    "project:publish": "tsx scripts/publish-project.ts",
+    "project:publication-ledger": "tsx scripts/collect-publication-metrics.ts",
     "transcription:setup": "node scripts/setup-local-whisper.mjs",
     "video:studio": "remotion studio remotion/index.ts",
     "video:still": "mkdir -p output/videos && remotion still remotion/index.ts WeeklyAiShort output/videos/weekly-ai-cover.png --frame=0",

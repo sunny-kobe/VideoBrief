@@ -158,48 +158,63 @@ copyFileSync(manifest.artifacts.publicRender ?? manifest.artifacts.outputVideo, 
 copyFileSync(manifest.artifacts.srt, subtitlesSrt);
 copyFileSync(manifest.artifacts.subtitles, subtitlesAss);
 
-if (!ffmpegPath) throw new Error('ffmpeg-static did not resolve a binary path.');
 const coverTitle = project.platformCopy?.coverTitle || project.brief?.coreMessage || project.title;
-const coverTitlePath = resolve(exportDir, '.cover-title.txt');
-const coverTitleWidth = project.render?.width > project.render?.height ? 18 : 11;
-const horizontalCover = (project.render?.width ?? 1080) > (project.render?.height ?? 1920);
-const coverFontSize = Math.round(Math.min(project.render?.width ?? 1080, project.render?.height ?? 1920) * 0.056);
-writeFileSync(coverTitlePath, `${wrapCoverTitle(coverTitle, coverTitleWidth)}\n`);
-const coverDrawText = [
-  `drawtext=fontfile='${filterPath('/System/Library/Fonts/Hiragino Sans GB.ttc')}'`,
-  `textfile='${filterPath(coverTitlePath)}'`,
-  `fontsize=${coverFontSize}`,
-  'fontcolor=white',
-  'line_spacing=16',
-  'borderw=2',
-  'bordercolor=black@0.45',
-  'x=(w-text_w)/2',
-  `y=h*${horizontalCover ? '0.61' : '0.55'}`,
-].join(':');
-const coverFilter = [
-  `drawbox=x=0:y=ih*${horizontalCover ? '0.54' : '0.49'}:w=iw:h=ih*${horizontalCover ? '0.34' : '0.25'}:color=black@0.72:t=fill`,
-  coverDrawText,
-].join(',');
-const coverResult = spawnSync(
-  ffmpegPath,
-  ['-y', '-ss', '0.1', '-i', finalVideo, '-vf', coverFilter, '-frames:v', '1', '-update', '1', coverImage],
-  { encoding: 'utf8' },
-);
-rmSync(coverTitlePath, { force: true });
-if (coverResult.status !== 0 || !existsSync(coverImage)) {
-  const details = String(coverResult.stderr || coverResult.stdout || coverResult.error?.message || '')
-    .split('\n').map((line) => line.trim()).filter(Boolean).slice(-8).join('\n');
-  throw new Error(`Failed to generate cover image${details ? `:\n${details}` : '.'}`);
+const configuredCoverAsset = String(project.platformCopy?.coverAssetPath ?? '').trim();
+if (configuredCoverAsset) {
+  const sourceCoverImage = resolve(configuredCoverAsset);
+  if (!existsSync(sourceCoverImage) || statSync(sourceCoverImage).size === 0) {
+    throw new Error(`Configured cover asset is missing or empty: ${sourceCoverImage}`);
+  }
+  if (sourceCoverImage === coverImage) {
+    throw new Error('Configured cover asset must be stored outside the generated export directory.');
+  }
+  copyFileSync(sourceCoverImage, coverImage);
+} else {
+  if (!ffmpegPath) throw new Error('ffmpeg-static did not resolve a binary path.');
+  const coverTitlePath = resolve(exportDir, '.cover-title.txt');
+  const coverTitleWidth = project.render?.width > project.render?.height ? 18 : 11;
+  const horizontalCover = (project.render?.width ?? 1080) > (project.render?.height ?? 1920);
+  const coverFontSize = Math.round(Math.min(project.render?.width ?? 1080, project.render?.height ?? 1920) * 0.056);
+  writeFileSync(coverTitlePath, `${wrapCoverTitle(coverTitle, coverTitleWidth)}\n`);
+  const coverDrawText = [
+    `drawtext=fontfile='${filterPath('/System/Library/Fonts/Hiragino Sans GB.ttc')}'`,
+    `textfile='${filterPath(coverTitlePath)}'`,
+    `fontsize=${coverFontSize}`,
+    'fontcolor=white',
+    'line_spacing=16',
+    'borderw=2',
+    'bordercolor=black@0.45',
+    'x=(w-text_w)/2',
+    `y=h*${horizontalCover ? '0.61' : '0.55'}`,
+  ].join(':');
+  const coverFilter = [
+    `drawbox=x=0:y=ih*${horizontalCover ? '0.54' : '0.49'}:w=iw:h=ih*${horizontalCover ? '0.34' : '0.25'}:color=black@0.72:t=fill`,
+    coverDrawText,
+  ].join(',');
+  const coverResult = spawnSync(
+    ffmpegPath,
+    ['-y', '-ss', '0.1', '-i', finalVideo, '-vf', coverFilter, '-frames:v', '1', '-update', '1', coverImage],
+    { encoding: 'utf8' },
+  );
+  rmSync(coverTitlePath, { force: true });
+  if (coverResult.status !== 0 || !existsSync(coverImage)) {
+    const details = String(coverResult.stderr || coverResult.stdout || coverResult.error?.message || '')
+      .split('\n').map((line) => line.trim()).filter(Boolean).slice(-8).join('\n');
+    throw new Error(`Failed to generate cover image${details ? `:\n${details}` : '.'}`);
+  }
 }
+const coverImageSha256 = createHash('sha256').update(readFileSync(coverImage)).digest('hex');
 
+const syntheticVoiceEngines = new Set(['edge-tts', 'gemini-tts']);
 const copyPayload = {
   coverTitle,
   title: project.platformCopy?.title || project.title,
   description: project.platformCopy?.description || project.brief?.objective || '',
   hashtags: project.platformCopy?.hashtags ?? [],
-  generatedByAi: project.ai?.calls?.some(
-    (call) => call.purpose === 'production-assets' && call.status === 'completed',
-  ) ?? false,
+  generatedByAi: syntheticVoiceEngines.has(String(project.render?.voiceEngine ?? '').trim())
+    || (project.ai?.calls?.some(
+      (call) => call.purpose === 'production-assets' && call.status === 'completed',
+    ) ?? false),
 };
 writeFileSync(platformCopy, `${JSON.stringify(copyPayload, null, 2)}\n`);
 
@@ -248,18 +263,23 @@ const productionMetrics = buildProductionMetrics({
   },
   finalizedAt: metricsCapturedAt,
 });
+const { coverImageSha256: _legacyCoverImageSha256, ...renderArtifacts } = manifest.artifacts;
 
 const enhancedManifest = {
   ...manifest,
   productionContentFingerprint: currentProductionContentFingerprint,
   packageContentFingerprint: currentPackageContentFingerprint,
   artifacts: {
-    ...manifest.artifacts,
+    ...renderArtifacts,
     coverImage,
     platformCopy,
     sourceList,
     projectSnapshot,
     exportManifest: exportManifestPath,
+  },
+  publicationAssets: {
+    ...(manifest.publicationAssets ?? {}),
+    coverImageSha256,
   },
   rightsCheck,
   statuses,
@@ -300,6 +320,9 @@ const exportManifest = {
     renderManifest,
     projectSnapshot,
   },
+  artifactSha256: {
+    coverImage: coverImageSha256,
+  },
 };
 writeFileSync(exportManifestPath, `${JSON.stringify(exportManifest, null, 2)}\n`);
 
@@ -333,6 +356,8 @@ const packageReceipt = {
   renderManifestSha256: await fileSha256(manifestPath),
   videoPath: manifest.artifacts.publicRender ?? manifest.artifacts.outputVideo,
   videoSha256: await fileSha256(manifest.artifacts.publicRender ?? manifest.artifacts.outputVideo),
+  coverPath: coverImage,
+  coverSha256: coverImageSha256,
   zipPath,
   zipBytes: statSync(zipPath).size,
   zipSha256: await fileSha256(zipPath),

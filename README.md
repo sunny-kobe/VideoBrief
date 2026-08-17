@@ -15,7 +15,7 @@ Source understanding, traceability, original narrative, shot selection, voiceove
 
 VideoBrief is not defined by one content category. Product explainers, software tutorials, knowledge videos, project demos and AI/technology briefs are replaceable production templates built on the same workflow.
 
-It is also not a transcript-first summarizer, a video reposting tool or an autonomous publishing system. Codex prepares and assembles the production draft through the canonical project; the user retains final control through conversation with Codex and explicit publication decisions.
+It is also not a transcript-first summarizer, a video reposting tool or an autonomous publishing system. Codex prepares and assembles the production draft through the canonical project; the user retains final control through conversation with Codex and explicit publication decisions. Once a platform target is explicitly approved, VideoBrief performs account checks, uploads, scheduling and state updates through its programmatic publisher instead of asking the user to upload files manually.
 
 ## Product Documents
 
@@ -58,6 +58,7 @@ The app now supports:
 - an optional canonical Remotion candidate that reuses the FFmpeg voiceover and timeline, writes its own manifest/proof, and remains a review alternative rather than silently replacing the production MP4;
 - production records for imports, research review, first technical pass, manual saves, render attempts/failures and cross-project source reuse, included in render and export manifests;
 - cover generation that burns the editable cover title into a real PNG instead of exporting an unlabelled frame grab;
+- canonical per-platform publication targets with requested/effective copy snapshots, append-only metric snapshots and a generated cross-platform ledger;
 - stale-output detection that blocks workbench MP4 links, fullscreen preview and ZIP download whenever a project changes after rendering.
 
 The original compatibility fixture remains:
@@ -164,7 +165,7 @@ npm run project:workflow -- --project=<project-id> --instruction="<creative inst
 npm run video:render:remotion-project -- --brief=content/projects/<project-id>/project.json
 ```
 
-Scanning and rendering add no paid video service. AI source understanding and planning still use the server-only OpenAI-compatible endpoint already configured for VideoBrief. Approval, rights review and publication remain manual gates; neither command path publishes automatically.
+Scanning and rendering add no paid video service. AI source understanding and planning still use the server-only OpenAI-compatible endpoint already configured for VideoBrief. Approval, rights review and publication decisions remain manual gates. An approved platform target can then be executed through `npm run project:publish`; no production command publishes to an unapproved target.
 
 ## Production Export
 

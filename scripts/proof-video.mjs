@@ -11,12 +11,14 @@ import {
 } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import ffmpegPath from 'ffmpeg-static';
+import { exactFrameExtractionArgs } from './lib/frame-extraction.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { verifyNarrationTranscript } from './lib/narration-verification.mjs';
 import { validateRenderPlan } from './lib/render-plan-validation.mjs';
 import { validateRenderedDuration } from './lib/video-duration-contract.mjs';
 import { validateChapterFingerprintManifest } from './lib/chapter-fingerprints.mjs';
 import { productionContentFingerprint } from './lib/production-content-fingerprint.mjs';
+import { inspectNarrationTailGaps } from './lib/narration-tail-validation.mjs';
 
 const { args } = parseCliArgs(process.argv.slice(2));
 
@@ -40,6 +42,7 @@ const quality = {
   truePeakDbtp: null,
   blackSegments: [],
   freezeIntervals: [],
+  narrationTailGaps: [],
   warnings: [],
   durationContract: null,
 };
@@ -348,6 +351,23 @@ if (canonicalProject && Number(canonicalProject.brief?.targetDurationSeconds) >=
   }
 }
 
+const timelinePath = manifest.artifacts?.timeline;
+if (issues.length === 0 && timelinePath && existsSync(timelinePath)) {
+  try {
+    const timeline = JSON.parse(readFileSync(timelinePath, 'utf8'));
+    const narrationTailReview = inspectNarrationTailGaps(timeline.scenes);
+    quality.narrationTailGaps = narrationTailReview.checks;
+    for (const gap of narrationTailReview.excessive) {
+      issues.push(
+        `Scene ${gap.sceneId || 'unknown'} leaves ${gap.tailSeconds.toFixed(2)}s after narration; `
+        + `the maximum allowed tail is ${gap.maximumTailSeconds.toFixed(2)}s.`,
+      );
+    }
+  } catch (error) {
+    issues.push(`Could not validate per-scene narration tails: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
 if (issues.length === 0) {
   mkdirSync(proofDir, { recursive: true });
   const probe = spawnSync(ffmpegPath, ['-hide_banner', '-i', input], { encoding: 'utf8' });
@@ -493,18 +513,7 @@ if (issues.length === 0) {
       const output = resolve(proofDir, `frame-${frame.label}.png`);
       const result = spawnSync(
         ffmpegPath,
-        [
-          '-y',
-          '-ss',
-          frame.second.toFixed(3),
-          '-i',
-          input,
-          '-frames:v',
-          '1',
-          '-update',
-          '1',
-          output,
-        ],
+        exactFrameExtractionArgs(input, frame.second, output),
         { stdio: 'ignore' },
       );
       if (result.status !== 0 || !existsSync(output) || statSync(output).size === 0) {

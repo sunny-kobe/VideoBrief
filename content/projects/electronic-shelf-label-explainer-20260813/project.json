@@ -1,0 +1,2671 @@
+{
+  "schemaVersion": 3,
+  "id": "electronic-shelf-label-explainer-20260813",
+  "title": "货架上的价格，为什么几分钟就能变？",
+  "format": "video_project",
+  "targetAudience": "在超市购物、关注价格变化，但不了解电子价签和门店运营机制的普通中文观众",
+  "status": "published",
+  "technical_status": "passed",
+  "rights_status": "cleared",
+  "publication_status": "published",
+  "market_status": "collecting",
+  "lifecycle": {
+    "state": "active",
+    "archivedAt": "",
+    "archivedBy": "",
+    "archiveReason": ""
+  },
+  "brief": {
+    "objective": "用约 90 到 110 秒讲清电子价签如何让门店快速统一改价、它为何被采用，以及这种技术能力为什么不等于商店已经在针对个人或按小时动态涨价",
+    "audience": "在超市购物、关注价格变化，但不了解电子价签和门店运营机制的普通中文观众",
+    "platform": "B站首发，单横版",
+    "aspectRatio": "16:9",
+    "targetDurationSeconds": 105,
+    "tone": "直白、克制、有交流感，不渲染价格恐慌",
+    "style": "真实货架、电子价签和门店操作动态素材为主体，必要时用稳定的原创信息层解释系统链路",
+    "reference": "前十五秒直接呈现货架价格可以在几分钟内统一变化的反差，随后区分技术能力、实际运营用途和未经证实的动态涨价推断",
+    "coreMessage": "电子价签把门店改价从人工逐张更换变成系统统一下发，并同时服务拣货和补货；它扩大了快速改价能力，但不能据此断言商店已经按个人或按小时实时涨价",
+    "cta": "看到动态涨价说法时，先区分技术能力、公开策略和实际价格证据",
+    "prohibitedMaterial": "不得把电子价签直接等同于按人定价或实时涨价；不得用品牌宣传或新闻争议片段冒充普遍事实；不得使用带平台或账号水印、权利不可判断的正式素材"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "Wikimedia Commons：东京超市货架 H.264 代理",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://commons.wikimedia.org/wiki/File:Daily_Life_in_Tokyo_in_2013_%E2%80%93_Supermarket_in_Hanzomon_Station_Area.webm",
+      "assetPath": "public/project-assets/electronic-shelf-label-explainer-20260813/tokyo-supermarket-proxy.mp4",
+      "originalFileName": "tokyo-supermarket-proxy.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 197152258,
+      "importedAt": "2026-08-13T10:15:00.000Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Wikimedia Commons CC BY 3.0；作者 Arkascha；由原始 1920x1080 VP9 文件生成本地 H.264 代理，仅用于解码兼容；发布时须署名 Arkascha 并附 CC BY 3.0 许可链接。",
+      "contentHash": "bdfd4edf562a8e0b93b614a88e30be5b99d218c6e523f4e7c84fa4e8f0e4c0ea",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "bdfd4edf562a8e0b93b614a88e30be5b99d218c6e523f4e7c84fa4e8f0e4c0ea",
+        "startedAt": "2026-08-13T10:12:00.000Z",
+        "completedAt": "2026-08-13T10:15:00.000Z",
+        "error": "",
+        "model": "manual-deterministic-frame-review",
+        "promptVersion": "manual-tokyo-supermarket-review-20260813",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "计划窗口内可见日文商品标签和日元价格；这些文字只属于货架环境，不承担旁白事实。",
+        "visualDescription": "横版超市实拍，包含冷藏食品、烘焙熟食、包装商品货架和通道。计划窗口内未见平台角标、账号角标或下载工具标记。",
+        "hierarchicalSummary": "该视频只用于展示不同超市货架与商品陈列情境，不证明 Walmart 的改价效率、补货拣货功能或任何动态涨价策略。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [
+          {
+            "id": "source-01-uncertainty-01",
+            "statement": "该来源不能证明电子价签的系统能力、Walmart 的具体运营流程或动态涨价。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "start": 0,
+                "end": 195.73,
+                "note": "视频仅提供普通超市货架情境。"
+              }
+            ],
+            "resolution": "只作为相关超市情境背景；事实继续由已批准的 Walmart 官方资料承担。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-03",
+      "label": "Wikimedia Commons：悉尼超市电子墨水价签照片",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "https://commons.wikimedia.org/wiki/File:2021-06-28_E-ink_price_tag_in_Sydney_supermarket.jpg",
+      "assetPath": "public/project-assets/electronic-shelf-label-explainer-20260813/e-ink-price-tag-1786607588866.jpg",
+      "originalFileName": "e-ink-price-tag.jpg",
+      "mimeType": "image/jpeg",
+      "bytes": 2414475,
+      "importedAt": "2026-08-13T07:53:08.873Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Wikimedia Commons CC BY-SA 4.0；作者 Maksym Kozlenko；发布时按许可证署名。",
+      "contentHash": "d0e176d9363f71f2d12e1a557cad9287437d409df3513702797d34855cf94b40",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "d0e176d9363f71f2d12e1a557cad9287437d409df3513702797d34855cf94b40",
+        "startedAt": "2026-08-13T08:00:10.317Z",
+        "completedAt": "2026-08-13T08:00:41.861Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "PRICES DROPPED\n$11 ea\nKleenex T/tissue White 24pk\nRange was $16\n03/05/16\n$0.25/100 Sheets\n11395\n580263\nPRICES DROPPED",
+        "visualDescription": "横向近距离货架照片。画面中心是一枚红色矩形边框的电子价签，黑色显示框内为白色背景和黑色文字，左侧有“PRICES DROPPED”黑色区域，右侧突出显示“$11 ea”。价签安装在黑色货架导轨前，背景可见金属网格货架和白色商品的局部。画面下方红色外框上有白底红字“PRICES DROPPED”贴纸。",
+        "hierarchicalSummary": "图片是一枚安装在货架前沿的红色电子价签特写。屏幕显示“$11 ea”，商品描述为“Kleenex T/tissue White 24pk”，并带有“PRICES DROPPED”促销提示；屏幕还显示“Range was $16”、日期、单位比较价和商品编号等文字。该图只直接证明单个价签在拍摄时呈现的可见内容，不能单独证明门店改价所需时间、统一下发机制、拣货或补货用途，也不能证明按个人或按小时动态定价。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-03-fact-01",
+            "statement": "画面主体是一枚红色边框的电子价签，显示单价“$11 ea”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "电子价签中央偏右的白色显示区域可见“$11”，右侧有“ea”。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 68
+          },
+          {
+            "id": "source-03-fact-02",
+            "statement": "价签上有两处“PRICES DROPPED”文字：一处在显示屏左侧，一处在红色外框下方的白色贴纸上。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "电子价签左侧黑白区域可见“PRICES DROPPED”，下方红色外框贴纸再次可见同样文字。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 64
+          },
+          {
+            "id": "source-03-fact-03",
+            "statement": "价签可见商品描述“Kleenex T/tissue White 24pk”、原价提示“Range was $16”、日期“03/05/16”、单位比较价“$0.25/100 Sheets”，以及编号“11395”和“580263”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "显示屏右侧可见“Kleenex T/tissue White 24pk”；左下区域可见“Range was $16”“03/05/16”“$0.25/100 Sheets”；底部可见“11395”，右下可见“580263”。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 60
+          },
+          {
+            "id": "source-03-fact-04",
+            "statement": "这张照片显示，一个商品价签同时标出了当前价格11美元和“Range was $16”的原价提示。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "照片中的单个价签同时呈现当前价格“$11”和“Range was $16”字样。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 72
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-03-uncertainty-01",
+            "statement": "无法由该图片确认价格是否在几分钟内统一变化，也无法确认电子价签背后的改价流程或系统链路。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "图片仅展示单个货架价签，没有系统操作记录、多个价签对比或时间序列。"
+              }
+            ],
+            "resolution": "该来源仅承担画面形态或相关情境，不用于证明系统能力、普遍采用或动态涨价；对应事实只引用已确认的 Walmart 官方声明，并保留企业范围限定。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 96
+          },
+          {
+            "id": "source-03-uncertainty-02",
+            "statement": "不能根据这张图片推断商店正在按个人、按小时或实时动态涨价；“PRICES DROPPED”和价格差异本身不足以证明这些结论。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "image",
+                "note": "图片没有顾客身份、购买记录、时间序列或定价规则等证据。"
+              }
+            ],
+            "resolution": "该来源仅承担画面形态或相关情境，不用于证明系统能力、普遍采用或动态涨价；对应事实只引用已确认的 Walmart 官方声明，并保留企业范围限定。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 98
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-04",
+      "label": "Wikimedia Commons：电子价签近景照片",
+      "sourceType": "image",
+      "materialRole": "broll",
+      "originUrl": "https://commons.wikimedia.org/wiki/File:Electronic_shelf_label_red_black_white_screen.jpg",
+      "assetPath": "public/project-assets/electronic-shelf-label-explainer-20260813/electronic-label-closeup-1786607588878.jpg",
+      "originalFileName": "electronic-label-closeup.jpg",
+      "mimeType": "image/jpeg",
+      "bytes": 2391020,
+      "importedAt": "2026-08-13T07:53:08.879Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Wikimedia Commons CC BY-SA 4.0；作者 The RedBurn；发布时按许可证署名。",
+      "contentHash": "38234dad764e922e8a4971235f5d5fa90fd01f35f8f402aab9b92ed6821a5f88",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "38234dad764e922e8a4971235f5d5fa90fd01f35f8f402aab9b92ed6821a5f88",
+        "startedAt": "2026-08-13T08:00:42.054Z",
+        "completedAt": "2026-08-13T08:01:15.664Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "ASUS\nMSH PCR FA20UA-BV225T-BE AZ 14\" I3-\nNOTEBOOK 12\"-14,5\"\nManufacturer Part Number (MPN): 90NB0LA1-M04740\nPrix emporté\n649.-\nArt.-Nr.: 1807727\nEURO, Recupel incl.",
+        "visualDescription": "一张横向照片，近距离拍摄货架上的电子价签。价签位于画面中央，白色塑料外框带粉红色边线，内嵌灰色电子墨水屏。屏幕上方显示 ASUS 商品名称和型号信息；下方左侧有“Prix emporté”、条形码和商品编号，右侧以大号粉红色字体显示“649.-”，右下角有“EURO, Recupel incl.”。背景是浅灰色货架结构，画面顶部还能看到其他商品标签的局部文字，但不完整，无法据此确认其具体内容。",
+        "hierarchicalSummary": "来源图片展示了一块货架上的电子价签近景。屏幕可见 ASUS 商品信息、产品部件号、条形码、商品编号，以及“Prix emporté”“649.-”和“EURO, Recupel incl.”等文字。图片只直接证明该价签在拍摄时呈现这些可见内容，不能据此证明改价速度、统一下发机制、实际运营用途，或任何按个人/按小时动态定价策略。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-04-fact-01",
+            "statement": "图片中央是一块安装在货架上的电子价签，屏幕显示品牌“ASUS”、产品型号/描述“MSH PCR FA20UA-BV225T-BE AZ 14\" I3-NOTEBOOK 12\"-14,5\"”以及制造商部件号“90NB0LA1-M04740”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "文字位于图片中央电子价签屏幕内；型号和参数分为上方多行显示。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 48
+          },
+          {
+            "id": "source-04-fact-02",
+            "statement": "电子价签下半部可见法语文字“Prix emporté”和醒目的“649.-”；右下角可见“EURO, Recupel incl.”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "价格位于电子价签屏幕下半部偏右；货币说明位于右下角。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 62
+          },
+          {
+            "id": "source-04-fact-03",
+            "statement": "屏幕左下区域有条形码，条形码下方可见“Art.-Nr.: 1807727”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "条形码位于屏幕左下区域；商品编号位于条形码下方。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 35
+          },
+          {
+            "id": "source-04-fact-04",
+            "statement": "画面展示的是货架环境中的单个电子价签近景：价签为白色外框、粉红色内边框，屏幕采用灰色背景和深色文字，价格以大号粉红色字体显示。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "电子价签整体位于画面中央，嵌在货架边缘；外框为白色并带粉红色边框。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 72
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-04-uncertainty-01",
+            "statement": "产品型号中的部分字符可能存在视觉识别误差，尤其是“FA20UA-BV225T-BE AZ 14\" I3-”这一行；如脚本需要准确报出型号，应人工核对原图或商品记录。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "型号文字位于屏幕上方，部分字符受拍摄清晰度和屏幕反光影响。"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 55
+          },
+          {
+            "id": "source-04-uncertainty-02",
+            "statement": "无法由这张图片证明电子价签能够在几分钟内统一改价，也无法证明其连接了门店系统、用于拣货或补货，或支持按个人、按小时实时涨价。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "note": "图片仅显示单个价签的静态画面，没有时间序列、操作过程、系统界面或门店规则说明。"
+              }
+            ],
+            "resolution": "该来源仅承担画面形态或相关情境，不用于证明系统能力、普遍采用或动态涨价；对应事实只引用已确认的 Walmart 官方声明，并保留企业范围限定。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 76
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-05",
+      "label": "Walmart 官方数字价签事实摘录",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://corporate.walmart.com/news/2024/06/06/new-tech-better-outcomes-digital-shelf-labels-are-a-win-for-customers-and-associates",
+      "assetPath": "public/project-assets/electronic-shelf-label-explainer-20260813/walmart-digital-shelf-labels-1786607588884.md",
+      "originalFileName": "walmart-digital-shelf-labels.md",
+      "mimeType": "text/markdown",
+      "bytes": 668,
+      "importedAt": "2026-08-13T07:53:08.884Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "官方网页事实摘录，仅作研究与引用；不将网页截图直接作为成片画面。",
+      "contentHash": "cdb5fca11df3aba2c171794c2c05a0dc50f1abefb479c3305692a43c8dfa4f5a",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 3,
+        "inputHash": "cdb5fca11df3aba2c171794c2c05a0dc50f1abefb479c3305692a43c8dfa4f5a",
+        "startedAt": "2026-08-13T08:01:15.848Z",
+        "completedAt": "2026-08-13T08:03:05.862Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "manual-walmart-esl-review-20260813",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# Walmart 电子价签事实摘录\n\n来源主体：Walmart Corporate\n发布日期：2024-06-06\n原始 URL：https://corporate.walmart.com/news/2024/06/06/new-tech-better-outcomes-digital-shelf-labels-are-a-win-for-customers-and-associates\n\nWalmart 称，纸价签一次价格变化过去需要店员走动并花约两天完成；数字价签可通过移动应用在几分钟内更新。Walmart 同时提到 Stock to Light 和 Pick to Light，用于补货定位与线上订单拣货。该声明能证明这家企业公开描述的运营能力与采用理由，不能证明所有零售商都这样做，也不能证明针对个人或按小时动态涨价已经发生。\n",
+        "visualDescription": "",
+        "hierarchicalSummary": "",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "walmart-esl-speed",
+            "statement": "Walmart 官方说明称，纸价签的一次价格变化过去约需店员花两天完成，数字价签可通过移动应用在几分钟内更新。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "line",
+                "lineStart": 1,
+                "lineEnd": 8,
+                "note": "Walmart 官方摘录中的效率说明"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "walmart-esl-operations",
+            "statement": "Walmart 官方同时提到 Stock to Light 用于补货定位，Pick to Light 用于线上订单拣货。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "line",
+                "lineStart": 1,
+                "lineEnd": 8,
+                "note": "Walmart 官方摘录中的运营用途说明"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 86
+          },
+          {
+            "id": "walmart-esl-scope",
+            "statement": "以上是 Walmart 对其公开测试与扩展计划的企业声明，不代表所有零售商的共同做法。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "file",
+                "note": "对原始企业声明的范围限定"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 92
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "walmart-not-dynamic-pricing",
+            "statement": "Walmart 这份声明不能证明针对个人、按小时或实时动态涨价已经发生。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "file",
+                "note": "原文未提供个人定价或实时涨价证据"
+              }
+            ],
+            "resolution": "旁白只解释电子价签的快速更新能力，不把它写成已经发生的个性化或按小时涨价。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "walmart-scope-limit",
+            "statement": "Walmart 的企业声明不能外推为所有零售商都已采用同样系统。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "file",
+                "note": "来源主体与范围边界"
+              }
+            ],
+            "resolution": "旁白明确归因于 Walmart，并用“这说明一种可行的运营能力”而非行业普遍事实。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 92
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-06",
+      "label": "Wikimedia Commons 超市商品货架 H.264 代理",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://commons.wikimedia.org/wiki/File:Supermarket_Grocery_Products_(13083756734).webm",
+      "assetPath": "public/project-assets/electronic-shelf-label-explainer-20260813/supermarket-products-proxy-1786607793623.mp4",
+      "originalFileName": "supermarket-products-proxy.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 24232726,
+      "importedAt": "2026-08-13T07:56:33.636Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "从 Wikimedia Commons 公共领域原片生成本地 H.264 代理；代理仅为解码兼容，不改变来源权利；原片存在 AV1 解码损坏，已保留失败记录。",
+      "contentHash": "6f7c25b86da8fabd7139fddf4d4276078bd25539229ea8d9ea9264854dcd89e1",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "6f7c25b86da8fabd7139fddf4d4276078bd25539229ea8d9ea9264854dcd89e1",
+        "startedAt": "2026-08-13T07:58:16.911Z",
+        "completedAt": "2026-08-13T07:59:39.094Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "代表帧中可见文字包括：0.32 秒画面无清晰可读文字；7.14 秒可见“Bananas”“69¢”“Iceberg Lettuce”“$1.79”“you pay”“Bonus”“49¢”“Organic”等；39.27 秒右上角可见部分价格标签，数字疑似“99¢”但画面不完整；71.40 秒右上角可见“Turnips”“99¢”等；106.75 秒右上角可见“Turnips”“99¢”等；111.59 秒和124.95 秒可见散装食品容器及价格牌；135.66 秒可见片尾文字“20110303-CNPP-LSC-417 USDA Multimedia by Lance Cheung.”",
+        "visualDescription": "视频为横版超市素材。0.32 秒为蓝白模糊过渡画面；7.14 秒为明亮、生鲜商品密集的超市货架，画面上方有大型促销价格牌；39.27 秒和71.40 秒为近距离蔬菜货架，能看到抱子甘蓝、四季豆和西葫芦等；106.75 秒为相似蔬菜货架并露出右上角价格标签；111.59 秒和124.95 秒为散装坚果、种子、糖果和巧克力容器，带有取用装置及纸质价格牌；135.66 秒为白底黑字片尾。由于只提供代表帧，不能描述未抽帧时段的连续动作或画面变化。；本地理解覆盖 0.32s、7.14s、39.27s、71.40s、106.75s、111.59s、124.95s、135.66s 代表帧。",
+        "hierarchicalSummary": "该来源没有检测到可转录音轨，仅提供若干代表帧。代表帧主要是超市生鲜和散装食品货架、实体价格牌以及片尾署名；来源不足以证明电子价签、系统统一改价、拣货补货用途，或按个人、按小时动态涨价。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-06-fact-01",
+            "statement": "视频代表帧展示了超市生鲜区域和货架价格牌，包括香蕉、冰山生菜及其他农产品。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 7.14,
+                "end": 7.14,
+                "note": "7.14 秒代表帧显示超市生鲜货架、多个大型促销价格牌和商品陈列。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 35
+          },
+          {
+            "id": "source-06-fact-02",
+            "statement": "视频中可见蔬菜货架和实体价格标签，但这些代表帧没有显示电子价签的明确外观或操作过程。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 39.27,
+                "end": 39.27,
+                "note": "39.27 秒代表帧显示蔬菜货架，右上角有部分价格标签。"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 106.75,
+                "end": 106.75,
+                "note": "106.75 秒代表帧显示同类蔬菜货架，右上角可见“Turnips”和“99¢”等文字。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 20
+          },
+          {
+            "id": "source-06-fact-03",
+            "statement": "视频代表帧还展示了散装食品货架、容器、取用装置和价格牌。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 111.59,
+                "end": 111.59,
+                "note": "111.59 秒代表帧显示一排带价格牌的散装食品容器。"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 124.95,
+                "end": 124.95,
+                "note": "124.95 秒代表帧继续显示散装糖果、巧克力等容器及价格牌。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 15
+          },
+          {
+            "id": "source-06-fact-04",
+            "statement": "视频末尾代表帧包含片尾项目编号“20110303-CNPP-LSC-417”和制作署名“USDA Multimedia by Lance Cheung.”",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 135.66,
+                "end": 135.66,
+                "note": "135.66 秒代表帧为白底片尾，中央显示项目编号及 USDA Multimedia 制作署名。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-06-uncertainty-01",
+            "statement": "无法由该来源证明电子价签能让门店通过系统统一下发价格，也无法证明其相较人工逐张更换的效率。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "file",
+                "start": 0,
+                "end": 135.66,
+                "note": "来源仅提供无音轨说明和离散代表帧，未提供能证明相关运营机制的文字或完整连续画面。"
+              }
+            ],
+            "resolution": "该来源仅承担画面形态或相关情境，不用于证明系统能力、普遍采用或动态涨价；对应事实只引用已确认的 Walmart 官方声明，并保留企业范围限定。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-06-uncertainty-02",
+            "statement": "无法由该来源证明或否定商店是否按个人、按小时或实时动态调整价格；也不能据此把画面中的价格牌变化解释为电子价签或动态涨价。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "file",
+                "start": 0,
+                "end": 135.66,
+                "note": "来源未提供个人识别、顾客画像、实时定价规则或价格变化记录；离散代表帧不能证明未抽帧时段发生了何种变化。"
+              }
+            ],
+            "resolution": "该来源仅承担画面形态或相关情境，不用于证明系统能力、普遍采用或动态涨价；对应事实只引用已确认的 Walmart 官方声明，并保留企业范围限定。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-06-uncertainty-no-audio",
+            "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "file",
+                "note": "本地媒体流探测"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          },
+          {
+            "id": "source-06-uncertainty-frame-sampling",
+            "statement": "视频画面理解使用 8 张自适应代表帧（时长覆盖 + 4 张镜头变化帧），未逐帧覆盖完整动态过程。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 0.32,
+                "end": 0.32,
+                "note": "0.32s 镜头变化代表帧"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 7.140000000000001,
+                "end": 7.140000000000001,
+                "note": "7.14s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 39.27,
+                "end": 39.27,
+                "note": "39.27s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 71.4,
+                "end": 71.4,
+                "note": "71.40s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 106.753,
+                "end": 106.753,
+                "note": "106.75s 镜头变化代表帧"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 111.587,
+                "end": 111.587,
+                "note": "111.59s 镜头变化代表帧"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 124.953,
+                "end": 124.953,
+                "note": "124.95s 镜头变化代表帧"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 135.66,
+                "end": 135.66,
+                "note": "135.66s 时长覆盖代表帧"
+              }
+            ],
+            "resolution": "",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [],
+    "facts": [
+      {
+        "id": "source-03-fact-01",
+        "statement": "画面主体是一枚红色边框的电子价签，显示单价“$11 ea”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "电子价签中央偏右的白色显示区域可见“$11”，右侧有“ea”。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 68
+      },
+      {
+        "id": "source-03-fact-02",
+        "statement": "价签上有两处“PRICES DROPPED”文字：一处在显示屏左侧，一处在红色外框下方的白色贴纸上。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "电子价签左侧黑白区域可见“PRICES DROPPED”，下方红色外框贴纸再次可见同样文字。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 64
+      },
+      {
+        "id": "source-03-fact-03",
+        "statement": "价签可见商品描述“Kleenex T/tissue White 24pk”、原价提示“Range was $16”、日期“03/05/16”、单位比较价“$0.25/100 Sheets”，以及编号“11395”和“580263”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "显示屏右侧可见“Kleenex T/tissue White 24pk”；左下区域可见“Range was $16”“03/05/16”“$0.25/100 Sheets”；底部可见“11395”，右下可见“580263”。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 60
+      },
+      {
+        "id": "source-03-fact-04",
+        "statement": "这张照片显示，一个商品价签同时标出了当前价格11美元和“Range was $16”的原价提示。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "照片中的单个价签同时呈现当前价格“$11”和“Range was $16”字样。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 72
+      },
+      {
+        "id": "source-04-fact-01",
+        "statement": "图片中央是一块安装在货架上的电子价签，屏幕显示品牌“ASUS”、产品型号/描述“MSH PCR FA20UA-BV225T-BE AZ 14\" I3-NOTEBOOK 12\"-14,5\"”以及制造商部件号“90NB0LA1-M04740”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "文字位于图片中央电子价签屏幕内；型号和参数分为上方多行显示。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 48
+      },
+      {
+        "id": "source-04-fact-02",
+        "statement": "电子价签下半部可见法语文字“Prix emporté”和醒目的“649.-”；右下角可见“EURO, Recupel incl.”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "价格位于电子价签屏幕下半部偏右；货币说明位于右下角。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 62
+      },
+      {
+        "id": "source-04-fact-03",
+        "statement": "屏幕左下区域有条形码，条形码下方可见“Art.-Nr.: 1807727”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "条形码位于屏幕左下区域；商品编号位于条形码下方。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 35
+      },
+      {
+        "id": "source-04-fact-04",
+        "statement": "画面展示的是货架环境中的单个电子价签近景：价签为白色外框、粉红色内边框，屏幕采用灰色背景和深色文字，价格以大号粉红色字体显示。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "电子价签整体位于画面中央，嵌在货架边缘；外框为白色并带粉红色边框。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 72
+      },
+      {
+        "id": "walmart-esl-speed",
+        "statement": "Walmart 官方说明称，纸价签的一次价格变化过去约需店员花两天完成，数字价签可通过移动应用在几分钟内更新。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "line",
+            "lineStart": 1,
+            "lineEnd": 8,
+            "note": "Walmart 官方摘录中的效率说明"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "walmart-esl-operations",
+        "statement": "Walmart 官方同时提到 Stock to Light 用于补货定位，Pick to Light 用于线上订单拣货。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "line",
+            "lineStart": 1,
+            "lineEnd": 8,
+            "note": "Walmart 官方摘录中的运营用途说明"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 86
+      },
+      {
+        "id": "walmart-esl-scope",
+        "statement": "以上是 Walmart 对其公开测试与扩展计划的企业声明，不代表所有零售商的共同做法。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "file",
+            "note": "对原始企业声明的范围限定"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 92
+      },
+      {
+        "id": "source-06-fact-01",
+        "statement": "视频代表帧展示了超市生鲜区域和货架价格牌，包括香蕉、冰山生菜及其他农产品。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 7.14,
+            "end": 7.14,
+            "note": "7.14 秒代表帧显示超市生鲜货架、多个大型促销价格牌和商品陈列。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 35
+      },
+      {
+        "id": "source-06-fact-02",
+        "statement": "视频中可见蔬菜货架和实体价格标签，但这些代表帧没有显示电子价签的明确外观或操作过程。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 39.27,
+            "end": 39.27,
+            "note": "39.27 秒代表帧显示蔬菜货架，右上角有部分价格标签。"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 106.75,
+            "end": 106.75,
+            "note": "106.75 秒代表帧显示同类蔬菜货架，右上角可见“Turnips”和“99¢”等文字。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 20
+      },
+      {
+        "id": "source-06-fact-03",
+        "statement": "视频代表帧还展示了散装食品货架、容器、取用装置和价格牌。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 111.59,
+            "end": 111.59,
+            "note": "111.59 秒代表帧显示一排带价格牌的散装食品容器。"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 124.95,
+            "end": 124.95,
+            "note": "124.95 秒代表帧继续显示散装糖果、巧克力等容器及价格牌。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 15
+      },
+      {
+        "id": "source-06-fact-04",
+        "statement": "视频末尾代表帧包含片尾项目编号“20110303-CNPP-LSC-417”和制作署名“USDA Multimedia by Lance Cheung.”",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 135.66,
+            "end": 135.66,
+            "note": "135.66 秒代表帧为白底片尾，中央显示项目编号及 USDA Multimedia 制作署名。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      }
+    ],
+    "uncertainties": [
+      {
+        "id": "source-03-uncertainty-01",
+        "statement": "无法由该图片确认价格是否在几分钟内统一变化，也无法确认电子价签背后的改价流程或系统链路。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "图片仅展示单个货架价签，没有系统操作记录、多个价签对比或时间序列。"
+          }
+        ],
+        "resolution": "该来源仅承担画面形态或相关情境，不用于证明系统能力、普遍采用或动态涨价；对应事实只引用已确认的 Walmart 官方声明，并保留企业范围限定。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 96
+      },
+      {
+        "id": "source-03-uncertainty-02",
+        "statement": "不能根据这张图片推断商店正在按个人、按小时或实时动态涨价；“PRICES DROPPED”和价格差异本身不足以证明这些结论。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "图片没有顾客身份、购买记录、时间序列或定价规则等证据。"
+          }
+        ],
+        "resolution": "该来源仅承担画面形态或相关情境，不用于证明系统能力、普遍采用或动态涨价；对应事实只引用已确认的 Walmart 官方声明，并保留企业范围限定。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 98
+      },
+      {
+        "id": "source-04-uncertainty-01",
+        "statement": "产品型号中的部分字符可能存在视觉识别误差，尤其是“FA20UA-BV225T-BE AZ 14\" I3-”这一行；如脚本需要准确报出型号，应人工核对原图或商品记录。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "型号文字位于屏幕上方，部分字符受拍摄清晰度和屏幕反光影响。"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 55
+      },
+      {
+        "id": "source-04-uncertainty-02",
+        "statement": "无法由这张图片证明电子价签能够在几分钟内统一改价，也无法证明其连接了门店系统、用于拣货或补货，或支持按个人、按小时实时涨价。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "note": "图片仅显示单个价签的静态画面，没有时间序列、操作过程、系统界面或门店规则说明。"
+          }
+        ],
+        "resolution": "该来源仅承担画面形态或相关情境，不用于证明系统能力、普遍采用或动态涨价；对应事实只引用已确认的 Walmart 官方声明，并保留企业范围限定。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 76
+      },
+      {
+        "id": "walmart-not-dynamic-pricing",
+        "statement": "Walmart 这份声明不能证明针对个人、按小时或实时动态涨价已经发生。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "file",
+            "note": "原文未提供个人定价或实时涨价证据"
+          }
+        ],
+        "resolution": "旁白只解释电子价签的快速更新能力，不把它写成已经发生的个性化或按小时涨价。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "walmart-scope-limit",
+        "statement": "Walmart 的企业声明不能外推为所有零售商都已采用同样系统。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "file",
+            "note": "来源主体与范围边界"
+          }
+        ],
+        "resolution": "旁白明确归因于 Walmart，并用“这说明一种可行的运营能力”而非行业普遍事实。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 92
+      },
+      {
+        "id": "source-06-uncertainty-01",
+        "statement": "无法由该来源证明电子价签能让门店通过系统统一下发价格，也无法证明其相较人工逐张更换的效率。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "file",
+            "start": 0,
+            "end": 135.66,
+            "note": "来源仅提供无音轨说明和离散代表帧，未提供能证明相关运营机制的文字或完整连续画面。"
+          }
+        ],
+        "resolution": "该来源仅承担画面形态或相关情境，不用于证明系统能力、普遍采用或动态涨价；对应事实只引用已确认的 Walmart 官方声明，并保留企业范围限定。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-06-uncertainty-02",
+        "statement": "无法由该来源证明或否定商店是否按个人、按小时或实时动态调整价格；也不能据此把画面中的价格牌变化解释为电子价签或动态涨价。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "file",
+            "start": 0,
+            "end": 135.66,
+            "note": "来源未提供个人识别、顾客画像、实时定价规则或价格变化记录；离散代表帧不能证明未抽帧时段发生了何种变化。"
+          }
+        ],
+        "resolution": "该来源仅承担画面形态或相关情境，不用于证明系统能力、普遍采用或动态涨价；对应事实只引用已确认的 Walmart 官方声明，并保留企业范围限定。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-06-uncertainty-no-audio",
+        "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "file",
+            "note": "本地媒体流探测"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      },
+      {
+        "id": "source-06-uncertainty-frame-sampling",
+        "statement": "视频画面理解使用 8 张自适应代表帧（时长覆盖 + 4 张镜头变化帧），未逐帧覆盖完整动态过程。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 0.32,
+            "end": 0.32,
+            "note": "0.32s 镜头变化代表帧"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 7.140000000000001,
+            "end": 7.140000000000001,
+            "note": "7.14s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 39.27,
+            "end": 39.27,
+            "note": "39.27s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 71.4,
+            "end": 71.4,
+            "note": "71.40s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 106.753,
+            "end": 106.753,
+            "note": "106.75s 镜头变化代表帧"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 111.587,
+            "end": 111.587,
+            "note": "111.59s 镜头变化代表帧"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 124.953,
+            "end": 124.953,
+            "note": "124.95s 镜头变化代表帧"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 135.66,
+            "end": 135.66,
+            "note": "135.66s 时长覆盖代表帧"
+          }
+        ],
+        "resolution": "",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      }
+    ]
+  },
+  "narrative": {
+    "status": "completed",
+    "error": "",
+    "activeVersionId": "narrative-01",
+    "versions": [
+      {
+        "id": "narrative-01",
+        "generatedAt": "2026-08-13T09:26:03.468Z",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "cbe934918c8b7e54d82f1559b32f523d03c476133ae3259d9d8dcc7764a14162",
+        "conclusion": "所以看到动态涨价的说法，先分开问三件事：技术能不能做到，企业公开说了什么，以及有没有真实的价格变化记录。",
+        "hook": "电子价签为什么能在几分钟内改价？因为价格信息可以通过移动应用更新到数字价签，门店不必再逐张更换纸标签。",
+        "outline": [
+          "价格为什么能几分钟更新？",
+          "两天，缩短到几分钟",
+          "更快把价格送到货架",
+          "价签还可以帮助找货",
+          "一家公司的做法，不等于全行业",
+          "能快速更新，不等于正在动态涨价",
+          "能力、公开策略、实际记录"
+        ],
+        "voiceoverScript": "电子价签为什么能在几分钟内改价？因为价格信息可以通过移动应用更新到数字价签，门店不必再逐张更换纸标签。Walmart 官方称，一次价格变化过去约需店员花两天完成。换成数字价签后，同样的更新只需几分钟。它首先解决的是门店运营问题：同一套价格信息能更快传到货架，也减少了店员逐张处理的重复劳动。Walmart 还提到两种用途：Stock to Light 帮店员定位补货位置，Pick to Light 则用于线上订单拣货。但这些是 Walmart 对自身测试和扩展计划的说明，不能直接代表所有零售商都采用同样的系统。电子价签能快速更新，只说明技术上具备这种能力。现有材料不能证明商店已经针对个人、按小时，或者实时动态涨价。所以看到动态涨价的说法，先分开问三件事：技术能不能做到，企业公开说了什么，以及有没有真实的价格变化记录。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "line",
+            "lineStart": 1,
+            "lineEnd": 8,
+            "note": "核心效率、更新方式及运营用途。"
+          },
+          {
+            "sourceId": "source-03",
+            "locatorType": "image",
+            "note": "仅用于电子价签和货架的视觉情境，不证明系统能力或动态涨价。"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 0,
+            "end": 135.66,
+            "note": "仅用于超市货架视觉素材；代表帧不足以证明连续价格变化。"
+          }
+        ],
+        "uncertainties": [
+          "source-03 无法证明价格在几分钟内统一变化，也无法证明按个人、按小时或实时动态涨价。",
+          "source-04 的商品型号部分字符可能存在视觉识别误差；本稿不报出型号，因此无需使用该图中文字作事实主张。",
+          "source-04 无法证明电子价签连接门店系统、用于拣货或补货，相关用途仅引用 Walmart 官方声明。",
+          "source-06 仅提供代表帧且无音轨，不能据此解释未抽帧时段发生了价格变化；正式成片应人工确认素材连续性与版权使用范围。",
+          "Walmart 官方声明只适用于其公开说明，不能外推为所有零售商的共同做法；如需行业结论，应补充独立来源。"
+        ]
+      }
+    ],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "pendingChapters": [],
+    "generatedAt": "2026-08-13T09:26:03.468Z",
+    "model": "gpt-5.6-luna",
+    "promptVersion": "videobrief-2026-07-11-v1"
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-5.6-luna",
+    "transcriptionModel": "whisper.cpp:large-v3-turbo-q5_0",
+    "promptVersion": "videobrief-2026-07-11-v1",
+    "calls": [
+      {
+        "id": "ai-call-001",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "whisper.cpp:large-v3-turbo-q5_0",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "0d044359ffebb7f26d2664c729e605bc449168b93b520df93c5b4f5357a465a5",
+        "startedAt": "2026-08-13T07:53:30.569Z",
+        "completedAt": "2026-08-13T07:54:14.962Z",
+        "error": "OPENAI_API_KEY 未配置；未执行 OpenAI API 调用。",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-002",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "fcd50dbd76cc291d39628e6236903c6312fb60353d3a764f8970b382b1a3a562",
+        "startedAt": "2026-08-13T07:54:15.191Z",
+        "completedAt": "2026-08-13T07:54:29.085Z",
+        "error": "代表帧抽取失败（39.27s）：[vost#0:0/png @ 0x128709620] More than 1000 frames duplicated frame=    0 fps=0.0 q=-0.0 size=       0kB time=00:00:00.00 bitrate=N/A dup=1634 drop=0 speed=   0x    \r[image2 @ 0x128708a40] The specified filename '/Users/rust/Documents/VideoBrief/output/source-processing/electronic-shelf-label-explainer-20260813/source-02/fcd50dbd76cc291d39628e6236903c6312fb60353d3a764f8970b382b1a3a562/representative-frame-v2-03-39273ms.png' does not contain an image sequence pattern or a pattern is invalid. [image2 @ 0x128708a40] Use a pattern such as %03d for an image sequence or use the -update option (with -frames:v 1 if needed) to write a single image. frame=    1 fps=0.0 q=-0.0 Lsize=N/A time=00:00:00.00 bitrate=N/A dup=1634 drop=0 speed=   0x video:3911kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown Conversion failed!；exit=69",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-003",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "cdb5fca11df3aba2c171794c2c05a0dc50f1abefb479c3305692a43c8dfa4f5a",
+        "startedAt": "2026-08-13T07:54:29.250Z",
+        "completedAt": "2026-08-13T07:54:29.257Z",
+        "error": "OPENAI_API_KEY 未配置；未执行 OpenAI API 调用。",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-004",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "whisper.cpp:large-v3-turbo-q5_0",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "0d044359ffebb7f26d2664c729e605bc449168b93b520df93c5b4f5357a465a5",
+        "startedAt": "2026-08-13T07:56:44.624Z",
+        "completedAt": "2026-08-13T07:58:15.016Z",
+        "error": "Request timed out.",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-005",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "cdb5fca11df3aba2c171794c2c05a0dc50f1abefb479c3305692a43c8dfa4f5a",
+        "startedAt": "2026-08-13T07:58:15.205Z",
+        "completedAt": "2026-08-13T07:58:16.720Z",
+        "error": "502 status code (no body)",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-006",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "dbed93d15125df2d551f7b5dcffc3c3ae3bfb9047d5cc3c6257a0a0c727d0e3f",
+        "startedAt": "2026-08-13T07:58:16.911Z",
+        "completedAt": "2026-08-13T07:59:39.095Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-007",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "5b27a754a105e1e50e1a50c4f4aaa61cf4535f5c89fdabf5bdcf23c568453e3d",
+        "startedAt": "2026-08-13T08:00:10.317Z",
+        "completedAt": "2026-08-13T08:00:41.862Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-008",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "30c8e9f3dc36bf922685d97c42e06c5b4b7fcaed40398119864b89918190de90",
+        "startedAt": "2026-08-13T08:00:42.054Z",
+        "completedAt": "2026-08-13T08:01:15.665Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-009",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "cdb5fca11df3aba2c171794c2c05a0dc50f1abefb479c3305692a43c8dfa4f5a",
+        "startedAt": "2026-08-13T08:01:15.848Z",
+        "completedAt": "2026-08-13T08:01:17.543Z",
+        "error": "502 status code (no body)",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-010",
+        "purpose": "narrative-planning",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "cbe934918c8b7e54d82f1559b32f523d03c476133ae3259d9d8dcc7764a14162",
+        "startedAt": "2026-08-13T09:25:19.281Z",
+        "completedAt": "2026-08-13T09:26:03.469Z",
+        "error": "",
+        "cacheHit": false
+      }
+    ]
+  },
+  "editorial": {
+    "claim": "电子价签确实能把改价变快，但“能快速更新”不等于“已经按个人或按小时涨价”。目前可确认的效率与补货、拣货用途，均来自 Walmart 官方声明；其范围不能外推到所有零售商。",
+    "whyItMatters": "消费者会直接看到货架价格，但快速更新能力与实际定价策略经常被混为一谈。",
+    "chinaContext": "本片不把 Walmart 的企业声明外推到中国或所有零售商。",
+    "riskNote": "Walmart 官方声明只证明其公开描述的能力和用途；画面素材不证明动态涨价。"
+  },
+  "platformCopy": {
+    "coverTitle": "货架价格，为什么几分钟就能变？",
+    "coverAssetPath": "public/project-assets/electronic-shelf-label-explainer-20260813/cover.png",
+    "title": "超市电子价签，为什么几分钟就能改完全店价格？",
+    "description": "超市里一排货架的价格，为什么现在几分钟就能全部更新？\n\n电子价签把“逐张换纸”变成系统统一下发。但能快速改价，不等于商店已经在针对每个人实时涨价。这条视频拆开技术能力、企业策略和真实证据之间的区别。\n\n素材鸣谢：Arkascha《Daily Life in Tokyo in 2013 - Supermarket in Hanzomon Station Area》（经转码、剪辑，CC BY 3.0）：https://commons.wikimedia.org/wiki/File:Daily_Life_in_Tokyo_in_2013_%E2%80%93_Supermarket_in_Hanzomon_Station_Area.webm；许可：https://creativecommons.org/licenses/by/3.0/ 。Maksym Kozlenko《2021-06-28 E-ink price tag in Sydney supermarket》（经裁切、剪辑，CC BY-SA 4.0）：https://commons.wikimedia.org/wiki/File:2021-06-28_E-ink_price_tag_in_Sydney_supermarket.jpg；许可：https://creativecommons.org/licenses/by-sa/4.0/ 。",
+    "hashtags": [
+      "电子价签",
+      "超市",
+      "零售",
+      "商业观察",
+      "日常有因"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "2026-08-13T02:55:52.770Z",
+    "updatedAt": "2026-08-16T15:19:45.847Z",
+    "researchReviewedAt": "",
+    "firstRenderCompletedAt": "2026-08-13T10:20:33.621Z",
+    "lastRenderCompletedAt": "2026-08-14T14:22:22.551Z",
+    "sourceImportCount": 6,
+    "manualSaveCount": 0,
+    "renderAttemptCount": 4,
+    "renderFailureCount": 2,
+    "lastRenderStartedAt": "2026-08-14T14:21:19.983Z",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "materialReview": {
+    "status": "approved",
+    "approvedSourceIds": [
+      "source-01",
+      "source-03",
+      "source-04",
+      "source-06"
+    ],
+    "reviewedAt": "2026-08-13T08:03:28.075Z"
+  },
+  "materialQualityReview": {
+    "schemaVersion": 1,
+    "status": "passed",
+    "reviewedAt": "2026-08-14T14:20:22.541Z",
+    "reviewer": "codex",
+    "reviewScope": "用户审片指出原 120 秒版本在多幕旁白后存在 5-10 秒无声等待；本轮将七幕窗口收紧为真实旁白时长加约 0.3 秒自然尾气，并关闭全部左上角编辑标题层。人工重新核对两条 1920x1080 H.264 视频代理的新 start/mid/end、4032x3024 电子价签原图，以及桌面和移动播放器中的底部字幕。所有视频只作相关超市情境，Walmart 事实仍由已批准的一手文本承担；未使用 AI 生成或合成画面。",
+    "sceneReviews": [
+      {
+        "sceneId": "scene-01",
+        "sceneFingerprint": "e290269436b6191dd75d6825114cceca5905ab8a3f162d34231f9b1e913f81dd",
+        "candidate": {
+          "sourceId": "source-06",
+          "sourceStart": 5,
+          "sourceEnd": 22.2
+        },
+        "visibleClaim": "超市生鲜全景进入蔬菜货架，消费者面对的商品与价格牌情境直接可见。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "真实货架直接建立消费者面对价格的开场问题；几分钟更新能力与不是针对个人或按小时涨价的证据边界由已批准研究、旁白和底部字幕承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "画面不依赖源素材细字；生鲜货架、商品规模和价格牌在桌面与移动等比缩放中均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "17.2 秒窗口从生鲜全景连续进入蔬菜货架，覆盖约 16.70 秒有效旁白并只保留自然尾气，无循环、慢放或坏帧。"
+        },
+        "stability": {
+          "status": "minor-motion",
+          "motionNecessary": true,
+          "reason": "原片自然移动用于建立门店与货架规模，未添加程序化推拉；左上角编辑标题层已关闭。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "5-22.2 秒只承担开场零售情境，与其他 source-06 窗口不重叠。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "逐帧边界与中点未见平台角标、账号角标或下载工具标记。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "消费者与价格牌情境直接可见",
+          "不冒充价格变化记录",
+          "事实与画面角色分工明确",
+          "窗口连续且独立",
+          "原生无平台水印"
+        ],
+        "evidence": [
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-01-start.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-01-mid.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-01-end.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-01-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-02",
+        "sceneFingerprint": "aa6a2baa83c338fae3615de1ae212a42d39cb66e20809d59f44196cc57bac908",
+        "candidate": {
+          "sourceId": "source-01",
+          "sourceStart": 25,
+          "sourceEnd": 36.3
+        },
+        "visibleClaim": "冷藏货架、商品标签和超市通道连续变化，展示逐张换纸涉及的大量商品位置。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "货架数量与通道移动支持逐张换纸的规模感；移动应用更新到数字价签的机制只由 Walmart 官方资料、旁白和底部字幕解释。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "不要求读取日文商品细字；货架、通道与价格牌主体在桌面和移动视口可辨。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "11.3 秒窗口连续经过冷藏货架与通道，覆盖约 10.80 秒有效旁白，只保留自然尾气，没有循环、慢放或黑场。"
+        },
+        "stability": {
+          "status": "minor-motion",
+          "motionNecessary": true,
+          "reason": "原片行进镜头用于表现货架规模；无额外推拉，左上角编辑标题层已关闭。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "25-36.3 秒只承担逐张换纸规模情境，与同源其他窗口不重叠。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "完整计划窗口未见平台、账号或下载工具水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "逐张换纸规模情境匹配",
+          "不伪造系统后台",
+          "窗口独立",
+          "原生无平台水印"
+        ],
+        "evidence": [
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-02-start.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-02-mid.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-02-end.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-02-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-03",
+        "sceneFingerprint": "e70ee3ca7238c10a0be501ec45e1cce3405056bdf99901a01a9154d047b623b2",
+        "candidate": {
+          "sourceId": "source-01",
+          "sourceStart": 92,
+          "sourceEnd": 101.35
+        },
+        "visibleClaim": "多排包装商品与货架标签沿通道连续出现，表现一次价格变化涉及的货架规模。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "大量商品位置支持门店逐张处理的规模情境；两天与几分钟的效率数字只由 Walmart 官方资料、旁白和底部字幕承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "不依赖原片商品或价格细字；通道、货架和密集标签在两个目标视口可辨。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "9.35 秒窗口连续经过包装商品货架，覆盖约 8.85 秒有效旁白，只保留自然尾气，无循环或坏帧。"
+        },
+        "stability": {
+          "status": "minor-motion",
+          "motionNecessary": true,
+          "reason": "原片移动展示商品位置规模，未增加运动效果。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "92-101.35 秒只承担效率对比的货架规模情境，不与其他窗口重叠。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "完整计划窗口未见平台、账号或下载工具水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "货架规模与效率对比相关",
+          "效率数字明确归因于 Walmart",
+          "窗口独立",
+          "原生无平台水印"
+        ],
+        "evidence": [
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-03-start.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-03-mid.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-03-end.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-03-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-04",
+        "sceneFingerprint": "720ad1e672634fcceeff315e537bf210c32b5ded21969b59c9d773b3a0ae8fe2",
+        "candidate": {
+          "sourceId": "source-01",
+          "sourceStart": 69,
+          "sourceEnd": 78.2
+        },
+        "visibleClaim": "熟食、烘焙与冷藏商品的位置和货架标签连续可见，展示门店货架规模。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "不同商品位置支持门店运营与逐张重复处理的情境；同一套价格信息传到货架的能力由 Walmart 官方资料和原创标题承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "不要求读取日文标签；熟食、烘焙、冷藏区和货架位置在目标视口均可辨。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "9.2 秒窗口连续覆盖熟食和冷藏货架，覆盖约 8.68 秒有效旁白，只保留自然尾气，无循环或坏帧。"
+        },
+        "stability": {
+          "status": "minor-motion",
+          "motionNecessary": true,
+          "reason": "原片移动用于展示不同货架位置，未增加程序化镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "69-78.2 秒只承担门店运营与重复处理情境，与其他窗口不重叠。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "完整计划窗口未见平台、账号或下载工具水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "门店运营情境相关",
+          "不冒充系统操作",
+          "窗口独立",
+          "原生无平台水印"
+        ],
+        "evidence": [
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-04-start.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-04-mid.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-04-end.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-04-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-05",
+        "sceneFingerprint": "b00ecc278b88dbd067e7cced8b1bf8e17eda300f407351917ec736d6ba3d4fb8",
+        "candidate": {
+          "sourceId": "source-01",
+          "sourceStart": 46,
+          "sourceEnd": 54.34
+        },
+        "visibleClaim": "烘焙、熟食和冷藏货架连续出现，展示补货与拣货所面对的商品位置环境。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "不同货架位置提供补货和拣货的相关环境；画面不冒充 Stock to Light 或 Pick to Light 操作，功能事实由 Walmart 官方资料承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "不依赖原片品牌或日文细字；不同品类货架在桌面和移动视口直接可辨。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "8.34 秒窗口连续覆盖烘焙和熟食货架，覆盖约 7.83 秒有效旁白，只保留自然尾气，无循环或坏帧。"
+        },
+        "stability": {
+          "status": "minor-motion",
+          "motionNecessary": true,
+          "reason": "原片自然移动用于切换品类情境，未增加推拉。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "46-54.34 秒只承担补货和拣货相关环境，与其他窗口不重叠。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "完整计划窗口未见平台、账号或下载工具水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "补货和拣货环境相关",
+          "不冒充具体功能演示",
+          "窗口独立",
+          "原生无平台水印"
+        ],
+        "evidence": [
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-05-start.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-05-mid.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-05-end.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-05-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-06",
+        "sceneFingerprint": "204e3261f117603ee68672c898c65ef075ac0eef82b944705e2830848907f282",
+        "candidate": {
+          "sourceId": "source-03",
+          "sourceStart": 0,
+          "sourceEnd": 1
+        },
+        "visibleClaim": "真实电子墨水价签近景显示当前价格、原价提示和商品信息，但只代表一个具体产品实例。",
+        "evidenceRole": "source-establishing",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "真实产品形态配合 Walmart 企业声明的范围限定；单张图片不能证明所有零售商都采用同一系统。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [
+            "$11",
+            "PRICES DROPPED"
+          ],
+          "reason": "4032x3024 原图经 16:9 cover 构图后主体清晰；在 390x844 播放器等比缩放中价签、当前价格和促销提示仍可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "not-applicable",
+          "reason": "静态照片按约 8.50 秒旁白时长稳定显示，start/mid/end 相同属于预期，不再额外停留。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": false,
+          "reason": "保持静态且 mediaMotion=none，不用推拉掩盖静态素材。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该电子价签照片只用于企业声明范围和产品形态场景，不复用为其他观点。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "原图未见平台角标、账号角标或下载工具标记；画面中的 PRICES DROPPED 是被摄价签内容，不是来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "产品形态直接可见",
+          "企业声明范围限定明确",
+          "桌面和移动可读",
+          "稳定无额外运动",
+          "原生无平台水印"
+        ],
+        "evidence": [
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-06-start.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-06-mid.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-06-end.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-06-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-07",
+        "sceneFingerprint": "62ac9a6881e557cda06640c103fc410436659d84c8bdc8c91d9b89ed8c92526f",
+        "candidate": {
+          "sourceId": "source-06",
+          "sourceStart": 108,
+          "sourceEnd": 120.5
+        },
+        "visibleClaim": "散装商品容器、取用装置和多张价格牌连续出现，但画面没有价格变化记录、顾客身份或定价规则。",
+        "evidenceRole": "background",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "价格牌密集的真实货架用于收束技术能力与实际策略的区别；画面不被当作价格变化记录、个性化定价或动态涨价证据。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "不依赖具体价格细字；散装商品、取用装置和价格牌在两个目标视口均可辨。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "12.5 秒窗口连续覆盖散装商品货架，覆盖约 12.00 秒有效旁白并只保留自然尾气，无循环、慢放或坏帧。"
+        },
+        "stability": {
+          "status": "minor-motion",
+          "motionNecessary": true,
+          "reason": "原片移动用于展示不同价格牌和商品；左上角编辑标题层已关闭。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "108-120.5 秒只承担动态涨价证据边界的结尾情境，与 scene-01 的 source-06 窗口不重叠。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "完整计划窗口未见平台、账号或下载工具水印，且未进入 USDA 片尾署名画面。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "价格牌情境与结论相关",
+          "不冒充价格变化记录",
+          "窗口完整且独立",
+          "原生无平台水印"
+        ],
+        "evidence": [
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-07-start.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-07-mid.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-07-end.png",
+          "output/videos/electronic-shelf-label-explainer-20260813-work/material-quality-evidence/scene-07-mobile-mid.png"
+        ]
+      }
+    ]
+  },
+  "workflow": {
+    "schemaVersion": 1,
+    "origin": {
+      "kind": "manual",
+      "runId": "",
+      "candidateId": "",
+      "sourceUrl": "",
+      "score": null,
+      "summary": "2026-08-13 新一轮日常有因命题调研唯一推荐，40 分制得分 37"
+    },
+    "topicApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-13T02:55:52.770Z",
+      "decidedBy": "user",
+      "note": "用户已明确批准电子价签命题进入研究与素材验证阶段；同时要求比较 Gemini 3 系列语音与多个其他音色。",
+      "fingerprint": "6cd8e61a9564ff7945c38018810a3f486436f50ee126116b401cf9ba08bc37b8"
+    },
+    "researchApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-13T09:24:49.841Z",
+      "decidedBy": "user",
+      "note": "用户明确批准当前电子价签研究 Gate，同意三条 Walmart 官方事实及动态涨价与来源范围限制。",
+      "fingerprint": "9df61c9fb0da51246bc652160d5d83bec0c0727bfb49f7adaeb0606a404a6fc3"
+    },
+    "deliveryApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-15T02:57:21.842Z",
+      "decidedBy": "user",
+      "note": "用户在完整审阅当前 76.464 秒修订版后明确回复“可以”，并要求继续发布；批准绑定当前成片版本进入打包。",
+      "fingerprint": "88b32caf3eae028d6278f81600b16c6cd0b63102ed10d49058746cf43baa4d09"
+    },
+    "publication": {
+      "approval": {
+        "status": "approved",
+        "decidedAt": "2026-08-15T03:05:57.459Z",
+        "decidedBy": "user",
+        "note": "用户明确要求发布当前已审视频；重新打包仅补充 Gemini TTS AIGC 声明、完整许可署名和已审封面，视频字节未变化。",
+        "fingerprint": "88b32caf3eae028d6278f81600b16c6cd0b63102ed10d49058746cf43baa4d09:72b44041013d82511471b84914ac046f82a89f273ad64fdab2ce5f66f78aa581"
+      },
+      "platform": "B站",
+      "publishedUrl": "https://www.bilibili.com/video/BV1dygg6EEQJ/",
+      "publishedAt": "2026-08-15T04:14:22.000Z",
+      "videoSha256": "88b32caf3eae028d6278f81600b16c6cd0b63102ed10d49058746cf43baa4d09",
+      "packageSha256": "72b44041013d82511471b84914ac046f82a89f273ad64fdab2ce5f66f78aa581"
+    },
+    "publicationTargets": [
+      {
+        "id": "primary",
+        "platform": "B站",
+        "status": "published",
+        "approval": {
+          "status": "approved",
+          "decidedAt": "2026-08-15T03:05:57.459Z",
+          "decidedBy": "user",
+          "note": "用户明确要求发布当前已审视频；重新打包仅补充 Gemini TTS AIGC 声明、完整许可署名和已审封面，视频字节未变化。",
+          "fingerprint": "88b32caf3eae028d6278f81600b16c6cd0b63102ed10d49058746cf43baa4d09:72b44041013d82511471b84914ac046f82a89f273ad64fdab2ce5f66f78aa581"
+        },
+        "scheduledAt": "",
+        "submittedAt": "",
+        "submissionUrl": "",
+        "publishedUrl": "https://www.bilibili.com/video/BV1dygg6EEQJ/",
+        "publishedAt": "2026-08-15T04:14:22.000Z",
+        "externalId": "BV1dygg6EEQJ",
+        "videoSha256": "88b32caf3eae028d6278f81600b16c6cd0b63102ed10d49058746cf43baa4d09",
+        "packageSha256": "72b44041013d82511471b84914ac046f82a89f273ad64fdab2ce5f66f78aa581",
+        "publisher": "",
+        "accountName": "daily-cause",
+        "lastRunId": "",
+        "lastRunAt": "2026-08-16T15:19:45.843Z",
+        "lastError": "",
+        "note": "2026-08-16T15:19:45.843Z 已通过程序化编辑页更新并回读平台说明。",
+        "copySnapshot": {
+          "title": "超市电子价签，为什么几分钟就能改完全店价格？",
+          "description": "电子价签把逐张换纸变成系统下发，但“能快速更新”不等于商店已经按个人或按小时动态涨价。本期依据 Walmart 官方说明，拆开技术能力、企业策略与实际价格证据。\n\n资料来源：\nWalmart Digital Shelf Labels：https://corporate.walmart.com/news/2024/06/06/new-tech-better-outcomes-digital-shelf-labels-are-a-win-for-customers-and-associates\n\n画面来源与许可：\n1. Arkascha，Daily Life in Tokyo in 2013 - Supermarket in Hanzomon Station Area，CC BY 3.0：https://commons.wikimedia.org/wiki/File:Daily_Life_in_Tokyo_in_2013_%E2%80%93_Supermarket_in_Hanzomon_Station_Area.webm\n2. Supermarket Grocery Products (13083756734)，Wikimedia Commons，Public Domain：https://commons.wikimedia.org/wiki/File:Supermarket_Grocery_Products_(13083756734).webm\n3. Maksym Kozlenko，2021-06-28 E-ink price tag in Sydney supermarket，CC BY-SA 4.0：https://commons.wikimedia.org/wiki/File:2021-06-28_E-ink_price_tag_in_Sydney_supermarket.jpg\n\n制作说明：旁白使用 Gemini 3.1 Flash TTS（Charon）生成；资料核验、原创中文叙事、剪辑、字幕与封面由 VideoBrief 工作流完成。成片未使用 AI 生成画面。",
+          "hashtags": [
+            "电子价签",
+            "超市",
+            "零售",
+            "商业观察",
+            "日常有因"
+          ],
+          "generatedByAi": true,
+          "effectiveTitle": "超市电子价签，为什么几分钟就能改完全店价格？",
+          "effectiveDescription": "超市里一排货架的价格，为什么现在几分钟就能全部更新？\n\n电子价签把“逐张换纸”变成系统统一下发。但能快速改价，不等于商店已经在针对每个人实时涨价。这条视频拆开技术能力、企业策略和真实证据之间的区别。\n\n素材鸣谢：Arkascha《Daily Life in Tokyo in 2013 - Supermarket in Hanzomon Station Area》（经转码、剪辑，CC BY 3.0）：https://commons.wikimedia.org/wiki/File:Daily_Life_in_Tokyo_in_2013_%E2%80%93_Supermarket_in_Hanzomon_Station_Area.webm；许可：https://creativecommons.org/licenses/by/3.0/ 。Maksym Kozlenko《2021-06-28 E-ink price tag in Sydney supermarket》（经裁切、剪辑，CC BY-SA 4.0）：https://commons.wikimedia.org/wiki/File:2021-06-28_E-ink_price_tag_in_Sydney_supermarket.jpg；许可：https://creativecommons.org/licenses/by-sa/4.0/ 。",
+          "capturedAt": "2026-08-16T15:19:45.843Z",
+          "source": "平台已发布作品编辑页回读"
+        },
+        "metricSnapshots": [
+          {
+            "observedAt": "2026-08-16T10:18:55.328Z",
+            "source": "https://api.bilibili.com/x/web-interface/view?bvid=BV1dygg6EEQJ",
+            "viewCount": 157,
+            "likeCount": 1,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": 0,
+            "danmakuCount": 0,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          },
+          {
+            "observedAt": "2026-08-16T10:23:10.869Z",
+            "source": "https://api.bilibili.com/x/web-interface/view?bvid=BV1dygg6EEQJ",
+            "viewCount": 157,
+            "likeCount": 1,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": 0,
+            "danmakuCount": 0,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          },
+          {
+            "observedAt": "2026-08-16T10:24:00.896Z",
+            "source": "https://api.bilibili.com/x/web-interface/view?bvid=BV1dygg6EEQJ",
+            "viewCount": 157,
+            "likeCount": 1,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": 0,
+            "danmakuCount": 0,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          }
+        ]
+      },
+      {
+        "id": "wechat-channels",
+        "platform": "视频号",
+        "status": "submitted",
+        "approval": {
+          "status": "approved",
+          "decidedAt": "2026-08-16T04:13:54.428Z",
+          "decidedBy": "user",
+          "note": "用户明确要求将此前已在B站发布的视频逐渐扩展到其他平台，本轮先选择两条既有成片并按顺序通过程序发布到视频号。",
+          "fingerprint": "88b32caf3eae028d6278f81600b16c6cd0b63102ed10d49058746cf43baa4d09:72b44041013d82511471b84914ac046f82a89f273ad64fdab2ce5f66f78aa581"
+        },
+        "scheduledAt": "",
+        "submittedAt": "2026-08-16T04:18:41.550Z",
+        "submissionUrl": "",
+        "publishedUrl": "",
+        "publishedAt": "",
+        "externalId": "export/UzFfBgAAxOaCGH9LX0Pnk8zT4DCaMz0-rbCz3f5xCtfaZARsSQ",
+        "videoSha256": "88b32caf3eae028d6278f81600b16c6cd0b63102ed10d49058746cf43baa4d09",
+        "packageSha256": "72b44041013d82511471b84914ac046f82a89f273ad64fdab2ce5f66f78aa581",
+        "publisher": "social-auto-upload",
+        "accountName": "daily-cause",
+        "lastRunId": "2026-08-16T04-17-33-715Z-4dd8e817",
+        "lastRunAt": "2026-08-16T04:18:41.550Z",
+        "lastError": "",
+        "note": "视频号助手后台“视频 (2)”列表确认已发表：2026-08-16 12:18，接口 status=1 且已有播放数据；平台未提供稳定匿名 Web 公开 URL，按契约暂保留 submitted。",
+        "copySnapshot": {
+          "title": "超市电子价签，为什么几分钟就能改完全店价格？",
+          "description": "电子价签把逐张换纸变成系统下发，但“能快速更新”不等于商店已经按个人或按小时动态涨价。本期依据 Walmart 官方说明，拆开技术能力、企业策略与实际价格证据。\n\n资料来源：\nWalmart Digital Shelf Labels：https://corporate.walmart.com/news/2024/06/06/new-tech-better-outcomes-digital-shelf-labels-are-a-win-for-customers-and-associates\n\n画面来源与许可：\n1. Arkascha，Daily Life in Tokyo in 2013 - Supermarket in Hanzomon Station Area，CC BY 3.0：https://commons.wikimedia.org/wiki/File:Daily_Life_in_Tokyo_in_2013_%E2%80%93_Supermarket_in_Hanzomon_Station_Area.webm\n2. Supermarket Grocery Products (13083756734)，Wikimedia Commons，Public Domain：https://commons.wikimedia.org/wiki/File:Supermarket_Grocery_Products_(13083756734).webm\n3. Maksym Kozlenko，2021-06-28 E-ink price tag in Sydney supermarket，CC BY-SA 4.0：https://commons.wikimedia.org/wiki/File:2021-06-28_E-ink_price_tag_in_Sydney_supermarket.jpg\n\n制作说明：旁白使用 Gemini 3.1 Flash TTS（Charon）生成；资料核验、原创中文叙事、剪辑、字幕与封面由 VideoBrief 工作流完成。成片未使用 AI 生成画面。",
+          "hashtags": [
+            "电子价签",
+            "超市",
+            "零售",
+            "商业观察",
+            "日常有因"
+          ],
+          "generatedByAi": true,
+          "effectiveTitle": "超市电子价签，为什么几分钟就能改完全店价格？",
+          "effectiveDescription": "超市电子价签，为什么几分钟就能改完全店价格？\n#电子价签 #超市 #零售 #商业观察 #日常有因 \n电子价签把逐张换纸变成系统下发，但“能快速更新”不等于商店已经按个人或按小时动态涨价。本期依据 Walmart 官方说明，拆开技术能力、企业策略与实际价格证据。\n\n资料来源：\nWalmart Digital Shelf Labels：https://corporate.walmart.com/news/2024/06/06/new-tech-better-outcomes-digital-shelf-labels-are-a-win-for-customers-and-associates\n\n画面来源与许可：\n1. Arkascha，Daily Life in Tokyo in 2013 - Supermarket in Hanzomon Station Area，CC BY 3.0：https://commons.wikimedia.org/wiki/File:Daily_Life_in_Tokyo_in_2013_%E2%80%93_Supermarket_in_Hanzomon_Station_Area.webm\n2. Supermarket Grocery Products (13083756734)，Wikimedia Commons，Public Domain：https://commons.wikimedia.org/wiki/File:Supermarket_Grocery_Products_(13083756734).webm\n3. Maksym Kozlenko，2021-06-28 E-ink price tag in Sydney supermarket，CC BY-SA 4.0：https://commons.wikimedia.org/wiki/File:2021-06-28_E-ink_price_tag_in_Sydney_supermarket.jpg\n\n制作说明：旁白使用 Gemini 3.1 Flash TTS（Charon）生成；资料核验、原创中文叙事、剪辑、字幕与封面由 VideoBrief 工作流完成。成片未使用 AI 生成画面。\n",
+          "capturedAt": "2026-08-16T04:18:41.550Z",
+          "source": "output/exports/electronic-shelf-label-explainer-20260813/platform-copy.json"
+        },
+        "metricSnapshots": [
+          {
+            "observedAt": "2026-08-16T10:18:55.328Z",
+            "source": "视频号助手内容管理接口",
+            "viewCount": 0,
+            "likeCount": 0,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": 0,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": "视频号后台 status=1，作品已发表；平台未提供稳定匿名 Web 公开 URL。"
+          },
+          {
+            "observedAt": "2026-08-16T10:23:10.869Z",
+            "source": "视频号助手内容管理接口",
+            "viewCount": 0,
+            "likeCount": 0,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": 0,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": "视频号后台 status=1，作品已发表；平台未提供稳定匿名 Web 公开 URL。"
+          },
+          {
+            "observedAt": "2026-08-16T10:24:00.896Z",
+            "source": "视频号助手内容管理接口",
+            "viewCount": 0,
+            "likeCount": 0,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": 0,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": "视频号后台 status=1，作品已发表；平台未提供稳定匿名 Web 公开 URL。"
+          }
+        ]
+      },
+      {
+        "id": "douyin",
+        "platform": "抖音",
+        "status": "published",
+        "approval": {
+          "status": "approved",
+          "decidedAt": "2026-08-16T04:48:02.312Z",
+          "decidedBy": "user",
+          "note": "用户明确要求将这两条既有成片发布到全部已接入平台；本目标按平台独立保留 AIGC、权利和投稿状态。",
+          "fingerprint": "88b32caf3eae028d6278f81600b16c6cd0b63102ed10d49058746cf43baa4d09:72b44041013d82511471b84914ac046f82a89f273ad64fdab2ce5f66f78aa581"
+        },
+        "scheduledAt": "",
+        "submittedAt": "2026-08-16T04:50:58.886Z",
+        "submissionUrl": "",
+        "publishedUrl": "https://www.douyin.com/video/7674487448960765000",
+        "publishedAt": "2026-08-16T04:50:56.000Z",
+        "externalId": "7674487448960765000",
+        "videoSha256": "88b32caf3eae028d6278f81600b16c6cd0b63102ed10d49058746cf43baa4d09",
+        "packageSha256": "72b44041013d82511471b84914ac046f82a89f273ad64fdab2ce5f66f78aa581",
+        "publisher": "social-auto-upload",
+        "accountName": "daily-cause",
+        "lastRunId": "2026-08-16T04-50-16-401Z-8b3a13a2",
+        "lastRunAt": "2026-08-16T04:50:58.886Z",
+        "lastError": "",
+        "note": "程序已核验抖音创作者中心：作品于 2026-08-16 12:50 发布；公开页返回 HTTP 200。",
+        "copySnapshot": {
+          "title": "超市电子价签，为什么几分钟就能改完全店价格？",
+          "description": "电子价签把逐张换纸变成系统下发，但“能快速更新”不等于商店已经按个人或按小时动态涨价。本期依据 Walmart 官方说明，拆开技术能力、企业策略与实际价格证据。\n\n资料来源：\nWalmart Digital Shelf Labels：https://corporate.walmart.com/news/2024/06/06/new-tech-better-outcomes-digital-shelf-labels-are-a-win-for-customers-and-associates\n\n画面来源与许可：\n1. Arkascha，Daily Life in Tokyo in 2013 - Supermarket in Hanzomon Station Area，CC BY 3.0：https://commons.wikimedia.org/wiki/File:Daily_Life_in_Tokyo_in_2013_%E2%80%93_Supermarket_in_Hanzomon_Station_Area.webm\n2. Supermarket Grocery Products (13083756734)，Wikimedia Commons，Public Domain：https://commons.wikimedia.org/wiki/File:Supermarket_Grocery_Products_(13083756734).webm\n3. Maksym Kozlenko，2021-06-28 E-ink price tag in Sydney supermarket，CC BY-SA 4.0：https://commons.wikimedia.org/wiki/File:2021-06-28_E-ink_price_tag_in_Sydney_supermarket.jpg\n\n制作说明：旁白使用 Gemini 3.1 Flash TTS（Charon）生成；资料核验、原创中文叙事、剪辑、字幕与封面由 VideoBrief 工作流完成。成片未使用 AI 生成画面。",
+          "hashtags": [
+            "电子价签",
+            "超市",
+            "零售",
+            "商业观察",
+            "日常有因"
+          ],
+          "generatedByAi": true,
+          "effectiveTitle": "超市电子价签，为什么几分钟就能改完全店价格？",
+          "effectiveDescription": "超市电子价签，为什么几分钟就能改完全店价格？ #电子价签  #超市  #零售  #商业观察  #日常有因",
+          "capturedAt": "2026-08-16T04:50:58.886Z",
+          "source": "output/exports/electronic-shelf-label-explainer-20260813/platform-copy.json"
+        },
+        "metricSnapshots": [
+          {
+            "observedAt": "2026-08-16T10:18:55.328Z",
+            "source": "抖音创作者中心作品列表",
+            "viewCount": 31,
+            "likeCount": 0,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          },
+          {
+            "observedAt": "2026-08-16T10:23:10.869Z",
+            "source": "抖音创作者中心作品列表",
+            "viewCount": 31,
+            "likeCount": 0,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          },
+          {
+            "observedAt": "2026-08-16T10:24:00.896Z",
+            "source": "抖音创作者中心作品列表",
+            "viewCount": 31,
+            "likeCount": 0,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          }
+        ]
+      },
+      {
+        "id": "xiaohongshu",
+        "platform": "小红书",
+        "status": "published",
+        "approval": {
+          "status": "approved",
+          "decidedAt": "2026-08-16T04:48:02.677Z",
+          "decidedBy": "user",
+          "note": "用户明确要求将这两条既有成片发布到全部已接入平台；本目标按平台独立保留 AIGC、权利和投稿状态。",
+          "fingerprint": "88b32caf3eae028d6278f81600b16c6cd0b63102ed10d49058746cf43baa4d09:72b44041013d82511471b84914ac046f82a89f273ad64fdab2ce5f66f78aa581"
+        },
+        "scheduledAt": "",
+        "submittedAt": "2026-08-16T04:53:28.668Z",
+        "submissionUrl": "",
+        "publishedUrl": "https://www.xiaohongshu.com/explore/6a814248000000003301ccc1?xsec_token=YBbxmDOLhqeiatTlBcdgFuKuAvs2uMdJFN3-ESZWXIE-g%3D&xsec_source=pc_creator_mng",
+        "publishedAt": "2026-08-16T04:53:00.000Z",
+        "externalId": "6a814248000000003301ccc1",
+        "videoSha256": "88b32caf3eae028d6278f81600b16c6cd0b63102ed10d49058746cf43baa4d09",
+        "packageSha256": "72b44041013d82511471b84914ac046f82a89f273ad64fdab2ce5f66f78aa581",
+        "publisher": "social-auto-upload",
+        "accountName": "daily-cause",
+        "lastRunId": "2026-08-16T04-52-52-478Z-93b0a132",
+        "lastRunAt": "2026-08-16T04:53:28.668Z",
+        "lastError": "",
+        "note": "小红书创作后台“已发布”，发布时间 2026-08-16 12:53，并已有播放数据；Web 分享页受当前代理 IP 风控。",
+        "copySnapshot": {
+          "title": "超市电子价签，为什么几分钟就能改完全店价格？",
+          "description": "电子价签把逐张换纸变成系统下发，但“能快速更新”不等于商店已经按个人或按小时动态涨价。本期依据 Walmart 官方说明，拆开技术能力、企业策略与实际价格证据。\n\n资料来源：\nWalmart Digital Shelf Labels：https://corporate.walmart.com/news/2024/06/06/new-tech-better-outcomes-digital-shelf-labels-are-a-win-for-customers-and-associates\n\n画面来源与许可：\n1. Arkascha，Daily Life in Tokyo in 2013 - Supermarket in Hanzomon Station Area，CC BY 3.0：https://commons.wikimedia.org/wiki/File:Daily_Life_in_Tokyo_in_2013_%E2%80%93_Supermarket_in_Hanzomon_Station_Area.webm\n2. Supermarket Grocery Products (13083756734)，Wikimedia Commons，Public Domain：https://commons.wikimedia.org/wiki/File:Supermarket_Grocery_Products_(13083756734).webm\n3. Maksym Kozlenko，2021-06-28 E-ink price tag in Sydney supermarket，CC BY-SA 4.0：https://commons.wikimedia.org/wiki/File:2021-06-28_E-ink_price_tag_in_Sydney_supermarket.jpg\n\n制作说明：旁白使用 Gemini 3.1 Flash TTS（Charon）生成；资料核验、原创中文叙事、剪辑、字幕与封面由 VideoBrief 工作流完成。成片未使用 AI 生成画面。",
+          "hashtags": [
+            "电子价签",
+            "超市",
+            "零售",
+            "商业观察",
+            "日常有因"
+          ],
+          "generatedByAi": true,
+          "effectiveTitle": "超市电子价签，为什么几分钟就能改完全店价",
+          "effectiveDescription": "超市电子价签，为什么几分钟就能改完全店价",
+          "capturedAt": "2026-08-16T04:53:28.668Z",
+          "source": "output/exports/electronic-shelf-label-explainer-20260813/platform-copy.json"
+        },
+        "metricSnapshots": [
+          {
+            "observedAt": "2026-08-16T10:18:55.328Z",
+            "source": "小红书创作服务平台笔记管理",
+            "viewCount": 178,
+            "likeCount": 0,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          },
+          {
+            "observedAt": "2026-08-16T10:23:10.869Z",
+            "source": "小红书创作服务平台笔记管理",
+            "viewCount": 178,
+            "likeCount": 0,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          },
+          {
+            "observedAt": "2026-08-16T10:24:00.896Z",
+            "source": "小红书创作服务平台笔记管理",
+            "viewCount": 178,
+            "likeCount": 0,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
+          }
+        ]
+      },
+      {
+        "id": "youtube",
+        "platform": "YouTube",
+        "status": "published",
+        "approval": {
+          "status": "approved",
+          "decidedAt": "2026-08-16T04:48:03.047Z",
+          "decidedBy": "user",
+          "note": "用户明确要求将这两条既有成片发布到全部已接入平台；本目标按平台独立保留 AIGC、权利和投稿状态。",
+          "fingerprint": "88b32caf3eae028d6278f81600b16c6cd0b63102ed10d49058746cf43baa4d09:72b44041013d82511471b84914ac046f82a89f273ad64fdab2ce5f66f78aa581"
+        },
+        "scheduledAt": "",
+        "submittedAt": "2026-08-16T08:59:30.775Z",
+        "submissionUrl": "",
+        "publishedUrl": "https://youtu.be/a7xDhEXWQNM",
+        "publishedAt": "2026-08-16T09:52:03.000Z",
+        "externalId": "a7xDhEXWQNM",
+        "videoSha256": "88b32caf3eae028d6278f81600b16c6cd0b63102ed10d49058746cf43baa4d09",
+        "packageSha256": "72b44041013d82511471b84914ac046f82a89f273ad64fdab2ce5f66f78aa581",
+        "publisher": "social-auto-upload",
+        "accountName": "daily-cause",
+        "lastRunId": "2026-08-16T08-56-04-445Z-6f3b37f6",
+        "lastRunAt": "2026-08-16T14:58:11.605Z",
+        "lastError": "",
+        "note": "项目恢复脚本将唯一同名草稿设置为非儿童向并公开；Studio 状态为公开，公开视频连续两次 HTTP 200。\n2026-08-16T14:58:11.605Z 已通过程序化编辑页更新并回读平台说明。",
+        "copySnapshot": {
+          "title": "超市电子价签，为什么几分钟就能改完全店价格？",
+          "description": "电子价签把逐张换纸变成系统下发，但“能快速更新”不等于商店已经按个人或按小时动态涨价。本期依据 Walmart 官方说明，拆开技术能力、企业策略与实际价格证据。\n\n资料来源：\nWalmart Digital Shelf Labels：https://corporate.walmart.com/news/2024/06/06/new-tech-better-outcomes-digital-shelf-labels-are-a-win-for-customers-and-associates\n\n画面来源与许可：\n1. Arkascha，Daily Life in Tokyo in 2013 - Supermarket in Hanzomon Station Area，CC BY 3.0：https://commons.wikimedia.org/wiki/File:Daily_Life_in_Tokyo_in_2013_%E2%80%93_Supermarket_in_Hanzomon_Station_Area.webm\n2. Supermarket Grocery Products (13083756734)，Wikimedia Commons，Public Domain：https://commons.wikimedia.org/wiki/File:Supermarket_Grocery_Products_(13083756734).webm\n3. Maksym Kozlenko，2021-06-28 E-ink price tag in Sydney supermarket，CC BY-SA 4.0：https://commons.wikimedia.org/wiki/File:2021-06-28_E-ink_price_tag_in_Sydney_supermarket.jpg\n\n制作说明：旁白使用 Gemini 3.1 Flash TTS（Charon）生成；资料核验、原创中文叙事、剪辑、字幕与封面由 VideoBrief 工作流完成。成片未使用 AI 生成画面。",
+          "hashtags": [
+            "电子价签",
+            "超市",
+            "零售",
+            "商业观察",
+            "日常有因"
+          ],
+          "generatedByAi": true,
+          "effectiveTitle": "超市电子价签，为什么几分钟就能改完全店价格？",
+          "effectiveDescription": "超市里一排货架的价格，为什么现在几分钟就能全部更新？\n\n电子价签把“逐张换纸”变成系统统一下发。但能快速改价，不等于商店已经在针对每个人实时涨价。这条视频拆开技术能力、企业策略和真实证据之间的区别。\n\n素材鸣谢：Arkascha《Daily Life in Tokyo in 2013 - Supermarket in Hanzomon Station Area》（经转码、剪辑，CC BY 3.0）：https://commons.wikimedia.org/wiki/File:Daily_Life_in_Tokyo_in_2013_%E2%80%93_Supermarket_in_Hanzomon_Station_Area.webm；许可：https://creativecommons.org/licenses/by/3.0/ 。Maksym Kozlenko《2021-06-28 E-ink price tag in Sydney supermarket》（经裁切、剪辑，CC BY-SA 4.0）：https://commons.wikimedia.org/wiki/File:2021-06-28_E-ink_price_tag_in_Sydney_supermarket.jpg；许可：https://creativecommons.org/licenses/by-sa/4.0/ 。",
+          "capturedAt": "2026-08-16T14:58:11.605Z",
+          "source": "平台已发布作品编辑页回读"
+        },
+        "metricSnapshots": [
+          {
+            "observedAt": "2026-08-16T10:18:55.328Z",
+            "source": "YouTube Studio 内容列表",
+            "viewCount": 0,
+            "likeCount": null,
+            "commentCount": 0,
+            "shareCount": null,
+            "favoriteCount": null,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": "YouTube Studio 内容列表不提供点赞数；null 表示本次未取得，不代表 0。"
+          },
+          {
+            "observedAt": "2026-08-16T10:23:10.869Z",
+            "source": "YouTube Studio 内容列表",
+            "viewCount": 0,
+            "likeCount": null,
+            "commentCount": 0,
+            "shareCount": null,
+            "favoriteCount": null,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": "YouTube Studio 内容列表不提供点赞数；null 表示本次未取得，不代表 0。"
+          },
+          {
+            "observedAt": "2026-08-16T10:24:00.896Z",
+            "source": "YouTube Studio 内容列表",
+            "viewCount": 0,
+            "likeCount": null,
+            "commentCount": 0,
+            "shareCount": null,
+            "favoriteCount": null,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": "YouTube Studio 内容列表不提供点赞数；null 表示本次未取得，不代表 0。"
+          }
+        ]
+      }
+    ],
+    "market": {
+      "decision": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "evidence": []
+    }
+  },
+  "chapters": [
+    {
+      "id": "chapter-01",
+      "title": "电子价签如何改变门店改价",
+      "summary": "从快速改价能力讲到运营用途与证据边界。",
+      "order": 0,
+      "sceneIds": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06",
+        "scene-07"
+      ],
+      "sourceReferences": [
+        {
+          "sourceId": "source-05",
+          "locatorType": "line",
+          "lineStart": 1,
+          "lineEnd": 8,
+          "note": "核心效率、更新方式及运营用途。"
+        },
+        {
+          "sourceId": "source-03",
+          "locatorType": "image",
+          "note": "仅用于电子价签和货架的视觉情境，不证明系统能力或动态涨价。"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "time",
+          "start": 0,
+          "end": 135.66,
+          "note": "仅用于超市货架视觉素材；代表帧不足以证明连续价格变化。"
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "outputVideo": "output/videos/electronic-shelf-label-explainer-20260813.mp4",
+    "publicRender": "public/renders/electronic-shelf-label-explainer-20260813.mp4",
+    "workDir": "output/videos/electronic-shelf-label-explainer-20260813-work",
+    "exportDir": "output/exports/electronic-shelf-label-explainer-20260813",
+    "coverImage": "output/exports/electronic-shelf-label-explainer-20260813/cover.png",
+    "platformCopy": "output/exports/electronic-shelf-label-explainer-20260813/platform-copy.json",
+    "sourceList": "output/exports/electronic-shelf-label-explainer-20260813/source-list.json",
+    "projectSnapshot": "output/exports/electronic-shelf-label-explainer-20260813/project.snapshot.json"
+  },
+  "render": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice": "Charon",
+    "rate": 100,
+    "voiceEngine": "gemini-tts",
+    "voiceModel": "gemini-3.1-flash-tts-preview",
+    "voiceProfile": "natural-tech-zh-v1",
+    "voiceStyle": "像真实的中文科技内容创作者一样讲述。\n声音克制、自然，有轻微交流感，不要新闻播音腔或广告腔。\n使用中等语速，在转折和结论前自然停顿。\n重点词只做轻微强调，不要夸张表演。\n必须准确朗读原文，不要增加、删减或改写内容。",
+    "voiceGenerationMode": "per-scene",
+    "renderStrategy": "segmented-concat",
+    "pronunciations": [],
+    "mediaFit": "contain"
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-06",
+      "sourceStart": 5,
+      "sourceEnd": 22.2,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "先把问题说清",
+      "title": "价格能变，不等于正在针对你",
+      "subtitle": "先分开技术能力与实际策略",
+      "narration": "你拿起商品的这一分钟，货架上的价格能不能变？电子价签让一家门店在几分钟内统一更新价格。但这只证明商店有了快速改价的能力，不等于它正在针对你，或者按小时实时涨价。",
+      "visualRequirement": "真实超市生鲜与货架动态开场；旁白和底部字幕给出技术能力与实际策略的区分，画面只承担零售情境，不冒充动态涨价记录。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-05",
+          "locatorType": "line",
+          "lineStart": 1,
+          "lineEnd": 8,
+          "note": "Walmart 官方称数字价签可在几分钟内更新；个性化或按小时实时涨价不在该声明的证据范围内。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-06",
+          "assetPath": "public/project-assets/electronic-shelf-label-explainer-20260813/supermarket-products-proxy-1786607793623.mp4",
+          "mediaType": "video",
+          "sourceStart": 5,
+          "sourceEnd": 22.2,
+          "matchReason": "生鲜全景与货架连续进入，直接建立消费者面对价格牌的零售情境；不作为 Walmart 运营声明或动态涨价的直接事实证据。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-13T09:28:02.761Z",
+      "selectionNote": "Codex 逐幕复核该窗口只承担消费者与货架价格的开场情境；不将画面冒充价格变化记录或个性化定价证据。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-02",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 25,
+      "sourceEnd": 36.3,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "为什么能变快",
+      "title": "系统下发，替代逐张换纸",
+      "subtitle": "价格信息可以直接更新到数字价签",
+      "narration": "电子价签为什么能在几分钟内改价？因为价格信息可以通过移动应用更新到数字价签，门店不必再逐张更换纸标签。",
+      "visualRequirement": "冷藏货架、商品标签和通道连续变化，表现逐张换纸涉及的商品规模；系统下发由旁白和底部字幕解释，不伪造后台界面。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-05",
+          "locatorType": "line",
+          "lineStart": 1,
+          "lineEnd": 8,
+          "note": "Walmart 官方称数字价签可通过移动应用在几分钟内更新。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/electronic-shelf-label-explainer-20260813/tokyo-supermarket-proxy.mp4",
+          "mediaType": "video",
+          "sourceStart": 25,
+          "sourceEnd": 36.3,
+          "matchReason": "冷藏货架、商品标签和通道连续变化，承担逐张换纸的规模情境；不作为移动应用或系统下发的直接操作证据。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-13T10:20:00.000Z",
+      "selectionNote": "Codex 复核 start/mid/end 后确认窗口只承担逐张处理的规模情境；系统链路由官方资料与原创标题解释。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-03",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 92,
+      "sourceEnd": 101.35,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "效率差在哪里",
+      "title": "两天，缩短到几分钟",
+      "subtitle": "这是 Walmart 对自身运营的公开说明",
+      "narration": "Walmart 官方称，一次价格变化过去约需店员花两天完成。换成数字价签后，同样的更新只需几分钟。",
+      "visualRequirement": "包装商品货架与通道连续出现，承接人工逐张处理的规模感；效率数字只由旁白和底部字幕明确归因于 Walmart。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-05",
+          "locatorType": "line",
+          "lineStart": 1,
+          "lineEnd": 8,
+          "note": "效率对比来自 Walmart 官方事实摘录。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/electronic-shelf-label-explainer-20260813/tokyo-supermarket-proxy.mp4",
+          "mediaType": "video",
+          "sourceStart": 92,
+          "sourceEnd": 101.35,
+          "matchReason": "不同品类货架与通道连续出现，表现人工处理大量商品位置的规模；不作为 Walmart 效率数字的直接事实证据。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-13T10:20:00.000Z",
+      "selectionNote": "Codex 复核 start/mid/end 后确认独立包装商品窗口承担人工处理规模；效率数字明确由 Walmart 官方声明提供。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-04",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 69,
+      "sourceEnd": 78.2,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "首先是运营工具",
+      "title": "更快把价格送到货架",
+      "subtitle": "少走路，少做重复替换",
+      "narration": "它首先解决的是门店运营问题：同一套价格信息能更快传到货架，也减少了店员逐张处理的重复劳动。",
+      "visualRequirement": "熟食、烘焙和冷藏商品的位置连续变化，表现门店货架规模；画面只作运营情境，不冒充系统操作实录。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-05",
+          "locatorType": "line",
+          "lineStart": 1,
+          "lineEnd": 8,
+          "note": "更新能力和运营背景来自 Walmart 官方声明；减少逐张处理为对该声明的谨慎解释。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/electronic-shelf-label-explainer-20260813/tokyo-supermarket-proxy.mp4",
+          "mediaType": "video",
+          "sourceStart": 69,
+          "sourceEnd": 78.2,
+          "matchReason": "熟食、冷藏商品与货架位置连续变化，承担门店运营与重复处理的相关环境；不冒充系统操作实录。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-13T10:20:00.000Z",
+      "selectionNote": "Codex 复核 start/mid/end 后确认独立熟食和冷藏货架窗口只承担门店运营规模情境。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-05",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-01",
+      "sourceStart": 46,
+      "sourceEnd": 54.34,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "不只是显示价格",
+      "title": "价签还可以帮助找货",
+      "subtitle": "补货定位与线上订单拣货",
+      "narration": "Walmart 还提到两种用途：Stock to Light 帮店员定位补货位置，Pick to Light 则用于线上订单拣货。",
+      "visualRequirement": "烘焙、熟食和冷藏货架作为补货与拣货的相关环境；旁白和底部字幕列出两种用途并明确事实来自 Walmart 官方声明。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-05",
+          "locatorType": "line",
+          "lineStart": 1,
+          "lineEnd": 8,
+          "note": "补货定位与线上订单拣货用途均来自 Walmart 官方声明。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-01",
+          "assetPath": "public/project-assets/electronic-shelf-label-explainer-20260813/tokyo-supermarket-proxy.mp4",
+          "mediaType": "video",
+          "sourceStart": 46,
+          "sourceEnd": 54.34,
+          "matchReason": "烘焙、熟食与冷藏货架提供补货和拣货的相关环境；不冒充 Stock to Light 或 Pick to Light 操作实录。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-13T10:20:00.000Z",
+      "selectionNote": "Codex 复核 start/mid/end 后确认该独立窗口只作补货和拣货环境，不暗示画面展示了 Walmart 功能。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-06",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-03",
+      "sourceStart": 0,
+      "sourceEnd": 1,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "范围必须说清",
+      "title": "一家公司的做法，不等于全行业",
+      "subtitle": "企业声明不能直接外推",
+      "narration": "但这些是 Walmart 对自身测试和扩展计划的说明，不能直接代表所有零售商都采用同样的系统。",
+      "visualRequirement": "稳定展示真实电子价签照片，配合企业声明范围限定；不推拉，不把单个价签外推为所有零售商的共同做法。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-05",
+          "locatorType": "file",
+          "note": "Walmart 官方声明的主体与适用范围。"
+        },
+        {
+          "sourceId": "source-03",
+          "locatorType": "image",
+          "note": "单个电子价签只能展示产品形态，不能证明全行业采用同一系统。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-03",
+          "assetPath": "public/project-assets/electronic-shelf-label-explainer-20260813/e-ink-price-tag-1786607588866.jpg",
+          "mediaType": "image",
+          "sourceStart": 0,
+          "sourceEnd": 1,
+          "matchReason": "真实电子价签近景展示产品形态；只配合企业声明范围限定，不证明所有零售商采用同一系统。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-13T09:28:02.761Z",
+      "selectionNote": "Codex 确认该静态图只承担真实产品形态与企业声明范围限定，不外推行业采用状态。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-07",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-06",
+      "sourceStart": 108,
+      "sourceEnd": 120.5,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "最容易混淆的一步",
+      "title": "能快速更新，不等于正在动态涨价",
+      "subtitle": "技术能力和实际策略是两回事",
+      "narration": "电子价签能快速更新，只说明技术上具备这种能力。现有材料不能证明商店已经针对个人、按小时，或者实时动态涨价。",
+      "visualRequirement": "散装商品、取用装置和价格牌连续出现，以旁白和底部字幕收束技术能力与实际策略的证据边界；不把画面当作价格变化记录。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-05",
+          "locatorType": "file",
+          "note": "Walmart 声明未提供个人定价或实时涨价证据；该范围限制来自已批准研究。"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "time",
+          "start": 0,
+          "end": 135.66,
+          "note": "视频仅提供代表帧，不能据此证明连续价格变化或动态涨价。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-06",
+          "assetPath": "public/project-assets/electronic-shelf-label-explainer-20260813/supermarket-products-proxy-1786607793623.mp4",
+          "mediaType": "video",
+          "sourceStart": 108,
+          "sourceEnd": 120.5,
+          "matchReason": "散装商品与多张价格牌提供真实货架情境；不作为价格变化记录、个性化定价或动态涨价的事实证据。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-13T09:28:02.761Z",
+      "selectionNote": "Codex 复核完整窗口只承担价格牌情境；画面不被解释为动态涨价或价格变化记录。",
+      "generatedBy": "ai",
+      "userEdited": true
+    }
+  ]
+}

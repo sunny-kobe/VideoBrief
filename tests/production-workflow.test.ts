@@ -374,6 +374,213 @@ test('stale publication approval returns to the publication Gate', () => {
   assert.equal(productionWorkflowSnapshot(approved, changedPackage).next?.id, 'publication');
 });
 
+test('multiple platform targets keep independent approval and schedule state', () => {
+  let project = approveDelivery();
+  project = applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'approve_publication',
+    decidedBy: 'test-user',
+    note: '批准当前生产包发布到 B 站并保留独立发布记录。',
+    platform: 'B站',
+  }, '2026-07-24T02:10:00.000Z');
+  project = applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'approve_publication',
+    decidedBy: 'test-user',
+    note: '批准当前生产包发布到视频号并使用平台化文案。',
+    platform: '视频号',
+  }, '2026-07-24T02:11:00.000Z');
+
+  assert.deepEqual(
+    project.workflow.publicationTargets?.map((target) => [target.id, target.platform, target.status]),
+    [['bilibili', 'B站', 'approved'], ['wechat-channels', '视频号', 'approved']],
+  );
+
+  project = applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'schedule_publication',
+    targetId: 'bilibili',
+    scheduledAt: '2026-07-25T11:30:00.000Z',
+    submittedAt: '2026-07-24T02:12:00.000Z',
+    submissionUrl: 'https://member.bilibili.com/platform/upload/video/frame',
+    externalId: 'BV1scheduled',
+    note: '平台已通过审核并等待定时发布。',
+  }, '2026-07-24T02:12:00.000Z');
+
+  assert.equal(project.workflow.publicationTargets?.[0].status, 'scheduled');
+  assert.equal(project.workflow.publicationTargets?.[0].scheduledAt, '2026-07-25T11:30:00.000Z');
+  assert.equal(project.workflow.publicationTargets?.[1].status, 'approved');
+  assert.equal(project.publication_status, 'ready-for-review');
+  assert.match(
+    productionWorkflowSnapshot(project, readyRuntime).stages.find((stage) => stage.id === 'publication')?.message ?? '',
+    /等待定时发布/,
+  );
+});
+
+test('publishing one platform preserves another platform schedule', () => {
+  let project = approveDelivery();
+  for (const platform of ['B站', '视频号']) {
+    project = applyProductionWorkflowAction(project, readyRuntime, {
+      type: 'approve_publication',
+      decidedBy: 'test-user',
+      note: `批准当前生产包发布到${platform}并保留独立证据。`,
+      platform,
+    }, '2026-07-24T02:10:00.000Z');
+  }
+  project = applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'schedule_publication',
+    targetId: 'bilibili',
+    scheduledAt: '2026-07-25T11:30:00.000Z',
+    externalId: 'BV1scheduled',
+  }, '2026-07-24T02:12:00.000Z');
+  project = applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'schedule_publication',
+    targetId: 'wechat-channels',
+    scheduledAt: '2026-07-25T12:00:00.000Z',
+    externalId: 'wechat-scheduled',
+  }, '2026-07-24T02:12:00.000Z');
+  project = applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'record_publication',
+    targetId: 'wechat-channels',
+    publishedUrl: 'https://channels.weixin.qq.com/example',
+    publishedAt: '2026-07-24T03:00:00.000Z',
+    externalId: 'wechat-post-01',
+  });
+
+  const targets = project.workflow.publicationTargets ?? [];
+  assert.equal(targets.find((target) => target.id === 'bilibili')?.status, 'scheduled');
+  assert.equal(targets.find((target) => target.id === 'wechat-channels')?.status, 'published');
+  assert.equal(targets.find((target) => target.id === 'wechat-channels')?.scheduledAt, '');
+  assert.equal(project.publication_status, 'published');
+  assert.equal(project.market_status, 'collecting');
+});
+
+test('publication scheduling requires a current target approval and a future time', () => {
+  const project = approveDelivery();
+  assert.throws(() => applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'schedule_publication', targetId: 'bilibili', scheduledAt: '2026-07-25T11:30:00.000Z',
+  }, '2026-07-24T02:12:00.000Z'), /平台目标尚未获得/);
+
+  const approved = applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'approve_publication', decidedBy: 'test-user',
+    note: '批准当前生产包发布到 B 站并记录排期。', platform: 'B站',
+  }, '2026-07-24T02:10:00.000Z');
+  assert.throws(() => applyProductionWorkflowAction(approved, readyRuntime, {
+    type: 'schedule_publication', targetId: 'bilibili', scheduledAt: '2026-07-24T01:00:00.000Z',
+  }, '2026-07-24T02:12:00.000Z'), /必须晚于当前时间/);
+});
+
+test('scheduled and published are not interchangeable publication facts', () => {
+  let project = approveDelivery();
+  project = applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'approve_publication', decidedBy: 'test-user',
+    note: '批准当前生产包发布到 B 站并严格区分排期和发布。', platform: 'B站',
+  }, '2026-07-24T02:10:00.000Z');
+  assert.throws(() => applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'record_publication', targetId: 'bilibili',
+    publishedUrl: 'https://www.bilibili.com/video/BV1future/',
+    publishedAt: '2026-07-25T11:30:00.000Z',
+  }, '2026-07-24T02:12:00.000Z'), /未来排期请记录为 scheduled/);
+
+  project = applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'record_publication', targetId: 'bilibili',
+    publishedUrl: 'https://www.bilibili.com/video/BV1published/',
+    publishedAt: '2026-07-24T02:11:00.000Z',
+  }, '2026-07-24T02:12:00.000Z');
+  assert.throws(() => applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'schedule_publication', targetId: 'bilibili', scheduledAt: '2026-07-25T11:30:00.000Z',
+  }, '2026-07-24T02:12:00.000Z'), /只有已批准或已排期/);
+  assert.throws(() => applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'reject_publication', targetId: 'bilibili', decidedBy: 'test-user',
+    note: '已发布事实不能通过退回审批的方式被覆盖。',
+  }, '2026-07-24T02:13:00.000Z'), /已发布的平台目标不能退回/);
+});
+
+test('programmatic upload states preserve submitted, scheduled and failure facts', () => {
+  let project = applyProductionWorkflowAction(approveDelivery(), readyRuntime, {
+    type: 'approve_publication', decidedBy: 'test-user',
+    note: '批准当前生产包通过程序发布到视频号。', platform: '视频号',
+  }, '2026-07-24T02:10:00.000Z');
+  project = applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'start_publication_upload', targetId: 'wechat-channels',
+    publisher: 'social-auto-upload', accountName: 'daily-cause', runId: 'run-01',
+  }, '2026-07-24T02:11:00.000Z');
+  assert.equal(project.workflow.publicationTargets?.[0].status, 'uploading');
+  assert.equal(project.workflow.publicationTargets?.[0].accountName, 'daily-cause');
+  assert.equal(project.workflow.publicationTargets?.[0].copySnapshot, null);
+  assert.deepEqual(project.workflow.publicationTargets?.[0].metricSnapshots, []);
+
+  project = applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'record_publication_submission', targetId: 'wechat-channels', runId: 'run-01',
+  }, '2026-07-24T02:12:00.000Z');
+  assert.equal(project.workflow.publicationTargets?.[0].status, 'submitted');
+  assert.equal(project.publication_status, 'ready-for-review');
+
+  project = applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'start_publication_upload', targetId: 'wechat-channels',
+    publisher: 'social-auto-upload', accountName: 'daily-cause', runId: 'run-02',
+  }, '2026-07-24T02:13:00.000Z');
+  project = applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'record_publication_failure', targetId: 'wechat-channels', runId: 'run-02',
+    error: '登录态失效',
+  }, '2026-07-24T02:14:00.000Z');
+  assert.equal(project.workflow.publicationTargets?.[0].status, 'failed');
+  assert.equal(project.workflow.publicationTargets?.[0].lastError, '登录态失效');
+  assert.notEqual(project.publication_status, 'published');
+});
+
+test('rejecting a primary target also rejects the legacy publication approval', () => {
+  let project = approveDelivery();
+  project = applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'approve_publication', decidedBy: 'test-user',
+    note: '批准当前生产包发布到 B 站并同步主发布摘要。', platform: 'B站',
+  }, '2026-07-24T02:10:00.000Z');
+  project = applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'reject_publication', targetId: 'bilibili', decidedBy: 'test-user',
+    note: '平台文案仍需调整，退回当前 B 站发布目标。',
+  }, '2026-07-24T02:12:00.000Z');
+
+  assert.equal(project.workflow.publicationTargets?.[0].status, 'rejected');
+  assert.equal(project.workflow.publication.approval.status, 'rejected');
+  assert.equal(project.publication_status, 'draft-unpublished');
+  assert.throws(() => applyProductionWorkflowAction(project, readyRuntime, {
+    type: 'reject_publication', targetId: 'missing', decidedBy: 'test-user',
+    note: '不存在的发布目标不能静默退回旧摘要。',
+  }, '2026-07-24T02:13:00.000Z'), /找不到要退回/);
+});
+
+test('normalization migrates legacy publication into the primary target', () => {
+  const legacy = approveDelivery();
+  legacy.workflow.publication = {
+    approval: { status: 'approved', decidedAt: 'now', decidedBy: 'test-user', note: '旧发布记录', fingerprint: 'video-sha:package-sha' },
+    platform: 'B站',
+    publishedUrl: 'https://www.bilibili.com/video/BV1legacy/',
+    publishedAt: '2026-07-24T03:00:00.000Z',
+    videoSha256: 'video-sha',
+    packageSha256: 'package-sha',
+  };
+  legacy.workflow.publicationTargets = undefined;
+  const normalized = normalizeBrief(legacy);
+  assert.deepEqual(
+    normalized.workflow.publicationTargets?.map((target) => [target.id, target.platform, target.status]),
+    [['primary', 'B站', 'published']],
+  );
+  const target = normalized.workflow.publicationTargets?.[0];
+  assert.ok(target);
+  target.copySnapshot = {
+    title: '投稿标题', description: '投稿正文', hashtags: ['测试'], generatedByAi: true,
+    effectiveTitle: '平台标题', effectiveDescription: '平台正文',
+    capturedAt: '2026-07-24T03:00:00.000Z', source: 'platform-copy.json',
+  };
+  target.metricSnapshots = [{
+    observedAt: '2026-07-25T03:00:00.000Z', source: '平台后台',
+    viewCount: 0, likeCount: null, commentCount: 0, shareCount: 0, favoriteCount: 0,
+    coinCount: null, danmakuCount: null, followerGain: null, completionRate: null,
+    averageWatchSeconds: null, twoSecondBounceRate: null, note: '点赞未取得。',
+  }];
+  const roundTrip = normalizeBrief(normalized).workflow.publicationTargets?.[0];
+  assert.equal(roundTrip?.copySnapshot?.effectiveTitle, '平台标题');
+  assert.equal(roundTrip?.metricSnapshots[0].viewCount, 0);
+  assert.equal(roundTrip?.metricSnapshots[0].likeCount, null);
+});
+
 test('published does not become validated without real evidence and a human decision', () => {
   let project = approveDelivery();
   project = applyProductionWorkflowAction(project, readyRuntime, {

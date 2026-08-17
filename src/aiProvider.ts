@@ -31,6 +31,7 @@ import type {
   SourceAnalysisChapter,
 } from './shortVideoBrief';
 import { confirmedNarrativeFacts, keyResearchFacts } from './researchReview';
+import { assertAudienceFacingPlatformDescription } from './platformCopy';
 
 const cacheRoot = resolve('output/ai-cache');
 
@@ -543,6 +544,9 @@ export function rankLongFormChapterCandidates(
 }
 
 export function generateProductionAssets(project: ShortVideoProject) {
+  const selectedSourceIds = new Set(
+    project.scenes.filter((scene) => scene.enabled).map((scene) => scene.sourceId),
+  );
   return structuredCall({
     schema: ProductionAssetsSchema,
     schemaName: 'videobrief_production_assets',
@@ -550,12 +554,28 @@ export function generateProductionAssets(project: ShortVideoProject) {
     input: [
       '根据已确认的视频项目生成克制、准确的平台标题、简介、标签和封面标题。',
       '不得把未确认事实写入标题，不得声称已发布或已验证市场。',
+      '把账号当作正常视频创作者：简介只写观众问题、内容价值、必要事实边界和自然的行动引导，不要写生产报告。',
+      '不得在简介中提及 TTS 或声音型号、合成旁白、VideoBrief、AI 工作流、资料核验、剪辑、字幕、封面制作，也不要声明“未使用 AI 生成画面”。',
+      'AIGC 状态默认交给目标平台的结构化声明字段，不在通用简介中重复；只有平台明确要求正文声明且没有专用字段时，才由发布适配器追加。',
+      '事实来源、素材分辨率、审核过程和无需署名的素材保留在内部证据中。只有来源元数据明确要求署名时，才在简介末尾用一段最短“素材鸣谢”准确保留作者、作品、改编说明、来源和许可，不得编造。',
       JSON.stringify({
         brief: project.brief,
         narrative: project.narrative,
         scenes: project.scenes,
         facts: confirmedNarrativeFacts(project),
+        selectedSourceAttribution: project.sources
+          .filter((source) => selectedSourceIds.has(source.id))
+          .map((source) => ({
+            id: source.id,
+            label: source.label,
+            originUrl: source.originUrl,
+            rightsStatus: source.rightsStatus,
+            rightsNote: source.rightsNote,
+          })),
       }),
     ].join('\n'),
+    validate(data) {
+      assertAudienceFacingPlatformDescription(data.description);
+    },
   });
 }
