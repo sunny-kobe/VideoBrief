@@ -28,5 +28,13 @@ export function preproductionGateReadiness(project: ShortVideoProject): {
   material: ReturnType<typeof materialGateReadiness>;
   materialQuality: ReturnType<typeof materialQualityGateReadiness>;
 };
+export function voiceoverPreflightGateReadiness(project: ShortVideoProject): {
+  ready: boolean;
+  issues: string[];
+  topicFingerprint: string;
+  research: ReturnType<typeof researchGateReadiness>;
+  material: ReturnType<typeof materialGateReadiness>;
+};
 export function assertPreproductionGates(project: ShortVideoProject): ReturnType<typeof preproductionGateReadiness>;
+export function assertVoiceoverPreflightGates(project: ShortVideoProject): ReturnType<typeof voiceoverPreflightGateReadiness>;
 export function assertDeliveryApproved(project: ShortVideoProject, videoSha256: string): void;

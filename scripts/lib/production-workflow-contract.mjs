@@ -138,6 +138,21 @@ export function researchGateReadiness(project) {
 }
 
 export function preproductionGateReadiness(project) {
+  const preflight = voiceoverPreflightGateReadiness(project);
+  const issues = [...preflight.issues];
+  const materialQuality = materialQualityGateReadiness(project);
+  issues.push(...materialQuality.issues);
+  return {
+    ready: issues.length === 0,
+    issues,
+    topicFingerprint: preflight.topicFingerprint,
+    research: preflight.research,
+    material: preflight.material,
+    materialQuality,
+  };
+}
+
+export function voiceoverPreflightGateReadiness(project) {
   const issues = [];
   const topicFingerprint = topicApprovalFingerprint(project);
   if (!approvalIsCurrent(project.workflow?.topicApproval, topicFingerprint)) {
@@ -150,15 +165,21 @@ export function preproductionGateReadiness(project) {
   }
   const material = materialGateReadiness(project);
   issues.push(...material.issues);
-  const materialQuality = materialQualityGateReadiness(project);
-  issues.push(...materialQuality.issues);
-  return { ready: issues.length === 0, issues, topicFingerprint, research, material, materialQuality };
+  return { ready: issues.length === 0, issues, topicFingerprint, research, material };
 }
 
 export function assertPreproductionGates(project) {
   const readiness = preproductionGateReadiness(project);
   if (!readiness.ready) {
     throw new Error(`生产前 Gate 未通过：${readiness.issues.join('；')}`);
+  }
+  return readiness;
+}
+
+export function assertVoiceoverPreflightGates(project) {
+  const readiness = voiceoverPreflightGateReadiness(project);
+  if (!readiness.ready) {
+    throw new Error(`旁白预检前 Gate 未通过：${readiness.issues.join('；')}`);
   }
   return readiness;
 }

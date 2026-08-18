@@ -13,9 +13,11 @@ import { aggregateProjectRightsStatus, normalizeBrief } from '../src/shortVideoP
 import {
   approvalIsCurrent,
   assertPreproductionGates,
+  assertVoiceoverPreflightGates,
   preproductionGateReadiness,
   researchApprovalFingerprint,
   topicApprovalFingerprint,
+  voiceoverPreflightGateReadiness,
 } from '../scripts/lib/production-workflow-contract.mjs';
 import { buildMaterialQualityReview } from '../scripts/lib/material-quality-gate.mjs';
 
@@ -196,6 +198,8 @@ test('production preflight rejects a failed material-quality Gate before renderi
     () => assertPreproductionGates(project),
     /素材质量 Gate 当前状态为 failed/,
   );
+  assert.equal(voiceoverPreflightGateReadiness(project).ready, true);
+  assert.doesNotThrow(() => assertVoiceoverPreflightGates(project));
 });
 
 test('normalization preserves an explicitly approved image-only material package', () => {

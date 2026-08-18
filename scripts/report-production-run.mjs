@@ -108,6 +108,12 @@ const manifestPath = manifestArgument ? resolve(manifestArgument) : '';
 const manifest = manifestPath && existsSync(manifestPath)
   ? JSON.parse(readFileSync(manifestPath, 'utf8'))
   : {};
+const voiceoverPreflightPath = project?.outputs?.workDir
+  ? resolve(project.outputs.workDir, 'voiceover-preflight.json')
+  : '';
+const voiceoverPreflight = voiceoverPreflightPath && existsSync(voiceoverPreflightPath)
+  ? JSON.parse(readFileSync(voiceoverPreflightPath, 'utf8'))
+  : null;
 const finalizedAt = flag(
   'until',
   manifest?.acceptance?.browser?.checkedAt
@@ -138,6 +144,25 @@ const report = {
     summedDurationMs: sourceRuns.reduce((total, item) => total + Number(item.durationMs ?? 0), 0),
     runs: sourceRuns,
   },
+  voiceoverPreflight: voiceoverPreflight
+    ? {
+        status: voiceoverPreflight.status,
+        generatedAt: voiceoverPreflight.generatedAt,
+        fingerprint: voiceoverPreflight.fingerprint,
+        requestSummary: voiceoverPreflight.voiceover?.requestSummary ?? null,
+        attemptCount: Array.isArray(voiceoverPreflight.attempts) ? voiceoverPreflight.attempts.length : 0,
+        failedAttemptCount: Array.isArray(voiceoverPreflight.attempts)
+          ? voiceoverPreflight.attempts.filter((attempt) => attempt.status === 'failed').length
+          : 0,
+        summedWallMs: Array.isArray(voiceoverPreflight.attempts)
+          ? voiceoverPreflight.attempts.reduce((total, attempt) => total + Number(attempt.wallMs ?? 0), 0)
+          : 0,
+        issues: Array.isArray(voiceoverPreflight.issues) ? voiceoverPreflight.issues : [],
+      }
+    : {
+        status: 'not_recorded',
+        note: 'Run video:preflight:voiceover before Material Quality Gate.',
+      },
   codex: sessionArgument
     ? codexSessionReport(resolve(sessionArgument), finalizedAt)
     : {

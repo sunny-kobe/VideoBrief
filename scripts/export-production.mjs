@@ -7,7 +7,10 @@ import {
   validateSemanticAcceptanceRecord,
 } from './lib/acceptance-validation.mjs';
 import { productionContentFingerprint } from './lib/production-content-fingerprint.mjs';
-import { assertPreproductionGates } from './lib/production-workflow-contract.mjs';
+import {
+  assertPreproductionGates,
+  assertVoiceoverPreflightGates,
+} from './lib/production-workflow-contract.mjs';
 import { resolveProjectRendition, resolveProjectRenditions } from './lib/video-renditions.mjs';
 
 const briefArg = process.argv.slice(2).find((arg) => arg.startsWith('--brief='));
@@ -18,7 +21,8 @@ const requestedRenditionId = renditionArg?.slice('--rendition='.length) ?? '';
 const briefPath = resolve(briefArg?.slice('--brief='.length) ?? 'content/projects/codex-app-explainer/project.json');
 const projectText = readFileSync(briefPath, 'utf8');
 const project = JSON.parse(projectText);
-assertPreproductionGates(project);
+if (requestedStage === 'voiceover-preflight') assertVoiceoverPreflightGates(project);
+else assertPreproductionGates(project);
 const renditions = requestedRenditionId
   ? [resolveProjectRendition(project, requestedRenditionId)]
   : resolveProjectRenditions(project);
@@ -44,6 +48,18 @@ function recordRenderLifecycle(action, message = '') {
   if (result.status !== 0) {
     throw new Error(String(result.stderr || result.stdout || `Could not record render lifecycle ${action}.`).trim());
   }
+}
+
+if (requestedStage === 'voiceover-preflight') {
+  for (const rendition of renditions) {
+    console.log(`[videobrief-stage] voiceover-preflight ${rendition.id}`);
+    run('scripts/render-local-short-video-synced.mjs', [
+      `--brief=${briefPath}`,
+      `--rendition=${rendition.id}`,
+      '--voiceover-preflight',
+    ]);
+  }
+  process.exit(0);
 }
 
 function currentAcceptancePassed() {

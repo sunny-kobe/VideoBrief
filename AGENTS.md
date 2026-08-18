@@ -33,6 +33,7 @@ npm run build
 npm run docs:check
 npm run project:context -- --brief=content/projects/<project-id>/project.json --stage=research
 npm run project:production-report -- --brief=content/projects/<project-id>/project.json
+npm run video:preflight:voiceover -- --brief=content/projects/<project-id>/project.json
 npm run video:export:production -- --brief=content/projects/<project-id>/project.json
 node scripts/proof-video.mjs --manifest=output/videos/<project-id>-work/render-manifest.json
 git diff --check
@@ -87,6 +88,7 @@ git diff --check
 - 素材分辨率、版权状态、替代原因和选片理由属于内部生产证据，不得默认写进面向观众的旁白、标题或字幕。除非来源身份本身就是学习目标或叙事事实，否则不得仅为“建立来源”让低清、无受众价值的素材进入成片；来源追溯保留在素材清单、审片包和验收证据中。
 - 教学信息图、网页和代码镜头默认保持稳定。只有叙事明确需要且不会降低可读性时才启用镜头运动；不得把交替 `push-in`/`pull-out` 作为默认节奏，也不得用运动掩盖静态素材不足。
 - 每个启用场景都必须使用已确认候选，并且场景与候选的 `sourceId`、`sourceStart`、`sourceEnd` 完全一致。
+- 当前旁白和候选窗口必须先通过 `video:preflight:voiceover`，再允许写入正式 `materialQualityReview`。预检应在编码视频前拒绝过短窗口或超过 `1.25s` 的旁白尾留，并绑定旁白、窗口、配音设置和输出规格。
 - 已确认的视频窗口是不可变输入。不得为了适配旁白而静默改写 `sourceEnd`。
 - 视频窗口必须足以覆盖场景旁白。窗口过短时应拒绝使用，不得通过循环播放制造虚假连续性。
 - 不得用同一个通用素材窗口解释多个不同观点。只有明确记录为转场或背景，且不把画面当作事实证据时，才允许复用。

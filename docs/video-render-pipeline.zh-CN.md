@@ -105,13 +105,21 @@ VideoBrief 同时维护两种不同的同步：
 
 `platformWatermark` 只允许 `absent` 或 `not-applicable` 通过；视频候选通常必须为 `absent`，原创信息层等无外部素材的场景可以为 `not-applicable`。平台角标、来源账号角标、下载工具标记和其他来源水印只要在计划使用窗口内可见，就必须记为 `present` 并淘汰该候选。不得通过裁切、遮挡、模糊或覆盖水印来绕过 Gate；找不到权利可判断的无水印替代素材时，退回 Topic Gate 淘汰命题。
 
+旁白、已选窗口和播放速度确定后，先生成或命中正式 TTS，并在编码视频前验证窗口能够覆盖真实语音、每幕尾留不超过 `1.25s`：
+
+```bash
+npm run video:preflight:voiceover -- --brief=content/projects/<project-id>/project.json
+```
+
+结果写入项目 work dir 的 `voiceover-preflight.json`，绑定当前 production content、有效配音设置、rendition 和全部启用场景。Provider 失败、分幕失败、窗口不足或尾留过长都会在此阶段停止并记录尝试；不得先通过 Material Quality Gate 再等待整片 render/proof 暴露同一问题。旁白、候选窗口、配音设置或输出规格变化后必须重新预检。
+
 复核报告通过以下命令写回 canonical project：
 
 ```bash
 npm run video:review:materials -- --brief=content/projects/<project-id>/project.json --review=<material-quality-report.json> --reviewer=<name> --apply
 ```
 
-Gate 绑定场景旁白、标题、字幕、`visualRequirement`、已选候选、窗口、构图、播放速度、镜头运动和输出规格。任一项变化都会使旧复核指纹失效。Gate 缺失、状态不是 `passed`、逐幕结论不是 `accept` 或证据不满足要求时，CLI、工作台渲染和 production package 必须在编码前拒绝执行。历史项目未声明此版本化字段时只保留读取兼容；一旦进入本轮正式重制，应补齐当前 Gate。
+应用正式 Material Quality Gate 时，CLI 会机械要求当前 `voiceover-preflight.json` 已通过。Gate 绑定场景旁白、标题、字幕、`visualRequirement`、已选候选、窗口、构图、播放速度、镜头运动和输出规格。任一项变化都会使旧复核指纹失效。Gate 缺失、状态不是 `passed`、逐幕结论不是 `accept` 或证据不满足要求时，CLI、工作台渲染和 production package 必须在编码前拒绝执行。历史项目未声明此版本化字段时只保留读取兼容；一旦进入本轮正式重制，应补齐当前 Gate。
 
 外部视频理解、OCR、场景检测或关键帧 MCP 只能作为按需辅助，用来提高候选发现和定位效率。它们的摘要、OCR 文本或自动抽帧不能直接构成通过证据：工具可能漏掉窗口末尾的关键状态、把中文识别成乱码，或只返回开头帧。正式 Gate 仍以确定性的窗口边界、start/mid/end 代表帧、源素材与成片对比，以及真实桌面和移动播放器检查为准。
 

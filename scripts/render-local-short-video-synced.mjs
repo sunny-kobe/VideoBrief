@@ -37,7 +37,17 @@ import {
 } from './lib/segment-render-cache.mjs';
 import { resolveVoiceoverConfig, synthesizeVoiceover } from '../src/voiceoverProvider.mjs';
 import { productionContentFingerprint } from './lib/production-content-fingerprint.mjs';
-import { assertPreproductionGates } from './lib/production-workflow-contract.mjs';
+import {
+  assertPreproductionGates,
+  assertVoiceoverPreflightGates,
+} from './lib/production-workflow-contract.mjs';
+import {
+  appendVoiceoverPreflightAttempt,
+  buildFailedVoiceoverPreflightReport,
+  buildVoiceoverPreflightReport,
+  readVoiceoverPreflight,
+  voiceoverPreflightFingerprint,
+} from './lib/voiceover-preflight.mjs';
 import { resolveMediaFraming } from './lib/media-framing.mjs';
 import { resolveMediaMotion } from './lib/media-motion.mjs';
 import { resolveProjectRendition } from './lib/video-renditions.mjs';
@@ -46,13 +56,15 @@ import { wrapText } from './lib/text-wrapping.mjs';
 const renderProcessStartedAt = new Date();
 
 const { args, positional } = parseCliArgs(process.argv.slice(2));
+const voiceoverPreflightOnly = args.has('voiceover-preflight');
 
 const briefPath = resolve(
   args.get('brief') ?? 'content/projects/codex-app-explainer/project.json',
 );
 const briefText = readFileSync(briefPath, 'utf8');
 const brief = JSON.parse(briefText);
-assertPreproductionGates(brief);
+if (voiceoverPreflightOnly) assertVoiceoverPreflightGates(brief);
+else assertPreproductionGates(brief);
 const rendition = resolveProjectRendition(brief, args.get('rendition') ?? '');
 const outputs = {
   ...(brief.outputs ?? brief),
@@ -83,6 +95,7 @@ const voiceoverPath = resolve(workDir, 'voiceover-synced.aiff');
 const timelinePath = resolve(workDir, 'timeline.json');
 const renderPlanPath = resolve(workDir, 'render-plan.json');
 const manifestPath = resolve(workDir, 'render-manifest.json');
+const voiceoverPreflightPath = resolve(workDir, 'voiceover-preflight.json');
 const previousManifest = existsSync(manifestPath)
   ? JSON.parse(readFileSync(manifestPath, 'utf8'))
   : null;
@@ -1011,15 +1024,17 @@ const plannedDurationSeconds = Number(brief.brief?.targetDurationSeconds) || sce
   ),
   0,
 );
-const renderCapacity = assertRenderCapacity(dirname(output), {
-  durationSeconds: plannedDurationSeconds,
-  width,
-  height,
-  fps,
-  sceneCount: sceneSpecs.length,
-  renderStrategy,
-  publicRender: Boolean(publicRender),
-});
+const renderCapacity = voiceoverPreflightOnly
+  ? null
+  : assertRenderCapacity(dirname(output), {
+      durationSeconds: plannedDurationSeconds,
+      width,
+      height,
+      fps,
+      sceneCount: sceneSpecs.length,
+      renderStrategy,
+      publicRender: Boolean(publicRender),
+    });
 
 mkdirSync(dirname(output), { recursive: true });
 mkdirSync(workDir, { recursive: true });
@@ -1028,43 +1043,79 @@ if (publicRender) mkdirSync(dirname(publicRender), { recursive: true });
 let scenesWithAudio = [];
 const voiceBatchArtifacts = [];
 const voiceBatchFallbacks = [];
-if (
-  voiceConfig.engine === 'gemini-tts'
-  && sceneSpecs.length > 1
-  && voiceGenerationMode !== 'per-scene'
-) {
-  const batches = planVoiceoverBatches(
-    sceneSpecs,
-    brief.chapters ?? [],
-    brief.brief?.targetDurationSeconds,
-  );
-  for (const batchPlan of batches) {
-    const batchScenes = batchPlan.entries.map((entry) => entry.scene);
-    try {
-      const batch = await generateBatchVoiceSegments(batchScenes, batchPlan.id);
-      scenesWithAudio.push(...batch.scenes);
-      voiceBatchArtifacts.push(batch.batchArtifact);
-    } catch (error) {
-      if (!shouldFallbackBatchVoiceover(error)) throw error;
-      const message = error instanceof Error ? error.message : String(error);
-      voiceBatchFallbacks.push({
-        batchId: batchPlan.id,
-        chapterId: batchPlan.chapterId,
-        attemptedMode: 'batch-silence-split',
-        fallbackMode: 'per-scene',
-        reason: message,
-        occurredAt: new Date().toISOString(),
-      });
-      console.warn(`[videobrief-voice] Gemini batch ${batchPlan.id} failed; retrying its scenes: ${message}`);
-      for (const { scene, index } of batchPlan.entries) {
-        scenesWithAudio.push(await generateVoiceSegment(scene, index));
+const voiceoverPreflightStartedAt = new Date();
+const previousVoiceoverPreflight = readVoiceoverPreflight(voiceoverPreflightPath);
+const currentVoiceoverPreflightFingerprint = voiceoverPreflightFingerprint({
+  project: brief,
+  voiceConfig,
+  voiceGenerationMode,
+  rendition,
+});
+try {
+  if (
+    voiceConfig.engine === 'gemini-tts'
+    && sceneSpecs.length > 1
+    && voiceGenerationMode !== 'per-scene'
+  ) {
+    const batches = planVoiceoverBatches(
+      sceneSpecs,
+      brief.chapters ?? [],
+      brief.brief?.targetDurationSeconds,
+    );
+    for (const batchPlan of batches) {
+      const batchScenes = batchPlan.entries.map((entry) => entry.scene);
+      try {
+        const batch = await generateBatchVoiceSegments(batchScenes, batchPlan.id);
+        scenesWithAudio.push(...batch.scenes);
+        voiceBatchArtifacts.push(batch.batchArtifact);
+      } catch (error) {
+        if (!shouldFallbackBatchVoiceover(error)) throw error;
+        const message = error instanceof Error ? error.message : String(error);
+        voiceBatchFallbacks.push({
+          batchId: batchPlan.id,
+          chapterId: batchPlan.chapterId,
+          attemptedMode: 'batch-silence-split',
+          fallbackMode: 'per-scene',
+          reason: message,
+          occurredAt: new Date().toISOString(),
+        });
+        console.warn(`[videobrief-voice] Gemini batch ${batchPlan.id} failed; retrying its scenes: ${message}`);
+        for (const { scene, index } of batchPlan.entries) {
+          scenesWithAudio.push(await generateVoiceSegment(scene, index));
+        }
       }
     }
+  } else {
+    for (const [index, scene] of sceneSpecs.entries()) {
+      scenesWithAudio.push(await generateVoiceSegment(scene, index));
+    }
   }
-} else {
-  for (const [index, scene] of sceneSpecs.entries()) {
-    scenesWithAudio.push(await generateVoiceSegment(scene, index));
-  }
+} catch (error) {
+  const completedAt = new Date();
+  const message = error instanceof Error ? error.message : String(error);
+  const attempts = appendVoiceoverPreflightAttempt(
+    previousVoiceoverPreflight,
+    currentVoiceoverPreflightFingerprint,
+    {
+      status: 'failed',
+      startedAt: voiceoverPreflightStartedAt.toISOString(),
+      completedAt: completedAt.toISOString(),
+      wallMs: completedAt.getTime() - voiceoverPreflightStartedAt.getTime(),
+      error: message,
+    },
+  );
+  const failedReport = buildFailedVoiceoverPreflightReport({
+    project: brief,
+    briefPath,
+    voiceConfig,
+    voiceGenerationMode,
+    rendition,
+    attempts,
+    error: message,
+    generatedAt: completedAt.toISOString(),
+  });
+  writeFileSync(voiceoverPreflightPath, `${JSON.stringify(failedReport, null, 2)}\n`);
+  throw error;
 }
 scenesWithAudio.sort((left, right) => (
   sceneSpecs.findIndex((scene) => scene.id === left.id)
@@ -1073,6 +1124,57 @@ scenesWithAudio.sort((left, right) => (
 const scenes = buildTimeline(scenesWithAudio);
 const duration = scenes.at(-1).end;
 const durationContract = assertRenderedDuration(brief.brief?.targetDurationSeconds, duration);
+const voiceoverPreflightCompletedAt = new Date();
+const preliminaryVoiceoverPreflight = buildVoiceoverPreflightReport({
+  project: brief,
+  briefPath,
+  voiceConfig,
+  voiceGenerationMode,
+  rendition,
+  scenes,
+  batches: voiceBatchArtifacts,
+  batchFallbacks: voiceBatchFallbacks,
+  generatedAt: voiceoverPreflightCompletedAt.toISOString(),
+});
+const voiceoverPreflightAttempts = appendVoiceoverPreflightAttempt(
+  previousVoiceoverPreflight,
+  currentVoiceoverPreflightFingerprint,
+  {
+    status: preliminaryVoiceoverPreflight.status,
+    startedAt: voiceoverPreflightStartedAt.toISOString(),
+    completedAt: voiceoverPreflightCompletedAt.toISOString(),
+    wallMs: voiceoverPreflightCompletedAt.getTime() - voiceoverPreflightStartedAt.getTime(),
+    error: preliminaryVoiceoverPreflight.issues.join('；'),
+  },
+);
+const voiceoverPreflight = buildVoiceoverPreflightReport({
+  project: brief,
+  briefPath,
+  voiceConfig,
+  voiceGenerationMode,
+  rendition,
+  scenes,
+  batches: voiceBatchArtifacts,
+  batchFallbacks: voiceBatchFallbacks,
+  attempts: voiceoverPreflightAttempts,
+  generatedAt: voiceoverPreflightCompletedAt.toISOString(),
+});
+writeFileSync(voiceoverPreflightPath, `${JSON.stringify(voiceoverPreflight, null, 2)}\n`);
+if (voiceoverPreflight.status !== 'passed') {
+  throw new Error(`Voiceover preflight failed: ${voiceoverPreflight.issues.join(' ')}`);
+}
+if (voiceoverPreflightOnly) {
+  console.log(JSON.stringify({
+    projectId: brief.id,
+    status: voiceoverPreflight.status,
+    preflight: voiceoverPreflightPath,
+    duration,
+    sceneCount: scenes.length,
+    requestSummary: voiceoverPreflight.voiceover.requestSummary,
+    narrationTail: voiceoverPreflight.narrationTail,
+  }, null, 2));
+  process.exit(0);
+}
 
 buildVoiceover(scenes);
 writeFileSync(subtitlePath, buildAss(scenes));
@@ -1120,6 +1222,7 @@ const artifacts = {
   subtitles: subtitlePath,
   srt: srtPath,
   voiceover: voiceoverPath,
+  voiceoverPreflight: voiceoverPreflightPath,
   timeline: timelinePath,
   renderPlan: renderPlanPath,
   ...(renderStrategy === 'segmented-concat' ? { videoSegmentList: videoSegmentListPath } : {}),
@@ -1165,6 +1268,8 @@ const manifest = {
     profile: voiceConfig.profile,
     style: voiceConfig.style,
     generationModeRequested: voiceGenerationMode,
+    preflightFingerprint: voiceoverPreflight.fingerprint,
+    preflightPath: voiceoverPreflightPath,
     pronunciations: voiceConfig.pronunciations,
     ...(voiceBatchArtifacts.length === 1 ? { batch: voiceBatchArtifacts[0] } : {}),
     ...(voiceBatchArtifacts.length > 1 ? { batches: voiceBatchArtifacts } : {}),
@@ -1225,6 +1330,13 @@ const manifest = {
       finalAudioReencoded: true,
     },
     stages: {
+      voiceoverPreflight: {
+        startedAt: voiceoverPreflightStartedAt.toISOString(),
+        completedAt: voiceoverPreflightCompletedAt.toISOString(),
+        wallMs: voiceoverPreflightCompletedAt.getTime() - voiceoverPreflightStartedAt.getTime(),
+        attemptCount: voiceoverPreflightAttempts.length,
+        failedAttemptCount: voiceoverPreflightAttempts.filter((attempt) => attempt.status === 'failed').length,
+      },
       render: {
         startedAt: renderProcessStartedAt.toISOString(),
         completedAt: new Date().toISOString(),

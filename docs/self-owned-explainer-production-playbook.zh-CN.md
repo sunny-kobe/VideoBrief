@@ -106,14 +106,15 @@ npm run project:context -- --brief=content/projects/<project-id>/project.json --
 
 按以下顺序执行：
 
-1. `materialQualityReview` 当前且 8/8 或全部启用场景通过，包括每幕无平台/账号水印复核；
-2. 正式 FFmpeg 渲染；
-3. technical proof；
-4. 视频流和音频流完整解码；
-5. canonical、timeline 与 manifest 的窗口逐幕一致；
-6. start/mid/end 语义审查；
-7. opening、visualReadability、pacing、subtitleReadability、pronunciation、platformFit、cta 七项编辑质量审查；
-8. 桌面 1440×900 与移动 390×844，非静音、1 倍速从 0 播放到真实 `ended`。
+1. `video:preflight:voiceover` 生成或命中正式 TTS，按真实语音验证全部已选窗口和不超过 `1.25s` 的每幕尾留；
+2. `materialQualityReview` 当前且 8/8 或全部启用场景通过，包括每幕无平台/账号水印复核；
+3. 正式 FFmpeg 渲染；
+4. technical proof；
+5. 视频流和音频流完整解码；
+6. canonical、timeline 与 manifest 的窗口逐幕一致；
+7. start/mid/end 语义审查；
+8. opening、visualReadability、pacing、subtitleReadability、pronunciation、platformFit、cta 七项编辑质量审查；
+9. 桌面 1440×900 与移动 390×844，非静音、1 倍速从 0 播放到真实 `ended`。
 
 自动化通过后停在 Delivery Gate。没有真人批准当前视频哈希时，不打包、不上传、不发布。
 
@@ -171,6 +172,7 @@ npm run project:production-report -- \
 git status --short
 npm run project:context -- --brief=content/projects/<project-id>/project.json --stage=research
 npm run project:production-report -- --brief=content/projects/<project-id>/project.json
+npm run video:preflight:voiceover -- --brief=content/projects/<project-id>/project.json
 npm run video:review:materials -- --brief=content/projects/<project-id>/project.json --review=<review.json> --reviewer=<name> --apply
 npm run video:export:production -- --brief=content/projects/<project-id>/project.json
 npm run video:review:prepare -- --manifest=output/videos/<project-id>-work/render-manifest.json
