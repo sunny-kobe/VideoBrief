@@ -11,11 +11,13 @@ try {
 import { signalProcessTree } from '../src/renderProcessRegistry';
 import {
   acquireSourceProcessingQueueWorker,
-  activeSourceProcessingJobForWorker,
+  activeSourceProcessingJobsForWorker,
   claimNextSourceProcessingJob,
+  DEFAULT_SOURCE_PROCESSING_CONCURRENCY,
   DEFAULT_SOURCE_PROCESSING_QUEUE_PATH,
   getSourceProcessingJob,
   heartbeatSourceProcessingQueueWorker,
+  MAX_SOURCE_PROCESSING_CONCURRENCY,
   nextQueuedSourceProcessingJob,
   type PersistedSourceProcessingJob,
   releaseSourceProcessingQueueWorker,
@@ -30,6 +32,13 @@ function flag(name: string, fallback: string) {
 
 const queuePath = resolve(flag('queue', DEFAULT_SOURCE_PROCESSING_QUEUE_PATH));
 const processorPath = resolve(flag('processor', 'scripts/process-project-source.ts'));
+const requestedConcurrency = Number(flag(
+  'concurrency',
+  process.env.SOURCE_PROCESSING_CONCURRENCY ?? String(DEFAULT_SOURCE_PROCESSING_CONCURRENCY),
+));
+const concurrency = Number.isFinite(requestedConcurrency)
+  ? Math.min(MAX_SOURCE_PROCESSING_CONCURRENCY, Math.max(1, Math.floor(requestedConcurrency)))
+  : DEFAULT_SOURCE_PROCESSING_CONCURRENCY;
 const workerPid = process.pid;
 let stopping = false;
 
@@ -166,7 +175,7 @@ async function runClaimedJob(job: PersistedSourceProcessingJob) {
 
 async function monitorAdoptedJob(job: PersistedSourceProcessingJob) {
   if (!job.processId) return;
-  while (!stopping && isProcessAlive(job.processId)) {
+  while (isProcessAlive(job.processId)) {
     const current = getSourceProcessingJob(queuePath, job.jobId);
     if (current?.state === 'cancelling') signalProcessTree(job.processId, 'SIGTERM');
     syncStage(job);
@@ -210,22 +219,50 @@ async function monitorAdoptedJob(job: PersistedSourceProcessingJob) {
 async function main() {
   if (!acquireSourceProcessingQueueWorker(queuePath, workerPid)) return;
   const heartbeat = setInterval(() => heartbeatSourceProcessingQueueWorker(queuePath, workerPid), 1_000);
+  const running = new Map<string, Promise<void>>();
   let released = false;
+
+  const track = (job: PersistedSourceProcessingJob, task: Promise<void>) => {
+    const tracked = task
+      .catch((error) => {
+        updateSourceProcessingJob(queuePath, job.jobId, {
+          state: 'failed',
+          stage: 'completed',
+          completedAt: new Date().toISOString(),
+          error: error instanceof Error ? error.message : 'source processing monitor failed',
+        });
+      })
+      .finally(() => running.delete(job.jobId));
+    running.set(job.jobId, tracked);
+  };
+
   try {
-    while (!stopping) {
-      const adopted = activeSourceProcessingJobForWorker(queuePath, workerPid);
-      if (adopted?.processId) {
-        await monitorAdoptedJob(adopted);
+    for (const adopted of activeSourceProcessingJobsForWorker(queuePath, workerPid)) {
+      if (adopted.processId) track(adopted, monitorAdoptedJob(adopted));
+    }
+
+    while (true) {
+      while (!stopping && running.size < concurrency) {
+        const claimed = claimNextSourceProcessingJob(queuePath, workerPid, {
+          maxConcurrent: concurrency,
+        });
+        if (!claimed) break;
+        track(claimed, runClaimedJob(claimed));
+      }
+
+      if (running.size > 0) {
+        await Promise.race([...running.values()]);
         continue;
       }
+      if (stopping) break;
+
       if (!nextQueuedSourceProcessingJob(queuePath)) {
         released = releaseSourceProcessingQueueWorker(queuePath, workerPid);
         if (released) break;
+        await sleep(25);
         continue;
       }
-      const claimed = claimNextSourceProcessingJob(queuePath, workerPid);
-      if (!claimed) continue;
-      await runClaimedJob(claimed);
+      await sleep(25);
     }
   } finally {
     clearInterval(heartbeat);

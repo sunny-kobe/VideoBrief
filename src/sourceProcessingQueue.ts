@@ -9,6 +9,8 @@ import {
 } from './persistentJsonQueue';
 
 export const DEFAULT_SOURCE_PROCESSING_QUEUE_PATH = resolve('output/source-processing-queue/queue.json');
+export const DEFAULT_SOURCE_PROCESSING_CONCURRENCY = 3;
+export const MAX_SOURCE_PROCESSING_CONCURRENCY = 8;
 
 export type SourceProcessingJobState = 'queued' | 'running' | 'cancelling' | 'cancelled' | 'completed' | 'failed';
 export type SourceProcessingJobStage =
@@ -60,6 +62,10 @@ interface QueueOptions {
 
 interface EnqueueOptions extends QueueOptions {
   resumedFromJobId?: string;
+}
+
+interface ClaimOptions extends QueueOptions {
+  maxConcurrent?: number;
 }
 
 const ACTIVE_STATES = new Set<SourceProcessingJobState>(['queued', 'running', 'cancelling']);
@@ -157,9 +163,13 @@ export function nextQueuedSourceProcessingJob(path = DEFAULT_SOURCE_PROCESSING_Q
 }
 
 export function activeSourceProcessingJobForWorker(path: string, workerPid: number) {
-  return listSourceProcessingJobs(path).find((job) => (
+  return activeSourceProcessingJobsForWorker(path, workerPid)[0] ?? null;
+}
+
+export function activeSourceProcessingJobsForWorker(path: string, workerPid: number) {
+  return listSourceProcessingJobs(path).filter((job) => (
     job.workerPid === workerPid && ['running', 'cancelling'].includes(job.state)
-  )) ?? null;
+  ));
 }
 
 export function enqueueSourceProcessingJob(
@@ -242,10 +252,18 @@ export function acquireSourceProcessingQueueWorker(
   });
 }
 
-export function claimNextSourceProcessingJob(path: string, workerPid: number, options: QueueOptions = {}) {
+export function claimNextSourceProcessingJob(path: string, workerPid: number, options: ClaimOptions = {}) {
   const now = options.now ?? (() => new Date());
+  const requestedConcurrency = options.maxConcurrent ?? DEFAULT_SOURCE_PROCESSING_CONCURRENCY;
+  const maxConcurrent = Number.isFinite(requestedConcurrency)
+    ? Math.min(MAX_SOURCE_PROCESSING_CONCURRENCY, Math.max(1, Math.floor(requestedConcurrency)))
+    : DEFAULT_SOURCE_PROCESSING_CONCURRENCY;
   return withQueueLock(path, (state) => {
-    if (state.jobs.some((job) => ['running', 'cancelling'].includes(job.state))) return null;
+    if (state.worker?.pid !== workerPid) return null;
+    const activeCount = state.jobs.filter((job) => (
+      job.workerPid === workerPid && ['running', 'cancelling'].includes(job.state)
+    )).length;
+    if (activeCount >= maxConcurrent) return null;
     const job = state.jobs.find((item) => item.state === 'queued');
     if (!job) return null;
     const timestamp = now().toISOString();

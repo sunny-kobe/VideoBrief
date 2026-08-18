@@ -3,6 +3,7 @@ import { spawnSync } from 'node:child_process';
 
 export const LOCAL_TRANSCRIPTION_PROMPT_VERSION = 'videobrief-local-whisper-v1';
 export const DEFAULT_LOCAL_WHISPER_MODEL_NAME = 'large-v3-turbo-q5_0';
+export const DEFAULT_LOCAL_WHISPER_TIMEOUT_MS = 90_000;
 
 export interface LocalTranscriptSegment {
   start: number;
@@ -61,17 +62,22 @@ export function transcribeAudioLocally(audioPath: string, inputHash: string, pro
     'scripts',
     'transcribe-local-whisper.mjs',
   );
-  const result = spawnSync('/usr/bin/env', [process.execPath, scriptPath], {
+  const timeoutMs = Math.max(
+    10_000,
+    Number.parseInt(process.env.WHISPER_TIMEOUT_MS ?? '', 10) || DEFAULT_LOCAL_WHISPER_TIMEOUT_MS,
+  );
+  const result = spawnSync(process.execPath, [scriptPath], {
     encoding: 'utf8',
     input: JSON.stringify({ audioPath, inputHash, prompt }),
     maxBuffer: 4 * 1024 * 1024,
-    timeout: 10 * 60 * 1000,
+    timeout: timeoutMs + 15_000,
     env: {
       ...process.env,
       WHISPER_CLI_PATH: config.cliPath,
       WHISPER_MODEL_NAME: config.modelName,
       WHISPER_LANGUAGE: config.language,
       WHISPER_THREADS: String(config.threads),
+      WHISPER_TIMEOUT_MS: String(timeoutMs),
     },
   });
   if (result.status !== 0) {

@@ -20,6 +20,8 @@ VideoBrief 是一个本地优先、AI 原生的视频生产工作台。规范项
 2. 阅读 `README.md` 和下方参考文档表中与任务相关的文档。
 3. 修改项目专属路径前，先检查规范项目文件 `content/projects/<project-id>/project.json`。
 4. 以 `package.json` 为准核对命令，不要照搬旧交接文档中的过时命令。
+5. Canonical project 已存在时，优先使用 `project:context` 读取当前 Gate 所需投影；除非排查 schema 或投影缺失，不要把完整 `project.json`、长日志或整份来源分析送入上下文。
+6. 长任务应由单个命令运行到成功、失败或明确超时，只在状态变化时回传摘要。不得用高频 `write_stdin`、页面刷新或重复 `cat` 维持进度；失败后应立即处理，不得留下无监控空档。
 
 ## 常用命令
 
@@ -29,6 +31,8 @@ npm test
 npm run lint
 npm run build
 npm run docs:check
+npm run project:context -- --brief=content/projects/<project-id>/project.json --stage=research
+npm run project:production-report -- --brief=content/projects/<project-id>/project.json
 npm run video:export:production -- --brief=content/projects/<project-id>/project.json
 node scripts/proof-video.mjs --manifest=output/videos/<project-id>-work/render-manifest.json
 git diff --check
@@ -51,6 +55,7 @@ git diff --check
 ### 规范状态
 
 - `content/projects/<project-id>/project.json` 是页面、AI 任务、渲染器、预览和验收的唯一事实源。
+- 来源处理队列默认最多并发 3 个子任务，可通过 `SOURCE_PROCESSING_CONCURRENCY` 或 worker 的 `--concurrency` 在 `1..8` 内调整。不得绕过 canonical project 文件锁并发读改写，也不得把网络、转录、FFmpeg 或模型调用放在该锁内。
 - 保存项目会使之前的渲染结果失效。不得把过期的 MP4 或 ZIP 当作当前成片交付。
 - 必须分别维护 `technical_status`、`rights_status`、`publication_status` 和 `market_status`。
 - `official` 不代表 `cleared`；`published` 不代表 `validated`。

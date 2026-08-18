@@ -14,6 +14,7 @@ test('counts uncached AI and voiceover requests without inventing monetary cost'
           { status: 'completed', cacheHit: false, startedAt: '2026-07-22T00:00:00.000Z', completedAt: '2026-07-22T00:00:02.000Z' },
           { status: 'completed', cacheHit: true, startedAt: '2026-07-22T00:00:02.000Z', completedAt: '2026-07-22T00:00:02.010Z' },
           { status: 'failed', cacheHit: false, startedAt: '2026-07-22T00:00:03.000Z', completedAt: '2026-07-22T00:00:08.000Z' },
+          { status: 'failed', model: 'whisper.cpp:large-v3-turbo-q5_0', cacheHit: false, startedAt: '2026-07-22T00:00:08.000Z', completedAt: '2026-07-22T00:00:12.000Z' },
         ],
       },
     },
@@ -42,12 +43,16 @@ test('counts uncached AI and voiceover requests without inventing monetary cost'
     },
   });
   assert.equal(metrics.requests.aiExternal, 2);
+  assert.equal(metrics.requests.aiLocalRecorded, 1);
   assert.equal(metrics.requests.aiCacheHits, 1);
   assert.equal(metrics.requests.voiceoverExternal, 1);
   assert.equal(metrics.requests.totalExternal, 3);
   assert.equal(metrics.operatorActive.manualReviewSeconds, 90);
   assert.equal(metrics.operatorActive.measurement, 'system_measured');
   assert.equal(metrics.failureCost.failedAiWallMs, 5000);
+  assert.equal(metrics.failureCost.failedAiExternalRequests, 1);
+  assert.equal(metrics.failureCost.failedLocalCalls, 1);
+  assert.equal(metrics.failureCost.failedLocalWallMs, 4000);
   assert.equal(metrics.failureCost.monetaryCostUsd, null);
   assert.equal(metrics.elapsed.renderToFinalAcceptanceMs, 180000);
   assert.equal(metrics.renderCache.sceneSegmentCacheHits, 5);

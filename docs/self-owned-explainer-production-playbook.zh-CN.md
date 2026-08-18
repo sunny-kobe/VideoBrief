@@ -79,6 +79,16 @@
 
 另开生产任务并获得明确授权后，创建独立 `project.json`，完成 Research Gate、素材清单、原创中文叙事、不可变候选窗口和 `materialQualityReview`。逐幕 `platformWatermark` 必须明确记录为 `absent`、`present` 或 `not-applicable`；缺失复核或 `present` 均禁止渲染。
 
+生产任务不得继承 Topic 调研中的候选池、网页导航树、下载日志和完整对话历史。只交接已批准的一句话命题、已核验来源、证据边界、素材线索、目标信号和批准指纹。Canonical project 创建后，用阶段投影读取必要上下文：
+
+```bash
+npm run project:context -- --brief=content/projects/<project-id>/project.json --stage=research
+npm run project:context -- --brief=content/projects/<project-id>/project.json --stage=material
+npm run project:context -- --brief=content/projects/<project-id>/project.json --stage=delivery
+```
+
+完整 `project.json` 仍是唯一事实源；阶段投影只是只读上下文，不得反向覆盖 canonical。来源处理队列默认以 3 路有界并发运行，在任一来源结束后立即补槽位；可用 `SOURCE_PROCESSING_CONCURRENCY=1..8` 调整，但不得用无上限并发冲击本地 Whisper、CPU 或外部模型额度。同一项目的来源结果必须通过 canonical 文件锁逐次归并，锁内不得执行网络、转录、FFmpeg 或模型调用。来源处理、转录和渲染等长任务必须运行到终态或明确超时，只在状态变化时返回摘要，不得由模型高频轮询。情境素材已经满足动态覆盖预算时，冗余来源失败一次即可淘汰，不得阻塞 Research Gate。
+
 事实必须由一手资料或明确归因的来源声明承担。画面按实际能力分为直接证据、操作示意、相关情境、原创信息层和 AI 示意；替代画面不能冒充真实记录。
 
 #### 动态素材预算与静态例外
@@ -106,6 +116,17 @@
 8. 桌面 1440×900 与移动 390×844，非静音、1 倍速从 0 播放到真实 `ended`。
 
 自动化通过后停在 Delivery Gate。没有真人批准当前视频哈希时，不打包、不上传、不发布。
+
+Delivery Gate 前即可生成本轮耗时、请求、缓存、失败成本和可选 Codex 会话 token 报告，不需要等待打包：
+
+```bash
+npm run project:production-report -- \
+  --brief=content/projects/<project-id>/project.json \
+  --session=/absolute/path/to/codex-rollout.jsonl \
+  --until=<delivery-gate-iso-time>
+```
+
+提供方未返回或仓库未记录的 token 与费用必须保持 `null` 或明确标记不可用；不得从请求数估算为事实。
 
 场景时长必须跟随真实 TTS 旁白，而不是直接沿用候选素材窗口。每幕旁白结束后只保留短尾气；technical proof 按 `docs/video-render-pipeline.zh-CN.md` 的门槛拒绝多秒无字幕、无音频的等待。完整审片还要在用户指出的具体时间点前后复核切幕，不能用音轨存在、总时长一致或逐幕中点非空代替节奏检查。
 
@@ -148,6 +169,8 @@
 
 ```bash
 git status --short
+npm run project:context -- --brief=content/projects/<project-id>/project.json --stage=research
+npm run project:production-report -- --brief=content/projects/<project-id>/project.json
 npm run video:review:materials -- --brief=content/projects/<project-id>/project.json --review=<review.json> --reviewer=<name> --apply
 npm run video:export:production -- --brief=content/projects/<project-id>/project.json
 npm run video:review:prepare -- --manifest=output/videos/<project-id>-work/render-manifest.json

@@ -29,6 +29,10 @@ try {
   const cliPath = process.env.WHISPER_CLI_PATH?.trim() || 'whisper-cli';
   const language = process.env.WHISPER_LANGUAGE?.trim() || 'zh';
   const threads = Math.max(1, Number.parseInt(process.env.WHISPER_THREADS ?? '8', 10) || 8);
+  const timeoutMs = Math.max(
+    10_000,
+    Number.parseInt(process.env.WHISPER_TIMEOUT_MS ?? '', 10) || 90_000,
+  );
   const prompt = typeof input.prompt === 'string' ? input.prompt.slice(0, 500) : '';
   const cacheKey = createHash('sha256').update(JSON.stringify({
     provider: 'local-whisper',
@@ -62,10 +66,10 @@ try {
     '-np',
   ];
   if (prompt.trim()) args.push('--prompt', prompt);
-  const transcription = spawnSync('/usr/bin/env', [cliPath, ...args], {
+  const transcription = spawnSync(cliPath, args, {
     encoding: 'utf8',
     maxBuffer: 4 * 1024 * 1024,
-    timeout: 10 * 60 * 1000,
+    timeout: timeoutMs,
   });
   if (transcription.status !== 0 || !existsSync(outputPath)) {
     const details = String(

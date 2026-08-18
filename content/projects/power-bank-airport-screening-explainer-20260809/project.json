@@ -1638,7 +1638,7 @@
   },
   "production": {
     "trackingStartedAt": "2026-08-09T02:41:59.246Z",
-    "updatedAt": "2026-08-16T15:23:38.968Z",
+    "updatedAt": "2026-08-17T02:49:42.488Z",
     "researchReviewedAt": "",
     "firstRenderCompletedAt": "2026-08-09T02:47:04.152Z",
     "lastRenderCompletedAt": "2026-08-11T03:30:33.420Z",
@@ -2348,6 +2348,22 @@
             "averageWatchSeconds": null,
             "twoSecondBounceRate": null,
             "note": ""
+          },
+          {
+            "observedAt": "2026-08-17T02:47:44.017Z",
+            "source": "https://api.bilibili.com/x/web-interface/view?bvid=BV1iJuv6UEL7",
+            "viewCount": 208,
+            "likeCount": 1,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 1,
+            "coinCount": 0,
+            "danmakuCount": 0,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
           }
         ]
       },
@@ -2548,6 +2564,22 @@
             "averageWatchSeconds": null,
             "twoSecondBounceRate": null,
             "note": ""
+          },
+          {
+            "observedAt": "2026-08-17T02:47:44.017Z",
+            "source": "抖音创作者中心作品列表",
+            "viewCount": 205,
+            "likeCount": 2,
+            "commentCount": 0,
+            "shareCount": 0,
+            "favoriteCount": 0,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
           }
         ]
       },
@@ -2656,6 +2688,22 @@
             "averageWatchSeconds": null,
             "twoSecondBounceRate": null,
             "note": ""
+          },
+          {
+            "observedAt": "2026-08-17T02:47:44.017Z",
+            "source": "小红书创作服务平台笔记管理",
+            "viewCount": 562,
+            "likeCount": 15,
+            "commentCount": 0,
+            "shareCount": 1,
+            "favoriteCount": 10,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": ""
           }
         ]
       },
@@ -2735,6 +2783,22 @@
           },
           {
             "observedAt": "2026-08-16T10:24:00.896Z",
+            "source": "YouTube Studio 内容列表",
+            "viewCount": 0,
+            "likeCount": null,
+            "commentCount": 0,
+            "shareCount": null,
+            "favoriteCount": null,
+            "coinCount": null,
+            "danmakuCount": null,
+            "followerGain": null,
+            "completionRate": null,
+            "averageWatchSeconds": null,
+            "twoSecondBounceRate": null,
+            "note": "YouTube Studio 内容列表不提供点赞数；null 表示本次未取得，不代表 0。"
+          },
+          {
+            "observedAt": "2026-08-17T02:47:44.017Z",
             "source": "YouTube Studio 内容列表",
             "viewCount": 0,
             "likeCount": null,

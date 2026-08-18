@@ -69,6 +69,7 @@ import {
   topicApprovalFingerprint,
 } from '../scripts/lib/production-workflow-contract.mjs';
 import { resolveProjectRendition, resolveProjectRenditions } from '../scripts/lib/video-renditions.mjs';
+import { withJsonFileLock, writeAtomicJson } from './persistentJsonQueue';
 
 export const briefPath = resolve(DEFAULT_BRIEF_PATH);
 export const projectsRoot = resolve('content/projects');
@@ -1128,10 +1129,7 @@ export function aggregateProjectRightsStatus(
 function writeProjectFile(projectId: string, project: ShortVideoProject) {
   assertProjectTargetDuration(project.brief.targetDurationSeconds);
   const targetPath = briefPathFor(projectId);
-  mkdirSync(dirname(targetPath), { recursive: true });
-  const temporaryPath = `${targetPath}.tmp`;
-  writeFileSync(temporaryPath, `${JSON.stringify(project, null, 2)}\n`);
-  renameSync(temporaryPath, targetPath);
+  writeAtomicJson(targetPath, project);
   return project;
 }
 
@@ -1170,21 +1168,37 @@ function invalidatePendingNarrative(current: ShortVideoProject, next: ShortVideo
   };
 }
 
+function currentSourceProcessingIsNewer(current: ShortVideoSource, requested: ShortVideoSource) {
+  if (current.processing.attempts !== requested.processing.attempts) {
+    return current.processing.attempts > requested.processing.attempts;
+  }
+  if (current.processing.startedAt !== requested.processing.startedAt) {
+    return current.processing.startedAt > requested.processing.startedAt;
+  }
+  if (current.processing.completedAt !== requested.processing.completedAt) {
+    return current.processing.completedAt > requested.processing.completedAt;
+  }
+  if (current.processing.status === 'running') return true;
+  return current.processing.status === 'pending' && requested.processing.status === 'idle';
+}
+
 export function updateCanonicalProject(
   projectId: string,
   updater: (project: ShortVideoProject) => ShortVideoProject,
   options: { markRenderStale?: boolean } = {},
 ) {
-  const current = readBrief(projectId);
-  let next = normalizeBrief(updater(current));
-  if (next.id !== projectId) throw new Error('项目 ID 与保存路径不一致。');
-  next = invalidatePendingNarrative(current, next);
-  if (options.markRenderStale !== false && current.technical_status !== 'not_rendered') {
-    next.technical_status = 'stale';
-  }
-  next.rights_status = aggregateProjectRightsStatus(next.sources, next.materialReview);
-  next.production.updatedAt = new Date().toISOString();
-  return writeProjectFile(projectId, next);
+  return withJsonFileLock(briefPathFor(projectId), () => {
+    const current = readBrief(projectId);
+    let next = normalizeBrief(updater(current));
+    if (next.id !== projectId) throw new Error('项目 ID 与保存路径不一致。');
+    next = invalidatePendingNarrative(current, next);
+    if (options.markRenderStale !== false && current.technical_status !== 'not_rendered') {
+      next.technical_status = 'stale';
+    }
+    next.rights_status = aggregateProjectRightsStatus(next.sources, next.materialReview);
+    next.production.updatedAt = new Date().toISOString();
+    return writeProjectFile(projectId, next);
+  });
 }
 
 export function writeBrief(
@@ -1192,43 +1206,53 @@ export function writeBrief(
   project: ShortVideoProject,
   options: { incrementManualSave?: boolean } = {},
 ) {
-  const current = readBrief(projectId);
-  const normalized = normalizeBrief(project);
-  if (normalized.id !== projectId) throw new Error('项目 ID 与保存路径不一致。');
-  const normalizedSources = new Map(normalized.sources.map((source) => [source.id, source]));
-  let next: ShortVideoProject = {
-    ...normalized,
-    technical_status: current.technical_status === 'not_rendered' ? 'not_rendered' : 'stale',
-    outputs: current.outputs,
-    render: {
-      ...current.render,
-      voice: normalized.render.voice,
-      rate: normalized.render.rate,
-    },
-    production: {
-      ...current.production,
-      updatedAt: new Date().toISOString(),
-      manualSaveCount: current.production.manualSaveCount + (options.incrementManualSave === true ? 1 : 0),
-    },
-    sources: current.sources.map((source) => ({
-      ...source,
-      ...normalizedSources.get(source.id),
-      id: source.id,
-      assetPath: source.assetPath,
-    })),
-  };
-  next.research = {
-    transcripts: next.sources.flatMap((source) => source.analysis.transcript),
-    facts: next.sources.flatMap((source) => source.analysis.facts),
-    uncertainties: next.sources.flatMap((source) => source.analysis.uncertainties),
-  };
-  const researchReviewed = researchReviewSummary(next).ready;
-  if (researchReviewed && !next.production.researchReviewedAt) {
-    next.production.researchReviewedAt = new Date().toISOString();
-  }
-  next = invalidatePendingNarrative(current, next);
-  next.rights_status = aggregateProjectRightsStatus(next.sources, next.materialReview);
-  return writeProjectFile(projectId, next);
+  return withJsonFileLock(briefPathFor(projectId), () => {
+    const current = readBrief(projectId);
+    const normalized = normalizeBrief(project);
+    if (normalized.id !== projectId) throw new Error('项目 ID 与保存路径不一致。');
+    const normalizedSources = new Map(normalized.sources.map((source) => [source.id, source]));
+    let next: ShortVideoProject = {
+      ...normalized,
+      technical_status: current.technical_status === 'not_rendered' ? 'not_rendered' : 'stale',
+      outputs: current.outputs,
+      render: {
+        ...current.render,
+        voice: normalized.render.voice,
+        rate: normalized.render.rate,
+      },
+      production: {
+        ...current.production,
+        updatedAt: new Date().toISOString(),
+        manualSaveCount: current.production.manualSaveCount + (options.incrementManualSave === true ? 1 : 0),
+      },
+      sources: current.sources.map((source) => {
+        const requested = normalizedSources.get(source.id);
+        const preserveProcessing = requested && currentSourceProcessingIsNewer(source, requested);
+        return {
+          ...source,
+          ...requested,
+          id: source.id,
+          assetPath: source.assetPath,
+          ...(preserveProcessing ? {
+            processing: source.processing,
+            analysis: source.analysis,
+          } : {}),
+        };
+      }),
+    };
+    next.research = {
+      transcripts: next.sources.flatMap((source) => source.analysis.transcript),
+      facts: next.sources.flatMap((source) => source.analysis.facts),
+      uncertainties: next.sources.flatMap((source) => source.analysis.uncertainties),
+    };
+    const researchReviewed = researchReviewSummary(next).ready;
+    if (researchReviewed && !next.production.researchReviewedAt) {
+      next.production.researchReviewedAt = new Date().toISOString();
+    }
+    next = invalidatePendingNarrative(current, next);
+    next.rights_status = aggregateProjectRightsStatus(next.sources, next.materialReview);
+    return writeProjectFile(projectId, next);
+  });
 }
 
 export function createProject(input: CreateProjectInput) {
@@ -1344,7 +1368,10 @@ export function createProject(input: CreateProjectInput) {
     },
   });
   if (topicDecision) project.workflow.topicApproval.fingerprint = topicApprovalFingerprint(project);
-  return writeProjectFile(projectId, project);
+  return withJsonFileLock(targetPath, () => {
+    if (existsSync(targetPath)) throw new Error('该项目 ID 已存在。');
+    return writeProjectFile(projectId, project);
+  });
 }
 
 export function listProjects() {
@@ -1425,87 +1452,89 @@ export function registerProjectSourceFile(
   contentHash: string,
   input: ImportSourceInput,
 ) {
-  const project = readBrief(projectId);
   if (!Number.isSafeInteger(bytes) || bytes <= 0) throw new Error('上传文件为空。');
   if (!/^[a-f0-9]{64}$/.test(contentHash)) throw new Error('素材内容哈希无效。');
   if (!textValue(input.rightsNote).trim()) throw new Error('必须填写权利与来源说明。');
   if (basename(storedName) !== storedName || sourceTypeForFile(storedName) !== sourceTypeForFile(fileName)) {
     throw new Error('素材存储文件名无效。');
   }
-  const sourceType = sourceTypeForFile(fileName);
-  const importedAt = new Date().toISOString();
-  const reusedFrom = findReusableSource(contentHash, projectId, importedAt);
-  const id = `source-${String(project.sources.length + 1).padStart(2, '0')}`;
-  const source: ShortVideoSource = {
-    id,
-    label: textValue(input.label).trim() || fileName,
-    sourceType,
-    materialRole: input.materialRole ?? (sourceType === 'video' || sourceType === 'image' ? 'official_demo' : 'research'),
-    originUrl: textValue(input.originUrl),
-    assetPath: `public/project-assets/${projectId}/${storedName}`,
-    originalFileName: fileName,
-    mimeType: textValue(input.mimeType),
-    bytes,
-    importedAt,
-    publishedAt: '',
-    verificationStatus: input.verificationStatus,
-    rightsStatus: input.rightsStatus,
-    rightsNote: textValue(input.rightsNote),
-    contentHash,
-    reusedFrom,
-    processing: normalizeProcessing(),
-    analysis: normalizeAnalysis(),
-  };
-  const canSeedVisualScene = sourceType === 'video' || sourceType === 'image';
-  const scenes = project.scenes.length || !canSeedVisualScene ? project.scenes : [normalizeScene({
-    id: 'scene-01',
-    enabled: true,
-    sourceId: id,
-    sourceStart: 0,
-    sourceEnd: 3,
-    eyebrow: project.brief.platform.toUpperCase(),
-    title: project.brief.coreMessage || project.title,
-    subtitle: project.brief.coreMessage || project.brief.objective || project.title,
-    narration: project.brief.coreMessage || project.brief.objective || project.title,
-    visualRequirement: `使用 ${source.label} 展示项目主题`,
-    sourceReferences: [{ sourceId: id, locatorType: sourceType === 'video' ? 'time' : 'image', note: '导入素材' }],
-    candidates: [{
-      id: 'candidate-01',
+  return withJsonFileLock(briefPathFor(projectId), () => {
+    const project = readBrief(projectId);
+    const sourceType = sourceTypeForFile(fileName);
+    const importedAt = new Date().toISOString();
+    const reusedFrom = findReusableSource(contentHash, projectId, importedAt);
+    const id = `source-${String(project.sources.length + 1).padStart(2, '0')}`;
+    const source: ShortVideoSource = {
+      id,
+      label: textValue(input.label).trim() || fileName,
+      sourceType,
+      materialRole: input.materialRole ?? (sourceType === 'video' || sourceType === 'image' ? 'official_demo' : 'research'),
+      originUrl: textValue(input.originUrl),
+      assetPath: `public/project-assets/${projectId}/${storedName}`,
+      originalFileName: fileName,
+      mimeType: textValue(input.mimeType),
+      bytes,
+      importedAt,
+      publishedAt: '',
+      verificationStatus: input.verificationStatus,
+      rightsStatus: input.rightsStatus,
+      rightsNote: textValue(input.rightsNote),
+      contentHash,
+      reusedFrom,
+      processing: normalizeProcessing(),
+      analysis: normalizeAnalysis(),
+    };
+    const canSeedVisualScene = sourceType === 'video' || sourceType === 'image';
+    const scenes = project.scenes.length || !canSeedVisualScene ? project.scenes : [normalizeScene({
+      id: 'scene-01',
+      enabled: true,
       sourceId: id,
-      assetPath: source.assetPath,
-      mediaType: sourceType,
       sourceStart: 0,
       sourceEnd: 3,
-      matchReason: '首个可视素材，等待用户确认或 AI 候选排序。',
-      rightsStatus: source.rightsStatus,
-    }],
-    selectedCandidateId: 'candidate-01',
-    selectionStatus: 'ai_suggested',
-    selectionReviewedAt: '',
-    selectionNote: '首个可视素材自动填入，尚未经过 Codex 或用户复核。',
-  }, 0, id)];
-  const next: ShortVideoProject = {
-    ...project,
-    technical_status: project.technical_status === 'not_rendered' ? 'not_rendered' : 'stale',
-    rights_status: aggregateProjectRightsStatus([...project.sources, source]),
-    production: {
-      ...project.production,
-      updatedAt: new Date().toISOString(),
-      sourceImportCount: project.production.sourceImportCount + 1,
-      reusedSourceIds: reusedFrom
-        ? [...new Set([...project.production.reusedSourceIds, id])]
-        : project.production.reusedSourceIds,
-    },
-    materialReview: {
-      ...project.materialReview,
-      status: 'pending',
-      reviewedAt: '',
-    },
-    sources: [...project.sources, source],
-    scenes,
-  };
-  writeProjectFile(projectId, next);
-  return { project: next, source };
+      eyebrow: project.brief.platform.toUpperCase(),
+      title: project.brief.coreMessage || project.title,
+      subtitle: project.brief.coreMessage || project.brief.objective || project.title,
+      narration: project.brief.coreMessage || project.brief.objective || project.title,
+      visualRequirement: `使用 ${source.label} 展示项目主题`,
+      sourceReferences: [{ sourceId: id, locatorType: sourceType === 'video' ? 'time' : 'image', note: '导入素材' }],
+      candidates: [{
+        id: 'candidate-01',
+        sourceId: id,
+        assetPath: source.assetPath,
+        mediaType: sourceType,
+        sourceStart: 0,
+        sourceEnd: 3,
+        matchReason: '首个可视素材，等待用户确认或 AI 候选排序。',
+        rightsStatus: source.rightsStatus,
+      }],
+      selectedCandidateId: 'candidate-01',
+      selectionStatus: 'ai_suggested',
+      selectionReviewedAt: '',
+      selectionNote: '首个可视素材自动填入，尚未经过 Codex 或用户复核。',
+    }, 0, id)];
+    const next: ShortVideoProject = {
+      ...project,
+      technical_status: project.technical_status === 'not_rendered' ? 'not_rendered' : 'stale',
+      rights_status: aggregateProjectRightsStatus([...project.sources, source]),
+      production: {
+        ...project.production,
+        updatedAt: new Date().toISOString(),
+        sourceImportCount: project.production.sourceImportCount + 1,
+        reusedSourceIds: reusedFrom
+          ? [...new Set([...project.production.reusedSourceIds, id])]
+          : project.production.reusedSourceIds,
+      },
+      materialReview: {
+        ...project.materialReview,
+        status: 'pending',
+        reviewedAt: '',
+      },
+      sources: [...project.sources, source],
+      scenes,
+    };
+    writeProjectFile(projectId, next);
+    return { project: next, source };
+  });
 }
 
 export function approveProjectMaterials(projectId: string, sourceIds: string[]) {

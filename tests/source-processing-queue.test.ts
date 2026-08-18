@@ -10,6 +10,7 @@ import {
   claimNextSourceProcessingJob,
   enqueueSourceProcessingJob,
   listSourceProcessingJobs,
+  updateSourceProcessingJob,
 } from '../src/sourceProcessingQueue';
 
 function queuePath() {
@@ -74,4 +75,36 @@ test('a new source worker requeues a job whose worker and child are dead', () =>
   const [requeued] = listSourceProcessingJobs(path);
   assert.equal(requeued.state, 'queued');
   assert.equal(requeued.workerPid, undefined);
+});
+
+test('source processing queue claims up to its concurrency limit and refills the freed FIFO slot', () => {
+  const path = queuePath();
+  for (const sourceId of ['source-01', 'source-02', 'source-03', 'source-04']) {
+    enqueueSourceProcessingJob(path, {
+      projectId: 'project-a',
+      sourceId,
+      briefPath: '/tmp/project-a.json',
+    });
+  }
+  assert.equal(acquireSourceProcessingQueueWorker(path, 4321, { isProcessAlive: () => false }), true);
+
+  const first = claimNextSourceProcessingJob(path, 4321, { maxConcurrent: 3 });
+  const second = claimNextSourceProcessingJob(path, 4321, { maxConcurrent: 3 });
+  const third = claimNextSourceProcessingJob(path, 4321, { maxConcurrent: 3 });
+  assert.deepEqual([first?.sourceId, second?.sourceId, third?.sourceId], [
+    'source-01',
+    'source-02',
+    'source-03',
+  ]);
+  assert.equal(claimNextSourceProcessingJob(path, 4321, { maxConcurrent: 3 }), null);
+
+  updateSourceProcessingJob(path, first!.jobId, {
+    state: 'completed',
+    stage: 'completed',
+    completedAt: new Date().toISOString(),
+  });
+  assert.equal(
+    claimNextSourceProcessingJob(path, 4321, { maxConcurrent: 3 })?.sourceId,
+    'source-04',
+  );
 });

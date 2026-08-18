@@ -366,7 +366,7 @@ async function generateBatchVoiceSegments(sceneEntries, batchId = 'full-video') 
       duration: batchDuration,
       silenceThresholdDb: -35,
       silenceDetectionSeconds: 0.2,
-      minimumBoundarySilenceSeconds: 0.75,
+      minimumBoundarySilenceSeconds: 0.6,
       segmentationMode: 'silence-text-weight-aligned',
       detectedSilences: silences,
       segments: segmentPlans.map(({ index, start, end, duration }) => ({ index, start, end, duration })),

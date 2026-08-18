@@ -72,6 +72,34 @@ test('uses text weights to select scene boundaries from surplus natural pauses',
   );
 });
 
+test('keeps a valid 0.6 second scene boundary when longer internal pauses also exist', () => {
+  const segments = planVoiceSegments({
+    silences: [
+      { start: 0, end: 0.38, duration: 0.38 },
+      { start: 3.379, end: 4.011, duration: 0.632 },
+      { start: 5.262, end: 5.864, duration: 0.602 },
+      { start: 9.094, end: 10.104, duration: 1.01 },
+      { start: 15.442, end: 16.123, duration: 0.681 },
+      { start: 19.503, end: 20.5, duration: 0.997 },
+      { start: 22.892, end: 23.512, duration: 0.62 },
+      { start: 27.903, end: 28.768, duration: 0.865 },
+      { start: 33.233, end: 34.285, duration: 1.052 },
+      { start: 39.64, end: 40.647, duration: 1.007 },
+      { start: 43.122, end: 43.753, duration: 0.631 },
+      { start: 47, end: 47.28, duration: 0.28 },
+    ],
+    audioDuration: 47.28,
+    segmentCount: 7,
+    segmentWeights: [18, 26, 52, 40, 24, 31, 33],
+    protection: 0,
+  });
+
+  assert.deepEqual(
+    segments.map(({ trailingBoundary }) => trailingBoundary?.start ?? null),
+    [3.379, 9.094, 19.503, 27.903, 33.233, 39.64, null],
+  );
+});
+
 test('surplus pauses still require explicit text weights', () => {
   const silences = parseSilenceIntervals(detectorOutput);
   silences.splice(2, 0, { start: 8, end: 8.9, duration: 0.9 });

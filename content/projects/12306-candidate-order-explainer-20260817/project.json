@@ -1,0 +1,2125 @@
+{
+  "schemaVersion": 3,
+  "id": "12306-candidate-order-explainer-20260817",
+  "title": "12306 候补，排的到底是什么队？",
+  "format": "video_project",
+  "targetAudience": "节假日抢不到火车票、使用过12306候补，但不清楚自己在排什么队的普通中文观众",
+  "status": "review",
+  "technical_status": "passed",
+  "rights_status": "cleared",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "lifecycle": {
+    "state": "active",
+    "archivedAt": "",
+    "archivedBy": "",
+    "archiveReason": ""
+  },
+  "brief": {
+    "objective": "用70到80秒讲清12306候补订单何时生效、按什么顺序兑现，以及为什么预估成功率不等于承诺",
+    "audience": "节假日抢不到火车票、使用过12306候补，但不清楚自己在排什么队的普通中文观众",
+    "platform": "B站首发，单横版",
+    "aspectRatio": "16:9",
+    "targetDurationSeconds": 78,
+    "tone": "直白、克制、有交流感，不制造抢票焦虑",
+    "style": "真实列车、车站和官方12306操作动态素材为主体，必要时用稳定原创信息层解释订单生效时间与席位条件",
+    "reference": "前十五秒先纠正候补等于再抢一次票的误解，再解释只有符合订单条件的实际席位出现时系统才按订单生效时间兑现",
+    "coreMessage": "候补只会在出现符合订单条件的实际席位时，按订单生效时间顺序兑现；预估成功率不是承诺",
+    "cta": "下次提交候补时，先看清日期、车次、席别和截止兑现时间，而不是只盯预估成功率",
+    "prohibitedMaterial": "不得虚构12306未公开的动态票额分配规则、固定长短途比例、内部算法权重或成功率承诺；不得把通用列车素材冒充具体候补订单或兑现结果；不得使用带平台或账号水印、权利不可判断的正式素材"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "铁路12306候补购票规则核验摘录",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://mobile.12306.cn/otsmobile/h5/otsbussiness/houbuRules/houbuRules.html",
+      "assetPath": "public/project-assets/12306-candidate-order-explainer-20260817/12306-candidate-rules-verified-1786959829464.md",
+      "originalFileName": "12306-candidate-rules-verified.md",
+      "mimeType": "text/markdown",
+      "bytes": 1708,
+      "importedAt": "2026-08-17T09:43:49.466Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "铁路12306官方规则文本，仅作事实研究和必要短引；不直接把网页或脚本作为成片动态素材。",
+      "contentHash": "c46590e68ffe87485ffcc19c5a80746fe12cab973ac5b976f0293c3b1c6a017f",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "c46590e68ffe87485ffcc19c5a80746fe12cab973ac5b976f0293c3b1c6a017f",
+        "startedAt": "2026-08-17T09:44:30.231Z",
+        "completedAt": "2026-08-17T09:44:30.231Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "manual-12306-candidate-rules-20260817",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# 铁路12306候补购票规则核验摘录\n\n来源主体：铁路12306\n页面标题：候补购票\n页面入口：https://mobile.12306.cn/otsmobile/h5/otsbussiness/houbuRules/houbuRules.html\n规则脚本：https://mobile.12306.cn/otsmobile/h5/otsbussiness/houbuRules/js/houbuRules.765ac3e.js\n核验时间：2026-08-17 17:43 +08:00\n规则脚本 SHA-256：9593f7c8888016ef6c73b59694899ad986b2e07354ccce16b602e5837bfe9507\n页面未展示明确发布日期或最后更新时间。\n\n## 当前可见规则\n1. 每个用户同时可以保有6个待兑现的候补订单。\n2. 每个候补订单最多可选择3个乘车日期，总计添加不超过60个车次。\n3. 用户需确定候补截止兑现时间，不晚于开车前20分钟；系统全天24小时持续兑现，用户也可提前终止。\n4. 预估成功率按照历史候补订单兑现情况测算，仅供参考。\n5. 完成候补预付款支付后，候补购票订单立即生效。\n6. 兑现时，按照候补订单生效的时间顺序，优先兑现符合条件的候补需求。\n7. 兑现时，根据所候补列车的席位实际情况分配；同一候补需求不进行部分兑现。\n8. 系统持续尝试兑现；若无满足需求的席位，到截止兑现时间自动终止。\n9. 过期未兑现或兑现失败的候补订单自动原额退款。\n\n## 证据边界\n该规则页可以证明候补订单的生效、顺序、匹配、截止和退款规则。\n该规则页没有披露动态票额由哪些来源构成、何时释放、内部调配算法、实时队列位置、固定长短途比例或成功率计算模型。\n因此成片不得给出固定票额比例、内部算法权重或把预估成功率表述为个别订单承诺。\n",
+        "visualDescription": "官方规则为网页文本来源，仅用于事实核验，不承担成片动态画面。",
+        "hierarchicalSummary": "候补订单付款后生效；兑现按生效时间顺序，在出现符合条件的实际席位时进行；历史成功率只供参考；官方规则未披露动态票额构成和内部算法。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "12306-candidate-order-limit",
+            "statement": "铁路12306当前规则显示，每个用户同时最多可保有6个待兑现候补订单；每单最多选择3个乘车日期，总计不超过60个车次。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "lineStart": 12,
+                "lineEnd": 13,
+                "note": "官方规则的订单容量限制"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 72
+          },
+          {
+            "id": "12306-candidate-deadline",
+            "statement": "提交候补时需选择截止兑现时间，最晚不晚于开车前20分钟；系统全天24小时持续尝试，用户也可提前终止。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "lineStart": 14,
+                "lineEnd": 14,
+                "note": "官方规则的截止兑现与持续尝试说明"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 91
+          },
+          {
+            "id": "12306-candidate-probability",
+            "statement": "预估成功率依据历史候补订单兑现情况测算，仅供参考，不能视为当前订单的兑现承诺。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "lineStart": 15,
+                "lineEnd": 15,
+                "note": "官方规则明确写明仅供参考"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "12306-candidate-effective",
+            "statement": "完成候补预付款支付后，候补购票订单立即生效。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "lineStart": 16,
+                "lineEnd": 16,
+                "note": "官方规则的订单生效条件"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "12306-candidate-priority",
+            "statement": "兑现按照候补订单生效时间顺序，优先兑现符合条件的候补需求。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "lineStart": 17,
+                "lineEnd": 17,
+                "note": "官方规则的兑现顺序"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "12306-candidate-seat-condition",
+            "statement": "兑现取决于所候补列车的席位实际情况；若没有满足需求的席位，系统在截止兑现时间自动终止。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "lineStart": 18,
+                "lineEnd": 19,
+                "note": "官方规则的席位条件与终止规则"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "12306-candidate-refund",
+            "statement": "过期未兑现或兑现失败的候补订单自动原额退款。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "lineStart": 20,
+                "lineEnd": 20,
+                "note": "官方规则的失败退款说明"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 78
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "12306-seat-pool-undisclosed",
+            "statement": "当前官方规则页没有披露候补可兑现席位的动态来源构成、释放时点、内部调配算法或任何固定长短途票额比例。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "lineStart": 23,
+                "lineEnd": 25,
+                "note": "规则页证据边界"
+              }
+            ],
+            "resolution": "成片只解释公开的生效时间、符合条件和实际席位规则；不声称退票、改签、增开或其他票额来源各占多少，也不使用固定80/20等比例。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "12306-probability-model-undisclosed",
+            "statement": "当前官方规则页只说明预估成功率基于历史兑现情况，未披露计算模型，也不提供实时队列位置。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "lineStart": 15,
+                "lineEnd": 15,
+                "note": "预估成功率仅供参考"
+              }
+            ],
+            "resolution": "成片将预估成功率限定为历史参考指标，不把它解释为当前订单概率、排位或承诺。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "12306-page-date-missing",
+            "statement": "官方规则页面当前未展示明确发布日期或最后更新时间。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "lineStart": 9,
+                "lineEnd": 9,
+                "note": "页面元数据限制"
+              }
+            ],
+            "resolution": "记录2026-08-17核验时间与规则脚本SHA-256；Research Gate 后、写稿前再次请求相同官方入口，若规则变化则使当前研究批准失效并重新核验。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 88
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-02",
+      "label": "Mixkit：列车驶入空站台",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://mixkit.co/free-stock-video/train-arriving-to-a-subway-station-1622/",
+      "assetPath": "public/project-assets/12306-candidate-order-explainer-20260817/mixkit-1622-1080-1786960844388.mp4",
+      "originalFileName": "mixkit-1622-1080.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 48849012,
+      "importedAt": "2026-08-17T10:00:44.413Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "2026-08-17逐条核验页面JSON-LD：copyrightNotice=Free，license=https://mixkit.co/license/#videoFree；使用站内原生1920x1080 MP4，无需署名。仅作公共交通、等待、列车和旅客情境，不暗示人物、运营方或场所为本片观点背书，不冒充中国铁路、12306订单或兑现结果；计划窗口start/mid/end未见平台或账号水印。",
+      "contentHash": "5b237e477c4567a3b8cbc6a0e98872f87f7d3a547cddadfa60ffa9573714b64e",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "5b237e477c4567a3b8cbc6a0e98872f87f7d3a547cddadfa60ffa9573714b64e",
+        "startedAt": "2026-08-17T10:03:59.535Z",
+        "completedAt": "2026-08-17T10:03:59.535Z",
+        "error": "",
+        "model": "manual-visual-review",
+        "promptVersion": "manual-mixkit-material-review-20260817",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "空站台内列车从远处驶入、经过镜头并离开，墙上时钟持续可见。",
+        "hierarchicalSummary": "空站台内列车从远处驶入、经过镜头并离开，墙上时钟持续可见。 该来源仅承担公共交通、等待、列车移动或旅客流动的真实情境，不证明12306候补规则、具体订单、实时排位或兑现结果。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-02-visual",
+            "statement": "空站台内列车从远处驶入、经过镜头并离开，墙上时钟持续可见。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "time",
+                "start": 0,
+                "end": 16.016,
+                "note": "人工检查完整视频及start/mid/end代表帧"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 55
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-02-scope",
+            "statement": "不能由该通用公共交通素材证明12306候补订单、具体席位、实时排位或兑现结果，也不能把画面地点识别为中国铁路场站。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "file",
+                "start": 0,
+                "end": 16.016,
+                "note": "Mixkit通用素材的叙事边界"
+              }
+            ],
+            "resolution": "只作公共交通、等待、列车和旅客情境；机制事实仅由source-01官方规则承担，标题和旁白不把画面冒充中国铁路、12306界面或具体订单。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-03",
+      "label": "Mixkit：车厢移动中掠过站台",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://mixkit.co/free-stock-video/view-inside-a-wagon-in-motion-4333/",
+      "assetPath": "public/project-assets/12306-candidate-order-explainer-20260817/mixkit-4333-1080-1786960844437.mp4",
+      "originalFileName": "mixkit-4333-1080.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 36606750,
+      "importedAt": "2026-08-17T10:00:44.454Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "2026-08-17逐条核验页面JSON-LD：copyrightNotice=Free，license=https://mixkit.co/license/#videoFree；使用站内原生1920x1080 MP4，无需署名。仅作公共交通、等待、列车和旅客情境，不暗示人物、运营方或场所为本片观点背书，不冒充中国铁路、12306订单或兑现结果；计划窗口start/mid/end未见平台或账号水印。",
+      "contentHash": "2c8ea40938f684683acf6f39a862e4f8c7abc1c50e3b5195a64a06808c886c79",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "2c8ea40938f684683acf6f39a862e4f8c7abc1c50e3b5195a64a06808c886c79",
+        "startedAt": "2026-08-17T10:03:59.535Z",
+        "completedAt": "2026-08-17T10:03:59.535Z",
+        "error": "",
+        "model": "manual-visual-review",
+        "promptVersion": "manual-mixkit-material-review-20260817",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "从移动列车内看向站台，柱体、灯光和站台设施连续横向掠过。",
+        "hierarchicalSummary": "从移动列车内看向站台，柱体、灯光和站台设施连续横向掠过。 该来源仅承担公共交通、等待、列车移动或旅客流动的真实情境，不证明12306候补规则、具体订单、实时排位或兑现结果。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-03-visual",
+            "statement": "从移动列车内看向站台，柱体、灯光和站台设施连续横向掠过。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "time",
+                "start": 0,
+                "end": 9.766667,
+                "note": "人工检查完整视频及start/mid/end代表帧"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 55
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-03-scope",
+            "statement": "不能由该通用公共交通素材证明12306候补订单、具体席位、实时排位或兑现结果，也不能把画面地点识别为中国铁路场站。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "file",
+                "start": 0,
+                "end": 9.766667,
+                "note": "Mixkit通用素材的叙事边界"
+              }
+            ],
+            "resolution": "只作公共交通、等待、列车和旅客情境；机制事实仅由source-01官方规则承担，标题和旁白不把画面冒充中国铁路、12306界面或具体订单。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-04",
+      "label": "Mixkit：列车窗外移动风景",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://mixkit.co/free-stock-video/train-trip-through-nature-3024/",
+      "assetPath": "public/project-assets/12306-candidate-order-explainer-20260817/mixkit-3024-1080-1786960844466.mp4",
+      "originalFileName": "mixkit-3024-1080.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 31518657,
+      "importedAt": "2026-08-17T10:00:44.482Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "2026-08-17逐条核验页面JSON-LD：copyrightNotice=Free，license=https://mixkit.co/license/#videoFree；使用站内原生1920x1080 MP4，无需署名。仅作公共交通、等待、列车和旅客情境，不暗示人物、运营方或场所为本片观点背书，不冒充中国铁路、12306订单或兑现结果；计划窗口start/mid/end未见平台或账号水印。",
+      "contentHash": "d4f6f751c3d5c0078e738dedb1348847908925048f4b94844d91b9ce52968ac8",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "d4f6f751c3d5c0078e738dedb1348847908925048f4b94844d91b9ce52968ac8",
+        "startedAt": "2026-08-17T10:03:59.535Z",
+        "completedAt": "2026-08-17T10:03:59.535Z",
+        "error": "",
+        "model": "manual-visual-review",
+        "promptVersion": "manual-mixkit-material-review-20260817",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "列车窗外山地、草地和房屋持续后移，窗面反射车厢灯光。",
+        "hierarchicalSummary": "列车窗外山地、草地和房屋持续后移，窗面反射车厢灯光。 该来源仅承担公共交通、等待、列车移动或旅客流动的真实情境，不证明12306候补规则、具体订单、实时排位或兑现结果。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-04-visual",
+            "statement": "列车窗外山地、草地和房屋持续后移，窗面反射车厢灯光。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "time",
+                "start": 0,
+                "end": 10.719042,
+                "note": "人工检查完整视频及start/mid/end代表帧"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 55
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-04-scope",
+            "statement": "不能由该通用公共交通素材证明12306候补订单、具体席位、实时排位或兑现结果，也不能把画面地点识别为中国铁路场站。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "file",
+                "start": 0,
+                "end": 10.719042,
+                "note": "Mixkit通用素材的叙事边界"
+              }
+            ],
+            "resolution": "只作公共交通、等待、列车和旅客情境；机制事实仅由source-01官方规则承担，标题和旁白不把画面冒充中国铁路、12306界面或具体订单。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-05",
+      "label": "Mixkit：列车到站并上下客",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://mixkit.co/free-stock-video/fisheye-lens-shot-of-the-subway-arriving-4449/",
+      "assetPath": "public/project-assets/12306-candidate-order-explainer-20260817/mixkit-4449-1080-1786960844491.mp4",
+      "originalFileName": "mixkit-4449-1080.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 23221513,
+      "importedAt": "2026-08-17T10:00:44.503Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "2026-08-17逐条核验页面JSON-LD：copyrightNotice=Free，license=https://mixkit.co/license/#videoFree；使用站内原生1920x1080 MP4，无需署名。仅作公共交通、等待、列车和旅客情境，不暗示人物、运营方或场所为本片观点背书，不冒充中国铁路、12306订单或兑现结果；计划窗口start/mid/end未见平台或账号水印。",
+      "contentHash": "e9dd7bc2125c3828566c8512a8897d5ed06a98d429cbef4103c1a8c99ab98e2b",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "e9dd7bc2125c3828566c8512a8897d5ed06a98d429cbef4103c1a8c99ab98e2b",
+        "startedAt": "2026-08-17T10:03:59.535Z",
+        "completedAt": "2026-08-17T10:03:59.535Z",
+        "error": "",
+        "model": "manual-visual-review",
+        "promptVersion": "manual-mixkit-material-review-20260817",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "列车停靠站台，车门打开，乘客持续上下车，随后车门区域恢复稳定。",
+        "hierarchicalSummary": "列车停靠站台，车门打开，乘客持续上下车，随后车门区域恢复稳定。 该来源仅承担公共交通、等待、列车移动或旅客流动的真实情境，不证明12306候补规则、具体订单、实时排位或兑现结果。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-05-visual",
+            "statement": "列车停靠站台，车门打开，乘客持续上下车，随后车门区域恢复稳定。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "time",
+                "start": 0,
+                "end": 7.633333,
+                "note": "人工检查完整视频及start/mid/end代表帧"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 55
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-05-scope",
+            "statement": "不能由该通用公共交通素材证明12306候补订单、具体席位、实时排位或兑现结果，也不能把画面地点识别为中国铁路场站。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "file",
+                "start": 0,
+                "end": 7.633333,
+                "note": "Mixkit通用素材的叙事边界"
+              }
+            ],
+            "resolution": "只作公共交通、等待、列车和旅客情境；机制事实仅由source-01官方规则承担，标题和旁白不把画面冒充中国铁路、12306界面或具体订单。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-06",
+      "label": "Mixkit：满载列车驶离站台",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://mixkit.co/free-stock-video/subway-cars-departing-from-an-underground-station-40672/",
+      "assetPath": "public/project-assets/12306-candidate-order-explainer-20260817/mixkit-40672-1080-1786960844514.mp4",
+      "originalFileName": "mixkit-40672-1080.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 47733611,
+      "importedAt": "2026-08-17T10:00:44.539Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "2026-08-17逐条核验页面JSON-LD：copyrightNotice=Free，license=https://mixkit.co/license/#videoFree；使用站内原生1920x1080 MP4，无需署名。仅作公共交通、等待、列车和旅客情境，不暗示人物、运营方或场所为本片观点背书，不冒充中国铁路、12306订单或兑现结果；计划窗口start/mid/end未见平台或账号水印。",
+      "contentHash": "f2b9f86b7d5515c5b5546c02fc5c116ed8075c6287af05c19814e3aee3139cb7",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "f2b9f86b7d5515c5b5546c02fc5c116ed8075c6287af05c19814e3aee3139cb7",
+        "startedAt": "2026-08-17T10:03:59.535Z",
+        "completedAt": "2026-08-17T10:03:59.535Z",
+        "error": "",
+        "model": "manual-visual-review",
+        "promptVersion": "manual-mixkit-material-review-20260817",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "满载乘客的列车从站台前持续驶离，车厢和可见乘客依次经过。",
+        "hierarchicalSummary": "满载乘客的列车从站台前持续驶离，车厢和可见乘客依次经过。 该来源仅承担公共交通、等待、列车移动或旅客流动的真实情境，不证明12306候补规则、具体订单、实时排位或兑现结果。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-06-visual",
+            "statement": "满载乘客的列车从站台前持续驶离，车厢和可见乘客依次经过。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 0,
+                "end": 13.958333,
+                "note": "人工检查完整视频及start/mid/end代表帧"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 55
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-06-scope",
+            "statement": "不能由该通用公共交通素材证明12306候补订单、具体席位、实时排位或兑现结果，也不能把画面地点识别为中国铁路场站。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "file",
+                "start": 0,
+                "end": 13.958333,
+                "note": "Mixkit通用素材的叙事边界"
+              }
+            ],
+            "resolution": "只作公共交通、等待、列车和旅客情境；机制事实仅由source-01官方规则承担，标题和旁白不把画面冒充中国铁路、12306界面或具体订单。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-07",
+      "label": "Mixkit：车站通道持续人流",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://mixkit.co/free-stock-video/subway-network-in-tokyo-4453/",
+      "assetPath": "public/project-assets/12306-candidate-order-explainer-20260817/mixkit-4453-1080-1786960844553.mp4",
+      "originalFileName": "mixkit-4453-1080.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 50458930,
+      "importedAt": "2026-08-17T10:00:44.577Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "2026-08-17逐条核验页面JSON-LD：copyrightNotice=Free，license=https://mixkit.co/license/#videoFree；使用站内原生1920x1080 MP4，无需署名。仅作公共交通、等待、列车和旅客情境，不暗示人物、运营方或场所为本片观点背书，不冒充中国铁路、12306订单或兑现结果；计划窗口start/mid/end未见平台或账号水印。",
+      "contentHash": "7fb4d5d686724164dbdcd60a73c39d75db242543741ce46f1746e83a43c14f2d",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "7fb4d5d686724164dbdcd60a73c39d75db242543741ce46f1746e83a43c14f2d",
+        "startedAt": "2026-08-17T10:03:59.535Z",
+        "completedAt": "2026-08-17T10:03:59.535Z",
+        "error": "",
+        "model": "manual-visual-review",
+        "promptVersion": "manual-mixkit-material-review-20260817",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "车站通道内人群持续双向行走，前中后景人员不断变化。",
+        "hierarchicalSummary": "车站通道内人群持续双向行走，前中后景人员不断变化。 该来源仅承担公共交通、等待、列车移动或旅客流动的真实情境，不证明12306候补规则、具体订单、实时排位或兑现结果。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-07-visual",
+            "statement": "车站通道内人群持续双向行走，前中后景人员不断变化。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "time",
+                "start": 0,
+                "end": 16.666667,
+                "note": "人工检查完整视频及start/mid/end代表帧"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 55
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-07-scope",
+            "statement": "不能由该通用公共交通素材证明12306候补订单、具体席位、实时排位或兑现结果，也不能把画面地点识别为中国铁路场站。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "file",
+                "start": 0,
+                "end": 16.666667,
+                "note": "Mixkit通用素材的叙事边界"
+              }
+            ],
+            "resolution": "只作公共交通、等待、列车和旅客情境；机制事实仅由source-01官方规则承担，标题和旁白不把画面冒充中国铁路、12306界面或具体订单。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-08",
+      "label": "Mixkit：车站大厅旅客流动",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://mixkit.co/free-stock-video/interior-of-the-train-station-4390/",
+      "assetPath": "public/project-assets/12306-candidate-order-explainer-20260817/mixkit-4390-1080-1786960844585.mp4",
+      "originalFileName": "mixkit-4390-1080.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 20243694,
+      "importedAt": "2026-08-17T10:00:44.596Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "2026-08-17逐条核验页面JSON-LD：copyrightNotice=Free，license=https://mixkit.co/license/#videoFree；使用站内原生1920x1080 MP4，无需署名。仅作公共交通、等待、列车和旅客情境，不暗示人物、运营方或场所为本片观点背书，不冒充中国铁路、12306订单或兑现结果；计划窗口start/mid/end未见平台或账号水印。",
+      "contentHash": "ca6a2122c58b1400cec39430a853f9a8b6b873a99ad56dd1a7807fda5a0dcedc",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "ca6a2122c58b1400cec39430a853f9a8b6b873a99ad56dd1a7807fda5a0dcedc",
+        "startedAt": "2026-08-17T10:03:59.535Z",
+        "completedAt": "2026-08-17T10:03:59.535Z",
+        "error": "",
+        "model": "manual-visual-review",
+        "promptVersion": "manual-mixkit-material-review-20260817",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "车站大厅中旅客与行李持续移动，画面为固定机位时间流动效果。",
+        "hierarchicalSummary": "车站大厅中旅客与行李持续移动，画面为固定机位时间流动效果。 该来源仅承担公共交通、等待、列车移动或旅客流动的真实情境，不证明12306候补规则、具体订单、实时排位或兑现结果。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-08-visual",
+            "statement": "车站大厅中旅客与行李持续移动，画面为固定机位时间流动效果。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "time",
+                "start": 0,
+                "end": 5,
+                "note": "人工检查完整视频及start/mid/end代表帧"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 55
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-08-scope",
+            "statement": "不能由该通用公共交通素材证明12306候补订单、具体席位、实时排位或兑现结果，也不能把画面地点识别为中国铁路场站。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "file",
+                "start": 0,
+                "end": 5,
+                "note": "Mixkit通用素材的叙事边界"
+              }
+            ],
+            "resolution": "只作公共交通、等待、列车和旅客情境；机制事实仅由source-01官方规则承担，标题和旁白不把画面冒充中国铁路、12306界面或具体订单。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          }
+        ],
+        "chapters": []
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [],
+    "facts": [
+      {
+        "id": "12306-candidate-order-limit",
+        "statement": "铁路12306当前规则显示，每个用户同时最多可保有6个待兑现候补订单；每单最多选择3个乘车日期，总计不超过60个车次。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "lineStart": 12,
+            "lineEnd": 13,
+            "note": "官方规则的订单容量限制"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 72
+      },
+      {
+        "id": "12306-candidate-deadline",
+        "statement": "提交候补时需选择截止兑现时间，最晚不晚于开车前20分钟；系统全天24小时持续尝试，用户也可提前终止。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "lineStart": 14,
+            "lineEnd": 14,
+            "note": "官方规则的截止兑现与持续尝试说明"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 91
+      },
+      {
+        "id": "12306-candidate-probability",
+        "statement": "预估成功率依据历史候补订单兑现情况测算，仅供参考，不能视为当前订单的兑现承诺。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "lineStart": 15,
+            "lineEnd": 15,
+            "note": "官方规则明确写明仅供参考"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "12306-candidate-effective",
+        "statement": "完成候补预付款支付后，候补购票订单立即生效。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "lineStart": 16,
+            "lineEnd": 16,
+            "note": "官方规则的订单生效条件"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "12306-candidate-priority",
+        "statement": "兑现按照候补订单生效时间顺序，优先兑现符合条件的候补需求。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "lineStart": 17,
+            "lineEnd": 17,
+            "note": "官方规则的兑现顺序"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "12306-candidate-seat-condition",
+        "statement": "兑现取决于所候补列车的席位实际情况；若没有满足需求的席位，系统在截止兑现时间自动终止。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "lineStart": 18,
+            "lineEnd": 19,
+            "note": "官方规则的席位条件与终止规则"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "12306-candidate-refund",
+        "statement": "过期未兑现或兑现失败的候补订单自动原额退款。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "lineStart": 20,
+            "lineEnd": 20,
+            "note": "官方规则的失败退款说明"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 78
+      },
+      {
+        "id": "source-02-visual",
+        "statement": "空站台内列车从远处驶入、经过镜头并离开，墙上时钟持续可见。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "time",
+            "start": 0,
+            "end": 16.016,
+            "note": "人工检查完整视频及start/mid/end代表帧"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 55
+      },
+      {
+        "id": "source-03-visual",
+        "statement": "从移动列车内看向站台，柱体、灯光和站台设施连续横向掠过。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "time",
+            "start": 0,
+            "end": 9.766667,
+            "note": "人工检查完整视频及start/mid/end代表帧"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 55
+      },
+      {
+        "id": "source-04-visual",
+        "statement": "列车窗外山地、草地和房屋持续后移，窗面反射车厢灯光。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "time",
+            "start": 0,
+            "end": 10.719042,
+            "note": "人工检查完整视频及start/mid/end代表帧"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 55
+      },
+      {
+        "id": "source-05-visual",
+        "statement": "列车停靠站台，车门打开，乘客持续上下车，随后车门区域恢复稳定。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "time",
+            "start": 0,
+            "end": 7.633333,
+            "note": "人工检查完整视频及start/mid/end代表帧"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 55
+      },
+      {
+        "id": "source-06-visual",
+        "statement": "满载乘客的列车从站台前持续驶离，车厢和可见乘客依次经过。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 0,
+            "end": 13.958333,
+            "note": "人工检查完整视频及start/mid/end代表帧"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 55
+      },
+      {
+        "id": "source-07-visual",
+        "statement": "车站通道内人群持续双向行走，前中后景人员不断变化。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "time",
+            "start": 0,
+            "end": 16.666667,
+            "note": "人工检查完整视频及start/mid/end代表帧"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 55
+      },
+      {
+        "id": "source-08-visual",
+        "statement": "车站大厅中旅客与行李持续移动，画面为固定机位时间流动效果。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "time",
+            "start": 0,
+            "end": 5,
+            "note": "人工检查完整视频及start/mid/end代表帧"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 55
+      }
+    ],
+    "uncertainties": [
+      {
+        "id": "12306-seat-pool-undisclosed",
+        "statement": "当前官方规则页没有披露候补可兑现席位的动态来源构成、释放时点、内部调配算法或任何固定长短途票额比例。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "lineStart": 23,
+            "lineEnd": 25,
+            "note": "规则页证据边界"
+          }
+        ],
+        "resolution": "成片只解释公开的生效时间、符合条件和实际席位规则；不声称退票、改签、增开或其他票额来源各占多少，也不使用固定80/20等比例。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "12306-probability-model-undisclosed",
+        "statement": "当前官方规则页只说明预估成功率基于历史兑现情况，未披露计算模型，也不提供实时队列位置。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "lineStart": 15,
+            "lineEnd": 15,
+            "note": "预估成功率仅供参考"
+          }
+        ],
+        "resolution": "成片将预估成功率限定为历史参考指标，不把它解释为当前订单概率、排位或承诺。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "12306-page-date-missing",
+        "statement": "官方规则页面当前未展示明确发布日期或最后更新时间。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "lineStart": 9,
+            "lineEnd": 9,
+            "note": "页面元数据限制"
+          }
+        ],
+        "resolution": "记录2026-08-17核验时间与规则脚本SHA-256；Research Gate 后、写稿前再次请求相同官方入口，若规则变化则使当前研究批准失效并重新核验。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 88
+      },
+      {
+        "id": "source-02-scope",
+        "statement": "不能由该通用公共交通素材证明12306候补订单、具体席位、实时排位或兑现结果，也不能把画面地点识别为中国铁路场站。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "start": 0,
+            "end": 16.016,
+            "note": "Mixkit通用素材的叙事边界"
+          }
+        ],
+        "resolution": "只作公共交通、等待、列车和旅客情境；机制事实仅由source-01官方规则承担，标题和旁白不把画面冒充中国铁路、12306界面或具体订单。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-03-scope",
+        "statement": "不能由该通用公共交通素材证明12306候补订单、具体席位、实时排位或兑现结果，也不能把画面地点识别为中国铁路场站。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "file",
+            "start": 0,
+            "end": 9.766667,
+            "note": "Mixkit通用素材的叙事边界"
+          }
+        ],
+        "resolution": "只作公共交通、等待、列车和旅客情境；机制事实仅由source-01官方规则承担，标题和旁白不把画面冒充中国铁路、12306界面或具体订单。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-04-scope",
+        "statement": "不能由该通用公共交通素材证明12306候补订单、具体席位、实时排位或兑现结果，也不能把画面地点识别为中国铁路场站。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "file",
+            "start": 0,
+            "end": 10.719042,
+            "note": "Mixkit通用素材的叙事边界"
+          }
+        ],
+        "resolution": "只作公共交通、等待、列车和旅客情境；机制事实仅由source-01官方规则承担，标题和旁白不把画面冒充中国铁路、12306界面或具体订单。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-05-scope",
+        "statement": "不能由该通用公共交通素材证明12306候补订单、具体席位、实时排位或兑现结果，也不能把画面地点识别为中国铁路场站。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "file",
+            "start": 0,
+            "end": 7.633333,
+            "note": "Mixkit通用素材的叙事边界"
+          }
+        ],
+        "resolution": "只作公共交通、等待、列车和旅客情境；机制事实仅由source-01官方规则承担，标题和旁白不把画面冒充中国铁路、12306界面或具体订单。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-06-scope",
+        "statement": "不能由该通用公共交通素材证明12306候补订单、具体席位、实时排位或兑现结果，也不能把画面地点识别为中国铁路场站。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "file",
+            "start": 0,
+            "end": 13.958333,
+            "note": "Mixkit通用素材的叙事边界"
+          }
+        ],
+        "resolution": "只作公共交通、等待、列车和旅客情境；机制事实仅由source-01官方规则承担，标题和旁白不把画面冒充中国铁路、12306界面或具体订单。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-07-scope",
+        "statement": "不能由该通用公共交通素材证明12306候补订单、具体席位、实时排位或兑现结果，也不能把画面地点识别为中国铁路场站。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "file",
+            "start": 0,
+            "end": 16.666667,
+            "note": "Mixkit通用素材的叙事边界"
+          }
+        ],
+        "resolution": "只作公共交通、等待、列车和旅客情境；机制事实仅由source-01官方规则承担，标题和旁白不把画面冒充中国铁路、12306界面或具体订单。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-08-scope",
+        "statement": "不能由该通用公共交通素材证明12306候补订单、具体席位、实时排位或兑现结果，也不能把画面地点识别为中国铁路场站。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "file",
+            "start": 0,
+            "end": 5,
+            "note": "Mixkit通用素材的叙事边界"
+          }
+        ],
+        "resolution": "只作公共交通、等待、列车和旅客情境；机制事实仅由source-01官方规则承担，标题和旁白不把画面冒充中国铁路、12306界面或具体订单。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      }
+    ]
+  },
+  "narrative": {
+    "status": "completed",
+    "error": "",
+    "activeVersionId": "narrative-01",
+    "versions": [
+      {
+        "id": "narrative-01",
+        "generatedAt": "2026-08-17T10:03:59.535Z",
+        "model": "codex-manual-editorial",
+        "promptVersion": "manual-12306-narrative-20260817",
+        "inputHash": "manual-current-research-gate",
+        "conclusion": "候补按订单生效时间顺序处理，但只有出现符合需求的实际席位才会兑现；历史成功率不是当前订单承诺。",
+        "hook": "候补，不是12306帮你再抢一次票。",
+        "outline": [
+          "付款后订单才生效",
+          "按生效时间顺序处理符合条件的需求",
+          "排在前面仍需出现匹配的实际席位",
+          "预估成功率只是历史参考",
+          "扩大可接受范围并设置截止时间"
+        ],
+        "voiceoverScript": "候补，不是12306帮你再抢一次票。你提交订单还不够。完成预付款后，候补订单才立即生效。兑现时，系统按订单生效时间顺序，优先处理符合条件的候补需求。认的是生效时间，不是你第一次点开页面的时间。但排在前面，也不等于一定有票。只有候补列车出现满足需求的实际席位，系统才能兑现。所以你排的，是等条件匹配的队，不是保证有票的队。预估成功率，只按历史兑现情况测算。它不是实时排位，更不是承诺。多选日期和车次，设好截止时间。到点没票，候补终止，预付款原额退回。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "lineStart": 12,
+            "lineEnd": 25,
+            "note": "全部机制事实与边界来自当前铁路12306官方候补规则。"
+          }
+        ],
+        "uncertainties": [
+          "官方未披露动态票额来源、释放时点、内部算法或固定比例。",
+          "官方未披露预估成功率模型和实时队列位置。",
+          "官方规则页没有显示发布日期，写稿前已于2026-08-17重新核验并记录脚本SHA-256。"
+        ]
+      }
+    ],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "pendingChapters": [],
+    "generatedAt": "2026-08-17T10:03:59.535Z",
+    "model": "codex-manual-editorial",
+    "promptVersion": "manual-12306-narrative-20260817"
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-5.6",
+    "transcriptionModel": "whisper.cpp:large-v3-turbo-q5_0",
+    "promptVersion": "videobrief-2026-07-11-v1",
+    "calls": []
+  },
+  "editorial": {
+    "claim": "候补按订单生效时间顺序处理符合条件的需求，但只有出现匹配的实际席位才会兑现；预估成功率不是承诺。",
+    "whyItMatters": "观众能区分排队顺序、订单条件和实际席位，不再把预估成功率或较早提交误解成一定有票。",
+    "chinaContext": "机制事实只引用铁路12306当前官方规则；海外公共交通素材只承担情境，不代表中国铁路场站或具体订单。",
+    "riskNote": "不得虚构动态票额来源、固定长短途比例、内部算法或实时排位；通用列车画面不得冒充候补兑现结果。"
+  },
+  "platformCopy": {
+    "coverTitle": "12306候补\n排的什么队？",
+    "title": "12306候补，排的到底是什么队？",
+    "description": "候补不是帮你再抢一次票。订单付款后才生效，系统按生效时间顺序处理符合条件的需求，但最终仍要等到匹配的实际席位。\n\n预估成功率只来自历史兑现情况，不是当前订单的实时排位或承诺。",
+    "hashtags": [
+      "12306",
+      "候补购票",
+      "火车票",
+      "出行",
+      "日常有因"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "2026-08-17T09:42:38.737Z",
+    "updatedAt": "2026-08-18T02:30:40.312Z",
+    "researchReviewedAt": "2026-08-17T09:44:52.870Z",
+    "firstRenderCompletedAt": "2026-08-17T10:31:19.645Z",
+    "lastRenderCompletedAt": "2026-08-17T10:31:19.645Z",
+    "sourceImportCount": 8,
+    "manualSaveCount": 0,
+    "renderAttemptCount": 4,
+    "renderFailureCount": 3,
+    "lastRenderStartedAt": "2026-08-17T10:30:30.393Z",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "materialReview": {
+    "status": "approved",
+    "approvedSourceIds": [
+      "source-02",
+      "source-03",
+      "source-04",
+      "source-05",
+      "source-06",
+      "source-07",
+      "source-08"
+    ],
+    "reviewedAt": "2026-08-17T10:03:59.535Z"
+  },
+  "materialQualityReview": {
+    "schemaVersion": 1,
+    "status": "passed",
+    "reviewedAt": "2026-08-17T10:30:09.741Z",
+    "reviewer": "Codex",
+    "reviewScope": "技术 proof 发现原窗口旁白尾留超限后明确缩短的 7 个 Mixkit 视频窗口；逐幕重新核对 source start/mid/end、1920x1080 帧和 390x219 移动等比缩放证据，并确认语义角色、连续动作、唯一性和平台水印。",
+    "sceneReviews": [
+      {
+        "sceneId": "scene-01",
+        "sceneFingerprint": "e6891d8c420ca444d9ed1edf088a6a2205854656b829aee262aa49c857c892fd",
+        "candidate": {
+          "sourceId": "source-08",
+          "sourceStart": 0.1,
+          "sourceEnd": 4.3
+        },
+        "visibleClaim": "固定机位下，车站大厅内旅客和行李持续移动，人流状态在完整窗口内明显变化。",
+        "evidenceRole": "source-establishing",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "直接建立出行与等待的日常情境；画面不证明候补机制，也不被描述为中国铁路或具体抢票现场。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "画面不依赖细字；车站空间、旅客与行李在桌面和 390x219 等比缩放证据中均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "完整窗口持续显示不同旅客穿行，没有循环、停帧或重复窗口。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "固定机位，运动来自真实人流；不添加程序化推拉、不循环、不慢放。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该窗口只绑定开场出行情境；七幕使用七个不同视频来源。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "人工检查计划窗口 start/mid/end，未见平台角标、账号角标、下载工具标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白、标题、visualRequirement 与情境角色一致",
+          "候选绑定当前 sourceId/sourceStart/sourceEnd",
+          "窗口连续且原速使用",
+          "不把海外车站冒充中国铁路",
+          "原生无平台或账号水印"
+        ],
+        "evidence": [
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-01-start.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-01-mid.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-01-end.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-01-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-02",
+        "sceneFingerprint": "f7e27e969137d0373127641322b97ad558730d743ead636d28b28d25a24123b5",
+        "candidate": {
+          "sourceId": "source-07",
+          "sourceStart": 0.2,
+          "sourceEnd": 6.4
+        },
+        "visibleClaim": "车站通道内旅客持续双向行走，前后景人物位置不断变化。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "持续前进的人流可承载订单进入等待流程的抽象情境；付款后生效的事实由 12306 官方规则承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "画面不依赖站内文字；通道、人流方向和持续运动在桌面与移动等比缩放证据中均清楚。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "完整窗口持续覆盖多人双向行走，动作连续，无循环或停帧。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "固定机位，运动来自真实旅客；不添加程序化镜头运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该通道窗口只用于订单进入等待流程的情境，不复用为真实排队证据。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "人工检查计划窗口 start/mid/end，未见平台角标、账号角标、下载工具标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "画面角色限定为抽象流程情境",
+          "候选绑定当前不可变窗口",
+          "画面连续、原速且不循环",
+          "日本站内标识不被当作中国铁路事实",
+          "原生无平台或账号水印"
+        ],
+        "evidence": [
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-02-start.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-02-mid.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-02-end.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-02-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-03",
+        "sceneFingerprint": "23589775d6c3060014b1e3ef65cd4a91977768775a8755df4825d106a302980e",
+        "candidate": {
+          "sourceId": "source-02",
+          "sourceStart": 0.2,
+          "sourceEnd": 10.8
+        },
+        "visibleClaim": "列车从远端驶入站台并持续经过机位，位置变化和先后顺序在完整窗口内清楚可见。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "列车按先后到达并经过的连续过程可表现顺序处理的机制类比；不声称列车就是候补队列或具体排位。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "画面不依赖细字；列车到达、经过与站台状态在桌面和移动缩放下均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "窗口完整覆盖列车从远端出现、驶入到持续经过机位，顺序变化连续，不循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "固定机位，列车运动来自源素材；不添加推拉或改速。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该列车到达窗口只服务生效时间顺序的机制类比。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "人工检查计划窗口 start/mid/end，未见平台角标、账号角标、下载工具标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "连续动作与顺序类比一致",
+          "不暗示实时排位",
+          "候选与 scene 窗口完全一致",
+          "不循环、不慢放、不复用",
+          "原生无平台或账号水印"
+        ],
+        "evidence": [
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-03-start.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-03-mid.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-03-end.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-03-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-04",
+        "sceneFingerprint": "0206547223b7ad93a70748aed272079a51cb77f177b8c7ea06259f0f2330d48e",
+        "candidate": {
+          "sourceId": "source-06",
+          "sourceStart": 0.2,
+          "sourceEnd": 8.8
+        },
+        "visibleClaim": "载有乘客的列车持续驶过站台，可见车厢、车窗和乘客状态不断变化。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "列车和可见乘客可承载席位受实际列车状态约束的情境；画面不证明该列车满员、无票或存在候补订单。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "不依赖车身小字；列车、车窗和乘客在桌面与移动缩放证据中均可辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "完整窗口持续覆盖列车通过机位的过程，无停帧、跳切或循环。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "真实列车水平运动连续，不添加额外镜头运动或变速。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该列车经过窗口只承担实际列车状态与席位条件情境。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "人工检查计划窗口 start/mid/end，未见平台角标、账号角标、下载工具标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "列车情境与席位约束叙事相关",
+          "旁白没有把画面当作无票证据",
+          "候选窗口绑定准确",
+          "原速连续且不复用",
+          "原生无平台或账号水印"
+        ],
+        "evidence": [
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-04-start.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-04-mid.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-04-end.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-04-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-05",
+        "sceneFingerprint": "59b4890064b0eadf7b60477c82ec3e21c96f389279ac1fde24ebe323e0bc150d",
+        "candidate": {
+          "sourceId": "source-05",
+          "sourceStart": 0.1,
+          "sourceEnd": 5.75
+        },
+        "visibleClaim": "站台上的列车与旅客持续同框，旅客在车门附近移动，窗口内人物位置连续变化。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "列车、车门与旅客移动可承载乘车机会出现后仍需条件匹配的情境；不冒充候补兑现结果。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "画面不依赖站内小字；列车、车门区域和旅客动作在桌面与移动缩放下均清楚。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "完整窗口内列车与旅客动作连续，没有循环、停帧或重复动作。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "广角固定机位，运动来自真实人物和列车情境，不添加推拉。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该站台窗口只用于条件匹配队列的总结，不与其他观点共用。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "人工检查计划窗口 start/mid/end，未见平台角标、账号角标、下载工具标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "叙事明确是条件匹配情境",
+          "不声称画面人物候补成功",
+          "候选窗口绑定准确",
+          "连续原速且不复用",
+          "原生无平台或账号水印"
+        ],
+        "evidence": [
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-05-start.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-05-mid.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-05-end.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-05-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-06",
+        "sceneFingerprint": "a3a86cea0d2b6ed5a5b1d85f479ac5ed21eee833a5b793f10112db7679b3d092",
+        "candidate": {
+          "sourceId": "source-04",
+          "sourceStart": 0.2,
+          "sourceEnd": 6.75
+        },
+        "visibleClaim": "列车窗外的田野、树林、建筑和车辆持续变化，反光能明确显示观察点位于车厢内。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "不断变化的窗外行程可承载历史样本与当前一次行程不同的类比；预估成功率事实仍由官方规则承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "无关键文字；窗外景物和持续运动在桌面与移动缩放证据中均可直接感知。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "完整窗口持续呈现不同景物经过，没有循环、慢放或停帧。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "镜头稳定，运动来自列车行驶和窗外景物变化，不添加程序化运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该窗外行程窗口只服务历史参考与当前订单不同的类比。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "人工检查计划窗口 start/mid/end，未见平台角标、账号角标、下载工具标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "画面角色限定为历史/当前差异类比",
+          "不把画面当作成功率证据",
+          "候选窗口绑定准确",
+          "连续原速且不复用",
+          "原生无平台或账号水印"
+        ],
+        "evidence": [
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-06-start.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-06-mid.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-06-end.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-06-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-07",
+        "sceneFingerprint": "85719093b2022553861000ab1369be0321ab43cd5ba4ad908ae0de2b20fe94be",
+        "candidate": {
+          "sourceId": "source-03",
+          "sourceStart": 0.1,
+          "sourceEnd": 7.65
+        },
+        "visibleClaim": "移动列车内的视角持续掠过站台、立柱和灯光，时间推进感贯穿完整窗口。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "连续掠过站台可承载系统持续尝试直到截止的时间流动情境；不冒充具体候补兑现过程。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "画面无关键信息文字；站台和持续移动在桌面与移动等比缩放下均可辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "完整窗口持续向前移动，未出现循环、停帧或倒放。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "运动来自真实列车行驶，服务截止时间推进的情境，不添加额外运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该移动站台窗口只绑定结尾的截止时间与终止情境。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "人工检查计划窗口 start/mid/end，未见平台角标、账号角标、下载工具标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "时间流动情境与结尾叙事一致",
+          "不冒充候补兑现现场",
+          "候选窗口绑定准确",
+          "连续原速且不复用",
+          "原生无平台或账号水印"
+        ],
+        "evidence": [
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-07-start.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-07-mid.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-07-end.png",
+          "output/videos/12306-candidate-order-explainer-20260817-work/material-quality-evidence/scene-07-mobile-mid.png"
+        ]
+      }
+    ]
+  },
+  "workflow": {
+    "schemaVersion": 1,
+    "origin": {
+      "kind": "manual",
+      "runId": "",
+      "candidateId": "",
+      "sourceUrl": "",
+      "score": null,
+      "summary": "2026-08-17 优化流程试跑的唯一推荐；用户明确回复“批准”当前 Topic Gate。"
+    },
+    "topicApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-17T09:42:38.737Z",
+      "decidedBy": "user",
+      "note": "用户在优化流程试跑的 Topic Gate 结果后明确回复“批准”，批准当前12306候补命题进入Research Gate；未授权写稿、渲染或发布。",
+      "fingerprint": "d828bc0ad7b41bfa15141b4f96f538d01351385d95dc06c8b5ac8b337f2e29bf"
+    },
+    "researchApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-17T09:48:40.580Z",
+      "decidedBy": "user",
+      "note": "用户明确回复“批准当前 Research Gate”，批准当前12306候补事实、来源分工和禁止断言边界进入素材与生产阶段。",
+      "fingerprint": "c658bbfb5c572d0f0f6c7eef169dbac201d1737548933a29aeccf72ed1b7c3fa"
+    },
+    "deliveryApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-18T02:30:40.311Z",
+      "decidedBy": "user",
+      "note": "用户于2026-08-18明确回复“批准”，批准当前已完成技术、语义及桌面/移动浏览器验收的视频字节进入Delivery Gate；未授权打包、上传或发布。",
+      "fingerprint": "c0e9e73fb14a20ef4756289a608c898d657553230efaaf087960896c948ae0df"
+    },
+    "publication": {
+      "approval": {
+        "status": "pending",
+        "decidedAt": "",
+        "decidedBy": "",
+        "note": "",
+        "fingerprint": ""
+      },
+      "platform": "",
+      "publishedUrl": "",
+      "publishedAt": "",
+      "videoSha256": "",
+      "packageSha256": ""
+    },
+    "publicationTargets": [],
+    "market": {
+      "decision": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "evidence": []
+    }
+  },
+  "chapters": [
+    {
+      "id": "chapter-01",
+      "title": "候补队列的三个条件",
+      "summary": "用订单生效时间、符合条件的需求和实际席位三层关系解释候补为何有时快速兑现、有时一直等不到。",
+      "order": 0,
+      "sceneIds": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06",
+        "scene-07"
+      ],
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "lineStart": 12,
+          "lineEnd": 25,
+          "note": "铁路12306候补规则及证据边界。"
+        }
+      ],
+      "objective": "看懂候补排的是按生效时间处理、但仍需条件与实际席位匹配的等待队列。",
+      "targetDurationSeconds": 64,
+      "script": "候补，不是12306帮你再抢一次票。你提交订单还不够。完成预付款后，候补订单才立即生效。兑现时，系统按订单生效时间顺序，优先处理符合条件的候补需求。认的是生效时间，不是你第一次点开页面的时间。但排在前面，也不等于一定有票。只有候补列车出现满足需求的实际席位，系统才能兑现。所以你排的，是等条件匹配的队，不是保证有票的队。预估成功率，只按历史兑现情况测算。它不是实时排位，更不是承诺。多选日期和车次，设好截止时间。到点没票，候补终止，预付款原额退回。",
+      "generatedAt": "2026-08-17T10:03:59.535Z",
+      "model": "codex-manual-editorial",
+      "promptVersion": "manual-12306-narrative-20260817",
+      "inputHash": "manual-current-research-gate",
+      "cacheHit": false
+    }
+  ],
+  "outputs": {
+    "outputVideo": "output/videos/12306-candidate-order-explainer-20260817.mp4",
+    "publicRender": "public/renders/12306-candidate-order-explainer-20260817.mp4",
+    "workDir": "output/videos/12306-candidate-order-explainer-20260817-work",
+    "exportDir": "output/exports/12306-candidate-order-explainer-20260817",
+    "coverImage": "output/exports/12306-candidate-order-explainer-20260817/cover.png",
+    "platformCopy": "output/exports/12306-candidate-order-explainer-20260817/platform-copy.json",
+    "sourceList": "output/exports/12306-candidate-order-explainer-20260817/source-list.json",
+    "projectSnapshot": "output/exports/12306-candidate-order-explainer-20260817/project.snapshot.json"
+  },
+  "render": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice": "Charon",
+    "rate": 100,
+    "voiceEngine": "gemini-tts",
+    "voiceModel": "gemini-3.1-flash-tts-preview",
+    "voiceProfile": "natural-tech-zh-v1",
+    "voiceStyle": "像真实的中文科技内容创作者一样讲述。\n声音克制、自然，有轻微交流感，不要新闻播音腔或广告腔。\n使用中等语速，在转折和结论前自然停顿。\n重点词只做轻微强调，不要夸张表演。\n必须准确朗读原文，不要增加、删减或改写内容。",
+    "voiceGenerationMode": "auto",
+    "renderStrategy": "segmented-concat",
+    "pronunciations": [],
+    "mediaFit": "contain"
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-08",
+      "sourceStart": 0.1,
+      "sourceEnd": 4.3,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "候补 ≠ 再次抢票",
+      "title": "你排的到底是什么队？",
+      "subtitle": "先拆开生效、顺序和席位条件",
+      "narration": "候补，不是12306帮你再抢一次票。",
+      "visualRequirement": "车站大厅旅客流动建立节假日出行情境；不把海外车站冒充中国铁路或具体抢票现场。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "lineStart": 16,
+          "lineEnd": 19,
+          "note": "官方规则说明订单生效、兑现顺序与席位条件。"
+        },
+        {
+          "sourceId": "source-08",
+          "locatorType": "time",
+          "start": 0.1,
+          "end": 4.3,
+          "note": "固定机位下旅客和行李持续移动，适合快速建立车站与等待情境。；仅作公共交通情境，不冒充12306、中国铁路场站或具体订单。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-08",
+          "assetPath": "public/project-assets/12306-candidate-order-explainer-20260817/mixkit-4390-1080-1786960844585.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.1,
+          "sourceEnd": 4.3,
+          "matchReason": "固定机位下旅客和行李持续移动，适合快速建立车站与等待情境。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-17T10:03:59.535Z",
+      "selectionNote": "技术 proof 发现原窗口旁白尾留超限后，Codex 将窗口明确缩短为0.10-4.30秒并重新复核start/mid/end；无循环、慢放或平台水印，机制事实由source-01承担。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-02",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-07",
+      "sourceStart": 0.2,
+      "sourceEnd": 6.4,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "订单何时生效",
+      "title": "付完预付款，时间才开始算",
+      "subtitle": "生效时间决定后续顺序",
+      "narration": "你提交订单还不够。完成预付款后，候补订单才立即生效。",
+      "visualRequirement": "车站通道人流持续前进，承担订单进入等待流程的情境；不表示真实候补队列。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "lineStart": 16,
+          "lineEnd": 16,
+          "note": "官方规则明确付款完成后订单立即生效。"
+        },
+        {
+          "sourceId": "source-07",
+          "locatorType": "time",
+          "start": 0.2,
+          "end": 6.4,
+          "note": "通道内人群持续双向行走，可表现进入等待流程的抽象情境。；仅作公共交通情境，不冒充12306、中国铁路场站或具体订单。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-02",
+          "sourceId": "source-07",
+          "assetPath": "public/project-assets/12306-candidate-order-explainer-20260817/mixkit-4453-1080-1786960844553.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.2,
+          "sourceEnd": 6.4,
+          "matchReason": "通道内人群持续双向行走，可表现进入等待流程的抽象情境。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-02",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-17T10:03:59.535Z",
+      "selectionNote": "技术 proof 发现原窗口旁白尾留超限后，Codex 将窗口明确缩短为0.20-6.40秒并重新复核start/mid/end；无循环、慢放或平台水印，机制事实由source-01承担。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-03",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-02",
+      "sourceStart": 0.2,
+      "sourceEnd": 10.8,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "系统按什么排",
+      "title": "按订单生效时间",
+      "subtitle": "优先处理符合条件的候补需求",
+      "narration": "兑现时，系统按订单生效时间顺序，优先处理符合条件的候补需求。认的是生效时间，不是你第一次点开页面的时间。",
+      "visualRequirement": "列车从远处驶入并经过站台，承担按顺序到达与处理的机制类比；画面不证明具体排位。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "lineStart": 17,
+          "lineEnd": 17,
+          "note": "官方规则明确按照候补订单生效时间顺序优先兑现符合条件的需求。"
+        },
+        {
+          "sourceId": "source-02",
+          "locatorType": "time",
+          "start": 0.2,
+          "end": 10.8,
+          "note": "列车从远处驶入、经过再离开，连续动作适合表现顺序到达和处理。；仅作公共交通情境，不冒充12306、中国铁路场站或具体订单。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-03",
+          "sourceId": "source-02",
+          "assetPath": "public/project-assets/12306-candidate-order-explainer-20260817/mixkit-1622-1080-1786960844388.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.2,
+          "sourceEnd": 10.8,
+          "matchReason": "列车从远处驶入、经过再离开，连续动作适合表现顺序到达和处理。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-03",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-17T10:03:59.535Z",
+      "selectionNote": "技术 proof 发现原窗口旁白尾留超限后，Codex 将窗口明确缩短为0.20-10.80秒并重新复核start/mid/end；无循环、慢放或平台水印，机制事实由source-01承担。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-04",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-06",
+      "sourceStart": 0.2,
+      "sourceEnd": 8.8,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "排在前面也不够",
+      "title": "还要出现匹配的实际席位",
+      "subtitle": "规则没有承诺一定有票",
+      "narration": "但排在前面，也不等于一定有票。只有候补列车出现满足需求的实际席位，系统才能兑现。",
+      "visualRequirement": "载有乘客的列车经过站台，承担席位稀缺与实际列车状态情境；不声称画面列车满员、无票或没有候补席位。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "lineStart": 18,
+          "lineEnd": 19,
+          "note": "官方规则说明兑现取决于候补列车席位实际情况，没有满足需求的席位则到期终止。"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "time",
+          "start": 0.2,
+          "end": 8.8,
+          "note": "可见载有乘客的车厢持续经过，适合表现席位条件与列车实际状态仍是必要约束。；仅作公共交通情境，不冒充12306、中国铁路场站或具体订单。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-04",
+          "sourceId": "source-06",
+          "assetPath": "public/project-assets/12306-candidate-order-explainer-20260817/mixkit-40672-1080-1786960844514.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.2,
+          "sourceEnd": 8.8,
+          "matchReason": "可见载有乘客的车厢持续经过，适合表现席位条件与列车实际状态仍是必要约束。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-04",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-17T10:03:59.535Z",
+      "selectionNote": "技术 proof 发现原窗口旁白尾留超限后，Codex 将窗口明确缩短为0.20-8.80秒并重新复核start/mid/end；无循环、慢放或平台水印，机制事实由source-01承担。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-05",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-05",
+      "sourceStart": 0.1,
+      "sourceEnd": 5.75,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "真正排的是",
+      "title": "条件匹配的等待队列",
+      "subtitle": "不是保证兑现的号码队",
+      "narration": "所以你排的，是等条件匹配的队，不是保证有票的队。",
+      "visualRequirement": "列车停靠，旅客在车门附近移动，承担出现实际乘车机会后的匹配情境；不冒充候补兑现结果。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "lineStart": 17,
+          "lineEnd": 19,
+          "note": "官方规则把生效顺序与符合条件、实际席位共同作为兑现条件。"
+        },
+        {
+          "sourceId": "source-05",
+          "locatorType": "time",
+          "start": 0.1,
+          "end": 5.75,
+          "note": "列车停靠且旅客在车门附近移动，可承载条件匹配的机制总结。；仅作公共交通情境，不冒充12306、中国铁路场站或具体订单。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-05",
+          "sourceId": "source-05",
+          "assetPath": "public/project-assets/12306-candidate-order-explainer-20260817/mixkit-4449-1080-1786960844491.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.1,
+          "sourceEnd": 5.75,
+          "matchReason": "列车停靠且旅客在车门附近移动，可承载条件匹配的机制总结。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-05",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-17T10:03:59.535Z",
+      "selectionNote": "技术 proof 发现原窗口旁白尾留超限后，Codex 将窗口明确缩短为0.10-5.75秒并重新复核start/mid/end；无循环、慢放或平台水印，机制事实由source-01承担。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-06",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-04",
+      "sourceStart": 0.2,
+      "sourceEnd": 6.75,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "成功率怎么看",
+      "title": "历史参考，不是当前承诺",
+      "subtitle": "也不是实时排位",
+      "narration": "预估成功率，只按历史兑现情况测算。它不是实时排位，更不是承诺。",
+      "visualRequirement": "列车窗外景物持续变化，承担历史样本与当前行程不同的情境类比；不作为成功率证据。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "lineStart": 15,
+          "lineEnd": 15,
+          "note": "官方规则明确预估成功率按历史兑现情况测算且仅供参考。"
+        },
+        {
+          "sourceId": "source-04",
+          "locatorType": "time",
+          "start": 0.2,
+          "end": 6.75,
+          "note": "窗外场景持续变化，可表现历史经验与当前一次行程并不相同。；仅作公共交通情境，不冒充12306、中国铁路场站或具体订单。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-06",
+          "sourceId": "source-04",
+          "assetPath": "public/project-assets/12306-candidate-order-explainer-20260817/mixkit-3024-1080-1786960844466.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.2,
+          "sourceEnd": 6.75,
+          "matchReason": "窗外场景持续变化，可表现历史经验与当前一次行程并不相同。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-06",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-17T10:03:59.535Z",
+      "selectionNote": "技术 proof 发现原窗口旁白尾留超限后，Codex 将窗口明确缩短为0.20-6.75秒并重新复核start/mid/end；无循环、慢放或平台水印，机制事实由source-01承担。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-07",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-03",
+      "sourceStart": 0.1,
+      "sourceEnd": 7.65,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "你能控制什么",
+      "title": "扩大范围，设好截止时间",
+      "subtitle": "失败后预付款原额退回",
+      "narration": "多选日期和车次，设好截止时间。到点没票，候补终止，预付款原额退回。",
+      "visualRequirement": "移动列车掠过站台，承担系统持续尝试直到截止的时间流动情境；不冒充具体兑现过程。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "lineStart": 12,
+          "lineEnd": 20,
+          "note": "官方规则说明订单可选择多个日期和车次、截止时间、自动终止与失败退款。"
+        },
+        {
+          "sourceId": "source-03",
+          "locatorType": "time",
+          "start": 0.1,
+          "end": 7.65,
+          "note": "站台连续快速掠过，适合表现持续尝试和截止时间推进。；仅作公共交通情境，不冒充12306、中国铁路场站或具体订单。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-07",
+          "sourceId": "source-03",
+          "assetPath": "public/project-assets/12306-candidate-order-explainer-20260817/mixkit-4333-1080-1786960844437.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.1,
+          "sourceEnd": 7.65,
+          "matchReason": "站台连续快速掠过，适合表现持续尝试和截止时间推进。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-07",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-17T10:03:59.535Z",
+      "selectionNote": "技术 proof 发现原窗口旁白尾留超限后，Codex 将窗口明确缩短为0.10-7.65秒并重新复核start/mid/end；无循环、慢放或平台水印，机制事实由source-01承担。",
+      "generatedBy": "ai",
+      "userEdited": true
+    }
+  ]
+}

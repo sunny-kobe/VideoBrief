@@ -15,9 +15,18 @@ function callDurationMs(call) {
 
 export function buildProductionMetrics({ project, manifest, finalizedAt }) {
   const aiCalls = Array.isArray(project?.ai?.calls) ? project.ai.calls : [];
-  const aiCacheHits = aiCalls.filter((call) => call.cacheHit === true).length;
-  const aiExternalRequests = aiCalls.filter((call) => call.cacheHit !== true).length;
+  const isLocalCall = (call) => (
+    call?.transport === 'local'
+    || String(call?.model ?? '').startsWith('whisper.cpp:')
+    || String(call?.model ?? '').startsWith('reused-local-')
+  );
+  const externalAiCalls = aiCalls.filter((call) => !isLocalCall(call));
+  const localCalls = aiCalls.filter(isLocalCall);
+  const aiCacheHits = externalAiCalls.filter((call) => call.cacheHit === true).length;
+  const aiExternalRequests = externalAiCalls.filter((call) => call.cacheHit !== true).length;
   const failedAiCalls = aiCalls.filter((call) => call.status === 'failed');
+  const failedExternalAiCalls = failedAiCalls.filter((call) => !isLocalCall(call));
+  const failedLocalCalls = failedAiCalls.filter(isLocalCall);
   const voiceoverBatch = manifest?.voiceover?.batch;
   const voiceoverSegments = Array.isArray(manifest?.voiceover?.segments)
     ? manifest.voiceover.segments
@@ -57,6 +66,7 @@ export function buildProductionMetrics({ project, manifest, finalizedAt }) {
     },
     requests: {
       aiRecorded: aiCalls.length,
+      aiLocalRecorded: localCalls.length,
       aiExternal: aiExternalRequests,
       aiCacheHits,
       aiFailed: failedAiCalls.length,
@@ -67,8 +77,10 @@ export function buildProductionMetrics({ project, manifest, finalizedAt }) {
     },
     failureCost: {
       failedAiCalls: failedAiCalls.length,
-      failedAiExternalRequests: failedAiCalls.filter((call) => call.cacheHit !== true).length,
-      failedAiWallMs: failedAiCalls.reduce((total, call) => total + callDurationMs(call), 0),
+      failedAiExternalRequests: failedExternalAiCalls.filter((call) => call.cacheHit !== true).length,
+      failedLocalCalls: failedLocalCalls.length,
+      failedAiWallMs: failedExternalAiCalls.reduce((total, call) => total + callDurationMs(call), 0),
+      failedLocalWallMs: failedLocalCalls.reduce((total, call) => total + callDurationMs(call), 0),
       renderFailures: Number(project?.production?.renderFailureCount ?? 0),
       sourceProcessingFailures: Array.isArray(project?.sources)
         ? project.sources.filter((source) => source?.processing?.status === 'failed').length

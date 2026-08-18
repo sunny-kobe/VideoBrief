@@ -1,0 +1,4884 @@
+{
+  "schemaVersion": 3,
+  "id": "ride-hailing-fixed-fare-explainer-20260817",
+  "title": "网约车一口价，固定的到底是谁的风险？",
+  "format": "video_project",
+  "targetAudience": "使用网约车、见过一口价或特惠订单，但不了解固定价格如何形成和风险如何分配的普通中文观众",
+  "status": "review",
+  "technical_status": "passed",
+  "rights_status": "cleared",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "lifecycle": {
+    "state": "active",
+    "archivedAt": "",
+    "archivedBy": "",
+    "archiveReason": ""
+  },
+  "brief": {
+    "objective": "用约75到90秒讲清网约车一口价如何从预估价格变成乘客端固定价格，以及堵车、绕路和供需偏差并未消失，而是由司机、平台和订单接受机制继续吸收",
+    "audience": "使用网约车、见过一口价或特惠订单，但不了解固定价格如何形成和风险如何分配的普通中文观众",
+    "platform": "B站首发，单横版",
+    "aspectRatio": "16:9",
+    "targetDurationSeconds": 84,
+    "tone": "直白、克制、有交流感，不煽动司机与乘客对立",
+    "style": "真实城市交通、司机和乘客动态素材为主体，必要时用稳定原创信息层解释价格与成本的分离",
+    "reference": "前十五秒用堵车但乘客价格不变的反常体验建立问题，随后只解释固定价格如何重新分配偏差风险",
+    "coreMessage": "一口价固定的是乘客下单时看到的价格，不是整趟行程的真实成本；当时间、路线和供需偏离预估，偏差仍要由司机时间、平台补贴和订单是否被接受等环节吸收",
+    "cta": "下次看到一口价，先分清乘客端锁价与司机端结算不是同一件事",
+    "prohibitedMaterial": "不得声称一口价差额一定全部由司机承担；不得虚构平台算法权重、抽成或补贴比例；不得把国外出租车情境素材冒充滴滴、中国网约车订单或平台界面；不得使用带平台或账号水印、权利不可判断的正式素材"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "滴滴官方：一口价规则",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://static.xiaojukeji.com/api/native/html/p-final-price-rule.html",
+      "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/didi-fixed-fare-rule-1786937737767.md",
+      "originalFileName": "didi-fixed-fare-rule.md",
+      "mimeType": "text/markdown",
+      "bytes": 664,
+      "importedAt": "2026-08-17T03:35:37.768Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "官方网页事实摘录，仅用于研究与引用；不直接使用网页画面。",
+      "contentHash": "1164d6cd6519d13d059012bbbb580bc9b27371ec7a91b24a874eb6b746ab28ac",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "1164d6cd6519d13d059012bbbb580bc9b27371ec7a91b24a874eb6b746ab28ac",
+        "startedAt": "2026-08-17T03:36:20.192Z",
+        "completedAt": "2026-08-17T03:36:44.489Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# 滴滴一口价规则事实摘录\n\n来源主体：滴滴出行\n原始 URL：https://static.xiaojukeji.com/api/native/html/p-final-price-rule.html\n核验日期：2026-08-17\n\n公开规则说明：发单价格即乘客支付价格，但不包含过路费、高速费等另行费用。金额以预估打表价格为基础，并结合起点、终点当时的供需情况综合计算。乘客更改目的地时，需要与司机另行协商。\n\n证据边界：这份规则能证明乘客端价格如何形成并被锁定，不能证明具体算法权重、司机端结算公式、平台抽成或补贴比例，也不能证明预估偏差一定全部由司机承担。\n",
+        "visualDescription": "",
+        "hierarchicalSummary": "来源说明：乘客看到的发单价格即其支付价格，价格以预估打表价格为基础，并结合起终点当时的供需情况计算；过路费、高速费等另行费用不包含在内，变更目的地需要另行协商。来源同时明确限制了可证明范围：不能证明具体算法权重、司机端结算公式、平台抽成或补贴比例，也不能证明预估偏差一定全部由司机承担。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-01-fact-01",
+            "statement": "一口价规则中的发单价格就是乘客支付的价格。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 7,
+                "end": 7,
+                "lineStart": 7,
+                "lineEnd": 7,
+                "note": "规则说明明确写明发单价格即乘客支付价格。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 98
+          },
+          {
+            "id": "source-01-fact-02",
+            "statement": "一口价金额以预估打表价格为基础，并结合起点、终点当时的供需情况综合计算。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 7,
+                "end": 7,
+                "lineStart": 7,
+                "lineEnd": 7,
+                "note": "规则说明称金额以预估打表价格为基础，并结合起点、终点当时的供需情况综合计算。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 91
+          },
+          {
+            "id": "source-01-fact-03",
+            "statement": "发单价格不包含过路费、高速费等另行费用。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 7,
+                "end": 7,
+                "lineStart": 7,
+                "lineEnd": 7,
+                "note": "规则说明列明过路费、高速费等属于不包含在发单价格中的另行费用。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 76
+          },
+          {
+            "id": "source-01-fact-04",
+            "statement": "乘客更改目的地时，需要与司机另行协商。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 7,
+                "end": 7,
+                "lineStart": 7,
+                "lineEnd": 7,
+                "note": "规则说明要求乘客更改目的地时与司机另行协商。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 68
+          },
+          {
+            "id": "source-01-fact-05",
+            "statement": "该来源能够证明乘客端价格的形成和锁定，但不能据此推出司机端结算或平台侧的具体分配机制。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 9,
+                "end": 9,
+                "lineStart": 9,
+                "lineEnd": 9,
+                "note": "来源明确规定了证据边界：可证明乘客端价格如何形成并被锁定。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 87
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-01-uncertainty-01",
+            "statement": "无法由该来源确认司机端具体如何结算，也无法确认平台抽成或补贴比例。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 9,
+                "end": 9,
+                "lineStart": 9,
+                "lineEnd": 9,
+                "note": "来源明确表示不能证明司机端结算公式、平台抽成或补贴比例。"
+              }
+            ],
+            "resolution": "旁白不写司机端结算公式、平台抽成或补贴比例；只说明官方规则未披露这些环节。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-01-uncertainty-02",
+            "statement": "无法由该来源证明一口价与实际行程成本之间的偏差一定全部由司机承担。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 9,
+                "end": 9,
+                "lineStart": 9,
+                "lineEnd": 9,
+                "note": "来源明确表示不能证明预估偏差一定全部由司机承担。"
+              }
+            ],
+            "resolution": "禁止断言偏差全部由司机承担；司机时间成本只引用新华社调查，平台补贴和订单接受率仅作为明确标注的分析可能性。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 98
+          },
+          {
+            "id": "source-01-uncertainty-03",
+            "statement": "无法由该来源确认起点、终点当时的供需情况具体如何影响价格，也无法确认各因素的权重。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "line",
+                "start": 7,
+                "end": 7,
+                "lineStart": 7,
+                "lineEnd": 7,
+                "note": "来源仅说明价格结合当时供需情况综合计算，未提供供需因素的具体算法权重或调整方式。"
+              }
+            ],
+            "resolution": "不讨论供需因素的具体权重，只引用滴滴公开规则中“结合供需综合计算”的范围。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 82
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-02",
+      "label": "新华社：一口价模式调查",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://www.news.cn/politics/20251121/b08d97478c0b499f8a1c51424d507325/c.html",
+      "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/xinhua-fixed-fare-report-1786937737787.md",
+      "originalFileName": "xinhua-fixed-fare-report.md",
+      "mimeType": "text/markdown",
+      "bytes": 908,
+      "importedAt": "2026-08-17T03:35:37.788Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "权威媒体调查摘录，仅用于研究与引用；不直接使用网页画面。",
+      "contentHash": "078193371ca494b0975708513ec7958f5ab9943ec545cae6f228bd7d02638875",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "078193371ca494b0975708513ec7958f5ab9943ec545cae6f228bd7d02638875",
+        "startedAt": "2026-08-17T03:36:44.685Z",
+        "completedAt": "2026-08-17T03:37:12.761Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# 新华社一口价调查事实摘录\n\n来源主体：新华社\n发布日期：2025-11-21\n原始 URL：https://www.news.cn/politics/20251121/b08d97478c0b499f8a1c51424d507325/c.html\n核验日期：2026-08-17\n\n报道将一口价描述为系统依据行程信息给出固定结算价，乘客预估车费即最终实付。报道归纳的乘客侧好处包括价格透明、减少绕路担忧；平台侧好处包括提高调度效率。报道同时说明，不同平台对司机的收入计算方式不同，有固定收入，也有按里程计费；拥堵会增加司机的时间成本。\n\n证据边界：这是权威媒体的二手调查，可用于说明实际冲突和不同结算方式，但不是任何平台的算法说明，不能外推为所有平台、所有订单都按同一方式结算。报道的治理结论是需要更合理的定价与利益分配，不是简单证明应当取消一口价。\n",
+        "visualDescription": "",
+        "hierarchicalSummary": "来源称，一口价是系统依据行程信息给出的固定结算价，乘客预估车费即最终实付。它指出，不同平台对司机采用不同收入计算方式，包括固定收入和按里程计费，且拥堵会增加司机的时间成本。来源同时强调，这是一份权威媒体的二手调查，不是任何平台的算法说明，不能据此推断所有平台和订单采用同一种结算方式。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-02-fact-01",
+            "statement": "报道将一口价描述为系统依据行程信息给出固定结算价，乘客预估车费即最终实付。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 8,
+                "end": 8,
+                "lineStart": 8,
+                "lineEnd": 8,
+                "note": "来源摘录直接描述一口价的形成方式和乘客支付结果。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 96
+          },
+          {
+            "id": "source-02-fact-02",
+            "statement": "不同平台对司机的收入计算方式不同，报道举例包括固定收入和按里程计费。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 8,
+                "end": 8,
+                "lineStart": 8,
+                "lineEnd": 8,
+                "note": "来源明确说明不同平台对司机的收入计算方式存在差异。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 92
+          },
+          {
+            "id": "source-02-fact-03",
+            "statement": "拥堵会增加司机的时间成本。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 8,
+                "end": 8,
+                "lineStart": 8,
+                "lineEnd": 8,
+                "note": "来源明确指出拥堵会增加司机的时间成本。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 94
+          },
+          {
+            "id": "source-02-fact-04",
+            "statement": "报道归纳的一口价乘客侧好处包括价格透明、减少绕路担忧，平台侧好处包括提高调度效率。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 8,
+                "end": 8,
+                "lineStart": 8,
+                "lineEnd": 8,
+                "note": "来源归纳了乘客侧和平台侧的相关好处。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 78
+          },
+          {
+            "id": "source-02-fact-05",
+            "statement": "报道的治理结论是需要更合理的定价与利益分配，而不是简单证明应当取消一口价。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 10,
+                "end": 10,
+                "lineStart": 10,
+                "lineEnd": 10,
+                "note": "来源说明其治理结论指向更合理的定价与利益分配。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 72
+          },
+          {
+            "id": "source-02-fact-06",
+            "statement": "该来源是中文 Markdown 文本摘录，包含标题、来源主体“新华社”、发布日期、原始 URL 和核验日期；未提供可供描述的图片、视频或界面视觉元素。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 1,
+                "end": 6,
+                "lineStart": 1,
+                "lineEnd": 6,
+                "note": "文本来源以标题、来源主体、发布日期、原始 URL 和核验日期组成，未提供图片或视频视觉内容。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 20
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-02-uncertainty-01",
+            "statement": "来源无法证明所有平台、所有订单都按同一种方式结算；具体平台的算法、收入计算和利益分配机制仍需分别核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 10,
+                "end": 10,
+                "lineStart": 10,
+                "lineEnd": 10,
+                "note": "来源明确限定证据边界，禁止把调查内容外推为所有平台和订单。"
+              }
+            ],
+            "resolution": "所有司机侧结论明确归因新华社，并使用“不同平台结算方式不同”，不外推到所有平台与订单。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-02-uncertainty-02",
+            "statement": "来源无法证明一口价与实际成本之间的差额一定全部由司机承担，也无法证明平台补贴、司机收入或订单接受机制分别吸收多少偏差。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 8,
+                "end": 8,
+                "lineStart": 8,
+                "lineEnd": 8,
+                "note": "来源只说明拥堵增加司机时间成本，并列举不同收入计算方式，未说明偏差由谁、以何种比例承担。"
+              },
+              {
+                "sourceId": "source-02",
+                "locatorType": "line",
+                "start": 10,
+                "end": 10,
+                "lineStart": 10,
+                "lineEnd": 10,
+                "note": "来源将治理问题表述为定价与利益分配问题，未给出具体承担比例。"
+              }
+            ],
+            "resolution": "不分配差额比例；只确认拥堵增加时间成本，其他吸收路径明确标为未披露或分析推断。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 98
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-03",
+      "label": "Pexels 素材许可核验",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://www.pexels.com/license/",
+      "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/pexels-license-note-1786937737793.md",
+      "originalFileName": "pexels-license-note.md",
+      "mimeType": "text/markdown",
+      "bytes": 580,
+      "importedAt": "2026-08-17T03:35:37.793Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "review_required",
+      "rightsNote": "Pexels 许可页事实摘录，仅用于素材权利核验。",
+      "contentHash": "e29486458bf3fcd2ea04d5f45f4fdc966d131d4b163ae9b58d21f46c1ab8d079",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "e29486458bf3fcd2ea04d5f45f4fdc966d131d4b163ae9b58d21f46c1ab8d079",
+        "startedAt": "2026-08-17T03:37:13.018Z",
+        "completedAt": "2026-08-17T03:37:37.155Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# Pexels 素材许可核验\n\n许可页：https://www.pexels.com/license/\n核验日期：2026-08-17\n\nPexels 许可允许免费使用、修改并发布到社交媒体，不强制署名。不得暗示画面中的人物、品牌或组织为视频观点背书，也不得原样转售素材。\n\n本项目只把 Pexels 视频作为城市交通、司机、乘客和出租车行程的情境或机制示意；画面不得冒充滴滴、中国网约车平台界面、某个真实订单或新华社报道中的具体人物与事件。正式选用窗口必须原生无平台和账号水印。\n",
+        "visualDescription": "",
+        "hierarchicalSummary": "来源记录了Pexels素材的许可边界及本项目的使用限制：素材可免费使用、修改并发布到社交媒体且不强制署名，但不能暗示人物、品牌或组织背书，也不能原样转售。项目中只能把这些视频作为城市交通、司机、乘客和出租车行程的情境或机制示意，不能冒充滴滴、中国网约车平台界面、真实订单或具体报道事件；正式选用窗口还必须原生无平台和账号水印。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-03-fact-01",
+            "statement": "Pexels许可允许素材免费使用、修改并发布到社交媒体，不强制署名。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "line",
+                "start": 6,
+                "end": 6,
+                "lineStart": 6,
+                "lineEnd": 6,
+                "note": "Pexels许可允许免费使用、修改并发布到社交媒体，且不强制署名。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 92
+          },
+          {
+            "id": "source-03-fact-02",
+            "statement": "使用Pexels素材时，不得暗示画面中的人物、品牌或组织为视频观点背书。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "line",
+                "start": 6,
+                "end": 6,
+                "lineStart": 6,
+                "lineEnd": 6,
+                "note": "不得暗示画面中的人物、品牌或组织为视频观点背书。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 88
+          },
+          {
+            "id": "source-03-fact-03",
+            "statement": "本项目中的Pexels视频只能作为城市交通、司机、乘客和出租车行程的情境或机制示意，不得冒充滴滴、中国网约车平台界面、某个真实订单或新华社报道中的具体人物与事件。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "line",
+                "start": 8,
+                "end": 8,
+                "lineStart": 8,
+                "lineEnd": 8,
+                "note": "项目规定Pexels视频只能作为城市交通、司机、乘客和出租车行程的情境或机制示意，不能冒充特定平台、真实订单或具体报道事件。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 95
+          },
+          {
+            "id": "source-03-fact-04",
+            "statement": "正式选用的Pexels素材窗口必须原生无平台和账号水印。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "line",
+                "start": 8,
+                "end": 8,
+                "lineStart": 8,
+                "lineEnd": 8,
+                "note": "正式选用的素材窗口必须原生无平台和账号水印。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 86
+          },
+          {
+            "id": "source-03-fact-05",
+            "statement": "Pexels素材不得原样转售。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "line",
+                "start": 6,
+                "end": 6,
+                "lineStart": 6,
+                "lineEnd": 6,
+                "note": "Pexels素材不得原样转售。"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 72
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-03-uncertainty-01",
+            "statement": "当前来源无法证明任何具体Pexels视频窗口已经满足无平台和账号水印的要求，正式选材时仍需逐条核验。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "line",
+                "start": 8,
+                "end": 8,
+                "lineStart": 8,
+                "lineEnd": 8,
+                "note": "来源规定正式选用窗口必须原生无平台和账号水印，但未提供具体素材窗口或逐条核验结果。"
+              }
+            ],
+            "resolution": "每个计划窗口继续做 start/mid/end 水印与误认风险复核；素材只作交通情境，不承担一口价事实。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 78
+          },
+          {
+            "id": "source-03-uncertainty-02",
+            "statement": "当前来源无法证明任何具体画面不会被观众误认为滴滴、中国网约车平台界面、某个真实订单或具体报道事件。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "line",
+                "start": 8,
+                "end": 8,
+                "lineStart": 8,
+                "lineEnd": 8,
+                "note": "来源仅规定不得冒充特定平台界面、真实订单或具体报道事件，未提供具体画面可否使用的判断。"
+              }
+            ],
+            "resolution": "每个计划窗口继续做 start/mid/end 水印与误认风险复核；素材只作交通情境，不承担一口价事实。",
+            "riskLevel": "low",
+            "reviewPriority": "supporting",
+            "briefRelevance": 60
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-04",
+      "label": "Pexels：东京街头出租车与路面交通",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.pexels.com/video/3360907/",
+      "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/pexels-3360907-1786937737802.mp4",
+      "originalFileName": "pexels-3360907.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 29163755,
+      "importedAt": "2026-08-17T03:35:37.816Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Pexels License 允许免费使用、修改和社交媒体发布，不强制署名；仅作交通情境或机制示意，不暗示人物或品牌背书，不冒充滴滴或中国具体订单。计划窗口需继续逐帧确认原生无平台水印。",
+      "contentHash": "da16547f195973f0886c6525c57748d0c37b0792d9da333c5ce6cc0a6b605d06",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "da16547f195973f0886c6525c57748d0c37b0792d9da333c5ce6cc0a6b605d06",
+        "startedAt": "2026-08-17T03:37:37.362Z",
+        "completedAt": "2026-08-17T03:38:42.451Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "[0.00-30.00] 中文字幕:YK\n[30.00-40.15] 中文字幕:YK\n\n[0.00-30.00] 中文字幕:YK\n[30.00-40.15] 中文字幕:YK",
+        "visualDescription": "视频代表帧展示夜间或傍晚城市街道、路口、斑马线、交通信号灯、路边等候或聚集的人群，以及多辆传统出租车。2.01秒和13.77秒主要是橙色出租车，20.07秒可见橙色出租车驶过且前景出现绿色车辆，35.25秒和38.14秒主要是绿色出租车近景。画面可见车辆上的英文或日文车身文字、车顶灯和车辆标识；35.25秒代表帧明显失焦。来源未提供可辨识的网约车应用、订单价格、平台按钮或正式平台水印。；本地理解覆盖 2.01s、13.77s、20.07s、35.25s、38.14s 代表帧。",
+        "hierarchicalSummary": "该来源是一段约40秒的视频，给定转录只有“中文字幕:YK”，没有可用的口播或字幕主张。代表帧展示东京街头环境、行人、交通信号灯以及橙色和绿色传统出租车，适合作为城市交通和出租车场景素材参考；来源未提供网约车一口价机制、乘客端锁价、司机端结算或风险分配的可证明信息。",
+        "transcript": [
+          {
+            "id": "source-04-segment-001",
+            "sourceId": "source-04",
+            "start": 0,
+            "end": 30,
+            "text": "中文字幕:YK"
+          },
+          {
+            "id": "source-04-segment-002",
+            "sourceId": "source-04",
+            "start": 30,
+            "end": 40.148333,
+            "text": "中文字幕:YK"
+          }
+        ],
+        "facts": [
+          {
+            "id": "source-04-fact-01",
+            "statement": "代表帧显示一辆橙色出租车停靠或行驶在城市街道路口附近，背景有行人和交通设施。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "start": 2.01,
+                "end": 2.01,
+                "note": "视频2.01秒代表帧：画面前景为橙色出租车，车身可见“EISEN KOTSU”和“TAXI”字样；背景有行人、路口和交通信号灯。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 78
+          },
+          {
+            "id": "source-04-fact-02",
+            "statement": "代表帧显示橙色出租车在有行人聚集的城市道路上行驶或准备行驶。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "start": 13.77,
+                "end": 13.77,
+                "note": "视频13.77秒代表帧：橙色出租车位于道路中，车尾灯亮起，背景有等候或聚集的行人。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 70
+          },
+          {
+            "id": "source-04-fact-03",
+            "statement": "代表帧呈现了多辆不同颜色的传统出租车、城市道路和路边行人，但未显示网约车应用、订单页面或平台界面。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "start": 20.07,
+                "end": 20.07,
+                "note": "视频20.07秒代表帧：画面中可见道路、行人以及一辆从画面右侧经过的橙色出租车；前景下方另有绿色车辆部分入镜。"
+              },
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "start": 35.25,
+                "end": 35.25,
+                "note": "视频35.25秒代表帧：绿色出租车占据前景，画面呈现明显失焦效果，背景可见其他车辆和行人。"
+              },
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "start": 38.14,
+                "end": 38.14,
+                "note": "视频38.14秒代表帧：绿色出租车近景，背景有行人和城市街道环境。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 72
+          },
+          {
+            "id": "source-04-fact-04",
+            "statement": "给定转录在0.00至30.00秒仅记录“中文字幕:YK”，无法从中提取关于出租车价格、堵车、绕路、供需或风险分配的具体内容。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "time",
+                "start": 0,
+                "end": 30,
+                "note": "该时间段的本地转录仅记录为“中文字幕:YK”，没有可辨识的叙述内容。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          },
+          {
+            "id": "source-04-fact-05",
+            "statement": "给定转录在30.00至40.15秒仅记录“中文字幕:YK”，无法从中提取关于固定价格形成、司机结算或平台机制的具体内容。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "time",
+                "start": 30,
+                "end": 40.15,
+                "note": "该时间段的本地转录仅记录为“中文字幕:YK”，没有可辨识的叙述内容。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "claim",
+            "reviewPriority": "supporting",
+            "briefRelevance": 45
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-04-uncertainty-01",
+            "statement": "该来源无法证明网约车一口价如何从预估价格变成乘客端固定价格，也无法证明堵车、绕路和供需偏差由哪些环节吸收。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "time",
+                "start": 0,
+                "end": 40.15,
+                "note": "给定本地转录在0.00至40.15秒均未提供可辨识的事实叙述，仅显示“中文字幕:YK”。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-04-uncertainty-02",
+            "statement": "不能据此将画面中的日本城市出租车素材表述为滴滴、中国网约车订单或任何特定平台的界面与业务流程。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "image",
+                "start": 2.01,
+                "end": 38.14,
+                "note": "代表帧仅显示传统出租车和城市街景；未见网约车平台名称、订单界面或可识别的中国网约车场景。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 95
+          },
+          {
+            "id": "source-04-uncertainty-frame-sampling",
+            "statement": "视频画面理解使用 5 张自适应代表帧（时长覆盖 + 2 张镜头变化帧），未逐帧覆盖完整动态过程。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-04",
+                "locatorType": "time",
+                "start": 2.00741665,
+                "end": 2.00741665,
+                "note": "2.01s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-04",
+                "locatorType": "time",
+                "start": 13.767,
+                "end": 13.767,
+                "note": "13.77s 镜头变化代表帧"
+              },
+              {
+                "sourceId": "source-04",
+                "locatorType": "time",
+                "start": 20.0741665,
+                "end": 20.0741665,
+                "note": "20.07s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-04",
+                "locatorType": "time",
+                "start": 35.254999999999995,
+                "end": 35.254999999999995,
+                "note": "35.25s 镜头变化代表帧"
+              },
+              {
+                "sourceId": "source-04",
+                "locatorType": "time",
+                "start": 38.14091635,
+                "end": 38.14091635,
+                "note": "38.14s 时长覆盖代表帧"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-05",
+      "label": "Pexels：车内视角的城市拥堵",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.pexels.com/video/34539090/",
+      "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/pexels-34539090-1786937737823.mp4",
+      "originalFileName": "pexels-34539090.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 8401337,
+      "importedAt": "2026-08-17T03:35:37.826Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Pexels License 允许免费使用、修改和社交媒体发布，不强制署名；仅作交通情境或机制示意，不暗示人物或品牌背书，不冒充滴滴或中国具体订单。计划窗口需继续逐帧确认原生无平台水印。",
+      "contentHash": "ba67c9620bf64e7c675482f1ecd43b09a95fab6dc479f2806cc41aae38ce3d06",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "ba67c9620bf64e7c675482f1ecd43b09a95fab6dc479f2806cc41aae38ce3d06",
+        "startedAt": "2026-08-17T03:38:42.646Z",
+        "completedAt": "2026-08-17T03:39:32.006Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "未检测到可转录音轨。代表帧时间点：0.71s、7.11s、13.51s、14.17s。Creative Brief 要求解释网约车一口价如何从预估价格变成乘客端固定价格，并说明堵车、绕路和供需偏差仍可能由司机、平台和订单接受机制等环节吸收；禁止声称差额一定全部由司机承担，也不得虚构平台算法权重、抽成或补贴比例。",
+        "visualDescription": "四个代表帧均为横向车内前视角。画面前景可见方向盘、仪表区域、后视镜、中控台和车内顶部结构；通过挡风玻璃可见城市街道、建筑、车辆、交通信号灯和公共汽车等元素。整体画面偏暗，车外存在较强高亮和散景效果。7.11秒代表帧中车辆更密集，右侧可见公共汽车；13.51秒和14.17秒代表帧中可见前方车辆、交通信号灯及车内仪表区域。仅能依据代表帧描述视觉内容，不能据此推断未抽帧部分的动态变化或画面中的平台身份。；本地理解覆盖 0.71s、7.11s、13.51s、14.17s 代表帧。",
+        "hierarchicalSummary": "该素材没有可转录音轨，提供了四个代表帧。代表帧主要是从车内拍摄的城市道路场景，其中部分画面显示车辆较密集、交通信号灯和前视驾驶环境，适合支持堵车或城市交通的视觉氛围。素材本身不能证明网约车平台、订单价格、司机结算或动态行程变化；相关脚本主张只能依据 Creative Brief，不能从画面进一步推断。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-05-fact-01",
+            "statement": "Creative Brief 将核心信息定义为：乘客端看到的固定价格不等同于整趟行程的真实成本，偏离预估产生的风险可能由司机时间、平台补贴和订单是否被接受等环节吸收。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "file",
+                "note": "Creative Brief 的 coreMessage：一口价固定的是乘客下单时看到的价格，不是整趟行程的真实成本；时间、路线和供需偏离预估时，偏差仍可能由司机时间、平台补贴和订单是否被接受等环节吸收。来源未提供可用行号。"
+              }
+            ],
+            "reviewStatus": "rejected",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 96
+          },
+          {
+            "id": "source-05-fact-02",
+            "statement": "来源明确禁止将一口价差额概括为一定全部由司机承担，也没有提供可用于证明具体算法权重、抽成或补贴比例的信息。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "file",
+                "note": "Creative Brief 的 prohibitedMaterial：不得声称一口价差额一定全部由司机承担；不得虚构平台算法权重、抽成或补贴比例。来源未提供可用行号。"
+              }
+            ],
+            "reviewStatus": "rejected",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 94
+          },
+          {
+            "id": "source-05-fact-03",
+            "statement": "Creative Brief 要求前十五秒以“堵车但乘客价格不变”的反常体验建立问题，并随后解释固定价格如何重新分配偏差风险。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "file",
+                "note": "Creative Brief 的 objective 与 opening direction：前十五秒用堵车但乘客价格不变的反常体验建立问题，随后解释固定价格如何重新分配偏差风险。来源未提供可用行号。"
+              }
+            ],
+            "reviewStatus": "rejected",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 93
+          },
+          {
+            "id": "source-05-fact-04",
+            "statement": "视频代表帧均呈现车内前视角的城市道路场景；7.11秒和13.51秒代表帧可见较密集的车辆，14.17秒代表帧可见前方车辆与交通信号灯。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "time",
+                "start": 0.71,
+                "end": 0.71,
+                "note": "代表帧显示从车内向前方城市道路拍摄的视角，可见方向盘、后视镜、中控台和城市街道。仅代表0.71秒抽帧，不代表完整动态画面。"
+              },
+              {
+                "sourceId": "source-05",
+                "locatorType": "time",
+                "start": 7.11,
+                "end": 7.11,
+                "note": "代表帧显示车内前视角，城市道路上有多辆车辆和一辆公共汽车，交通较为密集。仅代表7.11秒抽帧，不代表完整动态画面。"
+              },
+              {
+                "sourceId": "source-05",
+                "locatorType": "time",
+                "start": 13.51,
+                "end": 13.51,
+                "note": "代表帧显示车内前视角、城市街道、前方车辆及交通信号灯。仅代表13.51秒抽帧，不代表完整动态画面。"
+              },
+              {
+                "sourceId": "source-05",
+                "locatorType": "time",
+                "start": 14.17,
+                "end": 14.17,
+                "note": "代表帧显示车内前视角、拥堵车辆、交通信号灯和仪表区域；仪表区域可见数字样式显示，但无法据此证明其含义。仅代表14.17秒抽帧，不代表完整动态画面。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 78
+          },
+          {
+            "id": "source-05-fact-05",
+            "statement": "7.11秒代表帧中可见建筑立面上的“SCHNIPPERS”字样。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "time",
+                "start": 7.11,
+                "end": 7.11,
+                "note": "7.11秒代表帧右侧建筑立面可见“SCHNIPPERS”字样；这只是画面中的可见文字，来源未证明其与网约车平台或订单有关。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 35
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-05-uncertainty-01",
+            "statement": "无法由该素材证明车辆在完整视频中持续拥堵、发生绕路，或乘客价格在行程中保持不变；这些内容需要其他来源或原创信息层支持。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "file",
+                "note": "来源声明未检测到可转录音轨，且只提供0.71s、7.11s、13.51s、14.17s代表帧。来源未提供可证明完整动态过程的时间范围。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 90
+          },
+          {
+            "id": "source-05-uncertainty-02",
+            "statement": "无法由该素材证明画面中的车辆属于中国网约车、滴滴或任何特定平台，也无法证明画面中的可见数字是车费、订单金额或结算金额。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "file",
+                "note": "代表帧仅展示普通车内和城市道路画面，未显示可识别的网约车平台界面、订单页面、乘客端价格或司机端结算信息；来源未提供可证明平台身份的文字或界面定位。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 88
+          },
+          {
+            "id": "source-05-uncertainty-03",
+            "statement": "无法仅凭代表帧判断车辆是否实际移动、停车时长、路线是否改变，或交通密度是否在整个素材中持续。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "time",
+                "start": 0.71,
+                "end": 14.17,
+                "note": "可用的画面证据仅限四个抽帧时间点，未覆盖代表帧之间的动态内容。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "medium",
+            "reviewPriority": "supporting",
+            "briefRelevance": 72
+          },
+          {
+            "id": "source-05-uncertainty-no-audio",
+            "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "file",
+                "note": "本地媒体流探测"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          },
+          {
+            "id": "source-05-uncertainty-frame-sampling",
+            "statement": "视频画面理解使用 4 张自适应代表帧（时长覆盖 + 1 张镜头变化帧），未逐帧覆盖完整动态过程。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-05",
+                "locatorType": "time",
+                "start": 0.7111271000000001,
+                "end": 0.7111271000000001,
+                "note": "0.71s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-05",
+                "locatorType": "time",
+                "start": 7.111271,
+                "end": 7.111271,
+                "note": "7.11s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-05",
+                "locatorType": "time",
+                "start": 13.5114149,
+                "end": 13.5114149,
+                "note": "13.51s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-05",
+                "locatorType": "time",
+                "start": 14.172542,
+                "end": 14.172542,
+                "note": "14.17s 镜头变化代表帧"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-06",
+      "label": "Pexels：司机在城市道路驾驶",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.pexels.com/video/4607376/",
+      "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/pexels-4607376-1786937737839.mp4",
+      "originalFileName": "pexels-4607376.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 75097340,
+      "importedAt": "2026-08-17T03:35:37.874Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Pexels License 允许免费使用、修改和社交媒体发布，不强制署名；仅作交通情境或机制示意，不暗示人物或品牌背书，不冒充滴滴或中国具体订单。计划窗口需继续逐帧确认原生无平台水印。",
+      "contentHash": "52296f17319e6a5b973384d470fbb2e48deff75a540610645dbd6154c533cd7b",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "52296f17319e6a5b973384d470fbb2e48deff75a540610645dbd6154c533cd7b",
+        "startedAt": "2026-08-17T03:39:32.233Z",
+        "completedAt": "2026-08-17T03:40:55.384Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "五个代表帧均为横向车内近景。画面主体是一名坐在驾驶位、系安全带并穿白色上衣的驾驶员；方向盘位于画面下方前景，车内座椅、后排区域、车窗和安全带可见。驾驶员在不同时间点呈现面向前方、握住方向盘或抬手等姿态。画面未显示可辨认的平台界面、价格数字、品牌标识或水印。；本地理解覆盖 1.92s、8.32s、19.24s、28.40s、36.56s 代表帧。",
+        "hierarchicalSummary": "该视频没有检测到可转录音轨，仅提供了1.92秒、8.32秒、19.24秒、28.40秒和36.56秒的代表帧。代表帧均为车内驾驶场景，主要可见一名驾驶员、方向盘、安全带、座椅和车窗。来源无法证明网约车、一口价、堵车、绕路、供需变化、平台结算或风险分配等脚本核心主张。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-06-fact-01",
+            "statement": "1.92秒代表帧显示车内驾驶场景，驾驶员位于方向盘后方并系着安全带。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 1.92,
+                "end": 1.92,
+                "note": "1.92秒代表帧：车内前排视角，一名系着安全带、穿白色上衣的人坐在驾驶位，方向盘位于前景。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 58
+          },
+          {
+            "id": "source-06-fact-02",
+            "statement": "8.32秒和28.40秒代表帧均显示同一车内驾驶构图，驾驶员与方向盘是主要视觉主体。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 8.32,
+                "end": 8.32,
+                "note": "8.32秒代表帧：驾驶员手部位于方向盘右侧，车内座椅和车窗可见。"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 28.4,
+                "end": 28.4,
+                "note": "28.40秒代表帧：驾驶员仍位于车内驾驶位，方向盘占据画面下方前景。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 55
+          },
+          {
+            "id": "source-06-fact-03",
+            "statement": "代表帧中驾驶员呈现了不同姿态，包括面向前方、握住方向盘和抬手等动作。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 36.56,
+                "end": 36.56,
+                "note": "36.56秒代表帧：驾驶员抬起一只手，车内方向盘和安全带仍可见。"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 19.24,
+                "end": 19.24,
+                "note": "19.24秒代表帧：驾驶员面向镜头方向，车内背景和方向盘可见。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 42
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-06-uncertainty-01",
+            "statement": "来源无法证明视频中的车辆属于网约车，也无法证明其中包含一口价订单、乘客端固定价格或司机端结算信息。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 1.92,
+                "end": 1.92,
+                "note": "来源明确说明未检测到可转录音轨，且仅提供代表帧。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-06-uncertainty-02",
+            "statement": "来源无法证明完整视频中存在堵车、绕路、价格保持不变、平台补贴、供需偏差或订单接受机制等情节；这些内容不能仅凭代表帧写成事实。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 36.56,
+                "end": 36.56,
+                "note": "来源仅列出五个代表帧，明确要求不得声称代表帧覆盖未抽帧的完整动态画面。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-06-uncertainty-no-audio",
+            "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "file",
+                "note": "本地媒体流探测"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          },
+          {
+            "id": "source-06-uncertainty-frame-sampling",
+            "statement": "视频画面理解使用 5 张自适应代表帧（时长覆盖 + 2 张镜头变化帧），未逐帧覆盖完整动态过程。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 1.924,
+                "end": 1.924,
+                "note": "1.92s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 8.319999999999999,
+                "end": 8.319999999999999,
+                "note": "8.32s 镜头变化代表帧"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 19.24,
+                "end": 19.24,
+                "note": "19.24s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 28.400000000000002,
+                "end": 28.400000000000002,
+                "note": "28.40s 镜头变化代表帧"
+              },
+              {
+                "sourceId": "source-06",
+                "locatorType": "time",
+                "start": 36.556,
+                "end": 36.556,
+                "note": "36.56s 时长覆盖代表帧"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-07",
+      "label": "Pexels：后排乘客在车内打电话",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.pexels.com/video/4607435/",
+      "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/pexels-4607435-1786937737887.mp4",
+      "originalFileName": "pexels-4607435.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 56297539,
+      "importedAt": "2026-08-17T03:35:37.914Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Pexels License 允许免费使用、修改和社交媒体发布，不强制署名；仅作交通情境或机制示意，不暗示人物或品牌背书，不冒充滴滴或中国具体订单。计划窗口需继续逐帧确认原生无平台水印。",
+      "contentHash": "f2719cf2c3dc32bda93aaa5edddf8fb7205bd4e3a9814a36e6e680717bd1155b",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "f2719cf2c3dc32bda93aaa5edddf8fb7205bd4e3a9814a36e6e680717bd1155b",
+        "startedAt": "2026-08-17T03:40:55.598Z",
+        "completedAt": "2026-08-17T03:41:54.645Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "横版写实城市乘车画面。镜头位于车内，主体是一名坐在后排、面向车窗的乘客；其穿深色上衣，部分代表帧中手持手机靠近耳边。车内可见座椅、车门、车窗和顶部扶手。窗外背景为明亮的城市建筑、道路及其他车辆，背景多数虚化。整体光线偏自然、对比度较低，画面没有可辨识的平台界面或价格文字。；本地理解覆盖 1.49s、7.92s、14.90s、28.31s 代表帧。",
+        "hierarchicalSummary": "该视频没有检测到可转录音轨，仅提供 1.49、7.92、14.90 和 28.31 秒四个代表帧。代表帧均显示车内后排乘客及车窗外的城市道路或车辆，其中 1.49、7.92 和 14.90 秒显示乘客手持手机通话，28.31 秒显示窗外前方车辆。素材可支持“乘车中的通话和道路交通”这一视觉表达，但来源没有提供一口价、预估价格、固定价格、司机结算、平台机制、堵车持续时长或风险分配等内容主张。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-07-fact-01",
+            "statement": "画面展示车内后排乘客正在打电话，窗外有车辆。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "time",
+                "start": 1.49,
+                "end": 1.49,
+                "note": "1.49 秒代表帧：车内一名乘客手持手机靠近耳边，车窗外可见其他车辆。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 58
+          },
+          {
+            "id": "source-07-fact-02",
+            "statement": "多个代表帧持续呈现车内乘客通话与城市道路环境，可用于表现乘车过程。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "time",
+                "start": 7.92,
+                "end": 7.92,
+                "note": "7.92 秒代表帧：乘客仍坐在车内并手持手机，窗外可见车辆。"
+              },
+              {
+                "sourceId": "source-07",
+                "locatorType": "time",
+                "start": 14.9,
+                "end": 14.9,
+                "note": "14.90 秒代表帧：乘客仍在车内通话，车窗外可见城市建筑和道路环境。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 62
+          },
+          {
+            "id": "source-07-fact-03",
+            "statement": "28.31 秒代表帧中，车窗外可见前方车辆，适合用作交通场景素材；该帧本身不能证明完整视频动态上存在持续堵车。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "time",
+                "start": 28.31,
+                "end": 28.31,
+                "note": "28.31 秒代表帧：车窗外近距离可见前方车辆，画面具有交通拥堵或跟车行驶的视觉线索，但仅能确认该时刻的画面。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 72
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-07-uncertainty-01",
+            "statement": "无法由来源证明该视频表现的是持续堵车，也无法证明乘客端价格在行程中保持不变。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "time",
+                "start": 1.49,
+                "end": 28.31,
+                "note": "来源只提供四个代表帧，且未检测到可转录音轨；不能据此证明完整视频中持续堵车、绕路或乘客价格不变。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 86
+          },
+          {
+            "id": "source-07-uncertainty-02",
+            "statement": "无法由来源证明这是中国网约车、特定平台或真实一口价订单，也无法证明固定价格如何形成及偏差由谁承担。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "time",
+                "start": 1.49,
+                "end": 28.31,
+                "note": "代表帧只显示车内乘客、手机和道路环境，没有价格页面、订单信息、平台标识、司机结算或供需信息。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 88
+          },
+          {
+            "id": "source-07-uncertainty-03",
+            "statement": "无法确认乘客在未抽帧时段是否持续通话、是否发生其他动作，或车辆是否持续行驶。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "time",
+                "start": 1.49,
+                "end": 28.31,
+                "note": "仅能依据离散代表帧确认这些时刻的可见内容，不能推断未抽帧时段的连续动作或画面变化。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 40
+          },
+          {
+            "id": "source-07-uncertainty-no-audio",
+            "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "file",
+                "note": "本地媒体流探测"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          },
+          {
+            "id": "source-07-uncertainty-frame-sampling",
+            "statement": "视频画面理解使用 4 张自适应代表帧（时长覆盖 + 1 张镜头变化帧），未逐帧覆盖完整动态过程。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-07",
+                "locatorType": "time",
+                "start": 1.4900000000000002,
+                "end": 1.4900000000000002,
+                "note": "1.49s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-07",
+                "locatorType": "time",
+                "start": 7.92,
+                "end": 7.92,
+                "note": "7.92s 镜头变化代表帧"
+              },
+              {
+                "sourceId": "source-07",
+                "locatorType": "time",
+                "start": 14.9,
+                "end": 14.9,
+                "note": "14.90s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-07",
+                "locatorType": "time",
+                "start": 28.31,
+                "end": 28.31,
+                "note": "28.31s 时长覆盖代表帧"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-08",
+      "label": "Pexels：司机与后排乘客的车内情境",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.pexels.com/video/4612297/",
+      "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/pexels-4612297-1786937737929.mp4",
+      "originalFileName": "pexels-4612297.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 48686066,
+      "importedAt": "2026-08-17T03:35:37.951Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Pexels License 允许免费使用、修改和社交媒体发布，不强制署名；仅作交通情境或机制示意，不暗示人物或品牌背书，不冒充滴滴或中国具体订单。计划窗口需继续逐帧确认原生无平台水印。",
+      "contentHash": "12d07545857fcb6ea9c602348c43a3f867418c80e53894b7527c97ebfe1c564e",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "12d07545857fcb6ea9c602348c43a3f867418c80e53894b7527c97ebfe1c564e",
+        "startedAt": "2026-08-17T03:41:54.858Z",
+        "completedAt": "2026-08-17T03:43:17.600Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "横版车内视角，画面主体是一名前排驾驶位置上的人员，佩戴黑色口罩并穿白衬衫；方向盘在下方前景，车辆座椅、车窗和安全带清晰可见。1.27 秒代表帧中后排出现一名模糊人物，4.04 秒代表帧中后方人物靠近或拿着黑色物体。整体光线以车窗自然光为主，前景方向盘和部分车内区域较暗。；本地理解覆盖 1.27s、4.04s、12.70s、24.13s 代表帧。",
+        "hierarchicalSummary": "该来源仅提供车内情境视频的本地转录状态和四个代表帧。代表帧集中展示前排人员、方向盘、车辆座椅与安全带，1.27 秒帧还可见后排模糊人物。来源没有可转录音轨，也没有显示价格、订单、路线、堵车或平台界面信息。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-08-fact-01",
+            "statement": "1.27 秒代表帧显示车内前排人员、方向盘以及后排模糊人物。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "time",
+                "start": 1.27,
+                "end": 1.27,
+                "note": "1.27 秒代表帧：车内前排可见一名戴黑色口罩、穿白衬衫的人，画面下方可见方向盘；后排或中后景有一名模糊人物。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 78
+          },
+          {
+            "id": "source-08-fact-02",
+            "statement": "4.04 秒代表帧仍为车内视角，画面包含前排人员、方向盘和后方人物，但未出现可识别的网约车平台界面或订单文字。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "time",
+                "start": 4.04,
+                "end": 4.04,
+                "note": "4.04 秒代表帧：前排人员仍在方向盘后方，后方人物手持或靠近一个黑色物体；画面未显示可识别的平台界面或订单信息。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 62
+          },
+          {
+            "id": "source-08-fact-03",
+            "statement": "12.70 秒和 24.13 秒代表帧均显示车内前排人员与方向盘，构图保持为车内驾驶情境。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "time",
+                "start": 12.7,
+                "end": 12.7,
+                "note": "12.70 秒代表帧：前排人员低头，方向盘位于前景；车辆内部座椅、安全带和车窗可见。"
+              },
+              {
+                "sourceId": "source-08",
+                "locatorType": "time",
+                "start": 24.13,
+                "end": 24.13,
+                "note": "24.13 秒代表帧：前排人员面向镜头，手部在方向盘前景附近；车辆内部结构和安全带可见。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 67
+          },
+          {
+            "id": "source-08-fact-04",
+            "statement": "给定视频来源未检测到可转录音轨。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "file",
+                "note": "给定来源明确说明“未检测到可转录音轨”，因此没有可引用的对白或旁白文本。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 35
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-08-uncertainty-01",
+            "statement": "无法由该来源证明车辆正在经历堵车、绕路，或画面对应网约车订单；若用于这些脚本结论，需人工确认或补充来源。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "time",
+                "start": 1.27,
+                "end": 1.27,
+                "note": "该时间点仅为代表帧，不能证明完整动态画面中的车辆正在堵车、绕路或处于网约车订单中。"
+              },
+              {
+                "sourceId": "source-08",
+                "locatorType": "time",
+                "start": 24.13,
+                "end": 24.13,
+                "note": "来源只提供 1.27、4.04、12.70、24.13 秒代表帧，并明确限制不得据此声称覆盖未抽帧的完整动态画面。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 92
+          },
+          {
+            "id": "source-08-uncertainty-02",
+            "statement": "该来源无法证明乘客端固定价格如何形成，也无法证明偏差风险由司机、平台补贴或订单接受机制中的哪一环节吸收。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "time",
+                "start": 1.27,
+                "end": 1.27,
+                "note": "代表帧可见车内人员，但没有价格、支付、司机结算或平台机制的文字或界面证据。"
+              },
+              {
+                "sourceId": "source-08",
+                "locatorType": "time",
+                "start": 24.13,
+                "end": 24.13,
+                "note": "四个代表帧均未显示一口价金额、预估价格、供需状态或订单接受信息。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 88
+          },
+          {
+            "id": "source-08-uncertainty-no-audio",
+            "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "file",
+                "note": "本地媒体流探测"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          },
+          {
+            "id": "source-08-uncertainty-frame-sampling",
+            "statement": "视频画面理解使用 4 张自适应代表帧（时长覆盖 + 1 张镜头变化帧），未逐帧覆盖完整动态过程。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-08",
+                "locatorType": "time",
+                "start": 1.27,
+                "end": 1.27,
+                "note": "1.27s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-08",
+                "locatorType": "time",
+                "start": 4.04,
+                "end": 4.04,
+                "note": "4.04s 镜头变化代表帧"
+              },
+              {
+                "sourceId": "source-08",
+                "locatorType": "time",
+                "start": 12.7,
+                "end": 12.7,
+                "note": "12.70s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-08",
+                "locatorType": "time",
+                "start": 24.13,
+                "end": 24.13,
+                "note": "24.13s 时长覆盖代表帧"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-09",
+      "label": "Pexels：司机与乘客交流",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.pexels.com/video/4612657/",
+      "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/pexels-4612657-1786937737967.mp4",
+      "originalFileName": "pexels-4612657.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 49917754,
+      "importedAt": "2026-08-17T03:35:37.990Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Pexels License 允许免费使用、修改和社交媒体发布，不强制署名；仅作交通情境或机制示意，不暗示人物或品牌背书，不冒充滴滴或中国具体订单。计划窗口需继续逐帧确认原生无平台水印。",
+      "contentHash": "bfbdffaa6e8dfb0ed509556a413e94539822212c4454edb24f9e750e17502edc",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "bfbdffaa6e8dfb0ed509556a413e94539822212c4454edb24f9e750e17502edc",
+        "startedAt": "2026-08-17T03:43:17.826Z",
+        "completedAt": "2026-08-17T03:44:39.457Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "未检测到可转录音轨。代表帧时间点：1.17秒、11.66秒、16.72秒、22.15秒。",
+        "visualDescription": "横版车内画面。镜头从车内朝前拍摄，前景是一名驾驶员，后排有一名乘客。画面整体为偏冷的低饱和色调，车内座椅、车窗、方向盘和安全带可见。人物均佩戴黑色口罩；部分代表帧中乘客手持白色小物件或耳部佩戴白色物件。画面未显示可辨认的平台界面、价格数字、按钮、导航或水印。以上描述仅适用于提供的代表帧，不代表未抽帧部分的完整动态内容。；本地理解覆盖 1.17s、11.66s、16.72s、22.15s 代表帧。",
+        "hierarchicalSummary": "该视频没有可检测到的音轨转录。提供的四个代表帧均展示汽车内部的驾驶员和后排乘客，驾驶员位于前景并与方向盘同框，乘客位于后排；人物佩戴口罩，部分帧中乘客可见白色随身物件。来源未提供一口价、预估价格、固定价格、堵车、绕路、供需、平台补贴、司机结算或风险分配等内容主张。",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "source-09-fact-01",
+            "statement": "代表帧显示一辆汽车内部的驾驶员与后排乘客。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "time",
+                "start": 1.17,
+                "end": 1.17,
+                "note": "1.17秒代表帧：画面位于汽车内部，从车内可见驾驶员和后排乘客。"
+              },
+              {
+                "sourceId": "source-09",
+                "locatorType": "time",
+                "start": 11.66,
+                "end": 11.66,
+                "note": "11.66秒代表帧：同一车内构图，驾驶员位于前景，乘客位于后排。"
+              },
+              {
+                "sourceId": "source-09",
+                "locatorType": "time",
+                "start": 16.72,
+                "end": 16.72,
+                "note": "16.72秒代表帧：驾驶员手部位于方向盘附近，乘客位于后排。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 48
+          },
+          {
+            "id": "source-09-fact-02",
+            "statement": "代表帧中可见驾驶员和乘客佩戴口罩；部分帧中乘客还可见白色随身物件。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "time",
+                "start": 1.17,
+                "end": 1.17,
+                "note": "1.17秒代表帧中，驾驶员和乘客均佩戴黑色口罩；乘客手中拿着一个白色小物件。"
+              },
+              {
+                "sourceId": "source-09",
+                "locatorType": "time",
+                "start": 11.66,
+                "end": 11.66,
+                "note": "11.66秒代表帧中，乘客耳部可见白色耳机或类似物件，手部靠近口罩。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 35
+          },
+          {
+            "id": "source-09-fact-03",
+            "statement": "代表帧提供了车内驾驶场景和司机、乘客同框的交流感素材，但仅能证明抽帧时刻的画面内容。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "time",
+                "start": 22.15,
+                "end": 22.15,
+                "note": "22.15秒代表帧中，驾驶员面向镜头方向，手部位于方向盘前方；后排乘客处于背景。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 40
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-09-uncertainty-01",
+            "statement": "无法根据该来源证明“一口价固定的是乘客下单时看到的价格，而不是整趟行程的真实成本”，也无法证明堵车、绕路或供需偏差由司机时间、平台补贴或订单接受机制吸收。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "time",
+                "start": 1.17,
+                "end": 22.15,
+                "note": "所提供材料仅包含无转录音轨和四个代表帧，未出现关于网约车一口价如何形成、乘客端固定价格、司机端结算或偏差风险分配的可验证陈述。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 100
+          },
+          {
+            "id": "source-09-uncertainty-02",
+            "statement": "不能据此把画面中的车辆、人物或场景识别为中国网约车、滴滴、特定平台订单，也不能据此判断人物正在讨论价格、路线或订单。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "time",
+                "start": 1.17,
+                "end": 22.15,
+                "note": "代表帧只能显示抽帧时刻的车内画面；未提供完整动态内容，且没有音轨转录。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 88
+          },
+          {
+            "id": "source-09-uncertainty-no-audio",
+            "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "file",
+                "note": "本地媒体流探测"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          },
+          {
+            "id": "source-09-uncertainty-frame-sampling",
+            "statement": "视频画面理解使用 4 张自适应代表帧（时长覆盖 + 1 张镜头变化帧），未逐帧覆盖完整动态过程。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-09",
+                "locatorType": "time",
+                "start": 1.1660000000000001,
+                "end": 1.1660000000000001,
+                "note": "1.17s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-09",
+                "locatorType": "time",
+                "start": 11.66,
+                "end": 11.66,
+                "note": "11.66s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-09",
+                "locatorType": "time",
+                "start": 16.720000000000002,
+                "end": 16.720000000000002,
+                "note": "16.72s 镜头变化代表帧"
+              },
+              {
+                "sourceId": "source-09",
+                "locatorType": "time",
+                "start": 22.154,
+                "end": 22.154,
+                "note": "22.15s 时长覆盖代表帧"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-10",
+      "label": "Pexels：乘客上出租车",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.pexels.com/video/5834175/",
+      "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/pexels-5834175-1786937738001.mp4",
+      "originalFileName": "pexels-5834175.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 21796237,
+      "importedAt": "2026-08-17T03:35:38.012Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "Pexels License 允许免费使用、修改和社交媒体发布，不强制署名；仅作交通情境或机制示意，不暗示人物或品牌背书，不冒充滴滴或中国具体订单。计划窗口需继续逐帧确认原生无平台水印。",
+      "contentHash": "e9f0499197a7c574fdd692d260b3e4c1adea2c9a02874681a7ee274836c943a2",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "e9f0499197a7c574fdd692d260b3e4c1adea2c9a02874681a7ee274836c943a2",
+        "startedAt": "2026-08-17T03:44:39.657Z",
+        "completedAt": "2026-08-17T03:46:10.407Z",
+        "error": "",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "[0.00-8.15] 中文字幕:CinthCovid\n\nCinthCovid",
+        "visualDescription": "横版画面以黄色车辆驾驶位为主体。多帧中，一名戴眼镜的男性坐在驾驶位，穿灰色条纹上衣；车窗、车门和后视区域较暗，车窗及车身表面可见水滴。0.41秒和7.74秒主要呈现驾驶位男性；2.24秒显示右侧车门打开；4.07秒右侧出现另一名靠近车辆的人。画面未显示可确认的平台名称、订单价格或应用界面。；本地理解覆盖 0.41s、2.24s、4.07s、7.74s 代表帧。",
+        "hierarchicalSummary": "source-10是一段约8.15秒的视频，提供的代表帧均显示黄色车辆及其驾驶位内的男性，部分帧还显示另一名靠近车辆或位于后排的人。车辆和车窗上可见雨水痕迹。转录仅识别出“CinthCovid”。来源没有提供价格、堵车、绕路、供需、平台结算或订单接受机制的可证明内容。",
+        "transcript": [
+          {
+            "id": "source-10-segment-001",
+            "sourceId": "source-10",
+            "start": 0,
+            "end": 8.148333,
+            "text": "中文字幕:CinthCovid"
+          }
+        ],
+        "facts": [
+          {
+            "id": "source-10-fact-01",
+            "statement": "代表帧显示黄色车辆、驾驶位男性、乘客或车外人员，以及雨水痕迹。该视频未显示可识别的网约车平台界面或订单价格信息。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "start": 0.41,
+                "end": 0.41,
+                "note": "0.41秒代表帧：画面为一名戴眼镜的男性坐在黄色车辆驾驶位内；车窗和车门表面可见水滴。"
+              },
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "start": 2.24,
+                "end": 2.24,
+                "note": "2.24秒代表帧：黄色车辆驾驶位内的男性仍在画面中，右侧车门处于打开状态，车窗可见水滴。"
+              },
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "start": 4.07,
+                "end": 4.07,
+                "note": "4.07秒代表帧：驾驶位男性在画面左侧，右侧可见一名靠近车辆的人；车辆为黄色，车窗可见水滴。"
+              },
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "start": 7.74,
+                "end": 7.74,
+                "note": "7.74秒代表帧：黄色车辆驾驶位内有一名戴眼镜的男性，后方座位区域还能看到另一人的部分脸部；车窗可见水滴。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 78
+          },
+          {
+            "id": "source-10-fact-02",
+            "statement": "视频转录文本为“CinthCovid”。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "time",
+                "start": 0,
+                "end": 8.15,
+                "note": "本地转录在0.00至8.15秒仅识别出“CinthCovid”。"
+              }
+            ],
+            "reviewStatus": "proposed",
+            "kind": "visual_metadata",
+            "reviewPriority": "reference",
+            "briefRelevance": 5
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "source-10-uncertainty-01",
+            "statement": "来源无法证明视频表现了网约车一口价、乘客价格固定、堵车、绕路或任何价格风险分配机制。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "start": 0.41,
+                "end": 7.74,
+                "note": "代表帧仅覆盖0.41、2.24、4.07和7.74秒，无法据此证明完整视频动态中是否存在堵车、绕路或乘客价格不变。"
+              },
+              {
+                "sourceId": "source-10",
+                "locatorType": "time",
+                "start": 0,
+                "end": 8.15,
+                "note": "转录只包含“CinthCovid”，没有价格、订单或平台机制信息。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 95
+          },
+          {
+            "id": "source-10-uncertainty-02",
+            "statement": "无法由来源确认该车辆是中国网约车、出租车，或属于任何特定平台；不应将其标注为滴滴、中国网约车订单或平台界面。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "image",
+                "start": 0.41,
+                "end": 7.74,
+                "note": "画面可见黄色车辆和驾驶位人员，但未提供车辆所属平台、国家或具体服务类型的可验证标识。"
+              },
+              {
+                "sourceId": "source-10",
+                "locatorType": "time",
+                "start": 0,
+                "end": 8.15,
+                "note": "转录内容未指明平台、车辆类型、订单或地点。"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 88
+          },
+          {
+            "id": "source-10-uncertainty-frame-sampling",
+            "statement": "视频画面理解使用 4 张自适应代表帧（时长覆盖），未逐帧覆盖完整动态过程。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-10",
+                "locatorType": "time",
+                "start": 0.40741665,
+                "end": 0.40741665,
+                "note": "0.41s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-10",
+                "locatorType": "time",
+                "start": 2.240791575,
+                "end": 2.240791575,
+                "note": "2.24s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-10",
+                "locatorType": "time",
+                "start": 4.0741665,
+                "end": 4.0741665,
+                "note": "4.07s 时长覆盖代表帧"
+              },
+              {
+                "sourceId": "source-10",
+                "locatorType": "time",
+                "start": 7.740916349999999,
+                "end": 7.740916349999999,
+                "note": "7.74s 时长覆盖代表帧"
+              }
+            ],
+            "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+            "riskLevel": "low",
+            "reviewPriority": "reference",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [
+      {
+        "id": "source-04-segment-001",
+        "sourceId": "source-04",
+        "start": 0,
+        "end": 30,
+        "text": "中文字幕:YK"
+      },
+      {
+        "id": "source-04-segment-002",
+        "sourceId": "source-04",
+        "start": 30,
+        "end": 40.148333,
+        "text": "中文字幕:YK"
+      },
+      {
+        "id": "source-10-segment-001",
+        "sourceId": "source-10",
+        "start": 0,
+        "end": 8.148333,
+        "text": "中文字幕:CinthCovid"
+      }
+    ],
+    "facts": [
+      {
+        "id": "source-01-fact-01",
+        "statement": "一口价规则中的发单价格就是乘客支付的价格。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 7,
+            "end": 7,
+            "lineStart": 7,
+            "lineEnd": 7,
+            "note": "规则说明明确写明发单价格即乘客支付价格。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 98
+      },
+      {
+        "id": "source-01-fact-02",
+        "statement": "一口价金额以预估打表价格为基础，并结合起点、终点当时的供需情况综合计算。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 7,
+            "end": 7,
+            "lineStart": 7,
+            "lineEnd": 7,
+            "note": "规则说明称金额以预估打表价格为基础，并结合起点、终点当时的供需情况综合计算。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 91
+      },
+      {
+        "id": "source-01-fact-03",
+        "statement": "发单价格不包含过路费、高速费等另行费用。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 7,
+            "end": 7,
+            "lineStart": 7,
+            "lineEnd": 7,
+            "note": "规则说明列明过路费、高速费等属于不包含在发单价格中的另行费用。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 76
+      },
+      {
+        "id": "source-01-fact-04",
+        "statement": "乘客更改目的地时，需要与司机另行协商。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 7,
+            "end": 7,
+            "lineStart": 7,
+            "lineEnd": 7,
+            "note": "规则说明要求乘客更改目的地时与司机另行协商。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 68
+      },
+      {
+        "id": "source-01-fact-05",
+        "statement": "该来源能够证明乘客端价格的形成和锁定，但不能据此推出司机端结算或平台侧的具体分配机制。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 9,
+            "end": 9,
+            "lineStart": 9,
+            "lineEnd": 9,
+            "note": "来源明确规定了证据边界：可证明乘客端价格如何形成并被锁定。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 87
+      },
+      {
+        "id": "source-02-fact-01",
+        "statement": "报道将一口价描述为系统依据行程信息给出固定结算价，乘客预估车费即最终实付。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 8,
+            "end": 8,
+            "lineStart": 8,
+            "lineEnd": 8,
+            "note": "来源摘录直接描述一口价的形成方式和乘客支付结果。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 96
+      },
+      {
+        "id": "source-02-fact-02",
+        "statement": "不同平台对司机的收入计算方式不同，报道举例包括固定收入和按里程计费。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 8,
+            "end": 8,
+            "lineStart": 8,
+            "lineEnd": 8,
+            "note": "来源明确说明不同平台对司机的收入计算方式存在差异。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 92
+      },
+      {
+        "id": "source-02-fact-03",
+        "statement": "拥堵会增加司机的时间成本。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 8,
+            "end": 8,
+            "lineStart": 8,
+            "lineEnd": 8,
+            "note": "来源明确指出拥堵会增加司机的时间成本。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 94
+      },
+      {
+        "id": "source-02-fact-04",
+        "statement": "报道归纳的一口价乘客侧好处包括价格透明、减少绕路担忧，平台侧好处包括提高调度效率。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 8,
+            "end": 8,
+            "lineStart": 8,
+            "lineEnd": 8,
+            "note": "来源归纳了乘客侧和平台侧的相关好处。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 78
+      },
+      {
+        "id": "source-02-fact-05",
+        "statement": "报道的治理结论是需要更合理的定价与利益分配，而不是简单证明应当取消一口价。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 10,
+            "end": 10,
+            "lineStart": 10,
+            "lineEnd": 10,
+            "note": "来源说明其治理结论指向更合理的定价与利益分配。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 72
+      },
+      {
+        "id": "source-02-fact-06",
+        "statement": "该来源是中文 Markdown 文本摘录，包含标题、来源主体“新华社”、发布日期、原始 URL 和核验日期；未提供可供描述的图片、视频或界面视觉元素。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 1,
+            "end": 6,
+            "lineStart": 1,
+            "lineEnd": 6,
+            "note": "文本来源以标题、来源主体、发布日期、原始 URL 和核验日期组成，未提供图片或视频视觉内容。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 20
+      },
+      {
+        "id": "source-03-fact-01",
+        "statement": "Pexels许可允许素材免费使用、修改并发布到社交媒体，不强制署名。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "line",
+            "start": 6,
+            "end": 6,
+            "lineStart": 6,
+            "lineEnd": 6,
+            "note": "Pexels许可允许免费使用、修改并发布到社交媒体，且不强制署名。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 92
+      },
+      {
+        "id": "source-03-fact-02",
+        "statement": "使用Pexels素材时，不得暗示画面中的人物、品牌或组织为视频观点背书。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "line",
+            "start": 6,
+            "end": 6,
+            "lineStart": 6,
+            "lineEnd": 6,
+            "note": "不得暗示画面中的人物、品牌或组织为视频观点背书。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 88
+      },
+      {
+        "id": "source-03-fact-03",
+        "statement": "本项目中的Pexels视频只能作为城市交通、司机、乘客和出租车行程的情境或机制示意，不得冒充滴滴、中国网约车平台界面、某个真实订单或新华社报道中的具体人物与事件。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "line",
+            "start": 8,
+            "end": 8,
+            "lineStart": 8,
+            "lineEnd": 8,
+            "note": "项目规定Pexels视频只能作为城市交通、司机、乘客和出租车行程的情境或机制示意，不能冒充特定平台、真实订单或具体报道事件。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 95
+      },
+      {
+        "id": "source-03-fact-04",
+        "statement": "正式选用的Pexels素材窗口必须原生无平台和账号水印。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "line",
+            "start": 8,
+            "end": 8,
+            "lineStart": 8,
+            "lineEnd": 8,
+            "note": "正式选用的素材窗口必须原生无平台和账号水印。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 86
+      },
+      {
+        "id": "source-03-fact-05",
+        "statement": "Pexels素材不得原样转售。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "line",
+            "start": 6,
+            "end": 6,
+            "lineStart": 6,
+            "lineEnd": 6,
+            "note": "Pexels素材不得原样转售。"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 72
+      },
+      {
+        "id": "source-04-fact-01",
+        "statement": "代表帧显示一辆橙色出租车停靠或行驶在城市街道路口附近，背景有行人和交通设施。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "start": 2.01,
+            "end": 2.01,
+            "note": "视频2.01秒代表帧：画面前景为橙色出租车，车身可见“EISEN KOTSU”和“TAXI”字样；背景有行人、路口和交通信号灯。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 78
+      },
+      {
+        "id": "source-04-fact-02",
+        "statement": "代表帧显示橙色出租车在有行人聚集的城市道路上行驶或准备行驶。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "start": 13.77,
+            "end": 13.77,
+            "note": "视频13.77秒代表帧：橙色出租车位于道路中，车尾灯亮起，背景有等候或聚集的行人。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 70
+      },
+      {
+        "id": "source-04-fact-03",
+        "statement": "代表帧呈现了多辆不同颜色的传统出租车、城市道路和路边行人，但未显示网约车应用、订单页面或平台界面。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "start": 20.07,
+            "end": 20.07,
+            "note": "视频20.07秒代表帧：画面中可见道路、行人以及一辆从画面右侧经过的橙色出租车；前景下方另有绿色车辆部分入镜。"
+          },
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "start": 35.25,
+            "end": 35.25,
+            "note": "视频35.25秒代表帧：绿色出租车占据前景，画面呈现明显失焦效果，背景可见其他车辆和行人。"
+          },
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "start": 38.14,
+            "end": 38.14,
+            "note": "视频38.14秒代表帧：绿色出租车近景，背景有行人和城市街道环境。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 72
+      },
+      {
+        "id": "source-04-fact-04",
+        "statement": "给定转录在0.00至30.00秒仅记录“中文字幕:YK”，无法从中提取关于出租车价格、堵车、绕路、供需或风险分配的具体内容。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "time",
+            "start": 0,
+            "end": 30,
+            "note": "该时间段的本地转录仅记录为“中文字幕:YK”，没有可辨识的叙述内容。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-04-fact-05",
+        "statement": "给定转录在30.00至40.15秒仅记录“中文字幕:YK”，无法从中提取关于固定价格形成、司机结算或平台机制的具体内容。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "time",
+            "start": 30,
+            "end": 40.15,
+            "note": "该时间段的本地转录仅记录为“中文字幕:YK”，没有可辨识的叙述内容。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "claim",
+        "reviewPriority": "supporting",
+        "briefRelevance": 45
+      },
+      {
+        "id": "source-05-fact-01",
+        "statement": "Creative Brief 将核心信息定义为：乘客端看到的固定价格不等同于整趟行程的真实成本，偏离预估产生的风险可能由司机时间、平台补贴和订单是否被接受等环节吸收。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "file",
+            "note": "Creative Brief 的 coreMessage：一口价固定的是乘客下单时看到的价格，不是整趟行程的真实成本；时间、路线和供需偏离预估时，偏差仍可能由司机时间、平台补贴和订单是否被接受等环节吸收。来源未提供可用行号。"
+          }
+        ],
+        "reviewStatus": "rejected",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 96
+      },
+      {
+        "id": "source-05-fact-02",
+        "statement": "来源明确禁止将一口价差额概括为一定全部由司机承担，也没有提供可用于证明具体算法权重、抽成或补贴比例的信息。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "file",
+            "note": "Creative Brief 的 prohibitedMaterial：不得声称一口价差额一定全部由司机承担；不得虚构平台算法权重、抽成或补贴比例。来源未提供可用行号。"
+          }
+        ],
+        "reviewStatus": "rejected",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 94
+      },
+      {
+        "id": "source-05-fact-03",
+        "statement": "Creative Brief 要求前十五秒以“堵车但乘客价格不变”的反常体验建立问题，并随后解释固定价格如何重新分配偏差风险。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "file",
+            "note": "Creative Brief 的 objective 与 opening direction：前十五秒用堵车但乘客价格不变的反常体验建立问题，随后解释固定价格如何重新分配偏差风险。来源未提供可用行号。"
+          }
+        ],
+        "reviewStatus": "rejected",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 93
+      },
+      {
+        "id": "source-05-fact-04",
+        "statement": "视频代表帧均呈现车内前视角的城市道路场景；7.11秒和13.51秒代表帧可见较密集的车辆，14.17秒代表帧可见前方车辆与交通信号灯。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "time",
+            "start": 0.71,
+            "end": 0.71,
+            "note": "代表帧显示从车内向前方城市道路拍摄的视角，可见方向盘、后视镜、中控台和城市街道。仅代表0.71秒抽帧，不代表完整动态画面。"
+          },
+          {
+            "sourceId": "source-05",
+            "locatorType": "time",
+            "start": 7.11,
+            "end": 7.11,
+            "note": "代表帧显示车内前视角，城市道路上有多辆车辆和一辆公共汽车，交通较为密集。仅代表7.11秒抽帧，不代表完整动态画面。"
+          },
+          {
+            "sourceId": "source-05",
+            "locatorType": "time",
+            "start": 13.51,
+            "end": 13.51,
+            "note": "代表帧显示车内前视角、城市街道、前方车辆及交通信号灯。仅代表13.51秒抽帧，不代表完整动态画面。"
+          },
+          {
+            "sourceId": "source-05",
+            "locatorType": "time",
+            "start": 14.17,
+            "end": 14.17,
+            "note": "代表帧显示车内前视角、拥堵车辆、交通信号灯和仪表区域；仪表区域可见数字样式显示，但无法据此证明其含义。仅代表14.17秒抽帧，不代表完整动态画面。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 78
+      },
+      {
+        "id": "source-05-fact-05",
+        "statement": "7.11秒代表帧中可见建筑立面上的“SCHNIPPERS”字样。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "time",
+            "start": 7.11,
+            "end": 7.11,
+            "note": "7.11秒代表帧右侧建筑立面可见“SCHNIPPERS”字样；这只是画面中的可见文字，来源未证明其与网约车平台或订单有关。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 35
+      },
+      {
+        "id": "source-06-fact-01",
+        "statement": "1.92秒代表帧显示车内驾驶场景，驾驶员位于方向盘后方并系着安全带。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 1.92,
+            "end": 1.92,
+            "note": "1.92秒代表帧：车内前排视角，一名系着安全带、穿白色上衣的人坐在驾驶位，方向盘位于前景。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 58
+      },
+      {
+        "id": "source-06-fact-02",
+        "statement": "8.32秒和28.40秒代表帧均显示同一车内驾驶构图，驾驶员与方向盘是主要视觉主体。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 8.32,
+            "end": 8.32,
+            "note": "8.32秒代表帧：驾驶员手部位于方向盘右侧，车内座椅和车窗可见。"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 28.4,
+            "end": 28.4,
+            "note": "28.40秒代表帧：驾驶员仍位于车内驾驶位，方向盘占据画面下方前景。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 55
+      },
+      {
+        "id": "source-06-fact-03",
+        "statement": "代表帧中驾驶员呈现了不同姿态，包括面向前方、握住方向盘和抬手等动作。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 36.56,
+            "end": 36.56,
+            "note": "36.56秒代表帧：驾驶员抬起一只手，车内方向盘和安全带仍可见。"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 19.24,
+            "end": 19.24,
+            "note": "19.24秒代表帧：驾驶员面向镜头方向，车内背景和方向盘可见。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 42
+      },
+      {
+        "id": "source-07-fact-01",
+        "statement": "画面展示车内后排乘客正在打电话，窗外有车辆。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "time",
+            "start": 1.49,
+            "end": 1.49,
+            "note": "1.49 秒代表帧：车内一名乘客手持手机靠近耳边，车窗外可见其他车辆。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 58
+      },
+      {
+        "id": "source-07-fact-02",
+        "statement": "多个代表帧持续呈现车内乘客通话与城市道路环境，可用于表现乘车过程。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "time",
+            "start": 7.92,
+            "end": 7.92,
+            "note": "7.92 秒代表帧：乘客仍坐在车内并手持手机，窗外可见车辆。"
+          },
+          {
+            "sourceId": "source-07",
+            "locatorType": "time",
+            "start": 14.9,
+            "end": 14.9,
+            "note": "14.90 秒代表帧：乘客仍在车内通话，车窗外可见城市建筑和道路环境。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 62
+      },
+      {
+        "id": "source-07-fact-03",
+        "statement": "28.31 秒代表帧中，车窗外可见前方车辆，适合用作交通场景素材；该帧本身不能证明完整视频动态上存在持续堵车。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "time",
+            "start": 28.31,
+            "end": 28.31,
+            "note": "28.31 秒代表帧：车窗外近距离可见前方车辆，画面具有交通拥堵或跟车行驶的视觉线索，但仅能确认该时刻的画面。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 72
+      },
+      {
+        "id": "source-08-fact-01",
+        "statement": "1.27 秒代表帧显示车内前排人员、方向盘以及后排模糊人物。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "time",
+            "start": 1.27,
+            "end": 1.27,
+            "note": "1.27 秒代表帧：车内前排可见一名戴黑色口罩、穿白衬衫的人，画面下方可见方向盘；后排或中后景有一名模糊人物。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 78
+      },
+      {
+        "id": "source-08-fact-02",
+        "statement": "4.04 秒代表帧仍为车内视角，画面包含前排人员、方向盘和后方人物，但未出现可识别的网约车平台界面或订单文字。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "time",
+            "start": 4.04,
+            "end": 4.04,
+            "note": "4.04 秒代表帧：前排人员仍在方向盘后方，后方人物手持或靠近一个黑色物体；画面未显示可识别的平台界面或订单信息。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 62
+      },
+      {
+        "id": "source-08-fact-03",
+        "statement": "12.70 秒和 24.13 秒代表帧均显示车内前排人员与方向盘，构图保持为车内驾驶情境。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "time",
+            "start": 12.7,
+            "end": 12.7,
+            "note": "12.70 秒代表帧：前排人员低头，方向盘位于前景；车辆内部座椅、安全带和车窗可见。"
+          },
+          {
+            "sourceId": "source-08",
+            "locatorType": "time",
+            "start": 24.13,
+            "end": 24.13,
+            "note": "24.13 秒代表帧：前排人员面向镜头，手部在方向盘前景附近；车辆内部结构和安全带可见。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 67
+      },
+      {
+        "id": "source-08-fact-04",
+        "statement": "给定视频来源未检测到可转录音轨。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "file",
+            "note": "给定来源明确说明“未检测到可转录音轨”，因此没有可引用的对白或旁白文本。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 35
+      },
+      {
+        "id": "source-09-fact-01",
+        "statement": "代表帧显示一辆汽车内部的驾驶员与后排乘客。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "time",
+            "start": 1.17,
+            "end": 1.17,
+            "note": "1.17秒代表帧：画面位于汽车内部，从车内可见驾驶员和后排乘客。"
+          },
+          {
+            "sourceId": "source-09",
+            "locatorType": "time",
+            "start": 11.66,
+            "end": 11.66,
+            "note": "11.66秒代表帧：同一车内构图，驾驶员位于前景，乘客位于后排。"
+          },
+          {
+            "sourceId": "source-09",
+            "locatorType": "time",
+            "start": 16.72,
+            "end": 16.72,
+            "note": "16.72秒代表帧：驾驶员手部位于方向盘附近，乘客位于后排。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 48
+      },
+      {
+        "id": "source-09-fact-02",
+        "statement": "代表帧中可见驾驶员和乘客佩戴口罩；部分帧中乘客还可见白色随身物件。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "time",
+            "start": 1.17,
+            "end": 1.17,
+            "note": "1.17秒代表帧中，驾驶员和乘客均佩戴黑色口罩；乘客手中拿着一个白色小物件。"
+          },
+          {
+            "sourceId": "source-09",
+            "locatorType": "time",
+            "start": 11.66,
+            "end": 11.66,
+            "note": "11.66秒代表帧中，乘客耳部可见白色耳机或类似物件，手部靠近口罩。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 35
+      },
+      {
+        "id": "source-09-fact-03",
+        "statement": "代表帧提供了车内驾驶场景和司机、乘客同框的交流感素材，但仅能证明抽帧时刻的画面内容。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "time",
+            "start": 22.15,
+            "end": 22.15,
+            "note": "22.15秒代表帧中，驾驶员面向镜头方向，手部位于方向盘前方；后排乘客处于背景。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 40
+      },
+      {
+        "id": "source-10-fact-01",
+        "statement": "代表帧显示黄色车辆、驾驶位男性、乘客或车外人员，以及雨水痕迹。该视频未显示可识别的网约车平台界面或订单价格信息。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "start": 0.41,
+            "end": 0.41,
+            "note": "0.41秒代表帧：画面为一名戴眼镜的男性坐在黄色车辆驾驶位内；车窗和车门表面可见水滴。"
+          },
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "start": 2.24,
+            "end": 2.24,
+            "note": "2.24秒代表帧：黄色车辆驾驶位内的男性仍在画面中，右侧车门处于打开状态，车窗可见水滴。"
+          },
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "start": 4.07,
+            "end": 4.07,
+            "note": "4.07秒代表帧：驾驶位男性在画面左侧，右侧可见一名靠近车辆的人；车辆为黄色，车窗可见水滴。"
+          },
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "start": 7.74,
+            "end": 7.74,
+            "note": "7.74秒代表帧：黄色车辆驾驶位内有一名戴眼镜的男性，后方座位区域还能看到另一人的部分脸部；车窗可见水滴。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 78
+      },
+      {
+        "id": "source-10-fact-02",
+        "statement": "视频转录文本为“CinthCovid”。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "time",
+            "start": 0,
+            "end": 8.15,
+            "note": "本地转录在0.00至8.15秒仅识别出“CinthCovid”。"
+          }
+        ],
+        "reviewStatus": "proposed",
+        "kind": "visual_metadata",
+        "reviewPriority": "reference",
+        "briefRelevance": 5
+      }
+    ],
+    "uncertainties": [
+      {
+        "id": "source-01-uncertainty-01",
+        "statement": "无法由该来源确认司机端具体如何结算，也无法确认平台抽成或补贴比例。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 9,
+            "end": 9,
+            "lineStart": 9,
+            "lineEnd": 9,
+            "note": "来源明确表示不能证明司机端结算公式、平台抽成或补贴比例。"
+          }
+        ],
+        "resolution": "旁白不写司机端结算公式、平台抽成或补贴比例；只说明官方规则未披露这些环节。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-01-uncertainty-02",
+        "statement": "无法由该来源证明一口价与实际行程成本之间的偏差一定全部由司机承担。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 9,
+            "end": 9,
+            "lineStart": 9,
+            "lineEnd": 9,
+            "note": "来源明确表示不能证明预估偏差一定全部由司机承担。"
+          }
+        ],
+        "resolution": "禁止断言偏差全部由司机承担；司机时间成本只引用新华社调查，平台补贴和订单接受率仅作为明确标注的分析可能性。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 98
+      },
+      {
+        "id": "source-01-uncertainty-03",
+        "statement": "无法由该来源确认起点、终点当时的供需情况具体如何影响价格，也无法确认各因素的权重。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "start": 7,
+            "end": 7,
+            "lineStart": 7,
+            "lineEnd": 7,
+            "note": "来源仅说明价格结合当时供需情况综合计算，未提供供需因素的具体算法权重或调整方式。"
+          }
+        ],
+        "resolution": "不讨论供需因素的具体权重，只引用滴滴公开规则中“结合供需综合计算”的范围。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 82
+      },
+      {
+        "id": "source-02-uncertainty-01",
+        "statement": "来源无法证明所有平台、所有订单都按同一种方式结算；具体平台的算法、收入计算和利益分配机制仍需分别核验。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 10,
+            "end": 10,
+            "lineStart": 10,
+            "lineEnd": 10,
+            "note": "来源明确限定证据边界，禁止把调查内容外推为所有平台和订单。"
+          }
+        ],
+        "resolution": "所有司机侧结论明确归因新华社，并使用“不同平台结算方式不同”，不外推到所有平台与订单。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-02-uncertainty-02",
+        "statement": "来源无法证明一口价与实际成本之间的差额一定全部由司机承担，也无法证明平台补贴、司机收入或订单接受机制分别吸收多少偏差。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 8,
+            "end": 8,
+            "lineStart": 8,
+            "lineEnd": 8,
+            "note": "来源只说明拥堵增加司机时间成本，并列举不同收入计算方式，未说明偏差由谁、以何种比例承担。"
+          },
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "start": 10,
+            "end": 10,
+            "lineStart": 10,
+            "lineEnd": 10,
+            "note": "来源将治理问题表述为定价与利益分配问题，未给出具体承担比例。"
+          }
+        ],
+        "resolution": "不分配差额比例；只确认拥堵增加时间成本，其他吸收路径明确标为未披露或分析推断。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 98
+      },
+      {
+        "id": "source-03-uncertainty-01",
+        "statement": "当前来源无法证明任何具体Pexels视频窗口已经满足无平台和账号水印的要求，正式选材时仍需逐条核验。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "line",
+            "start": 8,
+            "end": 8,
+            "lineStart": 8,
+            "lineEnd": 8,
+            "note": "来源规定正式选用窗口必须原生无平台和账号水印，但未提供具体素材窗口或逐条核验结果。"
+          }
+        ],
+        "resolution": "每个计划窗口继续做 start/mid/end 水印与误认风险复核；素材只作交通情境，不承担一口价事实。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 78
+      },
+      {
+        "id": "source-03-uncertainty-02",
+        "statement": "当前来源无法证明任何具体画面不会被观众误认为滴滴、中国网约车平台界面、某个真实订单或具体报道事件。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "line",
+            "start": 8,
+            "end": 8,
+            "lineStart": 8,
+            "lineEnd": 8,
+            "note": "来源仅规定不得冒充特定平台界面、真实订单或具体报道事件，未提供具体画面可否使用的判断。"
+          }
+        ],
+        "resolution": "每个计划窗口继续做 start/mid/end 水印与误认风险复核；素材只作交通情境，不承担一口价事实。",
+        "riskLevel": "low",
+        "reviewPriority": "supporting",
+        "briefRelevance": 60
+      },
+      {
+        "id": "source-04-uncertainty-01",
+        "statement": "该来源无法证明网约车一口价如何从预估价格变成乘客端固定价格，也无法证明堵车、绕路和供需偏差由哪些环节吸收。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "time",
+            "start": 0,
+            "end": 40.15,
+            "note": "给定本地转录在0.00至40.15秒均未提供可辨识的事实叙述，仅显示“中文字幕:YK”。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-04-uncertainty-02",
+        "statement": "不能据此将画面中的日本城市出租车素材表述为滴滴、中国网约车订单或任何特定平台的界面与业务流程。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "image",
+            "start": 2.01,
+            "end": 38.14,
+            "note": "代表帧仅显示传统出租车和城市街景；未见网约车平台名称、订单界面或可识别的中国网约车场景。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 95
+      },
+      {
+        "id": "source-04-uncertainty-frame-sampling",
+        "statement": "视频画面理解使用 5 张自适应代表帧（时长覆盖 + 2 张镜头变化帧），未逐帧覆盖完整动态过程。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-04",
+            "locatorType": "time",
+            "start": 2.00741665,
+            "end": 2.00741665,
+            "note": "2.01s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-04",
+            "locatorType": "time",
+            "start": 13.767,
+            "end": 13.767,
+            "note": "13.77s 镜头变化代表帧"
+          },
+          {
+            "sourceId": "source-04",
+            "locatorType": "time",
+            "start": 20.0741665,
+            "end": 20.0741665,
+            "note": "20.07s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-04",
+            "locatorType": "time",
+            "start": 35.254999999999995,
+            "end": 35.254999999999995,
+            "note": "35.25s 镜头变化代表帧"
+          },
+          {
+            "sourceId": "source-04",
+            "locatorType": "time",
+            "start": 38.14091635,
+            "end": 38.14091635,
+            "note": "38.14s 时长覆盖代表帧"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      },
+      {
+        "id": "source-05-uncertainty-01",
+        "statement": "无法由该素材证明车辆在完整视频中持续拥堵、发生绕路，或乘客价格在行程中保持不变；这些内容需要其他来源或原创信息层支持。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "file",
+            "note": "来源声明未检测到可转录音轨，且只提供0.71s、7.11s、13.51s、14.17s代表帧。来源未提供可证明完整动态过程的时间范围。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 90
+      },
+      {
+        "id": "source-05-uncertainty-02",
+        "statement": "无法由该素材证明画面中的车辆属于中国网约车、滴滴或任何特定平台，也无法证明画面中的可见数字是车费、订单金额或结算金额。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "file",
+            "note": "代表帧仅展示普通车内和城市道路画面，未显示可识别的网约车平台界面、订单页面、乘客端价格或司机端结算信息；来源未提供可证明平台身份的文字或界面定位。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 88
+      },
+      {
+        "id": "source-05-uncertainty-03",
+        "statement": "无法仅凭代表帧判断车辆是否实际移动、停车时长、路线是否改变，或交通密度是否在整个素材中持续。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "time",
+            "start": 0.71,
+            "end": 14.17,
+            "note": "可用的画面证据仅限四个抽帧时间点，未覆盖代表帧之间的动态内容。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "medium",
+        "reviewPriority": "supporting",
+        "briefRelevance": 72
+      },
+      {
+        "id": "source-05-uncertainty-no-audio",
+        "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "file",
+            "note": "本地媒体流探测"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      },
+      {
+        "id": "source-05-uncertainty-frame-sampling",
+        "statement": "视频画面理解使用 4 张自适应代表帧（时长覆盖 + 1 张镜头变化帧），未逐帧覆盖完整动态过程。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-05",
+            "locatorType": "time",
+            "start": 0.7111271000000001,
+            "end": 0.7111271000000001,
+            "note": "0.71s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-05",
+            "locatorType": "time",
+            "start": 7.111271,
+            "end": 7.111271,
+            "note": "7.11s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-05",
+            "locatorType": "time",
+            "start": 13.5114149,
+            "end": 13.5114149,
+            "note": "13.51s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-05",
+            "locatorType": "time",
+            "start": 14.172542,
+            "end": 14.172542,
+            "note": "14.17s 镜头变化代表帧"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      },
+      {
+        "id": "source-06-uncertainty-01",
+        "statement": "来源无法证明视频中的车辆属于网约车，也无法证明其中包含一口价订单、乘客端固定价格或司机端结算信息。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 1.92,
+            "end": 1.92,
+            "note": "来源明确说明未检测到可转录音轨，且仅提供代表帧。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-06-uncertainty-02",
+        "statement": "来源无法证明完整视频中存在堵车、绕路、价格保持不变、平台补贴、供需偏差或订单接受机制等情节；这些内容不能仅凭代表帧写成事实。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 36.56,
+            "end": 36.56,
+            "note": "来源仅列出五个代表帧，明确要求不得声称代表帧覆盖未抽帧的完整动态画面。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-06-uncertainty-no-audio",
+        "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "file",
+            "note": "本地媒体流探测"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      },
+      {
+        "id": "source-06-uncertainty-frame-sampling",
+        "statement": "视频画面理解使用 5 张自适应代表帧（时长覆盖 + 2 张镜头变化帧），未逐帧覆盖完整动态过程。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 1.924,
+            "end": 1.924,
+            "note": "1.92s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 8.319999999999999,
+            "end": 8.319999999999999,
+            "note": "8.32s 镜头变化代表帧"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 19.24,
+            "end": 19.24,
+            "note": "19.24s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 28.400000000000002,
+            "end": 28.400000000000002,
+            "note": "28.40s 镜头变化代表帧"
+          },
+          {
+            "sourceId": "source-06",
+            "locatorType": "time",
+            "start": 36.556,
+            "end": 36.556,
+            "note": "36.56s 时长覆盖代表帧"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      },
+      {
+        "id": "source-07-uncertainty-01",
+        "statement": "无法由来源证明该视频表现的是持续堵车，也无法证明乘客端价格在行程中保持不变。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "time",
+            "start": 1.49,
+            "end": 28.31,
+            "note": "来源只提供四个代表帧，且未检测到可转录音轨；不能据此证明完整视频中持续堵车、绕路或乘客价格不变。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 86
+      },
+      {
+        "id": "source-07-uncertainty-02",
+        "statement": "无法由来源证明这是中国网约车、特定平台或真实一口价订单，也无法证明固定价格如何形成及偏差由谁承担。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "time",
+            "start": 1.49,
+            "end": 28.31,
+            "note": "代表帧只显示车内乘客、手机和道路环境，没有价格页面、订单信息、平台标识、司机结算或供需信息。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 88
+      },
+      {
+        "id": "source-07-uncertainty-03",
+        "statement": "无法确认乘客在未抽帧时段是否持续通话、是否发生其他动作，或车辆是否持续行驶。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "time",
+            "start": 1.49,
+            "end": 28.31,
+            "note": "仅能依据离散代表帧确认这些时刻的可见内容，不能推断未抽帧时段的连续动作或画面变化。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 40
+      },
+      {
+        "id": "source-07-uncertainty-no-audio",
+        "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "file",
+            "note": "本地媒体流探测"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      },
+      {
+        "id": "source-07-uncertainty-frame-sampling",
+        "statement": "视频画面理解使用 4 张自适应代表帧（时长覆盖 + 1 张镜头变化帧），未逐帧覆盖完整动态过程。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-07",
+            "locatorType": "time",
+            "start": 1.4900000000000002,
+            "end": 1.4900000000000002,
+            "note": "1.49s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-07",
+            "locatorType": "time",
+            "start": 7.92,
+            "end": 7.92,
+            "note": "7.92s 镜头变化代表帧"
+          },
+          {
+            "sourceId": "source-07",
+            "locatorType": "time",
+            "start": 14.9,
+            "end": 14.9,
+            "note": "14.90s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-07",
+            "locatorType": "time",
+            "start": 28.31,
+            "end": 28.31,
+            "note": "28.31s 时长覆盖代表帧"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      },
+      {
+        "id": "source-08-uncertainty-01",
+        "statement": "无法由该来源证明车辆正在经历堵车、绕路，或画面对应网约车订单；若用于这些脚本结论，需人工确认或补充来源。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "time",
+            "start": 1.27,
+            "end": 1.27,
+            "note": "该时间点仅为代表帧，不能证明完整动态画面中的车辆正在堵车、绕路或处于网约车订单中。"
+          },
+          {
+            "sourceId": "source-08",
+            "locatorType": "time",
+            "start": 24.13,
+            "end": 24.13,
+            "note": "来源只提供 1.27、4.04、12.70、24.13 秒代表帧，并明确限制不得据此声称覆盖未抽帧的完整动态画面。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 92
+      },
+      {
+        "id": "source-08-uncertainty-02",
+        "statement": "该来源无法证明乘客端固定价格如何形成，也无法证明偏差风险由司机、平台补贴或订单接受机制中的哪一环节吸收。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "time",
+            "start": 1.27,
+            "end": 1.27,
+            "note": "代表帧可见车内人员，但没有价格、支付、司机结算或平台机制的文字或界面证据。"
+          },
+          {
+            "sourceId": "source-08",
+            "locatorType": "time",
+            "start": 24.13,
+            "end": 24.13,
+            "note": "四个代表帧均未显示一口价金额、预估价格、供需状态或订单接受信息。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 88
+      },
+      {
+        "id": "source-08-uncertainty-no-audio",
+        "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "file",
+            "note": "本地媒体流探测"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      },
+      {
+        "id": "source-08-uncertainty-frame-sampling",
+        "statement": "视频画面理解使用 4 张自适应代表帧（时长覆盖 + 1 张镜头变化帧），未逐帧覆盖完整动态过程。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-08",
+            "locatorType": "time",
+            "start": 1.27,
+            "end": 1.27,
+            "note": "1.27s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-08",
+            "locatorType": "time",
+            "start": 4.04,
+            "end": 4.04,
+            "note": "4.04s 镜头变化代表帧"
+          },
+          {
+            "sourceId": "source-08",
+            "locatorType": "time",
+            "start": 12.7,
+            "end": 12.7,
+            "note": "12.70s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-08",
+            "locatorType": "time",
+            "start": 24.13,
+            "end": 24.13,
+            "note": "24.13s 时长覆盖代表帧"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      },
+      {
+        "id": "source-09-uncertainty-01",
+        "statement": "无法根据该来源证明“一口价固定的是乘客下单时看到的价格，而不是整趟行程的真实成本”，也无法证明堵车、绕路或供需偏差由司机时间、平台补贴或订单接受机制吸收。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "time",
+            "start": 1.17,
+            "end": 22.15,
+            "note": "所提供材料仅包含无转录音轨和四个代表帧，未出现关于网约车一口价如何形成、乘客端固定价格、司机端结算或偏差风险分配的可验证陈述。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 100
+      },
+      {
+        "id": "source-09-uncertainty-02",
+        "statement": "不能据此把画面中的车辆、人物或场景识别为中国网约车、滴滴、特定平台订单，也不能据此判断人物正在讨论价格、路线或订单。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "time",
+            "start": 1.17,
+            "end": 22.15,
+            "note": "代表帧只能显示抽帧时刻的车内画面；未提供完整动态内容，且没有音轨转录。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 88
+      },
+      {
+        "id": "source-09-uncertainty-no-audio",
+        "statement": "该视频未检测到可转录音轨，资料理解仅覆盖代表帧，未覆盖完整动态画面。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "file",
+            "note": "本地媒体流探测"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      },
+      {
+        "id": "source-09-uncertainty-frame-sampling",
+        "statement": "视频画面理解使用 4 张自适应代表帧（时长覆盖 + 1 张镜头变化帧），未逐帧覆盖完整动态过程。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-09",
+            "locatorType": "time",
+            "start": 1.1660000000000001,
+            "end": 1.1660000000000001,
+            "note": "1.17s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-09",
+            "locatorType": "time",
+            "start": 11.66,
+            "end": 11.66,
+            "note": "11.66s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-09",
+            "locatorType": "time",
+            "start": 16.720000000000002,
+            "end": 16.720000000000002,
+            "note": "16.72s 镜头变化代表帧"
+          },
+          {
+            "sourceId": "source-09",
+            "locatorType": "time",
+            "start": 22.154,
+            "end": 22.154,
+            "note": "22.15s 时长覆盖代表帧"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      },
+      {
+        "id": "source-10-uncertainty-01",
+        "statement": "来源无法证明视频表现了网约车一口价、乘客价格固定、堵车、绕路或任何价格风险分配机制。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "start": 0.41,
+            "end": 7.74,
+            "note": "代表帧仅覆盖0.41、2.24、4.07和7.74秒，无法据此证明完整视频动态中是否存在堵车、绕路或乘客价格不变。"
+          },
+          {
+            "sourceId": "source-10",
+            "locatorType": "time",
+            "start": 0,
+            "end": 8.15,
+            "note": "转录只包含“CinthCovid”，没有价格、订单或平台机制信息。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 95
+      },
+      {
+        "id": "source-10-uncertainty-02",
+        "statement": "无法由来源确认该车辆是中国网约车、出租车，或属于任何特定平台；不应将其标注为滴滴、中国网约车订单或平台界面。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "image",
+            "start": 0.41,
+            "end": 7.74,
+            "note": "画面可见黄色车辆和驾驶位人员，但未提供车辆所属平台、国家或具体服务类型的可验证标识。"
+          },
+          {
+            "sourceId": "source-10",
+            "locatorType": "time",
+            "start": 0,
+            "end": 8.15,
+            "note": "转录内容未指明平台、车辆类型、订单或地点。"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 88
+      },
+      {
+        "id": "source-10-uncertainty-frame-sampling",
+        "statement": "视频画面理解使用 4 张自适应代表帧（时长覆盖），未逐帧覆盖完整动态过程。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-10",
+            "locatorType": "time",
+            "start": 0.40741665,
+            "end": 0.40741665,
+            "note": "0.41s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-10",
+            "locatorType": "time",
+            "start": 2.240791575,
+            "end": 2.240791575,
+            "note": "2.24s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-10",
+            "locatorType": "time",
+            "start": 4.0741665,
+            "end": 4.0741665,
+            "note": "4.07s 时长覆盖代表帧"
+          },
+          {
+            "sourceId": "source-10",
+            "locatorType": "time",
+            "start": 7.740916349999999,
+            "end": 7.740916349999999,
+            "note": "7.74s 时长覆盖代表帧"
+          }
+        ],
+        "resolution": "该视频仅作国外出租车、司机、乘客或交通情境，不证明网约车平台、具体订单、价格、拥堵持续性或风险分配；机制事实只由 source-01 和 source-02 承担。",
+        "riskLevel": "low",
+        "reviewPriority": "reference",
+        "briefRelevance": 10
+      }
+    ]
+  },
+  "narrative": {
+    "status": "completed",
+    "error": "",
+    "activeVersionId": "narrative-01",
+    "versions": [
+      {
+        "id": "narrative-01",
+        "generatedAt": "2026-08-17T06:36:52.363Z",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "fc77be11227d6a7015e30e43ba2a003d97c5fdb51f0c7701d750b0e9a1b0cdb0",
+        "conclusion": "一口价锁定的是乘客端支付价格，不是整趟行程的真实成本；司机端结算和偏差分配必须另看具体规则。",
+        "hook": "堵车了，乘客看到的一口价却没变。那这段多出来的时间和成本，真的消失了吗？没有。它只是没有继续加到乘客端。",
+        "outline": [
+          "用堵车但价格不变提出反常问题",
+          "区分乘客端支付价格与真实行程成本",
+          "解释预估打表价和当时供需如何参与形成一口价",
+          "说明价格锁定后实际行程仍可能偏离预估",
+          "明确归因新华社说明司机时间成本和结算差异",
+          "限定平台补贴和订单接受只是可能环节，不给出比例",
+          "用锁价不等于锁成本收束"
+        ],
+        "voiceoverScript": "堵车了，乘客看到的一口价却没变。那这段多出来的时间和成本，真的消失了吗？没有。它只是没有继续加到乘客端。先分清一件事：一口价固定的是下单时看到的支付价格，不是整趟行程的真实成本。滴滴公开规则说，这个价格以预估打表价为基础，再结合起点、终点当时的供需综合计算。具体权重没有公开。价格算出来以后，乘客端先被锁定。后来堵车、路线偏离预估，乘客也不会立刻收到一个新的报价。但成本没有被锁定。新华社调查指出，拥堵会增加司机的时间成本；不同平台，对司机的收入计算方式，也并不一样。至于偏差怎么处理，可能涉及司机时间、平台补贴和订单是否被接受。但公开来源没说各自承担多少，更不能断言全由司机承担。一口价锁住乘客端价格，不等于锁住整趟成本。司机端结算，要另看规则。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "line",
+            "lineStart": 7,
+            "lineEnd": 7,
+            "note": "滴滴规则支持乘客端发单价格即支付价格，并说明价格形成基础。"
+          },
+          {
+            "sourceId": "source-02",
+            "locatorType": "line",
+            "lineStart": 8,
+            "lineEnd": 8,
+            "note": "新华社支持固定结算价、最终实付及拥堵增加司机时间成本。"
+          },
+          {
+            "sourceId": "source-03",
+            "locatorType": "line",
+            "lineStart": 8,
+            "lineEnd": 8,
+            "note": "Pexels素材仅作国外交通情境，不能冒充平台订单或人物背书。"
+          }
+        ],
+        "uncertainties": [
+          "source-01-uncertainty-01：司机端具体结算、平台抽成和补贴比例无法由现有规则确认，需人工核验。",
+          "source-01-uncertainty-02：不能证明一口价与实际成本的偏差全部由司机承担。",
+          "source-01-uncertainty-03：供需因素的具体算法权重和调整方式未披露。",
+          "source-02-uncertainty-01：不能把新华社调查外推为所有平台、所有订单的统一结算方式。",
+          "source-02-uncertainty-02：平台补贴、司机收入和订单接受机制分别吸收多少偏差，来源未说明。",
+          "source-03-uncertainty-01：正式选用的Pexels窗口仍需逐条复核无水印及误认风险。"
+        ]
+      }
+    ],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "pendingChapters": [],
+    "generatedAt": "2026-08-17T06:36:52.363Z",
+    "model": "gpt-5.6-luna",
+    "promptVersion": "videobrief-2026-07-11-v1"
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-5.6-luna",
+    "transcriptionModel": "whisper.cpp:large-v3-turbo-q5_0",
+    "promptVersion": "videobrief-2026-07-11-v1",
+    "calls": [
+      {
+        "id": "ai-call-001",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "acea2752583bd1da35a093a8c824bb7cefa4b61258182931cee38ca050dc5150",
+        "startedAt": "2026-08-17T03:36:20.192Z",
+        "completedAt": "2026-08-17T03:36:44.489Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-002",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "32a62dbc0023451f5e32b79ebdfaa39b0dfc413f7e1a03d16356451b4c1e0067",
+        "startedAt": "2026-08-17T03:36:44.685Z",
+        "completedAt": "2026-08-17T03:37:12.761Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-003",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "d4db6b4974e241fd0ce6fc8f90a5b3f155893563da7168c1a9ed65c067d3cf5a",
+        "startedAt": "2026-08-17T03:37:13.018Z",
+        "completedAt": "2026-08-17T03:37:37.155Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-004",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "e7934d45cc1bee51f03ca4a371f88647cea1f9d18f705ed5ce814c0ab90c8d4e",
+        "startedAt": "2026-08-17T03:37:37.362Z",
+        "completedAt": "2026-08-17T03:38:42.452Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-005",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "212f18a047453f5567f5898160638ed0faeaa36cb9a93f30f9812010d9d83f7c",
+        "startedAt": "2026-08-17T03:38:42.646Z",
+        "completedAt": "2026-08-17T03:39:32.007Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-006",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "4e771be8cce6ec5352d51a456faa83ae7bddabae4a18ad1d50f351d11996aa18",
+        "startedAt": "2026-08-17T03:39:32.233Z",
+        "completedAt": "2026-08-17T03:40:55.385Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-007",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "afba97944f7aa9fd35a801d56b5308e5c6f5b8d9d32768ff25ee3cbed7ad0811",
+        "startedAt": "2026-08-17T03:40:55.598Z",
+        "completedAt": "2026-08-17T03:41:54.647Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-008",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "936ce58957075f2474b661607b7432411459177e90367c4701aaa08688c41fa7",
+        "startedAt": "2026-08-17T03:41:54.858Z",
+        "completedAt": "2026-08-17T03:43:17.601Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-009",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "0c7eeba9d1f6e79ef9e914d197f69640a771154bacffc54452966d0125c5c16e",
+        "startedAt": "2026-08-17T03:43:17.826Z",
+        "completedAt": "2026-08-17T03:44:39.458Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-010",
+        "purpose": "source-analysis",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "549178fb39384132e3c070df0d72b905a88cfe33b053d0bbdf310855e3dd3c51",
+        "startedAt": "2026-08-17T03:44:39.657Z",
+        "completedAt": "2026-08-17T03:46:10.409Z",
+        "error": "",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-011",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "whisper.cpp:large-v3-turbo-q5_0",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "dd89610e294a254674c59c50ac79fdd98060ffdcd13bc2293970a031b9137d53",
+        "startedAt": "2026-08-17T03:46:10.613Z",
+        "completedAt": "2026-08-17T04:03:50.794Z",
+        "error": "Request timed out.",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-012",
+        "purpose": "source-analysis",
+        "status": "failed",
+        "model": "whisper.cpp:large-v3-turbo-q5_0",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "dd89610e294a254674c59c50ac79fdd98060ffdcd13bc2293970a031b9137d53",
+        "startedAt": "2026-08-17T06:19:50.865Z",
+        "completedAt": "2026-08-17T06:21:21.236Z",
+        "error": "Request timed out.",
+        "cacheHit": false
+      },
+      {
+        "id": "ai-call-013",
+        "purpose": "narrative-planning",
+        "status": "completed",
+        "model": "gpt-5.6-luna",
+        "promptVersion": "videobrief-2026-07-11-v1",
+        "inputHash": "fc77be11227d6a7015e30e43ba2a003d97c5fdb51f0c7701d750b0e9a1b0cdb0",
+        "startedAt": "2026-08-17T06:35:57.502Z",
+        "completedAt": "2026-08-17T06:36:52.366Z",
+        "error": "",
+        "cacheHit": false
+      }
+    ]
+  },
+  "editorial": {
+    "claim": "一口价锁定的是乘客端看到的支付价格，不等于整趟行程的真实成本。堵车带来的时间成本仍然存在，但司机端具体结算、平台抽成或补贴比例，现有来源无法确认。正式制作前需完成Pexels窗口的水印与误认风险复核，并进入人工确认Gate。",
+    "whyItMatters": "乘客得到价格确定性，但堵车、路线和供需偏离预估后，新增成本不会消失，理解这一点才能看清司机、乘客和平台为何发生冲突。",
+    "chinaContext": "滴滴官方规则只披露乘客端一口价如何形成；司机侧差异与时间成本使用新华社调查并明确归因。",
+    "riskNote": "不得断言差额全部由司机承担；不得虚构算法权重、抽成或补贴比例；国外出租车画面不得冒充中国网约车或具体平台订单。"
+  },
+  "platformCopy": {
+    "coverTitle": "一口价不变\n堵车成本去哪了？",
+    "title": "网约车一口价不变，堵车的成本去哪了？",
+    "description": "一口价锁定的是乘客下单时看到的价格，不是整趟行程的真实成本。堵车以后，多出来的时间和成本并没有消失；但司机端如何结算、平台补贴多少，也不能靠猜。\n\n本期依据滴滴公开一口价规则与新华社调查，拆开乘客端锁价和司机端结算这两件事。",
+    "hashtags": [
+      "网约车",
+      "一口价",
+      "出行",
+      "商业观察",
+      "日常有因"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "2026-08-17T03:23:28.555Z",
+    "updatedAt": "2026-08-17T06:52:18.079Z",
+    "researchReviewedAt": "2026-08-17T06:24:34.335Z",
+    "firstRenderCompletedAt": "2026-08-17T06:48:41.679Z",
+    "lastRenderCompletedAt": "2026-08-17T06:52:18.079Z",
+    "sourceImportCount": 11,
+    "manualSaveCount": 0,
+    "renderAttemptCount": 3,
+    "renderFailureCount": 1,
+    "lastRenderStartedAt": "2026-08-17T06:51:38.115Z",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "materialReview": {
+    "status": "approved",
+    "approvedSourceIds": [
+      "source-04",
+      "source-05",
+      "source-06",
+      "source-07",
+      "source-08",
+      "source-09",
+      "source-10"
+    ],
+    "reviewedAt": "2026-08-17T06:34:57.939Z"
+  },
+  "materialQualityReview": {
+    "schemaVersion": 1,
+    "status": "passed",
+    "reviewedAt": "2026-08-17T06:51:27.964Z",
+    "reviewer": "Codex",
+    "reviewScope": "7 个启用场景的不可变 Pexels 视频窗口；逐幕核对 source start/mid/end、1920x1080 帧和 390x219 移动等比缩放证据，并确认语义角色、连续动作、唯一性和平台水印。",
+    "sceneReviews": [
+      {
+        "sceneId": "scene-01",
+        "sceneFingerprint": "2bb4ff57c02f853935ba1c5c34a6f2b0a1de9c5b9b19b7e2fc00105ab7a8b2ba",
+        "candidate": {
+          "sourceId": "source-05",
+          "sourceStart": 0.3,
+          "sourceEnd": 12.73
+        },
+        "visibleClaim": "车内前视角持续显示城市道路、前方车辆和信号灯，交通密度在窗口中明显增加。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "直接建立堵车和等待的日常情境；乘客端价格是否锁定由滴滴规则与旁白承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "源画面不依赖细字；主体人物、车辆和道路动作在 1920x1080 与 390x219 等比缩放证据中均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "完整窗口从道路相对通畅过渡到前方车辆密集，持续有真实交通变化。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "画面运动来自真实车辆或人物动作，不添加程序化推拉，不循环、不慢放。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色；七幕使用七个不同来源。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "人工检查计划窗口 start/mid/end，未见平台角标、账号角标、下载工具标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白、标题、visualRequirement 与候选角色一致",
+          "候选绑定当前 sourceId/sourceStart/sourceEnd",
+          "窗口连续，不循环、不拉伸、不改速",
+          "研究来源与情境画面分工明确",
+          "原生无平台或账号水印"
+        ],
+        "evidence": [
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-01-start.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-01-mid.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-01-end.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-01-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-02",
+        "sceneFingerprint": "4d92b3e5453377738bbcb393c0e2d2d58d5487387b48aefb0bc1e414407613f8",
+        "candidate": {
+          "sourceId": "source-07",
+          "sourceStart": 0.5,
+          "sourceEnd": 9.05
+        },
+        "visibleClaim": "后排乘客在完整窗口内持续打电话，窗外车辆与道路环境可见。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "可见乘客与乘车环境，适合承载乘客端支付价视角；不把电话内容或车辆冒充具体订单。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "源画面不依赖细字；主体人物、车辆和道路动作在 1920x1080 与 390x219 等比缩放证据中均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "完整窗口连续覆盖乘客通话和视线变化，没有循环、停帧或跳切。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "画面运动来自真实车辆或人物动作，不添加程序化推拉，不循环、不慢放。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色；七幕使用七个不同来源。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "人工检查计划窗口 start/mid/end，未见平台角标、账号角标、下载工具标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白、标题、visualRequirement 与候选角色一致",
+          "候选绑定当前 sourceId/sourceStart/sourceEnd",
+          "窗口连续，不循环、不拉伸、不改速",
+          "研究来源与情境画面分工明确",
+          "原生无平台或账号水印"
+        ],
+        "evidence": [
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-02-start.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-02-mid.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-02-end.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-02-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-03",
+        "sceneFingerprint": "5ce6131b9f6c7f3b9a3d2a9d3f8bf886241edece87d38b83e1867ef77f5e2bba",
+        "candidate": {
+          "sourceId": "source-08",
+          "sourceStart": 0.5,
+          "sourceEnd": 12.17
+        },
+        "visibleClaim": "驾驶员和后排乘客持续同框，驾驶员观察道路并有自然手部动作。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "司乘同框承载下单估价涉及多方的机制情境；预估价和供需事实由滴滴规则及信息层承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "源画面不依赖细字；主体人物、车辆和道路动作在 1920x1080 与 390x219 等比缩放证据中均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "完整窗口内司乘位置稳定、动作连续，未复用或改速。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "画面运动来自真实车辆或人物动作，不添加程序化推拉，不循环、不慢放。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色；七幕使用七个不同来源。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "人工检查计划窗口 start/mid/end，未见平台角标、账号角标、下载工具标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白、标题、visualRequirement 与候选角色一致",
+          "候选绑定当前 sourceId/sourceStart/sourceEnd",
+          "窗口连续，不循环、不拉伸、不改速",
+          "研究来源与情境画面分工明确",
+          "原生无平台或账号水印"
+        ],
+        "evidence": [
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-03-start.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-03-mid.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-03-end.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-03-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-04",
+        "sceneFingerprint": "84b92462fd7aa23178216f325a833031c6f9d02fb32a669084944e03309b0ce9",
+        "candidate": {
+          "sourceId": "source-04",
+          "sourceStart": 3,
+          "sourceEnd": 13.3
+        },
+        "visibleClaim": "多辆城市出租车依次驶过路口，主车从停靠状态驶离画面。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "持续变化的街道路况可表现实际行程继续发展；不冒充中国网约车或平台重新报价过程。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "源画面不依赖细字；主体人物、车辆和道路动作在 1920x1080 与 390x219 等比缩放证据中均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "完整窗口覆盖主车停靠、起步和驶离，动作起止明确。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "画面运动来自真实车辆或人物动作，不添加程序化推拉，不循环、不慢放。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色；七幕使用七个不同来源。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "人工检查计划窗口 start/mid/end，未见平台角标、账号角标、下载工具标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白、标题、visualRequirement 与候选角色一致",
+          "候选绑定当前 sourceId/sourceStart/sourceEnd",
+          "窗口连续，不循环、不拉伸、不改速",
+          "研究来源与情境画面分工明确",
+          "原生无平台或账号水印"
+        ],
+        "evidence": [
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-04-start.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-04-mid.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-04-end.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-04-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-05",
+        "sceneFingerprint": "83b3d3b097495eed578b2a9bc033bf4a95042f3d2298be20cf8ecc82c54be539",
+        "candidate": {
+          "sourceId": "source-06",
+          "sourceStart": 2,
+          "sourceEnd": 14.08
+        },
+        "visibleClaim": "驾驶员持续操作方向盘、观察道路并做出自然手势。",
+        "evidenceRole": "operation-demo",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "连续驾驶动作直接表现司机投入时间；拥堵增加时间成本和结算差异由新华社来源承担。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "源画面不依赖细字；主体人物、车辆和道路动作在 1920x1080 与 390x219 等比缩放证据中均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "完整窗口内驾驶员持续驾驶和观察道路，没有循环、停帧或重复动作。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "画面运动来自真实车辆或人物动作，不添加程序化推拉，不循环、不慢放。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色；七幕使用七个不同来源。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "人工检查计划窗口 start/mid/end，未见平台角标、账号角标、下载工具标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白、标题、visualRequirement 与候选角色一致",
+          "候选绑定当前 sourceId/sourceStart/sourceEnd",
+          "窗口连续，不循环、不拉伸、不改速",
+          "研究来源与情境画面分工明确",
+          "原生无平台或账号水印"
+        ],
+        "evidence": [
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-05-start.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-05-mid.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-05-end.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-05-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-06",
+        "sceneFingerprint": "8ccbba3f4d5afce523e4fed29b6f9e9c41d972763949b0aaf349e83815cab922",
+        "candidate": {
+          "sourceId": "source-09",
+          "sourceStart": 1,
+          "sourceEnd": 13.25
+        },
+        "visibleClaim": "驾驶员与后排乘客持续同框，驾驶员转头并用手势交流。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "司乘交流情境可承载利益分配争议；画面不证明人物正在讨论价格，可能路径由旁白明确限定。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "源画面不依赖细字；主体人物、车辆和道路动作在 1920x1080 与 390x219 等比缩放证据中均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "完整窗口连续覆盖驾驶员观察、转头和手势交流，动作自然完整。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "画面运动来自真实车辆或人物动作，不添加程序化推拉，不循环、不慢放。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色；七幕使用七个不同来源。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "人工检查计划窗口 start/mid/end，未见平台角标、账号角标、下载工具标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白、标题、visualRequirement 与候选角色一致",
+          "候选绑定当前 sourceId/sourceStart/sourceEnd",
+          "窗口连续，不循环、不拉伸、不改速",
+          "研究来源与情境画面分工明确",
+          "原生无平台或账号水印"
+        ],
+        "evidence": [
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-06-start.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-06-mid.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-06-end.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-06-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-07",
+        "sceneFingerprint": "666dbe7567ea5a68af4b00bf7b3f8e20029ffbe5f3492d98418bc411a44c8303",
+        "candidate": {
+          "sourceId": "source-10",
+          "sourceStart": 0.05,
+          "sourceEnd": 8.1
+        },
+        "visibleClaim": "黄色出租车司机在驾驶位持续等待，车门与车窗边缘保持可见。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "司机等待画面把结尾视角落回司机端结算；不声称有乘客上车或存在具体一口价订单。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "源画面不依赖细字；主体人物、车辆和道路动作在 1920x1080 与 390x219 等比缩放证据中均可直接辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "完整窗口持续显示司机等待和细微姿态变化，没有虚构乘客上车动作。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "画面运动来自真实车辆或人物动作，不添加程序化推拉，不循环、不慢放。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "当前不可变窗口只绑定本场景和当前叙事角色；七幕使用七个不同来源。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "人工检查计划窗口 start/mid/end，未见平台角标、账号角标、下载工具标记或其他来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "旁白、标题、visualRequirement 与候选角色一致",
+          "候选绑定当前 sourceId/sourceStart/sourceEnd",
+          "窗口连续，不循环、不拉伸、不改速",
+          "研究来源与情境画面分工明确",
+          "原生无平台或账号水印"
+        ],
+        "evidence": [
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-07-start.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-07-mid.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-07-end.png",
+          "output/videos/ride-hailing-fixed-fare-explainer-20260817-work/material-quality-evidence/scene-07-mobile-mid.png"
+        ]
+      }
+    ]
+  },
+  "workflow": {
+    "schemaVersion": 1,
+    "origin": {
+      "kind": "manual",
+      "runId": "",
+      "candidateId": "",
+      "sourceUrl": "",
+      "score": 36,
+      "summary": "2026-08-17 日常有因新一轮命题调研唯一推荐；用户明确回复“批准”并要求开始制作。"
+    },
+    "topicApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-17T03:23:28.555Z",
+      "decidedBy": "user",
+      "note": "用户明确回复“批准”，随后要求“那就开始做吧”，批准当前网约车一口价命题进入完整生产；未授权上传或发布。",
+      "fingerprint": "14cc7c770deff580598466c8ffe9a5796ba427ee72565083f438173ba0a09d54"
+    },
+    "researchApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-17T06:34:46.419Z",
+      "decidedBy": "user",
+      "note": "用户明确回复“批准当前 Research Gate”，批准当前已确认事实、来源分工和禁止断言边界进入叙事与生产。",
+      "fingerprint": "434579fbe98c0efa9db424577cf59639977292638931ac9a2444a599befaea28"
+    },
+    "deliveryApproval": {
+      "status": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "fingerprint": ""
+    },
+    "publication": {
+      "approval": {
+        "status": "pending",
+        "decidedAt": "",
+        "decidedBy": "",
+        "note": "",
+        "fingerprint": ""
+      },
+      "platform": "",
+      "publishedUrl": "",
+      "publishedAt": "",
+      "videoSha256": "",
+      "packageSha256": ""
+    },
+    "publicationTargets": [],
+    "market": {
+      "decision": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "evidence": []
+    }
+  },
+  "chapters": [
+    {
+      "id": "chapter-01",
+      "title": "一口价锁住了什么",
+      "summary": "从乘客端锁价出发，解释实际行程成本为何仍会变化，以及公开来源没有披露哪些分配机制。",
+      "order": 0,
+      "sceneIds": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06",
+        "scene-07"
+      ],
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "lineStart": 7,
+          "lineEnd": 9,
+          "note": "滴滴一口价公开规则及证据边界。"
+        },
+        {
+          "sourceId": "source-02",
+          "locatorType": "line",
+          "lineStart": 8,
+          "lineEnd": 10,
+          "note": "新华社一口价调查及司机侧证据边界。"
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "outputVideo": "output/videos/ride-hailing-fixed-fare-explainer-20260817.mp4",
+    "publicRender": "public/renders/ride-hailing-fixed-fare-explainer-20260817.mp4",
+    "workDir": "output/videos/ride-hailing-fixed-fare-explainer-20260817-work",
+    "exportDir": "output/exports/ride-hailing-fixed-fare-explainer-20260817",
+    "coverImage": "output/exports/ride-hailing-fixed-fare-explainer-20260817/cover.png",
+    "platformCopy": "output/exports/ride-hailing-fixed-fare-explainer-20260817/platform-copy.json",
+    "sourceList": "output/exports/ride-hailing-fixed-fare-explainer-20260817/source-list.json",
+    "projectSnapshot": "output/exports/ride-hailing-fixed-fare-explainer-20260817/project.snapshot.json"
+  },
+  "render": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice": "Charon",
+    "rate": 100,
+    "voiceEngine": "gemini-tts",
+    "voiceModel": "gemini-3.1-flash-tts-preview",
+    "voiceProfile": "natural-tech-zh-v1",
+    "voiceStyle": "像真实的中文科技内容创作者一样讲述。\n声音克制、自然，有轻微交流感，不要新闻播音腔或广告腔。\n使用中等语速，在转折和结论前自然停顿。\n重点词只做轻微强调，不要夸张表演。\n必须准确朗读原文，不要增加、删减或改写内容。",
+    "voiceGenerationMode": "per-scene",
+    "renderStrategy": "segmented-concat",
+    "pronunciations": [],
+    "mediaFit": "cover"
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-05",
+      "sourceStart": 0.3,
+      "sourceEnd": 12.73,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "先看这个反常体验",
+      "title": "堵车了，价格为什么没变？",
+      "subtitle": "多出来的成本没有消失",
+      "narration": "堵车了，乘客看到的一口价却没变。那这段多出来的时间和成本，真的消失了吗？没有。它只是没有继续加到乘客端。",
+      "visualRequirement": "车内前视角展示车辆密集和等待感；标题只提出反常体验，不把画面冒充真实一口价订单。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "lineStart": 7,
+          "lineEnd": 7,
+          "note": "滴滴规则确认发单价格即乘客支付价格。"
+        },
+        {
+          "sourceId": "source-05",
+          "locatorType": "time",
+          "start": 0.3,
+          "end": 12.73,
+          "note": "连续车内前视角可见前方车辆和信号灯，适合建立堵车与等待的日常情境。；只作国外交通情境，不冒充滴滴或中国具体订单。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-05",
+          "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/pexels-34539090-1786937737823.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.3,
+          "sourceEnd": 12.73,
+          "matchReason": "连续车内前视角可见前方车辆和信号灯，适合建立堵车与等待的日常情境。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-17T06:51:27.898Z",
+      "selectionNote": "Codex 已按当前旁白选择不可变窗口 0.30-12.73 秒；画面仅承担情境或机制示意，事实由所列研究来源承担。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-02",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-07",
+      "sourceStart": 0.5,
+      "sourceEnd": 9.05,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "先分清两种价格",
+      "title": "固定的是乘客端支付价",
+      "subtitle": "不等于固定整趟成本",
+      "narration": "先分清一件事：一口价固定的是下单时看到的支付价格，不是整趟行程的真实成本。",
+      "visualRequirement": "后排乘客持续乘车和通话；仅用底部字幕解释支付价格与真实成本的区分。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "lineStart": 7,
+          "lineEnd": 7,
+          "note": "滴滴规则确认发单价格即乘客支付价格。"
+        },
+        {
+          "sourceId": "source-02",
+          "locatorType": "line",
+          "lineStart": 8,
+          "lineEnd": 8,
+          "note": "新华社调查将一口价描述为乘客预估车费即最终实付。"
+        },
+        {
+          "sourceId": "source-07",
+          "locatorType": "time",
+          "start": 0.5,
+          "end": 9.05,
+          "note": "后排乘客通话和窗外车辆连续出现，适合承载乘客端价格确定性的相关情境。；只作国外交通情境，不冒充滴滴或中国具体订单。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-07",
+          "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/pexels-4607435-1786937737887.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.5,
+          "sourceEnd": 9.05,
+          "matchReason": "后排乘客通话和窗外车辆连续出现，适合承载乘客端价格确定性的相关情境。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-17T06:51:27.899Z",
+      "selectionNote": "Codex 已按当前旁白选择不可变窗口 0.50-9.05 秒；画面仅承担情境或机制示意，事实由所列研究来源承担。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-03",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-08",
+      "sourceStart": 0.5,
+      "sourceEnd": 12.17,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "一口价怎么形成",
+      "title": "预估打表价 + 当时供需",
+      "subtitle": "具体权重没有公开",
+      "narration": "滴滴公开规则说，这个价格以预估打表价为基础，再结合起点、终点当时的供需综合计算。具体权重没有公开。",
+      "visualRequirement": "司机与后排乘客同框；稳定信息层只显示“预估打表价 + 当时供需”，不虚构公式或权重。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "lineStart": 7,
+          "lineEnd": 7,
+          "note": "滴滴规则说明预估打表价格和起终点当时供需共同参与计算。"
+        },
+        {
+          "sourceId": "source-08",
+          "locatorType": "time",
+          "start": 0.5,
+          "end": 12.17,
+          "note": "车内司乘同框可承载平台在下单前完成估价的机制示意，不承担算法事实。；只作国外交通情境，不冒充滴滴或中国具体订单。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-08",
+          "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/pexels-4612297-1786937737929.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.5,
+          "sourceEnd": 12.17,
+          "matchReason": "车内司乘同框可承载平台在下单前完成估价的机制示意，不承担算法事实。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-17T06:51:27.899Z",
+      "selectionNote": "Codex 已按当前旁白选择不可变窗口 0.50-12.17 秒；画面仅承担情境或机制示意，事实由所列研究来源承担。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-04",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-04",
+      "sourceStart": 3,
+      "sourceEnd": 13.3,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "价格先被锁定",
+      "title": "偏离预估，不会重新报价",
+      "subtitle": "目的地变更需另行协商",
+      "narration": "价格算出来以后，乘客端先被锁定。后来堵车、路线偏离预估，乘客也不会立刻收到一个新的报价。",
+      "visualRequirement": "城市街道多辆出租车连续通过；画面只表现实际行程会继续变化，不展示或仿造平台界面。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "lineStart": 7,
+          "lineEnd": 7,
+          "note": "滴滴规则确认发单价格即乘客支付价格。"
+        },
+        {
+          "sourceId": "source-02",
+          "locatorType": "line",
+          "lineStart": 8,
+          "lineEnd": 8,
+          "note": "新华社调查支持乘客预估车费即最终实付。"
+        },
+        {
+          "sourceId": "source-04",
+          "locatorType": "time",
+          "start": 3,
+          "end": 13.3,
+          "note": "连续街道路况和多辆出租车可表现行程环境持续变化，同时与平台订单事实保持分离。；只作国外交通情境，不冒充滴滴或中国具体订单。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-04",
+          "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/pexels-3360907-1786937737802.mp4",
+          "mediaType": "video",
+          "sourceStart": 3,
+          "sourceEnd": 13.3,
+          "matchReason": "连续街道路况和多辆出租车可表现行程环境持续变化，同时与平台订单事实保持分离。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-17T06:51:27.899Z",
+      "selectionNote": "Codex 已按当前旁白选择不可变窗口 3.00-13.30 秒；画面仅承担情境或机制示意，事实由所列研究来源承担。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-05",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-06",
+      "sourceStart": 2,
+      "sourceEnd": 14.08,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "成本没有被锁定",
+      "title": "拥堵增加司机时间成本",
+      "subtitle": "不同平台结算方式不同",
+      "narration": "但成本没有被锁定。新华社调查指出，拥堵会增加司机的时间成本；不同平台，对司机的收入计算方式，也并不一样。",
+      "visualRequirement": "驾驶员持续驾驶并观察道路；新华社归因通过旁白和字幕完成，画面不冒充报道人物。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-02",
+          "locatorType": "line",
+          "lineStart": 8,
+          "lineEnd": 8,
+          "note": "新华社调查指出拥堵增加司机时间成本。"
+        },
+        {
+          "sourceId": "source-02",
+          "locatorType": "line",
+          "lineStart": 8,
+          "lineEnd": 8,
+          "note": "新华社调查说明不同平台司机收入计算方式不同。"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "time",
+          "start": 2,
+          "end": 14.08,
+          "note": "驾驶员持续驾驶的动作可表现司机投入的时间，但不证明具体结算或一口价订单。；只作国外交通情境，不冒充滴滴或中国具体订单。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-06",
+          "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/pexels-4607376-1786937737839.mp4",
+          "mediaType": "video",
+          "sourceStart": 2,
+          "sourceEnd": 14.08,
+          "matchReason": "驾驶员持续驾驶的动作可表现司机投入的时间，但不证明具体结算或一口价订单。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-17T06:51:27.899Z",
+      "selectionNote": "Codex 已按当前旁白选择不可变窗口 2.00-14.08 秒；画面仅承担情境或机制示意，事实由所列研究来源承担。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-06",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 1,
+      "sourceEnd": 13.25,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "偏差由谁承担",
+      "title": "公开来源没有给出比例",
+      "subtitle": "不能断言全由司机承担",
+      "narration": "至于偏差怎么处理，可能涉及司机时间、平台补贴和订单是否被接受。但公开来源没说各自承担多少，更不能断言全由司机承担。",
+      "visualRequirement": "司机与乘客同框交流；信息层仅列出“时间、补贴、订单接受”三个可能环节，并标注“比例未披露”。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "lineStart": 9,
+          "lineEnd": 9,
+          "note": "滴滴公开规则未披露司机结算、抽成或补贴结构。"
+        },
+        {
+          "sourceId": "source-02",
+          "locatorType": "line",
+          "lineStart": 10,
+          "lineEnd": 10,
+          "note": "新华社调查不能证明偏差全部由司机承担。"
+        },
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 1,
+          "end": 13.25,
+          "note": "司乘同框适合承载利益分配冲突的情境，旁白明确把未披露路径写成可能性。；只作国外交通情境，不冒充滴滴或中国具体订单。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/pexels-4612657-1786937737967.mp4",
+          "mediaType": "video",
+          "sourceStart": 1,
+          "sourceEnd": 13.25,
+          "matchReason": "司乘同框适合承载利益分配冲突的情境，旁白明确把未披露路径写成可能性。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-17T06:51:27.899Z",
+      "selectionNote": "Codex 已按当前旁白选择不可变窗口 1.00-13.25 秒；画面仅承担情境或机制示意，事实由所列研究来源承担。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-07",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-10",
+      "sourceStart": 0.05,
+      "sourceEnd": 8.1,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "最后记住",
+      "title": "锁价不等于锁住成本",
+      "subtitle": "司机端结算要另看",
+      "narration": "一口价锁住乘客端价格，不等于锁住整趟成本。司机端结算，要另看规则。",
+      "visualRequirement": "黄色出租车司机在车内等待；结尾只保留一句观众可带走的判断，不出现内部生产信息。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "line",
+          "lineStart": 7,
+          "lineEnd": 7,
+          "note": "滴滴规则支持乘客端锁价结论。"
+        },
+        {
+          "sourceId": "source-02",
+          "locatorType": "line",
+          "lineStart": 10,
+          "lineEnd": 10,
+          "note": "新华社调查要求避免外推统一的司机结算机制。"
+        },
+        {
+          "sourceId": "source-10",
+          "locatorType": "time",
+          "start": 0.05,
+          "end": 8.1,
+          "note": "司机在车内等待的连续画面把视角落回司机端，承载区分两类价格的行动提示。；只作国外交通情境，不冒充滴滴或中国具体订单。"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-01",
+          "sourceId": "source-10",
+          "assetPath": "public/project-assets/ride-hailing-fixed-fare-explainer-20260817/pexels-5834175-1786937738001.mp4",
+          "mediaType": "video",
+          "sourceStart": 0.05,
+          "sourceEnd": 8.1,
+          "matchReason": "司机在车内等待的连续画面把视角落回司机端，承载区分两类价格的行动提示。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-01",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-17T06:51:27.899Z",
+      "selectionNote": "Codex 已按当前旁白选择不可变窗口 0.05-8.10 秒；画面仅承担情境或机制示意，事实由所列研究来源承担。",
+      "generatedBy": "ai",
+      "userEdited": true
+    }
+  ]
+}
