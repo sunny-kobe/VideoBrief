@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "projectId": "microwave-mechanism-style-poc-20260819",
+  "revision": "v4-real-footage-plus-mechanism",
+  "reviewedAt": "2026-08-19T08:42:00.000Z",
+  "strategy": "网页真实动态素材主导，实拍覆盖 36.8 秒；只有肉眼不可见的分子机制使用 7.4 秒原创 2.5D 示意，不使用 3D。",
+  "licensePage": "https://www.pexels.com/license/",
+  "licenseSummary": "Pexels 当前许可页明确允许免费使用、修改及社交媒体发布，不强制署名；不得暗示人物或品牌背书，也不得把原片作为图库素材重新分发。",
+  "selectedCoverage": {
+    "videoSeconds": 36.8,
+    "totalSeconds": 44.2,
+    "ratio": 0.833
+  },
+  "contactSheet": "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/selected-mid-contact-sheet.png",
+  "candidates": [
+    {
+      "id": "pexels-4710526",
+      "status": "alternate-unused",
+      "sourceLabel": "真实家用微波炉倒计时与取出食物",
+      "publisher": "Aghyad Najjar / Pexels",
+      "originUrl": "https://www.pexels.com/video/video-of-person-heating-up-a-bread-on-a-microwave-4710526/",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-4710526-heating-bread.mp4",
+      "sha256": "ed7611ef60694eb68d1b29980c9efdaec07afd8a54a9fbe43846977e55218b38",
+      "nativeVideo": "1920x1080, 29.97fps, 17.19s",
+      "plannedWindows": [
+        { "sceneId": "scene-01", "start": 7.4, "end": 14.333333, "role": "真实情境与操作动作" },
+        { "sceneId": "scene-02", "start": 0, "end": 7.3, "role": "真实微波炉运行情境" }
+      ],
+      "matchReason": "两个互不重叠的窗口分别展示加热结束后的开门取食，以及倒计时和炉内食物；动作完整且不循环。",
+      "rightsStatus": "cleared",
+      "platformWatermark": "absent",
+      "preview": "output/videos/microwave-mechanism-style-poc-20260819-v3-materials/pexels-4710526-heating-bread/contact-sheet.png"
+    },
+    {
+      "id": "pexels-854958",
+      "status": "selected",
+      "sourceLabel": "爆米花受热爆开微距",
+      "publisher": "Pixabay / Pexels",
+      "originUrl": "https://www.pexels.com/video/popcorn-popping-854958/",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-854958-popcorn-popping.mp4",
+      "sha256": "3b8bac5137fc45dc545bb3ea249669198dae989745f7db3fcbcfe3d5bba9d301",
+      "nativeVideo": "1920x1080, 29.97fps, 25.73s",
+      "plannedWindows": [],
+      "matchReason": "可作为食物受热结果补充，但当前版本优先保留更直接解释不可见机制的分子 2.5D 动画。",
+      "rightsStatus": "cleared-cc0",
+      "platformWatermark": "absent",
+      "preview": "output/videos/microwave-mechanism-style-poc-20260819-v3-materials/pexels-854958-popcorn-popping/contact-sheet.png"
+    },
+    {
+      "id": "videobrief-molecular-animation-v2",
+      "status": "selected",
+      "sourceLabel": "水分子与带电粒子随电场摆动示意",
+      "publisher": "VideoBrief 原创",
+      "originUrl": "local://videobrief-original/microwave-mechanism-animation-v2",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/microwave-mechanism-original-animation-v2-1787124058255.mp4",
+      "sha256": "4edef1ab37a58136a3791030388ecbc1530ad2c1972f19b493b7e5aa5e48eb7a",
+      "nativeVideo": "1920x1080, 30fps, 60.05s",
+      "plannedWindows": [
+        { "sceneId": "scene-03", "start": 20, "end": 27.366667, "role": "不可见分子机制 2.5D 示意" }
+      ],
+      "matchReason": "粒子随交变电场左右摆动并以碰撞亮点表示能量耗散，直接承接当前旁白；只作机制示意，不冒充微观实拍。",
+      "rightsStatus": "cleared-original",
+      "platformWatermark": "not-applicable",
+      "preview": "output/videos/microwave-mechanism-style-poc-20260819-work/v3-final-inspection/animation-v2-contact-sheet.png"
+    },
+    {
+      "id": "pexels-4253328",
+      "status": "selected",
+      "sourceLabel": "切开厚牛排横截面",
+      "publisher": "cottonbro studio / Pexels",
+      "originUrl": "https://www.pexels.com/video/a-person-cutting-meat-on-a-cutting-board-4253328/",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-4253328-slicing-steak-excerpt.mp4",
+      "sha256": "3d6a1e37d29a9a75760050aa9e676f0776e5421bb45e657a85c58b27133b99d7",
+      "nativeVideo": "1920x1080 derived excerpt, 30fps, 7.20s",
+      "plannedWindows": [
+        { "sceneId": "scene-04", "start": 1.1, "end": 7.166667, "role": "厚食物横截面示意" }
+      ],
+      "matchReason": "连续切开动作让外层与中心横截面直接可见；只说明厚食物的中心，不暗示这块牛排由微波炉加热。",
+      "rightsStatus": "cleared",
+      "platformWatermark": "absent",
+      "preview": "output/videos/microwave-mechanism-style-poc-20260819-v3-materials/pexels-4253328-slicing-steak-excerpt/contact-sheet.png"
+    },
+    {
+      "id": "pexels-4710717",
+      "status": "selected",
+      "sourceLabel": "真实微波炉开门、关门与转盘运行",
+      "publisher": "Aghyad Najjar / Pexels",
+      "originUrl": "https://www.pexels.com/video/video-of-person-using-microwave-4710717/",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-4710717-microwave-use.mp4",
+      "sha256": "ab18b08415d96359cb5aa73d1c26b4c80e4904f52533f7a02eeb6dbb0bb7bbd3",
+      "nativeVideo": "1920x1080, 29.97fps, 18.08s",
+      "plannedWindows": [
+        { "sceneId": "scene-05", "start": 6, "end": 14.066667, "role": "真实转盘与炉内食物运动" }
+      ],
+      "matchReason": "炉灯亮起、倒计时变化，食物在炉门后持续改变位置；窗口不跨入结束画面。",
+      "rightsStatus": "cleared",
+      "platformWatermark": "absent",
+      "preview": "output/videos/microwave-mechanism-style-poc-20260819-v3-materials/pexels-4710717/contact-sheet.png"
+    },
+    {
+      "id": "pexels-29117384",
+      "status": "selected",
+      "sourceLabel": "蒸汽热食翻动与搅拌",
+      "publisher": "Paul Bill / Pexels",
+      "originUrl": "https://www.pexels.com/video/sizzling-korean-stir-fry-in-hot-pan-29117384/",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-29117384-stirring-hot-food-excerpt.mp4",
+      "sha256": "5029194dc7db43e22384e5132e673b7dd5805b2744c472926099317332ef9da4",
+      "nativeVideo": "1920x1080 derived excerpt, 30fps, 15.00s",
+      "plannedWindows": [
+        { "sceneId": "scene-06", "start": 0, "end": 8.466667, "role": "翻动与搅拌动作示意" }
+      ],
+      "matchReason": "真实持续搅拌、翻动和蒸汽直接支持结尾动作建议；不暗示画面发生在微波炉内。",
+      "rightsStatus": "cleared",
+      "platformWatermark": "absent",
+      "preview": "output/videos/microwave-mechanism-style-poc-20260819-v3-materials/pexels-29117384-stirring-hot-food-excerpt/contact-sheet.png"
+    },
+    {
+      "id": "pexels-5907449",
+      "status": "rejected",
+      "sourceLabel": "汉堡放入台式烤箱",
+      "publisher": "Katerina Holmes / Pexels",
+      "originUrl": "https://www.pexels.com/video/a-person-putting-burger-on-a-microwave-5907449/",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-5907449-food-into-microwave.mp4",
+      "sha256": "fa41481c1ee0dea307e600d2c5b08c81f9b63e51bdf65dd2440dab880bbb796c",
+      "rejectionReason": "搜索标题包含 microwave，但逐帧显示的是发热管清楚可见的台式烤箱，不能作为微波炉画面。",
+      "rightsStatus": "cleared-but-unused",
+      "platformWatermark": "absent",
+      "preview": "output/videos/microwave-mechanism-style-poc-20260819-v3-materials/pexels-5907449-food-into-microwave/contact-sheet.png"
+    },
+    {
+      "id": "pexels-4253729",
+      "status": "rejected",
+      "sourceLabel": "厨师组装汉堡",
+      "publisher": "Pexels",
+      "originUrl": "https://www.pexels.com/video/a-man-is-cutting-a-burger-on-a-wooden-cutting-board-4253729/",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-4253729-cutting-burger-excerpt.mp4",
+      "sha256": "6e377b18390d43f445f28a11554c0073a246d123aab32ca9331043cdedb45da5",
+      "rejectionReason": "搜索结果描述为切汉堡，但 0-20 秒抽帧实际只展示组装汉堡，没有切面，不支持厚食物中心的旁白。",
+      "rightsStatus": "cleared-but-unused",
+      "platformWatermark": "absent",
+      "preview": "output/videos/microwave-mechanism-style-poc-20260819-v3-materials/pexels-4253729-cutting-burger-excerpt/contact-sheet.png"
+    }
+  ]
+}

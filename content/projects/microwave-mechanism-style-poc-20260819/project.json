@@ -1,0 +1,1512 @@
+{
+  "schemaVersion": 3,
+  "id": "microwave-mechanism-style-poc-20260819",
+  "title": "微波炉不是从里面向外烤熟，它究竟怎样加热？",
+  "format": "video_project",
+  "targetAudience": "使用过微波炉、但不了解其工作机制的普通中文观众。",
+  "status": "review",
+  "technical_status": "passed",
+  "rights_status": "cleared",
+  "publication_status": "draft-unpublished",
+  "market_status": "none",
+  "lifecycle": {
+    "state": "active",
+    "archivedAt": "",
+    "archivedBy": "",
+    "archiveReason": ""
+  },
+  "brief": {
+    "objective": "用约 45 秒，让普通观众直观理解微波炉为什么加热快、为什么会外热内冷，以及转盘有什么用。",
+    "audience": "使用过微波炉、但不了解其工作机制的普通中文观众。",
+    "platform": "本地未发布样片，单横版",
+    "aspectRatio": "16:9",
+    "targetDurationSeconds": 45,
+    "tone": "口语、直观、像朋友解释日常现象，不堆术语和免责声明。",
+    "style": "网页真实动态素材主导；真实微波炉、食物和人物动作承担主体，只有肉眼不可见的分子机制使用简洁 2.5D 动画，不使用 3D。",
+    "reference": "借鉴抖音“宇宙科普君”微波炉解析的连续剖面、分子动画和机制递进，不复用其画面、旁白、角色、标题或错误表述。",
+    "coreMessage": "微波进入食物一段距离并转化成热，厚食物中心仍靠热传进去；转盘帮助食物经过不同热区。",
+    "cta": "大块食物翻面、搅拌并静置一会儿，让加热更均匀。",
+    "prohibitedMaterial": "不得声称微波从里向外烤熟、2.45GHz 是水的特殊共振、只有水分子参与加热、分子每秒完整旋转 24.5 亿圈，或所有情况下都绝无泄漏。"
+  },
+  "sources": [
+    {
+      "id": "source-01",
+      "label": "FDA：Microwave Ovens 事实核验笔记",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://www.fda.gov/radiation-emitting-products/resources-you-radiation-emitting-products/microwave-ovens",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/fda-microwave-ovens-review-1787116216075.md",
+      "originalFileName": "fda-microwave-ovens-review.md",
+      "mimeType": "text/markdown",
+      "bytes": 463,
+      "importedAt": "2026-08-19T05:10:16.076Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 编写的原创中文事实核验笔记；仅用于内部研究与来源追溯，不进入成片画面。",
+      "contentHash": "3a0e9f1cd0113597085ee899e821c3b931801a3c0b0a3e6de5320f7512763315",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "3a0e9f1cd0113597085ee899e821c3b931801a3c0b0a3e6de5320f7512763315",
+        "startedAt": "2026-08-19T05:10:16.073Z",
+        "completedAt": "2026-08-19T05:10:16.073Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "microwave-research-20260819-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# FDA Microwave Ovens 核验笔记\n\n- 炉内磁控管产生微波，微波在金属腔体内反射并被食物吸收。\n- FDA 明确指出：厚食物不是“从里向外”熟；外层主要由微波加热，内部主要靠热传导继续升温。\n- 正常工作的微波炉有门锁联动等安全结构；门、铰链、门闩或密封损坏时不应继续使用。\n\n本文件是原创中文核验摘要，不复制 FDA 页面正文，不作为成片画面。",
+        "visualDescription": "内部事实核验笔记，不进入成片画面。",
+        "hierarchicalSummary": "FDA：Microwave Ovens 事实核验笔记",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-magnetron-and-absorption",
+            "statement": "FDA 说明微波由炉内磁控管产生，在金属腔体内反射并被食物吸收。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "FDA Microwave Ovens 工作原理段落"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "fact-not-inside-out",
+            "statement": "FDA 明确指出厚食物不是从里面向外熟；外层主要由微波加热，内部主要靠热传导。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "FDA “inside out” 说明"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "fact-door-mesh-scale",
+            "statement": "2.45GHz 对应自由空间波长约 12.2cm，远大于门上毫米级导电网孔；安全还依赖门体、联动与密封完整。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "file",
+                "note": "波长计算与网孔尺度说明"
+              },
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "FDA 门体、联动、密封与损坏警告"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 9
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "uncertainty-food-specific-heating",
+            "statement": "实际穿透深度、升温速度和冷热分布会随频率、含水量、盐分、形状、装载量和容器变化。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "FDA 对厚食物和不同食物加热的边界"
+              },
+              {
+                "sourceId": "source-03",
+                "locatorType": "file",
+                "note": "原创工程推导的适用边界"
+              }
+            ],
+            "resolution": "成片只讲通用机制，不给固定穿透深度或均匀性承诺，并明确转盘不能保证完全均匀。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "uncertainty-safety-absolute",
+            "statement": "正常设计不等于任何损坏或错误使用情况下都没有泄漏风险。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "FDA 对损坏门体、门锁和密封的警告"
+              }
+            ],
+            "resolution": "成片不使用“绝对零泄漏”，结尾要求以产品说明书为准，门体损坏时停止使用。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 9
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-02",
+      "label": "WTAMU：介电加热与 2.45GHz 误区核验笔记",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "https://wtamu.edu/~cbaird/sq/2014/10/15/why-are-the-microwaves-in-a-microwave-oven-tuned-to-water/",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/wtamu-dielectric-heating-review-1787116216103.md",
+      "originalFileName": "wtamu-dielectric-heating-review.md",
+      "mimeType": "text/markdown",
+      "bytes": 319,
+      "importedAt": "2026-08-19T05:10:16.104Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 编写的原创中文事实核验笔记；仅用于内部研究与来源追溯，不进入成片画面。",
+      "contentHash": "e8ed4d2c4419748c86b4aa856cde975d971dc49d22eca284f060de0242386a6c",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "e8ed4d2c4419748c86b4aa856cde975d971dc49d22eca284f060de0242386a6c",
+        "startedAt": "2026-08-19T05:10:16.073Z",
+        "completedAt": "2026-08-19T05:10:16.073Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "microwave-research-20260819-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# 介电加热核验笔记\n\n- 2.45GHz 不是水分子的特殊共振频率。\n- 交变电场驱动食物中的极性分子取向变化，分子运动与碰撞把有序运动转成热。\n- 会参与吸收的并不只有水分子。\n\n本文件是原创中文核验摘要，不复制来源正文，不作为成片画面。",
+        "visualDescription": "内部事实核验笔记，不进入成片画面。",
+        "hierarchicalSummary": "WTAMU：介电加热与 2.45GHz 误区核验笔记",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-dielectric-heating",
+            "statement": "介电加热来自交变电场对食物分子的作用以及能量耗散；参与吸收的不只有水分子。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "file",
+                "note": "WTAMU dielectric heating 解释"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "fact-no-water-resonance",
+            "statement": "2.45GHz 不是水分子的特殊共振频率，不能把场频率等同于每个分子的完整旋转次数。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-02",
+                "locatorType": "file",
+                "note": "WTAMU 2.45GHz 共振误区说明"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-03",
+      "label": "微波炉腔体、驻波与转盘工程推导笔记",
+      "sourceType": "markdown",
+      "materialRole": "research",
+      "originUrl": "local://videobrief-research/microwave-cavity-engineering-note",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/microwave-cavity-engineering-note-1787116216112.md",
+      "originalFileName": "microwave-cavity-engineering-note.md",
+      "mimeType": "text/markdown",
+      "bytes": 599,
+      "importedAt": "2026-08-19T05:10:16.112Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 编写的原创中文事实核验笔记；仅用于内部研究与来源追溯，不进入成片画面。",
+      "contentHash": "77b9ee387a5f3cdb5b4d46c5a56c74d04f5d3a9a21219964a49136f612d2fa9b",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "77b9ee387a5f3cdb5b4d46c5a56c74d04f5d3a9a21219964a49136f612d2fa9b",
+        "startedAt": "2026-08-19T05:10:16.073Z",
+        "completedAt": "2026-08-19T05:10:16.073Z",
+        "error": "",
+        "model": "manual-primary-source-review",
+        "promptVersion": "microwave-research-20260819-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "# 微波炉腔体工程推导笔记\n\n- 金属腔体内的入射波与反射波叠加，可形成场强不同的空间区域，因此固定食物可能出现冷热不均。\n- 转盘让食物经过不同场强区域，作用是改善平均程度，不保证温度完全一致。\n- 2.45GHz 对应自由空间波长约 12.2cm；门上导电网孔为毫米量级，透明可见但对微波形成屏蔽。实际安全仍依赖完整门体、门锁联动与密封。\n\n本文件是基于公开频率和电磁学边界条件写成的原创工程说明，只支撑机制动画，不作为特定产品测试。",
+        "visualDescription": "内部事实核验笔记，不进入成片画面。",
+        "hierarchicalSummary": "微波炉腔体、驻波与转盘工程推导笔记",
+        "transcript": [],
+        "facts": [
+          {
+            "id": "fact-standing-wave-turntable",
+            "statement": "金属腔体内的反射叠加会形成场强不均；转盘让食物经过不同区域，从而改善平均程度。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "file",
+                "note": "腔体边界与转盘作用工程推导"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          },
+          {
+            "id": "fact-door-mesh-scale",
+            "statement": "2.45GHz 对应自由空间波长约 12.2cm，远大于门上毫米级导电网孔；安全还依赖门体、联动与密封完整。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-03",
+                "locatorType": "file",
+                "note": "波长计算与网孔尺度说明"
+              },
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "FDA 门体、联动、密封与损坏警告"
+              }
+            ],
+            "reviewStatus": "confirmed",
+            "kind": "claim",
+            "reviewPriority": "required",
+            "briefRelevance": 9
+          }
+        ],
+        "uncertainties": [
+          {
+            "id": "uncertainty-food-specific-heating",
+            "statement": "实际穿透深度、升温速度和冷热分布会随频率、含水量、盐分、形状、装载量和容器变化。",
+            "sourceReferences": [
+              {
+                "sourceId": "source-01",
+                "locatorType": "file",
+                "note": "FDA 对厚食物和不同食物加热的边界"
+              },
+              {
+                "sourceId": "source-03",
+                "locatorType": "file",
+                "note": "原创工程推导的适用边界"
+              }
+            ],
+            "resolution": "成片只讲通用机制，不给固定穿透深度或均匀性承诺，并明确转盘不能保证完全均匀。",
+            "riskLevel": "high",
+            "reviewPriority": "required",
+            "briefRelevance": 10
+          }
+        ],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-04",
+      "label": "微波炉工作机制原创程序动画",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original/microwave-mechanism-animation-v1",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/microwave-mechanism-original-animation-1787116216122.mp4",
+      "originalFileName": "microwave-mechanism-original-animation.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 11315432,
+      "importedAt": "2026-08-19T05:10:16.127Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 使用 Remotion 从零绘制和渲染的原创程序动画；不含第三方视频、平台水印、人物肖像或品牌素材。",
+      "contentHash": "6149ef7bf80a647572fd749d6cd57c5b65b77d7be0925143171631ba65215fc1",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "6149ef7bf80a647572fd749d6cd57c5b65b77d7be0925143171631ba65215fc1",
+        "startedAt": "2026-08-19T05:10:16.073Z",
+        "completedAt": "2026-08-19T05:10:16.073Z",
+        "error": "",
+        "model": "remotion-original-animation",
+        "promptVersion": "microwave-mechanism-v1",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "不是从里向外烤熟：中心仍要靠热传导\n磁控管产生微波：波导把能量送入炉腔\n分子跟不上交变电场：碰撞与耗散把能量变成热\n直接吸收 + 热传导：不是只热表面，也不是从中心开始\n腔体里会形成驻波：不同位置的场强并不相同\n让食物经过不同区域：改善平均程度，不承诺完全均匀\n波长远大于网孔：门体损坏时不要继续使用\n能量、传导与转盘：一次看懂完整工作链路",
+        "visualDescription": "八幕连续原创横版机制动画，复用同一台微波炉剖面，展示能量路径、分子取向、热传导、驻波、转盘和门网。",
+        "hierarchicalSummary": "程序动画只作机制示意，不冒充特定实验、产品或测量结果。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-05",
+      "label": "微波炉工作机制原创质感动画 v2",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "local://videobrief-original/microwave-mechanism-animation-v2",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/microwave-mechanism-original-animation-v2-1787124058255.mp4",
+      "originalFileName": "microwave-mechanism-original-animation-v2.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 14288861,
+      "importedAt": "2026-08-19T07:20:58.275Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "VideoBrief 使用 Remotion 从零绘制和渲染的原创程序动画；不含第三方视频、平台水印、人物肖像或品牌素材。",
+      "contentHash": "4edef1ab37a58136a3791030388ecbc1530ad2c1972f19b493b7e5aa5e48eb7a",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "4edef1ab37a58136a3791030388ecbc1530ad2c1972f19b493b7e5aa5e48eb7a",
+        "startedAt": "2026-08-19T07:20:58.250Z",
+        "completedAt": "2026-08-19T07:20:58.250Z",
+        "error": "",
+        "model": "remotion-original-animation",
+        "promptVersion": "microwave-mechanism-v2",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "外面烫，里面冷：它不是从中心开始加热\n电变成微波：看不见的能量进入食物\n来回推动，彼此碰撞：能量就变成了热\n微波只能深入一段距离：厚食物中心还要等热传进去\n转盘让食物经过热区：尽量照顾到每一部分\n翻面、搅拌、静置：加热会更均匀",
+        "visualDescription": "六幕原创横版机制动画，以深色金属微波炉、食物热区、分子运动和转盘场强展示完整加热过程。",
+        "hierarchicalSummary": "动画只作通俗机制示意，不冒充特定产品测试或测量结果。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-06",
+      "label": "真实家用微波炉倒计时与取出食物",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.pexels.com/video/video-of-person-heating-up-a-bread-on-a-microwave-4710526/",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-4710526-heating-bread.mp4",
+      "originalFileName": "pexels-4710526-heating-bread.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 10509732,
+      "importedAt": "2026-08-19T08:40:53.261Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "作者 Aghyad Najjar，Pexels 页面标注 Free to use。Pexels License 允许免费使用和修改且不强制署名；计划窗口原生无平台或账号水印。",
+      "contentHash": "ed7611ef60694eb68d1b29980c9efdaec07afd8a54a9fbe43846977e55218b38",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "ed7611ef60694eb68d1b29980c9efdaec07afd8a54a9fbe43846977e55218b38",
+        "startedAt": "2026-08-19T09:28:40.918Z",
+        "completedAt": "2026-08-19T09:28:40.918Z",
+        "error": "",
+        "model": "manual-stock-review",
+        "promptVersion": "microwave-real-footage-v3",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "横版家用微波炉倒计时结束，人物开门取出食物并重新关门。",
+        "hierarchicalSummary": "网页真实动态素材，经人工检查后只承担其实际可见的情境、动作或机制示意角色。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-07",
+      "label": "爆米花受热爆开微距",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.pexels.com/video/popcorn-popping-854958/",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-854958-popcorn-popping.mp4",
+      "originalFileName": "pexels-854958-popcorn-popping.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 15228984,
+      "importedAt": "2026-08-19T08:40:53.298Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "上传者 Pixabay，Pexels 页面明确标注 Free to use (CC0)；计划窗口原生无平台或账号水印。作为食物受热的微距示意，不冒充特定微波炉内部实录。",
+      "contentHash": "3b8bac5137fc45dc545bb3ea249669198dae989745f7db3fcbcfe3d5bba9d301",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "3b8bac5137fc45dc545bb3ea249669198dae989745f7db3fcbcfe3d5bba9d301",
+        "startedAt": "2026-08-19T09:28:40.918Z",
+        "completedAt": "2026-08-19T09:28:40.918Z",
+        "error": "",
+        "model": "manual-stock-review",
+        "promptVersion": "microwave-real-footage-v3",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "横版微距俯拍，玉米粒连续爆开成为爆米花，画面变化密集。",
+        "hierarchicalSummary": "网页真实动态素材，经人工检查后只承担其实际可见的情境、动作或机制示意角色。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-08",
+      "label": "切开厚牛排横截面",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.pexels.com/video/a-person-cutting-meat-on-a-cutting-board-4253328/",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-4253328-slicing-steak-excerpt.mp4",
+      "originalFileName": "pexels-4253328-slicing-steak-excerpt.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 4809054,
+      "importedAt": "2026-08-19T08:40:53.312Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "作者 cottonbro studio，Pexels 页面标注 Free to use。Pexels License 允许免费使用和修改且不强制署名；本地文件是原片 1080p 截取版，计划窗口原生无平台或账号水印。作为厚食物横截面示意，不暗示该牛排由微波炉加热。",
+      "contentHash": "3d6a1e37d29a9a75760050aa9e676f0776e5421bb45e657a85c58b27133b99d7",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "3d6a1e37d29a9a75760050aa9e676f0776e5421bb45e657a85c58b27133b99d7",
+        "startedAt": "2026-08-19T09:28:40.918Z",
+        "completedAt": "2026-08-19T09:28:40.918Z",
+        "error": "",
+        "model": "manual-stock-review",
+        "promptVersion": "microwave-real-footage-v3",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "横版近景，厨师连续切开厚牛排，食物外层与中心横截面清楚可见。",
+        "hierarchicalSummary": "网页真实动态素材，经人工检查后只承担其实际可见的情境、动作或机制示意角色。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-09",
+      "label": "蒸汽热食翻动与搅拌",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.pexels.com/video/sizzling-korean-stir-fry-in-hot-pan-29117384/",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-29117384-stirring-hot-food-excerpt.mp4",
+      "originalFileName": "pexels-29117384-stirring-hot-food-excerpt.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 23150614,
+      "importedAt": "2026-08-19T08:40:53.334Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "作者 Paul Bill，Pexels 页面标注 Free to use。Pexels License 允许免费使用和修改且不强制署名；本地文件是原片 1080p 截取版，计划窗口原生无平台或账号水印。只承担翻动与搅拌动作示意，不暗示这是微波炉内实录。",
+      "contentHash": "5029194dc7db43e22384e5132e673b7dd5805b2744c472926099317332ef9da4",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "5029194dc7db43e22384e5132e673b7dd5805b2744c472926099317332ef9da4",
+        "startedAt": "2026-08-19T09:28:40.918Z",
+        "completedAt": "2026-08-19T09:28:40.918Z",
+        "error": "",
+        "model": "manual-stock-review",
+        "promptVersion": "microwave-real-footage-v3",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "横版近景，木铲持续翻动带蒸汽的热食，动作和热气都清楚。",
+        "hierarchicalSummary": "网页真实动态素材，经人工检查后只承担其实际可见的情境、动作或机制示意角色。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    },
+    {
+      "id": "source-10",
+      "label": "真实微波炉开门、关门与转盘运行",
+      "sourceType": "video",
+      "materialRole": "broll",
+      "originUrl": "https://www.pexels.com/video/video-of-person-using-microwave-4710717/",
+      "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-4710717-microwave-use.mp4",
+      "originalFileName": "pexels-4710717-microwave-use.mp4",
+      "mimeType": "video/mp4",
+      "bytes": 9999769,
+      "importedAt": "2026-08-19T08:40:53.349Z",
+      "publishedAt": "",
+      "verificationStatus": "verified",
+      "rightsStatus": "cleared",
+      "rightsNote": "作者 Aghyad Najjar，Pexels 页面标注 Free to use。Pexels License 允许免费使用和修改且不强制署名；计划窗口原生无平台或账号水印。",
+      "contentHash": "ab18b08415d96359cb5aa73d1c26b4c80e4904f52533f7a02eeb6dbb0bb7bbd3",
+      "reusedFrom": null,
+      "processing": {
+        "status": "completed",
+        "stage": "completed",
+        "attempts": 1,
+        "inputHash": "ab18b08415d96359cb5aa73d1c26b4c80e4904f52533f7a02eeb6dbb0bb7bbd3",
+        "startedAt": "2026-08-19T09:28:40.918Z",
+        "completedAt": "2026-08-19T09:28:40.918Z",
+        "error": "",
+        "model": "manual-stock-review",
+        "promptVersion": "microwave-real-footage-v3",
+        "cacheHit": false
+      },
+      "analysis": {
+        "extractedText": "",
+        "visualDescription": "横版正面视角，人物操作微波炉，炉灯亮起后食物随转盘持续转动。",
+        "hierarchicalSummary": "网页真实动态素材，经人工检查后只承担其实际可见的情境、动作或机制示意角色。",
+        "transcript": [],
+        "facts": [],
+        "uncertainties": [],
+        "chapters": []
+      }
+    }
+  ],
+  "research": {
+    "transcripts": [],
+    "facts": [
+      {
+        "id": "fact-magnetron-and-absorption",
+        "statement": "FDA 说明微波由炉内磁控管产生，在金属腔体内反射并被食物吸收。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "FDA Microwave Ovens 工作原理段落"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-not-inside-out",
+        "statement": "FDA 明确指出厚食物不是从里面向外熟；外层主要由微波加热，内部主要靠热传导。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "FDA “inside out” 说明"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-dielectric-heating",
+        "statement": "介电加热来自交变电场对食物分子的作用以及能量耗散；参与吸收的不只有水分子。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "WTAMU dielectric heating 解释"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-no-water-resonance",
+        "statement": "2.45GHz 不是水分子的特殊共振频率，不能把场频率等同于每个分子的完整旋转次数。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-02",
+            "locatorType": "file",
+            "note": "WTAMU 2.45GHz 共振误区说明"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-standing-wave-turntable",
+        "statement": "金属腔体内的反射叠加会形成场强不均；转盘让食物经过不同区域，从而改善平均程度。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "file",
+            "note": "腔体边界与转盘作用工程推导"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "fact-door-mesh-scale",
+        "statement": "2.45GHz 对应自由空间波长约 12.2cm，远大于门上毫米级导电网孔；安全还依赖门体、联动与密封完整。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-03",
+            "locatorType": "file",
+            "note": "波长计算与网孔尺度说明"
+          },
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "FDA 门体、联动、密封与损坏警告"
+          }
+        ],
+        "reviewStatus": "confirmed",
+        "kind": "claim",
+        "reviewPriority": "required",
+        "briefRelevance": 9
+      }
+    ],
+    "uncertainties": [
+      {
+        "id": "uncertainty-food-specific-heating",
+        "statement": "实际穿透深度、升温速度和冷热分布会随频率、含水量、盐分、形状、装载量和容器变化。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "FDA 对厚食物和不同食物加热的边界"
+          },
+          {
+            "sourceId": "source-03",
+            "locatorType": "file",
+            "note": "原创工程推导的适用边界"
+          }
+        ],
+        "resolution": "成片只讲通用机制，不给固定穿透深度或均匀性承诺，并明确转盘不能保证完全均匀。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 10
+      },
+      {
+        "id": "uncertainty-safety-absolute",
+        "statement": "正常设计不等于任何损坏或错误使用情况下都没有泄漏风险。",
+        "sourceReferences": [
+          {
+            "sourceId": "source-01",
+            "locatorType": "file",
+            "note": "FDA 对损坏门体、门锁和密封的警告"
+          }
+        ],
+        "resolution": "成片不使用“绝对零泄漏”，结尾要求以产品说明书为准，门体损坏时停止使用。",
+        "riskLevel": "high",
+        "reviewPriority": "required",
+        "briefRelevance": 9
+      }
+    ]
+  },
+  "narrative": {
+    "status": "idle",
+    "error": "",
+    "activeVersionId": "",
+    "versions": [],
+    "pendingDraft": null,
+    "pendingScenes": [],
+    "pendingChapters": [],
+    "generatedAt": "",
+    "model": "",
+    "promptVersion": ""
+  },
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-5.6",
+    "transcriptionModel": "whisper.cpp:large-v3-turbo-q5_0",
+    "promptVersion": "videobrief-2026-07-11-v1",
+    "calls": []
+  },
+  "editorial": {
+    "claim": "微波炉把能量送进食物，但厚食物中心仍要等热传进去，所以加热快不等于处处均匀。",
+    "whyItMatters": "它解释了最常见的使用体验：外面很烫，里面却可能还冷。",
+    "chinaContext": "面向普通家用微波炉用户，不针对特定品牌或型号。",
+    "riskNote": "观众层只保留必要的使用提醒；详细事实边界继续留在项目研究记录。"
+  },
+  "platformCopy": {
+    "coverTitle": "为什么外面烫了，里面还是冷的？",
+    "title": "微波炉到底怎么把食物变热？",
+    "description": "为什么微波炉加热很快，却常常一边烫、一边冷？看懂能量怎么进入食物，以及转盘到底有什么用。",
+    "hashtags": [
+      "微波炉",
+      "工作原理",
+      "生活科普",
+      "日常有因"
+    ]
+  },
+  "production": {
+    "trackingStartedAt": "2026-08-19T05:10:16.074Z",
+    "updatedAt": "2026-08-19T09:31:12.027Z",
+    "researchReviewedAt": "",
+    "firstRenderCompletedAt": "2026-08-19T05:15:07.079Z",
+    "lastRenderCompletedAt": "2026-08-19T09:31:12.027Z",
+    "sourceImportCount": 10,
+    "manualSaveCount": 0,
+    "renderAttemptCount": 6,
+    "renderFailureCount": 0,
+    "lastRenderStartedAt": "2026-08-19T09:30:56.818Z",
+    "lastRenderError": "",
+    "reusedSourceIds": []
+  },
+  "materialReview": {
+    "status": "approved",
+    "approvedSourceIds": [
+      "source-06",
+      "source-05",
+      "source-08",
+      "source-10",
+      "source-09"
+    ],
+    "reviewedAt": "2026-08-19T09:28:40.930Z"
+  },
+  "materialQualityReview": {
+    "schemaVersion": 1,
+    "status": "passed",
+    "reviewedAt": "2026-08-19T09:29:26.308Z",
+    "reviewer": "codex",
+    "reviewScope": "v4 混合版包含五幕网页真实动态素材和一幕原创 2.5D 分子机制动画；逐幕核对锁定窗口 start/mid/end、390x844 移动等比缩放、语义角色、动作完整性、唯一性、许可与平台水印。全片不使用 3D。",
+    "sceneReviews": [
+      {
+        "sceneId": "scene-01",
+        "sceneFingerprint": "bd2fcdad35d4aab298bb169f167c2d190ee85def4e8361c24ffd4818471610fa",
+        "candidate": {
+          "sourceId": "source-06",
+          "sourceStart": 7.4,
+          "sourceEnd": 14.333333
+        },
+        "visibleClaim": "真实微波炉显示加热结束，人物随后开门、取出食物并关门；最终成片只在这一幕叠加简洁问题标题。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "画面直接建立“刚加热完”的日常情境，但不把实拍本身当作外热内冷的测量证据；反差由旁白和编辑标题提出。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [
+            "外面烫了，里面还冷？"
+          ],
+          "reason": "实拍主体和开场大字均位于安全区；已检查 1920x1080 原帧及 390x844 黑底等比缩放，中间动作与标题无需暂停即可辨认。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "start 为倒计时 End，mid 为开门取食，end 为重新关门，完整覆盖一个真实使用动作。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "镜头运动来自真实操作或食物状态变化；未添加程序化推拉、慢放、循环或无语义运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "与第 2 幕来自同一原片但窗口不重叠；本幕只使用结束、取食和关门段。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "已逐一检查锁定窗口的 start/mid/end，未发现平台角标、账号角标、下载工具标记或来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "实拍主体与当前旁白角色一致",
+          "来源、窗口和许可记录完整",
+          "start/mid/end 动作状态完整",
+          "桌面与移动等比缩放后主体可辨",
+          "计划窗口原生无平台水印"
+        ],
+        "evidence": [
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-01-start.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-01-mid.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-01-end.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-01-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-02",
+        "sceneFingerprint": "9e323a9419ce45af054ae983f8b1fea9855e49d0d4dc82b4a37101297c650503",
+        "candidate": {
+          "sourceId": "source-06",
+          "sourceStart": 0,
+          "sourceEnd": 7.3
+        },
+        "visibleClaim": "真实微波炉从 4 秒倒数至结束，炉门后可见食物和持续运行状态。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "画面直接支持微波炉正在加热的现实情境；看不见的微波和反射机制仍由一手来源、旁白与字幕说明。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕不依赖来源画面中的细字，关键食物、微波炉和人物动作在 1920x1080 与 390x844 等比缩放后仍直接可辨。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "start/mid/end 显示倒计时持续递减并到达结束，窗口完整且没有重复第 1 幕的取食动作。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "镜头运动来自真实操作或食物状态变化；未添加程序化推拉、慢放、循环或无语义运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "与第 1 幕使用同一来源的独立倒计时窗口，两个窗口不重叠且表达不同状态。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "已逐一检查锁定窗口的 start/mid/end，未发现平台角标、账号角标、下载工具标记或来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "实拍主体与当前旁白角色一致",
+          "来源、窗口和许可记录完整",
+          "start/mid/end 动作状态完整",
+          "桌面与移动等比缩放后主体可辨",
+          "计划窗口原生无平台水印"
+        ],
+        "evidence": [
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-02-start.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-02-mid.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-02-end.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-02-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-03",
+        "sceneFingerprint": "a8bb2221c41609f7d9330673251f282f6b7ed7894be6588fdad0e883a88ef8fa",
+        "candidate": {
+          "sourceId": "source-05",
+          "sourceStart": 20,
+          "sourceEnd": 27.366667
+        },
+        "visibleClaim": "2.5D 示意中的水分子和带电粒子随交变电场左右摆动，碰撞点持续亮起。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "动画直接支持“被电场来回推动、彼此碰撞并把能量变成热”的通俗机制；画面明确是示意，不冒充微观实拍。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕不依赖来源画面中的细字，关键食物、微波炉和人物动作在 1920x1080 与 390x844 等比缩放后仍直接可辨。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "start/mid/end 显示电场方向交替、粒子角度变化与碰撞点闪动，动画连续且没有循环填充。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "镜头运动来自真实操作或食物状态变化；未添加程序化推拉、慢放、循环或无语义运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该 2.5D 动画只用于解释肉眼不可见的分子机制，没有在其他观点中复用。"
+        },
+        "platformWatermark": {
+          "status": "not-applicable",
+          "marks": [],
+          "reason": "本幕为 VideoBrief 原创程序化机制示意，不涉及外部平台或账号水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "实拍主体与当前旁白角色一致",
+          "来源、窗口和许可记录完整",
+          "start/mid/end 动作状态完整",
+          "桌面与移动等比缩放后主体可辨",
+          "计划窗口原生无平台水印"
+        ],
+        "evidence": [
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-03-start.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-03-mid.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-03-end.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-03-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-04",
+        "sceneFingerprint": "01109ce15c109cddedd9aaa2dc98771c8c7a63f3684e612e35393d3cf657c1ed",
+        "candidate": {
+          "sourceId": "source-08",
+          "sourceStart": 1.1,
+          "sourceEnd": 7.166667
+        },
+        "visibleClaim": "厨师连续切开厚牛排，最后直接露出外层与中心横截面。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 2,
+          "reason": "画面直接支持厚食物有明显中心横截面，适合解释热继续向内传；不暗示该牛排由微波炉加热。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕不依赖来源画面中的细字，关键食物、微波炉和人物动作在 1920x1080 与 390x844 等比缩放后仍直接可辨。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "start 为完整厚牛排，mid 开始切入，end 已露出中心，动作结果在窗口内完成。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "镜头运动来自真实操作或食物状态变化；未添加程序化推拉、慢放、循环或无语义运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该切面镜头只绑定“厚食物中心”观点，没有与开场或其他场景复用。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "已逐一检查锁定窗口的 start/mid/end，未发现平台角标、账号角标、下载工具标记或来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "实拍主体与当前旁白角色一致",
+          "来源、窗口和许可记录完整",
+          "start/mid/end 动作状态完整",
+          "桌面与移动等比缩放后主体可辨",
+          "计划窗口原生无平台水印"
+        ],
+        "evidence": [
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-04-start.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-04-mid.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-04-end.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-04-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-05",
+        "sceneFingerprint": "8869e758c53fdc600c061672b5d72f42bd5f408fa4c133dbea74dce2637b6e9c",
+        "candidate": {
+          "sourceId": "source-10",
+          "sourceStart": 6,
+          "sourceEnd": 14.066667
+        },
+        "visibleClaim": "真实微波炉炉灯点亮，倒计时持续变化，炉门后食物随转盘改变位置。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "画面中的炉灯、倒计时和食物位置变化直接支持转盘让食物经过不同位置。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕不依赖来源画面中的细字，关键食物、微波炉和人物动作在 1920x1080 与 390x844 等比缩放后仍直接可辨。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "start 为启动按键，mid/end 为持续运行且倒计时变化；窗口不跨入结束或开门动作。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "镜头运动来自真实操作或食物状态变化；未添加程序化推拉、慢放、循环或无语义运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该正面转盘窗口只绑定转盘观点，未被用作其他机制的通用背景。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "已逐一检查锁定窗口的 start/mid/end，未发现平台角标、账号角标、下载工具标记或来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "实拍主体与当前旁白角色一致",
+          "来源、窗口和许可记录完整",
+          "start/mid/end 动作状态完整",
+          "桌面与移动等比缩放后主体可辨",
+          "计划窗口原生无平台水印"
+        ],
+        "evidence": [
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-05-start.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-05-mid.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-05-end.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-05-mobile-mid.png"
+        ]
+      },
+      {
+        "sceneId": "scene-06",
+        "sceneFingerprint": "4bda76b3816dee8a910b1fbcbb59d64b9ee4ac054269e7a6ed1b50c0ce6005dd",
+        "candidate": {
+          "sourceId": "source-09",
+          "sourceStart": 0,
+          "sourceEnd": 8.466667
+        },
+        "visibleClaim": "蒸汽热食被木铲持续翻动和搅拌，食物位置不断重新分布。",
+        "evidenceRole": "primary-evidence",
+        "narrationMatch": {
+          "score": 3,
+          "reason": "连续翻动、搅拌与蒸汽直接支持结尾的操作建议；不暗示画面发生在微波炉内。"
+        },
+        "readability": {
+          "desktop": "passed",
+          "mobile": "passed",
+          "criticalText": [],
+          "reason": "本幕不依赖来源画面中的细字，关键食物、微波炉和人物动作在 1920x1080 与 390x844 等比缩放后仍直接可辨。"
+        },
+        "temporalCompleteness": {
+          "status": "passed",
+          "reason": "start/mid/end 都包含不同的翻动状态，动作连续且不循环、不慢放。"
+        },
+        "stability": {
+          "status": "stable",
+          "motionNecessary": true,
+          "reason": "镜头运动来自真实操作或食物状态变化；未添加程序化推拉、慢放、循环或无语义运动。"
+        },
+        "uniqueness": {
+          "status": "unique",
+          "reason": "该搅拌镜头只用于结尾操作建议，没有作为机制事实证据复用。"
+        },
+        "platformWatermark": {
+          "status": "absent",
+          "marks": [],
+          "reason": "已逐一检查锁定窗口的 start/mid/end，未发现平台角标、账号角标、下载工具标记或来源水印。"
+        },
+        "decision": "accept",
+        "decisionReasons": [
+          "实拍主体与当前旁白角色一致",
+          "来源、窗口和许可记录完整",
+          "start/mid/end 动作状态完整",
+          "桌面与移动等比缩放后主体可辨",
+          "计划窗口原生无平台水印"
+        ],
+        "evidence": [
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-06-start.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-06-mid.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-06-end.png",
+          "output/videos/microwave-mechanism-style-poc-20260819-work/material-quality-evidence-v3/scene-06-mobile-mid.png"
+        ]
+      }
+    ]
+  },
+  "workflow": {
+    "schemaVersion": 1,
+    "origin": {
+      "kind": "manual",
+      "runId": "",
+      "candidateId": "",
+      "sourceUrl": "https://v.douyin.com/cg_geeWQqiI/",
+      "score": null,
+      "summary": "用户指定的表达参考；只借鉴机制动画的叙事方法，不把原视频当作事实来源或成片素材。"
+    },
+    "topicApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-19T09:28:40.926Z",
+      "decidedBy": "用户",
+      "note": "用户要求网页真实动态素材保持主体，同时保留水分子随电场来回摆动的关键原理动画，不使用 3D。",
+      "fingerprint": "9138d689f4aea727dd35ff0cd7413a9be2fc315b08680d5c5049d587b39e91f0"
+    },
+    "researchApproval": {
+      "status": "approved",
+      "decidedAt": "2026-08-19T09:28:40.929Z",
+      "decidedBy": "用户",
+      "note": "机制事实继续沿用已批准的一手研究；Pexels 实拍只承担生活情境、食物状态和动作示意，不替代事实来源。",
+      "fingerprint": "b36a0c25f4d0e0ea383f223211995cb597b801de1a88432f3a14cfc0eeabec0e"
+    },
+    "deliveryApproval": {
+      "status": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "fingerprint": ""
+    },
+    "publication": {
+      "approval": {
+        "status": "pending",
+        "decidedAt": "",
+        "decidedBy": "",
+        "note": "",
+        "fingerprint": ""
+      },
+      "platform": "",
+      "publishedUrl": "",
+      "publishedAt": "",
+      "videoSha256": "",
+      "packageSha256": ""
+    },
+    "publicationTargets": [],
+    "market": {
+      "decision": "pending",
+      "decidedAt": "",
+      "decidedBy": "",
+      "note": "",
+      "evidence": []
+    }
+  },
+  "chapters": [
+    {
+      "id": "chapter-01",
+      "title": "微波炉不是从里面向外烤熟，它究竟怎样加热？",
+      "summary": "",
+      "order": 0,
+      "sceneIds": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06"
+      ],
+      "sourceReferences": []
+    }
+  ],
+  "outputs": {
+    "outputVideo": "output/videos/microwave-mechanism-style-poc-20260819.mp4",
+    "publicRender": "public/renders/microwave-mechanism-style-poc-20260819.mp4",
+    "workDir": "output/videos/microwave-mechanism-style-poc-20260819-work",
+    "exportDir": "output/exports/microwave-mechanism-style-poc-20260819",
+    "coverImage": "output/exports/microwave-mechanism-style-poc-20260819/cover.png",
+    "platformCopy": "output/exports/microwave-mechanism-style-poc-20260819/platform-copy.json",
+    "sourceList": "output/exports/microwave-mechanism-style-poc-20260819/source-list.json",
+    "projectSnapshot": "output/exports/microwave-mechanism-style-poc-20260819/project.snapshot.json"
+  },
+  "render": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice": "zh-CN-YunxiNeural",
+    "rate": 204,
+    "voiceEngine": "edge-tts",
+    "voiceModel": "edge-tts-universal",
+    "voiceProfile": "natural-tech-zh-v1",
+    "voiceStyle": "像一个熟悉生活常识的中文创作者在解释。语气自然、轻松、有交流感，不要播音腔、广告腔或技术报告感。前三秒带一点惊讶，后面像朋友聊天。准确朗读原文，不增加内容。",
+    "voiceGenerationMode": "per-scene",
+    "renderStrategy": "segmented-concat",
+    "pronunciations": [],
+    "mediaFit": "cover",
+    "subtitleBottom": 66
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-06",
+      "sourceStart": 7.4,
+      "sourceEnd": 14.333333,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": true,
+      "eyebrow": "一个常见情况",
+      "title": "外面烫了，里面还冷？",
+      "subtitle": "它不是从中心开始加热",
+      "narration": "外面已经烫嘴，里面怎么还是冷的？因为微波炉根本不是从中心开始加热。",
+      "visualRequirement": "前三秒直接看到微波炉结束加热并开门取食物；用简洁大字提出“外烫内冷”，实拍始终是画面主体。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "支撑第 1 幕机制说明"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "time",
+          "start": 7.4,
+          "end": 14.333333,
+          "note": "v3 实拍主镜头，第 1 幕"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-01-v3-real",
+          "sourceId": "source-06",
+          "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-4710526-heating-bread.mp4",
+          "mediaType": "video",
+          "sourceStart": 7.4,
+          "sourceEnd": 14.333333,
+          "matchReason": "真实微波炉结束、开门和取食动作直接建立日常使用场景；前三秒由编辑标题强化反差，不使用 3D 或自制主体素材。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-01-v3-real",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-19T09:28:40.918Z",
+      "selectionNote": "已检查计划窗口 start/mid/end、原生分辨率、动作完整性、语义角色和平台水印；最终仍需通过正式 Material Quality Gate。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-02",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-06",
+      "sourceStart": 0,
+      "sourceEnd": 7.3,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "先看炉腔",
+      "title": "能量被送进炉腔",
+      "subtitle": "看不见，但食物正在加热",
+      "narration": "它先把电变成微波，送进炉腔。看不见的微波在里面来回反射，一部分进入食物。",
+      "visualRequirement": "使用真实微波炉倒计时和炉内食物动态建立能量进入炉腔的现实情境；不把库存镜头当作微波传播的直接测量。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "支撑第 2 幕机制说明"
+        },
+        {
+          "sourceId": "source-06",
+          "locatorType": "time",
+          "start": 0,
+          "end": 7.3,
+          "note": "v3 实拍主镜头，第 2 幕"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-02-v3-real",
+          "sourceId": "source-06",
+          "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-4710526-heating-bread.mp4",
+          "mediaType": "video",
+          "sourceStart": 0,
+          "sourceEnd": 7.3,
+          "matchReason": "真实微波炉持续运行，倒计时和炉内食物可见，适合承接“电变成微波并送进炉腔”的情境说明。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-02-v3-real",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-19T09:28:40.918Z",
+      "selectionNote": "已检查计划窗口 start/mid/end、原生分辨率、动作完整性、语义角色和平台水印；最终仍需通过正式 Material Quality Gate。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-03",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-05",
+      "sourceStart": 20,
+      "sourceEnd": 27.366667,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "能量变成热",
+      "title": "食物内部开始升温",
+      "subtitle": "电场来回推动，碰撞把能量变成热",
+      "narration": "食物里的水分子和带电粒子，被电场来回推动。它们彼此碰撞，能量就变成了热。",
+      "visualRequirement": "使用简洁 2.5D 原理动画表现水分子和带电粒子随交变电场来回摆动；只解释肉眼看不见的机制，不扩展成三维建模。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-02",
+          "locatorType": "file",
+          "note": "支撑第 3 幕机制说明"
+        },
+        {
+          "sourceId": "source-05",
+          "locatorType": "time",
+          "start": 20,
+          "end": 27.366667,
+          "note": "v3 实拍主镜头，第 3 幕"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-03-v3-real",
+          "sourceId": "source-05",
+          "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/microwave-mechanism-original-animation-v2-1787124058255.mp4",
+          "mediaType": "video",
+          "sourceStart": 20,
+          "sourceEnd": 27.366667,
+          "matchReason": "分子随电场左右摆动、碰撞点亮的动画直接承接当前旁白；这是明确的机制示意，不冒充微观实拍。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-03-v3-real",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-19T09:28:40.918Z",
+      "selectionNote": "已检查计划窗口 start/mid/end、原生分辨率、动作完整性、语义角色和平台水印；最终仍需通过正式 Material Quality Gate。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-04",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-08",
+      "sourceStart": 1.1,
+      "sourceEnd": 7.166667,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "厚食物更明显",
+      "title": "中心要再等一会儿",
+      "subtitle": "外层先热，热量再慢慢传进去",
+      "narration": "但微波只能深入一段距离。厚食物的中心，还是要等外面的热慢慢传进去。",
+      "visualRequirement": "使用真实切开厚牛排的横版近景，让外层与中心横截面直接可见；旁白解释热继续向中心传递，不使用三维食物模型。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-01",
+          "locatorType": "file",
+          "note": "支撑第 4 幕机制说明"
+        },
+        {
+          "sourceId": "source-08",
+          "locatorType": "time",
+          "start": 1.1,
+          "end": 7.166667,
+          "note": "v3 实拍主镜头，第 4 幕"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-04-v3-real",
+          "sourceId": "source-08",
+          "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-4253328-slicing-steak-excerpt.mp4",
+          "mediaType": "video",
+          "sourceStart": 1.1,
+          "sourceEnd": 7.166667,
+          "matchReason": "连续切开动作直接露出厚食物横截面，能承接“中心仍要等热传进去”；不暗示该牛排由微波炉加热。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-04-v3-real",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-19T09:28:40.918Z",
+      "selectionNote": "已检查计划窗口 start/mid/end、原生分辨率、动作完整性、语义角色和平台水印；最终仍需通过正式 Material Quality Gate。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-05",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-10",
+      "sourceStart": 6,
+      "sourceEnd": 14.066667,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "为什么要转",
+      "title": "让食物经过不同热区",
+      "subtitle": "尽量少一点局部过热和过冷",
+      "narration": "炉腔里有些位置能量强，有些位置弱。转盘带着食物走，尽量让每一部分都经过热区。",
+      "visualRequirement": "使用真实微波炉炉灯和炉内食物运动窗口，重点让观众看到食物在加热过程中改变位置。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-03",
+          "locatorType": "file",
+          "note": "支撑第 5 幕机制说明"
+        },
+        {
+          "sourceId": "source-10",
+          "locatorType": "time",
+          "start": 6,
+          "end": 14.066667,
+          "note": "v3 实拍主镜头，第 5 幕"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-05-v3-real",
+          "sourceId": "source-10",
+          "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-4710717-microwave-use.mp4",
+          "mediaType": "video",
+          "sourceStart": 6,
+          "sourceEnd": 14.066667,
+          "matchReason": "炉灯亮起、倒计时变化，炉门内可见食物随转盘移动，直接支持“让每一部分经过不同热区”的操作机制。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-05-v3-real",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-19T09:28:40.918Z",
+      "selectionNote": "已检查计划窗口 start/mid/end、原生分辨率、动作完整性、语义角色和平台水印；最终仍需通过正式 Material Quality Gate。",
+      "generatedBy": "ai",
+      "userEdited": true
+    },
+    {
+      "id": "scene-06",
+      "chapterId": "chapter-01",
+      "enabled": true,
+      "sourceId": "source-09",
+      "sourceStart": 0,
+      "sourceEnd": 8.466667,
+      "mediaFit": "cover",
+      "mediaMotion": "none",
+      "showEditorialOverlay": false,
+      "eyebrow": "最实用的一步",
+      "title": "翻面、搅拌、静置",
+      "subtitle": "让热量再分一分",
+      "narration": "所以微波炉加热快，却不一定均匀。大块食物翻个面、搅一搅，再静置一会儿，会热得更均匀。",
+      "visualRequirement": "使用真实蒸汽热食被持续翻动和搅拌的横版近景；作为使用动作示意，不暗示画面发生在微波炉内。",
+      "sourceReferences": [
+        {
+          "sourceId": "source-03",
+          "locatorType": "file",
+          "note": "支撑第 6 幕机制说明"
+        },
+        {
+          "sourceId": "source-09",
+          "locatorType": "time",
+          "start": 0,
+          "end": 8.466667,
+          "note": "v3 实拍主镜头，第 6 幕"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "candidate-scene-06-v3-real",
+          "sourceId": "source-09",
+          "assetPath": "public/project-assets/microwave-mechanism-style-poc-20260819/pexels-29117384-stirring-hot-food-excerpt.mp4",
+          "mediaType": "video",
+          "sourceStart": 0,
+          "sourceEnd": 8.466667,
+          "matchReason": "连续搅拌、翻动和蒸汽直接支持结尾动作建议，视觉变化足够，不需要程序化填充或循环。",
+          "rightsStatus": "cleared"
+        }
+      ],
+      "selectedCandidateId": "candidate-scene-06-v3-real",
+      "selectionStatus": "codex_reviewed",
+      "selectionReviewedAt": "2026-08-19T09:28:40.918Z",
+      "selectionNote": "已检查计划窗口 start/mid/end、原生分辨率、动作完整性、语义角色和平台水印；最终仍需通过正式 Material Quality Gate。",
+      "generatedBy": "ai",
+      "userEdited": true
+    }
+  ]
+}

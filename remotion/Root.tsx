@@ -10,6 +10,11 @@ import {
   SHORT_VIDEO_TOTAL_SECONDS,
   SHORT_VIDEO_WIDTH,
 } from '../src/shortVideoTimeline';
+import {
+  MICROWAVE_MECHANISM_DURATION_FRAMES,
+  MICROWAVE_MECHANISM_FPS,
+  MicrowaveMechanismComposition,
+} from './MicrowaveMechanismComposition';
 
 export function RemotionRoot() {
   return (
@@ -38,6 +43,14 @@ export function RemotionRoot() {
           width: props.renderWidth,
           height: props.renderHeight,
         })}
+      />
+      <Composition
+        id="MicrowaveMechanismAsset"
+        component={MicrowaveMechanismComposition}
+        durationInFrames={MICROWAVE_MECHANISM_DURATION_FRAMES}
+        fps={MICROWAVE_MECHANISM_FPS}
+        width={1920}
+        height={1080}
       />
     </>
   );
