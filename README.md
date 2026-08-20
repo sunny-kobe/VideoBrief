@@ -15,7 +15,7 @@ Source understanding, traceability, original narrative, shot selection, voiceove
 
 VideoBrief is not defined by one content category. Product explainers, software tutorials, knowledge videos, project demos and AI/technology briefs are replaceable production templates built on the same workflow.
 
-It is also not a transcript-first summarizer, a video reposting tool or an autonomous publishing system. Codex prepares and assembles the production draft through the canonical project; the user retains final control through conversation with Codex and explicit publication decisions. Once a platform target is explicitly approved, VideoBrief performs account checks, uploads, scheduling and state updates through its programmatic publisher instead of asking the user to upload files manually.
+It is also not a transcript-first summarizer, a video reposting tool or an autonomous publishing system. Codex prepares and assembles the production draft through the canonical project; the user retains final control through conversation with Codex and explicit publication decisions. Once a platform target is explicitly approved, VideoBrief can perform account checks, uploads, scheduling and state updates only where current platform rules and account evidence permit automation. Manual-only targets stop at a reviewed handoff package; Xiaohongshu is manual-only from 2026-08-20 after an account enforcement incident tied to automated account operation.
 
 ## Product Documents
 

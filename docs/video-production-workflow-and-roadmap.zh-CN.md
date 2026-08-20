@@ -278,11 +278,11 @@ render manifest
 project snapshot
 ```
 
-语义与浏览器验收通过后，系统仍不得直接打包。真人必须以 1 倍速完整观看当前视频并批准其 SHA-256；之后自动步骤才能生成 production package。只有 `rights_status = cleared`、当前 package 有效且用户再次明确批准具体平台目标时，才进入平台发布。批准之后，账号检查、首次登录、上传、定时和结果回写统一由 VideoBrief 的程序化发布器执行；首次登录可以要求用户扫码或完成第三方授权，但不得改成人工选择文件并投稿。
+语义与浏览器验收通过后，系统仍不得直接打包。真人必须以 1 倍速完整观看当前视频并批准其 SHA-256；之后自动步骤才能生成 production package。只有 `rights_status = cleared`、当前 package 有效且用户再次明确批准具体平台目标时，才进入平台发布。批准之后，只有经当日官方规则和账号实测确认允许程序化操作的平台，才由 VideoBrief 执行账号检查、首次登录、上传、定时和结果回写；被列为人工发布的平台必须停在交接包，由真人通过官方入口完成操作。
 
 同一项目可维护多个 `workflow.publicationTargets[]`。每个平台目标独立绑定当前 video/package 指纹，并按 `approved -> uploading -> submitted/scheduled -> published` 记录批准、程序运行、投稿、排期、稿件号、真实 URL 和时间；程序失败记为 `failed`，退回记为 `rejected`。目标同时保存实际请求的 `copySnapshot`、平台后台观察到的展示文案，以及可追加的 `metricSnapshots[]`。播放、点赞等未知值必须记为 `null`，不能用 `0` 代替；历史快照不得被最新数字覆盖。`submitted` 只说明程序完成平台投稿，`scheduled` 只说明平台已接收稿件并安排未来发布时间，两者都不能提升为 `published`；只有发布时间已经发生且公开 URL 可核验时，才能记录发布事实。视频号等平台若后台明确显示已发表但没有稳定匿名公开 URL，应把后台事实写入指标快照和备注，同时保留 `submitted`，不得伪造公开链接。旧的 `workflow.publication` 继续作为主平台摘要，供历史项目和现有调用兼容。
 
-当前程序化适配器使用项目本地安装的 `social-auto-upload`，支持 B站、抖音、小红书、视频号和 YouTube。统一入口为：
+当前程序化适配器使用项目本地安装的 `social-auto-upload`，代码层存在 B站、抖音、小红书、视频号和 YouTube 适配器，但“存在适配器”不代表平台允许使用。自 2026-08-20 起，小红书被固定列为人工发布平台，禁止调用该适配器及任何浏览器自动化执行登录检查、发布、查看或指标采集。其他平台的统一入口为：
 
 ```bash
 npm run project:publish -- --action=check --platform=视频号 --account=daily-cause
@@ -290,10 +290,10 @@ npm run project:publish -- --action=login --platform=视频号 --account=daily-c
 npm run project:publish -- --project=<project-id> --target=<target-id> --account=daily-cause --dry-run
 npm run project:publish -- --project=<project-id> --target=<target-id> --account=daily-cause
 npm run project:publish -- --project=<project-id> --target=<target-id> --account=daily-cause --schedule="2026-08-17 19:30"
-npm run project:publication-ledger -- --projects=<project-id-1>,<project-id-2> --account=daily-cause
+npm run project:publication-ledger -- --projects=<project-id-1>,<project-id-2> --account=daily-cause --skip-collect
 ```
 
-`--dry-run` 只验证 Gate、导出包和参数映射，不访问平台。真实执行前先做账号 `check`；登录失效时必须通过同一入口运行 `login`。上传日志和脱敏运行记录写入对应导出目录的 `publication-runs/`。发布指标命令复用同一账号登录态，把平台数据回写 canonical projects，并从这些项目派生 `output/publication-ledger.json` 和 `output/publication-ledger.md`；派生台账不得反向成为第二份事实源。当前上游 YouTube 适配器不支持定时发布，程序必须明确拒绝该组合，不得伪造排期状态。
+`--dry-run` 只验证 Gate、导出包和参数映射，不访问平台。真实执行前先做账号 `check`；登录失效时必须通过同一入口运行 `login`。上传日志和脱敏运行记录写入对应导出目录的 `publication-runs/`。允许自动采集的平台可以复用账号登录态，把平台数据回写 canonical projects，并从这些项目派生 `output/publication-ledger.json` 和 `output/publication-ledger.md`；派生台账不得反向成为第二份事实源。涉及小红书账号时，`project:publication-ledger` 必须使用 `--skip-collect`，只从人工录入的 canonical 数据生成台账。当前上游 YouTube 适配器不支持定时发布，程序必须明确拒绝该组合，不得伪造排期状态。
 
 多平台流程不等于同稿铺量。自营账号前 30 天只选择 1-2 个主平台，每个平台分别复核标题、封面、正文密度、AIGC 标识、必要署名和行动引导。标题与简介是面向观众的创作者文案，不是生产审计报告；模型、声音、工作流、剪辑和素材审核记录留在内部，AIGC 信息优先走平台专用声明字段。只有许可证强制要求的内容才以最短“素材鸣谢”进入正文。平台规则与上传能力会变化，正式接入上传适配器前必须以当日官方规则和真实账号能力复核，不把记忆中的规格写成固定事实。
 
