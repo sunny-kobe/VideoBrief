@@ -4,6 +4,8 @@ export interface SilenceInterval {
   duration: number;
 }
 
+export const DEFAULT_BOUNDARY_SILENCE_SECONDS: number;
+
 export interface VoiceSegmentPlan {
   index: number;
   start: number;

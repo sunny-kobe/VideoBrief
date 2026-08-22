@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { resolveSceneTiming } from '../scripts/lib/scene-timing.mjs';
+import { resolveSceneTiming, SceneTimingError } from '../scripts/lib/scene-timing.mjs';
 import { validateVideoWindow } from '../scripts/lib/media-window-validation.mjs';
 
 test('preserves an explicitly selected video window', () => {
@@ -54,13 +54,18 @@ test('rejects a media playback rate outside the auditable production range', () 
 });
 
 test('rejects a video window that cannot cover the narration', () => {
-  assert.throws(() => resolveSceneTiming({
-    sceneId: 'install',
-    sourceType: 'video',
-    sourceStart: 6.59,
-    sourceEnd: 7.59,
-    voiceDuration: 8.42,
-  }), /Select a longer semantic clip instead of looping it/);
+  assert.throws(
+    () => resolveSceneTiming({
+      sceneId: 'install',
+      sourceType: 'video',
+      sourceStart: 6.59,
+      sourceEnd: 7.59,
+      voiceDuration: 8.42,
+    }),
+    (error) => error instanceof SceneTimingError
+      && error.code === 'SCENE_TIMING_INVALID'
+      && /Select a longer semantic clip instead of looping it/.test(error.message),
+  );
 });
 
 test('aligns video duration to whole output frames without exceeding the selected window', () => {

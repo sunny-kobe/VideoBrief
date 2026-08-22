@@ -8,6 +8,10 @@ export interface SceneTimingInput {
   fps?: number;
 }
 
+export class SceneTimingError extends Error {
+  readonly code: 'SCENE_TIMING_INVALID';
+}
+
 export interface SceneTimingResult {
   sourceStart: number;
   sourceEnd: number;

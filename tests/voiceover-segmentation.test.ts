@@ -100,6 +100,33 @@ test('keeps a valid 0.6 second scene boundary when longer internal pauses also e
   );
 });
 
+test('uses a text-aligned moderate pause instead of an earlier long sentence pause', () => {
+  const segments = planVoiceSegments({
+    silences: [
+      { start: 0, end: 0.378542, duration: 0.378542 },
+      { start: 7.74758, end: 8.46133, duration: 0.71375 },
+      { start: 9.57467, end: 10.0723, duration: 0.497583 },
+      { start: 17.1875, end: 17.9276, duration: 0.740083 },
+      { start: 24.7296, end: 25.6303, duration: 0.900667 },
+      { start: 29.9727, end: 30.9508, duration: 0.978125 },
+      { start: 35.062, end: 35.696, duration: 0.634 },
+      { start: 38.1507, end: 39.0977, duration: 0.947042 },
+      { start: 47.7594, end: 48.5467, duration: 0.78725 },
+      { start: 50.3678, end: 51.2752, duration: 0.9075 },
+      { start: 58.0911, end: 58.56, duration: 0.468917 },
+    ],
+    audioDuration: 58.56,
+    segmentCount: 7,
+    segmentWeights: [45, 35, 39, 26, 41, 57, 34],
+    protection: 0,
+  });
+
+  assert.deepEqual(
+    segments.map(({ trailingBoundary }) => trailingBoundary?.start ?? null),
+    [9.57467, 17.1875, 24.7296, 29.9727, 38.1507, 50.3678, null],
+  );
+});
+
 test('surplus pauses still require explicit text weights', () => {
   const silences = parseSilenceIntervals(detectorOutput);
   silences.splice(2, 0, { start: 8, end: 8.9, duration: 0.9 });

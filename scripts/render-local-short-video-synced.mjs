@@ -17,6 +17,7 @@ import { validateVideoWindow } from './lib/media-window-validation.mjs';
 import { resolveSceneTiming } from './lib/scene-timing.mjs';
 import { planVideoInputBranches } from './lib/video-input-branches.mjs';
 import {
+  DEFAULT_BOUNDARY_SILENCE_SECONDS,
   parseSilenceIntervals,
   planVoiceSegments,
   resolveAudibleVoiceWindow,
@@ -338,6 +339,7 @@ async function generateBatchVoiceSegments(sceneEntries, batchId = 'full-video') 
     segmentWeights: sceneEntries.map((scene) => Array.from(
       String(scene.narration ?? scene.subtitle ?? '').replace(/\s/g, ''),
     ).length),
+    minimumBoundarySilence: DEFAULT_BOUNDARY_SILENCE_SECONDS,
   });
   const scenes = segmentPlans.map((segment, localIndex) => {
     const scene = sceneEntries[localIndex];
@@ -379,7 +381,7 @@ async function generateBatchVoiceSegments(sceneEntries, batchId = 'full-video') 
       duration: batchDuration,
       silenceThresholdDb: -35,
       silenceDetectionSeconds: 0.2,
-      minimumBoundarySilenceSeconds: 0.6,
+      minimumBoundarySilenceSeconds: DEFAULT_BOUNDARY_SILENCE_SECONDS,
       segmentationMode: 'silence-text-weight-aligned',
       detectedSilences: silences,
       segments: segmentPlans.map(({ index, start, end, duration }) => ({ index, start, end, duration })),

@@ -9,6 +9,17 @@ export function providerHttpStatus(error) {
   return null;
 }
 
+export function errorCode(error) {
+  let current = error;
+  const seen = new Set();
+  while (current && typeof current === 'object' && !seen.has(current)) {
+    seen.add(current);
+    if (typeof current.code === 'string') return current.code;
+    current = current.cause;
+  }
+  return null;
+}
+
 export function shouldFallbackBatchVoiceover(error) {
-  return providerHttpStatus(error) !== 429;
+  return providerHttpStatus(error) !== 429 && errorCode(error) !== 'SCENE_TIMING_INVALID';
 }

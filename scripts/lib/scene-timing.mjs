@@ -1,5 +1,17 @@
 const VIDEO_WINDOW_TOLERANCE_SECONDS = 0.12;
 
+export class SceneTimingError extends Error {
+  constructor(message, options) {
+    super(message, options);
+    this.name = 'SceneTimingError';
+    this.code = 'SCENE_TIMING_INVALID';
+  }
+}
+
+function sceneTimingError(message) {
+  return new SceneTimingError(message);
+}
+
 export function resolveSceneTiming({
   sceneId,
   sourceType,
@@ -14,20 +26,20 @@ export function resolveSceneTiming({
   const normalizedFps = Number(fps);
   const normalizedPlaybackRate = sourceType === 'video' ? Number(mediaPlaybackRate) : 1;
   if (!Number.isFinite(normalizedFps) || normalizedFps <= 0) {
-    throw new Error(`Scene ${sceneId} requires a positive render fps.`);
+    throw sceneTimingError(`Scene ${sceneId} requires a positive render fps.`);
   }
   if (
     !Number.isFinite(normalizedPlaybackRate)
     || normalizedPlaybackRate < 0.25
     || normalizedPlaybackRate > 4
   ) {
-    throw new Error(`Scene ${sceneId} requires mediaPlaybackRate between 0.25 and 4.`);
+    throw sceneTimingError(`Scene ${sceneId} requires mediaPlaybackRate between 0.25 and 4.`);
   }
   const hasSelectedWindow = Number.isFinite(normalizedEnd) && normalizedEnd > normalizedStart;
   const selectedDuration = hasSelectedWindow ? normalizedEnd - normalizedStart : 0;
 
   if (sourceType === 'video' && !hasSelectedWindow) {
-    throw new Error(`Scene ${sceneId} requires an explicit video sourceStart/sourceEnd window.`);
+    throw sceneTimingError(`Scene ${sceneId} requires an explicit video sourceStart/sourceEnd window.`);
   }
   const rawDuration = sourceType === 'video'
     ? selectedDuration / normalizedPlaybackRate
@@ -37,7 +49,7 @@ export function resolveSceneTiming({
     : Math.ceil(rawDuration * normalizedFps - 1e-6);
   const duration = frameCount / normalizedFps;
   if (sourceType === 'video' && duration + VIDEO_WINDOW_TOLERANCE_SECONDS < voiceDuration) {
-    throw new Error(
+    throw sceneTimingError(
       `Scene ${sceneId} frame-aligned video window is ${duration.toFixed(2)}s, shorter than its ${voiceDuration.toFixed(2)}s narration. Select a longer semantic clip instead of looping it.`,
     );
   }
