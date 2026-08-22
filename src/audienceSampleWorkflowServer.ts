@@ -1,6 +1,9 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve, sep } from 'node:path';
-import { audienceSampleWorkflow } from '@/src/audienceSampleWorkflow';
+import {
+  audienceSampleWorkflow,
+  parseAudienceSampleStyleExperiment,
+} from '@/src/audienceSampleWorkflow';
 import {
   projectPaths,
   readBrief,
@@ -20,6 +23,12 @@ function workflowFile(path: string) {
 
 export function readAudienceSampleShowcase() {
   const kickoffPrompt = readFileSync(workflowFile(audienceSampleWorkflow.kickoffPromptPath), 'utf8');
+  const styleExperiment = parseAudienceSampleStyleExperiment(JSON.parse(
+    readFileSync(workflowFile(audienceSampleWorkflow.styleExperimentPath), 'utf8'),
+  ));
+  if (styleExperiment.measurement.reviewPath !== audienceSampleWorkflow.performanceReviewPath) {
+    throw new Error('风格实验复盘路径与工作流配置不一致。');
+  }
   const samples = audienceSampleWorkflow.samples.map((reference) => {
     const project = readBrief(reference.projectId);
     const paths = projectPaths(project);
@@ -44,5 +53,5 @@ export function readAudienceSampleShowcase() {
     };
   });
 
-  return { workflow: audienceSampleWorkflow, kickoffPrompt, samples };
+  return { workflow: audienceSampleWorkflow, kickoffPrompt, styleExperiment, samples };
 }

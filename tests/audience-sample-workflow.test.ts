@@ -4,6 +4,7 @@ import test from 'node:test';
 import {
   audienceSampleWorkflow,
   parseAudienceSampleWorkflow,
+  parseAudienceSampleStyleExperiment,
 } from '../src/audienceSampleWorkflow';
 
 test('audience sample workflow keeps a research-only prompt, Topic Gate and unique reference projects', () => {
@@ -16,6 +17,8 @@ test('audience sample workflow keeps a research-only prompt, Topic Gate and uniq
   );
   assert.ok(existsSync(audienceSampleWorkflow.kickoffPromptPath));
   assert.ok(existsSync(audienceSampleWorkflow.playbookPath));
+  assert.ok(existsSync(audienceSampleWorkflow.styleExperimentPath));
+  assert.ok(existsSync(audienceSampleWorkflow.performanceReviewPath));
   for (const sample of audienceSampleWorkflow.samples) {
     assert.ok(existsSync(`content/projects/${sample.projectId}/project.json`));
   }
@@ -32,6 +35,17 @@ test('audience sample workflow keeps a research-only prompt, Topic Gate and uniq
   assert.match(prompt, /不上传/);
   assert.match(prompt, /不发布/);
   assert.doesNotMatch(prompt, /在同一任务中继续/);
+
+  const experiment = parseAudienceSampleStyleExperiment(JSON.parse(
+    readFileSync(audienceSampleWorkflow.styleExperimentPath, 'utf8'),
+  ));
+  assert.equal(experiment.status, 'active');
+  assert.equal(experiment.id, 'real-object-explainer-v1');
+  assert.equal(experiment.reviewAfterPublishedVideos, 4);
+  assert.deepEqual(experiment.measurement.snapshotHours, [2, 24, 72, 168]);
+  assert.equal(experiment.measurement.reviewPath, audienceSampleWorkflow.performanceReviewPath);
+  assert.match(experiment.productionDefaults.opening, /真实对象/);
+  assert.match(experiment.productionDefaults.cover, /8-14 字/);
 });
 
 test('audience sample workflow rejects duplicate projects and invalid topic scores', () => {
@@ -46,4 +60,25 @@ test('audience sample workflow rejects duplicate projects and invalid topic scor
     samples: [{ ...audienceSampleWorkflow.samples[0], topicScore: 41, topicScoreMax: 40 }],
   };
   assert.throws(() => parseAudienceSampleWorkflow(invalidScore), /Topic Gate 评分无效/);
+});
+
+test('audience sample style experiment rejects reversed durations and unordered snapshots', () => {
+  const experiment = parseAudienceSampleStyleExperiment(JSON.parse(
+    readFileSync(audienceSampleWorkflow.styleExperimentPath, 'utf8'),
+  ));
+  assert.throws(() => parseAudienceSampleStyleExperiment({
+    ...experiment,
+    productionDefaults: {
+      ...experiment.productionDefaults,
+      minDurationSeconds: 90,
+      maxDurationSeconds: 60,
+    },
+  }), /时长上限不能小于下限/);
+  assert.throws(() => parseAudienceSampleStyleExperiment({
+    ...experiment,
+    measurement: {
+      ...experiment.measurement,
+      snapshotHours: [24, 2],
+    },
+  }), /snapshotHours 必须严格递增/);
 });

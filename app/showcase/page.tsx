@@ -30,7 +30,7 @@ const publicationLabel: Record<PublicationStatus, string> = {
 };
 
 export default function ShowcasePage() {
-  const { workflow, kickoffPrompt, samples } = readAudienceSampleShowcase();
+  const { workflow, kickoffPrompt, styleExperiment, samples } = readAudienceSampleShowcase();
   const passedCount = samples.filter((sample) => sample.automatedAcceptancePassed).length;
   const publishedCount = samples.filter((sample) => sample.project.publication_status === 'published').length;
   const pendingDeliveryCount = samples.filter((sample) => sample.project.workflow.deliveryApproval.status === 'pending').length;
@@ -110,6 +110,35 @@ export default function ShowcasePage() {
         </div>
       </section>
 
+      <section className="border-y border-slate-200 bg-white" aria-labelledby="experiment-heading">
+        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div className="max-w-4xl">
+              <p className="text-xs font-extrabold text-emerald-700">ACTIVE STYLE EXPERIMENT</p>
+              <h2 id="experiment-heading" className="mt-1 text-lg font-extrabold">{styleExperiment.label}</h2>
+              <p className="mt-3 text-sm leading-6 text-slate-600">{styleExperiment.hypothesis}</p>
+            </div>
+            <span className="border border-emerald-200 bg-emerald-50 px-2 py-1 text-xs font-extrabold text-emerald-800">
+              {styleExperiment.status === 'active' ? '实验中' : '已完成'}
+            </span>
+          </div>
+          <dl className="mt-6 grid border-y border-slate-200 text-sm sm:grid-cols-3">
+            <div className="py-4 sm:pr-5">
+              <dt className="text-xs font-bold text-slate-500">目标时长</dt>
+              <dd className="mt-1 font-extrabold">{styleExperiment.productionDefaults.minDurationSeconds}-{styleExperiment.productionDefaults.maxDurationSeconds} 秒</dd>
+            </div>
+            <div className="border-t border-slate-200 py-4 sm:border-l sm:border-t-0 sm:px-5">
+              <dt className="text-xs font-bold text-slate-500">数据快照</dt>
+              <dd className="mt-1 font-extrabold">{styleExperiment.measurement.snapshotHours.map((hour) => `${hour}h`).join(' / ')}</dd>
+            </div>
+            <div className="border-t border-slate-200 py-4 sm:border-l sm:border-t-0 sm:pl-5">
+              <dt className="text-xs font-bold text-slate-500">下次复盘</dt>
+              <dd className="mt-1 font-extrabold">{styleExperiment.reviewAfterPublishedVideos} 条新视频或 {styleExperiment.reviewDeadline}</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
       <section className="border-y border-slate-200 bg-white" aria-labelledby="workflow-heading">
         <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
           <p className="text-xs font-extrabold text-slate-500">WORKFLOW V1</p>
@@ -140,6 +169,8 @@ export default function ShowcasePage() {
         <div className="mt-4 grid gap-2 text-xs text-slate-500 sm:grid-cols-2">
           <p><span className="font-bold text-slate-700">生产手册：</span><code>{workflow.playbookPath}</code></p>
           <p><span className="font-bold text-slate-700">流程配置：</span><code>content/workflows/self-owned-explainer-v1/workflow.json</code></p>
+          <p><span className="font-bold text-slate-700">风格实验：</span><code>{workflow.styleExperimentPath}</code></p>
+          <p><span className="font-bold text-slate-700">表现复盘：</span><code>{workflow.performanceReviewPath}</code></p>
         </div>
       </section>
     </main>

@@ -23,8 +23,39 @@ export interface AudienceSampleWorkflow {
   direction: string;
   kickoffPromptPath: string;
   playbookPath: string;
+  styleExperimentPath: string;
+  performanceReviewPath: string;
   stages: AudienceSampleWorkflowStage[];
   samples: AudienceSampleReference[];
+}
+
+export interface AudienceSampleStyleExperiment {
+  schemaVersion: 1;
+  id: string;
+  label: string;
+  status: 'active' | 'completed';
+  startedAt: string;
+  reviewAfterPublishedVideos: number;
+  reviewDeadline: string;
+  hypothesis: string;
+  productionDefaults: {
+    minDurationSeconds: number;
+    maxDurationSeconds: number;
+    opening: string;
+    answerPreview: string;
+    explanation: string;
+    closing: string;
+    decisionTopicsPerCycle: number;
+    mechanismTopicsPerCycle: number;
+    cover: string;
+    visualRules: string[];
+  };
+  measurement: {
+    snapshotHours: number[];
+    requiredMetrics: string[];
+    decisionRule: string;
+    reviewPath: string;
+  };
 }
 
 function requiredText(value: unknown, field: string) {
@@ -38,6 +69,90 @@ function uniqueValues(values: string[], field: string) {
   if (new Set(values).size !== values.length) {
     throw new Error(`受众样片流程的 ${field} 不能重复。`);
   }
+}
+
+function positiveInteger(value: unknown, field: string) {
+  const number = Number(value);
+  if (!Number.isInteger(number) || number <= 0) {
+    throw new Error(`风格实验的 ${field} 必须是正整数。`);
+  }
+  return number;
+}
+
+function requiredTextList(value: unknown, field: string) {
+  if (!Array.isArray(value) || value.length === 0) {
+    throw new Error(`风格实验的 ${field} 不能为空。`);
+  }
+  const items = value.map((item, index) => requiredText(item, `${field}[${index}]`));
+  uniqueValues(items, field);
+  return items;
+}
+
+export function parseAudienceSampleStyleExperiment(input: unknown): AudienceSampleStyleExperiment {
+  if (!input || typeof input !== 'object') throw new Error('风格实验配置必须是对象。');
+  const value = input as Record<string, unknown>;
+  if (value.schemaVersion !== 1) throw new Error('风格实验只支持 schemaVersion=1。');
+  if (value.status !== 'active' && value.status !== 'completed') {
+    throw new Error('风格实验状态必须是 active 或 completed。');
+  }
+
+  const defaults = value.productionDefaults as Record<string, unknown> | undefined;
+  if (!defaults) throw new Error('风格实验缺少 productionDefaults。');
+  const minDurationSeconds = positiveInteger(defaults.minDurationSeconds, 'minDurationSeconds');
+  const maxDurationSeconds = positiveInteger(defaults.maxDurationSeconds, 'maxDurationSeconds');
+  if (maxDurationSeconds < minDurationSeconds) throw new Error('风格实验的时长上限不能小于下限。');
+
+  const measurement = value.measurement as Record<string, unknown> | undefined;
+  if (!measurement) throw new Error('风格实验缺少 measurement。');
+  if (!Array.isArray(measurement.snapshotHours) || measurement.snapshotHours.length === 0) {
+    throw new Error('风格实验的 snapshotHours 不能为空。');
+  }
+  const snapshotHours = measurement.snapshotHours.map((item, index) => (
+    positiveInteger(item, `snapshotHours[${index}]`)
+  ));
+  if (snapshotHours.some((hour, index) => index > 0 && hour <= snapshotHours[index - 1])) {
+    throw new Error('风格实验的 snapshotHours 必须严格递增。');
+  }
+  const reviewPath = requiredText(measurement.reviewPath, 'measurement.reviewPath');
+  if (!reviewPath.startsWith('docs/')) throw new Error('风格实验复盘必须位于 docs/。');
+
+  return {
+    schemaVersion: 1,
+    id: requiredText(value.id, 'id'),
+    label: requiredText(value.label, 'label'),
+    status: value.status,
+    startedAt: requiredText(value.startedAt, 'startedAt'),
+    reviewAfterPublishedVideos: positiveInteger(
+      value.reviewAfterPublishedVideos,
+      'reviewAfterPublishedVideos',
+    ),
+    reviewDeadline: requiredText(value.reviewDeadline, 'reviewDeadline'),
+    hypothesis: requiredText(value.hypothesis, 'hypothesis'),
+    productionDefaults: {
+      minDurationSeconds,
+      maxDurationSeconds,
+      opening: requiredText(defaults.opening, 'productionDefaults.opening'),
+      answerPreview: requiredText(defaults.answerPreview, 'productionDefaults.answerPreview'),
+      explanation: requiredText(defaults.explanation, 'productionDefaults.explanation'),
+      closing: requiredText(defaults.closing, 'productionDefaults.closing'),
+      decisionTopicsPerCycle: positiveInteger(
+        defaults.decisionTopicsPerCycle,
+        'productionDefaults.decisionTopicsPerCycle',
+      ),
+      mechanismTopicsPerCycle: positiveInteger(
+        defaults.mechanismTopicsPerCycle,
+        'productionDefaults.mechanismTopicsPerCycle',
+      ),
+      cover: requiredText(defaults.cover, 'productionDefaults.cover'),
+      visualRules: requiredTextList(defaults.visualRules, 'productionDefaults.visualRules'),
+    },
+    measurement: {
+      snapshotHours,
+      requiredMetrics: requiredTextList(measurement.requiredMetrics, 'measurement.requiredMetrics'),
+      decisionRule: requiredText(measurement.decisionRule, 'measurement.decisionRule'),
+      reviewPath,
+    },
+  };
 }
 
 export function parseAudienceSampleWorkflow(input: unknown): AudienceSampleWorkflow {
@@ -81,11 +196,19 @@ export function parseAudienceSampleWorkflow(input: unknown): AudienceSampleWorkf
 
   const kickoffPromptPath = requiredText(value.kickoffPromptPath, 'kickoffPromptPath');
   const playbookPath = requiredText(value.playbookPath, 'playbookPath');
+  const styleExperimentPath = requiredText(value.styleExperimentPath, 'styleExperimentPath');
+  const performanceReviewPath = requiredText(value.performanceReviewPath, 'performanceReviewPath');
   if (!kickoffPromptPath.startsWith('content/workflows/')) {
     throw new Error('启动提示词必须位于 content/workflows/。');
   }
   if (!playbookPath.startsWith('docs/')) {
     throw new Error('生产手册必须位于 docs/。');
+  }
+  if (!styleExperimentPath.startsWith('content/workflows/')) {
+    throw new Error('风格实验必须位于 content/workflows/。');
+  }
+  if (!performanceReviewPath.startsWith('docs/')) {
+    throw new Error('表现复盘必须位于 docs/。');
   }
 
   return {
@@ -96,6 +219,8 @@ export function parseAudienceSampleWorkflow(input: unknown): AudienceSampleWorkf
     direction: requiredText(value.direction, 'direction'),
     kickoffPromptPath,
     playbookPath,
+    styleExperimentPath,
+    performanceReviewPath,
     stages,
     samples,
   };

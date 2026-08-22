@@ -6,12 +6,14 @@
   "direction": "日常有因：用公开影像和一手资料，讲清日常产品与服务变化背后的规则、成本和利益机制。",
   "kickoffPromptPath": "content/workflows/self-owned-explainer-v1/kickoff-prompt.zh-CN.md",
   "playbookPath": "docs/self-owned-explainer-production-playbook.zh-CN.md",
+  "styleExperimentPath": "content/workflows/self-owned-explainer-v1/style-experiment.json",
+  "performanceReviewPath": "docs/self-owned-video-performance-review-20260822.zh-CN.md",
   "stages": [
     {
       "id": "published-review",
       "label": "发布复盘",
       "gate": "",
-      "description": "读取三条已发布内容的同口径数据、评论问题和证据缺口，不把发布等同于验证。"
+      "description": "读取已发布内容的同口径数据、评论问题、平台实际封面和证据缺口，不把发布等同于验证。"
     },
     {
       "id": "audience-research",

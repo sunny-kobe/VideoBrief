@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "real-object-explainer-v1",
+  "label": "现实对象解释片 v1",
+  "status": "active",
+  "startedAt": "2026-08-22",
+  "reviewAfterPublishedVideos": 4,
+  "reviewDeadline": "2026-09-15",
+  "hypothesis": "在事实严谨度和真实动态素材比例不降低的前提下，用真实对象动作开场，以现实后果、核心机制和可执行收束组织叙事，并将成片控制在 60-85 秒，可以改善首段留存和高意图互动。",
+  "productionDefaults": {
+    "minDurationSeconds": 60,
+    "maxDurationSeconds": 85,
+    "opening": "0-3 秒直接展示真实对象正在发生的明确动作，同时给出问题或现实后果；不得先用通用环境、来源、定义或程序化标题开场。",
+    "answerPreview": "3-10 秒提前亮出答案框架，让观众知道接下来能获得什么判断或检查顺序。",
+    "explanation": "10-55 秒每幕只解释一个机制，真实动态素材和稳定原创信息层按职责组合。",
+    "closing": "55-75 秒用一句判断或可截图的行动清单收束；命题没有真实行动价值时，不强行伪造清单。",
+    "decisionTopicsPerCycle": 3,
+    "mechanismTopicsPerCycle": 1,
+    "cover": "一个清晰真实对象特写加一个 8-14 字反差或现实后果；环境不得成为唯一主体，品牌标记不得抢占第一视觉层级。",
+    "visualRules": [
+      "连续阅读由底部字幕承担，不叠加不可读的左上角 eyebrow、标题和说明。",
+      "信息层一次只表达一个结论，并在真实移动播放器中直接可读。",
+      "开场对象、标题、旁白和实际可见动作必须表达同一个问题。",
+      "保持自营解释视频至少 70%、优先接近 80% 的有效真实动态素材覆盖，不用循环、慢放或无语义 B-roll 补比例。",
+      "平台实际展示封面必须在发布后独立复核，不能以上传日志成功代替。"
+    ]
+  },
+  "measurement": {
+    "snapshotHours": [2, 24, 72, 168],
+    "requiredMetrics": [
+      "impressions",
+      "clickThroughRate",
+      "viewCount",
+      "twoSecondBounceRate",
+      "averageWatchSeconds",
+      "completionRate",
+      "likeCount",
+      "favoriteCount",
+      "commentCount",
+      "shareCount",
+      "followerGain",
+      "actualCover"
+    ],
+    "decisionRule": "只在同一平台内比较；至少两条新视频重复改善首段留存、平均观看或高意图互动后，才把对应规则保留到下一版本。",
+    "reviewPath": "docs/self-owned-video-performance-review-20260822.zh-CN.md"
+  }
+}
