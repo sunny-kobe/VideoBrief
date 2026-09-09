@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { buildProductionMetrics } from './lib/production-metrics.mjs';
+import { renderEfficiencySummary } from './lib/production-efficiency.mjs';
 
 function flag(name, fallback = '') {
   const prefix = `--${name}=`;
@@ -98,6 +99,8 @@ function codexSessionReport(sessionPath, until) {
 }
 
 const briefArgument = flag('brief');
+const format = flag('format', 'json');
+if (!['json', 'summary'].includes(format)) throw new Error('Unsupported format; use --format=json|summary');
 if (!briefArgument) throw new Error('Usage: --brief=content/projects/<project-id>/project.json [--manifest=...] [--session=...] [--until=ISO] [--output=...]');
 const briefPath = resolve(briefArgument);
 if (!existsSync(briefPath)) throw new Error(`Canonical project not found: ${briefPath}`);
@@ -170,7 +173,7 @@ const report = {
         note: 'Pass --session=<Codex rollout JSONL> to include orchestration token usage.',
       },
 };
-const serialized = `${JSON.stringify(report, null, 2)}\n`;
+const serialized = format === 'summary' ? renderEfficiencySummary(report) : `${JSON.stringify(report, null, 2)}\n`;
 const outputArgument = flag('output');
 if (outputArgument) writeFileSync(resolve(outputArgument), serialized);
 process.stdout.write(serialized);

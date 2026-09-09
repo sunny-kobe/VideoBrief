@@ -21,6 +21,7 @@ import {
 } from './lib/acceptance-validation.mjs';
 import { productionContentFingerprint } from './lib/production-content-fingerprint.mjs';
 import { exactFrameExtractionArgs } from './lib/frame-extraction.mjs';
+import { extractCachedReviewFrame } from './lib/review-frame-cache.mjs';
 
 const reviewProcessStartedAt = new Date();
 
@@ -187,12 +188,14 @@ function sameNumber(left, right) {
 
 function extractFrame(sceneId, label, second) {
   const output = resolve(semanticProofDir, `${sceneId}-${label}.png`);
-  const result = spawnSync(
-    ffmpegPath,
-    exactFrameExtractionArgs(videoPath, Math.max(0.05, second), output),
-    { encoding: 'utf8' },
-  );
-  if (result.status !== 0 || !existsSync(output) || statSync(output).size === 0) {
+  const extractionArgs = exactFrameExtractionArgs(videoPath, Math.max(0.05, second), output);
+  const result = extractCachedReviewFrame({
+    output,
+    videoSha256,
+    args: extractionArgs,
+    extract: () => spawnSync(ffmpegPath, extractionArgs, { encoding: 'utf8' }),
+  });
+  if (!result.success) {
     issues.push(`Scene ${sceneId} failed to extract ${label} frame.`);
     return '';
   }

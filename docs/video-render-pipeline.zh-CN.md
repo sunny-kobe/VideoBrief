@@ -178,6 +178,23 @@ npm run video:review:materials -- --brief=content/projects/<project-id>/project.
 
 ## render manifest
 
+### 生产效率诊断
+
+单项目诊断默认仍输出 JSON；使用简洁格式可直接定位已测量的慢阶段、来源处理与失败记录，无须读取长 manifest 或模型会话：
+
+```bash
+npm run project:production-report -- --brief=content/projects/<project-id>/project.json --format=summary
+node scripts/report-production-baseline.mjs
+```
+
+批量基线只读取 `content/projects` 内每个规范项目的主 work manifest，不递归扫描历史导出、回收目录或重复副本。按分辨率、帧率、渲染策略和场景缓存状态分组，报告中位数、最近秩 P90、有效样本数、缺失数，以及每秒成片对应的渲染秒数。不同硬件、片长、素材复杂度和验收版本仍可能影响结果，因此这些历史分组不能直接证明比外部工具快多少。
+
+阶段时间同时兼容原始 `productionMetrics.stages` 和打包后的 `productionMetrics.elapsed.stages`，重建 metrics 时保留已有阶段。缺失、空值和负数审片时间不算 0；显式 0 保留。项目日历跨度包括等待，审片会话时间只覆盖该会话；来源并发处理时间和嵌套阶段时间不得相加当作端到端工时。历史记录丢失的阶段不补造。
+
+效率比较应冻结同一 brief、相同素材及许可范围、输出规格、验收要求和运行机器；分别测首次出片、只改一幕旁白、替换一个镜头三种情况，并记录主动操作时间与等待时间。外部剪辑工具也须接受同一语义、权利和完整播放检查；尚未执行的对照实验明确标为未运行。
+
+语义审查重复抽帧可复用 `semantic-proof/*.png.cache.json`：只有当前视频 SHA-256、实际抽帧参数及图片字节哈希全部匹配才跳过 FFmpeg。视频、时间点或图片字节变化即重新抽帧；失败抽帧不能建立有效缓存。它只复用图片，不复用审批，不绕过逐幕语义、编辑质量、完整播放或真人交付 Gate。
+
 渲染完成后在各项目自己的 `outputs.workDir` 生成：
 
 ```text

@@ -36,7 +36,10 @@ export function buildProductionMetrics({ project, manifest, finalizedAt }) {
   const voiceoverExternalRequests = voiceoverRequestRecords.filter((item) => item.cacheHit !== true).length;
   const semantic = manifest?.acceptance?.semantic;
   const browser = manifest?.acceptance?.browser;
-  const manualReviewActiveSeconds = Number.isFinite(Number(semantic?.activeSeconds))
+  const manualReviewActiveSeconds = semantic?.activeSeconds != null
+    && String(semantic.activeSeconds).trim() !== ''
+    && Number.isFinite(Number(semantic.activeSeconds))
+    && Number(semantic.activeSeconds) >= 0
     ? Number(semantic.activeSeconds)
     : null;
   const reviewMeasurement = manualReviewActiveSeconds == null
@@ -57,7 +60,10 @@ export function buildProductionMetrics({ project, manifest, finalizedAt }) {
       renderToBrowserAcceptanceMs: elapsedMs(manifest?.renderedAt, browser?.checkedAt),
       renderToFinalAcceptanceMs: elapsedMs(manifest?.renderedAt, finalAcceptanceAt),
       renderToPackageMs: elapsedMs(manifest?.renderedAt, finalizedAt),
-      stages: manifest?.productionMetrics?.stages ?? {},
+      stages: {
+        ...(manifest?.productionMetrics?.elapsed?.stages ?? {}),
+        ...(manifest?.productionMetrics?.stages ?? {}),
+      },
     },
     operatorActive: {
       manualReviewSeconds: manualReviewActiveSeconds,

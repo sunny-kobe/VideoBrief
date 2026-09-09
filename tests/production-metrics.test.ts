@@ -67,3 +67,20 @@ test('marks manual active time as missing instead of assuming zero', () => {
   assert.equal(metrics.operatorActive.manualReviewSeconds, null);
   assert.equal(metrics.operatorActive.measurement, 'not_recorded');
 });
+
+test('preserves measured stages when metrics are rebuilt from a packaged manifest', () => {
+  const stages = { render: { wallMs: 12000 }, technicalProof: { wallMs: 3000 } };
+  const first = buildProductionMetrics({ project: {}, manifest: { productionMetrics: { stages } }, finalizedAt: '' });
+  const second = buildProductionMetrics({ project: {}, manifest: { productionMetrics: first }, finalizedAt: '' });
+  assert.deepEqual(second.elapsed.stages, stages);
+});
+
+test('null, blank and negative review durations remain unmeasured; explicit zero is valid', () => {
+  for (const value of [null, '', -1]) {
+    const result = buildProductionMetrics({ project: {}, manifest: { acceptance: { semantic: { activeSeconds: value } } }, finalizedAt: '' });
+    assert.equal(result.operatorActive.manualReviewSeconds, null);
+    assert.equal(result.operatorActive.measurement, 'not_recorded');
+  }
+  const zero = buildProductionMetrics({ project: {}, manifest: { acceptance: { semantic: { activeSeconds: 0 } } }, finalizedAt: '' });
+  assert.equal(zero.operatorActive.manualReviewSeconds, 0);
+});
