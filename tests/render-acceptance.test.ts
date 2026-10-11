@@ -1,8 +1,22 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { renderAcceptanceState } from '../src/renderAcceptance';
+import { canPreviewRenderForReview, renderAcceptanceState } from '../src/renderAcceptance';
 import type { RenderAcceptance } from '../src/shortVideoBrief';
+
+test('explicit review playback admits current technical drafts without approving them', () => {
+  assert.equal(canPreviewRenderForReview('awaiting_semantic', true), true);
+  assert.equal(canPreviewRenderForReview('review_failed', true), true);
+  assert.equal(canPreviewRenderForReview('awaiting_browser', true), true);
+  assert.equal(canPreviewRenderForReview('awaiting_semantic', false), false);
+  assert.equal(renderAcceptanceState(undefined, 'current-video'), 'awaiting_semantic');
+});
+
+test('review playback cannot expose stale, missing or technically unverified renders', () => {
+  for (const state of ['stale', 'missing', 'unverified'] as const) {
+    assert.equal(canPreviewRenderForReview(state, true), false);
+  }
+});
 
 function acceptance(overrides: Partial<RenderAcceptance> = {}): RenderAcceptance {
   return {

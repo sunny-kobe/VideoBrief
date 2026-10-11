@@ -1,27 +1,68 @@
 {
-  "schemaVersion": 1,
-  "id": "real-object-explainer-v1",
-  "label": "现实对象解释片 v1",
+  "schemaVersion": 2,
+  "id": "suspense-stakes-dual-format-v2",
+  "label": "连续悬念双格式实验 v2",
   "status": "active",
-  "startedAt": "2026-08-22",
+  "startedAt": "2026-08-25",
   "reviewAfterPublishedVideos": 4,
-  "reviewDeadline": "2026-09-15",
-  "hypothesis": "在事实严谨度和真实动态素材比例不降低的前提下，用真实对象动作开场，以现实后果、核心机制和可执行收束组织叙事，并将成片控制在 60-85 秒，可以改善首段留存和高意图互动。",
+  "reviewDeadline": "2026-09-22",
+  "audiencePromise": "从一个日常反常现象，追到最后谁得利、谁付钱、哪条规则在起作用。",
+  "hypothesis": "在事实、权利和真实动态素材门槛不降低的前提下，不再提前交付完整答案，而是用直觉猜想、推翻和第二层问题组织叙事；动作谜题使用 45-75 秒，利益冲突使用 180-300 秒，可以同时改善首段留存、平均观看、互动和关注转化。",
+  "topicGate": {
+    "requiredQuestions": [
+      "首屏能否看到一个无需背景说明就能理解的异常对象、动作、价格或现实结果？",
+      "普通观众最可能给出的直觉答案是什么，叙事能否用证据推翻或修正它？",
+      "交付第一层解释后，能否自然产生一个更大的第二层问题？",
+      "动作谜题能否提供可迁移的类比，或利益冲突能否落到具体人物、金钱、规则和代价？",
+      "核心动态画面能否通过自有拍摄或权利可判断、原生无平台水印的素材完成？"
+    ],
+    "rejectionRules": [
+      "前十秒必须先介绍来源、定义或完整背景才能理解的命题直接淘汰。",
+      "十秒内已经能完整回答且后续没有问题升级的命题不得扩写成长片。",
+      "主要画面只能依赖通用环境 B-roll、侵权搬运或带平台水印素材的命题直接淘汰。",
+      "只有泛知识或制作便利，没有具体观众问题、判断价值或现实代价的命题直接淘汰。",
+      "不能稳定归入动作谜题型或利益冲突型的命题，不进入本轮四条实验。"
+    ]
+  },
+  "formats": [
+    {
+      "id": "action-puzzle",
+      "label": "动作谜题型",
+      "slotsPerCycle": 2,
+      "minDurationSeconds": 45,
+      "maxDurationSeconds": 75,
+      "opening": "0-3 秒直接展示真实对象完成一个反常动作，同时提出同一个可见问题；不先给答案、来源或定义。",
+      "progression": [
+        "3-12 秒呈现观众最可能的直觉猜想，保留答案缺口。",
+        "12-30 秒用清晰证据推翻或修正猜想，只交付第一层机制。",
+        "30-55 秒通过另一个真实案例、对比或日常类比完成认知迁移。"
+      ],
+      "closing": "最后 10-15 秒回到开场动作，用一句新判断完成回报；答案完成后立即结束，不追加来源说明或通用 CTA。"
+    },
+    {
+      "id": "stakes-conflict",
+      "label": "利益冲突型",
+      "slotsPerCycle": 2,
+      "minDurationSeconds": 180,
+      "maxDurationSeconds": 300,
+      "opening": "0-10 秒用一笔订单、一次消费、一个价格差或一个具体人物处境建立问题，并明确有什么代价没有消失。",
+      "progression": [
+        "10-35 秒呈现观众最容易接受的责任归因，但暂不把它写成结论。",
+        "35-75 秒推翻单一答案并交付第一层运行机制。",
+        "75-180 秒至少升级两次问题，依次进入不同利益相关者、钱或成本的流向。",
+        "180-270 秒进入规则、监管或长期现实代价，说明谁最终承担后果。"
+      ],
+      "closing": "最后 15-30 秒回到开场案例，给出经过限定但明确的判断；证据边界只保留遗漏后会实质误导的一句。"
+    }
+  ],
   "productionDefaults": {
-    "minDurationSeconds": 60,
-    "maxDurationSeconds": 85,
-    "opening": "0-3 秒直接展示真实对象正在发生的明确动作，同时给出问题或现实后果；不得先用通用环境、来源、定义或程序化标题开场。",
-    "answerPreview": "3-10 秒提前亮出答案框架，让观众知道接下来能获得什么判断或检查顺序。",
-    "explanation": "10-55 秒每幕只解释一个机制，真实动态素材和稳定原创信息层按职责组合。",
-    "closing": "55-75 秒用一句判断或可截图的行动清单收束；命题没有真实行动价值时，不强行伪造清单。",
-    "decisionTopicsPerCycle": 3,
-    "mechanismTopicsPerCycle": 1,
-    "cover": "一个清晰真实对象特写加一个 8-14 字反差或现实后果；环境不得成为唯一主体，品牌标记不得抢占第一视觉层级。",
+    "cover": "一个清晰真实对象、人物处境或价格冲突，加一个 8-14 字问题或代价；不得只写抽象名词或完整答案。",
     "visualRules": [
-      "连续阅读由底部字幕承担，不叠加不可读的左上角 eyebrow、标题和说明。",
-      "信息层一次只表达一个结论，并在真实移动播放器中直接可读。",
       "开场对象、标题、旁白和实际可见动作必须表达同一个问题。",
+      "承担事实的画面必须展示当前对象、动作或关系；通用 B-roll 只能承担短暂转场或情境。",
+      "连续阅读由底部字幕承担，原创信息层一次只表达一个结论，并在真实移动播放器中直接可读。",
       "保持自营解释视频至少 70%、优先接近 80% 的有效真实动态素材覆盖，不用循环、慢放或无语义 B-roll 补比例。",
+      "研究中的来源身份、权利状态和非关键限定保留在内部证据，不连续占用旁白。",
       "平台实际展示封面必须在发布后独立复核，不能以上传日志成功代替。"
     ]
   },
@@ -32,16 +73,34 @@
       "clickThroughRate",
       "viewCount",
       "twoSecondBounceRate",
+      "threeSecondBounceRate",
       "averageWatchSeconds",
+      "averageWatchRatio",
       "completionRate",
       "likeCount",
       "favoriteCount",
       "commentCount",
       "shareCount",
+      "visibleInteractionRate",
       "followerGain",
       "actualCover"
     ],
-    "decisionRule": "只在同一平台内比较；至少两条新视频重复改善首段留存、平均观看或高意图互动后，才把对应规则保留到下一版本。",
-    "reviewPath": "docs/self-owned-video-performance-review-20260822.zh-CN.md"
+    "baseline": {
+      "threeSecondBounceRate": 42.16,
+      "averageWatchRatio": 41.11,
+      "visibleInteractionRate": 0.78,
+      "followerConversionNote": "当前主线视频关注转化接近零。"
+    },
+    "targets": {
+      "maxThreeSecondBounceRate": 30,
+      "minActionAverageWatchRatio": 60,
+      "minConflictAverageWatchRatio": 35,
+      "minVisibleInteractionRate": 2,
+      "minimumVideosMeetingRetentionAndInteraction": 2,
+      "followerConversionRule": "四条实验必须出现可观察的关注增长，不再把播放增长但零关注视为通过。"
+    },
+    "decisionRule": "只在同一平台、同一统计窗口内比较。四条中至少两条必须同时改善首段留存和显性互动，且对应格式达到平均播放比例目标，才允许保留该格式进入下一轮。",
+    "stopRule": "四条完成或到达截止日后强制复盘；若不足两条同时改善首段留存和互动，停止当前双格式假设，不以单条播放峰值延长实验。",
+    "reviewPath": "docs/self-owned-video-format-direction-review-20260825.zh-CN.md"
   }
 }

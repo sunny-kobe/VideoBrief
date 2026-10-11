@@ -103,6 +103,7 @@ export function materialGateReadiness(project) {
 export function researchGateReadiness(project) {
   const issues = [];
   const sources = researchEvidenceSources(project);
+  const sourceIds = new Set(sources.map((source) => source.id));
   if (!sources.some((source) => source.processing?.status === 'completed')) {
     issues.push('没有来源完成内容理解。');
   }
@@ -113,7 +114,9 @@ export function researchGateReadiness(project) {
   if (failedSourceCount > 0) issues.push(`有 ${failedSourceCount} 份来源内容理解失败，需重试或移除。`);
 
   const claims = (project.research?.facts ?? []).filter((fact) => (
-    fact.kind === 'claim' && fact.reviewPriority !== 'reference'
+    fact.kind === 'claim'
+    && fact.reviewPriority !== 'reference'
+    && (fact.sourceReferences ?? []).some((reference) => sourceIds.has(reference.sourceId))
   ));
   const requiredClaims = claims.filter((fact) => fact.reviewPriority === 'required');
   const keyClaims = requiredClaims.length > 0 ? requiredClaims : claims;
@@ -126,6 +129,7 @@ export function researchGateReadiness(project) {
     item.riskLevel === 'high'
     && item.reviewPriority === 'required'
     && !String(item.resolution ?? '').trim()
+    && (item.sourceReferences ?? []).some((reference) => sourceIds.has(reference.sourceId))
   ));
   if (unresolvedRisks.length > 0) issues.push(`还有 ${unresolvedRisks.length} 条高风险问题未处理。`);
 

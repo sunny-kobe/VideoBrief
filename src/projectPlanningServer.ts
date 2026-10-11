@@ -33,7 +33,7 @@ import type {
 import { readBrief, updateCanonicalProject } from './shortVideoProjectServer';
 import { researchReviewSummary } from './researchReview';
 import { materialReviewReadiness } from './productionReadiness';
-import { assertPreproductionGates } from '../scripts/lib/production-workflow-contract.mjs';
+import { assertVoiceoverPreflightGates } from '../scripts/lib/production-workflow-contract.mjs';
 
 function referenceFromAi(reference: {
   sourceId: string;
@@ -96,7 +96,7 @@ function assertResearchReady(project: ShortVideoProject) {
 }
 
 function assertAutomaticProductionReady(project: ShortVideoProject) {
-  assertPreproductionGates(project);
+  assertVoiceoverPreflightGates(project);
 }
 
 function assertMaterialReviewReady(project: ShortVideoProject) {

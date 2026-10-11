@@ -8,6 +8,12 @@ import { automaticSourceReadiness } from './productionReadiness';
 const MAX_KEY_FACTS = 12;
 const MAX_REQUIRED_UNCERTAINTIES = 6;
 
+function researchSourceIds(project: ShortVideoProject) {
+  const explicit = project.sources.filter((source) => source.materialRole === 'research');
+  const sources = explicit.length > 0 ? explicit : project.sources;
+  return new Set(sources.map((source) => source.id));
+}
+
 function priorityScore(priority: ResearchFact['reviewPriority']) {
   return priority === 'required' ? 3 : priority === 'supporting' ? 2 : 1;
 }
@@ -22,8 +28,13 @@ function rankByReviewValue<T extends { reviewPriority: ResearchFact['reviewPrior
 }
 
 export function keyResearchFacts(project: ShortVideoProject): ResearchFact[] {
+  const sourceIds = researchSourceIds(project);
   const claims = project.research.facts
-    .filter((fact) => fact.kind === 'claim' && fact.reviewPriority !== 'reference')
+    .filter((fact) => (
+      fact.kind === 'claim'
+      && fact.reviewPriority !== 'reference'
+      && fact.sourceReferences.some((reference) => sourceIds.has(reference.sourceId))
+    ))
     .sort(rankByReviewValue);
   const required = claims.filter((fact) => fact.reviewPriority === 'required');
   const ranked = required.length ? required : claims;
@@ -33,8 +44,13 @@ export function keyResearchFacts(project: ShortVideoProject): ResearchFact[] {
 }
 
 export function requiredResearchUncertainties(project: ShortVideoProject): ResearchUncertainty[] {
+  const sourceIds = researchSourceIds(project);
   return project.research.uncertainties
-    .filter((item) => item.reviewPriority === 'required' && item.riskLevel === 'high')
+    .filter((item) => (
+      item.reviewPriority === 'required'
+      && item.riskLevel === 'high'
+      && item.sourceReferences.some((reference) => sourceIds.has(reference.sourceId))
+    ))
     .sort(rankByReviewValue)
     .slice(0, MAX_REQUIRED_UNCERTAINTIES);
 }
@@ -49,9 +65,11 @@ export function researchReviewSummary(project: ShortVideoProject) {
   const pendingFacts = keyFacts.filter((fact) => fact.reviewStatus === 'proposed');
   const confirmedFacts = keyFacts.filter((fact) => fact.reviewStatus === 'confirmed');
   const unresolvedUncertainties = requiredUncertainties.filter((item) => !item.resolution.trim());
-  const completedSources = project.sources.filter((source) => source.processing.status === 'completed').length;
+  const sourceIds = researchSourceIds(project);
+  const researchSources = project.sources.filter((source) => sourceIds.has(source.id));
+  const completedSources = researchSources.filter((source) => source.processing.status === 'completed').length;
   const allSourcesProcessed = automaticSourceReadiness(
-    project.sources.map((source) => source.processing.status),
+    researchSources.map((source) => source.processing.status),
   ).ready;
 
   return {

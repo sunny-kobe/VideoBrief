@@ -116,6 +116,7 @@ export default function ShowcasePage() {
             <div className="max-w-4xl">
               <p className="text-xs font-extrabold text-emerald-700">ACTIVE STYLE EXPERIMENT</p>
               <h2 id="experiment-heading" className="mt-1 text-lg font-extrabold">{styleExperiment.label}</h2>
+              <p className="mt-3 text-sm font-bold leading-6 text-slate-900">{styleExperiment.audiencePromise}</p>
               <p className="mt-3 text-sm leading-6 text-slate-600">{styleExperiment.hypothesis}</p>
             </div>
             <span className="border border-emerald-200 bg-emerald-50 px-2 py-1 text-xs font-extrabold text-emerald-800">
@@ -124,8 +125,12 @@ export default function ShowcasePage() {
           </div>
           <dl className="mt-6 grid border-y border-slate-200 text-sm sm:grid-cols-3">
             <div className="py-4 sm:pr-5">
-              <dt className="text-xs font-bold text-slate-500">目标时长</dt>
-              <dd className="mt-1 font-extrabold">{styleExperiment.productionDefaults.minDurationSeconds}-{styleExperiment.productionDefaults.maxDurationSeconds} 秒</dd>
+              <dt className="text-xs font-bold text-slate-500">格式与时长</dt>
+              <dd className="mt-1 space-y-1 font-extrabold">
+                {styleExperiment.formats.map((format) => (
+                  <span className="block" key={format.id}>{format.label} {format.minDurationSeconds}-{format.maxDurationSeconds} 秒</span>
+                ))}
+              </dd>
             </div>
             <div className="border-t border-slate-200 py-4 sm:border-l sm:border-t-0 sm:px-5">
               <dt className="text-xs font-bold text-slate-500">数据快照</dt>

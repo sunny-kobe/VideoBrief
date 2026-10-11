@@ -145,6 +145,7 @@ test('research approval requires at least one confirmed key fact', () => {
 
 test('research approval precedes material approval and survives later visual sources', () => {
   const researchOnly = fixture();
+  researchOnly.sources[0].materialRole = 'research';
   researchOnly.materialReview = { status: 'pending', approvedSourceIds: [], reviewedAt: '' };
 
   assert.equal(researchGateReadiness(researchOnly).ready, true);
@@ -175,6 +176,22 @@ test('research approval precedes material approval and survives later visual sou
     approvedSourceIds: ['source-02'],
     reviewedAt: '2026-07-24T01:30:00.000Z',
   };
+  withMaterials.sources[1].processing = {
+    ...withMaterials.sources[1].processing,
+    status: 'failed',
+    stage: 'completed',
+    error: 'visual understanding timed out',
+  };
+  withMaterials.research.facts.push({
+    id: 'visual-claim-01', statement: '视觉素材中的未确认主张',
+    sourceReferences: [{ sourceId: 'source-02', locatorType: 'time', start: 0, end: 3, note: '仅作画面' }],
+    reviewStatus: 'proposed', kind: 'claim', reviewPriority: 'required', briefRelevance: 100,
+  });
+  withMaterials.research.uncertainties.push({
+    id: 'visual-risk-01', statement: '视觉素材无法单独证明研究结论',
+    sourceReferences: [{ sourceId: 'source-02', locatorType: 'time', start: 0, end: 3, note: '仅作画面' }],
+    resolution: '', riskLevel: 'high', reviewPriority: 'required', briefRelevance: 100,
+  });
 
   assert.equal(
     approvalIsCurrent(withMaterials.workflow.researchApproval, researchApprovalFingerprint(withMaterials)),

@@ -22,6 +22,8 @@ VideoBrief 是一个本地优先、AI 原生的视频生产工作台。规范项
 4. 以 `package.json` 为准核对命令，不要照搬旧交接文档中的过时命令。
 5. Canonical project 已存在时，优先使用 `project:context` 读取当前 Gate 所需投影；除非排查 schema 或投影缺失，不要把完整 `project.json`、长日志或整份来源分析送入上下文。
 6. 长任务应由单个命令运行到成功、失败或明确超时，只在状态变化时回传摘要。不得用高频 `write_stdin`、页面刷新或重复 `cat` 维持进度；失败后应立即处理，不得留下无监控空档。
+7. 涉及在线素材获取、已有口播重剪或外部生成工具时，读取 `docs/video-tool-orchestration.zh-CN.md`；按素材类型分工，Descript 默认先分析后编辑，不自动压缩有视觉意义的无声窗口。
+8. 原创机制镜头或审片指出“像讲义、只靠旁白解释”时，读取 `docs/creative-shot-workflow.zh-CN.md`；先把可见变化和短段预览做对，再导入正式素材，不把实验收据当作成片验收。
 
 ## 常用命令
 
@@ -33,6 +35,7 @@ npm run build
 npm run docs:check
 npm run project:context -- --brief=content/projects/<project-id>/project.json --stage=research
 npm run project:production-report -- --brief=content/projects/<project-id>/project.json
+npm run video:creative-shot -- --help
 npm run video:preflight:voiceover -- --brief=content/projects/<project-id>/project.json
 npm run video:export:production -- --brief=content/projects/<project-id>/project.json
 node scripts/proof-video.mjs --manifest=output/videos/<project-id>-work/render-manifest.json
@@ -142,6 +145,8 @@ git diff --check
 | 自营解释型内容调研、Topic Gate 或受众样片 | `docs/self-owned-explainer-production-playbook.zh-CN.md` |
 | 渲染、时间轴、场景选择、验收或导出 | `docs/video-render-pipeline.zh-CN.md` |
 | 获取网上现成视频并进行紧凑剪辑 | `docs/online-dynamic-material-cut-workflow.zh-CN.md` |
+| yt-dlp、Descript 或外部插件协同生产 | `docs/video-tool-orchestration.zh-CN.md` |
+| 原创镜头、视觉设计或短段创作迭代 | `docs/creative-shot-workflow.zh-CN.md` |
 | 继续之前的实现阶段 | `docs/video-production-workflow-execution-handoff.zh-CN.md` |
 | 海外 AI 内容重混模板或历史 | `docs/overseas-ai-content-remix-roadmap.zh-CN.md` |
 

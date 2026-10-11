@@ -3,11 +3,11 @@
   "id": "self-owned-explainer-v1",
   "label": "自营解释型内容",
   "title": "下一阶段命题调研",
-  "direction": "日常有因：用公开影像和一手资料，讲清日常产品与服务变化背后的规则、成本和利益机制。",
+  "direction": "日常有因：从一个日常反常现象，追到最后谁得利、谁付钱、哪条规则在起作用。",
   "kickoffPromptPath": "content/workflows/self-owned-explainer-v1/kickoff-prompt.zh-CN.md",
   "playbookPath": "docs/self-owned-explainer-production-playbook.zh-CN.md",
   "styleExperimentPath": "content/workflows/self-owned-explainer-v1/style-experiment.json",
-  "performanceReviewPath": "docs/self-owned-video-performance-review-20260822.zh-CN.md",
+  "performanceReviewPath": "docs/self-owned-video-format-direction-review-20260825.zh-CN.md",
   "stages": [
     {
       "id": "published-review",
@@ -19,13 +19,13 @@
       "id": "audience-research",
       "label": "受众问题",
       "gate": "",
-      "description": "以 B站为主核验近期真实问题、相似内容表现与中文同质化。"
+      "description": "以 B站为主核验近期真实问题、相似内容表现、连续悬念结构与中文同质化。"
     },
     {
       "id": "candidate-pool",
       "label": "开放候选池",
       "gate": "",
-      "description": "提出 8-12 个跨场景、可核验、能找到画面且不重复已发布内容的命题。"
+      "description": "提出 8-12 个可核验且能归入动作谜题或利益冲突格式的命题。"
     },
     {
       "id": "finalist-review",
@@ -55,11 +55,11 @@
       "learning": "从连体瓶盖理解法规如何进入产品设计，并同时改变生产线和使用体验。"
     },
     {
-      "projectId": "parcel-locker-last-mile-explainer-20260806",
-      "topicScore": 37,
+      "projectId": "ride-hailing-fixed-fare-explainer-20260817",
+      "topicScore": 36,
       "topicScoreMax": 40,
-      "role": "方向对照",
-      "learning": "从快递柜理解最后一公里如何重新分配企业等待、路线和消费者取件成本。"
+      "role": "利益冲突正向信号",
+      "learning": "一口价题的相对深看和讨论信号支持继续验证谁承担时间、金钱与风险，但旧版过早揭底且审计语言过多。"
     }
   ]
 }

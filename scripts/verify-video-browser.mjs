@@ -1,4 +1,4 @@
-import { createHash } from 'node:crypto';
+import { hashMediaFile } from './lib/hash-media-file.mjs';
 import {
   existsSync,
   mkdirSync,
@@ -29,7 +29,7 @@ if (!semanticValidation.passed) {
   throw new Error(`Measured semantic review must pass before browser acceptance:\n- ${semanticValidation.issues.join('\n- ')}`);
 }
 const videoPath = resolve(manifest.artifacts?.publicRender ?? manifest.artifacts?.outputVideo ?? '');
-const videoSha256 = createHash('sha256').update(readFileSync(videoPath)).digest('hex');
+const videoSha256 = hashMediaFile(videoPath);
 if (manifest.acceptance.videoSha256 !== videoSha256) {
   throw new Error('Rendered video bytes changed after semantic review.');
 }
@@ -202,7 +202,7 @@ const primary = checks.find((check) => check.fullPlayback) ?? checks[0] ?? {
 const consoleErrors = checks.flatMap((check) => check.consoleErrors);
 
 const latest = JSON.parse(readFileSync(manifestPath, 'utf8'));
-const latestVideoSha256 = createHash('sha256').update(readFileSync(videoPath)).digest('hex');
+const latestVideoSha256 = hashMediaFile(videoPath);
 if (
   latest.projectFingerprint !== manifest.projectFingerprint
   || latest.renderedAt !== manifest.renderedAt

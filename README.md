@@ -13,6 +13,8 @@ user gives Codex a creative brief, source materials or revision request
 
 Source understanding, traceability, original narrative, shot selection, voiceover, subtitles, manifests and proof remain part of the internal production pipeline. They are not separate tasks that the user must complete, and the web app is not an AI prompt surface or video editor. An internal `advanced=1` view remains available for Codex-led debugging only.
 
+当前对话中的 Codex 负责创作与工具操作；独立 AI 接口是来源理解和自动策划的可选后端。切换聊天模型不会修改项目接口。原创镜头先通过[视觉设计与短段预览](docs/creative-shot-workflow.zh-CN.md)迭代，再作为素材进入现有生产链。
+
 VideoBrief is not defined by one content category. Product explainers, software tutorials, knowledge videos, project demos and AI/technology briefs are replaceable production templates built on the same workflow.
 
 It is also not a transcript-first summarizer, a video reposting tool or an autonomous publishing system. Codex prepares and assembles the production draft through the canonical project; the user retains final control through conversation with Codex and explicit publication decisions. Once a platform target is explicitly approved, VideoBrief can perform account checks, uploads, scheduling and state updates only where current platform rules and account evidence permit automation. Manual-only targets stop at a reviewed handoff package; Xiaohongshu is manual-only from 2026-08-20 after an account enforcement incident tied to automated account operation.
@@ -112,7 +114,8 @@ Real AI actions require a server-only key. Keep it outside Git, for example in `
 ```text
 OPENAI_API_KEY=...
 OPENAI_BASE_URL=https://your-openai-compatible-endpoint.example/v1
-OPENAI_MODEL=gpt-5.6
+OPENAI_MODEL=gpt-6.1-sol
+OPENAI_REASONING_EFFORT=medium
 WHISPER_CLI_PATH=/opt/homebrew/bin/whisper-cli
 WHISPER_MODEL_NAME=large-v3-turbo-q5_0
 WHISPER_LANGUAGE=zh

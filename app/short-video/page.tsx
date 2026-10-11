@@ -1,4 +1,5 @@
 import ShortVideoPreviewClient from '@/src/components/ShortVideoPreviewClient';
+import { canPreviewRenderForReview } from '@/src/renderAcceptance';
 import {
   projectPaths,
   readBrief,
@@ -18,10 +19,7 @@ export default async function ShortVideoPage({ searchParams }: ShortVideoPagePro
   const paths = projectPaths(brief, params.rendition);
   const manifest = readRenderManifest(paths.manifestPath);
   const status = renderStatus(manifest, brief.id);
-  const acceptancePreview = params.acceptance === '1'
-    && manifest?.proof?.passed === true
-    && manifest.acceptance?.semantic?.status === 'passed'
-    && (status.state === 'awaiting_browser' || status.state === 'review_failed');
+  const acceptancePreview = canPreviewRenderForReview(status.state, params.acceptance === '1');
 
   return (
     <ShortVideoPreviewClient

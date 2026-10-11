@@ -13,6 +13,7 @@ export function GET() {
     available: config.apiKeyAvailable,
     customEndpoint: Boolean(config.baseUrl),
     model: config.model,
+    reasoningEffort: config.reasoningEffort,
     transcriptionProvider: transcription.provider,
     transcriptionAvailable: transcription.available,
     transcriptionCliAvailable: transcription.cliAvailable,

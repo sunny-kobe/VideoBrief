@@ -1,4 +1,4 @@
-import type { RenderAcceptance } from './shortVideoBrief';
+import type { RenderAcceptance, WorkbenchRenderStatus } from './shortVideoBrief';
 import {
   validateBrowserChecks,
   validateSemanticAcceptanceRecord,
@@ -9,6 +9,10 @@ export type RenderAcceptanceState =
   | 'awaiting_browser'
   | 'review_failed'
   | 'ready';
+
+export function canPreviewRenderForReview(state: WorkbenchRenderStatus['state'], requested: boolean): boolean {
+  return requested && ['awaiting_semantic', 'awaiting_browser', 'review_failed', 'ready'].includes(state);
+}
 
 export function renderAcceptanceState(
   acceptance: RenderAcceptance | undefined,

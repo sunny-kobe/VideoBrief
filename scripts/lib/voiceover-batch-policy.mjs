@@ -21,5 +21,12 @@ export function errorCode(error) {
 }
 
 export function shouldFallbackBatchVoiceover(error) {
+  let current = error;
+  const seen = new Set();
+  while (current && typeof current === 'object' && !seen.has(current)) {
+    seen.add(current);
+    if (current.permanent === true) return false;
+    current = current.cause;
+  }
   return providerHttpStatus(error) !== 429 && errorCode(error) !== 'SCENE_TIMING_INVALID';
 }

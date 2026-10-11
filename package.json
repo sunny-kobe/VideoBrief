@@ -31,6 +31,7 @@
     "video:review:browser": "node scripts/verify-video-browser.mjs",
     "video:package:production": "node scripts/build-export-package.mjs",
     "video:source:information-layer": "tsx scripts/generate-scene-information-layer.ts",
+    "video:creative-shot": "node scripts/creative-shot.mjs",
     "video:postprocess": "node scripts/postprocess-video.mjs",
     "video:publish-preview": "mkdir -p public/renders && cp output/videos/weekly-ai-short-final.mp4 public/renders/weekly-ai-short-final.mp4 && cp output/videos/weekly-ai-cover.png public/renders/weekly-ai-cover.png",
     "audio:voiceover": "node scripts/generate-voiceover.mjs",

@@ -21,6 +21,14 @@ test('keeps per-scene fallback for local batch segmentation failures', () => {
   assert.equal(shouldFallbackBatchVoiceover(new Error('surplus pauses')), true);
 });
 
+test('does not amplify a permanent provider location failure into per-scene requests', () => {
+  const providerError = Object.assign(new Error('User location is not supported for the API use.'), {
+    status: 400, permanent: true,
+  });
+  const batchError = new Error('batch voice generation failed', { cause: providerError });
+  assert.equal(shouldFallbackBatchVoiceover(batchError), false);
+});
+
 test('does not retry per scene when a batch segment exposes an invalid scene timeline', () => {
   const timingError = new SceneTimingError(
     'Scene scene-01 frame-aligned video window is shorter than its narration.',

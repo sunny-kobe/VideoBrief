@@ -1,3 +1,4 @@
+import { hashMediaFile } from './lib/hash-media-file.mjs';
 import { createHash } from 'node:crypto';
 import {
   copyFileSync,
@@ -84,7 +85,7 @@ if (!projectMatches) {
 if (!manifest.proof?.passed) throw new Error('Cannot build export package before technical proof passes.');
 assertPreproductionGates(project);
 const renderedVideo = resolve(manifest.artifacts.publicRender ?? manifest.artifacts.outputVideo);
-const renderedVideoSha256 = createHash('sha256').update(readFileSync(renderedVideo)).digest('hex');
+const renderedVideoSha256 = hashMediaFile(renderedVideo);
 if (manifest.acceptance?.videoSha256 !== renderedVideoSha256) {
   throw new Error('Cannot build export package before acceptance is bound to the current video bytes.');
 }
@@ -100,7 +101,7 @@ const renditionEvidence = resolveProjectRenditions(project).map((rendition) => {
   if (!renditionVideo || !existsSync(renditionVideo) || statSync(renditionVideo).size === 0) {
     throw new Error(`Cannot build export package because rendition ${rendition.id} has no rendered video.`);
   }
-  const videoSha256 = createHash('sha256').update(readFileSync(renditionVideo)).digest('hex');
+  const videoSha256 = hashMediaFile(renditionVideo);
   if (renditionManifest.acceptance?.videoSha256 !== videoSha256) {
     throw new Error(`Cannot build export package because rendition ${rendition.id} acceptance is stale.`);
   }

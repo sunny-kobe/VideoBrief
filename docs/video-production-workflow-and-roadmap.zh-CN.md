@@ -64,6 +64,8 @@ VideoBrief 是一套本地优先、由创作目标驱动的个人 AI 视频生�
 
 该定位指导当前自营账号的选题、研究和成片判断，但不把 VideoBrief 产品本身限制为单一内容类别。其他用户仍可通过不同 Creative Brief 使用相同生产流水线制作其他题材。
 
+自 2026-08-25 起，自营账号用四条视频临时验证更窄的观众承诺：“从一个日常反常现象，追到最后谁得利、谁付钱、哪条规则在起作用。”实验分别使用 `45-75 秒`动作谜题和 `180-300 秒`利益冲突两种格式，不再把所有命题压进统一 `60-85 秒`模板。该承诺和格式在完成四条并复盘前仍属于市场假设，不回写为 VideoBrief 的通用题材限制。
+
 下一阶段命题调研、开放候选池、Topic Gate，以及命题批准后的正式生产和 Delivery Gate，统一记录在 `docs/self-owned-explainer-production-playbook.zh-CN.md`。`content/workflows/self-owned-explainer-v1/` 中的启动提示词只负责发布复盘、候选核验和唯一推荐，并停在 Topic Gate；canonical production 必须另开任务并获得明确授权。
 
 ### 3.4 当前技术样例

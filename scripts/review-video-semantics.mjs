@@ -1,3 +1,4 @@
+import { hashMediaFile } from './lib/hash-media-file.mjs';
 import { spawnSync } from 'node:child_process';
 import { createHash, randomUUID } from 'node:crypto';
 import {
@@ -70,7 +71,7 @@ if (!timelinePath || !existsSync(timelinePath)) throw new Error('Production time
 const timeline = JSON.parse(readFileSync(timelinePath, 'utf8'));
 const videoPath = resolve(manifest.artifacts?.publicRender ?? manifest.artifacts?.outputVideo ?? '');
 if (!existsSync(videoPath) || statSync(videoPath).size === 0) throw new Error('Rendered video is missing.');
-const videoSha256 = createHash('sha256').update(readFileSync(videoPath)).digest('hex');
+const videoSha256 = hashMediaFile(videoPath);
 if (manifest.acceptance?.videoSha256 && manifest.acceptance.videoSha256 !== videoSha256) {
   throw new Error('Rendered video bytes changed after technical proof.');
 }

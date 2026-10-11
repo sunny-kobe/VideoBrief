@@ -40,11 +40,16 @@ test('audience sample workflow keeps a research-only prompt, Topic Gate and uniq
     readFileSync(audienceSampleWorkflow.styleExperimentPath, 'utf8'),
   ));
   assert.equal(experiment.status, 'active');
-  assert.equal(experiment.id, 'real-object-explainer-v1');
+  assert.equal(experiment.id, 'suspense-stakes-dual-format-v2');
   assert.equal(experiment.reviewAfterPublishedVideos, 4);
+  assert.equal(experiment.schemaVersion, 2);
+  assert.equal(experiment.formats.length, 2);
+  assert.deepEqual(experiment.formats.map((format) => format.slotsPerCycle), [2, 2]);
   assert.deepEqual(experiment.measurement.snapshotHours, [2, 24, 72, 168]);
   assert.equal(experiment.measurement.reviewPath, audienceSampleWorkflow.performanceReviewPath);
-  assert.match(experiment.productionDefaults.opening, /真实对象/);
+  assert.match(experiment.audiencePromise, /谁得利、谁付钱/);
+  assert.match(experiment.formats[0].opening, /真实对象/);
+  assert.equal(experiment.measurement.targets.maxThreeSecondBounceRate, 30);
   assert.match(experiment.productionDefaults.cover, /8-14 字/);
 });
 
@@ -62,17 +67,15 @@ test('audience sample workflow rejects duplicate projects and invalid topic scor
   assert.throws(() => parseAudienceSampleWorkflow(invalidScore), /Topic Gate 评分无效/);
 });
 
-test('audience sample style experiment rejects reversed durations and unordered snapshots', () => {
+test('audience sample style experiment rejects reversed format durations and unordered snapshots', () => {
   const experiment = parseAudienceSampleStyleExperiment(JSON.parse(
     readFileSync(audienceSampleWorkflow.styleExperimentPath, 'utf8'),
   ));
   assert.throws(() => parseAudienceSampleStyleExperiment({
     ...experiment,
-    productionDefaults: {
-      ...experiment.productionDefaults,
-      minDurationSeconds: 90,
-      maxDurationSeconds: 60,
-    },
+    formats: experiment.formats.map((format, index) => index === 0
+      ? { ...format, minDurationSeconds: 90, maxDurationSeconds: 60 }
+      : format),
   }), /时长上限不能小于下限/);
   assert.throws(() => parseAudienceSampleStyleExperiment({
     ...experiment,
@@ -81,4 +84,16 @@ test('audience sample style experiment rejects reversed durations and unordered 
       snapshotHours: [24, 2],
     },
   }), /snapshotHours 必须严格递增/);
+});
+
+test('audience sample style experiment requires format slots to match the review cycle', () => {
+  const experiment = parseAudienceSampleStyleExperiment(JSON.parse(
+    readFileSync(audienceSampleWorkflow.styleExperimentPath, 'utf8'),
+  ));
+  assert.throws(() => parseAudienceSampleStyleExperiment({
+    ...experiment,
+    formats: experiment.formats.map((format, index) => index === 0
+      ? { ...format, slotsPerCycle: 1 }
+      : format),
+  }), /格式槽位总数必须等于复盘视频数/);
 });

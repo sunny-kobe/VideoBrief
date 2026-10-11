@@ -35,6 +35,22 @@ import { assertAudienceFacingPlatformDescription } from './platformCopy';
 
 const cacheRoot = resolve('output/ai-cache');
 
+const spokenNarrativeGuidance = [
+  '旁白按 Creative Brief 的受众和语气写成能直接说出口的连续讲述：先写整段，再按画面拆幕；换镜头不等于重新开场。',
+  '用具体对象、动作和结果解释当前一个观点，长短句交替，在意思完整处停顿；不要把提纲、参数清单或研究报告直接念出来。',
+  '避免每幕重复产品名、首先其次最后、总结升华、空泛赞美和强行反转；不要靠添加嗯啊、假笑或虚构亲身经历制造真人感。',
+  '第一人称实测、惊讶、失败或体验必须有输入证据；官方演示和来源声明应准确归因，不能写成创作者本人已经验证。',
+  '来源定位、版权和制作审计留在结构化证据中；影响观众理解的事实限定保留在旁白，不把不确定主张改写成确定结论。',
+  '不要默认插入“请自行检验”“不代表真实实验”“仅供参考”等免责或自我辩护段落。已有自然来源归属且未作亲测承诺时，继续讲对象、动作和结果；只有省略会造成实质误导的具体限定才进入口播。',
+].join('\n');
+
+const visualNarrativeGuidance = [
+  'visualRequirement 必须描述观众应看到的一个变化：起始状态、因果动作或路径、最终结果；只写“展示相关对象”不够。',
+  '先判断画面职责：真实操作或生活情境、事实证据、原创机制示意、信息对比。机制示意不能冒充测量、实拍或特定事件记录。',
+  '肉眼不可见的机制优先考虑清晰剖面、路径或状态变化，保留完整动作结果；不要把解释全部写在字幕上，也不默认使用左文右图、信息卡轮播或镜头推拉。',
+  '确需原创镜头时，在 visualRequirement 写清所需变化与对应旁白，交给 Codex 编写并先预览；不要虚构现有素材已包含该画面。',
+].join('\n');
+
 export class MissingOpenAIKeyError extends Error {
   constructor() {
     super('OPENAI_API_KEY 未配置；未执行 OpenAI API 调用。');
@@ -52,6 +68,21 @@ interface StructuredCallResult<T> {
 
 function stableHash(value: unknown) {
   return createHash('sha256').update(JSON.stringify(value)).digest('hex');
+}
+
+export function aiRequestInputHash(
+  purpose: string,
+  input: string | ResponseInput,
+  config = readAiConfig(),
+) {
+  return stableHash({
+    endpoint: config.baseUrl || 'openai-default',
+    model: config.model,
+    reasoningEffort: config.reasoningEffort,
+    promptVersion: config.promptVersion,
+    purpose,
+    input,
+  });
 }
 
 function client() {
@@ -77,13 +108,7 @@ async function structuredCall<T>(options: {
   validate?: (data: T) => void;
 }): Promise<StructuredCallResult<T>> {
   const config = readAiConfig();
-  const inputHash = stableHash({
-    endpoint: config.baseUrl || 'openai-default',
-    model: config.model,
-    promptVersion: config.promptVersion,
-    purpose: options.purpose,
-    input: options.input,
-  });
+  const inputHash = aiRequestInputHash(options.purpose, options.input, config);
   const cachePath = resolve(cacheRoot, `${inputHash}.json`);
   if (existsSync(cachePath)) {
     const cached = JSON.parse(readFileSync(cachePath, 'utf8')) as { data?: unknown };
@@ -109,7 +134,7 @@ async function structuredCall<T>(options: {
     model: openai.config.model,
     input: options.input,
     store: false,
-    reasoning: { effort: 'low' },
+    reasoning: { effort: openai.config.reasoningEffort },
     text: { format: zodTextFormat(options.schema, options.schemaName) },
   });
   if (!response.output_parsed) throw new Error('OpenAI 返回了空的结构化结果或拒绝了请求。');
@@ -121,6 +146,7 @@ async function structuredCall<T>(options: {
     `${JSON.stringify({
       schemaVersion: 1,
       model: openai.config.model,
+      reasoningEffort: openai.config.reasoningEffort,
       promptVersion: openai.config.promptVersion,
       createdAt: new Date().toISOString(),
       data,
@@ -388,7 +414,9 @@ export function planLongFormChapter(
       `本章全部 narration 合计必须在 ${narrationBudget.minimumCharacters}-${narrationBudget.maximumCharacters} 个非空白字符之间，这是服务端硬门禁，少于下限或多于上限都会拒绝整个章节。`,
       `旁白应以约 ${narrationTarget} 个非空白字符为目标；优先压缩到中间值，不要贴近 ${narrationBudget.maximumCharacters} 字上限。`,
       'voiceoverScript 必须逐字等于 scenes narration 按顺序拼接后的内容；不能用摘要、提纲或省略号代替完整口播。',
+      spokenNarrativeGuidance,
       '只能使用本次输入的证据单元，不得借用其他章节证据，不得新增来源中不存在的事实。',
+      visualNarrativeGuidance,
       '每个 scene 必须给出可定位 sourceReferences 和明确 visualRequirement。',
       `sourceReferences.sourceId 只能逐字使用这些真实来源 ID：${[...new Set(units.map((unit) => unit.sourceId))].join(', ')}。`,
       'sourceId 必须逐字节复制，不得添加空格、方向标记或其他不可见 Unicode 字符。',
@@ -433,8 +461,10 @@ export function planNarrative(
       options.allowUnconfirmedFacts
         ? '这是自动制作草案。facts 可能尚未人工确认；必须保留审慎措辞和 uncertainties，不得把 AI 提取结果表述为人工背书。'
         : '只有 facts 数组中的 confirmed facts 可以作为正式事实主张；原始正文和转录只用于理解上下文。',
-      '每个场景都要给出 sourceReferences、画面需求和独立旁白。',
+      '每个场景都要给出 sourceReferences、画面需求和对应旁白，旁白跨场景保持连贯。',
+      spokenNarrativeGuidance,
       longFormSceneGuidance,
+      visualNarrativeGuidance,
       `成片目标是 ${project.brief.targetDurationSeconds} 秒。全部 scenes[].narration 合计最多 ${narrationBudget} 个非空白字符；每段只保留一个核心信息，voiceoverScript 必须与精简后的旁白一致。`,
       '总叙事和每一个场景的 sourceReferences 数组都必须至少包含一个有效来源引用，禁止返回空数组。',
       '保留不确定项并明确需要人工确认的内容。',
