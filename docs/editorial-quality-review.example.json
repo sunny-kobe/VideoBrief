@@ -3,32 +3,32 @@
   "profile": "evidence-explainer-v1",
   "checks": {
     "opening": {
-      "status": "passed",
-      "note": "前五秒已明确问题、反差或结论，脱离来源上下文仍可理解。"
+      "status": "pending",
+      "note": "待审：填写本片开场时间点、可见动作与观众问题，确认是否兑现标题承诺。"
     },
     "visualReadability": {
-      "status": "passed",
-      "note": "目标视口下的关键对象与文字可读，没有用整页小字代替可见证据。"
+      "status": "pending",
+      "note": "待审：填写本片场景、桌面和手机实际显示尺寸，以及关键对象和文字的可读性观察。"
     },
     "pacing": {
-      "status": "passed",
-      "note": "静止区间均有阅读目的，未用重复或无关画面填充旁白时长。"
+      "status": "pending",
+      "note": "待审：填写本片具体转折与片尾时间点、语调衔接和动作结果；说明停顿是否服务意思。"
     },
     "subtitleReadability": {
-      "status": "passed",
-      "note": "字幕在桌面与移动视口均未裁切、遮挡主体或与相邻内容重叠。"
+      "status": "pending",
+      "note": "待审：填写本片字幕时间点和实际视口，检查断句、阅读负担、遮挡和重叠。"
     },
     "pronunciation": {
-      "status": "passed",
-      "note": "已按一倍速核对专名、数字和命令发音，异常项已有明确处理。"
+      "status": "pending",
+      "note": "待审：按一倍速试听本片专名、数字、重音和交流感，记录原句与时间点；转写准确不能证明自然。"
     },
     "platformFit": {
-      "status": "passed",
-      "note": "画幅、节奏和信息密度符合 Creative Brief 指定的首发平台。"
+      "status": "pending",
+      "note": "待审：填写本片当前 Creative Brief 的平台、画幅与观看场景，核对信息密度。"
     },
     "cta": {
-      "status": "passed",
-      "note": "结尾行动建议与视频证据和 Creative Brief 一致，没有扩大承诺。"
+      "status": "pending",
+      "note": "待审：填写本片末句及时间点，检查是否回应开场问题、完成结果且没有多余说教或扩大承诺。"
     }
   }
 }

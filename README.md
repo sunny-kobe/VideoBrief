@@ -23,6 +23,7 @@ It is also not a transcript-first summarizer, a video reposting tool or an auton
 
 - Canonical product workflow and roadmap: [`docs/video-production-workflow-and-roadmap.zh-CN.md`](docs/video-production-workflow-and-roadmap.zh-CN.md)
 - Self-owned explainer research and audience-sample playbook: [`docs/self-owned-explainer-production-playbook.zh-CN.md`](docs/self-owned-explainer-production-playbook.zh-CN.md)
+- 观感优化、同声线表达试读与原版/候选对照：[`docs/audience-experience-optimization.zh-CN.md`](docs/audience-experience-optimization.zh-CN.md)
 - Next-session execution handoff: [`docs/video-production-workflow-execution-handoff.zh-CN.md`](docs/video-production-workflow-execution-handoff.zh-CN.md)
 - Current FFmpeg render and proof contract: [`docs/video-render-pipeline.zh-CN.md`](docs/video-render-pipeline.zh-CN.md)
 - Online dynamic material compact-cut workflow: [`docs/online-dynamic-material-cut-workflow.zh-CN.md`](docs/online-dynamic-material-cut-workflow.zh-CN.md)

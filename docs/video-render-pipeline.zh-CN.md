@@ -170,7 +170,7 @@ npm run video:review:materials -- --brief=content/projects/<project-id>/project.
 6. `platformFit`：画幅、节奏和信息密度是否符合 Creative Brief 的首发平台；
 7. `cta`：结尾行动是否与证据和 brief 一致。
 
-模板见 `docs/editorial-quality-review.example.json`。每项必须为 `passed` 并提供具体说明。proof 会把冻结覆盖比例、旁白相似度和未精确命中的专名写入 `editorialQuality.signals`；这些信号是审片依据，不能仅用 `--confirm-*` 参数机械跳过。
+模板见 `docs/editorial-quality-review.example.json`，初始状态全部为 `pending`，不能直接提交为通过。实际审片后，每项必须为 `passed` 并提供本片时间点和具体说明。声音检查同时记录字词准确性与重点、停顿、交流感；转写准确不能证明声音自然。proof 会把冻结覆盖比例、旁白相似度和未精确命中的专名写入 `editorialQuality.signals`；这些信号是审片依据，不能仅用 `--confirm-*` 参数机械跳过。跨片重复备注和节奏线索可用 `node scripts/review-audience-experience.mjs` 定位，详见[观感优化流程](audience-experience-optimization.zh-CN.md)。
 
 浏览器验收同时覆盖 1440×900 桌面和 390×844 移动视口。两个视口都必须从 0 开始，以 1 倍速、非静音、顺序播放到 `ended`；倍速完整播放、只推进开头或跳到片尾只能作为诊断，不能构成交付验收。
 
